@@ -1,30 +1,24 @@
 ---
-import Vignette from '@/components/ui/Vignette.astro';
-import Header from '@/components/layout/Header.astro';
-import CtaBanner from '@/components/layout/CtaBanner.astro';
-import DynamicProjects from '@/components/projects/DynamicProjects.astro';
-import Footer from '@/components/layout/Footer.astro';
-import ProjectBanner from '@/blocks/projects/ProjectBanner/ProjectBanner.astro';
-import GalleryCarousel from '@/components/projects/carousel/GalleryCarousel';
-import styles from './Template.module.css';
+/**
+ * Template — Project detail content block.
+ * Renders the project banner + gallery carousel.
+ * Layout shell (Header, Footer, Vignette, etc.) is owned by the page component.
+ */
+import ProjectBanner from "@/blocks/projects/ProjectBanner/ProjectBanner.astro";
+import GalleryCarousel from "@/components/projects/carousel/GalleryCarousel";
+import styles from "./Template.module.css";
 
-// TypeScript interfaces para props dinámicas desde Payload
 interface GalleryImage {
   imgUrl: string;
   alt: string;
 }
 
 interface ProjectTemplateProps {
-  // Banner Section
   projectTitle: string;
-  projectCategories: string[]; // Ahora son los servicios ofrecidos
+  projectCategories: string[];
   projectDescription: string;
   bannerImage?: string;
-
-  // Gallery Section (replaces Main Image)
   gallery?: GalleryImage[];
-
-  // Optional Payload fields
   publishDate?: Date;
   featured?: boolean;
   status?: string;
@@ -37,13 +31,7 @@ interface Props {
 const { projectData } = Astro.props;
 ---
 
-<Vignette intensity="medium" />
-
-<!-- Header Navigation -->
-<Header />
-
 <article class={styles.projectTemplate}>
-  <!-- Strip 1: Project Banner (Hero) -->
   <ProjectBanner
     title={projectData.projectTitle}
     categories={projectData.projectCategories}
@@ -51,7 +39,6 @@ const { projectData } = Astro.props;
     bannerImage={projectData.bannerImage}
   />
 
-  <!-- Strip 2: Image Gallery Carousel -->
   {projectData.gallery && projectData.gallery.length > 0 && (
     <section class={styles.gallerySection}>
       <GalleryCarousel
@@ -61,12 +48,3 @@ const { projectData } = Astro.props;
     </section>
   )}
 </article>
-
-<!-- Projects Section -->
-<DynamicProjects />
-
-<!-- Main Category Navigation -->
-<CtaBanner />
-
-<!-- Footer -->
-<Footer />

@@ -1,0 +1,85 @@
+---
+/**
+ * HomePage — Shared page template for the home page.
+ * Used by both src/pages/index.astro (ES) and src/pages/en/index.astro (EN).
+ * Language is detected automatically from the URL.
+ */
+import type { OrganizationStructuredData } from "@/types/seo";
+import { SITE } from "@/config/site";
+import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
+import {
+  Hero,
+  OurVision,
+  SliderClients,
+  UserExperts,
+  Specialties,
+} from "@/blocks/home";
+import Layout from "@/layouts/Layout.astro";
+import ToolsSuite from "@/blocks/shared/ToolsVariant/ToolsVariant.astro";
+import Header from "@/components/layout/Header.astro";
+import Banner from "@/components/layout/CtaBanner.astro";
+import Footer from "@/components/layout/Footer.astro";
+import Projects from "@/components/projects/DynamicProjects.astro";
+
+// Detect current language from URL automatically
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+
+const seoTitle = t.seo.title;
+const seoDescription = t.seo.description;
+const seoKeywords = t.seo.keywords;
+
+const structuredData: OrganizationStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE.name,
+  url: SITE.url,
+  logo: SITE.logoUrl,
+  description: seoDescription,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Aldea Creativa",
+    addressCountry: "MX",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: SITE.contactEmail,
+    contactType: "customer service",
+  },
+  sameAs: SITE.sameAs,
+  areaServed: "MX",
+  serviceType: t.structuredData.serviceTypes,
+};
+
+// CSS selectors for speakable content (voice optimization)
+const speakable = [
+  ".banner-content",
+  ".description-main",
+  ".specialties-section",
+];
+
+const canonicalUrl = getCanonicalUrl(SITE.url, "/", currentLang);
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  structuredData={structuredData}
+  speakable={speakable}
+  canonical={canonicalUrl}
+  ogImage={SITE.logoUrl}
+>
+  <Header />
+  <main id="main-content">
+    <Hero />
+    <OurVision />
+    <SliderClients />
+    <UserExperts />
+    <Specialties />
+    <Banner />
+    <ToolsSuite />
+    <Projects maxProjects={4} showChips={false} variant="four-column" />
+    <Footer />
+  </main>
+</Layout>

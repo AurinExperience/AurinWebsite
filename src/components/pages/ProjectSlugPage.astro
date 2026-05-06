@@ -1,0 +1,127 @@
+---
+/**
+ * ProjectSlugPage — Shared page template for individual project detail pages.
+ * Used by both src/pages/project-payload/[slug].astro (ES)
+ * and src/pages/en/proyecto-payload/[slug].astro (EN).
+ * Language is detected automatically from the URL.
+ */
+import type { WebPageStructuredData } from "@/types/seo";
+import { SITE } from "@/config/site";
+import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/layout/Header.astro";
+import Footer from "@/components/layout/Footer.astro";
+import CtaBanner from "@/components/layout/CtaBanner.astro";
+import Vignette from "@/components/ui/Vignette.astro";
+import Template from "@/blocks/shared/Template/Template.astro";
+import DynamicProjects from "@/components/projects/DynamicProjects.astro";
+import {
+  PayloadAPI,
+  type PayloadProject,
+  getImageUrl,
+  renderRichText,
+} from "@/lib/payload";
+
+export const prerender = false;
+
+// Detect current language from URL automatically
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+
+// Fetch project dynamically on each request
+const { slug } = Astro.params;
+let project: PayloadProject | null = null;
+
+try {
+  const projects = await PayloadAPI.getProjects(currentLang);
+  project = projects.find((p) => p.slug === slug) || null;
+} catch (error) {
+  console.error("❌ Error fetching project:", error);
+}
+
+// Fallback data in case project is not found — localized
+const exampleData = {
+  projectTitle:
+    currentLang === "es" ? "Proyecto de Ejemplo" : "Example Project",
+  projectCategories:
+    currentLang === "es"
+      ? ["Diseño UX/UI", "Desarrollo Web"]
+      : ["UX/UI Design", "Web Development"],
+  projectDescription:
+    currentLang === "es"
+      ? "Un proyecto de ejemplo para demostrar la funcionalidad."
+      : "An example project to demonstrate functionality.",
+  gallery: [],
+  publishDate: new Date(),
+  featured: false,
+  status: "published",
+};
+
+// Transform Payload project to template format
+const projectData = project
+  ? {
+      projectTitle: project.title,
+      projectCategories:
+        project.hero.services?.map((service) => service.name) || [],
+      projectDescription: renderRichText(project.hero.description),
+      bannerImage:
+        getImageUrl(project.client?.logo?.url) ||
+        getImageUrl(project.hero.bannerImage?.url),
+      gallery:
+        project.gallery?.map((item) => ({
+          imgUrl: getImageUrl(item.image?.url),
+          alt: item.alt || project.title,
+        })) || [],
+    }
+  : exampleData;
+
+// SEO
+const seoTitle = `${projectData.projectTitle} - Aurin`;
+const fallbackDesc =
+  currentLang === "es"
+    ? "Proyecto desarrollado por Aurin"
+    : "Project developed by Aurin";
+const seoDescription = projectData.projectDescription || fallbackDesc;
+
+const structuredData: WebPageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: seoTitle,
+  description: seoDescription,
+  url: `${SITE.url}/project-payload/${slug}`,
+  provider: {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE.name,
+    url: SITE.url,
+    logo: SITE.logoUrl,
+  },
+};
+
+// CSS selectors for speakable content (voice optimization)
+const speakable = [".project-detail", ".project-description"];
+
+const canonicalUrl = getCanonicalUrl(
+  SITE.url,
+  `/project-payload/${slug}`,
+  currentLang,
+);
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  structuredData={structuredData}
+  speakable={speakable}
+  canonical={canonicalUrl}
+  ogImage={SITE.logoUrl}
+>
+  <Vignette intensity="medium" />
+  <Header />
+  <main id="main-content">
+    <Template projectData={projectData} />
+    <DynamicProjects />
+    <CtaBanner />
+    <Footer />
+  </main>
+</Layout>

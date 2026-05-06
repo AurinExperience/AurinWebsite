@@ -1,28 +1,9 @@
 ---
-import { getLangFromUrl, translations } from '@/i18n';
-import Layout from '@/layouts/Layout.astro';
-import Header from '@/components/layout/Header.astro';
-import Footer from '@/components/layout/Footer.astro';
-import CtaBanner from '@/components/layout/CtaBanner.astro';
-import { TermsConditions } from '@/blocks/shared';
-import Vignette from '@/components/ui/Vignette.astro';
-
-const currentLang = getLangFromUrl(Astro.url);
-const t = translations[currentLang].termsConditions;
+/**
+ * Terms page — Spanish (default locale).
+ * All logic lives in the shared TermsPage component.
+ */
+import TermsPage from "@/components/pages/TermsPage.astro";
 ---
 
-<Layout
-  title={t.seo.title}
-  description={t.seo.description}
-  keywords={t.seo.keywords}
->
-  <Vignette intensity="medium" />
-  <Header />
-
-  <main id="main-content">
-    <TermsConditions lang={currentLang} />
-    <CtaBanner />
-  </main>
-
-  <Footer />
-</Layout>
+<TermsPage />

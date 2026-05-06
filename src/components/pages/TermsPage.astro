@@ -1,0 +1,62 @@
+---
+/**
+ * TermsPage — Shared page template for the terms and conditions page.
+ * Used by both src/pages/terms.astro (ES) and src/pages/en/terms.astro (EN).
+ * Language is detected automatically from the URL.
+ */
+import type { WebPageStructuredData } from "@/types/seo";
+import { SITE } from "@/config/site";
+import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
+import { TermsConditions } from "@/blocks/shared";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/layout/Header.astro";
+import Footer from "@/components/layout/Footer.astro";
+import CtaBanner from "@/components/layout/CtaBanner.astro";
+import Vignette from "@/components/ui/Vignette.astro";
+
+// Detect current language from URL automatically
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang].termsConditions;
+
+const seoTitle = t.seo.title;
+const seoDescription = t.seo.description;
+const seoKeywords = t.seo.keywords;
+
+const structuredData: WebPageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: seoTitle,
+  description: seoDescription,
+  url: getCanonicalUrl(SITE.url, "/terms", currentLang),
+  provider: {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE.name,
+    url: SITE.url,
+    logo: SITE.logoUrl,
+  },
+};
+
+// CSS selectors for speakable content (voice optimization)
+const speakable = [".terms-content"];
+
+const canonicalUrl = getCanonicalUrl(SITE.url, "/terms", currentLang);
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  structuredData={structuredData}
+  speakable={speakable}
+  canonical={canonicalUrl}
+  ogImage={SITE.logoUrl}
+>
+  <Vignette intensity="medium" />
+  <Header />
+  <main id="main-content">
+    <TermsConditions lang={currentLang} />
+    <CtaBanner />
+    <Footer />
+  </main>
+</Layout>

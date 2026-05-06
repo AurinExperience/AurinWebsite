@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css';
+import { getLangFromUrl } from '@/i18n';
 import MegaMenu from '@/components/layout/MegaMenu.astro';
 import AdvancedSEO from '@/blocks/shared/SEO/AdvancedSEO.astro';
 {/* import PageLoader from '@/components/layout/PageLoader.astro'; */}
@@ -7,6 +8,8 @@ import ChatbotContainer from '@/blocks/shared/Chatbot/ChatbotContainer.astro';
 import SpotlightCursorContainer from '@/components/animation/SpotlightCursorContainer.astro';
 import Vignette from '@/components/ui/Vignette.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
+
+const currentLang = getLangFromUrl(Astro.url);
 
 interface Props {
 	title: string;
@@ -42,7 +45,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={currentLang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />

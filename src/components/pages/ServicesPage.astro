@@ -1,0 +1,90 @@
+---
+/**
+ * ServicesPage — Shared page template for the services page.
+ * Used by both src/pages/services.astro (ES) and src/pages/en/services.astro (EN).
+ * Language is detected automatically from the URL.
+ */
+import type { ServiceStructuredData } from "@/types/seo";
+import { SITE } from "@/config/site";
+import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
+import { ServicesBanner, Services, ToolsScrollStory } from "@/blocks/services";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/layout/Header.astro";
+import Footer from "@/components/layout/Footer.astro";
+import CtaBanner from "@/components/layout/CtaBanner.astro";
+import DynamicProjects from "@/components/projects/DynamicProjects.astro";
+
+// Detect current language from URL automatically
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+
+const seoTitle = t.services.seo.title;
+const seoDescription = t.services.seo.description;
+const seoKeywords = t.services.seo.keywords;
+
+const serviceTypeLabel =
+  currentLang === "es"
+    ? "Servicios de Comunicación Visual y Diseño"
+    : "Visual Communication and Design Services";
+
+const catalogName =
+  currentLang === "es"
+    ? "Servicios de Diseño y Comunicación Visual"
+    : "Design and Visual Communication Services";
+
+const structuredData: ServiceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: serviceTypeLabel,
+  provider: {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE.name,
+    url: SITE.url,
+    logo: SITE.logoUrl,
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: SITE.contactEmail,
+      contactType: "customer service",
+    },
+  },
+  areaServed: "MX",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: catalogName,
+    itemListElement: t.services.servicesList.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.description,
+      },
+    })),
+  },
+};
+
+// CSS selectors for speakable content (voice optimization)
+const speakable = [".services-banner", ".services-list", ".ux-description"];
+
+const canonicalUrl = getCanonicalUrl(SITE.url, "/services", currentLang);
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  structuredData={structuredData}
+  speakable={speakable}
+  canonical={canonicalUrl}
+  ogImage={SITE.logoUrl}
+>
+  <Header />
+  <main id="main-content">
+    <ServicesBanner />
+    <Services />
+    <ToolsScrollStory />
+    <DynamicProjects />
+    <CtaBanner />
+    <Footer />
+  </main>
+</Layout>

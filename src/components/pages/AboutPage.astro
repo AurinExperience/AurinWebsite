@@ -1,0 +1,92 @@
+---
+/**
+ * AboutPage — Shared page template for the about page.
+ * Used by both src/pages/about.astro (ES) and src/pages/en/about.astro (EN).
+ * Language is detected automatically from the URL.
+ */
+import type { AboutPageStructuredData } from "@/types/seo";
+import { SITE } from "@/config/site";
+import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
+import {
+  UsBanner,
+  MainImage,
+  UnexploredPaths,
+  LongCards,
+  OurStory,
+  CollaborativeDesign,
+  Alliances,
+} from "@/blocks/about";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/layout/Header.astro";
+import Footer from "@/components/layout/Footer.astro";
+import DynamicProjects from "@/components/projects/DynamicProjects.astro";
+
+// Detect current language from URL automatically
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+
+const seoTitle = t.about.seo.title;
+const seoDescription = t.about.seo.description;
+const seoKeywords = t.about.seo.keywords;
+
+const structuredData: AboutPageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  mainEntity: {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE.name,
+    url: SITE.url,
+    logo: SITE.logoUrl,
+    description: t.about.structuredData.description,
+    foundingDate: "2020",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Aldea Creativa",
+      addressCountry: "MX",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: SITE.contactEmail,
+      contactType: "customer service",
+    },
+    sameAs: SITE.sameAs,
+    knowsAbout: t.about.structuredData.knowsAbout,
+    areaServed: "MX",
+    serviceType: t.about.structuredData.serviceTypes,
+  },
+};
+
+// CSS selectors for speakable content (voice optimization)
+const speakable = [
+  ".us-banner",
+  ".unexplored-paths",
+  ".our-story",
+  ".collaborative-design",
+];
+
+const canonicalUrl = getCanonicalUrl(SITE.url, "/about", currentLang);
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  structuredData={structuredData}
+  speakable={speakable}
+  canonical={canonicalUrl}
+  ogImage={SITE.logoUrl}
+>
+  <Header />
+  <main id="main-content">
+    <UsBanner />
+    <MainImage />
+    <UnexploredPaths />
+    <LongCards />
+    <OurStory />
+    <CollaborativeDesign />
+    <Alliances />
+    <DynamicProjects />
+    <Footer />
+  </main>
+</Layout>

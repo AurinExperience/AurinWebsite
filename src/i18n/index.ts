@@ -1,2 +1,2 @@
-export { getLangFromUrl, getLocalizedUrl } from "./utils";
+export { getLangFromUrl, getLocalizedUrl, getCanonicalUrl } from "./utils";
 export { translations } from "./translations";
