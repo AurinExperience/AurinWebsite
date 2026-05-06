@@ -27,7 +27,6 @@
   margin: 0;
 }
 
-/* Desktop: 5 cards in a flex row */
 .cardsGrid {
   display: flex;
   gap: var(--spacing-4);
