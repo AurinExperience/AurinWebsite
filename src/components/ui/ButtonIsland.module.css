@@ -49,7 +49,11 @@
   white-space: nowrap;
 }
 
-@media (max-width: 350px) {
+@media (max-width: 480px) {
+  .btn {
+    max-width: 100%;
+  }
+
   .btnText {
     overflow: hidden;
     text-overflow: ellipsis;
