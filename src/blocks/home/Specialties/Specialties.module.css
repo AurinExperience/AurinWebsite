@@ -1,86 +1,63 @@
 .specialties {
-  width: 100%;
-  overflow-x: hidden;
   background-color: var(--color-black-a, #0A0A0A);
-  padding: 48px 115px 32px 115px;
-  box-sizing: border-box;
+  padding-top: 56px;
+  padding-bottom: 24px;
+  padding-inline: var(--section-padding-x);
+  overflow: hidden;
 }
 
 .specialtiesContainer {
-  width: 100%;
   max-width: var(--maxWidth);
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-betweengit stat;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  gap: clamp(32px, 4vw, 64px);
-  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 16px;
 }
-
-/* --- Left Information Section --- */
 
 .contentSection {
   flex: 0 1 606px;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   gap: 16px;
-  box-sizing: border-box;
 }
 
-.headingWrapper {
-  width: 100%;
+.contentSection :global(h2) {
+  font-size: 48px;
+  line-height: 50px;
+  margin: 0;
+}
+
+.contentSection :global(h2 span) {
+  font-size: 32px;
+  line-height: 35px;
+  display: block;
 }
 
 .description {
   color: var(--color-white, #FFFFFF);
-  font-family: var(--font-family-primary, 'Urbanist', sans-serif);
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 400;
   line-height: normal;
-  margin: 0;
   max-width: 350px;
-  width: 100%;
-  word-wrap: break-word;
+  margin: 0;
 }
 
-.buttonWrapper {
+.button {
   width: 100%;
   max-width: 466px;
 }
 
-/* --- Right Cards Section --- */
-
 .cardsSection {
   flex: 0 1 712px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  box-sizing: border-box;
+  padding-top: 120px;
 }
-
-.cardsRow {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
-  box-sizing: border-box;
-}
-
-/* --- Responsive Adjustments --- */
 
 @media (max-width: 1024px) {
   .specialties {
-    padding: 48px 40px 48px 40px;
+    padding-block: 48px;
   }
 
   .specialtiesContainer {
@@ -89,38 +66,48 @@
     gap: 48px;
   }
 
-  .contentSection,
-  .cardsSection {
+  .contentSection {
     align-items: center;
     text-align: center;
+    flex: none;
+  }
+
+  .cardsSection {
+    padding-top: 0;
   }
 
   .description {
-    text-align: center;
     max-width: 100%;
   }
 
-  .buttonWrapper {
-    display: flex;
-    justify-content: center;
-  }
-
-  .cardsSection {
-    align-items: center;
-  }
-
-  .cardsRow {
-    justify-content: center;
+  .button {
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 768px) {
   .specialties {
-    padding: 40px 16px 40px 16px;
+    padding-block: 40px;
   }
 
-  .cardsRow {
-    flex-direction: column;
-    gap: 16px;
+  .cardsSection {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    width: 100%;
+  }
+  
+  .contentSection {
+    flex: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentSection :global(h2) {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .contentSection :global(h2 span) {
+    font-size: 24px;
   }
 }

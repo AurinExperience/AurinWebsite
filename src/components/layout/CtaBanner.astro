@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, translations } from '@/i18n';
 import SecondaryButton from '@/components/ui/SecondaryButton.astro';
+import CtaVector from './CtaVector.astro';
 
 import styles from './CtaBanner.module.css';
 import { Tilt } from '@/components/animation/Tilt';
@@ -34,9 +35,11 @@ const ctaBannerContent = (t.ctaBanner as any)[pageContext] || (t.ctaBanner as an
   >
     <div class={styles.ctaBannerWrapper} data-parallax-wrapper>
       <div class={styles.ctaBannerContent}>
+        <div class={styles.ctaBannerDecoration}>
+          <CtaVector />
+        </div>
         <div class={styles.ctaBannerText}>
-          <p class="description" style="color: var(--color-black-a);" set:html={ctaBannerContent.text}>
-          </p>
+          <p set:html={ctaBannerContent.text}></p>
         </div>
         <div class={styles.buttonWrapper}>
           <SecondaryButton text={ctaBannerContent.buttonText} href="/contact" />

@@ -1,0 +1,112 @@
+.herramientasSection {
+  background-color: var(--color-black-a);
+  padding-block: 48px;
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--maxWidth);
+  margin-inline: auto;
+  padding-inline: var(--section-padding-x);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-10);
+}
+
+.titleWrapper {
+  max-width: 488px;
+}
+
+.description {
+  color: var(--color-white);
+  margin: 0;
+}
+
+/* Desktop: 5 cards in a flex row */
+.cardsGrid {
+  display: flex;
+  gap: var(--spacing-4);
+  height: 350px;
+}
+
+.cardItem {
+  flex: 1 0 0;
+  min-width: 0;
+  height: 100%;
+}
+
+/* Mobile carousel: hidden on desktop */
+.carouselMobile {
+  display: none;
+}
+
+/* Pagination dots */
+:global(.splide__pagination) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-top: 24px;
+  padding: 24px 0 0 0;
+  list-style: none;
+}
+
+:global(.splide__pagination__page) {
+  width: 25px;
+  height: 4px;
+  border-radius: 46.5px;
+  border: none;
+  background: #7D7F79;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  padding: 0;
+  margin: 16;
+}
+
+:global(.splide__pagination__page.is-active) {
+  background: var(--color-yellow);
+  width: 122px;
+  height: 6px;
+  border-radius: 60px;
+}
+
+@media (max-width: 1200px) {
+  .cardsGrid {
+    height: 250px;
+  }
+}
+
+@media (max-width: 992px) {
+  .cardsGrid {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .herramientasSection {
+    padding-block: var(--spacing-8);
+  }
+
+  .header {
+    margin-bottom: var(--spacing-8);
+  }
+
+  /* Switch to carousel */
+  .cardsGrid {
+    display: none;
+  }
+
+  .carouselMobile {
+    display: block;
+    margin-top: var(--spacing-8);
+  }
+
+  .carouselMobile :global(.splide__list) {
+    gap: var(--spacing-4);
+  }
+}

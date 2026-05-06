@@ -1,6 +1,3 @@
-/* ============================================
-   SECTION WRAPPER
-   ============================================ */
 .section {
   padding-top: 72px;
   padding-bottom: 72px;
@@ -9,32 +6,21 @@
   position: relative;
 }
 
-/* ============================================
-   LAYOUT
-   Figma: gap-[56px], items-center
-   ============================================ */
 .layout {
   max-width: var(--maxWidth);
   margin: 0 auto;
   position: relative;
-  /* Above the absolutely-positioned glow */
   z-index: 2;
   display: flex;
   align-items: center;
   gap: 56px;
 }
 
-/* ============================================
-   TITLE BLOCK (left column)
-   Figma: w-[356px]
-   ============================================ */
 .titleBlock {
   flex: 0 0 356px;
   min-width: 0;
 }
 
-/* Tamaños específicos para este bloque —
-   no afecta otros h2 del sitio */
 .titleBlock h2 {
   font-size: 48px;
   line-height: 50px;
@@ -47,20 +33,6 @@
   display: block;
 }
 
-
-/* ============================================
-   GLOW IMAGE
-   Figma values (from node 566:5956):
-     position: absolute
-     left: 0   ← from the LEFT edge of the SECTION
-     top: 133.2px  (from section top incl. padding)
-     width: 530.782px
-     height: 249.592px
-     mix-blend-mode: plus-lighter
-
-   The glow is positioned relative to .section,
-   NOT to .layout. So it bleeds past the padding.
-   ============================================ */
 .glow {
   position: absolute;
   left: 0;
@@ -74,10 +46,6 @@
   z-index: 1;
 }
 
-/* ============================================
-   BODY BLOCK (right column)
-   Figma: w-[795px], gap-[40px]
-   ============================================ */
 .bodyBlock {
   flex: 1;
   display: flex;
@@ -94,9 +62,6 @@
   margin: 0;
 }
 
-/* ============================================
-   RESPONSIVE — 1280px
-   ============================================ */
 @media (max-width: 1280px) {
   .titleBlock {
     flex-basis: 300px;
@@ -108,9 +73,6 @@
   }
 }
 
-/* ============================================
-   RESPONSIVE — 992px
-   ============================================ */
 @media (max-width: 992px) {
   .section {
     padding-block: var(--spacing-10);
@@ -130,10 +92,6 @@
   }
 }
 
-/* ============================================
-   RESPONSIVE — 768px (mobile: stack vertically)
-   Glow stays absolute on the left, behind title.
-   ============================================ */
 @media (max-width: 768px) {
   .section {
     padding-block: var(--spacing-8);
@@ -154,7 +112,6 @@
     width: clamp(240px, 40vw, 380px);
     left: -68px;
     height: auto;
-    /* Re-center for stacked layout */
     top: 0;
     transform: none;
   }

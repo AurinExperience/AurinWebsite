@@ -894,8 +894,8 @@ export const translations = {
     },
     ctaBanner: {
       home: {
-        text: 'Acortemos distancias y alcancemos nuevos horizontes juntos.',
-        buttonText: 'Comienza tu proyecto ahora'
+        text: 'Acortemos distancias y alcancemos nuevos horizontes juntos',
+        buttonText: 'Empieza ahora'
       },
       us: {
         text: 'Descubre lo que podemos crear juntos.',
