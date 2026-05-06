@@ -70,17 +70,18 @@
   z-index: 1;
 }
 
-/* Glow: centered with the logo, left-anchored via --footer-px */
+/* Glow: anchored to the left edge of the full-width footerContent */
 .glow {
   position: absolute;
-  left: calc(-1 * var(--footer-px));
-  top:30%;
+  left: 0;
+  top: 50%;
   transform: translateY(-50%);
-  height: 400px; /* 90% of 600px footer */
+  height: 540px;
   width: auto;
   pointer-events: none;
   mix-blend-mode: plus-lighter;
-  z-index: 0;
+  opacity: 0.35;
+  z-index: 1;
 }
 
 .footerColumns {
@@ -179,6 +180,28 @@
 }
 
 /* Responsive */
+@media (min-width: 1400px) {
+  .stickyFooter {
+    height: 680px;
+  }
+
+  .stickyContainer {
+    height: 680px;
+  }
+
+  .footerContainer {
+    padding-top: 280px;
+  }
+
+  .footerContentInner {
+    gap: 160px;
+  }
+
+  .footerLogoContainer {
+    width: 520px;
+  }
+}
+
 @media (max-width: 1200px) {
   .footerContentInner {
     flex-direction: column;
@@ -199,9 +222,6 @@
     height: 600px;
   }
 
-  .glow {
-    height: clamp(160px, 35vw, 540px);
-  }
 }
 
 @media (max-width: 968px) {
@@ -226,6 +246,15 @@
     position: relative;
     bottom: auto;
     height: auto;
+  }
+
+  /* Anchor glow to top-left to align with the logo */
+  .glow {
+    top: 0;
+    left: -40px;
+    transform: none;
+    height: auto;
+    width: clamp(380px, 110vw, 520px);
   }
 
   .footerContainer {
@@ -307,13 +336,6 @@
     width: 248px;
     height: 94px;
     max-width: none;
-  }
-
-  .glow {
-    bottom: 40%;
-    left: -80px;
-    height: auto;
-    width: clamp(500px, 62vw, 600px);
   }
 
   .footerColumns {
