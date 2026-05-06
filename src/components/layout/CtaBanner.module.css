@@ -2,8 +2,7 @@
   display: block;
   justify-content: center;
   align-items: center;
-  padding-top: 120px;
-  padding-bottom: 24px;
+  padding-block: 40px;
   padding-inline: 24px;
   background-color: var(--color-black-a, #0a0a0a);
 
@@ -73,6 +72,10 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .ctaBannerContainer {
+    padding-block: var(--spacing-16);
+  }
+
   .ctaBannerContent {
     padding: 60px 24px;
     gap: 40px;
@@ -80,13 +83,17 @@
 }
 
 @media (max-width: 768px) {
+  .ctaBannerContainer {
+    padding-block: var(--spacing-12);
+  }
+
   .ctaBannerContent {
     flex-direction: column;
     padding: 48px 24px;
     gap: 32px;
     text-align: center;
   }
-  
+
   .ctaBannerText {
     text-align: center;
   }
@@ -94,7 +101,8 @@
 
 @media (max-width: 480px) {
   .ctaBannerContainer {
-    padding: 32px 16px;
+    padding-block: var(--spacing-8);
+    padding-inline: 16px;
   }
 
   .ctaBannerContent {

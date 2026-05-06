@@ -216,8 +216,21 @@
 }
 
 @media (max-width: 768px) {
+  /* Disable sticky/parallax effect — use normal document flow */
+  .stickyFooter {
+    height: auto;
+    clip-path: none;
+  }
+
+  .stickyContainer {
+    position: relative;
+    bottom: auto;
+    height: auto;
+  }
+
   .footerContainer {
     --footer-px: 40px;
+    padding-top: 60px;
   }
 
   .footerLogoContainer {

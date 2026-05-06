@@ -1,7 +1,6 @@
 .section {
   position: relative;
-  padding-top: 40px;
-  padding-bottom: 24px;
+  padding-block: var(--spacing-20);
   padding-inline: var(--section-padding-x);
   overflow: hidden;
 }
@@ -33,7 +32,7 @@
   align-self: stretch;
   color: var(--color-white);
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .bodyText p {
@@ -42,7 +41,7 @@
 
 .highlight {
   color: var(--color-yellow);
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .contrastText {
@@ -78,6 +77,10 @@
 }
 
 @media (max-width: 1024px) {
+  .section {
+    padding-block: var(--spacing-16);
+  }
+
   .leftColumn {
     width: 100%;
     padding-block: 0;
@@ -86,8 +89,7 @@
 
 @media (max-width: 767px) {
   .section {
-    padding-top: var(--spacing-10);
-    padding-bottom: var(--spacing-8);
+    padding-block: var(--spacing-12);
   }
 
   .leftColumn {
@@ -97,8 +99,7 @@
 
 @media (max-width: 480px) {
   .section {
-    padding-top: var(--spacing-8);
-    padding-bottom: var(--spacing-6);
+    padding-block: var(--spacing-8);
   }
 
   .leftColumn {

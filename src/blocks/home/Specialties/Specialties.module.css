@@ -1,7 +1,6 @@
 .specialties {
   background-color: var(--color-black-a, #0A0A0A);
-  padding-top: 56px;
-  padding-bottom: 24px;
+  padding-block: var(--spacing-20);
   padding-inline: var(--section-padding-x);
   overflow: hidden;
 }
@@ -11,32 +10,32 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--spacing-4);
 }
 
 .contentSection {
   flex: 0 1 606px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-4);
 }
 
 .contentSection :global(h2) {
-  font-size: 48px;
-  line-height: 50px;
+  font-size: var(--font-size-5xl);
+  line-height: 1.1;
   margin: 0;
 }
 
 .contentSection :global(h2 span) {
-  font-size: 32px;
-  line-height: 35px;
+  font-size: var(--font-size-3xl);
+  line-height: 1.1;
   display: block;
 }
 
 .description {
   color: var(--color-white, #FFFFFF);
-  font-size: 20px;
-  font-weight: 400;
+  font-size: var(--font-size-xl);
+  font-weight: 200;
   line-height: normal;
   max-width: 350px;
   margin: 0;
@@ -48,66 +47,64 @@
 }
 
 .cardsSection {
-  flex: 0 1 712px;
+  flex: 1;
+  min-width: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: var(--spacing-4);
   padding-top: 120px;
 }
 
-@media (max-width: 1024px) {
+.cardsSection :global([data-card-id]) {
+  max-width: 100%;
+}
+
+@media (max-width: 992px) {
   .specialties {
-    padding-block: 48px;
+    padding-block: var(--spacing-16);
   }
 
   .specialtiesContainer {
     flex-direction: column;
-    align-items: center;
-    gap: 48px;
+    gap: var(--spacing-12);
   }
 
   .contentSection {
-    align-items: center;
-    text-align: center;
     flex: none;
   }
 
   .cardsSection {
+    flex: none;
     padding-top: 0;
   }
 
   .description {
     max-width: 100%;
   }
-
-  .button {
-    margin: 0 auto;
-  }
 }
 
 @media (max-width: 768px) {
   .specialties {
-    padding-block: 40px;
+    padding-block: var(--spacing-12);
   }
 
   .cardsSection {
     grid-template-columns: 1fr;
-    justify-items: center;
     width: 100%;
-  }
-  
-  .contentSection {
-    flex: none;
   }
 }
 
 @media (max-width: 480px) {
+  .specialties {
+    padding-block: var(--spacing-8);
+  }
+
   .contentSection :global(h2) {
     font-size: 36px;
     line-height: 1.2;
   }
 
   .contentSection :global(h2 span) {
-    font-size: 24px;
+    font-size: var(--font-size-2xl);
   }
 }

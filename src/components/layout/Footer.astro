@@ -79,28 +79,30 @@ const t = translations[currentLang];
   gsap.registerPlugin(ScrollTrigger);
 
   function initFooter() {
-    // 1. Initialize Parallax Effect
-    const footerElements = document.querySelectorAll("[data-footer-parallax]");
+    // 1. Initialize Parallax Effect (desktop only)
+    if (window.innerWidth > 768) {
+      const footerElements = document.querySelectorAll("[data-footer-parallax]");
 
-    footerElements.forEach((el) => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: el,
-          start: "clamp(top bottom)",
-          end: "clamp(top top)",
-          scrub: true,
-        },
-      });
-
-      const inner = el.querySelector("[data-footer-parallax-inner]");
-
-      if (inner) {
-        tl.from(inner, {
-          yPercent: -20,
-          ease: "linear",
+      footerElements.forEach((el) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: el,
+            start: "clamp(top bottom)",
+            end: "clamp(top top)",
+            scrub: true,
+          },
         });
-      }
-    });
+
+        const inner = el.querySelector("[data-footer-parallax-inner]");
+
+        if (inner) {
+          tl.from(inner, {
+            yPercent: -20,
+            ease: "linear",
+          });
+        }
+      });
+    }
 
     // 2. Initialize Intersection Observer for Animations
     const footerLogo = document.querySelector(".footer-logo") as HTMLElement;

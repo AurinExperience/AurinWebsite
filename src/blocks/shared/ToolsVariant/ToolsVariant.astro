@@ -62,8 +62,7 @@ const {
 
 const uniqueId = `carousel-${Math.random().toString(36).substr(2, 9)}`;
 
-const getVariant = (i: number) =>
-  i === 0 ? "yellow" : i % 2 === 0 ? "light" : "dark";
+const getVariant = (i: number) => i % 2 === 0 ? "light" : "dark";
 ---
 
 <section class={styles.herramientasSection}>
@@ -170,12 +169,15 @@ const getVariant = (i: number) =>
           drag: true,
         });
 
-        splide.on('active', (slide: { index: number }) => {
-          setActiveCard(slide.index);
+        // 'moved' fires once per transition (not once per visible slide like 'active')
+        splide.on('moved', (index: number) => {
+          setActiveCard(index);
         });
 
         splide.mount();
-        setActiveCard(0);
+
+        // Set first card active after entry animation completes
+        setTimeout(() => setActiveCard(0), 700);
       }
     }
   });

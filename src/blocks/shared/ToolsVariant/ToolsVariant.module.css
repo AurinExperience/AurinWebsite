@@ -1,6 +1,6 @@
 .herramientasSection {
   background-color: var(--color-black-a);
-  padding-block: 48px;
+  padding-block: var(--spacing-20);
   overflow: hidden;
 }
 
@@ -87,9 +87,15 @@
   }
 }
 
+@media (max-width: 992px) {
+  .herramientasSection {
+    padding-block: var(--spacing-16);
+  }
+}
+
 @media (max-width: 768px) {
   .herramientasSection {
-    padding-block: var(--spacing-8);
+    padding-block: var(--spacing-12);
   }
 
   .header {
@@ -108,5 +114,16 @@
 
   .carouselMobile :global(.splide__list) {
     gap: var(--spacing-4);
+  }
+
+  /* Allow vertical page scroll while Splide captures horizontal swipes */
+  .carouselMobile :global(.splide__track) {
+    touch-action: pan-y;
+  }
+}
+
+@media (max-width: 480px) {
+  .herramientasSection {
+    padding-block: var(--spacing-8);
   }
 }

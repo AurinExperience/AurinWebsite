@@ -1,6 +1,5 @@
 .section {
-  padding-top: 72px;
-  padding-bottom: 72px;
+  padding-block: var(--spacing-20);
   padding-inline: var(--section-padding-x);
   overflow: hidden;
   position: relative;
@@ -36,7 +35,7 @@
 .glow {
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   width: 530px;
   height: 250px;
@@ -44,6 +43,8 @@
   pointer-events: none;
   mix-blend-mode: plus-lighter;
   z-index: 1;
+  -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
+  mask-image: linear-gradient(to right, black 50%, transparent 100%);
 }
 
 .bodyBlock {
@@ -75,7 +76,7 @@
 
 @media (max-width: 992px) {
   .section {
-    padding-block: var(--spacing-10);
+    padding-block: var(--spacing-16);
   }
 
   .layout {
@@ -139,6 +140,7 @@
 
   .glow {
     width: clamp(200px, 65vw, 280px);
-    left: -50px;
+    left: -60px;
+    top: 1%;
   }
 }

@@ -8,7 +8,6 @@
 .card {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
   height: 100%;
   display: flex;
   align-items: flex-end;
@@ -32,7 +31,6 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
-  border-radius: 10px;
 }
 
 .yellow::before {
@@ -70,6 +68,25 @@
   transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+/* Diagonal shadow vector (matches Figma: left=-143%, top=-15.7%, w=372%, h=116%, scaleX(-1)) */
+.card-shadow {
+  position: absolute;
+  left: -143%;
+  top: -15.7%;
+  width: 372%;
+  height: 116%;
+  transform: scaleX(-1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card-shadow img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
 .yellow .card-letter,
 .light  .card-letter { color: #212224; }
 .dark   .card-letter { color: #D9D9D9; }
@@ -86,7 +103,7 @@
 /* Title */
 .card-title {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   margin: 0;
   font-family: var(--font-heading);
   font-size: clamp(16px, 9cqw, 24px);
@@ -114,5 +131,17 @@
 
   [data-mobile-active] {
     filter: brightness(1);
+  }
+
+  [data-mobile-active]::before {
+    opacity: 1;
+  }
+
+  [data-mobile-active] .card-letter {
+    color: #212224;
+  }
+
+  [data-mobile-active] .card-title {
+    color: #0A0A0A;
   }
 }

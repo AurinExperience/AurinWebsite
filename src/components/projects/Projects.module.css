@@ -1,5 +1,5 @@
 .projects {
-  padding-block: var(--spacing-16);
+  padding-block: var(--spacing-20);
   padding-inline: var(--section-padding-x);
   overflow: hidden;
 }
@@ -33,6 +33,10 @@
 }
 
 @media (max-width: 1024px) {
+  .projects {
+    padding-block: var(--spacing-16);
+  }
+
   .projectsGrid,
   .projectsGridFourColumn {
     grid-template-columns: repeat(2, 1fr);
@@ -40,6 +44,10 @@
 }
 
 @media (max-width: 768px) {
+  .projects {
+    padding-block: var(--spacing-12);
+  }
+
   .headerSection {
     flex-direction: column;
     align-items: flex-start;
@@ -73,6 +81,10 @@
 }
 
 @media (max-width: 480px) {
+  .projects {
+    padding-block: var(--spacing-8);
+  }
+
   .projectsGrid,
   .projectsGridFourColumn {
     gap: var(--spacing-4);

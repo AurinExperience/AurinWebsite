@@ -24,6 +24,9 @@ const t = translations[currentLang];
 >
   <div class={`${styles.card} ${styles[variant]}`} data-card>
     <div class={styles['card-letter']} aria-hidden="true">{letter}</div>
+    <div class={styles['card-shadow']} aria-hidden="true">
+      <img src="/shadow-vector.svg" alt="" />
+    </div>
     <p class={styles['card-title']}>{title}</p>
   </div>
 </a>
