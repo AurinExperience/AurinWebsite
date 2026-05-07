@@ -1,71 +1,68 @@
 ---
-import { getLangFromUrl, translations } from '@/i18n';
-// Alianzas.astro
+import { getLangFromUrl, translations } from "@/i18n";
+import ScrollAnimationContainer from "@/components/animation/ScrollAnimationContainer.astro";
+import styles from "./Alliances.module.css";
 
-import ScrollAnimationContainer from '@/components/animation/ScrollAnimationContainer.astro';
-import styles from './Alliances.module.css';
-
-// Detect current language
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
+
+const logos = [
+  {
+    src: "https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/TopDesignGreen.svg",
+    alt: "TopDesign",
+    cls: styles.logoTopDesign,
+  },
+  {
+    src: "https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/AncientLogo.svg",
+    alt: "Ancient Technologies",
+    cls: styles.logoAncient,
+  },
+  {
+    src: "https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/IdeogramaGreen.svg",
+    alt: "Ideograma",
+    cls: styles.logoIdeograma,
+  },
+  {
+    src: "https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/identidapunto.svg",
+    alt: "identidad.com",
+    cls: styles.logoIdentidad,
+  },
+];
 ---
 
-<section class={styles.alliances}>
-  <div class={styles['alliances-container']}>
-    <ScrollAnimationContainer 
-      opacity={0}
-      y={40}
-      duration={0.8}
-      delay={0.1}
-    >
-      <div class={styles['heading-column']}>
-        <h3 class={styles['heading-white']}>{t.about.alliances.headingWhite}</h3>
-        <h2 class={styles['heading-yellow']}>{t.about.alliances.headingYellow}</h2>
+<section class={styles.section}>
+  <div class={styles.container}>
+    <ScrollAnimationContainer opacity={0} y={40} duration={0.8} delay={0.1}>
+      <div class={styles.left}>
+        <h2>
+          <span>{t.about.alliances.headingWhite}</span>
+          {t.about.alliances.headingYellow}
+        </h2>
       </div>
     </ScrollAnimationContainer>
 
-    <div class={styles['content-column']}>
-      <ScrollAnimationContainer 
-        opacity={0}
-        y={30}
-        duration={0.7}
-        delay={0.3}
-      >
-        <div class={styles['text-content']}>
-          <p class={`${styles['body-text']} description`} style="color: var(--color-white);" set:html={t.about.alliances.description}>
-          </p>
-        </div>
+    <div class={styles.right}>
+      <ScrollAnimationContainer opacity={0} y={30} duration={0.7} delay={0.3}>
+        <p
+          class={styles.description}
+          set:html={t.about.alliances.description}
+        />
       </ScrollAnimationContainer>
 
-      <ScrollAnimationContainer 
-        opacity={0}
-        y={20}
-        duration={0.8}
-        delay={0.5}
-      >
-        <div class={styles['logos-container']}>
-          <img
-            src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/AncientLogo.svg"
-            alt="Ancient Technologies"
-            class={styles['partner-logo']}
-            style="transform: scale(0.7);"
-            loading="lazy"
-          />
-          <img
-            src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/IdeogramaGreen.svg"
-            alt="Ideograma"
-            class={styles['partner-logo']}
-            loading="lazy"
-          />
-          <img
-            src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/TopDesignGreen.svg"
-            alt="TopDesign"
-            class={styles['partner-logo']}
-            loading="lazy"
-          />
+      <ScrollAnimationContainer opacity={0} y={20} duration={0.8} delay={0.5}>
+        <div class={styles.logos}>
+          {
+            logos.map(({ src, alt, cls }) => (
+              <img
+                src={src}
+                alt={alt}
+                class:list={[styles.logo, cls]}
+                loading="lazy"
+              />
+            ))
+          }
         </div>
       </ScrollAnimationContainer>
     </div>
   </div>
 </section>
-

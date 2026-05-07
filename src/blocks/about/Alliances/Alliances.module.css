@@ -1,187 +1,121 @@
+.section {
+  --_column-gap: 100px;
+  --_gap: 60px;
+  --_logo-topdesign: 28px;
+  --_height: 474px;
 
-  .alliances {
-    margin: 200px 0;
-    padding-block: 200px;
-    padding-inline: var(--section-padding-x);
-    background: var(--color-black-b);
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
+  height: var(--_height);
+  padding-inline: var(--section-padding-x);
+  background: var(--color-black-b);
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--_column-gap);
+}
+
+.left {
+  flex-shrink: 0;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--_gap);
+}
+
+.description {
+  color: var(--color-white);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  margin: 0;
+}
+
+.description strong {
+  font-weight: var(--font-weight-bold);
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: var(--_gap);
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+}
+
+.logo:hover {
+  transform: translateY(-4px);
+  opacity: 0.8;
+}
+
+.logoTopDesign { height: var(--_logo-topdesign); }
+.logoAncient   { height: var(--spacing-4);        }
+.logoIdeograma { height: var(--spacing-6);        }
+.logoIdentidad { height: var(--spacing-10);       }
+
+@media (max-width: 992px) {
+  .section {
+    height: auto;
+    padding-block: var(--spacing-16);
   }
 
-  .alliances-container {
-    max-width: var(--maxWidth);
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 100px;
-  }
-
-  .heading-column {
-    display: flex;
+  .container {
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 14px;
-    flex-shrink: 0;
+    gap: var(--spacing-10);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    --_logo-topdesign: var(--spacing-5);
+    padding-block: var(--spacing-12);
   }
 
-  .heading-white {
-    color: var(--color-white);
-    font-size: var(--font-size-4xl);
-    font-family: var(--font-heading);
-    font-weight: 300;
-    line-height: 40px;
-    margin: 0;
+  .logos {
+    gap: var(--spacing-10);
   }
 
-  .heading-yellow {
-    color: var(--color-yellow);
-    font-size: var(--font-size-5xl);
-    font-family: var(--font-heading);
-    font-weight: 300;
-    line-height: 56px;
-    margin: 0;
+  .logoAncient   { height: var(--spacing-3); }
+  .logoIdeograma { height: var(--spacing-4); }
+  .logoIdentidad { height: var(--spacing-8); }
+}
+
+@media (max-width: 480px) {
+  .section {
+    --_logo-topdesign: var(--spacing-4);
+    padding-block: var(--spacing-8);
   }
 
-  .content-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 60px;
+  .right {
+    gap: var(--spacing-10);
   }
 
-  .text-content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  .description {
+    font-size: var(--font-size-base);
+  }
+
+  .logos {
+    gap: var(--spacing-8);
     justify-content: center;
-    align-items: flex-start;
-    gap: 10px;
   }
 
-  .body-text {
-    color: var(--color-white);
-    font-size: var(--font-size-xl);
-    font-family: var(--font-body);
-    font-weight: 400;
-    line-height: normal;
-    margin: 0;
-  }
-
-  .body-text strong {
-    font-weight: 700;
-  }
-
-  .logos-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 60px;
-    flex-wrap: wrap;
-  }
-
-  .partner-logo {
-    height: 32px;
-    width: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  .partner-logo:hover {
-    transform: translateY(-4px);
-    opacity: 0.8;
-  }
-
-  /* Responsive Design */
-  @media (max-width: 1400px) {
-    .alliances {
-      padding-block: 80px;
-    }
-
-    .alliances-container {
-      gap: 60px;
-    }
-
-    .content-column {
-      padding-right: 0;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    .alliances {
-      padding-block: 60px;
-    }
-
-    .alliances-container {
-      flex-direction: column;
-      gap: 40px;
-    }
-
-    .heading-column {
-      width: 100%;
-    }
-
-    .content-column {
-      width: 100%;
-      padding: 0;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .alliances {
-      padding-block: 40px;
-    }
-
-    .heading-white {
-      font-size: var(--font-size-5xl);
-      line-height: 45px;
-    }
-
-    .heading-yellow {
-      font-size: var(--font-size-5xl);
-      line-height: 56px;
-    }
-
-    .logos-container {
-      gap: 40px;
-    }
-
-    .partner-logo {
-      height: 24px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .alliances {
-      padding-block: 30px;
-    }
-
-    .heading-white {
-      font-size: 24px;
-      line-height: 28px;
-    }
-
-    .heading-yellow {
-      font-size: 36px;
-      line-height: 40px;
-    }
-
-    .content-column {
-      gap: 40px;
-    }
-
-    .body-text {
-      font-size: var(--font-size-base);
-    }
-
-    .logos-container {
-      gap: 30px;
-      justify-content: center;
-    }
-
-    .partner-logo {
-      height: 20px;
-    }
-  }
+  .logoAncient   { height: var(--spacing-3); }
+  .logoIdeograma { height: var(--spacing-3); }
+  .logoIdentidad { height: var(--spacing-6); }
+}

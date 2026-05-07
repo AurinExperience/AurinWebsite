@@ -1,167 +1,122 @@
-  .long-cards {
-    padding-block: clamp(3rem, 6.25vw, 6.25rem);
-    padding-inline: var(--section-padding-x);
+.section {
+  padding-block: var(--spacing-20);
+  padding-inline: 16px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.card {
+  --counter-color: var(--color-yellow);
+  height: clamp(9rem, 13.5vw, 12.2rem);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  background: #161616;
+  transition: all 500ms ease;
+}
+
+/* Fixed-size triangle — stays anchored at bottom-left, doesn't scale with card */
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 6.25rem;
+  height: 16rem;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  background: #0f0f0f;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card:hover {
+  height: 22rem;
+}
+
+.highlight {
+  --counter-color: var(--color-black-a);
+  background: var(--color-yellow);
+}
+
+.highlight::after {
+  background: #949e03;
+}
+
+/* Number — percentage top stays proportional: 30% matches Figma at default height */
+.number {
+  position: absolute;
+  left: clamp(1rem, 5vw, 4.5rem);
+  top: 30%;
+  z-index: 1;
+}
+
+.counter {
+  font-size: clamp(4rem, 14vw, 12.5rem) !important;
+}
+
+.label {
+  position: absolute;
+  bottom: clamp(1.5rem, 2.2vw, 2rem);
+  right: clamp(2rem, 5vw, 5rem);
+  color: var(--color-white);
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  font-weight: var(--font-weight-regular);
+  line-height: 1;
+  z-index: 1;
+}
+
+.highlight .label {
+  color: var(--color-black-a);
+}
+
+@media (max-width: 992px) {
+  .section {
+    padding-block: var(--spacing-16);
   }
 
-  .cards-wrapper {
-    max-width: var(--maxWidth);
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(0.5rem, 0.5vw, 0.5rem);
+  .card:hover {
+    height: 20rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-block: var(--spacing-12);
   }
 
-  /* Long Card */
-  .long-card {
-    min-height: clamp(10.5rem, 15vw, 15.75rem);
-    background: linear-gradient(199deg, rgba(0, 0, 0, 0) 47%, #171819 47%), #161616;
-    overflow: hidden;
-    border-radius: 10px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    position: relative;
-    cursor: pointer;
-    --counter-color: #D0DF00;
+  /* Label top-right on mobile */
+  .label {
+    top: clamp(1rem, 3vw, 1.5rem);
+    bottom: auto;
+    right: clamp(1rem, 3vw, 1.5rem);
   }
 
-  .long-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(199deg, rgba(0, 0, 0, 0) 47%, #949E03 47%), #D0DF00;
-    border-radius: 10px;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    pointer-events: none;
+  /* Number lower half — reveals on expand */
+  .number {
+    top: 30%;
+    left: clamp(0.75rem, 3vw, 1.25rem);
   }
 
-  .long-card:hover::before {
-    opacity: 1;
+  .counter {
+    font-size: 130px !important;
   }
 
-  .long-card:hover {
-    --counter-color: #000000;
+  .card:hover {
+    height: 18rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding-block: var(--spacing-8);
   }
 
-  /* Main Content */
-  .card-main-content {
-    flex: 1;
-    align-self: stretch;
-    padding-inline: clamp(1.5rem, 5.5vw, 4.9375rem);
-    padding-top: clamp(4.5rem, 5vw, 4.5rem);
-    padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
-    overflow: visible;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: clamp(1rem, 2vw, 2rem);
-    position: relative;
-    z-index: 1;
+  .card:hover {
+    height: 16rem;
   }
-
-  .card-number {
-    max-width: clamp(15rem, 36vw, 32.9375rem);
-    color: #D0DF00;
-    font-size: clamp(4rem, 15.5vw, 12.5rem);
-    font-family: var(--font-body);
-    font-weight: 400;
-    line-height: 1;
-    transition: color 0.5s ease;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 2;
-  }
-
-  .animated-counter {
-    font-family: var(--font-body);
-    font-size: clamp(4rem, 15.5vw, 12.5rem) !important;
-  }
-
-  .card-label {
-    flex: 1;
-    align-self: stretch;
-    text-align: right;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    color: white;
-    font-size: clamp(1.25rem, 2vw, 2rem);
-    font-family: var(--font-body);
-    font-weight: 400;
-    transition: color 0.5s ease;
-    min-width: 0;
-    position: relative;
-    z-index: 2;
-  }
-
-  .long-card:hover .card-label {
-    color: #0A0A0A !important;
-  }
-
-  /* Icon Wrapper */
-  .card-icon-wrapper {
-    width: clamp(3.25rem, 12.5vw, 12.5rem);
-    align-self: stretch;
-    padding: 0.625rem;
-    border-radius: 7.73px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-shrink: 0;
-  }
-
-  .card-icon {
-    width: clamp(2.5rem, 3.25vw, 3.26125rem);
-    height: clamp(2.5rem, 3.25vw, 3.26125rem);
-    position: relative;
-    border-radius: 9.66px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    transition: color 0.3s ease;
-  }
-
-  .long-card:hover .card-icon {
-    color: white;
-  }
-
-  /* Transiciones de color suaves */
-  .card-number,
-  .card-label,
-  .card-icon {
-    transition: color 0.3s ease;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .card-main-content {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .card-label {
-      text-align: left;
-      justify-content: flex-start;
-    }
-
-    .card-icon-wrapper {
-      width: 4rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .long-card {
-      min-height: 10rem;
-    }
-
-    .card-number {
-      font-size: 3.5rem;
-    }
-
-    .card-label {
-      font-size: 1.125rem;
-    }
-  }
+}

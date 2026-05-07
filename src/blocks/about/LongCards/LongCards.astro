@@ -1,106 +1,89 @@
 ---
-import { getLangFromUrl, translations } from '@/i18n';
-// @ts-nocheck
-import { ArrowUpRight } from 'lucide-astro';
+import { getLangFromUrl, translations } from "@/i18n";
+import CounterContainer from "@/components/animation/CounterContainer.astro";
+import styles from "./LongCards.module.css";
 
-import CounterContainer from '@/components/animation/CounterContainer.astro';
-import styles from './LongCards.module.css';
-
-interface CardData {
-  number: string;
-  targetValue: number;
-  suffix: string;
-  label: string;
-}
-
-// Detect current language
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
 
-const cards: CardData[] = [
-  { 
-    number: "600+", 
-    targetValue: 600, 
-    suffix: "+", 
-    label: t.about.longCards.clients 
+const cards = [
+  {
+    targetValue: 600,
+    suffix: "+",
+    label: t.about.longCards.clients,
+    highlight: false,
   },
-  { 
-    number: "26+", 
-    targetValue: 26, 
-    suffix: "+", 
-    label: t.about.longCards.years 
+  {
+    targetValue: 26,
+    suffix: "+",
+    label: t.about.longCards.years,
+    highlight: true,
   },
-  { 
-    number: "16+", 
-    targetValue: 16, 
-    suffix: "+", 
-    label: t.about.longCards.countries 
-  }
+  {
+    targetValue: 16,
+    suffix: "+",
+    label: t.about.longCards.countries,
+    highlight: false,
+  },
 ];
 ---
 
-<section class={styles['long-cards']}>
-  <div class={styles['cards-wrapper']}>
-    {cards.map((card, index) => (
-      <div
-        class={styles['long-card']}
-        data-card-index={index}
-        data-motion-id={`long-card-${index}`}
-      >
-        <div class={styles['card-main-content']}>
-          <div class={styles['card-number']}>
+<section class={styles.section}>
+  <div class={styles.list}>
+    {
+      cards.map((card, i) => (
+        <div
+          class={`${styles.card}${card.highlight ? ` ${styles.highlight}` : ""}`}
+          data-card
+          data-index={i}
+        >
+          <div class={styles.number}>
             <CounterContainer
               targetValue={card.targetValue}
               suffix={card.suffix}
-              fontSize={200}
-              textColor="#D0DF00"
+              fontSize={132}
+              textColor={card.highlight ? "#0A0A0A" : "#D0DF00"}
               fontWeight={400}
               startOffset={15}
-              className={styles['animated-counter']}
+              className={styles.counter}
             />
           </div>
-          <div class={styles['card-label']}>{card.label}</div>
+          <span class={styles.label}>{card.label}</span>
         </div>
-        <div class={styles['card-icon-wrapper']}>
-          <div class={styles['card-icon']}>
-          </div>
-        </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
 </section>
 
 <script>
-  import { inView, animate } from 'motion';
+  const cards = document.querySelectorAll<HTMLElement>("[data-card]");
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.long-card');
-    
-    cards.forEach((card, index) => {
-      // Set initial state
-      (card as HTMLElement).style.opacity = '0';
-      (card as HTMLElement).style.transform = 'translateY(40px)';
-      
-      // Animate on scroll into view
-      inView(
-        card as HTMLElement,
-        () => {
-          animate(
-            card,
-            {
-              opacity: [0, 1],
-              y: [40, 0]
-            },
-            {
-              duration: 0.8,
-              delay: index * 0.15,
-              ease: [0.22, 1, 0.36, 1]
-            }
-          );
-          return () => {}; // Return cleanup function
-        },
-        { margin: '0px 0px -100px 0px' }
-      );
-    });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const card = entry.target as HTMLElement;
+        const delay = Number(card.dataset.index) * 120;
+        setTimeout(() => {
+          card.style.opacity = "1";
+          card.style.transform = "none";
+          // After scroll-in finishes, clear inline styles so CSS transition: all takes over for hover
+          setTimeout(() => {
+            card.style.opacity = "";
+            card.style.transform = "";
+            card.style.transition = "";
+          }, 520);
+        }, delay);
+        observer.unobserve(card);
+      });
+    },
+    { rootMargin: "0px 0px -80px 0px" },
+  );
+
+  cards.forEach((card) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(28px)";
+    card.style.transition = "opacity 500ms ease, transform 500ms ease";
+    observer.observe(card);
   });
 </script>

@@ -1,0 +1,34 @@
+---
+import { getLangFromUrl, translations } from '@/i18n';
+import styles from './SectionImage.module.css';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+---
+
+<section class={styles.section}>
+  <div class={styles.imageWrapper}>
+    <img
+      src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/NosotrosImage.webp"
+      alt={t.about.mainImage.alt}
+      class={`${styles.image} ukiyo`}
+      loading="lazy"
+      decoding="async"
+      data-u-speed="1.5"
+      data-u-scale="1.2"
+    />
+  </div>
+</section>
+
+<script>
+  import Ukiyo from 'ukiyojs';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new Ukiyo('.ukiyo', {
+      speed: 1.5,
+      scale: 1.2,
+      wrapperClass: 'ukiyo-wrapper',
+      willChange: true,
+    });
+  });
+</script>

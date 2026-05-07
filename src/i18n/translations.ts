@@ -597,7 +597,7 @@ export const translations = {
       alliances: {
         headingWhite: "The Power of",
         headingYellow: "Partnerships",
-        description: "Collaboration is the foundation for creating exceptional solutions. Together with strategic partners like Ancient Technologies, Ideograma, and TopDesign, we combine our expertise to develop unique projects. This synergy drives innovation, keeps us at the forefront, and expands the boundaries of design and development."
+        description: "Collaboration is the foundation for creating exceptional solutions. Together with strategic partners like <strong>Ancient Technologies, Ideograma, and TopDesign</strong>, we combine our expertise to develop unique projects. This synergy drives innovation, keeps us at the forefront, and expands the boundaries of design and development."
       },
       mainImage: {
         alt: "Aurin Team"
@@ -1203,7 +1203,7 @@ export const translations = {
       alliances: {
         headingWhite: "El poder de",
         headingYellow: "las alianzas",
-        description: "La colaboración es la base para crear soluciones excepcionales. Junto a socios estratégicos como Ancient Technologies, Ideograma y TopDesign, unimos nuestra experiencia para desarrollar proyectos únicos. Esta sinergia impulsa la innovación, nos mantiene a la vanguardia y expande los límites del diseño y el desarrollo."
+        description: "La colaboración es la base para crear soluciones excepcionales. Junto a socios estratégicos como <strong>Ancient Technologies, Ideograma y TopDesign</strong>, unimos nuestra experiencia para desarrollar proyectos únicos. Esta sinergia impulsa la innovación, nos mantiene a la vanguardia y expande los límites del diseño y el desarrollo."
       },
       mainImage: {
         alt: "Equipo Aurin"

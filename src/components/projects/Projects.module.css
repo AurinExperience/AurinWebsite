@@ -1,7 +1,10 @@
 .projects {
+  --_card-gap: 26px;
+
+  position: relative;
+  overflow: hidden;
   padding-block: var(--spacing-20);
   padding-inline: var(--section-padding-x);
-  overflow: hidden;
 }
 
 .projectsContainer {
@@ -25,7 +28,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 26px;
+  gap: var(--_card-gap);
 }
 
 .projectsGridFourColumn {

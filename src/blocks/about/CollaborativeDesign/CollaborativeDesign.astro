@@ -1,56 +1,57 @@
 ---
 import { getLangFromUrl, translations } from '@/i18n';
 import SecondaryButton from '@/components/ui/SecondaryButton.astro';
-
 import styles from './CollaborativeDesign.module.css';
 
-// Detect current language
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
 ---
 
-<section class={styles['collaborative-design']}>
-    <div class={styles['design-container']}>
-        <div class={styles['content-column']}>
-            <div class={styles['text-card']}>
-                <div class={styles['text-content']}>
-                    <h2 class={styles['heading-2']}>{t.about.collaborativeDesign.heading}</h2>
-                </div>
-                <p class={styles['body-1']}>{t.about.collaborativeDesign.description}</p>
-                <div class={styles['button-group']}>
-                    <SecondaryButton
-                        text={t.about.collaborativeDesign.buttonText}
-                        href="https://aldeacreativa.com"
-                        target="_blank"
-                    />
-                </div>
-            </div>
-        </div>
-        <div class={styles['image-column']}>
-            <div class={styles['image-wrapper']}>
-                <img
-                    src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/DisenoColaboracionInnovacion.webp"
-                    alt={t.about.collaborativeDesign.imageAlt}
-                    class="ukiyo"
-                    loading="lazy"
-                    data-u-speed="1.2"
-                    data-u-scale="1.1"
-                />
-            </div>
-        </div>
+<section class={styles.section}>
+  <div class={styles.card}>
+    <img
+      class={styles.pattern}
+      src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/about-colaborative.svg"
+      alt=""
+      aria-hidden="true"
+    />
+    <div class={styles.content}>
+      <div class={styles.info}>
+        <h2>{t.about.collaborativeDesign.heading}</h2>
+        <!-- TODO: reemplazar con URL permanente del logo de Aldea Creativa -->
+        <img
+          class={styles.aldea}
+          src="https://www.figma.com/api/mcp/asset/0105feef-22e4-40d8-922f-361e0c0d6907"
+          alt="Aldea Creativa"
+          loading="lazy"
+        />
+        <p>{t.about.collaborativeDesign.description}</p>
+      </div>
+      <SecondaryButton
+        text={t.about.collaborativeDesign.buttonText}
+        href="https://aldeacreativa.com"
+        target="_blank"
+      />
     </div>
+    <div class={styles.photo}>
+      <img
+        src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/DisenoColaboracionInnovacion.webp"
+        alt={t.about.collaborativeDesign.imageAlt}
+        class="ukiyo"
+        loading="lazy"
+        data-u-speed="1.2"
+        data-u-scale="1.1"
+      />
+    </div>
+  </div>
 </section>
 
 <script>
   import Ukiyo from 'ukiyojs';
-  
-  // Initialize Ukiyo parallax effect when the DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    new Ukiyo('.ukiyo', {
-      speed: 1.2,
-      scale: 1.1,
-      wrapperClass: 'ukiyo-wrapper',
-      willChange: true
-    });
+  new Ukiyo('.ukiyo', {
+    speed: 1.2,
+    scale: 1.1,
+    wrapperClass: 'ukiyo-wrapper',
+    willChange: true,
   });
 </script>
