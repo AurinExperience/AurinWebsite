@@ -1,0 +1,134 @@
+.hero {
+  width: 100%;
+  background-color: var(--color-black-a);
+  position: relative;
+  overflow: hidden;
+}
+
+.decor {
+  position: absolute;
+  left: 0;
+  top: 4rem;
+  width: clamp(20rem, 63%, 57rem);
+  height: auto;
+  pointer-events: none;
+  mix-blend-mode: plus-lighter;
+  z-index: 1;
+}
+
+.inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding-block-start: clamp(14rem, 16vh, 12rem);
+  padding-block-end: clamp(8rem, 8vh, 6rem);
+  padding-inline: var(--section-padding-x);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 56px;
+}
+
+.heading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.subtitle {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-light);
+  line-height: 35px;
+  margin: 0;
+}
+
+:global(.main-title) {
+  color: var(--color-yellow) !important;
+  font-family: var(--font-heading) !important;
+  font-size: var(--font-size-5xl) !important;
+  font-weight: var(--font-weight-light) !important;
+  line-height: 50px !important;
+  margin: 0 !important;
+}
+
+:global(.main-title .scroll-reveal-word) {
+  color: var(--color-yellow) !important;
+}
+
+.body {
+  width: min(779px, 65%);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.description {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-xl);
+  font-weight: 200;
+  line-height: var(--line-height-tight);
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .inner {
+    gap: 40px;
+  }
+
+  .body {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding-block-start: clamp(12rem, 12vh, 12rem);
+    padding-block-end: clamp(5rem, 6vh, 4rem);
+    align-items: center;
+    gap: 32px;
+  }
+
+  .decor {
+    top: 8rem;
+    width: clamp(18rem, 70%, 30rem);
+  }
+
+  .heading {
+    align-items: center;
+  }
+
+  .subtitle {
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-tight);
+  }
+
+  :global(.main-title) {
+    font-size: 36px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+
+  .body {
+    align-items: center;
+    width: 100%;
+  }
+
+  .description {
+    font-size: var(--font-size-base);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .decor {
+    top: 10rem;
+    width: clamp(14rem, 80%, 22rem);
+  }
+}

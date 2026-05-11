@@ -1,0 +1,230 @@
+.toolsSuite {
+  width: 100%;
+}
+
+/* ── Desktop cards ── */
+
+/* El wrapper define el height y hace de container */
+.cardsWrapper {
+  max-width: var(--maxWidth);
+  margin-inline: auto;
+  padding-inline: var(--section-padding-x);
+  height: 350px;
+}
+
+/* El grid es puro flex dentro del wrapper */
+.cardsGrid {
+  display: flex;
+  gap: var(--spacing-4);
+  height: 100%;
+}
+
+/* Cada card item ocupa toda la altura del grid */
+.cardItem {
+  flex: 1 0 0;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fuerza al link y al card de TallCard a llenar la altura */
+.cardItem > :global(a) {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardItem > :global(a) > :global([data-card]) {
+  flex: 1;
+  min-height: 0;
+}
+
+.cardItem [data-card] {
+  transition: filter 0.3s ease;
+}
+
+.cardItem:not([data-active]) [data-card] {
+  filter: brightness(0.55);
+}
+
+.cardItem[data-active] [data-card] {
+  filter: brightness(1);
+}
+
+/* ── Mobile carousel ── */
+.carouselMobile {
+  display: none;
+}
+
+:global(.splide__pagination) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-top: 24px;
+  padding: 24px 0 0 0;
+  list-style: none;
+}
+
+:global(.splide__pagination__page) {
+  width: 25px;
+  height: 4px;
+  border-radius: 46.5px;
+  border: none;
+  background: #7d7f79;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  padding: 0;
+}
+
+:global(.splide__pagination__page.is-active) {
+  background: var(--color-yellow);
+  width: 122px;
+  height: 6px;
+  border-radius: 60px;
+}
+
+/* ── Texto debajo ── */
+.textWrapper {
+  max-width: var(--maxWidth);
+  margin-inline: auto;
+  padding-inline: var(--section-padding-x);
+  padding-top: var(--spacing-10);
+  min-height: 200px;
+}
+
+.contentSection {
+  display: none;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.contentSection[data-active] {
+  display: flex;
+  opacity: 1;
+}
+
+.contentLeft {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.contentTitle {
+  color: var(--color-yellow);
+  font-size: var(--font-size-4xl);
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-light);
+  line-height: 1.1;
+  word-wrap: break-word;
+}
+
+.contentSubtitle {
+  color: var(--color-white);
+  font-size: var(--font-size-3xl);
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-light);
+  line-height: 1.1;
+  word-wrap: break-word;
+}
+
+.contentRight {
+  flex: 1;
+}
+
+.contentDescription {
+  color: var(--color-white);
+  font-size: var(--font-size-xl);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+  word-wrap: break-word;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .cardsWrapper {
+    height: 280px;
+  }
+
+  .contentSection {
+    flex-direction: column;
+    gap: var(--spacing-6);
+  }
+
+  .contentLeft {
+    flex: none;
+  }
+
+  .contentTitle {
+    font-size: var(--font-size-3xl);
+  }
+
+  .contentSubtitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .contentDescription {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 992px) {
+  .cardsWrapper {
+    height: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsWrapper {
+    display: none;
+  }
+
+  .carouselMobile {
+    display: block;
+    padding-inline: var(--section-padding-x);
+    margin-top: var(--spacing-8);
+  }
+
+  .carouselMobile :global(.splide__track) {
+    overflow: visible;
+    touch-action: pan-y;
+  }
+
+  .carouselMobile :global(.splide__list) {
+    gap: var(--spacing-4);
+  }
+
+  .textWrapper {
+    padding-top: var(--spacing-6);
+  }
+
+  .contentSection {
+    gap: var(--spacing-4);
+  }
+
+  .contentTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .contentSubtitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .contentDescription {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .carouselMobile {
+    padding-inline: var(--section-padding-x);
+  }
+}

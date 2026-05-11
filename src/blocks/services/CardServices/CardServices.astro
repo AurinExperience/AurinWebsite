@@ -1,0 +1,112 @@
+---
+import { getLangFromUrl, translations } from "@/i18n";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import styles from "./CardServices.module.css";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+
+const services = [
+  { id: "service-intro", letter: "M", ...t.services.servicesList[0] },
+  { id: "service-stuff", letter: "X", ...t.services.servicesList[1] },
+  { id: "service-contact", letter: "D", ...t.services.servicesList[2] },
+];
+
+const vectorSrc =
+  "http://localhost:3845/assets/a246d8039761c4e8d4abdc99883198f810c40869.svg";
+---
+
+<section class={styles.section}>
+  <div class={styles.container}>
+    <div class={`${styles.header} js-header`}>
+      <SectionHeading
+        lightText={t.services.cardServices.headingPart1}
+        highlightText={t.services.cardServices.headingPart2}
+      />
+    </div>
+
+    <div class={styles.cardsContainer}>
+      {
+        services.map((service, index) => (
+          <article
+            class={`js-card-wrapper ${styles.cardWrapper} ${styles[`card${index}`]}`}
+            id={service.id}
+          >
+            <div class={styles.card}>
+              <div class={styles.cardYellow}>
+                <span class={styles.cardLetter} aria-hidden="true">
+                  {service.letter}
+                </span>
+                <p class={styles.cardTitle}>{service.title}</p>
+              </div>
+              <div class={styles.cardDark}>
+                <div class={styles.cardVector} aria-hidden="true">
+                  <img src={vectorSrc} alt="" />
+                </div>
+                <p class={styles.cardDescription}>{service.description}</p>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  function initCardScroll() {
+    const cards = document.querySelectorAll(".js-card-wrapper");
+    const header = document.querySelector(".js-header") as HTMLElement;
+    if (cards.length === 0) return;
+
+    function updateCards() {
+      cards.forEach((card, index) => {
+        let stuckCardsAfter = 0;
+        const cardRect = card.getBoundingClientRect();
+
+        // Check how many cards coming AFTER this one are overlapping it by at least 70%
+        for (let i = index + 1; i < cards.length; i++) {
+          const nextCard = cards[i] as HTMLElement;
+          const nextRect = nextCard.getBoundingClientRect();
+
+          const overlap = Math.max(0, cardRect.bottom - nextRect.top);
+          const overlapRatio = overlap / cardRect.height;
+
+          if (overlapRatio >= 0.7) {
+            stuckCardsAfter++;
+          }
+        }
+
+        // Apply 5px blur for each card stacked on top of this one
+        const targetBlur = stuckCardsAfter * 1.5;
+        const currentFilter = targetBlur > 0 ? `blur(${targetBlur}px)` : "none";
+
+        if ((card as HTMLElement).style.filter !== currentFilter) {
+          (card as HTMLElement).style.filter = currentFilter;
+        }
+      });
+
+      // Sync header scroll with the first card when the section ends so they move up together
+      if (header && cards.length > 0) {
+        const card0 = cards[0] as HTMLElement;
+        const card0StickyTop = parseFloat(window.getComputedStyle(card0).top) || 0;
+        const card0Rect = card0.getBoundingClientRect();
+
+        // When the container ends, card0 is pushed up above its sticky top.
+        // We push the header up by the exact same amount to maintain the natural spacing.
+        if (card0Rect.top < card0StickyTop) {
+          header.style.transform = `translateY(${card0Rect.top - card0StickyTop}px)`;
+        } else {
+          header.style.transform = "translateY(0)";
+        }
+      }
+    }
+
+    window.addEventListener("scroll", updateCards, { passive: true });
+    window.addEventListener("resize", updateCards, { passive: true });
+    updateCards();
+  }
+
+  initCardScroll();
+  document.addEventListener("astro:page-load", initCardScroll);
+</script>

@@ -53,7 +53,7 @@ try {
       />
     </div>
 
-    <div class={`${styles.projectsGrid} ${variant === 'four-column' ? styles.projectsGridFourColumn : ''}`}>
+    <div class={`${styles.projectsGrid} ${variant === 'four-column' ? styles.projectsGridFourColumn : ''}`} data-projects-grid>
       {projects.length > 0 ? (
         projects.map((project) => (
           <ProjectCard
@@ -102,3 +102,44 @@ try {
     </div>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    function initProjectsScroll() {
+      const grids = document.querySelectorAll('[data-projects-grid]');
+      grids.forEach((grid) => {
+        let startX = 0, startY = 0, decided = false, isHorizontal = false;
+
+        grid.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+          decided = false;
+          isHorizontal = false;
+        }, { passive: true });
+
+        grid.addEventListener('touchmove', (e) => {
+          if (decided) return;
+          const dx = Math.abs(e.touches[0].clientX - startX);
+          const dy = Math.abs(e.touches[0].clientY - startY);
+          if (dx < 4 && dy < 4) return;
+          decided = true;
+          isHorizontal = dx > dy;
+          if (!isHorizontal) {
+            grid.style.overflowX = 'hidden';
+          }
+        }, { passive: true });
+
+        const restore = () => { grid.style.overflowX = ''; };
+        grid.addEventListener('touchend', restore, { passive: true });
+        grid.addEventListener('touchcancel', restore, { passive: true });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initProjectsScroll);
+    } else {
+      initProjectsScroll();
+    }
+    document.addEventListener('astro:page-load', initProjectsScroll);
+  })();
+</script>

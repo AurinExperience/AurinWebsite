@@ -83,6 +83,7 @@ export function Tilt({
       className={className}
       style={{
         transformStyle: 'preserve-3d',
+        willChange: 'transform',
         ...style,
         transform,
       }}

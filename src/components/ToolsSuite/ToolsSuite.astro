@@ -1,0 +1,207 @@
+---
+import TallCard from "@/components/cards/TallCard.astro";
+import styles from "./ToolsSuite.module.css";
+import "@splidejs/splide/css/core";
+
+interface ToolsDetailItem {
+  title: string;
+  subtitle: string;
+  description: string;
+}
+
+interface HerramientaItem {
+  id: string;
+  letter: string;
+  title: string;
+  href: string;
+}
+
+interface Props {
+  items: HerramientaItem[];
+  toolsDetail: ToolsDetailItem[];
+  variant?: "textBelow";
+}
+
+const { items, toolsDetail, variant = "textBelow" } = Astro.props;
+
+const uniqueId = `carousel-${Math.random().toString(36).substr(2, 9)}`;
+const getCardVariant = (i: number) => (i % 2 === 0 ? "light" : "dark");
+---
+
+<div class={styles.toolsSuite} data-variant={variant}>
+
+  <!-- Desktop: cards wrapper + grid -->
+  <div class={styles.cardsWrapper}>
+    <div class={styles.cardsGrid}>
+      {
+        items.map((item, i) => (
+          <div
+            class={styles.cardItem}
+            data-tool-index={i}
+            data-active={i === 0 ? "" : null}
+          >
+            <TallCard
+              letter={item.letter}
+              title={item.title}
+              href={item.href}
+              variant={getCardVariant(i)}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Mobile: Splide carousel -->
+  <section
+    class:list={["splide", styles.carouselMobile]}
+    id={uniqueId}
+    aria-label="Tools carousel"
+  >
+    <div class="splide__track">
+      <ul class="splide__list">
+        {
+          items.map((item, i) => (
+            <li
+              class="splide__slide"
+              role="listitem"
+              data-tool-index={i}
+              aria-label={`${i + 1} de ${items.length}: ${item.title}`}
+            >
+              <TallCard
+                letter={item.letter}
+                title={item.title}
+                href={item.href}
+                variant={getCardVariant(i)}
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Text below variant -->
+  <div class={styles.textWrapper}>
+    {
+      toolsDetail.map((detail: ToolsDetailItem, index: number) => (
+        <div
+          class={styles.contentSection}
+          data-content={index}
+          data-active={index === 0 ? "" : null}
+        >
+          <div class={styles.contentLeft}>
+            <span class={styles.contentTitle}>{detail.title}</span>
+            <span class={styles.contentSubtitle}>{detail.subtitle}</span>
+          </div>
+          <div class={styles.contentRight}>
+            <div class={styles.contentDescription}>{detail.description}</div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+</div>
+
+<script>
+  import Splide from "@splidejs/splide";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const carouselEl = document.querySelector<HTMLElement>('[id^="carousel-"]');
+    const allCards = document.querySelectorAll<HTMLElement>("[data-tool-index]");
+    const contentSections =
+      document.querySelectorAll<HTMLElement>("[data-content]");
+
+    // Separate desktop cards from mobile carousel slides
+    const desktopCards = Array.from(allCards).filter(
+      (el) => !carouselEl?.contains(el),
+    );
+
+    function setActive(index: number) {
+      allCards.forEach((card) => {
+        const idx = parseInt(card.getAttribute("data-tool-index") || "0", 10);
+        const innerCard = card.querySelector<HTMLElement>("[data-card]");
+        if (idx === index) {
+          card.setAttribute("data-active", "");
+          innerCard?.setAttribute("data-mobile-active", "");
+        } else {
+          card.removeAttribute("data-active");
+          innerCard?.removeAttribute("data-mobile-active");
+        }
+      });
+      contentSections.forEach((section, i) => {
+        if (i === index) {
+          section.setAttribute("data-active", "");
+        } else {
+          section.removeAttribute("data-active");
+        }
+      });
+    }
+
+    // Desktop: click on card link activates it
+    desktopCards.forEach((card) => {
+      const link = card.querySelector("a");
+      if (link) {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const idx = parseInt(
+            card.getAttribute("data-tool-index") || "0",
+            10,
+          );
+          setActive(idx);
+        });
+      }
+    });
+
+    // Intersection observer for card entrance animation
+    const visualCards = document.querySelectorAll<HTMLElement>("[data-card]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
+    );
+    visualCards.forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.1}s`;
+      observer.observe(card);
+    });
+
+    // Mobile: Splide carousel
+    if (window.innerWidth <= 768 && carouselEl) {
+      const splide = new Splide(carouselEl, {
+        fixedWidth: "65vw",
+        padding: "16px",
+        accessibility: { slideRole: "" },
+        pagination: true,
+        arrows: false,
+        drag: true,
+      });
+
+      // Update active state after drag/navigation
+      splide.on("moved", (index: number) => {
+        setActive(index);
+      });
+
+      // Tap on any slide navigates to it
+      splide.on("click", (slide: { index: number }, event: Event) => {
+        event.preventDefault();
+        const idx = slide.index;
+        if (splide.index !== idx) {
+          splide.go(idx); // 'moved' fires → setActive
+        } else {
+          setActive(idx); // Same slide tapped, ensure state is correct
+        }
+      });
+
+      splide.mount();
+    }
+
+    setActive(0);
+  });
+</script>

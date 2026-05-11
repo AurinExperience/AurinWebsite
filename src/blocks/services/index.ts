@@ -1,3 +1,3 @@
-export { default as Services } from './Services/Services.astro';
-export { default as ServicesBanner } from './ServicesBanner/ServicesBanner.astro';
+export { default as HeroServices } from './HeroServices/HeroServices.astro';
+export { default as CardServices } from './CardServices/CardServices.astro';
 export { default as ToolsScrollStory } from './ToolsScrollStory/ToolsScrollStory.astro';

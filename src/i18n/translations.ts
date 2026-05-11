@@ -202,6 +202,10 @@ export const translations = {
           description: "We identify opportunities, solve challenges and align every touchpoint with your strategic vision. We evaluate your brand's visual identity, analyze customer experience across all channels and propose strategies to optimize market perception."
         }
       ],
+      cardServices: {
+        headingPart1: "Our",
+        headingPart2: "specialties",
+      },
       tools: {
         titlePart1: "Our toolbox",
         titlePart2: "of Tools",
@@ -807,6 +811,10 @@ export const translations = {
           description: "Diseñamos plataformas y sistemas que optimizan procesos y los hacen más amigables. Digitalizamos y automatizamos tareas clave con dashboards personalizados, herramientas digitales y plataformas interactivas que transforman la operación y mejoran la experiencia del usuario."
         }
       ],
+      cardServices: {
+        headingPart1: "Nuestras",
+        headingPart2: "especialidades",
+      },
       tools: {
         titlePart1: "Nuestra",
         titlePart2: "Suite de Herramientas",

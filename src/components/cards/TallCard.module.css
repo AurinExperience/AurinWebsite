@@ -120,6 +120,19 @@
 .card-link:hover .dark   .card-title,
 .card-link:hover .light  .card-title { color: #0A0A0A; }
 
+/* Active state — works on all screen sizes */
+[data-mobile-active]::before {
+  opacity: 1;
+}
+
+[data-mobile-active] .card-letter {
+  color: #212224;
+}
+
+[data-mobile-active] .card-title {
+  color: #0A0A0A;
+}
+
 /* Mobile carousel sizing */
 @media (max-width: 768px) {
   .card {
@@ -131,17 +144,5 @@
 
   [data-mobile-active] {
     filter: brightness(1);
-  }
-
-  [data-mobile-active]::before {
-    opacity: 1;
-  }
-
-  [data-mobile-active] .card-letter {
-    color: #212224;
-  }
-
-  [data-mobile-active] .card-title {
-    color: #0A0A0A;
   }
 }

@@ -1,58 +1,82 @@
-import { useRef } from 'react';
-import { useTransform, motion, useScroll } from 'motion/react';
+import { useTransform, useMotionTemplate, motion, type MotionValue } from 'motion/react';
 import styles from './SplitCard.module.css';
 
 interface SplitCardProps {
   i: number;
+  total: number;
+  scrollYProgress: MotionValue<number>;
   letter: string;
   title: string;
   description: string;
-  range: [number, number];
-  targetScale: number;
 }
+
+const PEEK_PX = 18;
+const SCALE_STEP = 0.05;
+const OPACITY_STEP = 0.32;
+const MIN_OPACITY = 0.18;
+const MIN_SCALE = 0.84;
+const BLUR_STEP = 1.5;
+const MAX_BLUR = 4;
+const ENTRY_OFFSET_PX = 60;
+const ENTRY_SCALE = 0.94;
 
 export default function SplitCard({
   i,
+  total,
+  scrollYProgress,
   letter,
   title,
   description,
-  range,
-  targetScale,
 }: SplitCardProps) {
-  const container = useRef<HTMLDivElement>(null);
+  const segments = Math.max(total - 1, 1);
+  const pts = Array.from({ length: total }, (_, k) => k / segments);
 
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start end', 'start start'],
+  const yVals: number[] = [];
+  const scaleVals: number[] = [];
+  const opacityVals: number[] = [];
+  const blurVals: number[] = [];
+
+  pts.forEach((_, j) => {
+    const dist = i - j;
+    if (dist > 0) {
+      yVals.push(ENTRY_OFFSET_PX);
+      scaleVals.push(ENTRY_SCALE);
+      opacityVals.push(0);
+      blurVals.push(0);
+    } else if (dist === 0) {
+      yVals.push(0);
+      scaleVals.push(1);
+      opacityVals.push(1);
+      blurVals.push(0);
+    } else {
+      const k = Math.abs(dist);
+      yVals.push(-k * PEEK_PX);
+      scaleVals.push(Math.max(MIN_SCALE, 1 - k * SCALE_STEP));
+      opacityVals.push(Math.max(MIN_OPACITY, 1 - k * OPACITY_STEP));
+      blurVals.push(Math.min(MAX_BLUR, k * BLUR_STEP));
+    }
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, targetScale]);
+  const y = useTransform(scrollYProgress, pts, yVals);
+  const scale = useTransform(scrollYProgress, pts, scaleVals);
+  const opacity = useTransform(scrollYProgress, pts, opacityVals);
+  const blur = useTransform(scrollYProgress, pts, blurVals);
+  const filter = useMotionTemplate`blur(${blur}px)`;
 
   return (
-    <div
-      ref={container}
-      className={styles['card-wrapper']}
+    <motion.div
+      className={styles.cardWrapper}
+      style={{ y, scale, opacity, filter, zIndex: i }}
     >
-      <motion.div
-        style={{
-          scale,
-          top: `calc(-5vh + ${i * 25}px)`,
-        }}
-        className={styles['split-card']}
-      >
-        {/* Left Container - Letter and Title */}
-        <div className={styles['left-container']}>
-          <div className={styles['card-letter']}>{letter}</div>
-          <div className={styles['card-title-wrapper']}>
-            <h3 className={styles['card-title']}>{title}</h3>
-          </div>
+      <div className={styles.card}>
+        <div className={styles.cardYellow}>
+          <span className={styles.cardLetter} aria-hidden="true">{letter}</span>
+          <p className={styles.cardTitle}>{title}</p>
         </div>
-
-        {/* Right Container - Description */}
-        <div className={styles['right-container']}>
-          <p className={styles['card-description']}>{description}</p>
+        <div className={`${styles.cardDark} ${i % 2 === 1 ? styles.cardDarkAlt : ''}`}>
+          <p className={styles.cardDescription}>{description}</p>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 }

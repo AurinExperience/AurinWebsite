@@ -1,0 +1,345 @@
+.section {
+  position: relative;
+  background: var(--color-black-a);
+  padding-block: var(--spacing-20);
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+}
+
+.header {
+  position: sticky;
+  top: 100px;
+  z-index: 10;
+  margin-bottom: 48px;
+  padding: 0 99px;
+}
+
+
+
+.cardsContainer {
+  display: block;
+  padding: 0px) 16px;
+}
+
+.cardWrapper {
+  position: sticky;
+  margin: 0 0 6vh auto;
+  border-radius: 4px;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.4);
+  height: 348px;
+  background: var(--color-black-a);
+  transition: filter 0.3s ease;
+}
+
+.cardWrapper:last-child {
+  margin-bottom: 0;
+}
+
+/* Stacking offsets */
+.card0 {
+  top: 300px;
+  width: calc(100% - 128px);
+  z-index: 1;
+}
+
+.card1 {
+  top: calc(300px + 6vh);
+  width: calc(100% - 64px);
+  z-index: 2;
+}
+
+.card2 {
+  top: calc(300px + 12vh);
+  width: 100%;
+  z-index: 3;
+}
+
+/* ── Card inner layout ── */
+.card {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* ── Yellow panel ── */
+.cardYellow {
+  flex: 0 0 348px;
+  width: 348px;
+  height: 348px;
+  background: var(--color-yellow);
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* ── Giant letter ── */
+.cardLetter {
+  position: absolute;
+  /* Align with Figma: letter centred around left:171px top:96.5px */
+  left: 171px;
+  top: 96.5px;
+  transform: translate(-100%, -50%);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 308px;
+  line-height: 0.76;
+  color: var(--color-black-a);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Title ── */
+.cardTitle {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(20px, 2vw, 32px);
+  line-height: 1.09;
+  color: var(--color-black-a);
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* ── Dark panel ── */
+.cardDark {
+  flex: 1;
+  height: 100%;
+  background: #282828;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Vector decoration ── */
+.cardVector {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 562px;
+  height: 221px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.4; /* Muy tenue */
+}
+
+.cardVector img {
+  width: 221px;
+  height: 562px;
+  transform: rotate(90deg);
+  display: block;
+}
+
+/* ── Description ── */
+.cardDescription {
+  max-width: 779px;
+  width: 100%;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--color-white);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  /* Always render exactly 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Tablet ── */
+@media (max-width: 992px) {
+  .section {
+    padding-block: var(--spacing-16);
+  }
+
+  .header {
+    padding: 0 16px;
+  }
+
+  .cardsContainer {
+    padding: 0px;
+  }
+
+  .cardWrapper {
+    height: 320px;
+  }
+
+  .cardYellow {
+    flex: 0 0 240px;
+    width: 240px;
+    height: 320px;
+  }
+
+  .cardLetter {
+    font-size: clamp(200px, 28vw, 280px);
+    left: 120px;
+  }
+
+  .cardTitle {
+    font-size: clamp(20px, 2.4vw, 28px);
+  }
+
+  .cardDark {
+    padding: 24px;
+  }
+
+  .cardDescription {
+    font-size: 18px;
+    -webkit-line-clamp: 4;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .section {
+    padding-block: var(--spacing-12);
+  }
+
+  .header {
+    top: 80px;
+    padding: 0;
+    margin-bottom: 32px;
+    z-index: 0;
+  }
+
+  .cardsContainer {
+    padding: 0 0 max(0px, calc(100vh - 640px)) 0;
+  }
+
+  .cardWrapper {
+    width: 100%;
+    height: auto;
+    margin: 0 0 16px 0;
+  }
+
+  .card0 {
+    top: 192px;
+    width: 100%;
+  }
+
+  .card1 {
+    top: 272px;
+    width: 100%;
+  }
+
+  .card2 {
+    top: 352px;
+    width: 100%;
+  }
+
+  .card {
+    flex-direction: column;
+  }
+
+  .cardYellow {
+    flex: 0 0 300px;
+    height: 300px;
+    width: 100%;
+    padding: 24px;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .cardLetter {
+    font-size: 268.5px;
+    left: 155px;
+    top: 81.5px;
+  }
+
+  .cardTitle {
+    font-size: 24px;
+    line-height: 1.32;
+    margin-bottom: 0;
+  }
+
+  .cardDark {
+    flex: 0 0 auto;
+    height: auto;
+    min-height: unset;
+    width: 100%;
+    padding: 32px 24px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .cardVector {
+    display: none;
+  }
+
+  .cardDescription {
+    font-size: 16px;
+    line-height: 1.4;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    display: block;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding-block: var(--spacing-8);
+  }
+
+  .header {
+    top: 72px;
+    margin-bottom: 32px;
+    z-index: 0;
+  }
+
+  .cardsContainer {
+    padding: 0px;
+  }
+
+  .card0 { top: 172px; }
+  .card1 { top: 252px; }
+  .card2 { top: 332px; }
+
+  .cardYellow {
+    flex: 0 0 280px;
+    height: 280px;
+    padding: 20px;
+  }
+
+  .cardLetter {
+    font-size: 240px;
+    left: 130px;
+    top: 70px;
+  }
+
+  .cardTitle {
+    font-size: 22px;
+  }
+
+  .cardDark {
+    min-height: unset;
+    padding: 28px 20px;
+  }
+
+  .cardDescription {
+    font-size: 15px;
+  }
+}

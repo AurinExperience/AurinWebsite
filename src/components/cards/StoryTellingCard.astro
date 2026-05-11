@@ -14,7 +14,7 @@ const { letter, title, href, variant = 'dark' } = Astro.props;
 
 <li class="splide__slide" role="listitem">
   <a href={href} class={styles['card-link']} aria-label={`Ver más sobre ${title}`}>
-    <div class={`${styles.card} ${styles[variant]}`}>
+    <div class={`${styles.card} ${styles[variant]}`} data-story-card>
       <div class={styles['card-letter']} aria-hidden="true">
         {letter}
       </div>
