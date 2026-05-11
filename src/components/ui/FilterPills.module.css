@@ -55,7 +55,6 @@
   border-color: var(--color-yellow);
   color: var(--color-black-a);
   font-weight: 600;
-  padding-left: 28px;
 }
 
 .pill[data-active="true"]:hover,
@@ -64,20 +63,6 @@
   border-color: var(--color-yellow);
   color: var(--color-black-a);
   transform: translateY(-2px);
-}
-
-/* Category Color Indicator */
-.pill[data-active="true"]::before,
-.pill.active::before {
-  content: '';
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--color-black-a);
 }
 
 /* Responsive Design */
@@ -94,16 +79,6 @@
   .pill {
     padding: 8px 16px;
     font-size: 15px;
-  }
-
-  .pill.active {
-    padding-left: 24px;
-  }
-
-  .pill.active::before {
-    left: 6px;
-    width: 5px;
-    height: 5px;
   }
 }
 

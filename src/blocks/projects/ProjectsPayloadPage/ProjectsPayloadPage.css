@@ -1,0 +1,275 @@
+/* ══════════════════════════════════════════
+   ProjectsPayloadPage — Scoped styles
+   All selectors are nested under .projects-page
+   to avoid global collisions.
+   ══════════════════════════════════════════ */
+
+.projects-page {
+  min-height: 100vh;
+  padding-top: 2rem;
+}
+
+/* ── Container ────────────────────────── */
+.projects-page .container {
+  max-width: var(--maxWidth, 1200px);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ── Hero ──────────────────────────────── */
+.projects-page .hero {
+  padding: 4rem 0;
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-black-a, #1a1a1a) 0%, #2a2a2a 100%);
+  color: var(--color-white, #fff);
+}
+
+.projects-page .hero h1 {
+  font-size: var(--font-size-5xl, 3rem);
+  font-weight: var(--font-weight-light, 300);
+  color: var(--color-yellow, #d0df00);
+  margin: 0 0 1rem;
+}
+
+.projects-page .hero p {
+  font-size: var(--font-size-xl, 1.2rem);
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Filters ───────────────────────────── */
+.projects-page .filters {
+  padding: 2rem 0;
+  background: #f8f9fa;
+}
+
+.projects-page .filters h2 {
+  font-size: var(--font-size-2xl, 1.5rem);
+  color: #333;
+  margin: 0 0 1.5rem;
+}
+
+.projects-page .filter-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.projects-page .filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  background: white;
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.projects-page .filter-btn:hover {
+  border-color: #b8c700;
+  background: #f9fbe6;
+  transform: translateY(-1px);
+}
+
+.projects-page .filter-btn.active {
+  border-color: var(--color-yellow, #d0df00);
+  background: var(--color-yellow, #d0df00);
+  color: var(--color-black-a, #1a1a1a);
+  font-weight: 600;
+}
+
+.projects-page .filter-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.projects-page .filter-btn.active .filter-checkbox {
+  background: var(--color-black-a, #1a1a1a);
+  border-color: var(--color-black-a, #1a1a1a);
+}
+
+.projects-page .checkmark {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.2s ease;
+  color: var(--color-yellow, #d0df00);
+}
+
+.projects-page .filter-btn.active .checkmark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.projects-page .filter-label {
+  line-height: 1;
+}
+
+/* ── Projects grid ─────────────────────── */
+.projects-page .projects-grid {
+  padding: 4rem 0;
+}
+
+.projects-page .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+/* ── Card ──────────────────────────────── */
+.projects-page .project-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projects-page .project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.projects-page .project-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.projects-page .project-image {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.projects-page .project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.projects-page .project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.projects-page .placeholder {
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.projects-page .project-content {
+  padding: 1.5rem;
+}
+
+.projects-page .project-meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  min-height: 1.5rem;
+}
+
+.projects-page .featured-badge {
+  background: var(--color-yellow, #d0df00);
+  color: #333;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.projects-page .project-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.projects-page .project-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.projects-page .project-services {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.projects-page .service-tag {
+  background: #f0f0f0;
+  color: #666;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.projects-page .service-more {
+  background: var(--color-yellow, #d0df00);
+  color: #333;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ── Empty state ───────────────────────── */
+.projects-page .empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+.projects-page .empty-state h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* ── Responsive ────────────────────────── */
+@media (max-width: 768px) {
+  .projects-page .hero h1 {
+    font-size: var(--font-size-4xl, 2rem);
+  }
+
+  .projects-page .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-page .filter-buttons {
+    justify-content: center;
+  }
+
+  .projects-page .filter-btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.875rem;
+  }
+
+  .projects-page .filters h2 {
+    text-align: center;
+    font-size: var(--font-size-xl, 1.25rem);
+  }
+}

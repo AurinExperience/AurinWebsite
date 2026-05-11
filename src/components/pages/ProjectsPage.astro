@@ -7,12 +7,12 @@
 import type { CollectionPageStructuredData } from "@/types/seo";
 import { SITE } from "@/config/site";
 import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
-import Introduction from "@/blocks/projects/Introduction/Introduction.astro";
-import ProjectsListSection from "@/blocks/projects/ProjectsListSection/ProjectsListSection.astro";
+import HeroProjects from "@/blocks/projects/HeroProjects/HeroProjects.astro";
+import ProjectsList from "@/blocks/projects/ProjectsList/ProjectsList.astro";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
-import CtaBanner from "@/components/layout/CtaBanner.astro";
+import Banner from "@/components/layout/CtaBanner.astro";
 
 // Detect current language from URL automatically
 const currentLang = getLangFromUrl(Astro.url);
@@ -123,9 +123,9 @@ const speakable = [
 >
   <Header />
   <main id="main-content">
-    <Introduction />
-    <ProjectsListSection />
-    <CtaBanner />
+    <HeroProjects />
+    <ProjectsList />
+    <Banner />
     <Footer />
   </main>
 </Layout>
