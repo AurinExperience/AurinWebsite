@@ -40,9 +40,6 @@ const vectorSrc =
                 <p class={styles.cardTitle}>{service.title}</p>
               </div>
               <div class={styles.cardDark}>
-                <div class={styles.cardVector} aria-hidden="true">
-                  <img src={vectorSrc} alt="" />
-                </div>
                 <p class={styles.cardDescription}>{service.description}</p>
               </div>
             </div>
@@ -89,7 +86,8 @@ const vectorSrc =
       // Sync header scroll with the first card when the section ends so they move up together
       if (header && cards.length > 0) {
         const card0 = cards[0] as HTMLElement;
-        const card0StickyTop = parseFloat(window.getComputedStyle(card0).top) || 0;
+        const card0StickyTop =
+          parseFloat(window.getComputedStyle(card0).top) || 0;
         const card0Rect = card0.getBoundingClientRect();
 
         // When the container ends, card0 is pushed up above its sticky top.
