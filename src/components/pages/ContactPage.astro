@@ -10,6 +10,7 @@ import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
+import HeroContact from "@/blocks/shared/Contact/HeroContact.astro";
 import Form from "@/blocks/shared/Contact/Form.astro";
 import Toast from "@/components/ui/Toast.astro";
 
@@ -61,6 +62,7 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/contact", currentLang);
 >
   <Header />
   <main id="main-content">
+    <HeroContact />
     <Form />
     <Toast />
     <Footer />

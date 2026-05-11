@@ -1,0 +1,131 @@
+.hero {
+  width: 100%;
+  background-color: var(--color-black-a);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding-block-start: clamp(14rem, 16vh, 12rem);
+  padding-block-end: clamp(8rem, 8vh, 6rem);
+  padding-inline: var(--section-padding-x);
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--spacing-8), 4vw, 56px);
+  position: relative;
+  z-index: 2;
+}
+
+.heading {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.headingVector {
+  position: absolute;
+  left: 0;
+  top: 63%;
+  transform: translateY(-50%);
+  width: clamp(22rem, 38%, 38rem);
+  height: auto;
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.titleLine1 {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-light);
+  font-size: clamp(1.375rem, 2.5vw, 2rem);
+  line-height: 1.09;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.titleLine2 {
+  color: var(--color-yellow);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-light);
+  font-size: clamp(1.75rem, 3.75vw, 3rem);
+  line-height: 1.04;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.description {
+  flex: 0 0 auto;
+  width: min(594px, 52%);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-regular);
+  font-size: clamp(var(--font-size-base), 1.5vw, 1.25rem);
+  line-height: 1.5;
+}
+
+.description p {
+  margin: 0;
+}
+
+.vectorBg {
+  position: absolute;
+  left: -87px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(20rem, 60%, 56.93rem);
+  height: auto;
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+@media (max-width: 992px) {
+  .description {
+    width: min(480px, 55%);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-8);
+    padding-block-start: clamp(12rem, 12vh, 12rem);
+    padding-block-end: clamp(5rem, 6vh, 4rem);
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .vectorBg {
+    width: clamp(16rem, 80%, 26rem);
+    top: auto;
+    bottom: -2rem;
+    transform: none;
+  }
+
+  .headingVector {
+    top: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .titleLine1 {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+  }
+
+  .titleLine2 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+}

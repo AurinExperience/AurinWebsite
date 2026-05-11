@@ -70,6 +70,12 @@ export const translations = {
         success: "Message sent successfully! We will contact you soon.",
         error: "Error: Could not send message",
         networkError: "Connection error. Please try again."
+      },
+      hero: {
+        titleLine1: "We build paths",
+        titleLine2: "that transform",
+        description1: "Every great story starts with an idea and the people willing to make it a reality.",
+        description2: "At Aurin, we work with you to transform that vision into something that inspires and endures."
       }
     },
     chatbot: {
@@ -679,6 +685,12 @@ export const translations = {
         success: "¡Mensaje enviado correctamente! Te contactaremos pronto.",
         error: "Error: No se pudo enviar el mensaje",
         networkError: "Error de conexión. Por favor, inténtalo de nuevo."
+      },
+      hero: {
+        titleLine1: "Construimos caminos",
+        titleLine2: "que transforman",
+        description1: "Toda gran historia empieza con una idea y con las personas dispuestas a hacerla realidad.",
+        description2: "En Aurin, trabajamos contigo para transformar esa visión en algo que inspire y perdure."
       }
     },
     chatbot: {

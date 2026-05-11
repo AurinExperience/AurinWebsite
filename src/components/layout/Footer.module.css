@@ -70,7 +70,7 @@
   z-index: 1;
 }
 
-/* Glow: anchored to the left edge of the full-width footerContent */
+/* Glow: anchored left, vertically centered */
 .glow {
   position: absolute;
   left: 0;
@@ -222,6 +222,12 @@
     height: 600px;
   }
 
+  .glow {
+    left: 0;
+    top: 40%;
+    transform: translateY(-50%);
+  }
+
 }
 
 @media (max-width: 968px) {
@@ -248,13 +254,13 @@
     height: auto;
   }
 
-  /* Anchor glow to top-left to align with the logo */
+  /* Glow aligned with logo on mobile, anchored left */
   .glow {
     top: 0;
-    left: -40px;
+    left: 0;
     transform: none;
     height: auto;
-    width: clamp(380px, 110vw, 520px);
+    width: clamp(460px, 130vw, 620px);
   }
 
   .footerContainer {

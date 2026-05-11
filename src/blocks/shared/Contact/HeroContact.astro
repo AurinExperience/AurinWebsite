@@ -1,0 +1,40 @@
+---
+import { getLangFromUrl, translations } from "@/i18n";
+import styles from "./HeroContact.module.css";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+---
+
+<section class={styles.hero} id="hero-contact">
+  <img
+    src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/Vector-hero-contact.svg"
+    class={styles.vectorBg}
+    aria-hidden="true"
+    alt=""
+    loading="eager"
+    decoding="async"
+  />
+  <img
+    src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/Vector.svg"
+    class={styles.headingVector}
+    aria-hidden="true"
+    alt=""
+    loading="eager"
+    decoding="async"
+  />
+  <div class={styles.container}>
+    <div class={styles.heading}>
+      <p class={styles.titleLine1}>{t.contact.hero.titleLine1}</p>
+      <p class={styles.titleLine2}>{t.contact.hero.titleLine2}</p>
+    </div>
+    <div class={styles.description}>
+      <p>
+        {t.contact.hero.description1}
+        <br aria-hidden="true" />
+        <br aria-hidden="true" />
+        {t.contact.hero.description2}
+      </p>
+    </div>
+  </div>
+</section>
