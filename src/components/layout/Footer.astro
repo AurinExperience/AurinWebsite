@@ -79,8 +79,8 @@ const t = translations[currentLang];
   gsap.registerPlugin(ScrollTrigger);
 
   function initFooter() {
-    // 1. Initialize Parallax Effect (desktop only)
-    if (window.innerWidth > 768) {
+    // 1. Initialize Parallax Effect (desktop only, and tall enough screens)
+    if (window.innerWidth > 768 && window.innerHeight > 750) {
       const footerElements = document.querySelectorAll("[data-footer-parallax]");
 
       footerElements.forEach((el) => {

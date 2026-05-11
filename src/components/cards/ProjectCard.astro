@@ -28,9 +28,21 @@ const {
 } = Astro.props;
 
 const uniqueId = `project-card-${Math.random().toString(36).substr(2, 9)}`;
+
+const allTags = [...(tags || []), ...(services ? services.map(s => s.name) : [])];
+// If the first tag is too long, only show 1 tag to prevent the second tag's dot from rendering weirdly
+const displayCount = (allTags[0] && allTags[0].length > 18) ? 1 : 2;
+const displayTags = allTags.slice(0, displayCount);
+const remainingCount = allTags.length - displayCount;
+const hiddenTags = allTags.slice(displayCount);
 ---
 
 <a href={href} class={`${styles['project-card']} ${className}`} data-card-id={uniqueId} data-project-card data-category={category} data-filters={JSON.stringify(filters)}>
+  {remainingCount > 0 && (
+    <div class={styles['tooltip']} data-tooltip>
+      {hiddenTags.join(' • ')}
+    </div>
+  )}
   <div class={styles['card-content']}>
     <!-- Image container -->
     <Tilt 
@@ -47,22 +59,26 @@ const uniqueId = `project-card-${Math.random().toString(36).substr(2, 9)}`;
     <!-- Info section -->
     <div class={styles['info-section']}>
       <div class={styles['info-content']}>
-        <!-- Title -->
-        <h3 class={`${styles['project-title']} description`} set:html={title}></h3>
-
-        <!-- Services (Chips Verdes) -->
-        {showChips && services.length > 0 && (
-          <div class={styles['services-container']}>
-            {services.slice(0, 3).map((service) => (
-              <span class={styles['service-chip']}>{service.name}</span>
+        <!-- Tags (Services and categories) -->
+        {allTags.length > 0 && (
+          <div class={styles['tags-container']}>
+            {displayTags.map((tag) => (
+              <div class={styles['tag-item']}>
+                <div class={styles['tag-dot']}></div>
+                <div class={styles['tag-text']}>{tag}</div>
+              </div>
             ))}
-            {services.length > 3 && (
-              <span class={`${styles['service-chip']} ${styles['service-more']}`}>
-                +{services.length - 3}
-              </span>
+            {remainingCount > 0 && (
+              <div class={`${styles['tag-item']} ${styles['tag-count']}`}>
+                <div class={styles['tag-dot']}></div>
+                <div class={styles['tag-text']}>+{remainingCount}</div>
+              </div>
             )}
           </div>
         )}
+
+        <!-- Title -->
+        <h3 class={styles['project-title']} set:html={title}></h3>
       </div>
 
       <!-- Arrow button -->
@@ -110,6 +126,33 @@ const uniqueId = `project-card-${Math.random().toString(36).substr(2, 9)}`;
         // Delay más rápido para mejor UX
         card.style.transitionDelay = `${index * 0.08}s`;
         observer.observe(card);
+
+        // Tooltip logic
+        const tooltip = card.querySelector('[data-tooltip]');
+        if (tooltip) {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top - 20; // 20px above cursor
+
+            // Boundary limits to prevent sticking out
+            const tw = tooltip.offsetWidth;
+            const th = tooltip.offsetHeight;
+            const padding = 10;
+
+            // X is centered (-50%), so the left edge is x - tw/2, right edge is x + tw/2
+            const minX = (tw / 2) + padding;
+            const maxX = rect.width - (tw / 2) - padding;
+            x = Math.max(minX, Math.min(x, maxX));
+
+            // Y is bottom-aligned (-100%), so top edge is y - th, bottom edge is y
+            const minY = th + padding;
+            const maxY = rect.height - padding;
+            y = Math.max(minY, Math.min(y, maxY));
+
+            tooltip.style.transform = `translate(-50%, -100%) translate(${x}px, ${y}px)`;
+          });
+        }
       });
     }
     

@@ -274,15 +274,19 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-height: 750px) and (min-width: 769px) {
   .stickyFooter {
-    height: 650px;
+    height: auto;
+    clip-path: none;
   }
-
   .stickyContainer {
-    height: 650px;
+    position: relative;
+    bottom: auto;
+    height: auto;
   }
+}
 
+@media (max-width: 640px) {
   .footerContainer {
     --footer-px: 24px;
   }
@@ -311,14 +315,6 @@
 }
 
 @media (max-width: 480px) {
-  .stickyFooter {
-    height: 450px;
-  }
-
-  .stickyContainer {
-    height: 450px;
-  }
-
   .footerContainer {
     --footer-px: 16px;
     padding-top: 32px;
