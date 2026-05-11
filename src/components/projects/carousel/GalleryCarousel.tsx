@@ -157,10 +157,9 @@ const GalleryCarousel = ({ data = [] }: GalleryCarouselProps) => {
     return (
       <div style={{
         width: '100%',
-        maxWidth: '100vw',
-        padding: '2rem',
         textAlign: 'center',
-        color: 'white'
+        color: 'white',
+        padding: '2rem 0'
       }}>
         No hay imágenes disponibles
       </div>
@@ -172,23 +171,15 @@ const GalleryCarousel = ({ data = [] }: GalleryCarouselProps) => {
     return (
       <div style={{
         width: '100%',
-        maxWidth: '100vw',
-        padding: '2rem',
-        textAlign: 'center',
+        height: '362px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '10px',
+        background: 'rgba(255, 255, 255, 0.05)',
         color: 'white'
       }}>
-        <div style={{
-          width: '100%',
-          height: '80vh',
-          minHeight: '500px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderRadius: '0.75rem',
-          background: 'rgba(255, 255, 255, 0.05)'
-        }}>
-          Cargando imágenes...
-        </div>
+        Cargando imágenes...
       </div>
     );
   }
@@ -197,8 +188,6 @@ const GalleryCarousel = ({ data = [] }: GalleryCarouselProps) => {
     <div
       style={{
         width: '100%',
-        maxWidth: '100vw',
-        padding: '0 1rem',
         position: 'relative'
       }}
       onMouseEnter={handleMouseEnter}
@@ -206,82 +195,26 @@ const GalleryCarousel = ({ data = [] }: GalleryCarouselProps) => {
     >
       <div style={{
         width: '100%',
-        maxWidth: data.length === 1 ? '1200px' : '100%',
-        margin: '0 auto',
         position: 'relative'
       }}>
-        {/* Navigation Buttons - Only show if more than 2 images */}
+        {/* Navigation Buttons — inside the image, vertically centered */}
         {showNavigation && data.length > cardsPerView && (
           <>
             <button
               onClick={prevSlide}
               disabled={isAnimating}
               aria-label="Imagen anterior"
-              style={{
-                position: 'absolute',
-                left: '2rem',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 10,
-                background: 'rgba(0, 0, 0, 0.6)',
-                color: 'white',
-                padding: '0.75rem',
-                borderRadius: '50%',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                width: '3.5rem',
-                height: '3.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(0, 0, 0, 0.8)';
-                e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(0, 0, 0, 0.6)';
-                e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-              }}
+              className="gallery-nav-btn gallery-nav-prev"
             >
-              <ChevronLeft size={28} strokeWidth={2.5} />
+              <ChevronLeft size={24} strokeWidth={2} />
             </button>
             <button
               onClick={nextSlide}
               disabled={isAnimating}
               aria-label="Siguiente imagen"
-              style={{
-                position: 'absolute',
-                right: '2rem',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 10,
-                background: 'rgba(0, 0, 0, 0.6)',
-                color: 'white',
-                padding: '0.75rem',
-                borderRadius: '50%',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                width: '3.5rem',
-                height: '3.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(0, 0, 0, 0.8)';
-                e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(0, 0, 0, 0.6)';
-                e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-              }}
+              className="gallery-nav-btn gallery-nav-next"
             >
-              <ChevronRight size={28} strokeWidth={2.5} />
+              <ChevronRight size={24} strokeWidth={2} />
             </button>
           </>
         )}
@@ -290,7 +223,7 @@ const GalleryCarousel = ({ data = [] }: GalleryCarouselProps) => {
         <div style={{
           overflow: 'hidden',
           width: '100%',
-          maxWidth: '100%'
+          borderRadius: '10px'
         }}>
           {/* Sliding Cards Container */}
           <div
@@ -308,40 +241,28 @@ const GalleryCarousel = ({ data = [] }: GalleryCarouselProps) => {
                 key={`slide-${idx}`}
                 style={{
                   width: `${100 / extendedData.length}%`,
-                  padding: '0 0.5rem',
                   boxSizing: 'border-box',
                   flexShrink: 0
                 }}
               >
                 <div style={{
-                  position: 'relative',
-                  overflow: 'hidden',
-                  borderRadius: '0.75rem',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
-                  height: '100%'
+                  width: '100%',
+                  height: '362px',
+                  overflow: 'hidden'
                 }}>
-                  <div style={{
-                    width: '100%',
-                    height: '80vh',
-                    minHeight: '500px',
-                    maxHeight: '900px'
-                  }}>
-                    <img
-                      src={card.imgUrl}
-                      alt={card.alt || ''}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        transition: 'transform 0.3s ease',
-                        userSelect: 'none',
-                        pointerEvents: 'none'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
-                      onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                      loading="eager"
-                    />
-                  </div>
+                  <img
+                    src={card.imgUrl}
+                    alt={card.alt || ''}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      userSelect: 'none',
+                      pointerEvents: 'none',
+                      display: 'block'
+                    }}
+                    loading="eager"
+                  />
                 </div>
               </div>
             ))}
@@ -349,16 +270,42 @@ const GalleryCarousel = ({ data = [] }: GalleryCarouselProps) => {
         </div>
       </div>
 
-      {/* Mobile responsive styles */}
+      {/* Carousel styles */}
       <style>{`
-        @media (max-width: 767px) {
-          button[aria-label*="Imagen"] {
-            width: 3rem !important;
-            height: 3rem !important;
-            left: 0.5rem !important;
+        .gallery-nav-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 10;
+          background: transparent;
+          color: white;
+          padding: 0;
+          border-radius: 0;
+          border: none;
+          cursor: pointer;
+          width: 24px;
+          height: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: opacity 0.3s ease;
+          opacity: 0.8;
+        }
+        .gallery-nav-btn:hover {
+          opacity: 1;
+        }
+        .gallery-nav-prev {
+          left: 20px;
+        }
+        .gallery-nav-next {
+          right: 12px;
+        }
+        @media (max-width: 768px) {
+          .gallery-nav-prev {
+            left: 12px;
           }
-          button[aria-label*="Siguiente"] {
-            right: 0.5rem !important;
+          .gallery-nav-next {
+            right: 8px;
           }
         }
       `}</style>

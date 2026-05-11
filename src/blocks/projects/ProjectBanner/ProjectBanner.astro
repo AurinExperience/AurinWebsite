@@ -5,71 +5,42 @@ interface Props {
   title: string;
   categories: string[];
   description: string;
-  bannerImage?: string;
+  clientLogo?: string;
+  heroImage?: string;
 }
 
-const { title, categories, description, bannerImage } = Astro.props;
+const { title, categories, description, clientLogo, heroImage } = Astro.props;
 ---
 
 <section class={styles.banner}>
   <div class={styles.container}>
-    <div class={styles.content}>
-      <div class={styles.textSection}>
+    <div class={styles.information}>
+      {clientLogo && (
+        <div class={styles.logoWrapper}>
+          <img src={clientLogo} alt={`${title} logo`} class={styles.logoImage} />
+        </div>
+      )}
+      
+      <div class={styles.titleWrapper}>
         <h1 class={styles.title}>{title}</h1>
+      </div>
+
+      {categories && categories.length > 0 && (
         <div class={styles.categories}>
           {categories.map((category) => (
             <span class={styles.category}>{category}</span>
           ))}
         </div>
-        <div class={styles.descriptionWrapper}>
-          <div class={styles.description} set:html={description}></div>
-        </div>
-      </div>
-
-      <div class={styles.imageSection}>
-        {bannerImage ? (
-          <img
-            src={bannerImage}
-            alt={title}
-            class={styles.bannerImage}
-          />
-        ) : (
-          <div class={styles.placeholder}>
-            <span>Banner Imagen</span>
-          </div>
-        )}
-      </div>
+      )}
     </div>
 
-  
+    <div class={styles.heroImageWrapper}>
+      {heroImage ? (
+        <img src={heroImage} alt={title} class={styles.heroImage} />
+      ) : (
+        <div class={styles.imagePlaceholder}></div>
+      )}
+    </div>
   </div>
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const scrollButton = document.getElementById('scrollDownButton');
-    
-    if (scrollButton) {
-      scrollButton.addEventListener('click', () => {
-        // Find the first section after the banner (case study section)
-        const caseStudySection = document.querySelector('[class*="caseStudy"]');
-        
-        if (caseStudySection) {
-          caseStudySection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        } else {
-          // If no case study, scroll to next available section
-          const nextSection = document.querySelector('article > section:nth-child(2)');
-          if (nextSection) {
-            nextSection.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        }
-      });
-    }
-  });
-</script>

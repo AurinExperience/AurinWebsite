@@ -1,8 +1,8 @@
 ---
 /**
  * ProjectSlugPage — Shared page template for individual project detail pages.
- * Used by both src/pages/project-payload/[slug].astro (ES)
- * and src/pages/en/proyecto-payload/[slug].astro (EN).
+ * Used by both src/pages/project/[slug].astro (ES)
+ * and src/pages/en/project/[slug].astro (EN).
  * Language is detected automatically from the URL.
  */
 import type { WebPageStructuredData } from "@/types/seo";
@@ -20,6 +20,8 @@ import {
   type PayloadProject,
   getImageUrl,
   renderRichText,
+  renderRichTextHeadings,
+  renderRichTextBody,
 } from "@/lib/payload";
 
 export const prerender = false;
@@ -64,9 +66,12 @@ const projectData = project
       projectCategories:
         project.hero.services?.map((service) => service.name) || [],
       projectDescription: renderRichText(project.hero.description),
-      bannerImage:
-        getImageUrl(project.client?.logo?.url) ||
-        getImageUrl(project.hero.bannerImage?.url),
+      descriptionHeading: renderRichTextHeadings(project.hero.description),
+      descriptionBody: renderRichTextBody(project.hero.description),
+      clientLogo: getImageUrl(project.client?.logo?.url),
+      clientName: project.client?.name,
+      clientIndustry: project.client?.industry,
+      heroImage: getImageUrl(project.hero.bannerImage?.url),
       gallery:
         project.gallery?.map((item) => ({
           imgUrl: getImageUrl(item.image?.url),
@@ -88,7 +93,7 @@ const structuredData: WebPageStructuredData = {
   "@type": "WebPage",
   name: seoTitle,
   description: seoDescription,
-  url: `${SITE.url}/project-payload/${slug}`,
+  url: `${SITE.url}/project/${slug}`,
   provider: {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -101,11 +106,7 @@ const structuredData: WebPageStructuredData = {
 // CSS selectors for speakable content (voice optimization)
 const speakable = [".project-detail", ".project-description"];
 
-const canonicalUrl = getCanonicalUrl(
-  SITE.url,
-  `/project-payload/${slug}`,
-  currentLang,
-);
+const canonicalUrl = getCanonicalUrl(SITE.url, `/project/${slug}`, currentLang);
 ---
 
 <Layout
@@ -120,7 +121,7 @@ const canonicalUrl = getCanonicalUrl(
   <Header />
   <main id="main-content">
     <Template projectData={projectData} />
-    <DynamicProjects />
+    <DynamicProjects maxProjects={3} showChips={false} />
     <CtaBanner />
     <Footer />
   </main>

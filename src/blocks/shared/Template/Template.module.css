@@ -1,7 +1,6 @@
 .projectTemplate {
   width: 100%;
   min-height: 100vh;
-  outline-offset: -0.5px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -11,15 +10,73 @@
   scroll-behavior: smooth;
 }
 
-.gallerySection {
+/* ── Content section: heading + description + gallery ── */
+.contentSection {
+  box-sizing: border-box;
   width: 100%;
-  padding: 60px 0;
-  max-width: var(--maxWidth);
-  margin: 0 auto;
+  background-color: #0A0A0A;
+  padding-block-start: 40px;
+  padding-block-end: 56px;
+  padding-inline: var(--section-padding-x);
 }
 
+.contentContainer {
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/*
+ * Section heading — rendered from rich text <h2> nodes.
+ * Figma: max-width 466px, Titillium Web Light.
+ * The global base.css h2 styles apply automatically:
+ *   h2 = 48px, #D0DF00, font-weight 300
+ *   h2 span = 32px, white, line-height 35px, display block
+ */
+.sectionHeading {
+  max-width: 466px;
+}
+
+/*
+ * Body text — Urbanist Regular, 20px, line-height 1.32, white.
+ * Figma: max-width 877px.
+ */
+.descriptionText {
+  color: white;
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 1.32;
+  font-weight: 400;
+  max-width: 877px;
+}
+
+.descriptionText p {
+  margin: 0 0 1em 0;
+}
+
+.descriptionText p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Gallery wrapper ── */
+.galleryWrapper {
+  width: 100%;
+}
+
+/* ── Responsive ── */
 @media (max-width: 768px) {
-  .gallerySection {
-    padding: 40px 0;
+  .contentSection {
+    padding-block-start: 32px;
+    padding-block-end: 40px;
+  }
+
+  .contentContainer {
+    gap: 40px;
+  }
+
+  .descriptionText {
+    font-size: 16px;
   }
 }

@@ -1,182 +1,161 @@
 /* Mobile-first: Base styles for mobile */
 .banner {
+  background-color: #0A0A0A;
   position: relative;
   width: 100%;
-  outline-offset: -0.5px;
 }
 
 .container {
-  padding: 24px 20px;
+  box-sizing: border-box;
+  width: 100%;
   max-width: var(--maxWidth);
   margin: 0 auto;
+  padding-block-start: 160px;
+  padding-block-end: 40px;
+  padding-inline: var(--section-padding-x);
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 32px;
 }
 
-.content {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 30px;
-  padding: 50px 100px 0px 100px;
-}
-
-.imageSection {
-  width: 80px;
-  aspect-ratio: 1 / 1;
-  align-self: flex-start;
-}
-
-/* Remove side padding for viewports smaller than 910px */
-@media (max-width: 909px) {
-  .content {
-    padding: 50px 0px 0px 0px;
-  }
-}
-
-.textSection {
+.information {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
+}
+
+.logoWrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logoImage {
+  max-width: 250px;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+  /* El logo es de colores en DB, lo forzamos a blanco para el diseño dark */
+  filter: brightness(0) invert(1);
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
   color: #D0DF00;
   font-family: var(--font-heading);
-  font-size: var(--font-size-6xl);
-  font-weight: 500;
-  line-height: normal;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1.1;
   margin: 0;
 }
 
 .categories {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
+  gap: 24px;
+  align-items: flex-end;
 }
 
 .category {
-  color: rgb(0, 0, 0);
-  background-color: #D0DF00;
-  padding: 6px 12px;
-  border-radius: 100px;
+  color: white;
   font-family: var(--font-body);
-  font-size: normal;
-  font-weight: 600;
-  line-height: normal;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.32;
+  margin: 0;
   white-space: nowrap;
 }
 
-
-.bannerImage {
+.heroImageWrapper {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #d9d9d9;
 }
 
-.placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.heroImage {
   width: 100%;
-  height: 100%;
-  min-height: 250px;
-  padding: 20px;
+  height: 250px;
+  display: block;
+  object-fit: cover;
 }
 
-.placeholder span {
-  color: white;
-  font-family: var(--font-heading);
-  font-size: var(--font-size-5xl);
-  font-weight: var(--font-weight-regular);
-  line-height: 56px;
-  text-align: center;
+.imagePlaceholder {
+  width: 100%;
+  height: 250px;
+  background-color: #d9d9d9;
 }
 
-.descriptionWrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-.description {
-  color: white;
-  font-family: var(--font-body);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-regular);
-  line-height: normal;
-  margin: 0;
-}
-
-.scrollButton {
-  width: 106px;
-  padding: 8px;
-  background: rgba(255, 255, 255, 0.10);
-  border: none;
-  border-radius: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  align-self: center;
-}
-
-.scrollButton:hover {
-  background: rgba(255, 255, 255, 0.20);
-}
-
-.scrollButton svg {
-  width: 24px;
-  height: 24px;
-  color: white;
+/* Mobile: up to 767px */
+@media (max-width: 767px) {
+  .logoImage {
+    max-width: 140px;
+    max-height: 80px;
+  }
 }
 
 /* Tablet: 768px and up */
 @media (min-width: 768px) {
   .container {
-    padding: 24px 30px;
     gap: 40px;
   }
 
-  .content {
-    gap: 40px;
+  .information {
+    gap: 28px;
+  }
+
+  .title {
+    font-size: 42px;
   }
 
   .categories {
-    gap: 16px;
+    gap: 32px;
+  }
+
+  .category {
+    font-size: 18px;
+  }
+
+  .imagePlaceholder {
+    height: 300px;
+  }
+  .heroImage {
+    height: 300px;
   }
 }
 
 /* Desktop: 1024px and up */
 @media (min-width: 1024px) {
   .container {
-    padding: 24px 50px;
-    gap: 20px;
+    gap: 56px;
   }
 
-  .content {
-    flex-direction: column-reverse;
-    gap: 20px;
-    max-width: 60%;
+  .information {
+    gap: 32px;
   }
 
-  .textSection {
-    flex: 1;
-    gap: 36px;
-  }
-
-  .imageSection {
-    width: 18%;
-    margin-bottom: 10px;
+  .title {
+    font-size: 48px;
+    line-height: 50px;
   }
 
   .categories {
-    gap: 20px;
+    gap: 56px;
   }
-}
 
-/* Large Desktop: 1440px and up */
-@media (min-width: 1440px) {
+  .category {
+    font-size: 20px;
+  }
+
+  .imagePlaceholder {
+    height: 362px;
+  }
+
+  .heroImage {
+    height: 362px;
+  }
 }

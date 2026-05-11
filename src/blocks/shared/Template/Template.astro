@@ -1,7 +1,7 @@
 ---
 /**
  * Template — Project detail content block.
- * Renders the project banner + gallery carousel.
+ * Renders the project banner, description heading, body text, and gallery carousel.
  * Layout shell (Header, Footer, Vignette, etc.) is owned by the page component.
  */
 import ProjectBanner from "@/blocks/projects/ProjectBanner/ProjectBanner.astro";
@@ -17,7 +17,12 @@ interface ProjectTemplateProps {
   projectTitle: string;
   projectCategories: string[];
   projectDescription: string;
-  bannerImage?: string;
+  descriptionHeading?: string;
+  descriptionBody?: string;
+  clientLogo?: string;
+  clientName?: string;
+  clientIndustry?: string;
+  heroImage?: string;
   gallery?: GalleryImage[];
   publishDate?: Date;
   featured?: boolean;
@@ -29,6 +34,9 @@ interface Props {
 }
 
 const { projectData } = Astro.props;
+
+const hasHeading = projectData.descriptionHeading && projectData.descriptionHeading.trim() !== '';
+const hasBody = projectData.descriptionBody && projectData.descriptionBody.trim() !== '';
 ---
 
 <article class={styles.projectTemplate}>
@@ -36,15 +44,28 @@ const { projectData } = Astro.props;
     title={projectData.projectTitle}
     categories={projectData.projectCategories}
     description={projectData.projectDescription}
-    bannerImage={projectData.bannerImage}
+    clientLogo={projectData.clientLogo}
+    heroImage={projectData.heroImage}
   />
 
-  {projectData.gallery && projectData.gallery.length > 0 && (
-    <section class={styles.gallerySection}>
-      <GalleryCarousel
-        client:visible
-        data={projectData.gallery}
-      />
-    </section>
-  )}
+  <section class={styles.contentSection}>
+    <div class={styles.contentContainer}>
+      {hasHeading && (
+        <div class={styles.sectionHeading} set:html={projectData.descriptionHeading} />
+      )}
+
+      {hasBody && (
+        <div class={styles.descriptionText} set:html={projectData.descriptionBody} />
+      )}
+
+      {projectData.gallery && projectData.gallery.length > 0 && (
+        <div class={styles.galleryWrapper}>
+          <GalleryCarousel
+            client:visible
+            data={projectData.gallery}
+          />
+        </div>
+      )}
+    </div>
+  </section>
 </article>

@@ -201,7 +201,7 @@ export function getImageUrl(imageUrl: string | undefined): string {
 // Helper functions for Astro components
 export function getProjectUrl(project: PayloadProject, locale: string = 'es'): string {
   const prefix = locale === 'es' ? '' : `/${locale}`;
-  return `${prefix}/project-payload/${project.slug}`;
+  return `${prefix}/project/${project.slug}`;
 }
 
 export function getTagUrl(tag: PayloadTag, locale: string = 'es'): string {
@@ -321,6 +321,155 @@ export function renderRichText(content: any): string {
         })
         .join('\n\n');
     }
+    return '';
+  }
+}
+
+// Splits rich text into heading-only HTML.
+// Handles two cases:
+// 1. Actual heading nodes in the Lexical JSON
+// 2. First bold paragraph (common pattern in Payload CMS)
+// Output uses the h2 > span pattern from base.css:
+//   span = first line (white, 32px)
+//   h2 text = second line (yellow, 48px)
+export function renderRichTextHeadings(content: any): string {
+  if (!content) return '';
+  if (typeof content === 'string') return '';
+
+  try {
+    if (!content.root || !content.root.children) return '';
+
+    const serializeText = (node: any): string => {
+      if (node.type === 'text') return node.text || '';
+      if (node.children) return node.children.map(serializeText).join('');
+      return '';
+    };
+
+    // Case 1: Look for actual heading nodes
+    const headingNodes = content.root.children.filter(
+      (node: any) => node.type === 'heading'
+    );
+
+    if (headingNodes.length >= 2) {
+      const firstLine = headingNodes[0].children?.map(serializeText).join('') || '';
+      const secondLine = headingNodes[1].children?.map(serializeText).join('') || '';
+      return `<h2><span>${firstLine}</span>${secondLine}</h2>`;
+    }
+
+    if (headingNodes.length === 1) {
+      const text = headingNodes[0].children?.map(serializeText).join('') || '';
+      return `<h2>${text}</h2>`;
+    }
+
+    // Case 2: First paragraph with bold text (format & 1)
+    const firstNode = content.root.children[0];
+    if (firstNode?.type === 'paragraph') {
+      const firstTextNode = firstNode.children?.[0];
+      const isBold = firstTextNode?.format && (firstTextNode.format & 1);
+
+      if (isBold && firstTextNode?.text) {
+        const fullText = firstTextNode.text.trim();
+
+        // Try to split at a natural word boundary near the middle
+        const words = fullText.split(' ');
+        if (words.length >= 3) {
+          // Find a split point around the middle
+          const midIndex = Math.ceil(words.length / 2);
+          const firstLine = words.slice(0, midIndex).join(' ');
+          const secondLine = words.slice(midIndex).join(' ');
+          return `<h2><span>${firstLine}</span>${secondLine}</h2>`;
+        }
+
+        // Short text — render as single h2
+        return `<h2>${fullText}</h2>`;
+      }
+    }
+
+    return '';
+  } catch {
+    return '';
+  }
+}
+
+// Splits rich text into body-only HTML (paragraphs, lists, etc.)
+// Excludes heading nodes AND the first bold paragraph (used as heading).
+export function renderRichTextBody(content: any): string {
+  if (!content) return '';
+  if (typeof content === 'string') return content;
+
+  try {
+    if (!content.root || !content.root.children) return '';
+
+    // Determine which nodes to skip
+    const hasHeadings = content.root.children.some(
+      (node: any) => node.type === 'heading'
+    );
+
+    let bodyNodes;
+    if (hasHeadings) {
+      // Skip heading nodes
+      bodyNodes = content.root.children.filter(
+        (node: any) => node.type !== 'heading'
+      );
+    } else {
+      // Check if first paragraph is bold (used as heading)
+      const firstNode = content.root.children[0];
+      const firstTextNode = firstNode?.children?.[0];
+      const isBoldFirstParagraph =
+        firstNode?.type === 'paragraph' &&
+        firstTextNode?.format &&
+        (firstTextNode.format & 1);
+
+      if (isBoldFirstParagraph) {
+        // Skip the first paragraph (it's the heading)
+        bodyNodes = content.root.children.slice(1);
+      } else {
+        bodyNodes = content.root.children;
+      }
+    }
+
+    if (bodyNodes.length === 0) return '';
+
+    const serializeNode = (node: any): string => {
+      if (node.type === 'text') {
+        let text = node.text || '';
+        if (node.format) {
+          if (node.format & 1) text = `<strong>${text}</strong>`;
+          if (node.format & 2) text = `<em>${text}</em>`;
+          if (node.format & 8) text = `<u>${text}</u>`;
+          if (node.format & 16) text = `<code>${text}</code>`;
+        }
+        return text;
+      }
+      if (node.type === 'paragraph') {
+        const children = node.children?.map(serializeNode).join('') || '';
+        return `<p>${children}</p>`;
+      }
+      if (node.type === 'list') {
+        const tag = node.listType === 'number' ? 'ol' : 'ul';
+        const children = node.children?.map(serializeNode).join('') || '';
+        return `<${tag}>${children}</${tag}>`;
+      }
+      if (node.type === 'listitem') {
+        const children = node.children?.map(serializeNode).join('') || '';
+        return `<li>${children}</li>`;
+      }
+      if (node.type === 'quote') {
+        const children = node.children?.map(serializeNode).join('') || '';
+        return `<blockquote>${children}</blockquote>`;
+      }
+      if (node.type === 'link' || node.type === 'autolink') {
+        const children = node.children?.map(serializeNode).join('') || '';
+        const url = node.url || '#';
+        return `<a href="${url}">${children}</a>`;
+      }
+      if (node.type === 'linebreak') return '<br>';
+      if (node.children) return node.children.map(serializeNode).join('');
+      return '';
+    };
+
+    return bodyNodes.map(serializeNode).join('');
+  } catch {
     return '';
   }
 }
