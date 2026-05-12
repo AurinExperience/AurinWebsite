@@ -59,6 +59,12 @@
   max-width: 100%;
 }
 
+@media (max-width: 1280px) {
+  .contentSection {
+    flex: 0 1 45%;
+  }
+}
+
 @media (max-width: 992px) {
   .specialties {
     padding-block: var(--spacing-16);

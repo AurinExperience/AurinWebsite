@@ -1,8 +1,10 @@
 /* Mobile-first: Base styles for mobile */
 .banner {
+  box-sizing: border-box;
   background-color: #0A0A0A;
   position: relative;
   width: 100%;
+  padding-inline: var(--section-padding-x);
 }
 
 .container {
@@ -12,7 +14,6 @@
   margin: 0 auto;
   padding-block-start: 160px;
   padding-block-end: 40px;
-  padding-inline: var(--section-padding-x);
   display: flex;
   flex-direction: column;
   gap: 32px;

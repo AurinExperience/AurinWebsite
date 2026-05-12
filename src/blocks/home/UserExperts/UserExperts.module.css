@@ -35,7 +35,7 @@
 .glow {
   position: absolute;
   left: 0;
-  top: 45%;
+  top: 56%;
   transform: translateY(-50%);
   width: 530px;
   height: 250px;
@@ -43,8 +43,8 @@
   pointer-events: none;
   mix-blend-mode: plus-lighter;
   z-index: 1;
-  -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
-  mask-image: linear-gradient(to right, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 40%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.4) 65%, transparent 85%);
+  mask-image: linear-gradient(to right, black 30%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.4) 65%, transparent 85%);
 }
 
 .bodyBlock {
@@ -110,8 +110,8 @@
   }
 
   .glow {
-    width: clamp(240px, 40vw, 380px);
-    left: -68px;
+    width: clamp(260px, 50vw, 380px);
+    left: -48px;
     height: auto;
     top: 0;
     transform: none;
@@ -139,8 +139,8 @@
   }
 
   .glow {
-    width: clamp(200px, 65vw, 280px);
-    left: -60px;
-    top: 1%;
+    width: clamp(400px, 60vw, 280px);
+    left: -10px;
+    top: -2%;
   }
 }

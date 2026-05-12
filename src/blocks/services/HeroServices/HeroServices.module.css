@@ -8,12 +8,15 @@
 .decor {
   position: absolute;
   left: 0;
-  top: 4rem;
+  top: 10%;
   width: clamp(20rem, 63%, 57rem);
   height: auto;
   pointer-events: none;
   mix-blend-mode: plus-lighter;
   z-index: 1;
+  opacity: 0.7;
+  -webkit-mask-image: linear-gradient(to right, black 35%, transparent 90%);
+  mask-image: linear-gradient(to right, black 35%, transparent 90%);
 }
 
 .inner {
@@ -77,7 +80,23 @@
   margin: 0;
 }
 
+
+@media (max-width: 1300px) {
+  .decor {
+    top: 15%;
+  }
+}
+@media (max-width: 1200px) {
+  .decor {
+    top: 18%;
+  }
+}
+
 @media (max-width: 992px) {
+  .decor {
+    top: 24%;
+  }
+
   .inner {
     gap: 40px;
   }
@@ -96,7 +115,7 @@
   }
 
   .decor {
-    top: 8rem;
+    top: 28%;
     width: clamp(18rem, 70%, 30rem);
   }
 
@@ -128,7 +147,7 @@
 
 @media (max-width: 480px) {
   .decor {
-    top: 10rem;
+    top: 42$;
     width: clamp(14rem, 80%, 22rem);
   }
 }

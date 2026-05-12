@@ -1,15 +1,15 @@
 ---
-import { getLangFromUrl, translations } from '@/i18n';
-import MainButton from '@/components/ui/MainButton.astro';
+import { getLangFromUrl, translations } from "@/i18n";
+import MainButton from "@/components/ui/MainButton.astro";
 
-import styles from './HeroProjects.module.css';
+import styles from "./HeroProjects.module.css";
 
 // Detect current language
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
 
 // Contact page URL based on language
-const contactUrl = currentLang === 'en' ? '/en/contact' : '/contact';
+const contactUrl = currentLang === "en" ? "/en/contact" : "/contact";
 ---
 
 <section class={styles.hero} id="hero-projects">
@@ -23,7 +23,10 @@ const contactUrl = currentLang === 'en' ? '/en/contact' : '/contact';
         {t.projects.introduction.description}
       </p>
       <div class={styles.ctaWrapper}>
-        <MainButton text={t.projects.introduction.ctaButton} href={contactUrl} />
+        <MainButton
+          text={t.projects.introduction.ctaButton}
+          href={contactUrl}
+        />
       </div>
     </div>
   </div>

@@ -84,7 +84,7 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	padding: 35px 25px;
+	padding: clamp(20px, 10cqw, 35px) clamp(16px, 7cqw, 25px);
 	display: flex;
 	align-items: flex-end;
 	box-sizing: border-box;
@@ -92,7 +92,7 @@
 
 .card-title {
 	color: var(--color-yellow);
-	max-width: 290px;
+	max-width: 100%;
 	transition: color 0.3s ease;
 	font-family: var(--font-heading, "Titillium Web", sans-serif);
 	font-size: clamp(20px, 9.2cqw, 32px);
@@ -102,7 +102,7 @@
 	overflow-wrap: break-word;
 	text-wrap: balance;
 	display: -webkit-box;
-	-webkit-line-clamp: 2;
+	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
@@ -119,23 +119,25 @@
 	color: var(--color-yellow) !important;
 }
 
+@container (max-width: 220px) {
+	.card-content {
+		padding: 14px 12px;
+	}
+
+	.card-title {
+		-webkit-line-clamp: 2;
+	}
+}
+
 /* Responsive */
 @media (max-width: 768px) {
 	.card {
 		max-width: 300px;
-	}
-
-	.card-content {
-		padding: 25px 20px;
 	}
 }
 
 @media (max-width: 480px) {
 	.card {
 		max-width: 260px;
-	}
-
-	.card-content {
-		padding: 20px 15px;
 	}
 }
