@@ -9,7 +9,7 @@
   max-width: var(--maxWidth);
   margin-inline: auto;
   padding-inline: var(--section-padding-x);
-  height: 350px;
+  height: 400px;
 }
 
 /* El grid es puro flex dentro del wrapper */
@@ -151,7 +151,7 @@
 /* ── Responsive ── */
 @media (max-width: 1200px) {
   .cardsWrapper {
-    height: 280px;
+    height: 320px;
   }
 
   .contentSection {
@@ -178,7 +178,7 @@
 
 @media (max-width: 992px) {
   .cardsWrapper {
-    height: 240px;
+    height: 270px;
   }
 }
 

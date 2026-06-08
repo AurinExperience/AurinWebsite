@@ -141,12 +141,12 @@ if (currentPath === "/about" && alternateLang === "en") {
         headerElement.style.background = "transparent";
         headerElement.style.backdropFilter = "none";
         (headerElement.style as any).webkitBackdropFilter = "none";
-        headerElement.style.borderBottom = "none";
+        headerElement.style.borderBottomColor = "transparent";
       } else {
         headerElement.style.background = "rgba(10, 10, 10, 0.75)";
         headerElement.style.backdropFilter = "blur(20px)";
         (headerElement.style as any).webkitBackdropFilter = "blur(20px)";
-        headerElement.style.borderBottom = "1px solid rgba(255, 255, 255, 0.08)";
+        headerElement.style.borderBottomColor = "rgba(255, 255, 255, 0.08)";
       }
 
       lastScrollY = currentScrollY;

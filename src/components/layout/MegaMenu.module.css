@@ -168,6 +168,18 @@
     transform: skewX(-5deg);
   }
 
+  .menu-link[data-active="true"] {
+    text-decoration: underline;
+    text-decoration-color: #5E6800;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
+  }
+
+  .menu-item:has(.menu-link[data-active="true"]) .menu-item-arrow {
+    opacity: 1;
+    right: -70px;
+  }
+
   /* Animación de entrada para los items */
   .mega-menu[data-open="true"] .menu-item {
     animation: slideInItem 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;

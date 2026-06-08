@@ -1,6 +1,6 @@
 ---
-import { getLangFromUrl, translations } from '@/i18n';
-import styles from './SectionImage.module.css';
+import { getLangFromUrl, translations } from "@/i18n";
+import styles from "./SectionImage.module.css";
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
@@ -21,13 +21,13 @@ const t = translations[currentLang];
 </section>
 
 <script>
-  import Ukiyo from 'ukiyojs';
+  import Ukiyo from "ukiyojs";
 
-  document.addEventListener('DOMContentLoaded', () => {
-    new Ukiyo('.ukiyo', {
+  document.addEventListener("DOMContentLoaded", () => {
+    new Ukiyo(".ukiyo", {
       speed: 1.5,
       scale: 1.2,
-      wrapperClass: 'ukiyo-wrapper',
+      wrapperClass: "ukiyo-wrapper",
       willChange: true,
     });
   });

@@ -4,7 +4,7 @@
 	aspect-ratio: 1 / 1;
 	background: linear-gradient(199deg, rgba(0, 0, 0, 0) 47%, #171819 47%), #212224;
 	overflow: hidden;
-	border-radius: 0;
+	border-radius: 16px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -24,7 +24,7 @@
 	position: absolute;
 	inset: 0;
 	background: linear-gradient(200deg, rgba(0, 0, 0, 0) 47%, #C5D400 47%), var(--color-yellow);
-	border-radius: 0;
+	border-radius: 16px;
 	opacity: 0;
 	transition: opacity 0.3s ease;
 	pointer-events: none;

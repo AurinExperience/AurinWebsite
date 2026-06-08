@@ -109,6 +109,15 @@ const menuItems = [
       document.body.style.overflow = '';
     });
 
+    // Mark active link based on current path
+    const currentPath = window.location.pathname;
+    menuLinks.forEach(link => {
+      const href = link.getAttribute('href') || '';
+      const isHome = (href === '/' || href === '/en') && (currentPath === '/' || currentPath === '/en' || currentPath === '/en/');
+      const isActive = isHome || (href !== '/' && href !== '/en' && currentPath.startsWith(href));
+      link.setAttribute('data-active', isActive ? 'true' : 'false');
+    });
+
     // Close on link click
     menuLinks.forEach(link => {
       link.addEventListener('click', () => {

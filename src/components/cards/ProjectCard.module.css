@@ -37,7 +37,7 @@
     padding-bottom: 100%; /* This creates a 1:1 aspect ratio */
     position: relative;
     overflow: hidden;
-    border-radius: 10.46px;
+    border-radius: 16px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

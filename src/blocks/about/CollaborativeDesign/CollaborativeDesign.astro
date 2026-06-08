@@ -1,7 +1,7 @@
 ---
-import { getLangFromUrl, translations } from '@/i18n';
-import SecondaryButton from '@/components/ui/SecondaryButton.astro';
-import styles from './CollaborativeDesign.module.css';
+import { getLangFromUrl, translations } from "@/i18n";
+import SecondaryButton from "@/components/ui/SecondaryButton.astro";
+import styles from "./CollaborativeDesign.module.css";
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
@@ -21,7 +21,7 @@ const t = translations[currentLang];
         <!-- TODO: reemplazar con URL permanente del logo de Aldea Creativa -->
         <img
           class={styles.aldea}
-          src="https://www.figma.com/api/mcp/asset/0105feef-22e4-40d8-922f-361e0c0d6907"
+          src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/aldea-creativa.svg"
           alt="Aldea Creativa"
           loading="lazy"
         />
@@ -47,11 +47,11 @@ const t = translations[currentLang];
 </section>
 
 <script>
-  import Ukiyo from 'ukiyojs';
-  new Ukiyo('.ukiyo', {
+  import Ukiyo from "ukiyojs";
+  new Ukiyo(".ukiyo", {
     speed: 1.2,
     scale: 1.1,
-    wrapperClass: 'ukiyo-wrapper',
+    wrapperClass: "ukiyo-wrapper",
     willChange: true,
   });
 </script>

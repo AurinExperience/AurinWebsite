@@ -8,6 +8,7 @@
 .card {
   position: relative;
   overflow: hidden;
+  border-radius: 16px;
   height: 100%;
   display: flex;
   align-items: flex-end;
