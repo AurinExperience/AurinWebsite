@@ -1,5 +1,12 @@
 ---
+import { getLocalizedUrl } from '@/i18n';
+
 // Componente SEO Avanzado optimizado para LLMs y IA
+export interface AlternateLink {
+  hreflang: string;
+  href: string;
+}
+
 export interface Props {
   title: string;
   description?: string;
@@ -11,6 +18,7 @@ export interface Props {
   keywords?: string;
   author?: string;
   twitterCard?: string;
+  alternateLinks?: AlternateLink[];
 }
 
 const {
@@ -23,11 +31,45 @@ const {
   speakable,
   keywords,
   author = "Aurin",
-  twitterCard = "summary_large_image"
+  twitterCard = "summary_large_image",
+  alternateLinks
 } = Astro.props;
 
-const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).href;
-const siteUrl = Astro.site?.href || "https://aurin.mx";
+const siteUrl = (Astro.site?.href || "https://aurin.mx").replace(/\/$/, '');
+const canonicalURL = canonical || `${siteUrl}${Astro.url.pathname}`;
+
+// Mapping for pages with different slugs across locales
+const localeExceptions: Record<string, { es: string; en: string }> = {
+  '/appointment-confirmed': { es: '/appointment-confirmed', en: '/en/appointment-confirmation' },
+  '/en/appointment-confirmation': { es: '/appointment-confirmed', en: '/en/appointment-confirmation' },
+};
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isProjectRoute = currentPath.startsWith('/project/') || currentPath.startsWith('/en/project/');
+const slug = isProjectRoute ? (currentPath.split('/').pop() || '') : '';
+
+let esPath: string;
+let enPath: string;
+
+if (currentPath in localeExceptions) {
+  esPath = localeExceptions[currentPath].es;
+  enPath = localeExceptions[currentPath].en;
+} else if (isProjectRoute) {
+  esPath = `/project/${slug}`;
+  enPath = `/en/project/${slug}`;
+} else {
+  esPath = getLocalizedUrl(currentPath, 'es');
+  enPath = getLocalizedUrl(currentPath, 'en');
+}
+
+const alternateEsUrl = `${siteUrl}${esPath}`;
+const alternateEnUrl = `${siteUrl}${enPath}`;
+
+const resolvedAlternateLinks = alternateLinks || [
+  { hreflang: 'es', href: alternateEsUrl },
+  { hreflang: 'en', href: alternateEnUrl },
+  { hreflang: 'x-default', href: alternateEsUrl }
+];
 ---
 
 <!-- Meta Tags Básicos -->
@@ -37,6 +79,11 @@ const siteUrl = Astro.site?.href || "https://aurin.mx";
 {author && <meta name="author" content={author} />}
 <link rel="canonical" href={canonicalURL} />
 
+<!-- Alternativas de Idioma (hreflang) -->
+{resolvedAlternateLinks.map((link) => (
+  <link rel="alternate" hreflang={link.hreflang} href={link.href} />
+))}
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={canonicalURL} />
@@ -45,6 +92,7 @@ const siteUrl = Astro.site?.href || "https://aurin.mx";
 <meta property="og:image" content={ogImage} />
 <meta property="og:site_name" content="Aurin" />
 <meta property="og:locale" content="es_MX" />
+<meta property="og:locale:alternate" content="en_US" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content={twitterCard} />
@@ -81,3 +129,5 @@ const siteUrl = Astro.site?.href || "https://aurin.mx";
 <meta name="PerplexityBot" content="index, follow" />
 <meta name="ClaudeBot" content="index, follow" />
 <meta name="GeminiBot" content="index, follow" />
+<meta name="Applebot-Extended" content="index, follow" />
+

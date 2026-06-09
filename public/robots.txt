@@ -27,6 +27,13 @@ Allow: /
 User-agent: Bard-Google
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+
 # Permitir Googlebot y Bingbot
 User-agent: Googlebot
 Allow: /

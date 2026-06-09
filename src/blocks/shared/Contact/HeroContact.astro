@@ -24,10 +24,11 @@ const t = translations[currentLang];
     decoding="async"
   />
   <div class={styles.container}>
-    <div class={styles.heading}>
-      <p class={styles.titleLine1}>{t.contact.hero.titleLine1}</p>
-      <p class={styles.titleLine2}>{t.contact.hero.titleLine2}</p>
-    </div>
+    <h1 class={styles.heading}>
+      <span class={styles.titleLine1} style="display: block;">{t.contact.hero.titleLine1}</span>
+      <span class={styles.titleLine2} style="display: block;">{t.contact.hero.titleLine2}</span>
+    </h1>
+
     <div class={styles.description}>
       <p>
         {t.contact.hero.description1}

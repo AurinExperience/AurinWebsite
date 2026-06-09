@@ -688,6 +688,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
 
 <script>
   import { animate, stagger } from "motion";
+  import { getLangFromUrl, translations } from "@/i18n";
 
   document.addEventListener("DOMContentLoaded", () => {
     // Get current language and translations

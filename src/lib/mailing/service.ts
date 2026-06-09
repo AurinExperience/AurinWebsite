@@ -17,7 +17,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<EmailResp
   try {
     const emailPayload: any = {
       from: 'Aurin <noreply@aurin.mx>',
-      to: ['info@sodio.net'],
+      to: ['info@sodio.net', 'leonel@sodio.net'],
       subject: `${data.asunto} - ${data.nombre}`,
       replyTo: data.correo,
       html: contactEmailTemplate(data),
@@ -53,7 +53,7 @@ export async function sendTicketEmail(data: TicketData): Promise<EmailResponse> 
   try {
     const emailPayload: any = {
       from: 'Aurin <noreply@aurin.mx>',
-      to: ['info@sodio.net'],
+      to: ['info@sodio.net', 'leonel@sodio.net'],
       subject: `Ticket de Agente Aurin - ${data.name}`,
       replyTo: data.email,
       html: ticketEmailTemplate(data),
@@ -169,7 +169,7 @@ export async function sendAppointmentNotificationToAdmin(data: AppointmentData):
 
     const result = await resend.emails.send({
       from: 'Aurin Calendar <noreply@aurin.mx>',
-      to: ['info@sodio.net'],
+      to: ['info@sodio.net', 'leonel@sodio.net'],
       subject: `Nueva Cita: ${data.name} - ${formattedDate}`,
       html,
     });

@@ -5,15 +5,15 @@ export const translations = {
       viewMore: 'View more'
     },
     seo: {
-      title: "Aurin User Experts | Graphic Design and Branding in Mexico",
-      description: "Aurin is a visual communication agency specialized in graphic design, branding, corporate identity and digital strategy. We transform ideas into memorable visual experiences for companies in Mexico.",
-      keywords: "graphic design Mexico, branding agency, corporate identity, visual communication, logo design, digital strategy, creative agency Mexico"
+      title: "Aurin | UX/UI Design, Branding & Web Dev Mexico",
+      description: "Branding, UX/UI design, and web development in Mexico. We create brands and digital experiences that people actually want to use. Let's talk.",
+      keywords: "branding agency Mexico, UX UI design company, web app development Mexico, ecommerce development, digital strategy agency"
     },
     contact: {
       seo: {
-        title: "Contact - Aurin | Visual Communication Agency Mexico",
-        description: "Do you have a project in mind? Contact Aurin, your visual communication agency in Mexico. Specialists in graphic design, branding and corporate identity. Request your free quote.",
-        keywords: "contact aurin, design agency mexico, graphic design quote, branding contact, request design budget, visual communication agency contact"
+        title: "Contact Aurin | Get a Design Quote",
+        description: "Have a design project? Contact Aurin for a personalized proposal. Branding, identity, and graphic design specialists in Mexico. Write to us today.",
+        keywords: "contact design agency Mexico, branding quote, graphic design proposal, hire creative agency, request design budget"
       },
       form: {
         title: "Ask us anything or just say",
@@ -35,29 +35,29 @@ export const translations = {
         },
         services: [
           {
-            value: "diseno-grafico",
-            title: "Graphic Design",
-            description: "Professional graphic design services"
-          },
-          {
-            value: "branding",
-            title: "Branding and Corporate Identity",
-            description: "Brand development and visual identity"
-          },
-          {
-            value: "ux-ui",
+            value: "diseno-ux-ui",
             title: "UX/UI Design",
-            description: "User experience and digital interfaces"
+            description: "Digital experience and interface design"
           },
           {
-            value: "estrategia-digital",
-            title: "Digital Strategy",
-            description: "Consulting and communication strategy"
+            value: "desarrollo-web-movil",
+            title: "Web & Mobile App Development",
+            description: "Websites, apps, and custom ecommerce solutions"
           },
           {
-            value: "consultoria",
-            title: "General Consulting",
-            description: "Personalized advice for your project"
+            value: "pruebas-usabilidad",
+            title: "Usability Testing",
+            description: "User experience testing and optimization"
+          },
+          {
+            value: "desarrollo-branding",
+            title: "Branding Development",
+            description: "Brand identity, naming, and visual system"
+          },
+          {
+            value: "marketing-digital",
+            title: "Digital Marketing & Social Media",
+            description: "Digital strategy, content, and community management"
           },
           {
             value: "otro",
@@ -135,9 +135,9 @@ export const translations = {
     },
     projects: {
       seo: {
-        title: "Projects - Aurin | Graphic Design and Branding Portfolio Mexico",
-        description: "Explore our portfolio of graphic design, branding and corporate identity projects. Success stories in visual communication, digital strategy and user experiences created by Aurin in Mexico.",
-        keywords: "aurin portfolio, graphic design projects, branding success stories, corporate identity work, agency portfolio mexico, visual communication projects"
+        title: "UX/UI & Branding Portfolio | Aurin Mexico",
+        description: "Portfolio of UX/UI design, branding, web development, and digital marketing projects. Real companies, real results — and stories worth telling.",
+        keywords: "UX UI design portfolio Mexico, branding projects case studies, web development showcase, digital marketing results, mobile app design portfolio"
       },
       introduction: {
         headingLight: "When the abstract",
@@ -184,9 +184,9 @@ export const translations = {
     },
     services: {
       seo: {
-        title: "Design and Visual Communication Services | Aurin Mexico",
-        description: "Discover our graphic design, branding, corporate identity, UX/UI, digital strategy and visual communication services. Personalized creative solutions to boost your brand in Mexico.",
-        keywords: "graphic design services, professional branding, corporate identity, UX/UI design, digital strategy, visual communication, web design Mexico, creative services"
+        title: "UX/UI, Branding & Web Development | Aurin Mexico",
+        description: "UX/UI design, web and mobile development, branding, digital marketing and usability testing — all under one roof. Build a brand that converts.",
+        keywords: "UX UI design Mexico, web app development agency, branding development Mexico, digital marketing social media, usability testing services"
       },
       banner: {
         subtitle: "Experts in",
@@ -337,9 +337,9 @@ export const translations = {
     },
     privacy: {
       seo: {
-        title: "Privacy Policy - Aurin | Personal Data Protection",
-        description: "Learn how Aurin protects and manages your personal data. Read our complete privacy policy on personal information processing.",
-        keywords: "privacy policy aurin, personal data protection, data processing, privacy rights, GDPR compliance"
+        title: "Privacy Policy | Aurin",
+        description: "Read Aurin's privacy policy. Learn how we protect and manage your personal data in compliance with Mexico's personal data protection law (LFPDPPP).",
+        keywords: "privacy policy Aurin, personal data protection Mexico, LFPDPPP compliance, data rights, ARCO rights Mexico"
       },
       title: "Privacy Policy",
       lastUpdated: "Last updated: January 2025",
@@ -408,9 +408,9 @@ export const translations = {
     },
     termsConditions: {
       seo: {
-        title: "Terms and Conditions - Aurin | Service Usage Conditions",
-        description: "Read Aurin's terms and conditions of service usage. Learn about the general contracting and usage conditions of our design and visual communication services.",
-        keywords: "terms conditions aurin, service conditions, contracting terms, usage agreement, design services terms"
+        title: "Terms and Conditions | Aurin",
+        description: "Read Aurin's terms and conditions for using our services. Learn about contracting terms for design, branding, and visual communication services in Mexico.",
+        keywords: "terms conditions Aurin Mexico, service agreement design, contracting design agency, usage policy, website terms of use"
       },
       title: "Terms and Conditions",
       lastUpdated: "Last updated: January 2025",
@@ -551,9 +551,9 @@ export const translations = {
     },
     about: {
       seo: {
-        title: "About Us - Aurin | Visual Communication and Design Agency Mexico",
-        description: "Meet Aurin, experience creators through design and technology. We are a visual communication agency specialized in branding, graphic design and corporate identity in Mexico. Discover our story, methodology and creative team.",
-        keywords: "about aurin, design agency mexico, creative team, aurin history, design methodology, visual communication mexico, branding agency, professional graphic design"
+        title: "About Aurin | Creative Design Agency Mexico",
+        description: "Meet Aurin — designers and strategists creating memorable brand experiences in Mexico. Branding, UX/UI, and visual communication with purpose.",
+        keywords: "about aurin agency, design team Mexico, branding methodology, creative studio history, multidisciplinary design agency"
       },
       structuredData: {
         description: "Experience creators through design and technology. Visual communication agency specialized in branding, graphic design and corporate identity.",
@@ -620,15 +620,15 @@ export const translations = {
       viewMore: 'Ver más'
     },
     seo: {
-      title: "Aurin User Experts | Diseño Gráfico y Branding en México",
-      description: "Aurin es una agencia de comunicación visual especializada en diseño gráfico, branding, identidad corporativa y estrategia digital. Transformamos ideas en experiencias visuales memorables para empresas en México.",
-      keywords: "diseño gráfico México, agencia branding, identidad corporativa, comunicación visual, diseño de logos, estrategia digital, agencia creativa México"
+      title: "Aurin | UX/UI, Branding y Desarrollo Web México",
+      description: "Branding, diseño UX/UI y desarrollo web para empresas en México. Creamos marcas y experiencias digitales que conectan con las personas. Cotiza hoy.",
+      keywords: "agencia branding México, diseño UX UI empresas, desarrollo web ecommerce México, estrategia digital, identidad corporativa"
     },
     contact: {
       seo: {
-        title: "Contacto - Aurin | Agencia de Comunicación Visual México",
-        description: "¿Tienes un proyecto en mente? Contacta con Aurin, tu agencia de comunicación visual en México. Especialistas en diseño gráfico, branding e identidad corporativa. Solicita tu cotización gratuita.",
-        keywords: "contacto aurin, agencia diseño méxico, cotización diseño gráfico, contacto branding, solicitar presupuesto diseño, agencia comunicación visual contacto"
+        title: "Contacto | Aurin — Cotiza tu Proyecto",
+        description: "¿Tienes un proyecto de diseño? Contáctanos y recibe una propuesta personalizada. Branding, identidad y diseño gráfico en México. Escríbenos hoy.",
+        keywords: "contactar agencia diseño México, cotización branding, presupuesto identidad corporativa, consulta diseño gráfico, agendar reunión diseño"
       },
       form: {
         title: "Preguntanos cualquier cosa o solo dinos",
@@ -650,29 +650,29 @@ export const translations = {
         },
         services: [
           {
-            value: "diseno-grafico",
-            title: "Diseño Gráfico",
-            description: "Servicios profesionales de diseño gráfico"
-          },
-          {
-            value: "branding",
-            title: "Branding e Identidad Corporativa",
-            description: "Desarrollo de marca e identidad visual"
-          },
-          {
-            value: "ux-ui",
+            value: "diseno-ux-ui",
             title: "Diseño UX/UI",
-            description: "Experiencia de usuario e interfaces digitales"
+            description: "Diseño de experiencias e interfaces digitales"
           },
           {
-            value: "estrategia-digital",
-            title: "Estrategia Digital",
-            description: "Consultoría y estrategia de comunicación"
+            value: "desarrollo-web-movil",
+            title: "Desarrollo web y aplicaciones móviles",
+            description: "Webs, apps y soluciones ecommerce a medida"
           },
           {
-            value: "consultoria",
-            title: "Consultoría General",
-            description: "Asesoría personalizada para tu proyecto"
+            value: "pruebas-usabilidad",
+            title: "Pruebas de usabilidad",
+            description: "Testeo y optimización de experiencia de usuario"
+          },
+          {
+            value: "desarrollo-branding",
+            title: "Desarrollo de Branding",
+            description: "Identidad de marca, naming y sistema visual"
+          },
+          {
+            value: "marketing-digital",
+            title: "Marketing digital y redes sociales",
+            description: "Estrategia digital, contenidos y gestión de comunidades"
           },
           {
             value: "otro",
@@ -750,9 +750,9 @@ export const translations = {
     },
     projects: {
       seo: {
-        title: "Proyectos - Aurin | Portfolio de Diseño Gráfico y Branding México",
-        description: "Explora nuestro portfolio de proyectos de diseño gráfico, branding e identidad corporativa. Casos de éxito en comunicación visual, estrategia digital y experiencias de usuario realizados por Aurin en México.",
-        keywords: "portfolio aurin, proyectos diseño gráfico, casos éxito branding, trabajos identidad corporativa, portfolio agencia méxico, proyectos comunicación visual"
+        title: "Portafolio UX/UI, Branding y Web | Aurin",
+        description: "Portafolio de diseño UX/UI, branding, desarrollo web y marketing digital. Empresas reales, resultados medibles, historias que vale la pena contar.",
+        keywords: "portafolio diseño UX UI México, proyectos branding exitosos, casos desarrollo web app, marketing digital resultados, pruebas usabilidad proyectos"
       },
       introduction: {
         headingLight: "Cuando lo abstracto",
@@ -799,9 +799,9 @@ export const translations = {
     },
     services: {
       seo: {
-        title: "Servicios de Diseño y Comunicación Visual | Aurin México",
-        description: "Descubre nuestros servicios de diseño gráfico, branding, identidad corporativa, UX/UI, estrategia digital y comunicación visual. Soluciones creativas personalizadas para impulsar tu marca en México.",
-        keywords: "servicios de diseño gráfico, branding profesional, identidad corporativa, diseño UX/UI, estrategia digital, comunicación visual, diseño web México, servicios creativos"
+        title: "Diseño UX/UI, Branding y Desarrollo Web | Aurin",
+        description: "Diseñamos experiencias UX/UI, construimos webs y apps, desarrollamos tu branding y gestionamos tu marketing digital. Haz que tu marca trabaje para ti.",
+        keywords: "diseño UX UI México, desarrollo web aplicaciones móviles, desarrollo branding identidad, marketing digital redes sociales, pruebas usabilidad"
       },
       banner: {
         subtitle: "Construimos caminos",
@@ -952,9 +952,9 @@ export const translations = {
     },
     privacy: {
       seo: {
-        title: "Aviso de Privacidad - Aurin | Protección de Datos Personales",
-        description: "Conoce cómo Aurin protege y gestiona tus datos personales. Lee nuestro aviso de privacidad completo sobre el tratamiento de información personal.",
-        keywords: "aviso privacidad aurin, protección datos personales, tratamiento datos, derechos privacidad, cumplimiento LFPDPPP"
+        title: "Aviso de Privacidad | Aurin",
+        description: "Consulta el aviso de privacidad de Aurin. Conoce cómo protegemos y gestionamos tus datos personales conforme a la ley mexicana de protección de datos.",
+        keywords: "aviso privacidad Aurin, protección datos personales México, LFPDPPP, tratamiento datos personales, derechos ARCO"
       },
       title: "Aviso de Privacidad",
       lastUpdated: "Última actualización: Enero 2025",
@@ -1023,9 +1023,9 @@ export const translations = {
     },
     termsConditions: {
       seo: {
-        title: "Términos y Condiciones - Aurin | Condiciones de Uso de Servicios",
-        description: "Lee los términos y condiciones de uso de los servicios de Aurin. Conoce las condiciones generales de contratación y uso de nuestros servicios de diseño y comunicación visual.",
-        keywords: "términos condiciones aurin, condiciones servicio, términos contratación, acuerdo uso, términos servicios diseño"
+        title: "Términos y Condiciones | Aurin",
+        description: "Lee los términos y condiciones de uso de Aurin. Condiciones de contratación para servicios de diseño, branding y comunicación visual en México.",
+        keywords: "términos condiciones Aurin, condiciones servicio diseño, contratación agencia creativa, acuerdo servicios, uso sitio Aurin"
       },
       title: "Términos y Condiciones",
       lastUpdated: "Última actualización: Enero 2025",
@@ -1167,9 +1167,9 @@ export const translations = {
     },
     about: {
       seo: {
-        title: "Nosotros - Aurin | Agencia de Comunicación Visual y Diseño México",
-        description: "Conoce a Aurin, realizadores de experiencias a través del diseño y la tecnología. Somos una agencia de comunicación visual especializada en branding, diseño gráfico e identidad corporativa en México. Descubre nuestra historia, metodología y equipo creativo.",
-        keywords: "sobre aurin, agencia diseño méxico, equipo creativo, historia aurin, metodología diseño, comunicación visual méxico, branding agency, diseño gráfico profesional"
+        title: "Nosotros | Aurin — Agencia Creativa en México",
+        description: "Conoce a Aurin: creadores de experiencias con diseño y tecnología. Equipo multidisciplinario especializado en branding y comunicación visual. Conócenos.",
+        keywords: "agencia diseño México historia, equipo creativo branding, metodología diseño UX, empresa diseño gráfico, Aurin Aldea Creativa"
       },
       structuredData: {
         description: "Realizadores de experiencias a través del diseño y la tecnología. Agencia de comunicación visual especializada en branding, diseño gráfico e identidad corporativa.",
