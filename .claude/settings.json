@@ -5,7 +5,30 @@
       "Bash(openspec status *)",
       "Bash(openspec instructions *)",
       "Bash(node -e ' *)",
-      "Bash(openspec list *)"
+      "Bash(openspec list *)",
+      "Bash(node -e \"require\\('sharp'\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/aurinWhiteLogo.webp\")",
+      "Read(//Users/leonel/**)",
+      "Read(//Users/leonel/.cloudflare/**)",
+      "Bash(cp /tmp/aurinWhiteLogo-sm.webp /Users/leonel/Documents/AurinWebsite/public/aurinWhiteLogo-sm.webp && echo \"Copied OK\")",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(lsof -ti:4321)",
+      "Bash(npx playwright *)",
+      "Bash(PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=0 npx playwright install chromium)",
+      "Bash('/Users/leonel/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing' --version)",
+      "Bash('/Users/leonel/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing' --headless=new --disable-gpu --no-sandbox --screenshot=/tmp/footer-check.png --window-size=1280,800 --run-all-compositor-stages-before-draw --virtual-time-budget=3000 http://localhost:4321)",
+      "Bash(curl -s http://localhost:4321)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} | Size: %{size_download} bytes | Type: %{content_type}\" http://localhost:4321/aurinWhiteLogo-sm.webp)",
+      "Bash(git checkout *)",
+      "Bash(timeout 120 npx astro build)",
+      "Bash(timeout 90 npx astro check)",
+      "Bash(timeout 180 npx astro build)",
+      "Bash(npx astro *)",
+      "Bash(git restore *)"
+    ],
+    "additionalDirectories": [
+      "/private/tmp"
     ]
   }
 }

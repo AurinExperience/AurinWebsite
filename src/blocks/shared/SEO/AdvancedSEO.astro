@@ -1,5 +1,5 @@
 ---
-import { getLocalizedUrl } from '@/i18n';
+import { getLocalizedUrl } from "@/i18n";
 
 // Componente SEO Avanzado optimizado para LLMs y IA
 export interface AlternateLink {
@@ -32,21 +32,28 @@ const {
   keywords,
   author = "Aurin",
   twitterCard = "summary_large_image",
-  alternateLinks
+  alternateLinks,
 } = Astro.props;
 
-const siteUrl = (Astro.site?.href || "https://aurin.mx").replace(/\/$/, '');
+const siteUrl = (Astro.site?.href || "https://aurin.mx").replace(/\/$/, "");
 const canonicalURL = canonical || `${siteUrl}${Astro.url.pathname}`;
 
 // Mapping for pages with different slugs across locales
 const localeExceptions: Record<string, { es: string; en: string }> = {
-  '/appointment-confirmed': { es: '/appointment-confirmed', en: '/en/appointment-confirmation' },
-  '/en/appointment-confirmation': { es: '/appointment-confirmed', en: '/en/appointment-confirmation' },
+  "/appointment-confirmed": {
+    es: "/appointment-confirmed",
+    en: "/en/appointment-confirmation",
+  },
+  "/en/appointment-confirmation": {
+    es: "/appointment-confirmed",
+    en: "/en/appointment-confirmation",
+  },
 };
 
-const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
-const isProjectRoute = currentPath.startsWith('/project/') || currentPath.startsWith('/en/project/');
-const slug = isProjectRoute ? (currentPath.split('/').pop() || '') : '';
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isProjectRoute =
+  currentPath.startsWith("/project/") || currentPath.startsWith("/en/project/");
+const slug = isProjectRoute ? currentPath.split("/").pop() || "" : "";
 
 let esPath: string;
 let enPath: string;
@@ -58,17 +65,17 @@ if (currentPath in localeExceptions) {
   esPath = `/project/${slug}`;
   enPath = `/en/project/${slug}`;
 } else {
-  esPath = getLocalizedUrl(currentPath, 'es');
-  enPath = getLocalizedUrl(currentPath, 'en');
+  esPath = getLocalizedUrl(currentPath, "es");
+  enPath = getLocalizedUrl(currentPath, "en");
 }
 
 const alternateEsUrl = `${siteUrl}${esPath}`;
 const alternateEnUrl = `${siteUrl}${enPath}`;
 
 const resolvedAlternateLinks = alternateLinks || [
-  { hreflang: 'es', href: alternateEsUrl },
-  { hreflang: 'en', href: alternateEnUrl },
-  { hreflang: 'x-default', href: alternateEsUrl }
+  { hreflang: "es", href: alternateEsUrl },
+  { hreflang: "en", href: alternateEnUrl },
+  { hreflang: "x-default", href: alternateEsUrl },
 ];
 ---
 
@@ -80,9 +87,11 @@ const resolvedAlternateLinks = alternateLinks || [
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Alternativas de Idioma (hreflang) -->
-{resolvedAlternateLinks.map((link) => (
-  <link rel="alternate" hreflang={link.hreflang} href={link.href} />
-))}
+{
+  resolvedAlternateLinks.map((link) => (
+    <link rel="alternate" hreflang={link.hreflang} href={link.href} />
+  ))
+}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={ogType} />
@@ -101,25 +110,44 @@ const resolvedAlternateLinks = alternateLinks || [
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 
+<!-- Search Console -->
+<meta
+  name="google-site-verification"
+  content="kZkzlDt5cgsTMRFgu6fNAZO7XrP0wPhczT-8tzrwI4c"
+/>
+
 <!-- Datos Estructurados (Schema.org) -->
-{structuredData && (
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-)}
+{
+  structuredData && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  )
+}
 
 <!-- Speakable Schema para optimización de voz -->
-{speakable && speakable.length > 0 && (
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "speakable": {
-      "@type": "SpeakableSpecification",
-      "cssSelector": speakable
-    }
-  })} />
-)}
+{
+  speakable && speakable.length > 0 && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: speakable,
+        },
+      })}
+    />
+  )
+}
 
 <!-- Meta Tags Adicionales para SEO -->
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta
+  name="robots"
+  content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+/>
 <meta name="googlebot" content="index, follow" />
 <meta name="bingbot" content="index, follow" />
 
@@ -130,4 +158,3 @@ const resolvedAlternateLinks = alternateLinks || [
 <meta name="ClaudeBot" content="index, follow" />
 <meta name="GeminiBot" content="index, follow" />
 <meta name="Applebot-Extended" content="index, follow" />
-
