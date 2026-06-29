@@ -12,6 +12,7 @@ interface HerramientaItem {
   id: string;
   letter: string;
   title: string;
+  description?: string;
   href: string;
 }
 
@@ -23,41 +24,16 @@ interface Props {
 }
 
 const {
-  titlePart1 = t.services.tools.titlePart1,
-  titlePart2 = t.services.tools.titlePart2,
-  description = t.services.tools.description,
-  items = [
-    {
-      id: "diseno-ux-ui",
-      letter: "X",
-      title: t.services.tools.items[4].title,
-      href: "/services",
-    },
-    {
-      id: "desarrollo-web",
-      letter: "W",
-      title: t.services.tools.items[0].title,
-      href: "/services",
-    },
-    {
-      id: "usabilidad",
-      letter: "U",
-      title: t.services.tools.items[1].title,
-      href: "/services",
-    },
-    {
-      id: "branding",
-      letter: "B",
-      title: t.services.tools.items[2].title,
-      href: "/services",
-    },
-    {
-      id: "marketing",
-      letter: "M",
-      title: t.services.tools.items[3].title,
-      href: "/services",
-    },
-  ],
+  titlePart1 = t.services.tools.homeTitlePart1,
+  titlePart2 = t.services.tools.homeTitlePart2,
+  description = t.services.tools.homeDescription,
+  items = t.services.tools.homeItems.map((item, i) => ({
+    id: `home-tool-${i}`,
+    letter: item.letter,
+    title: item.title,
+    description: item.description,
+    href: "/services",
+  })),
 } = Astro.props;
 
 const uniqueId = `carousel-${Math.random().toString(36).substr(2, 9)}`;
@@ -82,6 +58,7 @@ const getVariant = (i: number) => i % 2 === 0 ? "light" : "dark";
             <TallCard
               letter={item.letter}
               title={item.title}
+              description={item.description}
               href={item.href}
               variant={getVariant(i)}
             />
@@ -109,6 +86,7 @@ const getVariant = (i: number) => i % 2 === 0 ? "light" : "dark";
               <TallCard
                 letter={item.letter}
                 title={item.title}
+                description={item.description}
                 href={item.href}
                 variant={getVariant(i)}
               />
@@ -162,6 +140,7 @@ const getVariant = (i: number) => i % 2 === 0 ? "light" : "dark";
 
         const splide = new Splide(el as HTMLElement, {
           fixedWidth: "65vw",
+          gap: "24px",
           padding: "16px",
           accessibility: { slideRole: "" },
           pagination: true,

@@ -104,11 +104,12 @@ export const translations = {
       ariaLabel: "Type your question about services",
       submitAriaLabel: "Submit question",
       services: [
-        "Web and mobile app development",
+        "Need a website or mobile app?",
+        "UX/UI design for your product",
+        "Branding and brand identity",
+        "Digital marketing and social media",
         "Usability testing",
-        "Branding development",
-        "UX/UI Design",
-        "Digital Consulting"
+        "Brand and experience audits"
       ]
     },
     header: {
@@ -215,6 +216,26 @@ export const translations = {
       tools: {
         titlePart1: "Our toolbox",
         titlePart2: "of Tools",
+        homeTitlePart1: "Our",
+        homeTitlePart2: "Services",
+        homeDescription: "Everything we imagine, we create with intention. Each service is a way to get closer, connect and bring to life what doesn't yet exist.",
+        homeItems: [
+          {
+            letter: "UX/UI",
+            title: "UX/UI Design",
+            description: "User-centered research, flows and interfaces"
+          },
+          {
+            letter: "Dev",
+            title: "Web and app development",
+            description: "Functional sites, platforms and apps"
+          },
+          {
+            letter: "Br",
+            title: "Branding development",
+            description: "Brand identity and visual system"
+          }
+        ],
         description: "With these capabilities, we shape solutions that connect, inspire and generate impact.",
         items: [
           {
@@ -270,6 +291,7 @@ export const translations = {
     banner: {
       badge: 'User Experts',
       title1: 'Design that connects. Experiences that transform.',
+      searchPrompt: 'Search here for anything you want to know about Aurin',
       description: 'We create visual narratives that inspire and generate real impact. From branding to digital experiences, we turn your vision into memorable results.',
       buttonText: 'Start your project now'
     },
@@ -293,9 +315,9 @@ export const translations = {
       headingHighlight: 'Expertise',
       description: 'Every idea transforms into a unique journey, crafted to inspire and connect.',
       buttonText: 'Discover more about our services',
-      card1Title: 'Brand and experience audits',
+      card1Title: 'User research',
       card2Title: 'Experience design',
-      card3Title: 'Digital ecosystem construction'
+      card3Title: 'Digital product development'
     },
     ctaBanner: {
       home: {
@@ -327,13 +349,14 @@ export const translations = {
       viewServices: 'View Services'
     },
     footer: {
+      tagline: 'UX/UI design, web development and branding in Mexico',
       offices: 'OFFICES',
       officesLink: 'We are at Aldea Creativa',
       contact: 'CONTACT',
       legal: 'LEGAL',
       privacyPolicy: 'Privacy policy',
       termsConditions: 'Terms and conditions',
-      copyright: '©2025 aurin. All rights reserved'
+      copyright: '©{year} aurin. All rights reserved'
     },
     privacy: {
       seo: {
@@ -719,11 +742,12 @@ export const translations = {
       ariaLabel: "Escribe tu pregunta sobre servicios",
       submitAriaLabel: "Enviar pregunta",
       services: [
-        "Desarrollo web y de aplicaciones móviles",
+        "¿Necesitas un sitio web o app móvil?",
+        "Diseño UX/UI para tu producto",
+        "Branding e identidad de marca",
+        "Marketing digital y redes sociales",
         "Pruebas de usabilidad",
-        "Desarrollo de Branding",
-        "Diseño UX/UI",
-        "Consultoría Digital"
+        "Auditoría de marca y experiencia"
       ]
     },
     header: {
@@ -830,6 +854,26 @@ export const translations = {
       tools: {
         titlePart1: "Nuestra",
         titlePart2: "Suite de Herramientas",
+        homeTitlePart1: "Nuestros",
+        homeTitlePart2: "Servicios",
+        homeDescription: "Todo lo que imaginamos, lo creamos con intención. Cada servicio es una forma de acercarnos, conectar y dar vida a lo que aún no existe.",
+        homeItems: [
+          {
+            letter: "UX/UI",
+            title: "Diseño UX/UI",
+            description: "Investigación, flujos e interfaces centradas en el usuario"
+          },
+          {
+            letter: "Dev",
+            title: "Desarrollo web y de aplicaciones",
+            description: "Sitios, plataformas y apps funcionales"
+          },
+          {
+            letter: "Br",
+            title: "Desarrollo de Branding",
+            description: "Identidad de marca y sistema visual"
+          }
+        ],
         description: "Todo lo que imaginamos, lo creamos con intención. Cada herramienta es una forma de acercarnos, conectar y dar vida a lo que aún no existe.",
         items: [
           {
@@ -885,6 +929,7 @@ export const translations = {
     banner: {
       badge: 'Expertos en usuarios',
       title1: 'Diseño que conecta. Experiencias que transforman.',
+      searchPrompt: 'Busca aquí lo que quieras saber de Aurin',
       description: 'Creamos narrativas visuales que inspiran y generan impacto real. Desde branding hasta experiencias digitales, convertimos tu visión en resultados memorables.',
       buttonText: 'Inicia tu proyecto ahora'
     },
@@ -908,9 +953,9 @@ export const translations = {
       headingHighlight: 'especialidades',
       description: 'Cada idea se convierte en un recorrido único, diseñado para inspirar y conectar.',
       buttonText: 'Conoce más de nuestros servicios',
-      card1Title: 'Auditorías de marca y experiencia',
+      card1Title: 'Investigación de usuario',
       card2Title: 'Diseño de experiencias',
-      card3Title: 'Construcción de ecosistemas digitales'
+      card3Title: 'Desarrollo de producto digital'
     },
     ctaBanner: {
       home: {
@@ -942,13 +987,14 @@ export const translations = {
       viewServices: 'Ver Servicios'
     },
     footer: {
+      tagline: 'Diseño UX/UI, desarrollo web y branding en México',
       offices: 'OFICINAS',
       officesLink: 'Estamos en Aldea Creativa',
       contact: 'CONTACTO',
       legal: 'LEGALES',
       privacyPolicy: 'Aviso de privacidad',
       termsConditions: 'Términos y condiciones',
-      copyright: '©2025 aurin. Todos los derechos reservados'
+      copyright: '©{year} aurin. Todos los derechos reservados'
     },
     privacy: {
       seo: {

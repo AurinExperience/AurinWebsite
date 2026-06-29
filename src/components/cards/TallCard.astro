@@ -5,12 +5,14 @@ import styles from './TallCard.module.css';
 interface Props {
   letter: string;
   title: string;
+  description?: string;
   href?: string;
   className?: string;
   variant?: 'yellow' | 'light' | 'dark';
 }
 
-const { letter, title, href = '#', className = '', variant = 'dark' } = Astro.props;
+const { letter, title, description, href = '#', className = '', variant = 'dark' } = Astro.props;
+const isAbbrev = letter.length > 1;
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
@@ -23,11 +25,14 @@ const t = translations[currentLang];
   data-tooltip-text={t.tools.viewServices}
 >
   <div class={`${styles.card} ${styles[variant]}`} data-card>
-    <div class={styles['card-letter']} aria-hidden="true">{letter}</div>
+    <div class:list={[styles['card-letter'], isAbbrev && styles['card-letter-abbrev']]} aria-hidden="true">{letter}</div>
     <div class={styles['card-shadow']} aria-hidden="true">
       <img src="/shadow-vector.svg" alt="" />
     </div>
-    <p class={styles['card-title']}>{title}</p>
+    <div class={styles['card-content']}>
+      <p class={styles['card-title']}>{title}</p>
+      {description && <p class={styles['card-description']}>{description}</p>}
+    </div>
   </div>
 </a>
 

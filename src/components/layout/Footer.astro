@@ -6,6 +6,8 @@ import styles from "./Footer.module.css";
 // Detect current language
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
+
+const copyright = t.footer.copyright.replace("{year}", new Date().getFullYear().toString());
 ---
 
 <div data-footer-parallax>
@@ -16,6 +18,7 @@ const t = translations[currentLang];
           src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/Light.svg"
           alt=""
           class={styles.glow}
+          data-footer-glow
           aria-hidden="true"
         />
         <div class={styles.footerContainer}>
@@ -23,9 +26,10 @@ const t = translations[currentLang];
             <div class={`${styles.footerLogoContainer} footer-logo`}>
               <img
                 class={styles.footerLogo}
-                src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/aurinWhiteLogo.webp"
+                src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/aurinWhiteLogo.svg"
                 alt="Aurin Logo"
               />
+              <p class={styles.footerTagline}>{t.footer.tagline}</p>
             </div>
 
             <div class={styles.footerColumns}>
@@ -63,8 +67,8 @@ const t = translations[currentLang];
             </div>
           </div>
 
-          <div class={styles.footerCopyright}>
-            <p>{t.footer.copyright}</p>
+          <div class={`${styles.footerCopyright} footer-copyright`}>
+            <p>{copyright}</p>
           </div>
         </div>
       </div>
@@ -78,7 +82,41 @@ const t = translations[currentLang];
 
   gsap.registerPlugin(ScrollTrigger);
 
+  // Aim the glow at the logo so it reads like a light hitting it — vertically aligned
+  // with the logo's center, in every resolution. The glow must stay full-width (touching
+  // the screen's left edge), so it lives outside the padded container and is placed via JS.
+  function positionGlow() {
+    const glow = document.querySelector("[data-footer-glow]") as HTMLElement;
+    if (!glow) return;
+
+    // Mobile uses the CSS rule (top: 0); clear any inline value set on larger screens.
+    if (window.innerWidth <= 768) {
+      glow.style.top = "";
+      glow.style.transform = "";
+      return;
+    }
+
+    const logo = document.querySelector(".footer-logo") as HTMLElement;
+    const content = glow.parentElement as HTMLElement;
+    if (!logo || !content) return;
+
+    const contentTop = content.getBoundingClientRect().top;
+    const logoRect = logo.getBoundingClientRect();
+    const logoCenter = logoRect.top + logoRect.height / 2 - contentTop;
+
+    // The light's pointing tip isn't at the image's geometric center: in the SVG
+    // (viewBox 0 0 1536 445) the left tip spans y 194–313, so its center sits at ~0.57
+    // of the height. Align that tip with the logo center so the beam lands on the logo.
+    const TIP_FRACTION = 0.57;
+    const glowHeight = glow.getBoundingClientRect().height;
+    glow.style.transform = "none";
+    glow.style.top = `${logoCenter - TIP_FRACTION * glowHeight}px`;
+  }
+
   function initFooter() {
+    positionGlow();
+    window.addEventListener("resize", positionGlow, { passive: true });
+
     // 1. Initialize Parallax Effect (desktop only, and tall enough screens)
     if (window.innerWidth > 768 && window.innerHeight > 750) {
       const footerElements = document.querySelectorAll("[data-footer-parallax]");

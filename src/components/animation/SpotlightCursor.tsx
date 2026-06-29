@@ -18,8 +18,6 @@ export const SpotlightCursor = ({
   config?: SpotlightConfig;
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouseX = useMotionValue(-1000);
-  const mouseY = useMotionValue(-1000);
   const [tooltip, setTooltip] = useState<{ text: string; visible: boolean }>({
     text: '',
     visible: false
@@ -28,28 +26,16 @@ export const SpotlightCursor = ({
   // Smooth tooltip position with spring physics
   const tooltipX = useMotionValue(0);
   const tooltipY = useMotionValue(0);
-  
-  const smoothTooltipX = useSpring(tooltipX, { 
-    stiffness: 500, 
-    damping: 50, 
-    bounce: 0 
+
+  const smoothTooltipX = useSpring(tooltipX, {
+    stiffness: 500,
+    damping: 50,
+    bounce: 0
   });
-  const smoothTooltipY = useSpring(tooltipY, { 
-    stiffness: 500, 
-    damping: 50, 
-    bounce: 0 
-  });
-  
-  // Smooth mouse position with spring physics
-  const smoothMouseX = useSpring(mouseX, { 
-    stiffness: config.smoothing ? 1000 * config.smoothing : 150,
-    damping: 25,
-    mass: 0.1
-  });
-  const smoothMouseY = useSpring(mouseY, { 
-    stiffness: config.smoothing ? 1000 * config.smoothing : 150,
-    damping: 25,
-    mass: 0.1
+  const smoothTooltipY = useSpring(tooltipY, {
+    stiffness: 500,
+    damping: 50,
+    bounce: 0
   });
 
   useEffect(() => {
@@ -59,27 +45,134 @@ export const SpotlightCursor = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let animationFrameId: number;
-    let currentMouseX = -1000;
-    let currentMouseY = -1000;
+    let animationFrameId = 0;
+    let running = false;
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
 
+    const hexToRgb = (hex: string) => {
+      const bigint = parseInt(hex.slice(1), 16);
+      const r = (bigint >> 16) & 255;
+      const g = (bigint >> 8) & 255;
+      const b = bigint & 255;
+      return `${r},${g},${b}`;
+    };
+
+    const radius = config.radius || 320;
+    // Almost transparent — a barely-there trail that hints rather than glows.
+    const brightness = config.brightness ?? 0.05;
+    const rgbColor = hexToRgb(config.color || '#ffffff');
+
+    // Particle trail: each mouse move emits soft blobs that drift, shrink and fade.
+    // The cloud naturally deforms/stretches in the direction of movement (a comet-like
+    // estela). The pool is capped and the RAF loop stops once no particles remain, so
+    // there's zero cost while the cursor is idle.
+    interface Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      life: number;
+      decay: number;
+      size: number;
+    }
+    const particles: Particle[] = [];
+    const MAX_PARTICLES = 160;
+    const MIN_STEP = 6; // spawn spacing in px, keeps the trail even at any speed
+
+    let lastX = -1000;
+    let lastY = -1000;
+
+    const emit = (x: number, y: number, mvx: number, mvy: number) => {
+      if (particles.length >= MAX_PARTICLES) particles.shift();
+      particles.push({
+        x: x + (Math.random() - 0.5) * 6,
+        y: y + (Math.random() - 0.5) * 6,
+        // inherit a bit of cursor velocity (trail) + small random spread (scatter)
+        vx: mvx * 0.18 + (Math.random() - 0.5) * 0.9,
+        vy: mvy * 0.18 + (Math.random() - 0.5) * 0.9,
+        life: 1,
+        decay: 0.014 + Math.random() * 0.014,
+        size: radius * (0.14 + Math.random() * 0.16),
+      });
+    };
+
+    const tick = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.9;
+        p.vy *= 0.9;
+        p.life -= p.decay;
+
+        if (p.life <= 0) {
+          particles.splice(i, 1);
+          continue;
+        }
+
+        const eased = p.life * p.life; // quadratic fade — softer tail
+        const r = p.size * (1.5 - p.life * 0.5); // grows a touch as it fades
+        const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r);
+        g.addColorStop(0, `rgba(${rgbColor}, ${eased * brightness})`);
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(p.x - r, p.y - r, r * 2, r * 2);
+      }
+
+      if (particles.length > 0) {
+        animationFrameId = requestAnimationFrame(tick);
+      } else {
+        running = false;
+      }
+    };
+
+    const ensureRunning = () => {
+      if (!running) {
+        running = true;
+        animationFrameId = requestAnimationFrame(tick);
+      }
+    };
+
     const handleMouseMove = (event: MouseEvent) => {
-      mouseX.set(event.clientX);
-      mouseY.set(event.clientY);
-      
-      // Update tooltip position with offset
-      tooltipX.set(event.clientX + 20);
-      tooltipY.set(event.clientY - 40);
+      const x = event.clientX;
+      const y = event.clientY;
+
+      // Tooltip follows the raw cursor (smoothed by springs below).
+      tooltipX.set(x + 20);
+      tooltipY.set(y - 40);
+
+      if (lastX !== -1000) {
+        const dx = x - lastX;
+        const dy = y - lastY;
+        const dist = Math.hypot(dx, dy);
+        // Emit along the path so the trail is even regardless of pointer speed.
+        if (dist >= MIN_STEP) {
+          const steps = Math.min(Math.floor(dist / MIN_STEP), 8);
+          for (let s = 1; s <= steps; s++) {
+            const t = s / steps;
+            emit(lastX + dx * t, lastY + dy * t, dx, dy);
+          }
+          lastX = x;
+          lastY = y;
+          ensureRunning();
+        }
+      } else {
+        lastX = x;
+        lastY = y;
+        emit(x, y, 0, 0);
+        ensureRunning();
+      }
     };
 
     const handleMouseLeave = () => {
-      mouseX.set(-1000);
-      mouseY.set(-1000);
+      lastX = -1000;
+      lastY = -1000;
       setTooltip({ text: '', visible: false });
     };
 
@@ -92,61 +185,26 @@ export const SpotlightCursor = ({
       setTooltip({ text: '', visible: false });
     };
 
-    // Subscribe to smooth mouse position changes
-    const unsubscribeX = smoothMouseX.on('change', (value) => {
-      currentMouseX = value;
-    });
-    
-    const unsubscribeY = smoothMouseY.on('change', (value) => {
-      currentMouseY = value;
-    });
-
-    const hexToRgb = (hex: string) => {
-      const bigint = parseInt(hex.slice(1), 16);
-      const r = (bigint >> 12) & 255;
-      const g = (bigint >> 4) & 255;
-      const b = bigint & 255;
-      return `${r},${g},${b}`;
-    };
-
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      if (currentMouseX !== -1000 && currentMouseY !== -1000) {
-        const gradient = ctx.createRadialGradient(
-          currentMouseX, currentMouseY, 0,
-          currentMouseX, currentMouseY, config.radius || 300
-        );
-        const rgbColor = hexToRgb(config.color || '#ffffff');
-        gradient.addColorStop(0, `rgba(${rgbColor}, ${config.brightness || 0.15})`);
-        gradient.addColorStop(1, 'rgba(0,0,0,0)');
-
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-
-      animationFrameId = requestAnimationFrame(draw);
+    const handleResize = () => {
+      resizeCanvas();
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
     window.addEventListener('showCursorTooltip', handleShowTooltip as EventListener);
     window.addEventListener('hideCursorTooltip', handleHideTooltip);
-    animationFrameId = requestAnimationFrame(draw);
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('showCursorTooltip', handleShowTooltip as EventListener);
       window.removeEventListener('hideCursorTooltip', handleHideTooltip);
       cancelAnimationFrame(animationFrameId);
-      unsubscribeX();
-      unsubscribeY();
     };
-  }, [config.radius, config.brightness, config.color, config.smoothing, mouseX, mouseY, smoothMouseX, smoothMouseY]);
+  }, [config.radius, config.brightness, config.color, tooltipX, tooltipY]);
 
   if (isTouchDevice()) return null;
 
@@ -162,6 +220,7 @@ export const SpotlightCursor = ({
           height: '100%',
           pointerEvents: 'none',
           zIndex: 9999,
+          mixBlendMode: 'screen',
         }}
       />
       <AnimatePresence>

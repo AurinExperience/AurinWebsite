@@ -43,6 +43,16 @@
   padding: 0;
 }
 
+.searchPrompt {
+  color: var(--color-white);
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.6;
+  margin: 0 0 12px 0;
+  padding: 0;
+}
+
 @media (max-width: 768px) {
   .content {
     padding-block: 48px;

@@ -13,11 +13,12 @@ const DEFAULT_TRANSLATIONS: SearchTranslations = {
   ariaLabel: "¿Qué servicio buscas?",
   submitAriaLabel: "Enviar pregunta",
   services: [
-    "Desarrollo web y de aplicaciones móviles",
+    "¿Necesitas un sitio web o app móvil?",
+    "Diseño UX/UI para tu producto",
+    "Branding e identidad de marca",
+    "Marketing digital y redes sociales",
     "Pruebas de usabilidad",
-    "Desarrollo de Branding",
-    "Diseño UX/UI",
-    "Consultoría Digital",
+    "Auditoría de marca y experiencia",
   ],
 }
 
