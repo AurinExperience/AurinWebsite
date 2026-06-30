@@ -2,67 +2,6 @@ import type { APIRoute } from 'astro';
 import { sendContactEmail } from '@/lib/mailing/service';
 import type { ContactFormData } from '@/lib/mailing/types';
 
-// reCAPTCHA verification function
-async function verifyRecaptcha(token: string, remoteIp?: string): Promise<{ success: boolean; score?: number; error?: string }> {
-  const secretKey = import.meta.env.RECAPTCHA_SECRET_KEY;
-
-  if (!secretKey) {
-    console.error('RECAPTCHA_SECRET_KEY not configured');
-    return { success: false, error: 'reCAPTCHA not configured' };
-  }
-
-  try {
-    const verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
-    const params = new URLSearchParams({
-      secret: secretKey,
-      response: token,
-      ...(remoteIp && { remoteip: remoteIp })
-    });
-
-    const response = await fetch(verifyUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: params.toString()
-    });
-
-    const result = await response.json();
-
-    console.log('reCAPTCHA verification result:', {
-      success: result.success,
-      score: result.score,
-      action: result.action,
-      challenge_ts: result.challenge_ts
-    });
-
-    // For reCAPTCHA v3, check the score (0.0 to 1.0)
-    // Scores closer to 1.0 indicate likely legitimate interaction
-    // Typically, 0.5 is a good threshold
-    if (result.success && result.score !== undefined) {
-      if (result.score < 0.5) {
-        return {
-          success: false,
-          score: result.score,
-          error: `Low reCAPTCHA score: ${result.score}`
-        };
-      }
-    }
-
-    return {
-      success: result.success,
-      score: result.score,
-      error: result['error-codes']?.join(', ')
-    };
-  } catch (error) {
-    console.error('Error verifying reCAPTCHA:', error);
-    return {
-      success: false,
-      error: error instanceof Error ? error.message : 'Unknown error'
-    };
-  }
-}
-
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   try {
     const body = await request.text();
@@ -74,7 +13,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     }
 
     const data = JSON.parse(body);
-    const { nombre, correo, servicio, asunto, mensaje, fileUrl, filename, recaptchaToken } = data;
+    const { nombre, correo, servicio, asunto, mensaje, fileUrl, filename, sumaA, sumaB, sumaRespuesta, origen, referrer } = data;
 
     // Validación básica
     if (!nombre || !correo || !servicio || !asunto || !mensaje) {
@@ -93,38 +32,54 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       );
     }
 
-    // Verify reCAPTCHA token
-    if (!recaptchaToken) {
+    // Anti-spam: re-check the manual sum server-side
+    if (Number(sumaA) + Number(sumaB) !== Number(sumaRespuesta)) {
       return new Response(
-        JSON.stringify({ error: 'Token de reCAPTCHA no proporcionado' }),
+        JSON.stringify({ error: 'Verificación anti-spam incorrecta' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    const recaptchaResult = await verifyRecaptcha(recaptchaToken, clientAddress);
+    // Geolocation from Vercel's edge headers (present in production; empty locally)
+    const h = request.headers;
+    const city = h.get('x-vercel-ip-city');
+    const region = h.get('x-vercel-ip-country-region');
+    const country = h.get('x-vercel-ip-country');
+    const ubicacion =
+      [city ? decodeURIComponent(city) : null, region, country]
+        .filter(Boolean)
+        .join(', ') || 'No disponible';
+    const ip =
+      h.get('x-vercel-forwarded-for') ||
+      h.get('x-forwarded-for') ||
+      clientAddress ||
+      'No disponible';
 
-    if (!recaptchaResult.success) {
-      console.warn('reCAPTCHA verification failed:', recaptchaResult.error);
-      return new Response(
-        JSON.stringify({
-          error: 'Verificación de seguridad fallida',
-          details: recaptchaResult.error
-        }),
-        { status: 403, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
+    // Map the service slug to its readable label for the email
+    const serviciosLabels: Record<string, string> = {
+      'diseno-ux-ui': 'Diseño UX/UI',
+      'desarrollo-web-movil': 'Desarrollo web y aplicaciones móviles',
+      'desarrollo-branding': 'Desarrollo de Branding',
+      'marketing-digital': 'Marketing digital y redes sociales',
+      'pruebas-usabilidad': 'Pruebas de usabilidad',
+      'otro': 'Otro',
+    };
+    const servicioLabel = serviciosLabels[servicio] || servicio;
 
-    console.log('reCAPTCHA verified successfully with score:', recaptchaResult.score);
     console.log('Intentando enviar email con datos:', { nombre, correo, servicio, asunto, mensaje, fileUrl });
 
     // Prepare contact form data
     const contactData: ContactFormData = {
       nombre,
       correo,
-      servicio,
+      servicio: servicioLabel,
       asunto,
       mensaje,
-      attachment: fileUrl && filename ? { filename, url: fileUrl } : undefined
+      attachment: fileUrl && filename ? { filename, url: fileUrl } : undefined,
+      origen,
+      referrer,
+      ubicacion,
+      ip,
     };
 
     // Send email using centralized service

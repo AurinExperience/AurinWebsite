@@ -6,46 +6,84 @@
 import type { ContactFormData, TicketData } from './types';
 
 export const contactEmailTemplate = (data: ContactFormData): string => {
+  const fecha = new Date().toLocaleString('es-MX', {
+    timeZone: 'America/Mexico_City',
+    dateStyle: 'long',
+    timeStyle: 'short',
+  });
+
+  // Reusable row for the labelled data tables
+  const row = (label: string, value: string) => `
+    <tr>
+      <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #888; font-size: 13px; width: 130px; vertical-align: top; font-family: Arial, sans-serif;">${label}</td>
+      <td style="padding: 10px 0; border-bottom: 1px solid #eee; color: #111; font-size: 15px; font-family: Arial, sans-serif;">${value}</td>
+    </tr>`;
+
   const attachmentSection = data.attachment
     ? `
-      <div style="background: #D0DF00; padding: 20px; border-radius: 8px; margin: 20px 0;">
-        <h3 style="margin-top: 0; color: #333;">Archivo adjunto:</h3>
-        <p>
-          <a href="${data.attachment.url}"
-             style="color:rgb(0, 0, 0); text-decoration: none; font-weight: 600;"
-             target="_blank">
-            Descargar: ${data.attachment.filename}
-          </a>
-        </p>
-      </div>
-    `
+      <tr><td style="padding: 0 32px 24px;">
+        <a href="${data.attachment.url}" target="_blank"
+           style="display: inline-block; background: #D0DF00; color: #0A0A0A; text-decoration: none; font-weight: bold; font-size: 14px; padding: 12px 22px; border-radius: 8px; font-family: Arial, sans-serif;">
+          📎 Descargar adjunto: ${data.attachment.filename}
+        </a>
+      </td></tr>`
     : '';
 
-  return `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <h2 style="color: #D0DF00;">Nuevo mensaje de contacto - Aurin</h2>
+  const origen = data.origen
+    ? `<a href="${data.origen}" style="color:#0A0A0A;" target="_blank">${data.origen}</a>`
+    : 'No disponible';
 
-      <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-        <h3 style="margin-top: 0; color: #333;">Información del contacto:</h3>
-        <p><strong>Nombre:</strong> ${data.nombre}</p>
-        <p><strong>Correo:</strong> ${data.correo}</p>
-        <p><strong>Servicio de interés:</strong> ${data.servicio}</p>
-        <p><strong>Asunto:</strong> ${data.asunto}</p>
-      </div>
+  return `
+  <div style="background: #f4f4f4; padding: 24px 0; font-family: Arial, sans-serif;">
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="max-width: 620px; margin: 0 auto; background: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
+
+      <!-- Header -->
+      <tr>
+        <td style="background: #0A0A0A; padding: 28px 32px;">
+          <div style="color: #D0DF00; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: bold;">Aurin</div>
+          <div style="color: #ffffff; font-size: 22px; font-weight: bold; margin-top: 6px;">Nuevo mensaje de contacto</div>
+        </td>
+      </tr>
+
+      <!-- Contact info -->
+      <tr><td style="padding: 24px 32px 8px;">
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+          ${row('Nombre', data.nombre)}
+          ${row('Correo', `<a href="mailto:${data.correo}" style="color:#0A0A0A;">${data.correo}</a>`)}
+          ${row('Servicio', data.servicio)}
+          ${row('Asunto', data.asunto)}
+        </table>
+      </td></tr>
+
+      <!-- Message -->
+      <tr><td style="padding: 16px 32px 8px;">
+        <div style="background: #fafaf0; border-left: 4px solid #D0DF00; border-radius: 8px; padding: 16px 18px;">
+          <div style="color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Mensaje</div>
+          <div style="color: #333; font-size: 15px; line-height: 1.6; white-space: pre-wrap;">${data.mensaje}</div>
+        </div>
+      </td></tr>
 
       ${attachmentSection}
 
-      <div style="background: #fff; padding: 20px; border-radius: 8px; border-left: 4px solid #D0DF00;">
-        <h3 style="margin-top: 0; color: #333;">Mensaje:</h3>
-        <p style="line-height: 1.6; color: #555;">${data.mensaje}</p>
-      </div>
+      <!-- Lead context -->
+      <tr><td style="padding: 8px 32px 4px;">
+        <div style="color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin: 12px 0 4px;">Origen del lead</div>
+        <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+          ${row('Página', origen)}
+          ${row('Procedencia', data.referrer || 'No disponible')}
+          ${row('Ubicación', data.ubicacion || 'No disponible')}
+          ${row('IP', data.ip || 'No disponible')}
+        </table>
+      </td></tr>
 
-      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 12px;">
-        <p>Este mensaje fue enviado desde el formulario de contacto de aurin.mx</p>
-        <p>Fecha: ${new Date().toLocaleString('es-ES', { timeZone: 'America/Mexico_City' })}</p>
-      </div>
-    </div>
-  `;
+      <!-- Footer -->
+      <tr><td style="padding: 24px 32px; background: #fafafa; color: #999; font-size: 12px; line-height: 1.5;">
+        Enviado desde el formulario de contacto de <strong>aurin.mx</strong><br>
+        ${fecha}
+      </td></tr>
+
+    </table>
+  </div>`;
 };
 
 export const ticketEmailTemplate = (data: TicketData): string => {

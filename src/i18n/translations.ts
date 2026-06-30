@@ -24,15 +24,18 @@ export const translations = {
           email: "Email",
           service: "Service of interest",
           subject: "Subject",
-          message: "Message"
+          message: "Message",
+          sum: "Anti-spam verification"
         },
         placeholders: {
           name: "Write your name and last name here...",
           email: "Write your email here",
           service: "Select a service...",
           subject: "What do you want to talk to us about?",
-          message: "Write your message..."
+          message: "Write your message...",
+          sum: "Your answer"
         },
+        sumError: "Incorrect sum. Please try again.",
         services: [
           {
             value: "diseno-ux-ui",
@@ -45,19 +48,9 @@ export const translations = {
             description: "Websites, apps, and custom ecommerce solutions"
           },
           {
-            value: "pruebas-usabilidad",
-            title: "Usability Testing",
-            description: "User experience testing and optimization"
-          },
-          {
             value: "desarrollo-branding",
             title: "Branding Development",
             description: "Brand identity, naming, and visual system"
-          },
-          {
-            value: "marketing-digital",
-            title: "Digital Marketing & Social Media",
-            description: "Digital strategy, content, and community management"
           },
           {
             value: "otro",
@@ -197,15 +190,15 @@ export const translations = {
       },
       servicesList: [
         {
-          title: "Brand and experience audits",
-          description: "We identify opportunities, solve challenges and align every touchpoint with your strategic vision. We evaluate your brand's visual identity, analyze customer experience across all channels and propose strategies to optimize market perception."
+          title: "User research",
+          description: "We understand your user before designing anything: we analyze how they interact with your product, where they get frustrated and what they really need. We assess existing flows, run interviews and tests when the project calls for it, and translate all of that into well-founded design decisions, not guesswork."
         },
         {
           title: "Experience design",
           description: "We identify opportunities, solve challenges and align every touchpoint with your strategic vision. We evaluate your brand's visual identity, analyze customer experience across all channels and propose strategies to optimize market perception."
         },
         {
-          title: "Digital ecosystem construction",
+          title: "Digital product development",
           description: "We identify opportunities, solve challenges and align every touchpoint with your strategic vision. We evaluate your brand's visual identity, analyze customer experience across all channels and propose strategies to optimize market perception."
         }
       ],
@@ -251,7 +244,7 @@ export const translations = {
             title: "Digital marketing and social media"
           },
           {
-            title: "UX | UI Design"
+            title: "UX/UI Design"
           }
         ]
       },
@@ -286,7 +279,17 @@ export const translations = {
           subtitle: "We improve with precision.",
           description: "We conduct tests to ensure that every solution meets usability and performance standards."
         }
-      ]
+      ],
+      howWeWork: {
+        headingPart1: "How",
+        headingPart2: "we work",
+        lead: "AI accelerates. Experience decides.",
+        paragraphs: [
+          "We use artificial intelligence across different parts of our process: to prototype faster, explore design variations and speed up repetitive development tasks. We don't hide it, it's part of how we work today.",
+          "But a tool can't tell, on its own, whether a checkout flow has one step too many, or whether an interface will confuse a 60-year-old user or a 20-year-old one. We know that because we've spent more than two decades designing and building real experiences, from scratch, long before any generative AI existed.",
+          "That experience is what drives the tool, not the other way around. It's the difference between a result that looks good and one your user can actually use."
+        ]
+      }
     },
     banner: {
       badge: 'User Experts',
@@ -621,6 +624,12 @@ export const translations = {
         paragraph1: "You may wonder how, after 26 years, you're only now hearing about Aurin. The answer lies in our journey of transformation. We ventured into uncharted territories and reinvented ourselves.",
         paragraph2: "We became our own success story, proving that by staying close to our essence and looking further ahead, we could evolve. Today, this new identity reflects who we are and the impact we want to create with you."
       },
+      nameOrigin: {
+        headingWhite: "Why",
+        headingYellow: "Aurin?",
+        paragraph1: "The Auryn, also called the Gem, is a talisman that appears in The Neverending Story, by Michael Ende: a medallion with two intertwined snakes, each biting the other's tail, like a yin and yang. It represents the balance between opposites and the power to harmonize them to make what you wish for come true.",
+        paragraph2: "That idea inspired our name: a space where design and technology harmonize, and where we build a path alongside our clients, a path we walk together, getting closer so we can reach further."
+      },
       collaborativeDesign: {
         heading: "Design, Collaboration, and Innovation in a Space Built to Create",
         description: "Aurin is based at Aldea Creativa, a space where design and innovation converge. Surrounded by creative minds, we work in an environment that inspires, connects, and enriches every project, fostering collaboration and idea exchange.",
@@ -630,7 +639,7 @@ export const translations = {
       alliances: {
         headingWhite: "The Power of",
         headingYellow: "Partnerships",
-        description: "Collaboration is the foundation for creating exceptional solutions. Together with strategic partners like <strong>Ancient Technologies, Ideograma, and TopDesign</strong>, we combine our expertise to develop unique projects. This synergy drives innovation, keeps us at the forefront, and expands the boundaries of design and development."
+        description: "Collaboration is the foundation for creating exceptional solutions. Together with strategic partners like <strong>Ancient Technologies, Ideograma, TopDesign, and Identidad</strong>, we combine our expertise to develop unique projects. This synergy drives innovation, keeps us at the forefront, and expands the boundaries of design and development."
       },
       mainImage: {
         alt: "Aurin Team"
@@ -662,15 +671,18 @@ export const translations = {
           email: "Correo",
           service: "Servicio de interés",
           subject: "Asunto",
-          message: "Mensaje"
+          message: "Mensaje",
+          sum: "Verificación anti-spam"
         },
         placeholders: {
           name: "Escribe tu nombre aquí y apellidos...",
           email: "Escribe tu correo aquí",
           service: "Selecciona un servicio...",
           subject: "¿De qué quieres hablarnos?",
-          message: "Escribe tu mensaje..."
+          message: "Escribe tu mensaje...",
+          sum: "Tu respuesta"
         },
+        sumError: "Suma incorrecta. Inténtalo de nuevo.",
         services: [
           {
             value: "diseno-ux-ui",
@@ -683,19 +695,9 @@ export const translations = {
             description: "Webs, apps y soluciones ecommerce a medida"
           },
           {
-            value: "pruebas-usabilidad",
-            title: "Pruebas de usabilidad",
-            description: "Testeo y optimización de experiencia de usuario"
-          },
-          {
             value: "desarrollo-branding",
             title: "Desarrollo de Branding",
             description: "Identidad de marca, naming y sistema visual"
-          },
-          {
-            value: "marketing-digital",
-            title: "Marketing digital y redes sociales",
-            description: "Estrategia digital, contenidos y gestión de comunidades"
           },
           {
             value: "otro",
@@ -835,15 +837,15 @@ export const translations = {
       },
       servicesList: [
         {
-          title: "Auditorías de marca y experiencia",
-          description: "Identificamos oportunidades, resolvemos desafíos y alineamos cada punto de contacto con tu visión estratégica. Evaluamos la identidad visual de tu marca, analizamos la experiencia del cliente en todos los canales y proponemos estrategias para optimizar su percepción en el mercado."
+          title: "Investigación de usuario",
+          description: "Entendemos a tu usuario antes de diseñar nada: analizamos cómo interactúa con tu producto, dónde se frustra y qué necesita realmente. Evaluamos flujos existentes, hacemos entrevistas y pruebas cuando el proyecto lo requiere, y traducimos todo eso en decisiones de diseño con fundamento, no en intuición."
         },
         {
           title: "Diseño de experiencias",
           description: "Creamos conexiones emocionales que van desde espacios físicos hasta entornos digitales. Diseñamos experiencias que generan lealtad, desarrollamos aplicaciones que simplifican procesos y reforzamos el vínculo con tu marca en cada interacción."
         },
         {
-          title: "Construcción de ecosistemas digitales",
+          title: "Desarrollo de producto digital",
           description: "Diseñamos plataformas y sistemas que optimizan procesos y los hacen más amigables. Digitalizamos y automatizamos tareas clave con dashboards personalizados, herramientas digitales y plataformas interactivas que transforman la operación y mejoran la experiencia del usuario."
         }
       ],
@@ -889,7 +891,7 @@ export const translations = {
             title: "Marketing digital y redes sociales"
           },
           {
-            title: "Diseño UX | UI"
+            title: "Diseño UX/UI"
           }
         ]
       },
@@ -924,7 +926,17 @@ export const translations = {
           subtitle: "Mejoramos con precisión.",
           description: "Llevamos a cabo pruebas para asegurar que cada solución cumpla con los estándares de usabilidad y rendimiento."
         }
-      ]
+      ],
+      howWeWork: {
+        headingPart1: "Cómo",
+        headingPart2: "trabajamos",
+        lead: "La IA acelera. La experiencia decide.",
+        paragraphs: [
+          "Usamos inteligencia artificial en distintas partes de nuestro proceso: para prototipar más rápido, explorar variaciones de diseño y acelerar tareas repetitivas de desarrollo. No lo escondemos, es parte de cómo trabajamos hoy.",
+          "Pero una herramienta no sabe, por sí sola, si un flujo de pago tiene un paso de más, o si una interfaz va a confundir a un usuario de 60 años o a uno de 20. Eso lo sabemos porque llevamos más de dos décadas diseñando y construyendo experiencias reales, desde cero, mucho antes de que existiera ninguna IA generativa.",
+          "Esa experiencia es la que dirige la herramienta, no al revés. Es la diferencia entre un resultado que se ve bien y uno que tu usuario realmente puede usar."
+        ]
+      }
     },
     banner: {
       badge: 'Expertos en usuarios',
@@ -1260,6 +1272,12 @@ export const translations = {
         paragraph1: "Quizá te preguntes cómo, después de 26 años, apenas escuchas de Aurin. La respuesta está en nuestro propio viaje de transformación. Recorrimos nuevas rutas y nos reinventamos.",
         paragraph2: "Hemos sido nuestro propio caso de éxito, demostrando que al estar más cerca de nuestra esencia y mirar más lejos, logramos evolucionar. Hoy, esta nueva identidad refleja quiénes somos y el impacto que queremos crear contigo."
       },
+      nameOrigin: {
+        headingWhite: "¿Por qué",
+        headingYellow: "Aurin?",
+        paragraph1: "El Áuryn, también llamado el Esplendor, es un talismán que aparece en La Historia Interminable, de Michael Ende: un medallón con dos serpientes entrelazadas, cada una mordiendo la cola de la otra, como un yin y yang. Representa el equilibrio entre opuestos y el poder de armonizarlos para hacer realidad lo que se desea.",
+        paragraph2: "Nos inspiramos en esa idea para nombrarnos: un espacio donde el diseño y la tecnología se armonizan, y donde construimos junto a nuestros clientes un camino que recorremos juntos, acercándonos para poder llegar más lejos."
+      },
       collaborativeDesign: {
         heading: "Diseño, colaboración e innovación en un entorno hecho para crear",
         description: "Aurin tiene su sede en Aldea Creativa, un espacio donde diseño e innovación convergen. Rodeados de mentes creativas, trabajamos en un ambiente que inspira, conecta y enriquece cada proyecto, fomentando la colaboración y el intercambio de ideas.",
@@ -1269,7 +1287,7 @@ export const translations = {
       alliances: {
         headingWhite: "El poder de",
         headingYellow: "las alianzas",
-        description: "La colaboración es la base para crear soluciones excepcionales. Junto a socios estratégicos como <strong>Ancient Technologies, Ideograma y TopDesign</strong>, unimos nuestra experiencia para desarrollar proyectos únicos. Esta sinergia impulsa la innovación, nos mantiene a la vanguardia y expande los límites del diseño y el desarrollo."
+        description: "La colaboración es la base para crear soluciones excepcionales. Junto a socios estratégicos como <strong>Ancient Technologies, Ideograma, TopDesign e Identidad</strong>, unimos nuestra experiencia para desarrollar proyectos únicos. Esta sinergia impulsa la innovación, nos mantiene a la vanguardia y expande los límites del diseño y el desarrollo."
       },
       mainImage: {
         alt: "Equipo Aurin"

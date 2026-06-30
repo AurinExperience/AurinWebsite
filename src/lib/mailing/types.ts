@@ -15,6 +15,11 @@ export interface ContactFormData {
   asunto: string;
   mensaje: string;
   attachment?: EmailAttachment;
+  // Lead context (origin + geolocation), filled in by the API route
+  origen?: string; // page URL where the form was submitted
+  referrer?: string; // where the visitor came from (or "Directo")
+  ubicacion?: string; // "City, Region, Country" from Vercel geo headers
+  ip?: string;
 }
 
 export interface TicketData {

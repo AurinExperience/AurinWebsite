@@ -22,38 +22,26 @@ interface Props {
 }
 
 const {
-  titlePart1 = t.services.tools.titlePart1,
-  titlePart2 = t.services.tools.titlePart2,
-  description = t.services.tools.description,
+  titlePart1 = t.services.tools.homeTitlePart1,
+  titlePart2 = t.services.tools.homeTitlePart2,
+  description = t.services.tools.homeDescription,
   items = [
     {
       id: "diseno-ux-ui",
-      letter: "X",
+      letter: "UX/UI",
       title: t.services.tools.items[4].title,
       href: "#",
     },
     {
       id: "desarrollo-web",
-      letter: "W",
+      letter: "Dev",
       title: t.services.tools.items[0].title,
       href: "#",
     },
     {
       id: "branding",
-      letter: "I",
+      letter: "Br",
       title: t.services.tools.items[2].title,
-      href: "#",
-    },
-    {
-      id: "marketing",
-      letter: "M",
-      title: t.services.tools.items[3].title,
-      href: "#",
-    },
-    {
-      id: "usabilidad",
-      letter: "U",
-      title: t.services.tools.items[1].title,
       href: "#",
     },
   ],
@@ -72,7 +60,7 @@ const {
 
   <ToolsSuite
     items={items}
-    toolsDetail={t.services.toolsDetail}
+    toolsDetail={t.services.toolsDetail.slice(0, 3)}
     variant="textBelow"
   />
 </section>

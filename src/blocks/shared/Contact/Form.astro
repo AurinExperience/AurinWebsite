@@ -8,18 +8,11 @@ import MainButton from "@/components/ui/MainButton.astro";
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
 
-// reCAPTCHA Enterprise Site Key
-const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
+// Manual anti-spam: a small sum the user must solve. Operands are generated
+// per render and re-checked server-side (num1 + num2 === answer).
+const sumA = Math.floor(Math.random() * 9) + 1;
+const sumB = Math.floor(Math.random() * 9) + 1;
 ---
-
-<!-- reCAPTCHA Enterprise Script -->
-<script is:inline define:vars={{ RECAPTCHA_SITE_KEY }}>
-  window.RECAPTCHA_SITE_KEY = RECAPTCHA_SITE_KEY;
-</script>
-<script
-  src={`https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`}
-  async
-  defer></script>
 
 <section class="contact-section">
   <div class="contact-container">
@@ -194,6 +187,24 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
                 </button>
               </div>
             </div>
+          </div>
+
+          <div class="form-group">
+            <label for="sumaRespuesta" class="form-label">
+              {t.contact.form.labels.sum}: ¿Cuánto es {sumA} + {sumB}?
+            </label>
+            <input
+              type="number"
+              id="sumaRespuesta"
+              name="sumaRespuesta"
+              class="form-input"
+              inputmode="numeric"
+              autocomplete="off"
+              placeholder={t.contact.form.placeholders.sum}
+              required
+            />
+            <input type="hidden" name="sumaA" value={sumA} />
+            <input type="hidden" name="sumaB" value={sumB} />
           </div>
 
           <div class="form-actions">
@@ -699,6 +710,14 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
       'button[type="submit"]',
     ) as HTMLButtonElement;
 
+    // The button's label lives in its first <span> (next to the icon span).
+    // Setting submitButton.textContent would wipe both spans, so update the span.
+    const setButtonLabel = (label: string) => {
+      if (!submitButton) return;
+      const textSpan = submitButton.querySelector("span");
+      if (textSpan) textSpan.textContent = label;
+    };
+
     // Motion Dropdown functionality
     const dropdown = document.querySelector("[data-dropdown]") as HTMLElement;
     const trigger = dropdown?.querySelector(
@@ -870,35 +889,25 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
         // Disable button during submission
         if (submitButton) {
           submitButton.disabled = true;
-          const originalText = submitButton.textContent;
-          submitButton.textContent = t.contact.form.sending;
+          setButtonLabel(t.contact.form.sending);
         }
 
-        // Generate reCAPTCHA token
-        let recaptchaToken = "";
-        try {
-          if (typeof grecaptcha !== "undefined" && grecaptcha.enterprise) {
-            await grecaptcha.enterprise.ready();
-            recaptchaToken = await grecaptcha.enterprise.execute(
-              window.RECAPTCHA_SITE_KEY,
-              {
-                action: "submit_contact_form",
-              },
-            );
-          } else {
-            throw new Error("reCAPTCHA not loaded");
-          }
-        } catch (recaptchaError) {
-          console.error("reCAPTCHA error:", recaptchaError);
+        // Anti-spam: validate the manual sum before doing anything else
+        const getVal = (name: string) =>
+          (form.querySelector(`[name="${name}"]`) as HTMLInputElement)?.value;
+        const sumA = parseInt(getVal("sumaA"), 10);
+        const sumB = parseInt(getVal("sumaB"), 10);
+        const sumAnswer = parseInt(getVal("sumaRespuesta"), 10);
+        if (sumA + sumB !== sumAnswer) {
           (window as any).showToast({
-            title: "Error de seguridad",
-            description: "No se pudo verificar reCAPTCHA. Intenta de nuevo.",
+            title: t.contact.form.sumError,
+            description: "",
             type: "error",
             duration: 5000,
           });
           if (submitButton) {
             submitButton.disabled = false;
-            submitButton.textContent = t.contact.form.button;
+            setButtonLabel(t.contact.form.button);
           }
           return;
         }
@@ -935,7 +944,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
 
             if (submitButton) {
               submitButton.disabled = false;
-              submitButton.textContent = t.contact.form.button;
+              setButtonLabel(t.contact.form.button);
             }
             return;
           }
@@ -948,7 +957,11 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
           servicio: formData.get("servicio") as string,
           asunto: formData.get("asunto") as string,
           mensaje: formData.get("mensaje") as string,
-          recaptchaToken: recaptchaToken, // Add reCAPTCHA token
+          sumaA: sumA,
+          sumaB: sumB,
+          sumaRespuesta: sumAnswer,
+          origen: window.location.href,
+          referrer: document.referrer || "Directo",
         };
 
         // Add file info if uploaded
@@ -1012,7 +1025,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.RECAPTCHA_SITE_KEY;
           // Re-enable button
           if (submitButton) {
             submitButton.disabled = false;
-            submitButton.textContent = t.contact.form.button;
+            setButtonLabel(t.contact.form.button);
           }
         }
       });
