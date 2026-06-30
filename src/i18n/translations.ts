@@ -12,7 +12,7 @@ export const translations = {
     contact: {
       seo: {
         title: "Contact Aurin | Get a Design Quote",
-        description: "Have a design project? Contact Aurin for a personalized proposal. Branding, identity, and graphic design specialists in Mexico. Write to us today.",
+        description: "Have a UX/UI, web development or branding project? Write to us and get a personalized proposal. Get a quote for your project today.",
         keywords: "contact design agency Mexico, branding quote, graphic design proposal, hire creative agency, request design budget"
       },
       form: {
@@ -130,7 +130,7 @@ export const translations = {
     projects: {
       seo: {
         title: "UX/UI & Branding Portfolio | Aurin Mexico",
-        description: "Portfolio of UX/UI design, branding, web development, and digital marketing projects. Real companies, real results — and stories worth telling.",
+        description: "Portfolio of UX/UI design, web/app development and branding. Real companies, real projects. See how we work.",
         keywords: "UX UI design portfolio Mexico, branding projects case studies, web development showcase, digital marketing results, mobile app design portfolio"
       },
       introduction: {
@@ -659,7 +659,7 @@ export const translations = {
     contact: {
       seo: {
         title: "Contacto | Aurin — Cotiza tu Proyecto",
-        description: "¿Tienes un proyecto de diseño? Contáctanos y recibe una propuesta personalizada. Branding, identidad y diseño gráfico en México. Escríbenos hoy.",
+        description: "¿Tienes un proyecto de UX/UI, desarrollo web o branding? Escríbenos y recibe una propuesta personalizada. Cotiza tu proyecto hoy.",
         keywords: "contactar agencia diseño México, cotización branding, presupuesto identidad corporativa, consulta diseño gráfico, agendar reunión diseño"
       },
       form: {
@@ -777,7 +777,7 @@ export const translations = {
     projects: {
       seo: {
         title: "Portafolio UX/UI, Branding y Web | Aurin",
-        description: "Portafolio de diseño UX/UI, branding, desarrollo web y marketing digital. Empresas reales, resultados medibles, historias que vale la pena contar.",
+        description: "Portafolio de diseño UX/UI, desarrollo web/apps y branding. Empresas reales, proyectos reales. Descubre cómo trabajamos.",
         keywords: "portafolio diseño UX UI México, proyectos branding exitosos, casos desarrollo web app, marketing digital resultados, pruebas usabilidad proyectos"
       },
       introduction: {
