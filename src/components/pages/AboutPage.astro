@@ -9,6 +9,7 @@ import { SITE } from "@/config/site";
 import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
 import {
   HeroAbout,
+  NameOrigin,
   SectionImage,
   UnexploredPaths,
   LongCards,
@@ -80,6 +81,7 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/about", currentLang);
   <Header />
   <main id="main-content">
     <HeroAbout />
+    <NameOrigin />
     <SectionImage />
     <UnexploredPaths />
     <LongCards />

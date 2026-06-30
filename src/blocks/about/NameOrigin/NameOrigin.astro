@@ -1,0 +1,24 @@
+---
+import { getLangFromUrl, translations } from "@/i18n";
+import styles from "./NameOrigin.module.css";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+const { headingWhite, headingYellow, paragraph1, paragraph2 } =
+  t.about.nameOrigin;
+---
+
+<section class={`${styles.section} name-origin`}>
+  <div class={styles.container}>
+    <div class={styles.left}>
+      <h2 class={styles.heading}>
+        <span class={styles.headingWhite}>{headingWhite}</span>
+        <span class={styles.headingYellow}>{headingYellow}</span>
+      </h2>
+    </div>
+    <div class={styles.right}>
+      <p>{paragraph1}</p>
+      <p>{paragraph2}</p>
+    </div>
+  </div>
+</section>

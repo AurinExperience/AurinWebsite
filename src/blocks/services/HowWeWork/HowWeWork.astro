@@ -1,0 +1,22 @@
+---
+import { getLangFromUrl, translations } from "@/i18n";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import styles from "./HowWeWork.module.css";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+const { headingPart1, headingPart2, lead, paragraphs } = t.services.howWeWork;
+---
+
+<section class={styles.section}>
+  <div class={styles.container}>
+    <div class={styles.header}>
+      <SectionHeading lightText={headingPart1} highlightText={headingPart2} />
+      <p class={styles.lead}>{lead}</p>
+    </div>
+
+    <div class={styles.body}>
+      {paragraphs.map((text) => <p class={styles.paragraph}>{text}</p>)}
+    </div>
+  </div>
+</section>
