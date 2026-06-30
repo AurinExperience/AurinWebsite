@@ -95,8 +95,6 @@ export const PROJECT_FILTERS: ProjectFilter[] = [
   { value: 'diseno-ux-ui', label: 'Diseño UX/UI' },
   { value: 'desarrollo-web-movil', label: 'Desarrollo web y de aplicaciones móviles' },
   { value: 'desarrollo-branding', label: 'Desarrollo de branding' },
-  { value: 'marketing-digital', label: 'Marketing digital y redes sociales' },
-  { value: 'pruebas-usabilidad', label: 'Pruebas de usabilidad' },
 ];
 
 // API Functions

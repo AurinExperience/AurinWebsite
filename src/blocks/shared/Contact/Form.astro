@@ -220,6 +220,10 @@ const sumB = Math.floor(Math.random() * 9) + 1;
   .contact-section {
     width: 100%;
     padding: 100px 0;
+    /* Sit above the fixed "reveal" footer so it doesn't overlap the form/button */
+    position: relative;
+    z-index: 1;
+    background-color: var(--color-black-a);
   }
 
   .contact-container {
