@@ -96,6 +96,14 @@ const {
 			twitterCard={twitterCard}
 		/>
 		<GlobalSchema />
+		<!-- Google tag (gtag.js) -->
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-CQTWM27WDC"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-CQTWM27WDC');
+		</script>
 	</head>
 	<body>
 		<SpotlightCursorContainer />
