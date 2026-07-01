@@ -60,5 +60,7 @@ export function getCanonicalUrl(siteUrl: string, pagePath: string, lang: string)
   if (lang === defaultLang) {
     return `${siteUrl}${cleanPath || '/'}`;
   }
-  return `${siteUrl}/${lang}${cleanPath || '/'}`;
+  // No trailing slash on the locale root (/en, not /en/) so it matches the
+  // sitemap and the no-trailing-slash convention used by every other URL.
+  return `${siteUrl}/${lang}${cleanPath}`;
 }
