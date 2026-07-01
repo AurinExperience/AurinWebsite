@@ -26,7 +26,6 @@ export interface OrganizationStructuredData {
   contactPoint?: ContactPoint | ContactPoint[];
   sameAs?: string[];
   areaServed?: string | string[];
-  serviceType?: string | string[];
   knowsAbout?: string | string[];
 }
 

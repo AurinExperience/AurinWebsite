@@ -1,0 +1,29 @@
+# Aurin
+
+> Aurin es una agencia creativa mexicana especializada en diseño UX/UI, branding, identidad corporativa y desarrollo web. Autores de experiencias a través del diseño y la tecnología.
+
+## Páginas principales (ES)
+
+- [Inicio](https://aurin.mx/): Diseño UX/UI, branding y desarrollo web en México.
+- [Nosotros](https://aurin.mx/about): Equipo, enfoque y metodología de la agencia.
+- [Servicios](https://aurin.mx/services): Diseño gráfico, branding, identidad corporativa, diseño web y estrategia digital.
+- [Portafolio](https://aurin.mx/projects): Proyectos y casos de estudio.
+- [Contacto](https://aurin.mx/contact): Formulario de contacto y agenda de citas.
+
+## Main pages (EN)
+
+- [Home](https://aurin.mx/en): UX/UI design, branding and web development in Mexico.
+- [About](https://aurin.mx/en/about): Team, approach and methodology.
+- [Services](https://aurin.mx/en/services): Graphic design, branding, corporate identity, web design and digital strategy.
+- [Portfolio](https://aurin.mx/en/projects): Projects and case studies.
+- [Contact](https://aurin.mx/en/contact): Contact form and appointment booking.
+
+## Legal
+
+- [Aviso de Privacidad](https://aurin.mx/privacy)
+- [Términos y Condiciones](https://aurin.mx/terms)
+
+## Recursos
+
+- [Sitemap](https://aurin.mx/sitemap.xml)
+- Contacto: hey@aurin.mx
