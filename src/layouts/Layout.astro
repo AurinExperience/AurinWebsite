@@ -3,6 +3,7 @@ import '@/styles/global.css';
 import { getLangFromUrl } from '@/i18n';
 import MegaMenu from '@/components/layout/MegaMenu.astro';
 import AdvancedSEO from '@/blocks/shared/SEO/AdvancedSEO.astro';
+import GlobalSchema from '@/blocks/shared/SEO/GlobalSchema.astro';
 {/* import PageLoader from '@/components/layout/PageLoader.astro'; */}
 import ChatbotContainer from '@/blocks/shared/Chatbot/ChatbotContainer.astro';
 import SpotlightCursorContainer from '@/components/animation/SpotlightCursorContainer.astro';
@@ -94,6 +95,7 @@ const {
 			author={author}
 			twitterCard={twitterCard}
 		/>
+		<GlobalSchema />
 	</head>
 	<body>
 		<SpotlightCursorContainer />
