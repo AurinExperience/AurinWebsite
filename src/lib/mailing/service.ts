@@ -17,9 +17,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<EmailResp
   try {
     const emailPayload: any = {
       from: 'Aurin <noreply@aurin.mx>',
-      // Gmail receives reliably; sodio.net (Zoho) currently defers mail from the
-      // new aurin.mx domain, so it's kept here for when Zoho is whitelisted.
-      to: ['leonelgr24@gmail.com', 'info@sodio.net', 'leonel@sodio.net'],
+      to: ['info@sodio.net', 'leonel@sodio.net'],
       subject: `${data.asunto} - ${data.nombre}`,
       replyTo: data.correo,
       html: contactEmailTemplate(data),

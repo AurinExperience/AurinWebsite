@@ -6,28 +6,46 @@ export const prerender = false;
 interface SitemapEntry {
   loc: string;
   alternates: { hreflang: string; href: string }[];
-  lastmod?: string;
+  lastmod: string;
   priority: string;
   changefreq: string;
 }
 
+// Indexable static pages (ES + EN). Utility/transactional pages
+// (appointment confirmation, 404, etc.) are intentionally excluded so they
+// don't waste crawl budget or get flagged as thin content.
 const staticPages = [
-  { es: '/', en: '/en' },
-  { es: '/about', en: '/en/about' },
-  { es: '/services', en: '/en/services' },
-  { es: '/projects', en: '/en/projects' },
-  { es: '/contact', en: '/en/contact' },
-  { es: '/privacy', en: '/en/privacy' },
-  { es: '/terms', en: '/en/terms' },
-  { es: '/appointment-confirmed', en: '/en/appointment-confirmation' }
+  { es: '/', en: '/en', priority: '1.0', changefreq: 'weekly' },
+  { es: '/about', en: '/en/about', priority: '0.8', changefreq: 'monthly' },
+  { es: '/services', en: '/en/services', priority: '0.8', changefreq: 'monthly' },
+  { es: '/projects', en: '/en/projects', priority: '0.9', changefreq: 'weekly' },
+  { es: '/contact', en: '/en/contact', priority: '0.7', changefreq: 'monthly' },
+  { es: '/privacy', en: '/en/privacy', priority: '0.3', changefreq: 'yearly' },
+  { es: '/terms', en: '/en/terms', priority: '0.3', changefreq: 'yearly' }
 ];
 
 const baseUrl = 'https://aurin.mx';
 
+// W3C Datetime (ISO 8601, seconds precision, UTC) — the format the sitemaps.org
+// protocol specifies for <lastmod>. e.g. 2026-07-01T12:34:56+00:00
+const toW3C = (date: Date) => date.toISOString().replace(/\.\d{3}Z$/, '+00:00');
+
+// Stable deploy-time value for static pages. Evaluated once per cold start
+// (≈ deploy time) rather than per request, so lastmod isn't "always now"
+// (which search engines distrust as a spam signal).
+// ponytail: cold-start time; wire to build/commit date if per-page precision matters.
+const BUILD_DATE = toW3C(new Date());
+
+// Escape the 5 XML entities so a stray "&" in a slug can't break the whole feed.
+const escapeXml = (value: string) =>
+  value.replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]!)
+  );
+
 export const GET: APIRoute = async () => {
   const entries: SitemapEntry[] = [];
 
-  // 1. Add static pages to the sitemap with alternates mapping
+  // 1. Static pages with reciprocal hreflang alternates
   for (const page of staticPages) {
     const esUrl = `${baseUrl}${page.es}`;
     const enUrl = `${baseUrl}${page.en}`;
@@ -38,22 +56,11 @@ export const GET: APIRoute = async () => {
       { hreflang: 'x-default', href: esUrl }
     ];
 
-    entries.push({
-      loc: esUrl,
-      alternates,
-      priority: page.es === '/' ? '1.0' : '0.8',
-      changefreq: 'weekly'
-    });
-
-    entries.push({
-      loc: enUrl,
-      alternates,
-      priority: page.en === '/en' ? '1.0' : '0.8',
-      changefreq: 'weekly'
-    });
+    entries.push({ loc: esUrl, alternates, lastmod: BUILD_DATE, priority: page.priority, changefreq: page.changefreq });
+    entries.push({ loc: enUrl, alternates, lastmod: BUILD_DATE, priority: page.priority, changefreq: page.changefreq });
   }
 
-  // 2. Fetch dynamic projects from Payload CMS and add them with cross-locale mappings
+  // 2. Dynamic projects from Payload, with cross-locale hreflang mappings
   try {
     const [projectsEs, projectsEn] = await Promise.all([
       PayloadAPI.getProjects('es'),
@@ -65,80 +72,64 @@ export const GET: APIRoute = async () => {
     for (const p of projectsEs) {
       projectsMap.set(p.id, { ...projectsMap.get(p.id), es: p });
     }
-
     for (const p of projectsEn) {
-      const existing = projectsMap.get(p.id) || {};
-      projectsMap.set(p.id, { ...existing, en: p });
+      projectsMap.set(p.id, { ...projectsMap.get(p.id), en: p });
     }
 
-    for (const [_, value] of projectsMap.entries()) {
-      const { es, en } = value;
+    for (const { es, en } of projectsMap.values()) {
       const lastmodDate = es?.updatedAt || en?.updatedAt;
-      const formattedLastmod = lastmodDate ? new Date(lastmodDate).toISOString().split('T')[0] : undefined;
+      const lastmod = lastmodDate ? new Date(lastmodDate).toISOString().split('T')[0] : BUILD_DATE;
+
+      // encodeURIComponent keeps the URL valid even if a CMS slug has spaces
+      // or accents (e.g. "Fruit Academy" → "Fruit%20Academy").
+      const esUrl = es ? `${baseUrl}/project/${encodeURIComponent(es.slug)}` : '';
+      const enUrl = en ? `${baseUrl}/en/project/${encodeURIComponent(en.slug)}` : '';
 
       const alternates: { hreflang: string; href: string }[] = [];
-      let esUrl = '';
-      let enUrl = '';
+      if (esUrl) alternates.push({ hreflang: 'es', href: esUrl });
+      if (enUrl) alternates.push({ hreflang: 'en', href: enUrl });
+      // x-default falls back to Spanish, or English if there's no Spanish version
+      alternates.push({ hreflang: 'x-default', href: esUrl || enUrl });
 
-      if (es) {
-        esUrl = `${baseUrl}/project/${es.slug}`;
-        alternates.push({ hreflang: 'es', href: esUrl });
-      }
-
-      if (en) {
-        enUrl = `${baseUrl}/en/project/${en.slug}`;
-        alternates.push({ hreflang: 'en', href: enUrl });
-      }
-
-      // Add x-default pointing to Spanish as fallback
-      if (esUrl) {
-        alternates.push({ hreflang: 'x-default', href: esUrl });
-      } else if (enUrl) {
-        alternates.push({ hreflang: 'x-default', href: enUrl });
-      }
-
-      if (es) {
-        entries.push({
-          loc: esUrl,
-          alternates,
-          lastmod: formattedLastmod,
-          priority: '0.7',
-          changefreq: 'monthly'
-        });
-      }
-
-      if (en) {
-        entries.push({
-          loc: enUrl,
-          alternates,
-          lastmod: formattedLastmod,
-          priority: '0.7',
-          changefreq: 'monthly'
-        });
-      }
+      if (esUrl) entries.push({ loc: esUrl, alternates, lastmod, priority: '0.7', changefreq: 'monthly' });
+      if (enUrl) entries.push({ loc: enUrl, alternates, lastmod, priority: '0.7', changefreq: 'monthly' });
     }
   } catch (error) {
+    // Never fail the sitemap on a CMS hiccup — static pages still get served.
     console.error('❌ Error rendering dynamic projects in sitemap.xml:', error);
   }
 
-  // 3. Construct sitemap XML structure with xmlns:xhtml namespace declarations
+  // 3. Build the XML (no blank lines, all URLs escaped)
+  const urls = entries
+    .map((entry) => {
+      const links = entry.alternates
+        .map((alt) => `    <xhtml:link rel="alternate" hreflang="${alt.hreflang}" href="${escapeXml(alt.href)}" />`)
+        .join('\n');
+      return [
+        '  <url>',
+        `    <loc>${escapeXml(entry.loc)}</loc>`,
+        links,
+        `    <lastmod>${entry.lastmod}</lastmod>`,
+        `    <changefreq>${entry.changefreq}</changefreq>`,
+        `    <priority>${entry.priority}</priority>`,
+        '  </url>'
+      ].join('\n');
+    })
+    .join('\n');
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  ${entries.map(entry => `
-  <url>
-    <loc>${entry.loc}</loc>
-    ${entry.alternates.map(alt => `<xhtml:link rel="alternate" hreflang="${alt.hreflang}" href="${alt.href}" />`).join('\n    ')}
-    ${entry.lastmod ? `<lastmod>${entry.lastmod}</lastmod>` : ''}
-    <changefreq>${entry.changefreq}</changefreq>
-    <priority>${entry.priority}</priority>
-  </url>`).join('')}
-</urlset>`.trim();
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+${urls}
+</urlset>`;
 
   return new Response(xml, {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=86400, s-maxage=86400'
+      'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
     }
   });
 };

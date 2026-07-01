@@ -1,0 +1,65 @@
+---
+/**
+ * Site-wide structured data (Organization + WebSite), emitted on every page.
+ * Powers the brand knowledge panel, logo-in-search, and site-name in results.
+ * Uses @graph with @id references so the entities are linked, not duplicated.
+ */
+import { getLangFromUrl } from "@/i18n";
+import { SITE } from "@/config/site";
+
+const lang = getLangFromUrl(Astro.url);
+
+const orgDescription =
+  lang === "es"
+    ? "Aurin es una agencia mexicana de diseño UX/UI, branding y desarrollo web y de aplicaciones. Creamos marcas y experiencias digitales que conectan con las personas y generan resultados."
+    : "Aurin is a Mexican UX/UI design, branding and web & app development agency. We build brands and digital experiences that connect with people and drive results.";
+
+const knowsAbout =
+  lang === "es"
+    ? ["Diseño UX/UI", "Branding", "Desarrollo web", "Desarrollo de aplicaciones móviles", "Identidad de marca", "Diseño de experiencias"]
+    : ["UX/UI Design", "Branding", "Web development", "Mobile app development", "Brand identity", "Experience design"];
+
+const orgId = `${SITE.url}/#organization`;
+const siteId = `${SITE.url}/#website`;
+
+const graph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": orgId,
+      name: SITE.name,
+      url: SITE.url,
+      logo: {
+        "@type": "ImageObject",
+        url: SITE.logoUrl,
+        caption: SITE.name,
+      },
+      image: SITE.logoUrl,
+      description: orgDescription,
+      email: SITE.contactEmail,
+      foundingDate: "2020",
+      knowsAbout,
+      areaServed: { "@type": "Country", name: "Mexico" },
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: SITE.contactEmail,
+        contactType: "customer service",
+        availableLanguage: ["Spanish", "English"],
+      },
+      sameAs: SITE.sameAs,
+    },
+    {
+      "@type": "WebSite",
+      "@id": siteId,
+      url: SITE.url,
+      name: SITE.name,
+      description: orgDescription,
+      publisher: { "@id": orgId },
+      inLanguage: ["es-MX", "en-US"],
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />
