@@ -16,6 +16,8 @@
   height: 52px;
   max-width: 100%;
   min-width: 0;
+  font-family: var(--font-family-display);
+  font-weight: 700;
 }
 
 .btn:global(.is-visible) {

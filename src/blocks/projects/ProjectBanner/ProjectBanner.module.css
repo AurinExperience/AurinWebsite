@@ -46,9 +46,9 @@
 }
 
 .title {
-  color: #D0DF00;
-  font-family: var(--font-heading);
-  font-size: 36px;
+  color: var(--color-yellow);
+  font-family: var(--font-family-display);
+  font-size: 40px;
   font-weight: 300;
   line-height: 1.1;
   margin: 0;
@@ -110,7 +110,7 @@
   }
 
   .title {
-    font-size: 42px;
+    font-size: 40px;
   }
 
   .categories {
@@ -140,7 +140,7 @@
   }
 
   .title {
-    font-size: 48px;
+    font-size: 40px;
     line-height: 50px;
   }
 

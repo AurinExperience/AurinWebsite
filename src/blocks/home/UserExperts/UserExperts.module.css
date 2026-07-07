@@ -21,14 +21,16 @@
 }
 
 .titleBlock h2 {
-  font-size: 48px;
-  line-height: 50px;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 300;
   margin: 0;
 }
 
 .titleBlock h2 span {
-  font-size: 32px;
-  line-height: 35px;
+  color: var(--color-yellow);
+  font-size: 40px;
+  line-height: 1.1;
   display: block;
 }
 

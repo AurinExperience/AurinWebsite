@@ -41,11 +41,11 @@
 }
 
 .titleLine1 {
-  color: var(--color-white);
-  font-family: var(--font-heading);
-  font-weight: var(--font-weight-light);
-  font-size: clamp(1.375rem, 2.5vw, 2rem);
-  line-height: 1.09;
+  color: var(--color-yellow);
+  font-family: var(--font-family-display);
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1.1;
   margin: 0;
   position: relative;
   z-index: 2;
@@ -53,10 +53,10 @@
 
 .titleLine2 {
   color: var(--color-yellow);
-  font-family: var(--font-heading);
-  font-weight: var(--font-weight-light);
-  font-size: clamp(1.75rem, 3.75vw, 3rem);
-  line-height: 1.04;
+  font-family: var(--font-family-display);
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1.1;
   margin: 0;
   position: relative;
   z-index: 2;
@@ -65,7 +65,7 @@
 .description {
   flex: 0 0 auto;
   width: min(594px, 52%);
-  color: var(--color-white);
+  color: var(--color-yellow);
   font-family: var(--font-body);
   font-weight: var(--font-weight-regular);
   font-size: clamp(var(--font-size-base), 1.5vw, 1.25rem);

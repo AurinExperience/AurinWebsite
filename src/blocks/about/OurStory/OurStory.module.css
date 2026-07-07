@@ -39,18 +39,18 @@
 }
 
 .headingWhite {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: var(--font-family-display);
   font-weight: 300;
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-size: 40px;
   line-height: 1.1;
-  color: var(--color-white);
+  color: var(--color-yellow);
 }
 
 .headingYellow {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: var(--font-family-display);
   font-weight: 300;
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  line-height: 1.05;
+  font-size: 40px;
+  line-height: 1.1;
   color: var(--color-yellow);
 }
 
@@ -68,7 +68,7 @@
 }
 
 .text p {
-  color: var(--color-white);
+  color: var(--color-yellow);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);

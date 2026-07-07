@@ -28,10 +28,10 @@ const uniqueId = `carousel-${Math.random().toString(36).substr(2, 9)}`;
 const getCardVariant = (i: number) => (i % 2 === 0 ? "light" : "dark");
 ---
 
-<div class={styles.toolsSuite} data-variant={variant}>
+<div class={styles.toolsSuite} data-variant={variant} data-tools-suite-root>
 
   <!-- Desktop: cards wrapper + grid -->
-  <div class={styles.cardsWrapper}>
+  <div class={styles.cardsWrapper} data-no-hover>
     <div class={styles.cardsGrid}>
       {
         items.map((item, i) => (
@@ -106,17 +106,16 @@ const getCardVariant = (i: number) => (i % 2 === 0 ? "light" : "dark");
 
 <script>
   import Splide from "@splidejs/splide";
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
 
   document.addEventListener("DOMContentLoaded", () => {
     const carouselEl = document.querySelector<HTMLElement>('[id^="carousel-"]');
     const allCards = document.querySelectorAll<HTMLElement>("[data-tool-index]");
     const contentSections =
       document.querySelectorAll<HTMLElement>("[data-content]");
-
-    // Separate desktop cards from mobile carousel slides
-    const desktopCards = Array.from(allCards).filter(
-      (el) => !carouselEl?.contains(el),
-    );
 
     function setActive(index: number) {
       allCards.forEach((card) => {
@@ -125,9 +124,11 @@ const getCardVariant = (i: number) => (i % 2 === 0 ? "light" : "dark");
         if (idx === index) {
           card.setAttribute("data-active", "");
           innerCard?.setAttribute("data-mobile-active", "");
+          innerCard?.setAttribute("data-active-variant", "yellow");
         } else {
           card.removeAttribute("data-active");
           innerCard?.removeAttribute("data-mobile-active");
+          innerCard?.removeAttribute("data-active-variant");
         }
       });
       contentSections.forEach((section, i) => {
@@ -139,20 +140,24 @@ const getCardVariant = (i: number) => (i % 2 === 0 ? "light" : "dark");
       });
     }
 
-    // Desktop: click on card link activates it
-    desktopCards.forEach((card) => {
-      const link = card.querySelector("a");
-      if (link) {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          const idx = parseInt(
-            card.getAttribute("data-tool-index") || "0",
-            10,
-          );
-          setActive(idx);
-        });
-      }
-    });
+    // Desktop: pin the section and activate cards by scroll progress instead of click
+    const root = document.querySelector<HTMLElement>("[data-tools-suite-root]");
+    if (window.innerWidth > 768 && root) {
+      const header = document.querySelector<HTMLElement>("header");
+      const headerOffset = header?.getBoundingClientRect().height ?? 0;
+      const steps = contentSections.length - 1;
+
+      ScrollTrigger.create({
+        trigger: root,
+        start: `top top+=${headerOffset}`,
+        end: `+=${steps * window.innerHeight}`,
+        pin: true,
+        scrub: true,
+        onUpdate: (self) => {
+          setActive(Math.round(self.progress * steps));
+        },
+      });
+    }
 
     // Intersection observer for card entrance animation
     const visualCards = document.querySelectorAll<HTMLElement>("[data-card]");

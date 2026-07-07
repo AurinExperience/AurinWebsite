@@ -101,9 +101,9 @@
     color: white;
     padding: 8px 16px;
     border-radius: 8px;
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-display);
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
