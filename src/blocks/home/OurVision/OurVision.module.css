@@ -21,9 +21,9 @@
 
 .heading {
   font-family: var(--font-family-display);
-  font-size: 32px;
-  line-height: 132%;
-  font-weight: 200;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 300;
   color: var(--color-yellow);
   margin: 0;
 }
@@ -47,9 +47,9 @@
 .contrastText {
   color: var(--color-yellow);
   font-family: var(--font-family-display);
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 300;
-  line-height: 132%;
+  line-height: 1.1;
   margin: 0;
   overflow-wrap: break-word;
   hyphens: auto;

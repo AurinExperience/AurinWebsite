@@ -21,13 +21,15 @@
 }
 
 .contentSection :global(h2) {
-  font-size: var(--font-size-5xl);
+  font-size: 40px;
   line-height: 1.1;
+  font-weight: 300;
   margin: 0;
 }
 
 .contentSection :global(h2 span) {
-  font-size: var(--font-size-3xl);
+  color: var(--color-yellow);
+  font-size: 40px;
   line-height: 1.1;
   display: block;
 }

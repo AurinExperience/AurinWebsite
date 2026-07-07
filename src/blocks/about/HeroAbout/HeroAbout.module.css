@@ -24,10 +24,10 @@
 
 .title {
   color: var(--color-yellow);
-  font-family: var(--font-heading);
-  font-weight: var(--font-weight-light);
-  font-size: clamp(1.75rem, 4vw, 3rem);
-  line-height: 1.32;
+  font-family: var(--font-family-display);
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1.1;
   max-width: 44rem;
   margin: 0;
 }

@@ -42,10 +42,10 @@
 }
 
 .info h2 {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: var(--font-weight-light);
-  color: var(--color-black-a);
-  line-height: 1.2;
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--color-yellow);
+  line-height: 1.1;
   margin: 0;
 }
 

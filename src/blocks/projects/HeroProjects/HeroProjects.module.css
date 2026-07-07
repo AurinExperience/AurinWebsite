@@ -22,18 +22,18 @@
 }
 
 .title {
-  font-family: var(--font-heading);
-  font-size: 48px;
-  line-height: 132%;
+  font-family: var(--font-family-display);
+  font-size: 40px;
+  line-height: 1.1;
   font-weight: 300;
   color: var(--color-yellow);
   margin: 0;
 }
 
 .title span {
-  color: var(--color-white);
-  font-size: 32px;
-  line-height: 35px;
+  color: var(--color-yellow);
+  font-size: 40px;
+  line-height: 1.1;
   display: block;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .description {
-  color: var(--color-white);
+  color: var(--color-yellow);
   font-family: var(--font-body);
   font-weight: 200;
   font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-xl));

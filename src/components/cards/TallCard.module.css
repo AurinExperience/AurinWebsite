@@ -6,13 +6,14 @@
 }
 
 .card {
+  --card-padding: 24px;
   position: relative;
   overflow: hidden;
   border-radius: 16px;
   height: 100%;
   display: flex;
   align-items: flex-end;
-  padding: 24px;
+  padding: var(--card-padding);
   container-type: inline-size;
   cursor: pointer;
   opacity: 0;
@@ -80,6 +81,12 @@
   transform: scaleX(-1);
   pointer-events: none;
   z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-link:hover .card-shadow {
+  opacity: 1;
 }
 
 .card-shadow img {
@@ -97,6 +104,10 @@
   transform: translate(-50%, -50%) scale(1.03);
 }
 
+.card-link:hover .card-letter-abbrev {
+  transform: scale(1.03);
+}
+
 /* On hover: invert letter color to match overlay */
 .card-link:hover .yellow .card-letter { color: #D9D9D9; }
 .card-link:hover .dark   .card-letter,
@@ -105,10 +116,11 @@
 /* Abbreviation letter (e.g. "UX/UI", "DEV") — centered + sized so the longest abbreviation fits the card width.
    ponytail: fixed cqw sizing; shorter abbreviations read smaller. Switch to JS/SVG auto-fit only if uniform sizing is required. */
 .card-letter-abbrev {
-  font-size: 30cqw;
-  left: 50%;
+  font-size: 40cqw;
+  left: var(--card-padding);
   top: 30%;
   z-index: 3;
+  transform: none;
 }
 
 /* Content (title + description) */
@@ -160,21 +172,26 @@
 .card-link:hover .dark   .card-description,
 .card-link:hover .light  .card-description { color: #2A2A2A; }
 
-/* Active state — works on all screen sizes */
-[data-mobile-active]::before {
-  opacity: 1;
+/* Active override for click-to-activate contexts (e.g. ToolsSuite) — forces the yellow look regardless of the card's base variant */
+[data-active-variant="yellow"] {
+  background: var(--color-yellow);
 }
 
-[data-mobile-active] .card-letter {
+[data-active-variant="yellow"] .card-letter {
   color: #212224;
 }
 
-[data-mobile-active] .card-title {
+[data-active-variant="yellow"] .card-title {
   color: #0A0A0A;
 }
 
-[data-mobile-active] .card-description {
-  color: #2A2A2A;
+[data-active-variant="yellow"] .card-description {
+  color: #3A3A3A;
+}
+
+/* Scroll drives the active card in ToolsSuite's desktop grid, so hover preview is unnecessary there */
+[data-no-hover] .card-link {
+  pointer-events: none;
 }
 
 /* Mobile carousel sizing */
@@ -190,7 +207,29 @@
     transition: opacity 0.6s ease-out, transform 0.6s ease-out, filter 0.4s ease-out;
   }
 
+  /* Active state — mobile carousel only */
   [data-mobile-active] {
     filter: brightness(1);
+  }
+
+  [data-mobile-active]::before {
+    opacity: 1;
+  }
+
+  [data-mobile-active] .card-letter {
+    color: #212224;
+  }
+
+  [data-mobile-active] .card-title {
+    color: #0A0A0A;
+  }
+
+  [data-mobile-active] .card-description {
+    color: #2A2A2A;
+  }
+
+  /* ToolsSuite only: shorter card so the description text below is visible without excess scroll */
+  [data-tools-suite-root] .card {
+    aspect-ratio: 248 / 320;
   }
 }

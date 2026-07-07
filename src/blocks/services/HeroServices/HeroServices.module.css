@@ -53,10 +53,10 @@
 
 :global(.main-title) {
   color: var(--color-yellow) !important;
-  font-family: var(--font-heading) !important;
-  font-size: var(--font-size-5xl) !important;
-  font-weight: var(--font-weight-light) !important;
-  line-height: 50px !important;
+  font-family: var(--font-family-display) !important;
+  font-size: 40px !important;
+  font-weight: 300 !important;
+  line-height: 1.1 !important;
   margin: 0 !important;
 }
 

@@ -36,9 +36,9 @@
 .title {
   color: var(--color-yellow);
   font-family: var(--font-family-display);
-  font-size: 32px;
-  line-height: 132%;
-  font-weight: 200;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 300;
   margin: 56px 0px 56px 0px;
   padding: 0;
 }
@@ -46,7 +46,7 @@
 .searchPrompt {
   color: var(--color-white);
   font-family: var(--font-family-body);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 300;
   opacity: 0.6;
   margin: 0 0 12px 0;

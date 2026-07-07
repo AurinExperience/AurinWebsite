@@ -6,7 +6,7 @@ import AdvancedSEO from '@/blocks/shared/SEO/AdvancedSEO.astro';
 import GlobalSchema from '@/blocks/shared/SEO/GlobalSchema.astro';
 {/* import PageLoader from '@/components/layout/PageLoader.astro'; */}
 import ChatbotContainer from '@/blocks/shared/Chatbot/ChatbotContainer.astro';
-import SpotlightCursorContainer from '@/components/animation/SpotlightCursorContainer.astro';
+
 import Vignette from '@/components/ui/Vignette.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 
@@ -106,7 +106,6 @@ const {
 		</script>
 	</head>
 	<body>
-		<SpotlightCursorContainer />
 		{/* <PageLoader /> */}
 		<MegaMenu />
 		<slot />
@@ -135,7 +134,7 @@ const {
 	}
 	
 	html {
-		font-family: 'Titillium Web', -apple-system, BlinkMacSystemFont, sans-serif;
+		font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
 		background: #000000;
 		overflow-x: clip;
 	}
