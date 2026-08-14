@@ -354,7 +354,8 @@ export const translations = {
     footer: {
       tagline: 'UX/UI design, web development and branding in Mexico',
       offices: 'OFFICES',
-      officesLink: 'We are at Aldea Creativa',
+      addressLine1: 'San Jerónimo 207, Tlaltenango',
+      addressLine2: 'Cuernavaca, Morelos, Mexico',
       services: 'SERVICES',
       webDesignNL: 'Web design in Nuevo León',
       allServices: 'All services',
@@ -1150,7 +1151,8 @@ export const translations = {
     footer: {
       tagline: 'Diseño UX/UI, desarrollo web y branding en México',
       offices: 'OFICINAS',
-      officesLink: 'Estamos en Aldea Creativa',
+      addressLine1: 'San Jerónimo 207, Tlaltenango',
+      addressLine2: 'Cuernavaca, Morelos, México',
       services: 'SERVICIOS',
       webDesignNL: 'Diseño web en Nuevo León',
       allServices: 'Todos los servicios',

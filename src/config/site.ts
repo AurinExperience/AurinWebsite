@@ -16,19 +16,22 @@ export const SITE = {
     "https://www.facebook.com/profile.php?id=61569531232140"
   ] as string[],
 
-  // NAP (Name, Address, Phone) — la base del SEO local. Mientras estén vacíos,
-  // el schema global emite Organization sin dirección; en cuanto se llenen pasa
-  // a ProfessionalService con dirección y teléfono, que es lo que Google usa
-  // para búsquedas con intención local ("diseño web Monterrey").
+  // NAP (Name, Address, Phone) — la base del SEO local. Tiene que coincidir
+  // CARÁCTER POR CARÁCTER con la ficha de Google Business Profile: una calle o
+  // un teléfono escritos distinto valen como dos negocios diferentes.
   //
-  // Tienen que coincidir CARÁCTER POR CARÁCTER con la ficha de Google Business
-  // Profile. Un número o una calle escritos distinto valen como dos negocios.
-  telephone: "",
+  // El domicilio es Cuernavaca; la landing de Nuevo León se sostiene como área
+  // de servicio (`areaServed`), no como presencia física. Esa distinción es la
+  // que Google pide: se puede atender Monterrey a distancia, pero no aparecer
+  // en su paquete local sin estar ahí.
+  //
+  // Falta el código postal de Tlaltenango; sin él el schema omite `postalCode`
+  // en lugar de inventarlo.
+  telephone: "+52 777 102 0339",
   address: {
-    streetAddress: "",
-    // Municipio real: Monterrey, San Pedro Garza García, etc.
-    addressLocality: "",
-    addressRegion: "Nuevo León",
+    streetAddress: "San Jerónimo 207, Tlaltenango",
+    addressLocality: "Cuernavaca",
+    addressRegion: "Morelos",
     postalCode: "",
     addressCountry: "MX"
   }

@@ -44,6 +44,9 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
                 <div class={styles.footerLinkContainer}>
                   <a href="mailto:hey@aurin.mx" class={styles.footerLink}>hey@aurin.mx</a>
                 </div>
+                <div class={styles.footerLinkContainer}>
+                  <a href="tel:+527771020339" class={styles.footerLink}>+52 777 102 0339</a>
+                </div>
               </div>
 
               <!-- Servicios -->
@@ -68,17 +71,18 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
                 </div>
               </div>
 
-              <!-- Oficinas -->
+              {/*
+                Oficinas: la dirección real en texto, no un enlace externo. Antes
+                apuntaba a aldeacreativa.mx —el coworking, no Aurin—, lo mismo que
+                ya se corrigió en `sameAs`. Un domicilio visible e idéntico al de
+                Google Business Profile es la señal que cuenta para el SEO local.
+              */}
               <div class={`${styles.footerSection} ${styles.sectionOffices} footer-column`}>
                 <h3 class={styles.footerTitle}>{t.footer.offices}</h3>
-                <div class={styles.footerLinkContainer}>
-                  <a
-                    href="https://aldeacreativa.mx/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class={styles.footerLink}>{t.footer.officesLink}</a
-                  >
-                </div>
+                <address class={styles.footerAddress}>
+                  {t.footer.addressLine1}<br />
+                  {t.footer.addressLine2}
+                </address>
               </div>
             </div>
           </div>
