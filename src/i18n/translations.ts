@@ -791,6 +791,9 @@ export const translations = {
         ],
         button: "Get my free quote",
         sending: "Sending...",
+        privacyNoteBefore: "By submitting this form you agree to our ",
+        privacyNoteLink: "privacy notice",
+        privacyNoteAfter: ".",
         success: "Message sent! We'll be in touch shortly to schedule the intro call.",
         error: "Could not send the message. Please try again."
       }
@@ -1589,6 +1592,9 @@ export const translations = {
         ],
         button: "Obtener mi cotización gratis",
         sending: "Enviando...",
+        privacyNoteBefore: "Al enviar este formulario aceptas nuestro ",
+        privacyNoteLink: "aviso de privacidad",
+        privacyNoteAfter: ".",
         success: "¡Mensaje enviado! Te contactaremos en breve para agendar la llamada inicial.",
         error: "No se pudo enviar el mensaje. Por favor, intenta de nuevo."
       }

@@ -4,11 +4,12 @@
  * Submits to the existing /api/contact endpoint with a source identifier.
  * Uses native form validation and provides client-side feedback.
  */
-import { getLangFromUrl, translations } from '@/i18n';
+import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
 import styles from './LeadForm.module.css';
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
+const leadForm = t.webDesignNL.leadForm;
 ---
 
 <section class={styles.section} id="cotizar" aria-labelledby="cotizar-heading">
@@ -106,6 +107,20 @@ const t = translations[currentLang];
       <button type="submit" class={styles.button} id="lead-submit-btn">
         {t.webDesignNL.leadForm.button}
       </button>
+
+      {/*
+        El formulario recoge nombre, correo y teléfono, así que el aviso de
+        privacidad tiene que estar disponible en el punto de recolección
+        (LFPDPPP). Vive aquí y no en el footer, que en esta landing no tiene
+        columna de legales.
+      */}
+      <p class={styles.legal}>
+        {leadForm.privacyNoteBefore}
+        <a class={styles.legalLink} href={getLocalizedUrl('/privacy', currentLang)}>
+          {leadForm.privacyNoteLink}
+        </a>
+        {leadForm.privacyNoteAfter}
+      </p>
 
       <div class={styles.feedback} id="lead-feedback" role="alert" aria-live="polite"></div>
     </form>

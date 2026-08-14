@@ -72,15 +72,19 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
               }
 
               <!-- Legales -->
-              <div class={`${styles.footerSection} footer-column`}>
-                <h3 class={styles.footerTitle}>{t.footer.legal}</h3>
-                <div class={styles.footerLinkContainer}>
-                  <a href="/privacy" class={styles.footerLink}>{t.footer.privacyPolicy}</a>
-                </div>
-                <div class={styles.footerLinkContainer}>
-                  <a href="/terms" class={styles.footerLink}>{t.footer.termsConditions}</a>
-                </div>
-              </div>
+              {
+                !minimal && (
+                  <div class={`${styles.footerSection} footer-column`}>
+                    <h3 class={styles.footerTitle}>{t.footer.legal}</h3>
+                    <div class={styles.footerLinkContainer}>
+                      <a href="/privacy" class={styles.footerLink}>{t.footer.privacyPolicy}</a>
+                    </div>
+                    <div class={styles.footerLinkContainer}>
+                      <a href="/terms" class={styles.footerLink}>{t.footer.termsConditions}</a>
+                    </div>
+                  </div>
+                )
+              }
 
               {/*
                 Oficinas: la dirección real en texto, no un enlace externo. Antes
