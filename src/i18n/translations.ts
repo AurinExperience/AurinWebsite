@@ -357,7 +357,7 @@ export const translations = {
       addressLine1: 'San Jerónimo 207, Tlaltenango',
       addressLine2: 'Cuernavaca, Morelos, Mexico',
       services: 'SERVICES',
-      webDesignNL: 'Web design in Nuevo León',
+      webDesignNL: 'Web design in Monterrey',
       allServices: 'All services',
       contact: 'CONTACT',
       legal: 'LEGAL',
@@ -651,12 +651,12 @@ export const translations = {
     },
     webDesignNL: {
       seo: {
-        title: "Web & UX/UI Design in Nuevo León | Aurin",
-        description: "Web and UX/UI design agency in Nuevo León. We design custom websites and landing pages that turn visitors into clients. Get a free quote today.",
-        keywords: "web design Nuevo León, UX UI design Monterrey, web design agency Monterrey, landing pages Nuevo León, website design Monterrey, website redesign Nuevo León"
+        title: "Web & UX/UI Design in Monterrey | Aurin",
+        description: "Web and UX/UI design agency in Monterrey. We design custom websites and landing pages that turn visitors into clients across the Nuevo León metropolitan area. Get a free quote today.",
+        keywords: "web design Monterrey, UX UI design Monterrey, web design agency Monterrey, landing pages Monterrey, website design Monterrey, website redesign Monterrey, web design Nuevo León"
       },
       hero: {
-        subtitle: "Web and UX/UI design agency in Nuevo León",
+        subtitle: "Web and UX/UI design agency in Monterrey",
         titleLead: "Web Design in",
         titleAccent: "Monterrey",
         description: "We design custom websites, landing pages, and UX/UI experiences for businesses across the Monterrey metropolitan area. Every screen starts with the person using it: clarity, speed, and a direct path to conversion.",
@@ -669,7 +669,7 @@ export const translations = {
         ]
       },
       services: {
-        heading: "Web and UX/UI design services in Nuevo León",
+        heading: "Web and UX/UI design services in Monterrey",
         intro: "We focus on one thing and do it well: designing websites and landing pages for businesses in Monterrey, San Pedro Garza García, Apodaca, Guadalupe, San Nicolás, and Santa Catarina. Strategy, UX/UI, and development from a single team.",
         items: [
           {
@@ -1157,7 +1157,7 @@ export const translations = {
       addressLine1: 'San Jerónimo 207, Tlaltenango',
       addressLine2: 'Cuernavaca, Morelos, México',
       services: 'SERVICIOS',
-      webDesignNL: 'Diseño web en Nuevo León',
+      webDesignNL: 'Diseño web en Monterrey',
       allServices: 'Todos los servicios',
       contact: 'CONTACTO',
       legal: 'LEGALES',
@@ -1452,12 +1452,12 @@ export const translations = {
     },
     webDesignNL: {
       seo: {
-        title: "Diseño Web y UX/UI en Nuevo León | Aurin",
-        description: "Agencia de diseño web y UX/UI en Nuevo León. Diseñamos sitios web y landing pages a medida que convierten visitantes en clientes. Cotiza sin costo.",
-        keywords: "diseño web Nuevo León, diseño UX UI Monterrey, agencia de diseño web Monterrey, landing pages Nuevo León, diseño de páginas web Monterrey, rediseño web Nuevo León"
+        title: "Diseño Web y UX/UI en Monterrey | Aurin",
+        description: "Agencia de diseño web y UX/UI en Monterrey. Diseñamos sitios web y landing pages a medida que convierten visitantes en clientes en toda el área metropolitana de Nuevo León. Cotiza sin costo.",
+        keywords: "diseño web Monterrey, diseño UX UI Monterrey, agencia de diseño web Monterrey, landing pages Monterrey, diseño de páginas web Monterrey, rediseño web Monterrey, diseño web Nuevo León"
       },
       hero: {
-        subtitle: "Agencia de diseño web y UX/UI en Nuevo León",
+        subtitle: "Agencia de diseño web y UX/UI en Monterrey",
         titleLead: "Diseño Web en",
         titleAccent: "Monterrey",
         description: "Diseñamos sitios web, landing pages y experiencias UX/UI a medida para empresas de toda el área metropolitana de Monterrey. Cada pantalla se piensa desde quien la usa: claridad, velocidad y un camino directo a la conversión.",
@@ -1470,7 +1470,7 @@ export const translations = {
         ]
       },
       services: {
-        heading: "Servicios de diseño web y UX/UI en Nuevo León",
+        heading: "Servicios de diseño web y UX/UI en Monterrey",
         intro: "Nos enfocamos en una sola cosa y la hacemos bien: diseñar sitios web y landing pages para empresas en Monterrey, San Pedro Garza García, Apodaca, Guadalupe, San Nicolás y Santa Catarina. Estrategia, UX/UI y desarrollo con un mismo equipo.",
         items: [
           {
