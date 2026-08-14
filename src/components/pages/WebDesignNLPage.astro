@@ -1,7 +1,7 @@
 ---
 /**
- * WebDesignNLPage — Shared page template for the web design landing page (Nuevo León).
- * Used by both src/pages/diseno-web-nuevo-leon.astro (ES) and src/pages/en/web-design-nuevo-leon.astro (EN).
+ * WebDesignNLPage — Shared page template for the web design landing page (Monterrey).
+ * Used by both src/pages/diseno-web-monterrey.astro (ES) and src/pages/en/web-design-monterrey.astro (EN).
  * Language is detected automatically from the URL.
  *
  * Structured Data Strategy:
@@ -40,8 +40,8 @@ const seoKeywords = t.webDesignNL.seo.keywords;
 /* The EN page lives on a different slug, so URLs are built per locale. */
 const canonicalBase =
   currentLang === "es"
-    ? `${SITE.url}/diseno-web-nuevo-leon`
-    : `${SITE.url}/en/web-design-nuevo-leon`;
+    ? `${SITE.url}/diseno-web-monterrey`
+    : `${SITE.url}/en/web-design-monterrey`;
 
 /* ----------------------------------------------------------------
    Service Schema — primary structured data
@@ -60,8 +60,8 @@ const serviceSchema: ServiceStructuredData = {
   "@type": "Service",
   name:
     currentLang === "es"
-      ? "Diseño Web y UX/UI en Nuevo León"
-      : "Web and UX/UI Design in Nuevo León",
+      ? "Diseño Web y UX/UI en Monterrey"
+      : "Web and UX/UI Design in Monterrey",
   description: seoDescription,
   url: canonicalBase,
   serviceType:
@@ -128,8 +128,8 @@ const howToSchema: HowToStructuredData = {
       : "How we design your website",
   description:
     currentLang === "es"
-      ? "Proceso paso a paso para crear un sitio web profesional en Nuevo León."
-      : "Step-by-step process to create a professional website in Nuevo León.",
+      ? "Proceso paso a paso para crear un sitio web profesional en Monterrey."
+      : "Step-by-step process to create a professional website in Monterrey.",
   step: t.webDesignNL.process.steps.map((step) => ({
     "@type": "HowToStep",
     name: step.name,
@@ -144,8 +144,8 @@ const homeName = currentLang === "es" ? "Inicio" : "Home";
 const servicesName = currentLang === "es" ? "Servicios" : "Services";
 const pageName =
   currentLang === "es"
-    ? "Diseño Web Nuevo León"
-    : "Web Design Nuevo León";
+    ? "Diseño Web Monterrey"
+    : "Web Design Monterrey";
 
 const breadcrumbSchema: BreadcrumbListStructuredData = {
   "@context": "https://schema.org",
@@ -187,6 +187,7 @@ const canonicalUrl = canonicalBase;
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
   showMegaMenu={false}
+  showChatbot={false}
 >
   <Header minimal />
   <main id="main-content">

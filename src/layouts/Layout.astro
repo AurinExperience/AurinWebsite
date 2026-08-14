@@ -29,6 +29,8 @@ interface Props {
 	noindex?: boolean;
 	/* Landings de captura: sin MegaMenu, para no dar salidas de la página. */
 	showMegaMenu?: boolean;
+	/** Hide the floating chatbot on specific pages (e.g. capture landings). */
+	showChatbot?: boolean;
 }
 
 const { 
@@ -46,7 +48,8 @@ const {
 	vignetteColor,
 	showVignette = false,
 	noindex = false,
-	showMegaMenu = true
+	showMegaMenu = true,
+	showChatbot = true
 } = Astro.props;
 ---
 
@@ -121,7 +124,7 @@ const {
 				color={vignetteColor}
 			/>
 		)}
-		<ChatbotContainer />
+		{showChatbot && <ChatbotContainer />}
 		<SpeedInsights />
 	</body>
 </html>
