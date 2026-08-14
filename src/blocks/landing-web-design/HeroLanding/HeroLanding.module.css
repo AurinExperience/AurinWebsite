@@ -94,6 +94,12 @@
 
 .titleAccent {
   color: var(--color-yellow);
+  /* base.css tiene `h1 span { font-size: 40px }` y aquí solo se declaraba el
+     color, así que la segunda mitad del H1 salía a 40px contra los 104px de la
+     primera: la palabra clave se leía como subtítulo. El `display: block` de esa
+     misma regla sí se queda, porque el diseño la quiere en su propio renglón. */
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .body {

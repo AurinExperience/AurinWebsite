@@ -116,10 +116,9 @@ const leadForm = t.webDesignNL.leadForm;
       */}
       <p class={styles.legal}>
         {leadForm.privacyNoteBefore}
-        <a class={styles.legalLink} href={getLocalizedUrl('/privacy', currentLang)}>
-          {leadForm.privacyNoteLink}
-        </a>
-        {leadForm.privacyNoteAfter}
+        <a class={styles.legalLink} href={getLocalizedUrl('/privacy', currentLang)}
+          >{leadForm.privacyNoteLink}</a
+        >{leadForm.privacyNoteAfter}
       </p>
 
       <div class={styles.feedback} id="lead-feedback" role="alert" aria-live="polite"></div>
