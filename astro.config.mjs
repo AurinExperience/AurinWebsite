@@ -8,6 +8,8 @@ export default defineConfig({
   output: 'server',
   adapter: vercel(),
   integrations: [react()],
+  // Precompila la página al pasar el mouse sobre el link: el click ya la encuentra lista.
+  prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
   vite: {
     build: {
       assetsInlineLimit: 4096,
@@ -19,11 +21,5 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
-  },
-  markdown: {
-    shikiConfig: {
-      theme: 'github-dark',
-      langs: ['javascript', 'typescript', 'html', 'css', 'json', 'astro'],
-    },
   },
 });

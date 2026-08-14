@@ -1,12 +1,18 @@
 /**
  * Google Calendar Service
  * Direct integration with Google Calendar API
+ *
+ * ponytail: usa la REST API v3 con fetch en vez del SDK `googleapis` (189 MB
+ * para tres endpoints). Si algún día se necesitan muchos más endpoints o
+ * paginación compleja, volver al SDK es un import.
  */
 
-import { google } from 'googleapis';
+import { JWT } from 'google-auth-library';
 
 // Calendar ID for "Citas de Aurin.mx"
 const CALENDAR_ID = 'd8ef031d15c90593c2688e6aa89081c0f2cca90a18c32ddf14243b792d81f3a7@group.calendar.google.com';
+
+const API_BASE = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CALENDAR_ID)}/events`;
 
 const credentials = {
   client_email: import.meta.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
@@ -29,28 +35,49 @@ export interface CalendarEvent {
 }
 
 export class GoogleCalendarService {
-  private calendar;
+  private auth: JWT;
 
   constructor() {
-    const auth = new google.auth.JWT({
+    this.auth = new JWT({
       email: credentials.client_email,
       key: credentials.private_key,
       scopes: ['https://www.googleapis.com/auth/calendar'],
     });
+  }
 
-    this.calendar = google.calendar({ version: 'v3', auth });
+  private async request(path: string, init: RequestInit = {}): Promise<any> {
+    const { token } = await this.auth.getAccessToken();
+
+    const response = await fetch(`${API_BASE}${path}`, {
+      ...init,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        ...init.headers,
+      },
+    });
+
+    if (!response.ok) {
+      const body = await response.text();
+      throw new Error(`Google Calendar ${response.status} ${response.statusText}: ${body}`);
+    }
+
+    // events.delete responde 204 sin cuerpo
+    return response.status === 204 ? null : response.json();
   }
 
   async getEvents(startDate: Date, endDate: Date): Promise<CalendarEvent[]> {
-    const response = await this.calendar.events.list({
-      calendarId: CALENDAR_ID,
+    const params = new URLSearchParams({
       timeMin: startDate.toISOString(),
       timeMax: endDate.toISOString(),
-      singleEvents: true,
+      singleEvents: 'true',
       orderBy: 'startTime',
+      maxResults: '2500',
     });
 
-    return response.data.items?.map(event => ({
+    const data = await this.request(`?${params}`);
+
+    return data.items?.map((event: any) => ({
       id: event.id!,
       summary: event.summary || '',
       description: event.description,
@@ -58,7 +85,7 @@ export class GoogleCalendarService {
       end: event.end?.dateTime || event.end?.date || '',
       htmlLink: event.htmlLink,
       hangoutLink: event.hangoutLink,
-      attendees: event.attendees?.map(a => a.email || ''),
+      attendees: event.attendees?.map((a: any) => a.email || ''),
       confirmed: event.extendedProperties?.private?.confirmed,
       createdAt: event.extendedProperties?.private?.createdAt,
       customerName: event.extendedProperties?.private?.customerName,
@@ -67,10 +94,8 @@ export class GoogleCalendarService {
   }
 
   async deleteEvent(eventId: string): Promise<void> {
-    await this.calendar.events.delete({
-      calendarId: CALENDAR_ID,
-      eventId: eventId,
-      sendUpdates: 'all',
+    await this.request(`/${encodeURIComponent(eventId)}?sendUpdates=all`, {
+      method: 'DELETE',
     });
   }
 
@@ -83,10 +108,10 @@ export class GoogleCalendarService {
     customerName: string;
     customerEmail: string;
   }): Promise<CalendarEvent> {
-    const response = await this.calendar.events.insert({
-      calendarId: CALENDAR_ID,
-      sendUpdates: 'none', // Don't send Google Calendar invites
-      requestBody: {
+    // sendUpdates=none: no mandamos invitaciones de Google Calendar
+    const event = await this.request('?sendUpdates=none', {
+      method: 'POST',
+      body: JSON.stringify({
         summary: data.summary,
         description: data.description,
         start: { dateTime: data.start, timeZone: 'America/Mexico_City' },
@@ -102,10 +127,9 @@ export class GoogleCalendarService {
             createdAt: new Date().toISOString(),
           },
         },
-      },
+      }),
     });
 
-    const event = response.data;
     return {
       id: event.id!,
       summary: event.summary || '',
