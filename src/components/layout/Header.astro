@@ -30,18 +30,30 @@ const alternateUrl = getLocalizedPath(Astro.url.pathname, alternateLang as 'es' 
 
 <header class={`${styles.header} header ${className || ""}`}>
   <div class={styles["header-container"]}>
-    <!-- Logo Section -->
-    <a
-      href={currentLang === "es" ? "/" : "/en"}
-      class={styles["logo-link"]}
-      aria-label={currentLang === "es" ? "Ir a inicio" : "Go to home"}
-    >
-      <img
-        class={styles["header-logo"]}
-        src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/AurinTinyWhiteLogo.svg"
-        alt="Aurin Logo"
-      />
-    </a>
+    {/* En modo captura el logo no navega: la landing no ofrece salidas. */}
+    {
+      minimal ? (
+        <span class={styles["logo-link"]}>
+          <img
+            class={styles["header-logo"]}
+            src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/AurinTinyWhiteLogo.svg"
+            alt="Aurin"
+          />
+        </span>
+      ) : (
+        <a
+          href={currentLang === "es" ? "/" : "/en"}
+          class={styles["logo-link"]}
+          aria-label={currentLang === "es" ? "Ir a inicio" : "Go to home"}
+        >
+          <img
+            class={styles["header-logo"]}
+            src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/AurinTinyWhiteLogo.svg"
+            alt="Aurin Logo"
+          />
+        </a>
+      )
+    }
 
     <!-- Actions Section -->
     <div class={styles["actions-section"]}>
