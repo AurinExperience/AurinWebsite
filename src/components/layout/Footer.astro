@@ -4,6 +4,13 @@ import { getLangFromUrl, translations } from "@/i18n";
 import styles from "./Footer.module.css";
 
 // Detect current language
+interface Props {
+  /* Landings de captura: sin la columna de servicios, que solo lleva a otras páginas. */
+  minimal?: boolean;
+}
+
+const { minimal = false } = Astro.props;
+
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
 
@@ -39,7 +46,7 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
 
             <div class={styles.footerColumns}>
               <!-- Contacto -->
-              <div class={`${styles.footerSection} ${styles.sectionContact} footer-column`}>
+              <div class={`${styles.footerSection} footer-column`}>
                 <h3 class={styles.footerTitle}>{t.footer.contact}</h3>
                 <div class={styles.footerLinkContainer}>
                   <a href="mailto:hey@aurin.mx" class={styles.footerLink}>hey@aurin.mx</a>
@@ -50,18 +57,22 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
               </div>
 
               <!-- Servicios -->
-              <div class={`${styles.footerSection} ${styles.sectionServices} footer-column`}>
-                <h3 class={styles.footerTitle}>{t.footer.services}</h3>
-                <div class={styles.footerLinkContainer}>
-                  <a href={webDesignNLUrl} class={styles.footerLink}>{t.footer.webDesignNL}</a>
-                </div>
-                <div class={styles.footerLinkContainer}>
-                  <a href={servicesUrl} class={styles.footerLink}>{t.footer.allServices}</a>
-                </div>
-              </div>
+              {
+                !minimal && (
+                  <div class={`${styles.footerSection} footer-column`}>
+                    <h3 class={styles.footerTitle}>{t.footer.services}</h3>
+                    <div class={styles.footerLinkContainer}>
+                      <a href={webDesignNLUrl} class={styles.footerLink}>{t.footer.webDesignNL}</a>
+                    </div>
+                    <div class={styles.footerLinkContainer}>
+                      <a href={servicesUrl} class={styles.footerLink}>{t.footer.allServices}</a>
+                    </div>
+                  </div>
+                )
+              }
 
               <!-- Legales -->
-              <div class={`${styles.footerSection} ${styles.sectionLegal} footer-column`}>
+              <div class={`${styles.footerSection} footer-column`}>
                 <h3 class={styles.footerTitle}>{t.footer.legal}</h3>
                 <div class={styles.footerLinkContainer}>
                   <a href="/privacy" class={styles.footerLink}>{t.footer.privacyPolicy}</a>
@@ -77,7 +88,7 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
                 ya se corrigió en `sameAs`. Un domicilio visible e idéntico al de
                 Google Business Profile es la señal que cuenta para el SEO local.
               */}
-              <div class={`${styles.footerSection} ${styles.sectionOffices} footer-column`}>
+              <div class={`${styles.footerSection} footer-column`}>
                 <h3 class={styles.footerTitle}>{t.footer.offices}</h3>
                 <address class={styles.footerAddress}>
                   {t.footer.addressLine1}<br />
