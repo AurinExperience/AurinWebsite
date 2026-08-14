@@ -17,6 +17,13 @@
     font-weight: var(--font-weight-light);
   }
 
+  /* TEXTO ENFÁTICO */
+  strong,
+  b {
+    color: var(--color-yellow);
+    font-weight: var(--font-weight-semibold);
+  }
+
   /* ── HEADINGS ─────────────────────────────────────────────── */
 
   h1, h2, h3, h4, h5, h6 {

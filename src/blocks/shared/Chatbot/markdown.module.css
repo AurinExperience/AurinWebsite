@@ -10,8 +10,8 @@
 }
 
 .markdownContent strong {
-  font-weight: bold;
-  color: #d0df00;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-yellow);
 }
 
 .markdownContent em {

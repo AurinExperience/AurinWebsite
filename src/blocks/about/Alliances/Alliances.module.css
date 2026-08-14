@@ -43,7 +43,8 @@
 }
 
 .description strong {
-  font-weight: var(--font-weight-bold);
+  color: var(--color-yellow);
+  font-weight: var(--font-weight-semibold);
 }
 
 .logos {

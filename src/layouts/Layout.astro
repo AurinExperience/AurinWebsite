@@ -19,6 +19,7 @@ interface Props {
 	ogImage?: string;
 	ogType?: string;
 	structuredData?: object;
+	additionalStructuredData?: object[];
 	speakable?: string[];
 	keywords?: string;
 	author?: string;
@@ -35,6 +36,7 @@ const {
 	ogImage,
 	ogType,
 	structuredData,
+	additionalStructuredData,
 	speakable,
 	keywords,
 	author,
@@ -90,6 +92,7 @@ const {
 			ogImage={ogImage}
 			ogType={ogType}
 			structuredData={structuredData}
+			additionalStructuredData={additionalStructuredData}
 			speakable={speakable}
 			keywords={keywords}
 			author={author}

@@ -1,0 +1,223 @@
+.hero {
+  width: 100%;
+  background-color: var(--color-black-a);
+  position: relative;
+  overflow: hidden;
+}
+
+.gradientOrb {
+  position: absolute;
+  top: -25%;
+  right: -8%;
+  width: clamp(20rem, 50vw, 44rem);
+  height: clamp(20rem, 50vw, 44rem);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(208, 223, 0, 0.18) 0%,
+    rgba(208, 223, 0, 0.05) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+}
+
+/* Hairline grid — gives the dark canvas structure without noise */
+.grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 25%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 25%, transparent 100%);
+}
+
+.inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding-block-start: clamp(11rem, 18vh, 15rem);
+  padding-block-end: clamp(4rem, 7vh, 6rem);
+  padding-inline: var(--section-padding-x);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  align-self: flex-start;
+  margin: 0;
+  padding: 10px var(--spacing-5);
+  border: 1px solid rgba(208, 223, 0, 0.25);
+  border-radius: 999px;
+  background: rgba(208, 223, 0, 0.05);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  box-shadow: 0 0 0 4px rgba(208, 223, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.title {
+  max-width: 16ch;
+  color: var(--color-white);
+  font-family: var(--font-family-display);
+  font-size: clamp(44px, 7vw, 104px);
+  font-weight: var(--font-weight-light);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.titleAccent {
+  color: var(--color-yellow);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-10);
+  width: min(720px, 100%);
+  margin-inline-start: auto;
+}
+
+.description {
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: clamp(17px, 1.3vw, var(--font-size-xl));
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+  padding-inline-start: var(--spacing-6);
+  border-inline-start: 2px solid rgba(208, 223, 0, 0.35);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-5);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-8);
+  margin: var(--spacing-8) 0 0 0;
+  padding-block-start: var(--spacing-8);
+  border-block-start: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.statValue {
+  color: var(--color-yellow);
+  font-family: var(--font-family-display);
+  font-size: clamp(32px, 3.4vw, var(--font-size-5xl));
+  font-weight: var(--font-weight-light);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+  margin: 0;
+  max-width: 28ch;
+}
+
+@media (max-width: 992px) {
+  .body {
+    width: 100%;
+    margin-inline-start: 0;
+  }
+
+  .title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding-block-start: clamp(9rem, 14vh, 12rem);
+    padding-block-end: clamp(3rem, 6vh, 4rem);
+    gap: var(--spacing-6);
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    padding: 8px var(--spacing-4);
+  }
+
+  .title {
+    font-size: 40px;
+    line-height: 1.05;
+  }
+
+  .description {
+    font-size: var(--font-size-base);
+    padding-inline-start: var(--spacing-4);
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+  }
+
+  .stat {
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--spacing-4);
+  }
+
+  .statValue {
+    font-size: 28px;
+    min-width: 68px;
+  }
+
+  .gradientOrb {
+    top: -10%;
+    right: -25%;
+    width: clamp(14rem, 60vw, 24rem);
+    height: clamp(14rem, 60vw, 24rem);
+  }
+
+  .grid {
+    background-size: 56px 56px;
+  }
+}

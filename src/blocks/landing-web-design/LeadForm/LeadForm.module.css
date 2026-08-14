@@ -1,0 +1,183 @@
+.section {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    var(--color-black-b) 0%,
+    var(--color-black-a) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-block: clamp(5rem, 9vh, 9rem);
+  padding-inline: var(--section-padding-x);
+}
+
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(var(--spacing-10), 5vh, var(--spacing-16));
+}
+
+.heading {
+  color: var(--color-white);
+  font-family: var(--font-family-display);
+  font-size: clamp(30px, 3.6vw, 56px);
+  font-weight: var(--font-weight-light);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--spacing-4) 0;
+  text-wrap: balance;
+}
+
+.description {
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-base);
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  padding: clamp(var(--spacing-6), 3vw, var(--spacing-12));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.045) 0%,
+    rgba(255, 255, 255, 0.012) 60%
+  );
+}
+
+.fieldGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-6);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.label {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.required {
+  color: var(--color-yellow);
+}
+
+.input,
+.select,
+.textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-4);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  transition: border-color var(--transition-smooth), background-color var(--transition-smooth);
+  outline: none;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--color-yellow);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(208, 223, 0, 0.12);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(160, 160, 160, 0.5);
+}
+
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A0A0A0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.select option {
+  background: var(--color-black-a);
+  color: var(--color-white);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-4) var(--spacing-8);
+  background: var(--color-yellow);
+  color: var(--color-black-a);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: opacity var(--transition-smooth), transform var(--transition-fast);
+  align-self: center;
+  min-width: 280px;
+}
+
+.button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.feedback {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  min-height: 24px;
+}
+
+@media (max-width: 768px) {
+  .fieldGroup {
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    width: 100%;
+    min-width: unset;
+  }
+}

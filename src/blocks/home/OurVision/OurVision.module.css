@@ -41,7 +41,7 @@
 
 .highlight {
   color: var(--color-yellow);
-  font-weight: 200;
+  font-weight: var(--font-weight-bold);
 }
 
 .contrastText {

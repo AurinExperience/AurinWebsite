@@ -1,0 +1,46 @@
+---
+/**
+ * ServicesIncluded — Web design & UX/UI services offered on this landing.
+ * H2/H3 hierarchy, numbered cards with feature bullets and contextual municipality mentions.
+ */
+import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
+import styles from './ServicesIncluded.module.css';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+const services = t.webDesignNL.services;
+
+const moreLabel =
+  currentLang === 'es' ? 'Ver todos nuestros servicios' : 'See all our services';
+---
+
+<section class={styles.section} id="servicios-web" aria-labelledby="servicios-web-heading">
+  <div class={styles.inner}>
+    <header class={styles.header}>
+      <h2 class={styles.heading} id="servicios-web-heading">{services.heading}</h2>
+      <p class:list={[styles.intro, 'services-description']}>{services.intro}</p>
+    </header>
+
+    <div class={styles.grid}>
+      {services.items.map((service, index) => (
+        <article class={styles.card}>
+          <span class={styles.index} aria-hidden="true">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <h3 class={styles.cardTitle}>{service.title}</h3>
+          <p class={styles.cardDescription}>{service.description}</p>
+          <ul class={styles.bullets}>
+            {service.bullets.map((bullet) => (
+              <li class={styles.bullet}>{bullet}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+
+    <a class={styles.moreLink} href={getLocalizedUrl('/services', currentLang)}>
+      {moreLabel}
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>

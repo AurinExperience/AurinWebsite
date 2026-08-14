@@ -1,0 +1,71 @@
+---
+/**
+ * SocialProof — Real client trust signals.
+ * Muestra trabajo real (imágenes de proyecto) + el marquee de logos de clientes.
+ * Sin testimonios.
+ *
+ * ponytail: las imágenes van fijas, no por Payload. Hoy TODOS los proyectos del
+ * CMS traen `placeholder-2.jpg` como banner, así que tirar de la API pintaba
+ * cajas grises que decían "Proyecto Aurin". Cuando el CMS tenga banners reales,
+ * esto se cambia por PayloadAPI.getFeaturedProjects().
+ */
+import { getLangFromUrl, translations } from '@/i18n';
+import SliderClients from '@/blocks/home/SliderClients/SliderClients.astro';
+import styles from './SocialProof.module.css';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+const socialProof = t.webDesignNL.socialProof;
+
+const R2 = 'https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev';
+
+const work = [
+  {
+    src: `${R2}/ProjectGalicia.webp`,
+    name: 'Galicia',
+    discipline: currentLang === 'es' ? 'UX/UI y desarrollo web' : 'UX/UI and web development',
+  },
+  {
+    src: `${R2}/ProjectSinfonica.webp`,
+    name: 'Sinfónica de Minería',
+    discipline: currentLang === 'es' ? 'Branding y sitio web' : 'Branding and website',
+  },
+  {
+    src: `${R2}/ProjectSai.webp`,
+    name: 'SAI Derecho y Economía',
+    discipline: currentLang === 'es' ? 'Diseño y desarrollo web' : 'Web design and development',
+  },
+];
+---
+
+<section class={styles.section} aria-labelledby="social-proof-heading">
+  <div class={styles.inner}>
+    <header class={styles.header}>
+      <div>
+        <h2 class={styles.heading} id="social-proof-heading">{socialProof.heading}</h2>
+        <p class={styles.description}>{socialProof.description}</p>
+      </div>
+    </header>
+
+    <ul class={styles.projects}>
+      {work.map((item) => (
+        <li class={styles.project}>
+          <img
+            class={styles.projectImage}
+            src={item.src}
+            alt={`${item.discipline} para ${item.name} — Aurin`}
+            width="800"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class={styles.projectMeta}>
+            <span class={styles.projectName}>{item.name}</span>
+            <span class={styles.projectDiscipline}>{item.discipline}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <SliderClients />
+</section>
