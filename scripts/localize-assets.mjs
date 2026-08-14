@@ -48,6 +48,24 @@ const LOGOS = [
   ['aurinWhiteLogo.svg', 'logos/aurin-white', 78], // 340px de ancho / ratio 398:77
   ['AurinTinyWhiteLogo.svg', 'logos/aurin-tiny-white', 40],
   ['Light.svg', 'logos/footer-glow', 445], // haz de luz del footer (1536x445)
+
+  // Home + about + services
+  ['Header-logo.svg', 'logos/aurin-header', 96], // hero de home, 32rem de ancho
+  ['TopDesignGreen.svg', 'logos/topdesign', 28], // alturas de Alliances.module.css
+  ['AncientLogo.svg', 'logos/ancient-tech', 16],
+  ['IdeogramaGreen.svg', 'logos/ideograma-green', 24],
+  ['identidapunto.svg', 'logos/identidapunto', 40],
+  ['aldea-creativa.svg', 'logos/aldea-creativa', 46], // 2.9rem
+  ['Instagram.svg', 'logos/instagram', 24],
+  ['Linkedin.svg', 'logos/linkedin', 24],
+  ['Facebook.svg', 'logos/facebook', 24],
+
+  // Vectores decorativos (todos SVG limpios: solo se copian por el caché)
+  ['Vector.svg', 'decor/vector', 200],
+  ['LightSVG.svg', 'decor/light', 200],
+  ['heroservices.svg', 'decor/hero-services', 200],
+  ['Vector-hero-about.svg', 'decor/hero-about', 200],
+  ['about-colaborative.svg', 'decor/about-collaborative', 200],
 ];
 
 /** [ruta en R2, destino, ancho de render máximo en CSS px] */
@@ -55,6 +73,10 @@ const IMAGES = [
   ['ProjectGalicia.webp', 'work/galicia', 500],
   ['ProjectSinfonica.webp', 'work/sinfonica', 500],
   ['ProjectSai.webp', 'work/sai', 500],
+  ['NosotrosImage.webp', 'work/nosotros', 1000], // a sangre; 2000px finales sobran para una foto decorativa
+  ['about-how-did-we-get-here.png', 'work/our-story', 872], // clamp(400px, 60vw, 872px)
+  ['DisenoColaboracionInnovacion.webp', 'work/collaborative', 700],
+  ['Avatar_2%404x.webp', 'work/avatar', 96], // avatar del chatbot
 ];
 
 const fetchBuffer = async (key) => {

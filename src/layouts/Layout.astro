@@ -78,8 +78,9 @@ const {
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 		<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-		<link rel="preconnect" href="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev" crossorigin />
-		<link rel="dns-prefetch" href="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev" />
+		<!-- Ya no hay preconnect a R2: todos los assets estáticos se sirven desde
+		     public/, en el mismo origen. Abrir esa conexión era justo lo que
+		     Lighthouse marcaba como "conexión previa establecida y nunca usada". -->
 		<!-- ponytail: fuera el preconnect a vercel.live (Lighthouse lo marca como
 		     conexión abierta y nunca usada) y el prefetch del avatar del chatbot, que
 		     las landings de captura ni siquiera montan. -->

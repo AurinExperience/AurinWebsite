@@ -7,16 +7,13 @@ const t = translations[currentLang];
 ---
 
 <section class={styles.hero} id="hero-contact">
+  {/*
+    Fuera el <img class={styles.vectorBg}>: apuntaba a Vector-hero-contact.svg,
+    que responde 404 en R2. Era decorativo y aria-hidden, así que en producción
+    ya se veía igual — solo costaba una petición fallida por visita.
+  */}
   <img
-    src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/Vector-hero-contact.svg"
-    class={styles.vectorBg}
-    aria-hidden="true"
-    alt=""
-    loading="eager"
-    decoding="async"
-  />
-  <img
-    src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/Vector.svg"
+    src="/decor/vector.svg"
     class={styles.headingVector}
     aria-hidden="true"
     alt=""
