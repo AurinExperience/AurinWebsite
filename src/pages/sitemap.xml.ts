@@ -19,6 +19,7 @@ const staticPages = [
   { es: '/about', en: '/en/about', priority: '0.8', changefreq: 'monthly' },
   { es: '/services', en: '/en/services', priority: '0.8', changefreq: 'monthly' },
   { es: '/projects', en: '/en/projects', priority: '0.9', changefreq: 'weekly' },
+  { es: '/diseno-web-nuevo-leon', en: '/en/web-design-nuevo-leon', priority: '0.9', changefreq: 'weekly' },
   { es: '/contact', en: '/en/contact', priority: '0.7', changefreq: 'monthly' },
   { es: '/privacy', en: '/en/privacy', priority: '0.3', changefreq: 'yearly' },
   { es: '/terms', en: '/en/terms', priority: '0.3', changefreq: 'yearly' }

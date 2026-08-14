@@ -56,12 +56,32 @@ export interface LocalBusinessStructuredData extends OrganizationStructuredData 
   priceRange?: string;
 }
 
+export interface GeoCoordinates {
+  "@type": "GeoCoordinates";
+  latitude: number;
+  longitude: number;
+}
+
+export interface AdministrativeArea {
+  "@type": "AdministrativeArea";
+  name: string;
+  geo?: GeoCoordinates;
+}
+
+export interface City {
+  "@type": "City";
+  name: string;
+}
+
 export interface ServiceStructuredData {
   "@context": "https://schema.org";
   "@type": "Service";
+  name?: string;
+  description?: string;
+  url?: string;
   serviceType: string;
-  provider: OrganizationStructuredData;
-  areaServed?: string;
+  provider: OrganizationStructuredData | { "@id": string };
+  areaServed?: string | AdministrativeArea | (AdministrativeArea | City)[];
   hasOfferCatalog?: {
     "@type": "OfferCatalog";
     name: string;
@@ -74,6 +94,50 @@ export interface ServiceStructuredData {
       };
     }[];
   };
+}
+
+export interface FAQQuestion {
+  "@type": "Question";
+  name: string;
+  acceptedAnswer: {
+    "@type": "Answer";
+    text: string;
+  };
+}
+
+export interface FAQPageStructuredData {
+  "@context": "https://schema.org";
+  "@type": "FAQPage";
+  mainEntity: FAQQuestion[];
+}
+
+export interface HowToStep {
+  "@type": "HowToStep";
+  name: string;
+  text: string;
+  url?: string;
+  image?: string;
+}
+
+export interface HowToStructuredData {
+  "@context": "https://schema.org";
+  "@type": "HowTo";
+  name: string;
+  description?: string;
+  step: HowToStep[];
+}
+
+export interface BreadcrumbListItem {
+  "@type": "ListItem";
+  position: number;
+  name: string;
+  item: string;
+}
+
+export interface BreadcrumbListStructuredData {
+  "@context": "https://schema.org";
+  "@type": "BreadcrumbList";
+  itemListElement: BreadcrumbListItem[];
 }
 
 export interface CollectionPageStructuredData {
@@ -105,4 +169,14 @@ export interface CollectionPageStructuredData {
   };
 }
 
-export type StructuredData = OrganizationStructuredData | AboutPageStructuredData | ContactPageStructuredData | WebPageStructuredData | LocalBusinessStructuredData | ServiceStructuredData | CollectionPageStructuredData;
+export type StructuredData =
+  | OrganizationStructuredData
+  | AboutPageStructuredData
+  | ContactPageStructuredData
+  | WebPageStructuredData
+  | LocalBusinessStructuredData
+  | ServiceStructuredData
+  | CollectionPageStructuredData
+  | FAQPageStructuredData
+  | HowToStructuredData
+  | BreadcrumbListStructuredData;

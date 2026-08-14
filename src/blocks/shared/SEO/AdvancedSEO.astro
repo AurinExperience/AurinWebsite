@@ -1,5 +1,6 @@
 ---
 import { getLocalizedUrl } from "@/i18n";
+import { SITE } from "@/config/site";
 
 // Componente SEO Avanzado optimizado para LLMs y IA
 export interface AlternateLink {
@@ -14,6 +15,7 @@ export interface Props {
   ogImage?: string;
   ogType?: string;
   structuredData?: object;
+  additionalStructuredData?: object[];
   speakable?: string[];
   keywords?: string;
   author?: string;
@@ -25,9 +27,10 @@ const {
   title,
   description = "Aurin User Experts",
   canonical,
-  ogImage = "https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/aurinWhiteLogo.webp",
+  ogImage = SITE.ogImage,
   ogType = "website",
   structuredData,
+  additionalStructuredData,
   speakable,
   keywords,
   author = "Aurin",
@@ -47,6 +50,14 @@ const localeExceptions: Record<string, { es: string; en: string }> = {
   "/en/appointment-confirmation": {
     es: "/appointment-confirmed",
     en: "/en/appointment-confirmation",
+  },
+  "/diseno-web-nuevo-leon": {
+    es: "/diseno-web-nuevo-leon",
+    en: "/en/web-design-nuevo-leon",
+  },
+  "/en/web-design-nuevo-leon": {
+    es: "/diseno-web-nuevo-leon",
+    en: "/en/web-design-nuevo-leon",
   },
 };
 
@@ -99,6 +110,10 @@ const resolvedAlternateLinks = alternateLinks || [
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
+<!-- Sin dimensiones, varios scrapers no pintan la preview en el primer rastreo. -->
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />
 <meta property="og:site_name" content="Aurin" />
 <meta property="og:locale" content="es_MX" />
 <meta property="og:locale:alternate" content="en_US" />
@@ -124,6 +139,16 @@ const resolvedAlternateLinks = alternateLinks || [
       set:html={JSON.stringify(structuredData)}
     />
   )
+}
+
+<!-- Datos Estructurados Adicionales (múltiples schemas por página) -->
+{
+  additionalStructuredData && additionalStructuredData.map((schema) => (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(schema)}
+    />
+  ))
 }
 
 <!-- Speakable Schema para optimización de voz -->
