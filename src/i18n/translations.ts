@@ -737,7 +737,7 @@ export const translations = {
         items: [
           {
             question: "How much does web design cost in Monterrey?",
-            answer: "It depends on scope: how many sections you need, whether the UX/UI design starts from scratch, the integrations involved, and whether content has to be produced. A landing page is the most accessible option, and a custom corporate site scales with the number of screens and features. We start with a 20-minute call to understand your project; we then analyze the scope and send you a fixed quote with no hidden costs."
+            answer: "It depends on scope: how many sections you need, whether the UX/UI design starts from scratch, the integrations involved, and whether content has to be produced. A landing page is the most accessible option, and a custom corporate site scales with the number of screens and features. We start with a call to understand your project; we then analyze the scope and send you a fixed quote with no hidden costs."
           },
           {
             question: "How long does it take to design a professional website?",
@@ -767,7 +767,7 @@ export const translations = {
       },
       leadForm: {
         heading: "Ready to transform your digital presence?",
-        description: "Tell us about your project and receive a personalized proposal within 24 hours.",
+        description: "Tell us about your project and we'll reach out to set up a call, understand the scope, and put your quote together.",
         labels: {
           name: "Full name",
           email: "Email",
@@ -790,7 +790,7 @@ export const translations = {
         ],
         button: "Get my free quote",
         sending: "Sending...",
-        success: "Message sent! We'll contact you within 24 hours with a personalized proposal.",
+        success: "Message sent! We'll be in touch shortly to schedule the intro call.",
         error: "Could not send the message. Please try again."
       }
     }
@@ -1534,7 +1534,7 @@ export const translations = {
         items: [
           {
             question: "¿Cuánto cuesta el diseño de una página web en Monterrey?",
-            answer: "El costo depende del alcance: cuántas secciones necesitas, si el diseño UX/UI parte de cero, las integraciones y si hay que producir contenido. Una landing page es la opción más accesible y un sitio corporativo a medida escala según el número de pantallas y funcionalidades. Empezamos con una llamada de 20 minutos para entender tu proyecto; después analizamos el alcance y te enviamos una cotización cerrada, sin costos ocultos."
+            answer: "El costo depende del alcance: cuántas secciones necesitas, si el diseño UX/UI parte de cero, las integraciones y si hay que producir contenido. Una landing page es la opción más accesible y un sitio corporativo a medida escala según el número de pantallas y funcionalidades. Empezamos con una llamada para entender tu proyecto; después analizamos el alcance y te enviamos una cotización cerrada, sin costos ocultos."
           },
           {
             question: "¿Cuánto tiempo toma diseñar un sitio web profesional?",
@@ -1564,7 +1564,7 @@ export const translations = {
       },
       leadForm: {
         heading: "¿Listo para transformar tu presencia digital?",
-        description: "Cuéntanos sobre tu proyecto y recibe una propuesta personalizada en 24 horas.",
+        description: "Cuéntanos sobre tu proyecto y te contactamos para agendar una llamada, entender el alcance y preparar tu cotización.",
         labels: {
           name: "Nombre completo",
           email: "Correo electrónico",
@@ -1587,7 +1587,7 @@ export const translations = {
         ],
         button: "Obtener mi cotización gratis",
         sending: "Enviando...",
-        success: "¡Mensaje enviado! Te contactaremos en las próximas 24 horas con una propuesta personalizada.",
+        success: "¡Mensaje enviado! Te contactaremos en breve para agendar la llamada inicial.",
         error: "No se pudo enviar el mensaje. Por favor, intenta de nuevo."
       }
     }
