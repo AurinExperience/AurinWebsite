@@ -27,6 +27,8 @@ interface Props {
 	vignetteColor?: string;
 	showVignette?: boolean;
 	noindex?: boolean;
+	/* Landings de captura: sin MegaMenu, para no dar salidas de la página. */
+	showMegaMenu?: boolean;
 }
 
 const { 
@@ -43,7 +45,8 @@ const {
 	vignetteIntensity = 'medium',
 	vignetteColor,
 	showVignette = false,
-	noindex = false
+	noindex = false,
+	showMegaMenu = true
 } = Astro.props;
 ---
 
@@ -110,7 +113,7 @@ const {
 	</head>
 	<body>
 		{/* <PageLoader /> */}
-		<MegaMenu />
+		{showMegaMenu && <MegaMenu />}
 		<slot />
 		{showVignette && (
 			<Vignette 
