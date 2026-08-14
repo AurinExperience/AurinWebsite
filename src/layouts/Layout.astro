@@ -20,13 +20,13 @@ interface Props {
 	ogType?: string;
 	structuredData?: object;
 	additionalStructuredData?: object[];
-	speakable?: string[];
 	keywords?: string;
 	author?: string;
 	twitterCard?: string;
 	vignetteIntensity?: 'light' | 'medium' | 'strong';
 	vignetteColor?: string;
 	showVignette?: boolean;
+	noindex?: boolean;
 }
 
 const { 
@@ -37,13 +37,13 @@ const {
 	ogType,
 	structuredData,
 	additionalStructuredData,
-	speakable,
 	keywords,
 	author,
 	twitterCard,
 	vignetteIntensity = 'medium',
 	vignetteColor,
-	showVignette = false
+	showVignette = false,
+	noindex = false
 } = Astro.props;
 ---
 
@@ -93,10 +93,10 @@ const {
 			ogType={ogType}
 			structuredData={structuredData}
 			additionalStructuredData={additionalStructuredData}
-			speakable={speakable}
 			keywords={keywords}
 			author={author}
 			twitterCard={twitterCard}
+			noindex={noindex}
 		/>
 		<GlobalSchema />
 		<!-- Google tag (gtag.js) -->

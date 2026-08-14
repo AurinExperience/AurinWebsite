@@ -1,49 +1,13 @@
-# robots.txt para SEO moderno y LLMs
-# Optimizado para permitir acceso a bots de IA y motores de búsqueda
+# robots.txt de aurin.mx
+#
+# Un solo grupo abierto. Los grupos por bot que había antes (GPTBot,
+# ClaudeBot, PerplexityBot, Googlebot, Bingbot…) repetían exactamente lo que
+# ya dice `User-agent: *`, y cada bot obedece únicamente al grupo más
+# específico que lo nombra: mantenerlos solo abría la puerta a que una regla
+# futura en `*` se les olvidara. Si algún día hay que bloquear un crawler,
+# se le agrega su propio grupo con el Disallow que corresponda.
 
-# Permitir todos los rastreadores
 User-agent: *
 Allow: /
 
-# Permitir bots específicos de IA y LLMs
-User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: GeminiBot
-Allow: /
-
-User-agent: Bard-Google
-Allow: /
-
-User-agent: Applebot
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-
-# Permitir Googlebot y Bingbot
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-# Bloquear áreas privadas o administrativas (si existen)
-Disallow: /admin/
-Disallow: /private/
-
-# Sitemap
 Sitemap: https://aurin.mx/sitemap.xml

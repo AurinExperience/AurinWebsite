@@ -36,18 +36,7 @@ const structuredData: ServiceStructuredData = {
   "@context": "https://schema.org",
   "@type": "Service",
   serviceType: serviceTypeLabel,
-  provider: {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: SITE.name,
-    url: SITE.url,
-    logo: SITE.logoUrl,
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: SITE.contactEmail,
-      contactType: "customer service",
-    },
-  },
+  provider: { "@id": `${SITE.url}/#organization` },
   areaServed: "MX",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -63,9 +52,6 @@ const structuredData: ServiceStructuredData = {
   },
 };
 
-// CSS selectors for speakable content (voice optimization)
-const speakable = [".services-banner", ".services-list", ".ux-description"];
-
 const canonicalUrl = getCanonicalUrl(SITE.url, "/services", currentLang);
 ---
 
@@ -74,7 +60,6 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/services", currentLang);
   description={seoDescription}
   keywords={seoKeywords}
   structuredData={structuredData}
-  speakable={speakable}
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
 >

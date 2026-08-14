@@ -29,11 +29,15 @@ const portfolioName =
     ? "Portfolio de Proyectos - Aurin"
     : "Project Portfolio - Aurin";
 
-const catalogName =
-  currentLang === "es"
-    ? "Portfolio de Proyectos de Diseño"
-    : "Design Project Portfolio";
-
+/**
+ * El OfferCatalog que había aquí declaraba tres CreativeWork con títulos
+ * genéricos de traducción ("proyecto-innovador-1", "transformacion-digital",
+ * "experiencia-usuario") que no corresponden a ningún proyecto de la página:
+ * los proyectos reales vienen de Payload y cada uno tiene su propia página con
+ * su schema. Describir contenido que no existe en la página es justo lo que
+ * Google penaliza, así que el catálogo se va y la colección apunta al
+ * Organization global por @id.
+ */
 const structuredData: CollectionPageStructuredData = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -41,75 +45,8 @@ const structuredData: CollectionPageStructuredData = {
   description: seoDescription,
   url: canonicalUrl,
   inLanguage: currentLang === "es" ? "es-MX" : "en-US",
-  mainEntity: {
-    "@type": "Organization",
-    name: SITE.name,
-    url: SITE.url,
-    logo: SITE.logoUrl,
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: catalogName,
-      itemListElement: [
-        {
-          "@type": "CreativeWork",
-          name: t.projects.projectTitles["proyecto-innovador-1"],
-          description:
-            currentLang === "es"
-              ? "Proyecto de branding, UI/UX y desarrollo web"
-              : "Branding, UI/UX and web development project",
-          creator: {
-            "@type": "Organization",
-            name: SITE.name,
-          },
-          keywords: [
-            t.projects.projectTags["Branding"],
-            t.projects.projectTags["UI/UX"],
-            t.projects.projectTags["Web"],
-          ],
-        },
-        {
-          "@type": "CreativeWork",
-          name: t.projects.projectTitles["transformacion-digital"],
-          description:
-            currentLang === "es"
-              ? "Proyecto de desarrollo y estrategia digital"
-              : "Development and digital strategy project",
-          creator: {
-            "@type": "Organization",
-            name: SITE.name,
-          },
-          keywords: [
-            t.projects.projectTags["Desarrollo"],
-            t.projects.projectTags["Estrategia"],
-          ],
-        },
-        {
-          "@type": "CreativeWork",
-          name: t.projects.projectTitles["experiencia-usuario"],
-          description:
-            currentLang === "es"
-              ? "Proyecto de investigación UX y diseño"
-              : "UX research and design project",
-          creator: {
-            "@type": "Organization",
-            name: SITE.name,
-          },
-          keywords: [
-            t.projects.projectTags["UX Research"],
-            t.projects.projectTags["Design"],
-          ],
-        },
-      ],
-    },
-  },
+  mainEntity: { "@id": `${SITE.url}/#organization` },
 };
-
-// CSS selectors for speakable content (voice optimization)
-const speakable = [
-  ".projects-introduction",
-  ".projects-strip",
-  ".project-card",
-];
 ---
 
 <Layout
@@ -117,7 +54,6 @@ const speakable = [
   description={seoDescription}
   keywords={seoKeywords}
   structuredData={structuredData}
-  speakable={speakable}
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
 >

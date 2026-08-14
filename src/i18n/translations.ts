@@ -657,7 +657,7 @@ export const translations = {
       hero: {
         subtitle: "Web and UX/UI design agency in Nuevo León",
         titleLead: "Web Design in",
-        titleAccent: "Nuevo León",
+        titleAccent: "Monterrey",
         description: "We design custom websites, landing pages, and UX/UI experiences for businesses across the Monterrey metropolitan area. Every screen starts with the person using it: clarity, speed, and a direct path to conversion.",
         cta: "Request your free quote",
         ctaSecondary: "See how we work",
@@ -1454,7 +1454,7 @@ export const translations = {
       hero: {
         subtitle: "Agencia de diseño web y UX/UI en Nuevo León",
         titleLead: "Diseño Web en",
-        titleAccent: "Nuevo León",
+        titleAccent: "Monterrey",
         description: "Diseñamos sitios web, landing pages y experiencias UX/UI a medida para empresas de toda el área metropolitana de Monterrey. Cada pantalla se piensa desde quien la usa: claridad, velocidad y un camino directo a la conversión.",
         cta: "Solicita tu cotización gratis",
         ctaSecondary: "Ver cómo trabajamos",

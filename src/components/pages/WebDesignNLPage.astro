@@ -175,15 +175,6 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
   ],
 };
 
-/* ----------------------------------------------------------------
-   Speakable selectors — voice assistant optimization
-   ---------------------------------------------------------------- */
-const speakable = [
-  ".landing-hero-title",
-  ".faq-answer",
-  ".services-description",
-];
-
 const canonicalUrl = canonicalBase;
 ---
 
@@ -193,7 +184,6 @@ const canonicalUrl = canonicalBase;
   keywords={seoKeywords}
   structuredData={serviceSchema}
   additionalStructuredData={[faqSchema, howToSchema, breadcrumbSchema]}
-  speakable={speakable}
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
 >

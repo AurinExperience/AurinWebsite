@@ -30,40 +30,15 @@ const seoTitle = t.about.seo.title;
 const seoDescription = t.about.seo.description;
 const seoKeywords = t.about.seo.keywords;
 
+/* Referencia al Organization global por @id: declararlo otra vez aquí creaba una
+   segunda entidad con datos en conflicto. Ver la nota en ContactPage. */
 const structuredData: AboutPageStructuredData = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  mainEntity: {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: SITE.name,
-    url: SITE.url,
-    logo: SITE.logoUrl,
-    description: t.about.structuredData.description,
-    foundingDate: "2020",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Aldea Creativa",
-      addressCountry: "MX",
-    },
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: SITE.contactEmail,
-      contactType: "customer service",
-    },
-    sameAs: SITE.sameAs,
-    knowsAbout: t.about.structuredData.knowsAbout,
-    areaServed: "MX",
-  },
+  name: seoTitle,
+  url: getCanonicalUrl(SITE.url, "/about", currentLang),
+  mainEntity: { "@id": `${SITE.url}/#organization` },
 };
-
-// CSS selectors for speakable content (voice optimization)
-const speakable = [
-  "#hero-about",
-  ".unexplored-paths",
-  ".our-story",
-  ".collaborative-design",
-];
 
 const canonicalUrl = getCanonicalUrl(SITE.url, "/about", currentLang);
 ---
@@ -73,7 +48,6 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/about", currentLang);
   description={seoDescription}
   keywords={seoKeywords}
   structuredData={structuredData}
-  speakable={speakable}
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
 >

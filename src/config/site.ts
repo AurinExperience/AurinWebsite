@@ -14,5 +14,22 @@ export const SITE = {
     "https://www.instagram.com/aurinmx",
     "https://www.linkedin.com/company/aurinmx/",
     "https://www.facebook.com/profile.php?id=61569531232140"
-  ] as string[]
+  ] as string[],
+
+  // NAP (Name, Address, Phone) — la base del SEO local. Mientras estén vacíos,
+  // el schema global emite Organization sin dirección; en cuanto se llenen pasa
+  // a ProfessionalService con dirección y teléfono, que es lo que Google usa
+  // para búsquedas con intención local ("diseño web Monterrey").
+  //
+  // Tienen que coincidir CARÁCTER POR CARÁCTER con la ficha de Google Business
+  // Profile. Un número o una calle escritos distinto valen como dos negocios.
+  telephone: "",
+  address: {
+    streetAddress: "",
+    // Municipio real: Monterrey, San Pedro Garza García, etc.
+    addressLocality: "",
+    addressRegion: "Nuevo León",
+    postalCode: "",
+    addressCountry: "MX"
+  }
 };
