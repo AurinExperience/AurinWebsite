@@ -22,31 +22,20 @@ const seoTitle = t.contact.seo.title;
 const seoDescription = t.contact.seo.description;
 const seoKeywords = t.contact.seo.keywords;
 
+/**
+ * Apunta al Organization global (GlobalSchema.astro) por @id en vez de volver a
+ * declararlo. Antes esta página emitía un segundo nodo Organization con datos
+ * distintos —incluido `addressLocality: "Aldea Creativa"`, que es el nombre del
+ * coworking y no una localidad—, así que Google veía dos entidades en conflicto.
+ * La dirección real vive en SITE.address y la publica el schema global.
+ */
 const structuredData: ContactPageStructuredData = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  mainEntity: {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: SITE.name,
-    url: SITE.url,
-    logo: SITE.logoUrl,
-    contactPoint: {
-      "@type": "ContactPoint",
-      email: SITE.contactEmail,
-      contactType: "customer service",
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Aldea Creativa",
-      addressCountry: "MX",
-    },
-    sameAs: SITE.sameAs,
-  },
+  name: seoTitle,
+  url: getCanonicalUrl(SITE.url, "/contact", currentLang),
+  mainEntity: { "@id": `${SITE.url}/#organization` },
 };
-
-// CSS selectors for speakable content (voice optimization)
-const speakable = [".contact-form", ".contact-info"];
 
 const canonicalUrl = getCanonicalUrl(SITE.url, "/contact", currentLang);
 ---
@@ -56,7 +45,6 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/contact", currentLang);
   description={seoDescription}
   keywords={seoKeywords}
   structuredData={structuredData}
-  speakable={speakable}
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
 >

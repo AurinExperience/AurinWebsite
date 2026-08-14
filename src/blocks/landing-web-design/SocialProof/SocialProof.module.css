@@ -124,3 +124,22 @@
     font-size: var(--font-size-base);
   }
 }
+
+.moreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-10);
+  color: var(--color-yellow);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-smooth), gap var(--transition-smooth);
+}
+
+.moreLink:hover {
+  border-bottom-color: var(--color-yellow);
+  gap: var(--spacing-4);
+}

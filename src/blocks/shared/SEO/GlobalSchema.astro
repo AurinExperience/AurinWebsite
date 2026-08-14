@@ -22,11 +22,23 @@ const knowsAbout =
 const orgId = `${SITE.url}/#organization`;
 const siteId = `${SITE.url}/#website`;
 
+// Con dirección, la entidad es un negocio local y no una organización genérica:
+// ProfessionalService es el subtipo de LocalBusiness que le corresponde a una
+// agencia, y es el que habilita las señales locales. Sin dirección se queda en
+// Organization, porque un LocalBusiness sin `address` es schema inválido.
+const hasAddress = SITE.address.streetAddress && SITE.address.addressLocality;
+const orgType = hasAddress ? "ProfessionalService" : "Organization";
+
+// Los campos vacíos se descartan: un `postalCode: ""` es peor que no declararlo.
+const address = Object.fromEntries(
+  Object.entries(SITE.address).filter(([, value]) => value)
+);
+
 const graph = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": orgType,
       "@id": orgId,
       name: SITE.name,
       url: SITE.url,
@@ -46,7 +58,12 @@ const graph = {
         email: SITE.contactEmail,
         contactType: "customer service",
         availableLanguage: ["Spanish", "English"],
+        ...(SITE.telephone && { telephone: SITE.telephone }),
       },
+      ...(SITE.telephone && { telephone: SITE.telephone }),
+      ...(hasAddress && {
+        address: { "@type": "PostalAddress", ...address },
+      }),
       // Omitir la propiedad si no hay perfiles; un `sameAs: []` no aporta nada.
       ...(SITE.sameAs.length > 0 && { sameAs: SITE.sameAs }),
     },

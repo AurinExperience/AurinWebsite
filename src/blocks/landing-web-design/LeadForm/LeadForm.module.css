@@ -181,3 +181,22 @@
     min-width: unset;
   }
 }
+
+.legal {
+  margin-top: var(--spacing-4);
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-a);
+}
+
+.legalLink {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition-smooth);
+}
+
+.legalLink:hover {
+  color: var(--color-yellow);
+}

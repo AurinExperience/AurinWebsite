@@ -1,3 +1,8 @@
+/** Referencia a un nodo ya declarado en el @graph global (GlobalSchema.astro). */
+export interface NodeReference {
+  "@id": string;
+}
+
 export interface PostalAddress {
   "@type": "PostalAddress";
   addressLocality?: string;
@@ -32,13 +37,17 @@ export interface OrganizationStructuredData {
 export interface AboutPageStructuredData {
   "@context": "https://schema.org";
   "@type": "AboutPage";
-  mainEntity: OrganizationStructuredData;
+  name?: string;
+  url?: string;
+  mainEntity: OrganizationStructuredData | NodeReference;
 }
 
 export interface ContactPageStructuredData {
   "@context": "https://schema.org";
   "@type": "ContactPage";
-  mainEntity: OrganizationStructuredData;
+  name?: string;
+  url?: string;
+  mainEntity: OrganizationStructuredData | NodeReference;
 }
 
 export interface WebPageStructuredData {
@@ -47,7 +56,7 @@ export interface WebPageStructuredData {
   name: string;
   description: string;
   url: string;
-  provider?: OrganizationStructuredData;
+  provider?: OrganizationStructuredData | NodeReference;
 }
 
 export interface LocalBusinessStructuredData extends OrganizationStructuredData {
@@ -147,26 +156,7 @@ export interface CollectionPageStructuredData {
   description: string;
   url: string;
   inLanguage: string;
-  mainEntity: {
-    "@type": "Organization";
-    name: string;
-    url: string;
-    logo: string;
-    hasOfferCatalog?: {
-      "@type": "OfferCatalog";
-      name: string;
-      itemListElement: {
-        "@type": "CreativeWork";
-        name: string;
-        description: string;
-        creator: {
-          "@type": "Organization";
-          name: string;
-        };
-        keywords: string[];
-      }[];
-    };
-  };
+  mainEntity: OrganizationStructuredData | NodeReference;
 }
 
 export type StructuredData =

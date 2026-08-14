@@ -1,8 +1,7 @@
 ---
-import { getLocalizedUrl } from "@/i18n";
+import { getLangFromUrl, getLocalizedPath } from "@/i18n";
 import { SITE } from "@/config/site";
 
-// Componente SEO Avanzado optimizado para LLMs y IA
 export interface AlternateLink {
   hreflang: string;
   href: string;
@@ -16,11 +15,11 @@ export interface Props {
   ogType?: string;
   structuredData?: object;
   additionalStructuredData?: object[];
-  speakable?: string[];
   keywords?: string;
   author?: string;
   twitterCard?: string;
   alternateLinks?: AlternateLink[];
+  noindex?: boolean;
 }
 
 const {
@@ -31,54 +30,25 @@ const {
   ogType = "website",
   structuredData,
   additionalStructuredData,
-  speakable,
   keywords,
   author = "Aurin",
   twitterCard = "summary_large_image",
   alternateLinks,
+  noindex = false,
 } = Astro.props;
 
 const siteUrl = (Astro.site?.href || "https://aurin.mx").replace(/\/$/, "");
 const canonicalURL = canonical || `${siteUrl}${Astro.url.pathname}`;
 
-// Mapping for pages with different slugs across locales
-const localeExceptions: Record<string, { es: string; en: string }> = {
-  "/appointment-confirmed": {
-    es: "/appointment-confirmed",
-    en: "/en/appointment-confirmation",
-  },
-  "/en/appointment-confirmation": {
-    es: "/appointment-confirmed",
-    en: "/en/appointment-confirmation",
-  },
-  "/diseno-web-nuevo-leon": {
-    es: "/diseno-web-nuevo-leon",
-    en: "/en/web-design-nuevo-leon",
-  },
-  "/en/web-design-nuevo-leon": {
-    es: "/diseno-web-nuevo-leon",
-    en: "/en/web-design-nuevo-leon",
-  },
-};
+// og:locale tiene que seguir al idioma de la página: hardcodeado a es_MX,
+// las páginas /en/ se anunciaban en español a Facebook y LinkedIn.
+const ogLocale = getLangFromUrl(Astro.url) === "en" ? "en_US" : "es_MX";
+const ogLocaleAlternate = ogLocale === "en_US" ? "es_MX" : "en_US";
 
-const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
-const isProjectRoute =
-  currentPath.startsWith("/project/") || currentPath.startsWith("/en/project/");
-const slug = isProjectRoute ? currentPath.split("/").pop() || "" : "";
-
-let esPath: string;
-let enPath: string;
-
-if (currentPath in localeExceptions) {
-  esPath = localeExceptions[currentPath].es;
-  enPath = localeExceptions[currentPath].en;
-} else if (isProjectRoute) {
-  esPath = `/project/${slug}`;
-  enPath = `/en/project/${slug}`;
-} else {
-  esPath = getLocalizedUrl(currentPath, "es");
-  enPath = getLocalizedUrl(currentPath, "en");
-}
+// Las rutas con slug distinto por idioma viven en getLocalizedPath, que es
+// también lo que usa el botón de idioma del Header.
+const esPath = getLocalizedPath(Astro.url.pathname, "es");
+const enPath = getLocalizedPath(Astro.url.pathname, "en");
 
 const alternateEsUrl = `${siteUrl}${esPath}`;
 const alternateEnUrl = `${siteUrl}${enPath}`;
@@ -115,8 +85,8 @@ const resolvedAlternateLinks = alternateLinks || [
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content={title} />
 <meta property="og:site_name" content="Aurin" />
-<meta property="og:locale" content="es_MX" />
-<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlternate} />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content={twitterCard} />
@@ -124,6 +94,7 @@ const resolvedAlternateLinks = alternateLinks || [
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={title} />
 
 <!-- Search Console -->
 <meta
@@ -151,35 +122,17 @@ const resolvedAlternateLinks = alternateLinks || [
   ))
 }
 
-<!-- Speakable Schema para optimización de voz -->
-{
-  speakable && speakable.length > 0 && (
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        speakable: {
-          "@type": "SpeakableSpecification",
-          cssSelector: speakable,
-        },
-      })}
-    />
-  )
-}
-
-<!-- Meta Tags Adicionales para SEO -->
+{/*
+  Directivas de rastreo. Un solo `robots`: no existen metas por bot para
+  GPTBot/ClaudeBot/PerplexityBot y similares — el acceso de los crawlers de IA
+  se controla en robots.txt y con la cabecera X-Robots-Tag, no aquí. Tampoco
+  hacen falta `googlebot`/`bingbot`: ambos leen `robots`.
+*/}
 <meta
   name="robots"
-  content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  content={
+    noindex
+      ? "noindex, follow"
+      : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  }
 />
-<meta name="googlebot" content="index, follow" />
-<meta name="bingbot" content="index, follow" />
-
-<!-- Permitir bots de IA y LLMs -->
-<meta name="GPTBot" content="index, follow" />
-<meta name="OAI-SearchBot" content="index, follow" />
-<meta name="PerplexityBot" content="index, follow" />
-<meta name="ClaudeBot" content="index, follow" />
-<meta name="GeminiBot" content="index, follow" />
-<meta name="Applebot-Extended" content="index, follow" />

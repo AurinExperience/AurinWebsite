@@ -1,63 +1,59 @@
 ---
-import { getLangFromUrl, translations } from '@/i18n';
+import { translations } from '@/i18n';
 import styles from "./Header.module.css";
 import Menu from "lucide-astro/Menu";
 import Globe from "lucide-astro/Globe";
 import {
   getLangFromUrl,
-  getLocalizedUrl,
+  getLocalizedPath,
   getAlternateLanguage,
 } from "@/i18n/utils.js";
 
 interface Props {
   class?: string;
+  /* Landings de captura: solo logo e idioma, sin acceso al MegaMenu. */
+  minimal?: boolean;
 }
 
-const { class: className } = Astro.props;
+const { class: className, minimal = false } = Astro.props;
 
 // Detect current language
 const currentLang = getLangFromUrl(Astro.url);
 const alternateLang = getAlternateLanguage(currentLang);
 const t = translations[currentLang];
 
-// Generate alternate URL for language switching
-const currentPath = Astro.url.pathname;
-let alternateUrl = getLocalizedUrl(currentPath, alternateLang);
-
-// Handle specific page mappings
-if (currentPath === "/about" && alternateLang === "en") {
-  alternateUrl = "/en/about";
-} else if (currentPath === "/en/about" && alternateLang === "es") {
-  alternateUrl = "/about";
-} else if (currentPath === "/services" && alternateLang === "en") {
-  alternateUrl = "/en/services";
-} else if (currentPath === "/en/services" && alternateLang === "es") {
-  alternateUrl = "/services";
-} else if (currentPath === "/contact" && alternateLang === "en") {
-  alternateUrl = "/en/contact";
-} else if (currentPath === "/en/contact" && alternateLang === "es") {
-  alternateUrl = "/contact";
-} else if (currentPath === "/projects" && alternateLang === "en") {
-  alternateUrl = "/en/projects";
-} else if (currentPath === "/en/projects" && alternateLang === "es") {
-  alternateUrl = "/projects";
-}
+// La misma página en el otro idioma. El helper conoce las rutas cuyo slug
+// cambia entre idiomas (la landing de Nuevo León, la confirmación de cita);
+// la cadena de `if` que había aquí no las incluía y mandaba a un 404.
+const alternateUrl = getLocalizedPath(Astro.url.pathname, alternateLang as 'es' | 'en');
 ---
 
 <header class={`${styles.header} header ${className || ""}`}>
   <div class={styles["header-container"]}>
-    <!-- Logo Section -->
-    <a
-      href={currentLang === "es" ? "/" : "/en"}
-      class={styles["logo-link"]}
-      aria-label={currentLang === "es" ? "Ir a inicio" : "Go to home"}
-    >
-      <img
-        class={styles["header-logo"]}
-        src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/AurinTinyWhiteLogo.svg"
-        alt="Aurin Logo"
-      />
-    </a>
+    {/* En modo captura el logo no navega: la landing no ofrece salidas. */}
+    {
+      minimal ? (
+        <span class={styles["logo-link"]}>
+          <img
+            class={styles["header-logo"]}
+            src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/AurinTinyWhiteLogo.svg"
+            alt="Aurin"
+          />
+        </span>
+      ) : (
+        <a
+          href={currentLang === "es" ? "/" : "/en"}
+          class={styles["logo-link"]}
+          aria-label={currentLang === "es" ? "Ir a inicio" : "Go to home"}
+        >
+          <img
+            class={styles["header-logo"]}
+            src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/AurinTinyWhiteLogo.svg"
+            alt="Aurin Logo"
+          />
+        </a>
+      )
+    }
 
     <!-- Actions Section -->
     <div class={styles["actions-section"]}>
@@ -74,17 +70,21 @@ if (currentPath === "/about" && alternateLang === "en") {
       </a>
 
       <!-- Menu Button -->
-      <button
-        class={styles["menu-button"]}
-        data-menu-trigger
-        aria-label={currentLang === "es" ? "Abrir menú" : "Open menu"}
-      >
-        <span class={styles["menu-text"]}>{t.header.menu}</span>
-        <div class={styles["menu-icon"]}>
-          <div class={styles["menu-icon-bg"]}></div>
-          <Menu size={24} strokeWidth={2.5} class={styles["menu-icon-svg"]} />
-        </div>
-      </button>
+      {
+        !minimal && (
+          <button
+            class={styles["menu-button"]}
+            data-menu-trigger
+            aria-label={currentLang === "es" ? "Abrir menú" : "Open menu"}
+          >
+            <span class={styles["menu-text"]}>{t.header.menu}</span>
+            <div class={styles["menu-icon"]}>
+              <div class={styles["menu-icon-bg"]} />
+              <Menu size={24} strokeWidth={2.5} class={styles["menu-icon-svg"]} />
+            </div>
+          </button>
+        )
+      }
     </div>
   </div>
 </header>

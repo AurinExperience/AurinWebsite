@@ -28,17 +28,8 @@ const structuredData: WebPageStructuredData = {
   name: seoTitle,
   description: seoDescription,
   url: getCanonicalUrl(SITE.url, "/privacy", currentLang),
-  provider: {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: SITE.name,
-    url: SITE.url,
-    logo: SITE.logoUrl,
-  },
+  provider: { "@id": `${SITE.url}/#organization` },
 };
-
-// CSS selectors for speakable content (voice optimization)
-const speakable = [".privacy-content"];
 
 const canonicalUrl = getCanonicalUrl(SITE.url, "/privacy", currentLang);
 ---
@@ -48,7 +39,6 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/privacy", currentLang);
   description={seoDescription}
   keywords={seoKeywords}
   structuredData={structuredData}
-  speakable={speakable}
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
 >

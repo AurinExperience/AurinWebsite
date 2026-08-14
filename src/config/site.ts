@@ -14,5 +14,25 @@ export const SITE = {
     "https://www.instagram.com/aurinmx",
     "https://www.linkedin.com/company/aurinmx/",
     "https://www.facebook.com/profile.php?id=61569531232140"
-  ] as string[]
+  ] as string[],
+
+  // NAP (Name, Address, Phone) — la base del SEO local. Tiene que coincidir
+  // CARÁCTER POR CARÁCTER con la ficha de Google Business Profile: una calle o
+  // un teléfono escritos distinto valen como dos negocios diferentes.
+  //
+  // El domicilio es Cuernavaca; la landing de Nuevo León se sostiene como área
+  // de servicio (`areaServed`), no como presencia física. Esa distinción es la
+  // que Google pide: se puede atender Monterrey a distancia, pero no aparecer
+  // en su paquete local sin estar ahí.
+  //
+  // Falta el código postal de Tlaltenango; sin él el schema omite `postalCode`
+  // en lugar de inventarlo.
+  telephone: "+52 777 102 0339",
+  address: {
+    streetAddress: "San Jerónimo 207, Tlaltenango",
+    addressLocality: "Cuernavaca",
+    addressRegion: "Morelos",
+    postalCode: "",
+    addressCountry: "MX"
+  }
 };

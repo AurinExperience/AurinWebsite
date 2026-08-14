@@ -9,7 +9,7 @@
  * cajas grises que decían "Proyecto Aurin". Cuando el CMS tenga banners reales,
  * esto se cambia por PayloadAPI.getFeaturedProjects().
  */
-import { getLangFromUrl, translations } from '@/i18n';
+import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
 import SliderClients from '@/blocks/home/SliderClients/SliderClients.astro';
 import styles from './SocialProof.module.css';
 
@@ -18,6 +18,9 @@ const t = translations[currentLang];
 const socialProof = t.webDesignNL.socialProof;
 
 const R2 = 'https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev';
+
+const portfolioLabel =
+  currentLang === 'es' ? 'Ver nuestro portafolio de proyectos' : 'See our project portfolio';
 
 const work = [
   {
@@ -53,7 +56,7 @@ const work = [
           <img
             class={styles.projectImage}
             src={item.src}
-            alt={`${item.discipline} para ${item.name} — Aurin`}
+            alt={`${item.discipline} ${currentLang === 'es' ? 'para' : 'for'} ${item.name} — Aurin`}
             width="800"
             height="600"
             loading="lazy"
@@ -66,6 +69,11 @@ const work = [
         </li>
       ))}
     </ul>
+
+    <a class={styles.moreLink} href={getLocalizedUrl('/projects', currentLang)}>
+      {portfolioLabel}
+      <span aria-hidden="true">→</span>
+    </a>
   </div>
   <SliderClients />
 </section>

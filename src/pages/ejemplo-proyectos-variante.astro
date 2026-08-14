@@ -1,5 +1,6 @@
 ---
 // EJEMPLO DE USO: Strip de proyectos con 4 columnas y sin chips
+// noindex: es una demo, no debe indexarse ni competir con /projects
 // Este archivo demuestra cómo integrar la variante four-column en una página
 
 import Layout from '@/layouts/Layout.astro';
@@ -12,6 +13,7 @@ import Footer from '@/components/layout/Footer.astro';
 <Layout
   title="Ejemplo - Variante 4 Columnas"
   description="Página de ejemplo mostrando la strip de proyectos con 4 columnas sin chips"
+  noindex
 >
   <Vignette intensity="medium" />
   <Header />

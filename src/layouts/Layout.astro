@@ -20,13 +20,15 @@ interface Props {
 	ogType?: string;
 	structuredData?: object;
 	additionalStructuredData?: object[];
-	speakable?: string[];
 	keywords?: string;
 	author?: string;
 	twitterCard?: string;
 	vignetteIntensity?: 'light' | 'medium' | 'strong';
 	vignetteColor?: string;
 	showVignette?: boolean;
+	noindex?: boolean;
+	/* Landings de captura: sin MegaMenu, para no dar salidas de la página. */
+	showMegaMenu?: boolean;
 }
 
 const { 
@@ -37,13 +39,14 @@ const {
 	ogType,
 	structuredData,
 	additionalStructuredData,
-	speakable,
 	keywords,
 	author,
 	twitterCard,
 	vignetteIntensity = 'medium',
 	vignetteColor,
-	showVignette = false
+	showVignette = false,
+	noindex = false,
+	showMegaMenu = true
 } = Astro.props;
 ---
 
@@ -93,10 +96,10 @@ const {
 			ogType={ogType}
 			structuredData={structuredData}
 			additionalStructuredData={additionalStructuredData}
-			speakable={speakable}
 			keywords={keywords}
 			author={author}
 			twitterCard={twitterCard}
+			noindex={noindex}
 		/>
 		<GlobalSchema />
 		<!-- Google tag (gtag.js) -->
@@ -110,7 +113,7 @@ const {
 	</head>
 	<body>
 		{/* <PageLoader /> */}
-		<MegaMenu />
+		{showMegaMenu && <MegaMenu />}
 		<slot />
 		{showVignette && (
 			<Vignette 

@@ -2,7 +2,6 @@
 /**
  * FaqSection — FAQ accordion backing the FAQPage schema.
  * Uses native <details>/<summary> so answers stay in the DOM (crawlable) and accessible.
- * The `faq-answer` global class is referenced by the page's speakable selectors.
  */
 import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
 import styles from './FaqSection.module.css';
@@ -48,7 +47,7 @@ const contactLabel =
             </svg>
           </summary>
           <div class={styles.answer}>
-            <p class:list={[styles.answerText, 'faq-answer']}>{item.answer}</p>
+            <p class={styles.answerText}>{item.answer}</p>
           </div>
         </details>
       ))}

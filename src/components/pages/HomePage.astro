@@ -4,7 +4,6 @@
  * Used by both src/pages/index.astro (ES) and src/pages/en/index.astro (EN).
  * Language is detected automatically from the URL.
  */
-import type { OrganizationStructuredData } from "@/types/seo";
 import { SITE } from "@/config/site";
 import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
 import {
@@ -29,34 +28,9 @@ const seoTitle = t.seo.title;
 const seoDescription = t.seo.description;
 const seoKeywords = t.seo.keywords;
 
-const structuredData: OrganizationStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE.name,
-  url: SITE.url,
-  logo: SITE.logoUrl,
-  description: seoDescription,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Aldea Creativa",
-    addressCountry: "MX",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: SITE.contactEmail,
-    contactType: "customer service",
-  },
-  sameAs: SITE.sameAs,
-  areaServed: "MX",
-  knowsAbout: t.structuredData.serviceTypes,
-};
-
-// CSS selectors for speakable content (voice optimization)
-const speakable = [
-  ".banner-content",
-  ".description-main",
-  ".specialties-section",
-];
+/* Sin structuredData propio: el Organization + WebSite del sitio lo emite
+   GlobalSchema.astro en todas las páginas, con @id y sin la dirección
+   inventada que este bloque duplicaba. */
 
 const canonicalUrl = getCanonicalUrl(SITE.url, "/", currentLang);
 ---
@@ -65,8 +39,6 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/", currentLang);
   title={seoTitle}
   description={seoDescription}
   keywords={seoKeywords}
-  structuredData={structuredData}
-  speakable={speakable}
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
 >
