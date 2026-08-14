@@ -17,24 +17,28 @@ const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
 const socialProof = t.webDesignNL.socialProof;
 
-const R2 = 'https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev';
-
 const portfolioLabel =
   currentLang === 'es' ? 'Ver nuestro portafolio de proyectos' : 'See our project portfolio';
 
 const work = [
   {
-    src: `${R2}/ProjectGalicia.webp`,
+    src: '/work/galicia.webp',
+    width: 1000,
+    height: 661,
     name: 'Galicia',
     discipline: currentLang === 'es' ? 'UX/UI y desarrollo web' : 'UX/UI and web development',
   },
   {
-    src: `${R2}/ProjectSinfonica.webp`,
+    src: '/work/sinfonica.webp',
+    width: 1000,
+    height: 722,
     name: 'Sinfónica de Minería',
     discipline: currentLang === 'es' ? 'Branding y sitio web' : 'Branding and website',
   },
   {
-    src: `${R2}/ProjectSai.webp`,
+    src: '/work/sai.webp',
+    width: 1000,
+    height: 551,
     name: 'SAI Derecho y Economía',
     discipline: currentLang === 'es' ? 'Diseño y desarrollo web' : 'Web design and development',
   },
@@ -57,8 +61,8 @@ const work = [
             class={styles.projectImage}
             src={item.src}
             alt={`${item.discipline} ${currentLang === 'es' ? 'para' : 'for'} ${item.name} — Aurin`}
-            width="800"
-            height="600"
+            width={item.width}
+            height={item.height}
             loading="lazy"
             decoding="async"
           />

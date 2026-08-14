@@ -14,8 +14,14 @@ interface Props {
 const props = Astro.props;
 ---
 
-<Tilt 
-  client:visible
+{/*
+  El CTA principal vive above the fold, así que `client:visible` hidrataba React
+  + framer-motion (~108 KB) en la ruta crítica: era el 4.4 s de "retraso de
+  renderizado" del LCP. El tilt sigue al cursor, o sea que en táctil nunca hacía
+  nada — con `client:media` el móvil ni siquiera descarga el runtime.
+*/}
+<Tilt
+  client:media="(pointer: fine)"
   rotationFactor={1.5}
   style={{ transformOrigin: 'center center' }}
 >

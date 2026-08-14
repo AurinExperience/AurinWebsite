@@ -27,8 +27,11 @@ const ctaBannerContent = (t.ctaBanner as any)[pageContext] || (t.ctaBanner as an
 ---
 
 <section class={styles.ctaBannerContainer}>
+  <!-- client:media en vez de client:visible: el tilt sigue al cursor, así que en
+       táctil no hace nada. Con esto el runtime de React + framer-motion (~108 KB)
+       deja de descargarse en móvil. -->
   <Tilt 
-    client:visible
+    client:media="(pointer: fine)"
     rotationFactor={1.5}
     className="w-full"
     style={{ transformOrigin: 'center center' }}
@@ -50,19 +53,20 @@ const ctaBannerContent = (t.ctaBanner as any)[pageContext] || (t.ctaBanner as an
 </section>
 
 <script>
-  import { scroll, animate } from 'motion';
+  // `motion` se importa en diferido y solo cuando el banner se acerca al viewport:
+  // vive al final de la página, no tiene por qué competir con el LCP.
+  const wrapper = document.querySelector('[data-parallax-wrapper]') as HTMLElement | null;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const wrapper = document.querySelector('[data-parallax-wrapper]') as HTMLElement;
-
-    if (wrapper) {
-      scroll(
-        animate(wrapper, { y: [0, -50] }),
-        {
+  if (wrapper && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    new IntersectionObserver((entries, obs) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      obs.disconnect();
+      import('motion').then(({ scroll, animate }) => {
+        scroll(animate(wrapper, { y: [0, -50] }), {
           target: wrapper,
-          offset: ['start end', 'end start']
-        }
-      );
-    }
-  });
+          offset: ['start end', 'end start'],
+        });
+      });
+    }, { rootMargin: '400px' }).observe(wrapper);
+  }
 </script>
