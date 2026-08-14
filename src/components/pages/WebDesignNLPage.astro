@@ -1,0 +1,211 @@
+---
+/**
+ * WebDesignNLPage — Shared page template for the web design landing page (Nuevo León).
+ * Used by both src/pages/diseno-web-nuevo-leon.astro (ES) and src/pages/en/web-design-nuevo-leon.astro (EN).
+ * Language is detected automatically from the URL.
+ *
+ * Structured Data Strategy:
+ * - Service schema (primary) → structuredData prop
+ * - FAQPage, HowTo, BreadcrumbList → additionalStructuredData prop
+ * - GEO signals via AdministrativeArea + GeoCoordinates in areaServed
+ */
+import type {
+  ServiceStructuredData,
+  FAQPageStructuredData,
+  HowToStructuredData,
+  BreadcrumbListStructuredData,
+} from "@/types/seo";
+import { SITE } from "@/config/site";
+import { getLangFromUrl, translations } from "@/i18n";
+import {
+  HeroLanding,
+  ServicesIncluded,
+  ProcessSteps,
+  SocialProof,
+  FaqSection,
+  LeadForm,
+} from "@/blocks/landing-web-design";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/layout/Header.astro";
+import Footer from "@/components/layout/Footer.astro";
+import CtaBanner from "@/components/layout/CtaBanner.astro";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+
+const seoTitle = t.webDesignNL.seo.title;
+const seoDescription = t.webDesignNL.seo.description;
+const seoKeywords = t.webDesignNL.seo.keywords;
+
+/* The EN page lives on a different slug, so URLs are built per locale. */
+const canonicalBase =
+  currentLang === "es"
+    ? `${SITE.url}/diseno-web-nuevo-leon`
+    : `${SITE.url}/en/web-design-nuevo-leon`;
+
+/* ----------------------------------------------------------------
+   Service Schema — primary structured data
+   ---------------------------------------------------------------- */
+const municipalities = [
+  "Monterrey",
+  "San Pedro Garza García",
+  "San Nicolás de los Garza",
+  "Guadalupe",
+  "Apodaca",
+  "Santa Catarina",
+];
+
+const serviceSchema: ServiceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name:
+    currentLang === "es"
+      ? "Diseño Web y UX/UI en Nuevo León"
+      : "Web and UX/UI Design in Nuevo León",
+  description: seoDescription,
+  url: canonicalBase,
+  serviceType:
+    currentLang === "es"
+      ? "Diseño y Desarrollo de Sitios Web"
+      : "Website Design and Development",
+  provider: {
+    "@id": `${SITE.url}/#organization`,
+  },
+  areaServed: [
+    {
+      "@type": "AdministrativeArea",
+      name: "Nuevo León",
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 25.6866,
+        longitude: -100.3161,
+      },
+    },
+    ...municipalities.map((city) => ({ "@type": "City" as const, name: city })),
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name:
+      currentLang === "es"
+        ? "Servicios de Diseño Web"
+        : "Web Design Services",
+    itemListElement: t.webDesignNL.services.items.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.description,
+      },
+    })),
+  },
+};
+
+/* ----------------------------------------------------------------
+   FAQ Schema — for AEO / People Also Ask
+   ---------------------------------------------------------------- */
+const faqSchema: FAQPageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: t.webDesignNL.faq.items.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+/* ----------------------------------------------------------------
+   HowTo Schema — for process steps
+   ---------------------------------------------------------------- */
+const howToSchema: HowToStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name:
+    currentLang === "es"
+      ? "Cómo diseñamos tu sitio web"
+      : "How we design your website",
+  description:
+    currentLang === "es"
+      ? "Proceso paso a paso para crear un sitio web profesional en Nuevo León."
+      : "Step-by-step process to create a professional website in Nuevo León.",
+  step: t.webDesignNL.process.steps.map((step) => ({
+    "@type": "HowToStep",
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+/* ----------------------------------------------------------------
+   BreadcrumbList Schema — navigation hierarchy
+   ---------------------------------------------------------------- */
+const homeName = currentLang === "es" ? "Inicio" : "Home";
+const servicesName = currentLang === "es" ? "Servicios" : "Services";
+const pageName =
+  currentLang === "es"
+    ? "Diseño Web Nuevo León"
+    : "Web Design Nuevo León";
+
+const breadcrumbSchema: BreadcrumbListStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: homeName,
+      item: currentLang === "es" ? SITE.url : `${SITE.url}/en`,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: servicesName,
+      item:
+        currentLang === "es"
+          ? `${SITE.url}/services`
+          : `${SITE.url}/en/services`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: pageName,
+      item: canonicalBase,
+    },
+  ],
+};
+
+/* ----------------------------------------------------------------
+   Speakable selectors — voice assistant optimization
+   ---------------------------------------------------------------- */
+const speakable = [
+  ".landing-hero-title",
+  ".faq-answer",
+  ".services-description",
+];
+
+const canonicalUrl = canonicalBase;
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  structuredData={serviceSchema}
+  additionalStructuredData={[faqSchema, howToSchema, breadcrumbSchema]}
+  speakable={speakable}
+  canonical={canonicalUrl}
+  ogImage={SITE.ogImage}
+>
+  <Header />
+  <main id="main-content">
+    <HeroLanding />
+    <ServicesIncluded />
+    <ProcessSteps />
+    <SocialProof />
+    <FaqSection />
+    <LeadForm />
+    <CtaBanner />
+  </main>
+  <Footer />
+</Layout>

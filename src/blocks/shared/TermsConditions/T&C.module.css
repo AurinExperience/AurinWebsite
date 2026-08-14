@@ -125,8 +125,8 @@
 
 /* Emphasized text */
 .termsSection strong {
-  color: var(--color-yellow, #D0DF00);
-  font-weight: 600;
+  color: var(--color-yellow);
+  font-weight: var(--font-weight-semibold);
 }
 
 /* Links */

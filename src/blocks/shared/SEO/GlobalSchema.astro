@@ -47,7 +47,8 @@ const graph = {
         contactType: "customer service",
         availableLanguage: ["Spanish", "English"],
       },
-      sameAs: SITE.sameAs,
+      // Omitir la propiedad si no hay perfiles; un `sameAs: []` no aporta nada.
+      ...(SITE.sameAs.length > 0 && { sameAs: SITE.sameAs }),
     },
     {
       "@type": "WebSite",

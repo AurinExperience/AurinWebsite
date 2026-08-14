@@ -8,6 +8,11 @@ const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
 
 const copyright = t.footer.copyright.replace("{year}", new Date().getFullYear().toString());
+
+// The NL landing uses a different slug per locale, so it can't go through getLocalizedUrl.
+const webDesignNLUrl =
+  currentLang === "es" ? "/diseno-web-nuevo-leon" : "/en/web-design-nuevo-leon";
+const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
 ---
 
 <div data-footer-parallax>
@@ -38,6 +43,17 @@ const copyright = t.footer.copyright.replace("{year}", new Date().getFullYear().
                 <h3 class={styles.footerTitle}>{t.footer.contact}</h3>
                 <div class={styles.footerLinkContainer}>
                   <a href="mailto:hey@aurin.mx" class={styles.footerLink}>hey@aurin.mx</a>
+                </div>
+              </div>
+
+              <!-- Servicios -->
+              <div class={`${styles.footerSection} ${styles.sectionServices} footer-column`}>
+                <h3 class={styles.footerTitle}>{t.footer.services}</h3>
+                <div class={styles.footerLinkContainer}>
+                  <a href={webDesignNLUrl} class={styles.footerLink}>{t.footer.webDesignNL}</a>
+                </div>
+                <div class={styles.footerLinkContainer}>
+                  <a href={servicesUrl} class={styles.footerLink}>{t.footer.allServices}</a>
                 </div>
               </div>
 

@@ -1,0 +1,199 @@
+.section {
+  width: 100%;
+  background-color: var(--color-black-b);
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding-block: clamp(5rem, 9vh, 9rem);
+  padding-inline: var(--section-padding-x);
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: end;
+  gap: var(--spacing-10);
+  margin-bottom: clamp(var(--spacing-12), 6vh, var(--spacing-20));
+  padding-bottom: var(--spacing-8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.heading {
+  color: var(--color-white);
+  font-family: var(--font-family-display);
+  font-size: clamp(30px, 3.6vw, 56px);
+  font-weight: var(--font-weight-light);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.intro {
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-6);
+}
+
+.card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.045) 0%,
+    rgba(255, 255, 255, 0.012) 60%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-md);
+  padding: clamp(var(--spacing-6), 3vw, var(--spacing-12));
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  transition:
+    border-color var(--transition-smooth),
+    transform var(--transition-smooth),
+    background-color var(--transition-smooth);
+}
+
+/* Accent line that draws in on hover */
+.card::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--color-yellow), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-smooth);
+  z-index: 1;
+}
+
+.card:hover {
+  border-color: rgba(208, 223, 0, 0.32);
+  transform: translateY(-4px);
+}
+
+.card:hover::after {
+  transform: scaleX(1);
+}
+
+.index {
+  color: var(--color-yellow);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.14em;
+  line-height: 1;
+  margin-bottom: var(--spacing-2);
+}
+
+.cardTitle {
+  color: var(--color-white);
+  font-family: var(--font-family-display);
+  font-size: clamp(22px, 1.9vw, 30px);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.cardDescription {
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+  max-width: 52ch;
+}
+
+.bullets {
+  list-style: none;
+  margin: var(--spacing-2) 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding-top: var(--spacing-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.bullet {
+  position: relative;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-base);
+  padding-inline-start: var(--spacing-6);
+}
+
+.bullet::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.55em;
+  width: 12px;
+  height: 1px;
+  background: var(--color-yellow);
+}
+
+.moreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-10);
+  color: var(--color-yellow);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-smooth), gap var(--transition-smooth);
+}
+
+.moreLink:hover {
+  border-bottom-color: var(--color-yellow);
+  gap: var(--spacing-4);
+}
+
+@media (max-width: 992px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-5);
+    align-items: start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro {
+    font-size: var(--font-size-base);
+  }
+
+  .grid {
+    gap: var(--spacing-4);
+  }
+}

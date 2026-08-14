@@ -1,0 +1,126 @@
+.section {
+  width: 100%;
+  padding-bottom: clamp(4rem, 7vh, 7rem);
+  background-color: var(--color-black-b);
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding-block: clamp(5rem, 9vh, 9rem) 0;
+  padding-inline: var(--section-padding-x);
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+  margin-bottom: 0;
+  padding-bottom: var(--spacing-8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.heading {
+  color: var(--color-white);
+  font-family: var(--font-family-display);
+  font-size: clamp(30px, 3.6vw, 56px);
+  font-weight: var(--font-weight-light);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--spacing-3) 0;
+  text-wrap: balance;
+}
+
+.description {
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-base);
+  margin: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  flex-shrink: 0;
+  color: var(--color-yellow);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-smooth), gap var(--transition-smooth);
+}
+
+.link:hover {
+  border-bottom-color: var(--color-yellow);
+  gap: var(--spacing-4);
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-6);
+  margin-top: var(--spacing-8);
+  list-style: none;
+  padding: 0;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  display: block;
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.projectMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.projectName {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+}
+
+.projectDiscipline {
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+}
+
+@media (max-width: 992px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-5);
+  }
+}
+
+@media (max-width: 768px) {
+  .description {
+    font-size: var(--font-size-base);
+  }
+}

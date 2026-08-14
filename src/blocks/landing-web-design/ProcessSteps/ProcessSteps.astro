@@ -1,0 +1,34 @@
+---
+/**
+ * ProcessSteps — Step-by-step web design process (mirrors the HowTo schema).
+ * Renders numbered steps in a visual timeline layout.
+ */
+import { getLangFromUrl, translations } from '@/i18n';
+import styles from './ProcessSteps.module.css';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+const process = t.webDesignNL.process;
+---
+
+<section class={styles.section} id="proceso" aria-labelledby="proceso-heading">
+  <div class={styles.inner}>
+    <header class={styles.header}>
+      <h2 class={styles.heading} id="proceso-heading">{process.heading}</h2>
+      <p class={styles.subheading}>{process.description}</p>
+    </header>
+    <ol class={styles.timeline}>
+      {process.steps.map((step, index) => (
+        <li class={styles.step}>
+          <div class={styles.stepNumber} aria-hidden="true">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+          </div>
+          <div class={styles.stepContent}>
+            <h3 class={styles.stepName}>{step.name}</h3>
+            <p class={styles.stepText}>{step.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

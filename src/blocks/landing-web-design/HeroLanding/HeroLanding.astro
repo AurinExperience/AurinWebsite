@@ -1,0 +1,49 @@
+---
+/**
+ * HeroLanding — Hero section for the web design landing page.
+ * Single H1 with the geo-targeted keyword, supporting copy, dual CTA and a stats strip.
+ * Reuses the site's ScrollReveal animation and Main/Secondary button components.
+ */
+import { getLangFromUrl, translations } from '@/i18n';
+import MainButton from '@/components/ui/MainButton.astro';
+import SecondaryButton from '@/components/ui/SecondaryButton.astro';
+import styles from './HeroLanding.module.css';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+const hero = t.webDesignNL.hero;
+---
+
+<section class={styles.hero} aria-labelledby="landing-hero-heading">
+  <div class={styles.gradientOrb} aria-hidden="true"></div>
+  <div class={styles.grid} aria-hidden="true"></div>
+
+  <div class={styles.inner}>
+    <p class={styles.eyebrow}>
+      <span class={styles.dot} aria-hidden="true"></span>
+      {hero.subtitle}
+    </p>
+
+    <h1 class:list={[styles.title, 'landing-hero-title']} id="landing-hero-heading">
+      {hero.titleLead}{' '}
+      <span class={styles.titleAccent}>{hero.titleAccent}</span>
+    </h1>
+
+    <div class={styles.body}>
+      <p class={styles.description}>{hero.description}</p>
+      <div class={styles.actions}>
+        <MainButton text={hero.cta} href="#cotizar" />
+        <SecondaryButton text={hero.ctaSecondary} href="#proceso" />
+      </div>
+    </div>
+
+    <dl class={styles.stats}>
+      {hero.stats.map((stat) => (
+        <div class={styles.stat}>
+          <dt class={styles.statValue}>{stat.value}</dt>
+          <dd class={styles.statLabel}>{stat.label}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

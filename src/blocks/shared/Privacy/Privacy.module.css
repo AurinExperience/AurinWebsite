@@ -118,6 +118,12 @@
   color: var(--color-yellow, #D0DF00);
 }
 
+/* Emphasized text */
+.privacySection strong {
+  color: var(--color-yellow);
+  font-weight: var(--font-weight-semibold);
+}
+
 /* Links */
 .privacySection a {
   color: var(--color-yellow, #D0DF00);

@@ -1,0 +1,57 @@
+---
+/**
+ * FaqSection — FAQ accordion backing the FAQPage schema.
+ * Uses native <details>/<summary> so answers stay in the DOM (crawlable) and accessible.
+ * The `faq-answer` global class is referenced by the page's speakable selectors.
+ */
+import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
+import styles from './FaqSection.module.css';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = translations[currentLang];
+const faq = t.webDesignNL.faq;
+
+const contactLabel =
+  currentLang === 'es'
+    ? '¿Tienes otra pregunta? Hablemos →'
+    : 'Another question? Let’s talk →';
+---
+
+<section class={styles.section} id="faq" aria-labelledby="faq-heading">
+  <div class={styles.inner}>
+    <aside class={styles.aside}>
+      <h2 class={styles.heading} id="faq-heading">{faq.heading}</h2>
+      <p class={styles.description}>{faq.description}</p>
+      <a class={styles.contactLink} href={getLocalizedUrl('/contact', currentLang)}>
+        {contactLabel}
+      </a>
+    </aside>
+
+    <div class={styles.list}>
+      {faq.items.map((item, index) => (
+        <details class={styles.item} open={index === 0}>
+          <summary class={styles.question}>
+            <h3 class={styles.questionText}>{item.question}</h3>
+            <svg
+              class={styles.chevron}
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </summary>
+          <div class={styles.answer}>
+            <p class:list={[styles.answerText, 'faq-answer']}>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

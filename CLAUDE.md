@@ -58,9 +58,22 @@ src/
 - **Payload CMS** (`https://aurin-payload-cms.vercel.app/api`) — único CMS, fuente de proyectos. Usar clase `PayloadAPI` de `src/lib/payload.ts`. Env vars: `PAYLOAD_API_URL`, `PAYLOAD_SERVER_URL`.
 - **n8n webhook** (`N8N_WEBHOOK_URL`) — chatbot AI backend.
 - **Resend** (`RESEND_API_KEY`) — transactional email.
-- **Google Calendar** — appointment scheduling via `src/lib/calendar/`.
+- **Google Calendar** — appointment scheduling via `src/lib/calendar/`. Usa la REST API v3 con `fetch` + `google-auth-library` (JWT). **No reinstalar `googleapis`** (189 MB por tres endpoints).
 - **Vercel Blob** (`BLOB_READ_WRITE_TOKEN`) — file uploads.
 - **reCAPTCHA** (`RECAPTCHA_SITE_KEY` / `RECAPTCHA_SECRET_KEY`) — contact form protection.
+
+### Dev server performance
+
+Two rules keep `npm run dev` fast. Both were learned the hard way (page loads iban a 30-50 s):
+
+- **Iconos: siempre subpath, nunca barrel.** `import Menu from 'lucide-astro/Menu'`, **nunca** `import { Menu } from 'lucide-astro'`. El barrel reexporta 1861 componentes `.astro` y Vite no puede pre-bundlear `.astro`, así que los compila todos en cada arranque. Como `Header`/`MegaMenu` viven en el layout, el costo lo paga **toda** página. `lucide-react` en islas `.tsx` sí puede usar named imports (Vite lo pre-bundlea con esbuild).
+- **No dejar dependencias sin usar en `package.json`.** El I/O de archivos en macOS es caro (Gatekeeper inspecciona cada `open()`), así que un `node_modules` gordo se paga en cada arranque y build. Antes de agregar un paquete pesado, revisar si unas líneas de `fetch` bastan.
+
+Chequeo rápido antes de commitear:
+
+```bash
+grep -rn "} from ['\"]lucide-astro" src   # debe salir vacío
+```
 
 ### Styling system
 
