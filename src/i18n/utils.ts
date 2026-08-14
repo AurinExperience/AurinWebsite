@@ -55,15 +55,15 @@ export function getAlternateLanguage(currentLang: string): string {
 const slugExceptions: Record<string, { es: string; en: string }> = {
   '/appointment-confirmed': { es: '/appointment-confirmed', en: '/en/appointment-confirmation' },
   '/en/appointment-confirmation': { es: '/appointment-confirmed', en: '/en/appointment-confirmation' },
-  '/diseno-web-nuevo-leon': { es: '/diseno-web-nuevo-leon', en: '/en/web-design-nuevo-leon' },
-  '/en/web-design-nuevo-leon': { es: '/diseno-web-nuevo-leon', en: '/en/web-design-nuevo-leon' },
+  '/diseno-web-monterrey': { es: '/diseno-web-monterrey', en: '/en/web-design-monterrey' },
+  '/en/web-design-monterrey': { es: '/diseno-web-monterrey', en: '/en/web-design-monterrey' },
 };
 
 /**
  * La misma ruta en el otro idioma. Única fuente de verdad para el botón de
  * idioma del Header y para los hreflang de AdvancedSEO: antes cada uno tenía su
- * propia lista, y la del Header no incluía la landing de Nuevo León, así que el
- * botón mandaba a /en/diseno-web-nuevo-leon (404).
+ * propia lista, y la del Header no incluía la landing de Monterrey, así que el
+ * botón mandaba a /en/diseno-web-monterrey (404).
  */
 export function getLocalizedPath(pathname: string, lang: 'es' | 'en'): string {
   const path = pathname.replace(/\/$/, '') || '/';

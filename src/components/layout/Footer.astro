@@ -18,7 +18,7 @@ const copyright = t.footer.copyright.replace("{year}", new Date().getFullYear().
 
 // The NL landing uses a different slug per locale, so it can't go through getLocalizedUrl.
 const webDesignNLUrl =
-  currentLang === "es" ? "/diseno-web-nuevo-leon" : "/en/web-design-nuevo-leon";
+  currentLang === "es" ? "/diseno-web-monterrey" : "/en/web-design-monterrey";
 const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
 ---
 
@@ -27,7 +27,7 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
     <div class={styles.stickyContainer}>
       <div class={styles.footerContent}>
         <img
-          src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/Light.svg"
+          src="/logos/footer-glow.svg"
           alt=""
           class={styles.glow}
           data-footer-glow
@@ -38,8 +38,12 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
             <div class={`${styles.footerLogoContainer} footer-logo`}>
               <img
                 class={styles.footerLogo}
-                src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/aurinWhiteLogo.svg"
+                src="/logos/aurin-white.webp"
                 alt="Aurin Logo"
+                width="340"
+                height="66"
+                loading="lazy"
+                decoding="async"
               />
               <p class={styles.footerTagline}>{t.footer.tagline}</p>
             </div>
@@ -112,10 +116,16 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
 </div>
 
 <script>
-  import gsap from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
+  // GSAP se carga bajo demanda: son 46 KB + ~700 ms de CPU para un parallax que
+  // solo corre en desktop alto. En móvil no se descarga nunca.
+  async function loadParallax() {
+    const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+      import("gsap"),
+      import("gsap/ScrollTrigger"),
+    ]);
+    gsap.registerPlugin(ScrollTrigger);
+    return gsap;
+  }
 
   // Aim the glow at the logo so it reads like a light hitting it — vertically aligned
   // with the logo's center, in every resolution. The glow must stay full-width (touching
@@ -154,26 +164,22 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
 
     // 1. Initialize Parallax Effect (desktop only, and tall enough screens)
     if (window.innerWidth > 768 && window.innerHeight > 750) {
-      const footerElements = document.querySelectorAll("[data-footer-parallax]");
+      loadParallax().then((gsap) => {
+        document.querySelectorAll("[data-footer-parallax]").forEach((el) => {
+          const inner = el.querySelector("[data-footer-parallax-inner]");
+          if (!inner) return;
 
-      footerElements.forEach((el) => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: el,
-            start: "clamp(top bottom)",
-            end: "clamp(top top)",
-            scrub: true,
-          },
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: el,
+                start: "clamp(top bottom)",
+                end: "clamp(top top)",
+                scrub: true,
+              },
+            })
+            .from(inner, { yPercent: -20, ease: "linear" });
         });
-
-        const inner = el.querySelector("[data-footer-parallax-inner]");
-
-        if (inner) {
-          tl.from(inner, {
-            yPercent: -20,
-            ease: "linear",
-          });
-        }
       });
     }
 

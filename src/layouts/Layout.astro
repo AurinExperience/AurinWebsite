@@ -29,6 +29,8 @@ interface Props {
 	noindex?: boolean;
 	/* Landings de captura: sin MegaMenu, para no dar salidas de la página. */
 	showMegaMenu?: boolean;
+	/** Hide the floating chatbot on specific pages (e.g. capture landings). */
+	showChatbot?: boolean;
 }
 
 const { 
@@ -46,7 +48,8 @@ const {
 	vignetteColor,
 	showVignette = false,
 	noindex = false,
-	showMegaMenu = true
+	showMegaMenu = true,
+	showChatbot = true
 } = Astro.props;
 ---
 
@@ -77,17 +80,15 @@ const {
 		<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 		<link rel="preconnect" href="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev" crossorigin />
 		<link rel="dns-prefetch" href="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev" />
-		<link rel="preconnect" href="https://vercel.live" crossorigin />
-		<link rel="dns-prefetch" href="https://vercel.live" />
+		<!-- ponytail: fuera el preconnect a vercel.live (Lighthouse lo marca como
+		     conexión abierta y nunca usada) y el prefetch del avatar del chatbot, que
+		     las landings de captura ni siquiera montan. -->
 
 		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" media="print" onload="this.media='all'" />
 		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" /></noscript>
 
-		<!-- Prefetch critical resources -->
-		<link rel="prefetch" href="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/Avatar_2%404x.webp" as="image" />
-		
-		<!-- SEO Avanzado -->
+<!-- SEO Avanzado -->
 		<AdvancedSEO 
 			title={title}
 			description={description}
@@ -102,13 +103,38 @@ const {
 			noindex={noindex}
 		/>
 		<GlobalSchema />
-		<!-- Google tag (gtag.js) -->
-		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-CQTWM27WDC"></script>
+		<!-- Google tag (gtag.js) — diferido.
+		     Cargado en el <head> se comía ~2.2 s de CPU y bloqueaba el hilo principal
+		     justo cuando el navegador debía pintar el LCP. El dataLayer queda listo de
+		     inmediato, así que cualquier gtag() temprano se encola y se procesa cuando
+		     el script llega: la analítica no pierde eventos, solo deja pasar el render. -->
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 			gtag('config', 'G-CQTWM27WDC');
+
+			(function () {
+				var loaded = false;
+				function loadGtag() {
+					if (loaded) return;
+					loaded = true;
+					var s = document.createElement('script');
+					s.async = true;
+					s.src = 'https://www.googletagmanager.com/gtag/js?id=G-CQTWM27WDC';
+					document.head.appendChild(s);
+				}
+				var events = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
+				events.forEach(function (e) {
+					addEventListener(e, loadGtag, { once: true, passive: true });
+				});
+				// Red de seguridad: si nadie interactúa, cargar en el primer hueco de CPU
+				// después de load (o a los 3 s en navegadores sin requestIdleCallback).
+				addEventListener('load', function () {
+					if (window.requestIdleCallback) requestIdleCallback(loadGtag, { timeout: 3000 });
+					else setTimeout(loadGtag, 3000);
+				});
+			})();
 		</script>
 	</head>
 	<body>
@@ -121,7 +147,7 @@ const {
 				color={vignetteColor}
 			/>
 		)}
-		<ChatbotContainer />
+		{showChatbot && <ChatbotContainer />}
 		<SpeedInsights />
 	</body>
 </html>

@@ -15,12 +15,16 @@
   background: radial-gradient(
     circle,
     rgba(208, 223, 0, 0.18) 0%,
-    rgba(208, 223, 0, 0.05) 40%,
-    transparent 70%
+    rgba(208, 223, 0, 0.1) 25%,
+    rgba(208, 223, 0, 0.04) 50%,
+    transparent 75%
   );
   pointer-events: none;
   z-index: 0;
-  filter: blur(60px);
+  /* Sin `filter: blur(60px)`: sobre un radial-gradient el desenfoque casi no se
+     nota, pero obliga al navegador a componer una capa de ~700x700 px fuera de
+     pantalla en el peor momento (el primer pintado). Se compensa suavizando las
+     paradas del gradiente, que es gratis. */
 }
 
 /* Hairline grid — gives the dark canvas structure without noise */
