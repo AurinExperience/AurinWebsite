@@ -2,6 +2,7 @@
    AURIN — GLOBAL DESIGN SYSTEM
    ================================================================ */
 
+@import './fonts.css';
 @import './tokens/typography.css';
 @import './tokens/colors.css';
 @import './tokens/spacing.css';

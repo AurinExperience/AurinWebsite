@@ -108,6 +108,14 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
 
           <div class={`${styles.footerCopyright} footer-copyright`}>
             <p>{copyright}</p>
+            {/*
+              En modo minimal no hay columna de Legales, pero los términos tienen
+              que quedar alcanzables: van junto al copyright, que es una línea
+              existente, en vez de devolver una columna entera de salidas.
+            */}
+            {minimal && (
+              <a href="/terms" class={styles.footerLegalLink}>{t.footer.termsConditions}</a>
+            )}
           </div>
         </div>
       </div>

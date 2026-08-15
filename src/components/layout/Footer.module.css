@@ -193,6 +193,21 @@
   white-space: nowrap;
 }
 
+/* Modo minimal: los términos van bajo el copyright, discretos. */
+.footerLegalLink {
+  color: var(--color-gray-a);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color var(--transition-fast);
+}
+
+.footerLegalLink:hover,
+.footerLegalLink:focus-visible {
+  color: var(--color-white);
+}
+
 /* Responsive */
 @media (min-width: 1400px) {
 

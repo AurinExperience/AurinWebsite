@@ -22,8 +22,9 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 
 /** SVG por debajo de esto se copia sin tocar: ya es ligero y escala mejor. */
 const RASTERIZE_OVER_BYTES = 20 * 1024;
-/** Densidad para pantallas retina. */
-const DPR = 3;
+/** Densidad para pantallas retina. 2x basta: el logo más grande se pinta a 104px
+ *  (80px * el --logo-scale: 1.3 del slider) y a 3x Lighthouse reclamaba 34 KB. */
+const DPR = 2;
 
 /** [ruta en R2, destino en public/, alto de render en CSS px] */
 const LOGOS = [
@@ -102,7 +103,7 @@ for (const [key, dest, cssHeight] of LOGOS) {
 
   const png = await sharp(buf, { density: 72 * DPR })
     .resize({ height: cssHeight * DPR })
-    .webp({ quality: 90, effort: 6 })
+    .webp({ quality: 78, effort: 6 })
     .toBuffer();
   await writeFile(out(dest, 'webp'), png);
   const { width, height } = await sharp(png).metadata();
