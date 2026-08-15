@@ -527,7 +527,7 @@ export default function ChatbotWidget({ lang = 'es', translations }: ChatbotWidg
         <div className="chatbot-header-info">
           <div className="chatbot-avatar">
             <img
-              src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/Avatar_2%404x.webp"
+              src="/work/avatar.webp"
               alt={t.avatarAlt}
               className="chatbot-avatar-img"
             />
@@ -592,7 +592,7 @@ export default function ChatbotWidget({ lang = 'es', translations }: ChatbotWidg
                 transition={{ delay: 0.1, type: "spring", stiffness: 300 }}
               >
                 <img
-                  src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/Avatar_2%404x.webp"
+                  src="/work/avatar.webp"
                   alt={t.botAvatarAlt}
                   className="chatbot-bot-avatar-img"
                 />
@@ -662,7 +662,7 @@ export default function ChatbotWidget({ lang = 'es', translations }: ChatbotWidg
             >
               <div className="chatbot-bot-avatar">
                 <img
-                  src="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev/Avatar_2%404x.webp"
+                  src="/work/avatar.webp"
                   alt={t.botAvatarAlt}
                   className="chatbot-bot-avatar-img"
                 />

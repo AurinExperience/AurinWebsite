@@ -73,22 +73,21 @@ const {
 		<link rel="manifest" href="/favicon/site.webmanifest" />
 		<meta name="generator" content={Astro.generator} />
 
-		<!-- Google Fonts — non-blocking load -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-		<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-		<link rel="preconnect" href="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev" crossorigin />
-		<link rel="dns-prefetch" href="https://pub-d17bbbdbf8e348c5a57c8168ad69c92f.r2.dev" />
-		<!-- ponytail: fuera el preconnect a vercel.live (Lighthouse lo marca como
-		     conexión abierta y nunca usada) y el prefetch del avatar del chatbot, que
-		     las landings de captura ni siquiera montan. -->
+		{/* Fuentes auto-hospedadas (ver scripts/localize-fonts.mjs). Antes se
+		     encadenaban dos orígenes antes de poder pintar texto con la tipografía
+		     real: HTML -> fonts.googleapis.com (el CSS) -> fonts.gstatic.com (los
+		     woff2). Ahora salen del mismo origen, sobre la conexión ya abierta.
+		     Se precarga solo Urbanist: es la fuente del cuerpo y la del elemento
+		     que Lighthouse marca como LCP en las landings. */}
+		<link
+			rel="preload"
+			href="/fonts/urbanist-100-900-normal-latin.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
 
-		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" media="print" onload="this.media='all'" />
-		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" /></noscript>
-
-<!-- SEO Avanzado -->
+		<!-- SEO Avanzado -->
 		<AdvancedSEO 
 			title={title}
 			description={description}
@@ -103,11 +102,11 @@ const {
 			noindex={noindex}
 		/>
 		<GlobalSchema />
-		<!-- Google tag (gtag.js) — diferido.
+		{/* Google tag (gtag.js) — diferido.
 		     Cargado en el <head> se comía ~2.2 s de CPU y bloqueaba el hilo principal
 		     justo cuando el navegador debía pintar el LCP. El dataLayer queda listo de
 		     inmediato, así que cualquier gtag() temprano se encola y se procesa cuando
-		     el script llega: la analítica no pierde eventos, solo deja pasar el render. -->
+		     el script llega: la analítica no pierde eventos, solo deja pasar el render. */}
 		<script is:inline>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
