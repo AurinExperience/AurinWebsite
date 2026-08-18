@@ -3,12 +3,16 @@
  * ServicesIncluded — Web design & UX/UI services offered on this landing.
  * H2/H3 hierarchy, numbered cards with feature bullets and contextual municipality mentions.
  */
-import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
+import type { LandingCopy } from '@/data/landings';
+import { getLangFromUrl, getLocalizedUrl } from '@/i18n';
 import styles from './ServicesIncluded.module.css';
 
+interface Props {
+  services: LandingCopy['services'];
+}
+
+const { services } = Astro.props;
 const currentLang = getLangFromUrl(Astro.url);
-const t = translations[currentLang];
-const services = t.webDesignNL.services;
 
 const moreLabel =
   currentLang === 'es' ? 'Ver todos nuestros servicios' : 'See all our services';

@@ -27,6 +27,16 @@ export default defineConfig({
       assetsInlineLimit: 4096,
     },
   },
+  /*
+   * La landing de Monterrey vivió meses en /diseno-web-nuevo-leon. Sin este 301
+   * esa URL cae en la ruta [ciudad], no encuentra la ciudad y termina en el home:
+   * se pierde el historial de la URL vieja y Google lee el redirect masivo al
+   * home como soft 404.
+   */
+  redirects: {
+    '/diseno-web-nuevo-leon': { status: 301, destination: '/diseno-web-monterrey' },
+    '/en/web-design-nuevo-leon': { status: 301, destination: '/en/web-design-monterrey' },
+  },
   i18n: {
     defaultLocale: 'es',
     locales: ['es', 'en'],

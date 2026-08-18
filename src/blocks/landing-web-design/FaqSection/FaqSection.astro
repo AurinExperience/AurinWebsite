@@ -3,12 +3,16 @@
  * FaqSection — FAQ accordion backing the FAQPage schema.
  * Uses native <details>/<summary> so answers stay in the DOM (crawlable) and accessible.
  */
-import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
+import type { LandingCopy } from '@/data/landings';
+import { getLangFromUrl, getLocalizedUrl } from '@/i18n';
 import styles from './FaqSection.module.css';
 
+interface Props {
+  faq: LandingCopy['faq'];
+}
+
+const { faq } = Astro.props;
 const currentLang = getLangFromUrl(Astro.url);
-const t = translations[currentLang];
-const faq = t.webDesignNL.faq;
 
 const contactLabel =
   currentLang === 'es'

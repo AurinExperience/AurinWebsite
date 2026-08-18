@@ -1,0 +1,14 @@
+---
+/**
+ * Guías — español. URL: /guias/<slug>
+ * Lista cerrada, igual que las landings: cualquier slug desconocido responde 404
+ * en lugar de renderizar una página vacía con estado 200.
+ */
+import { findGuide } from '@/data/guides';
+import GuidePage from '@/components/pages/GuidePage.astro';
+
+const guide = findGuide(Astro.params.slug, 'es');
+if (!guide) return Astro.rewrite('/404');
+---
+
+<GuidePage guide={guide} />

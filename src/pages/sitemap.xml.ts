@@ -1,5 +1,7 @@
 import type { APIRoute } from 'astro';
 import { PayloadAPI } from '@/lib/payload';
+import { LANDINGS, landingPath } from '@/data/landings';
+import { GUIDES, guidePath, guidesIndexPath } from '@/data/guides';
 
 export const prerender = false;
 
@@ -19,10 +21,38 @@ const staticPages = [
   { es: '/about', en: '/en/about', priority: '0.8', changefreq: 'monthly' },
   { es: '/services', en: '/en/services', priority: '0.8', changefreq: 'monthly' },
   { es: '/projects', en: '/en/projects', priority: '0.9', changefreq: 'weekly' },
-  { es: '/diseno-web-monterrey', en: '/en/web-design-monterrey', priority: '0.9', changefreq: 'weekly' },
   { es: '/contact', en: '/en/contact', priority: '0.7', changefreq: 'monthly' },
   { es: '/privacy', en: '/en/privacy', priority: '0.3', changefreq: 'yearly' },
   { es: '/terms', en: '/en/terms', priority: '0.3', changefreq: 'yearly' }
+];
+
+/*
+ * Landings por ciudad. Se generan desde src/data/landings para que agregar una
+ * ciudad no dependa de acordarse de volver a este archivo: una landing fuera
+ * del sitemap se rastrea tarde y con menos prioridad.
+ */
+const landingPages = LANDINGS.map((landing) => ({
+  es: landingPath(landing, 'es'),
+  en: landingPath(landing, 'en'),
+  priority: '0.9',
+  changefreq: 'weekly',
+}));
+
+/*
+ * Guías + su índice. Mismo motivo que las landings: la lista se deriva de los
+ * datos para que publicar una guía no dependa de acordarse de este archivo.
+ */
+const guidePages = [
+  { es: guidesIndexPath.es, en: guidesIndexPath.en, priority: '0.7', changefreq: 'monthly' },
+  /* `lastmod` real de la guía: es el mismo valor que `dateModified` del Article,
+     y una fecha de deploy que cambia sin que cambie el texto se ignora. */
+  ...GUIDES.map((guide) => ({
+    es: guidePath(guide, 'es'),
+    en: guidePath(guide, 'en'),
+    priority: '0.8',
+    changefreq: 'monthly',
+    lastmod: `${guide.updated}T00:00:00+00:00`,
+  })),
 ];
 
 const baseUrl = 'https://aurin.mx';
@@ -47,7 +77,7 @@ export const GET: APIRoute = async () => {
   const entries: SitemapEntry[] = [];
 
   // 1. Static pages with reciprocal hreflang alternates
-  for (const page of staticPages) {
+  for (const page of [...staticPages, ...landingPages, ...guidePages]) {
     const esUrl = `${baseUrl}${page.es}`;
     const enUrl = `${baseUrl}${page.en}`;
 
@@ -57,8 +87,10 @@ export const GET: APIRoute = async () => {
       { hreflang: 'x-default', href: esUrl }
     ];
 
-    entries.push({ loc: esUrl, alternates, lastmod: BUILD_DATE, priority: page.priority, changefreq: page.changefreq });
-    entries.push({ loc: enUrl, alternates, lastmod: BUILD_DATE, priority: page.priority, changefreq: page.changefreq });
+    const lastmod = 'lastmod' in page ? page.lastmod : BUILD_DATE;
+
+    entries.push({ loc: esUrl, alternates, lastmod, priority: page.priority, changefreq: page.changefreq });
+    entries.push({ loc: enUrl, alternates, lastmod, priority: page.priority, changefreq: page.changefreq });
   }
 
   // 2. Dynamic projects from Payload, with cross-locale hreflang mappings

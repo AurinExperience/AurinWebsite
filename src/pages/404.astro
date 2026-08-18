@@ -1,0 +1,78 @@
+---
+/**
+ * Página 404 — español (locale por defecto) y también la que Astro sirve para
+ * cualquier ruta no encontrada bajo /en.
+ *
+ * Lo que importa para SEO no es el diseño sino el código de estado: Astro sirve
+ * este archivo con HTTP 404 real, que es lo que le dice a Google que borre la
+ * URL de su índice. Una página de "no encontrado" que responde 200 (soft 404)
+ * es lo que sí hace daño, porque Google la trata como contenido pobre.
+ *
+ * Los enlaces de salida existen para que un visitante que llegó a una URL rota
+ * —o un rastreador— tenga por dónde seguir en vez de rebotar.
+ */
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import { getLangFromUrl, getLocalizedPath } from '@/i18n';
+import styles from './_404.module.css';
+
+const currentLang = getLangFromUrl(Astro.url);
+const isEs = currentLang === 'es';
+
+const t = isEs
+  ? {
+      title: 'Página no encontrada (404) | Aurin',
+      description: 'La página que buscas no existe o cambió de dirección.',
+      code: '404',
+      heading: 'Esta página no existe',
+      body: 'La dirección que abriste no lleva a ningún lado: puede que el enlace esté mal escrito o que la página haya cambiado de lugar. Desde aquí puedes seguir a donde ibas.',
+      links: [
+        { href: '/', label: 'Ir al inicio' },
+        { href: '/projects', label: 'Ver proyectos' },
+        { href: '/services', label: 'Ver servicios' },
+        { href: '/contact', label: 'Contacto' },
+      ],
+    }
+  : {
+      title: 'Page not found (404) | Aurin',
+      description: 'The page you are looking for does not exist or has moved.',
+      code: '404',
+      heading: 'This page does not exist',
+      body: 'The address you opened does not lead anywhere: the link may be mistyped, or the page may have moved. From here you can continue where you were going.',
+      links: [
+        { href: '/', label: 'Go to home' },
+        { href: '/projects', label: 'See projects' },
+        { href: '/services', label: 'See services' },
+        { href: '/contact', label: 'Contact' },
+      ],
+    };
+---
+
+<Layout
+  title={t.title}
+  description={t.description}
+  noindex={true}
+  showMegaMenu={false}
+  showChatbot={false}
+>
+  <Header minimal />
+  <main id="main-content" class={styles.main}>
+    <div class={styles.inner}>
+      <p class={styles.code} aria-hidden="true">{t.code}</p>
+      <h1 class={styles.heading}>{t.heading}</h1>
+      <p class={styles.body}>{t.body}</p>
+      <ul class={styles.links}>
+        {t.links.map((link) => (
+          <li>
+            <a class={styles.link} href={getLocalizedPath(link.href, currentLang)}>
+              {link.label}
+              <span aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </main>
+  <Footer minimal />
+</Layout>

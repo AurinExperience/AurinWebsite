@@ -1,0 +1,21 @@
+---
+/**
+ * Landings de diseño web por ciudad — español (locale por defecto).
+ * URL: /diseno-web-<ciudad>
+ *
+ * La lista de ciudades válidas vive en src/data/landings y es CERRADA: cualquier
+ * otro valor responde 404 en lugar de renderizar algo. Sin esa
+ * guarda, al estar en SSR, /diseno-web-loquesea respondería 200 con una página
+ * medio vacía — es decir, cualquiera podría generar URLs indexables nuevas, que
+ * es justo el patrón de "doorway pages" que Google castiga.
+ */
+import { findLanding } from '@/data/landings';
+import WebDesignCityPage from '@/components/pages/WebDesignCityPage.astro';
+
+const landing = findLanding(Astro.params.ciudad, 'es');
+// 404 real, no redirect al home: mandar cada URL inventada al inicio es el
+// patrón que Google marca como soft 404.
+if (!landing) return Astro.rewrite('/404');
+---
+
+<WebDesignCityPage landing={landing} />

@@ -1,0 +1,16 @@
+---
+/**
+ * City web design landings — English locale.
+ * URL: /en/web-design-<city>
+ *
+ * Same closed list as the Spanish route: anything not in src/data/landings
+ * returns a real 404 instead of rendering a page.
+ */
+import { findLanding } from '@/data/landings';
+import WebDesignCityPage from '@/components/pages/WebDesignCityPage.astro';
+
+const landing = findLanding(Astro.params.city, 'en');
+if (!landing) return Astro.rewrite('/404');
+---
+
+<WebDesignCityPage landing={landing} />

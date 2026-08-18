@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, translations } from "@/i18n";
+import { guidesIndexPath } from "@/data/guides";
 // Footer component with parallax effect
 import styles from "./Footer.module.css";
 
@@ -16,10 +17,16 @@ const t = translations[currentLang];
 
 const copyright = t.footer.copyright.replace("{year}", new Date().getFullYear().toString());
 
-// The NL landing uses a different slug per locale, so it can't go through getLocalizedUrl.
-const webDesignNLUrl =
-  currentLang === "es" ? "/diseno-web-monterrey" : "/en/web-design-monterrey";
+/*
+ * El footer ya NO enlaza ninguna landing por estado. No las deja huérfanas:
+ * el enlace a /guias sigue aquí, cada guía enlaza a tres landings y las
+ * landings se enlazan entre sí, así que la cadena footer -> guías -> landings
+ * mantiene el cluster conectado. Antes de que existieran las guías este enlace
+ * era la única entrada y quitarlo sí habría aislado la red.
+ */
 const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
+/* Única entrada al cluster de guías desde el resto del sitio. */
+const guidesLabel = currentLang === "es" ? "Guías" : "Guides";
 ---
 
 <div data-footer-parallax>
@@ -66,10 +73,12 @@ const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
                   <div class={`${styles.footerSection} footer-column`}>
                     <h3 class={styles.footerTitle}>{t.footer.services}</h3>
                     <div class={styles.footerLinkContainer}>
-                      <a href={webDesignNLUrl} class={styles.footerLink}>{t.footer.webDesignNL}</a>
+                      <a href={servicesUrl} class={styles.footerLink}>{t.footer.allServices}</a>
                     </div>
                     <div class={styles.footerLinkContainer}>
-                      <a href={servicesUrl} class={styles.footerLink}>{t.footer.allServices}</a>
+                      <a href={guidesIndexPath[currentLang]} class={styles.footerLink}>
+                        {guidesLabel}
+                      </a>
                     </div>
                   </div>
                 )

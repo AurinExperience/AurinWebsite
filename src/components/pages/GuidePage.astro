@@ -1,0 +1,266 @@
+---
+/**
+ * GuidePage — plantilla de un artículo de guía. La usan
+ * `guias/[slug].astro` (ES) y `en/guides/[slug].astro` (EN).
+ *
+ * A diferencia de las landings, aquí SÍ va el header completo con MegaMenu: una
+ * guía existe para que la gente entre desde una búsqueda informacional y siga
+ * navegando: cerrarle las salidas sería tirar justo lo que vino a hacer.
+ */
+import type { ArticleStructuredData, BreadcrumbListStructuredData } from '@/types/seo';
+import type { Guide } from '@/data/guides';
+import { guidePath, guidesIndexPath, siblingGuides } from '@/data/guides';
+import { LANDINGS, landingPath } from '@/data/landings';
+import { SITE } from '@/config/site';
+import { getLangFromUrl } from '@/i18n';
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import styles from './GuidePage.module.css';
+
+interface Props {
+  guide: Guide;
+}
+
+const { guide } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const copy = guide.copy[lang];
+const canonicalUrl = `${SITE.url}${guidePath(guide, lang)}`;
+
+/*
+ * Formato mínimo dentro del cuerpo: **negrita** y `código`. El texto se escapa
+ * ANTES de aplicarlo, así que aunque el contenido viniera de otro lado no puede
+ * inyectar HTML. Es más barato que traer un parser de markdown para dos marcas.
+ */
+const escapeHtml = (value: string) =>
+  value.replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!
+  );
+
+const inline = (value: string) =>
+  escapeHtml(value)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`(.+?)`/g, '<code>$1</code>');
+
+/* Landings relacionadas: es el enlace que hace útil a la guía para el ranking. */
+const related = guide.relatedLandings
+  .map((id) => LANDINGS.find((l) => l.id === id))
+  .filter((l): l is NonNullable<typeof l> => Boolean(l));
+
+const others = siblingGuides(guide).slice(0, 3);
+
+/*
+ * Ancla por sección: permite enlazar directo a un apartado y le da a Google
+ * candidatos para los enlaces de salto en el resultado de búsqueda.
+ */
+const anchorId = (heading: string) =>
+  heading
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+
+const toc = copy.sections.map((section) => ({
+  id: anchorId(section.heading),
+  heading: section.heading,
+}));
+
+/* 200 palabras por minuto es el promedio de lectura en pantalla. */
+const wordCount = [
+  ...copy.intro,
+  ...copy.sections.flatMap((section) => [
+    section.heading,
+    ...section.paragraphs,
+    ...(section.bullets ?? []),
+  ]),
+]
+  .join(' ')
+  .split(/\s+/).length;
+const readingMinutes = Math.max(1, Math.round(wordCount / 200));
+
+const labels =
+  lang === 'es'
+    ? {
+        section: 'Guías',
+        updated: 'Actualizado el',
+        toc: 'En esta guía',
+        minutes: `${readingMinutes} min de lectura`,
+        related: 'Dónde trabajamos esto',
+        more: 'Sigue leyendo',
+        back: 'Ver todas las guías',
+      }
+    : {
+        section: 'Guides',
+        updated: 'Updated on',
+        toc: 'In this guide',
+        minutes: `${readingMinutes} min read`,
+        related: 'Where we do this',
+        more: 'Keep reading',
+        back: 'See all guides',
+      };
+
+const formattedDate = new Date(`${guide.updated}T00:00:00Z`).toLocaleDateString(
+  lang === 'es' ? 'es-MX' : 'en-US',
+  { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }
+);
+
+const articleSchema: ArticleStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: copy.title,
+  description: copy.excerpt,
+  url: canonicalUrl,
+  datePublished: guide.published,
+  dateModified: guide.updated,
+  inLanguage: lang === 'es' ? 'es-MX' : 'en-US',
+  author: { '@id': `${SITE.url}/#organization` },
+  publisher: { '@id': `${SITE.url}/#organization` },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+  image: SITE.ogImage,
+};
+
+const breadcrumbSchema: BreadcrumbListStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: lang === 'es' ? 'Inicio' : 'Home',
+      item: lang === 'es' ? SITE.url : `${SITE.url}/en`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: labels.section,
+      item: `${SITE.url}${guidesIndexPath[lang]}`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: copy.breadcrumb,
+      item: canonicalUrl,
+    },
+  ],
+};
+---
+
+<Layout
+  title={copy.seo.title}
+  description={copy.seo.description}
+  keywords={copy.seo.keywords}
+  structuredData={articleSchema}
+  additionalStructuredData={[breadcrumbSchema]}
+  canonical={canonicalUrl}
+  ogImage={SITE.ogImage}
+  ogType="article"
+>
+  <Header />
+  <main id="main-content" class={styles.main}>
+    <article class={styles.article}>
+      <header class={styles.header}>
+        <a class={styles.kicker} href={guidesIndexPath[lang]}>{labels.section}</a>
+        <h1 class={styles.title}>{copy.title}</h1>
+        <p class={styles.excerpt}>{copy.excerpt}</p>
+        <p class={styles.meta}>
+          <span>{labels.minutes}</span>
+          <span class={styles.metaDot} aria-hidden="true">·</span>
+          <span>
+            {labels.updated}{' '}
+            <time datetime={guide.updated}>{formattedDate}</time>
+          </span>
+        </p>
+      </header>
+
+      <div class={styles.layout}>
+        <nav class={styles.toc} aria-label={labels.toc}>
+          <p class={styles.tocTitle}>{labels.toc}</p>
+          <ol class={styles.tocList}>
+            {toc.map((entry) => (
+              <li>
+                <a class={styles.tocLink} href={`#${entry.id}`}>{entry.heading}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+
+        <div class={styles.body}>
+          {copy.intro.map((paragraph, index) => (
+            <p
+              class={index === 0 ? styles.lead : styles.paragraph}
+              set:html={inline(paragraph)}
+            />
+          ))}
+
+          {copy.sections.map((section, index) => (
+          <section class={styles.section} id={toc[index].id}>
+            <h2 class={styles.sectionHeading}>
+              <span class={styles.sectionNumber} aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              {section.heading}
+            </h2>
+            {section.paragraphs.map((paragraph) => (
+              <p class={styles.paragraph} set:html={inline(paragraph)} />
+            ))}
+            {section.bullets && (
+              <ul class={styles.bullets}>
+                {section.bullets.map((bullet) => (
+                  <li class={styles.bullet} set:html={inline(bullet)} />
+                ))}
+              </ul>
+            )}
+          </section>
+          ))}
+        </div>
+      </div>
+
+      <aside class={styles.cta}>
+        <h2 class={styles.ctaHeading}>{copy.cta.heading}</h2>
+        <p class={styles.ctaText}>{copy.cta.text}</p>
+        {related[0] && (
+          <a class={styles.ctaLink} href={landingPath(related[0], lang)}>
+            {copy.cta.label}
+            <span aria-hidden="true">→</span>
+          </a>
+        )}
+      </aside>
+
+      {related.length > 0 && (
+        <section class={styles.related}>
+          <h2 class={styles.relatedHeading}>{labels.related}</h2>
+          <ul class={styles.relatedList}>
+            {related.map((landing) => (
+              <li>
+                <a class={styles.relatedLink} href={landingPath(landing, lang)}>
+                  {landing.copy[lang].linkLabel}
+                  <span aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {others.length > 0 && (
+        <section class={styles.related}>
+          <h2 class={styles.relatedHeading}>{labels.more}</h2>
+          <ul class={styles.relatedList}>
+            {others.map((other) => (
+              <li>
+                <a class={styles.relatedLink} href={guidePath(other, lang)}>
+                  {other.copy[lang].linkLabel}
+                  <span aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <a class={styles.back} href={guidesIndexPath[lang]}>← {labels.back}</a>
+    </article>
+  </main>
+  <Footer />
+</Layout>

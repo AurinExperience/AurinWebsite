@@ -1,0 +1,104 @@
+.section {
+  width: 100%;
+  background-color: var(--color-black-a);
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding-block: clamp(3rem, 6vh, 6rem);
+  padding-inline: var(--section-padding-x);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.heading {
+  color: var(--color-white);
+  font-family: var(--font-family-display);
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: var(--font-weight-light);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.description {
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--spacing-2) var(--spacing-4);
+  height: 100%;
+  padding: var(--spacing-5) var(--spacing-6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: border-color var(--transition-smooth), background-color var(--transition-smooth);
+}
+
+.link:hover,
+.link:focus-visible {
+  border-color: var(--color-yellow);
+  background-color: rgba(208, 223, 0, 0.06);
+}
+
+.linkLabel {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.25;
+}
+
+.linkRegion {
+  grid-column: 1;
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+}
+
+.arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: var(--color-yellow);
+  font-size: var(--font-size-lg);
+  line-height: 1;
+}
+
+@media (max-width: 480px) {
+  .link {
+    padding: var(--spacing-4) var(--spacing-5);
+  }
+}

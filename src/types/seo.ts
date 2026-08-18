@@ -63,6 +63,10 @@ export interface LocalBusinessStructuredData extends OrganizationStructuredData 
   "@type": "LocalBusiness";
   image?: string;
   priceRange?: string;
+  /* NAP: el teléfono y las coordenadas tienen que coincidir con la ficha de
+     Google Business Profile o cuentan como dos negocios distintos. */
+  telephone?: string;
+  geo?: GeoCoordinates;
 }
 
 export interface GeoCoordinates {
@@ -170,3 +174,28 @@ export type StructuredData =
   | FAQPageStructuredData
   | HowToStructuredData
   | BreadcrumbListStructuredData;
+
+/**
+ * Article — datos estructurados de las guías. El autor apunta al nodo
+ * Organization del @graph global en lugar de a una Person: declarar un autor
+ * humano exigiría un nombre real y una página de autor que hoy no existen, y
+ * un autor inventado es peor señal de E-E-A-T que ninguno.
+ */
+export interface ArticleStructuredData {
+  "@context": "https://schema.org";
+  "@type": "Article";
+  headline: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified: string;
+  inLanguage: string;
+  author: NodeReference;
+  publisher: NodeReference;
+  mainEntityOfPage: {
+    "@type": "WebPage";
+    "@id": string;
+  };
+  about?: string[];
+  image?: string;
+}

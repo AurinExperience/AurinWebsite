@@ -9,13 +9,39 @@
  * cajas grises que decían "Proyecto Aurin". Cuando el CMS tenga banners reales,
  * esto se cambia por PayloadAPI.getFeaturedProjects().
  */
-import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
+import type { LandingCopy, ProofProjectId } from '@/data/landings';
+import { PROOF_PROJECTS } from '@/data/landings';
+import { getLangFromUrl, getLocalizedUrl } from '@/i18n';
 import SliderClients from '@/blocks/home/SliderClients/SliderClients.astro';
 import styles from './SocialProof.module.css';
 
+interface Props {
+  socialProof: LandingCopy['socialProof'];
+  /** Proyectos reales del CMS afines al sector que vende esta landing. */
+  proof: ProofProjectId[];
+}
+
+const { socialProof, proof } = Astro.props;
 const currentLang = getLangFromUrl(Astro.url);
-const t = translations[currentLang];
-const socialProof = t.webDesignNL.socialProof;
+
+/*
+ * Solo existen tres imágenes de proyecto, así que las capturas se repiten entre
+ * landings. Lo que sí cambia por estado es esta lista: son clientes reales,
+ * elegidos por SECTOR, no por ubicación. Deliberadamente no dice de dónde son —
+ * afirmarlo obligaría a sostener una cartera local que no existe.
+ */
+const proofProjects = proof.map((id) => PROOF_PROJECTS[id]).filter(Boolean);
+
+const proofLabels =
+  currentLang === 'es'
+    ? {
+        heading: 'Sectores en los que ya trabajamos',
+        about: 'Quiénes somos y cómo trabajamos',
+      }
+    : {
+        heading: 'Sectors we have already worked in',
+        about: 'Who we are and how we work',
+      };
 
 const portfolioLabel =
   currentLang === 'es' ? 'Ver nuestro portafolio de proyectos' : 'See our project portfolio';
@@ -74,10 +100,30 @@ const work = [
       ))}
     </ul>
 
-    <a class={styles.moreLink} href={getLocalizedUrl('/projects', currentLang)}>
-      {portfolioLabel}
-      <span aria-hidden="true">→</span>
-    </a>
+    <div class={styles.sectors}>
+      <h3 class={styles.sectorsHeading}>{proofLabels.heading}</h3>
+      <ul class={styles.sectorsList}>
+        {proofProjects.map((project) => (
+          <li class={styles.sector}>
+            <span class={styles.sectorName}>{project.name}</span>
+            <span class={styles.sectorIndustry}>{project.sector[currentLang]}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class={styles.moreLinks}>
+      <a class={styles.moreLink} href={getLocalizedUrl('/projects', currentLang)}>
+        {portfolioLabel}
+        <span aria-hidden="true">→</span>
+      </a>
+      {/* Enlace a la página de entidad: es la señal de E-E-A-T que le falta a
+          una landing de captura, que por diseño no cuenta quién está detrás. */}
+      <a class={styles.moreLink} href={getLocalizedUrl('/about', currentLang)}>
+        {proofLabels.about}
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
   </div>
   <SliderClients />
 </section>
