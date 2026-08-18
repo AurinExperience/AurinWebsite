@@ -3,12 +3,14 @@
  * ProcessSteps — Step-by-step web design process (mirrors the HowTo schema).
  * Renders numbered steps in a visual timeline layout.
  */
-import { getLangFromUrl, translations } from '@/i18n';
+import type { LandingCopy } from '@/data/landings';
 import styles from './ProcessSteps.module.css';
 
-const currentLang = getLangFromUrl(Astro.url);
-const t = translations[currentLang];
-const process = t.webDesignNL.process;
+interface Props {
+  process: LandingCopy['process'];
+}
+
+const { process } = Astro.props;
 ---
 
 <section class={styles.section} id="proceso" aria-labelledby="proceso-heading">

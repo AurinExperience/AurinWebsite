@@ -1,3 +1,6 @@
+import { landingSlugPairs } from '@/data/landings';
+import { guideSlugPairs } from '@/data/guides';
+
 export const languages = {
   en: 'English',
   es: 'Español',
@@ -55,8 +58,10 @@ export function getAlternateLanguage(currentLang: string): string {
 const slugExceptions: Record<string, { es: string; en: string }> = {
   '/appointment-confirmed': { es: '/appointment-confirmed', en: '/en/appointment-confirmation' },
   '/en/appointment-confirmation': { es: '/appointment-confirmed', en: '/en/appointment-confirmation' },
-  '/diseno-web-monterrey': { es: '/diseno-web-monterrey', en: '/en/web-design-monterrey' },
-  '/en/web-design-monterrey': { es: '/diseno-web-monterrey', en: '/en/web-design-monterrey' },
+  // Las landings por ciudad se generan desde src/data/landings: agregar una
+  // ciudad no debe obligar a tocar este archivo.
+  ...landingSlugPairs,
+  ...guideSlugPairs,
 };
 
 /**

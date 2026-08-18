@@ -1,0 +1,13 @@
+---
+/**
+ * Guides — English. URL: /en/guides/<slug>
+ * Same closed list as the Spanish route.
+ */
+import { findGuide } from '@/data/guides';
+import GuidePage from '@/components/pages/GuidePage.astro';
+
+const guide = findGuide(Astro.params.slug, 'en');
+if (!guide) return Astro.rewrite('/404');
+---
+
+<GuidePage guide={guide} />

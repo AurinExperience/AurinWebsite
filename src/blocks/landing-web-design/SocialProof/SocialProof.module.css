@@ -129,7 +129,6 @@
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-3);
-  margin-top: var(--spacing-10);
   color: var(--color-yellow);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
@@ -142,4 +141,60 @@
 .moreLink:hover {
   border-bottom-color: var(--color-yellow);
   gap: var(--spacing-4);
+}
+
+.sectors {
+  margin-top: var(--spacing-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.sectorsHeading {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.sectorsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.sector {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  padding-top: var(--spacing-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.sectorName {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
+}
+
+.sectorIndustry {
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+}
+
+.moreLinks {
+  margin-top: var(--spacing-10);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-6) var(--spacing-10);
 }

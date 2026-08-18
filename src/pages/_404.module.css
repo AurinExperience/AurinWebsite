@@ -1,0 +1,88 @@
+.main {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-black-a);
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding-block: clamp(5rem, 9vh, 9rem);
+  padding-inline: var(--section-padding-x);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-5);
+  position: relative;
+  z-index: 2;
+}
+
+.code {
+  color: var(--color-yellow);
+  font-family: var(--font-family-display);
+  font-size: clamp(56px, 9vw, 120px);
+  font-weight: var(--font-weight-light);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.heading {
+  color: var(--color-white);
+  font-family: var(--font-family-display);
+  font-size: clamp(30px, 3.6vw, 52px);
+  font-weight: var(--font-weight-light);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.body {
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-relaxed);
+  max-width: 56ch;
+  margin: 0;
+}
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-4);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-5);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-md);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-light);
+  text-decoration: none;
+  transition: border-color var(--transition-smooth), background-color var(--transition-smooth);
+}
+
+.link:hover,
+.link:focus-visible {
+  border-color: var(--color-yellow);
+  background-color: rgba(208, 223, 0, 0.06);
+}

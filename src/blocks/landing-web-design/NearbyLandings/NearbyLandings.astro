@@ -1,0 +1,47 @@
+---
+/**
+ * NearbyLandings — Enlaces a las otras landings por ciudad.
+ *
+ * Existe por dos razones de SEO, no de diseño:
+ * 1. Sin enlaces internos las landings nuevas quedarían huérfanas: solo el
+ *    sitemap las anunciaría y Google les daría poca autoridad.
+ * 2. El anchor text nombra la otra ciudad explícitamente ("Diseño web en
+ *    Querétaro"), que es la señal más directa de que cada página cubre una
+ *    intención de búsqueda distinta y no compite contra sus hermanas.
+ *
+ * Va después del formulario a propósito: la landing es de captura, así que las
+ * salidas de la página quedan por debajo del punto de conversión.
+ */
+import type { Lang, Landing, LandingCopy } from '@/data/landings';
+import { landingPath, siblingLandings } from '@/data/landings';
+import styles from './NearbyLandings.module.css';
+
+interface Props {
+  landing: Landing;
+  lang: Lang;
+  nearby: LandingCopy['nearby'];
+}
+
+const { landing, lang, nearby } = Astro.props;
+const others = siblingLandings(landing);
+---
+
+<section class={styles.section} aria-labelledby="nearby-heading">
+  <div class={styles.inner}>
+    <div class={styles.header}>
+      <h2 class={styles.heading} id="nearby-heading">{nearby.heading}</h2>
+      <p class={styles.description}>{nearby.description}</p>
+    </div>
+    <ul class={styles.list}>
+      {others.map((other) => (
+        <li>
+          <a class={styles.link} href={landingPath(other, lang)}>
+            <span class={styles.linkLabel}>{other.copy[lang].linkLabel}</span>
+            <span class={styles.linkRegion}>{other.region}</span>
+            <span class={styles.arrow} aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

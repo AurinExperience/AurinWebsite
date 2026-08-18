@@ -1,0 +1,208 @@
+---
+/**
+ * WebDesignCityPage — Plantilla compartida de las landings de diseño web por
+ * ciudad. La usan `diseno-web-[ciudad].astro` (ES) y `en/web-design-[city].astro`
+ * (EN); el idioma se detecta de la URL y la ciudad llega en el prop `landing`.
+ *
+ * Todo lo que distingue a una ciudad de otra vive en src/data/landings. Este
+ * archivo no debe contener el nombre de ninguna ciudad: si lo contiene, es que
+ * algo se quedó fuera de la capa de datos.
+ *
+ * Datos estructurados:
+ * - Service (principal) → structuredData
+ * - FAQPage, HowTo, BreadcrumbList → additionalStructuredData
+ * - Señales geo con AdministrativeArea + GeoCoordinates en areaServed
+ */
+import type {
+  ServiceStructuredData,
+  FAQPageStructuredData,
+  HowToStructuredData,
+  BreadcrumbListStructuredData,
+} from "@/types/seo";
+import type { Landing } from "@/data/landings";
+import { landingPath } from "@/data/landings";
+import { SITE } from "@/config/site";
+import { getLangFromUrl } from "@/i18n";
+import {
+  HeroLanding,
+  ServicesIncluded,
+  ProcessSteps,
+  SocialProof,
+  FaqSection,
+  LeadForm,
+  NearbyLandings,
+} from "@/blocks/landing-web-design";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/layout/Header.astro";
+import Footer from "@/components/layout/Footer.astro";
+import CtaBanner from "@/components/layout/CtaBanner.astro";
+
+interface Props {
+  landing: Landing;
+}
+
+const { landing } = Astro.props;
+const currentLang = getLangFromUrl(Astro.url);
+const copy = landing.copy[currentLang];
+
+const canonicalUrl = `${SITE.url}${landingPath(landing, currentLang)}`;
+
+/* ----------------------------------------------------------------
+   Service — datos estructurados principales
+   ---------------------------------------------------------------- */
+const serviceSchema: ServiceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: copy.serviceName,
+  description: copy.seo.description,
+  url: canonicalUrl,
+  serviceType:
+    currentLang === "es"
+      ? "Diseño y Desarrollo de Sitios Web"
+      : "Website Design and Development",
+  provider: {
+    "@id": `${SITE.url}/#organization`,
+  },
+  areaServed: [
+    {
+      "@type": "AdministrativeArea",
+      name: landing.region,
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: landing.geo.latitude,
+        longitude: landing.geo.longitude,
+      },
+    },
+    ...landing.areas.map((area) => ({ "@type": "City" as const, name: area })),
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: currentLang === "es" ? "Servicios de Diseño Web" : "Web Design Services",
+    itemListElement: copy.services.items.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.description,
+      },
+    })),
+  },
+};
+
+/* ----------------------------------------------------------------
+   FAQPage — para AEO / People Also Ask
+   ---------------------------------------------------------------- */
+const faqSchema: FAQPageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: copy.faq.items.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+/* ----------------------------------------------------------------
+   HowTo — el proceso paso a paso
+   ---------------------------------------------------------------- */
+const howToSchema: HowToStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: copy.process.heading,
+  description: copy.howToDescription,
+  step: copy.process.steps.map((step) => ({
+    "@type": "HowToStep",
+    name: step.name,
+    text: step.text,
+  })),
+};
+
+/* ----------------------------------------------------------------
+   Coordenadas del domicilio real — SOLO donde lo hay
+   ----------------------------------------------------------------
+   GlobalSchema ya declara el negocio (ProfessionalService con el NAP real y
+   @id = #organization) en TODAS las páginas. Volver a declararlo aquí creaba
+   un segundo nodo sin @id: mismo nombre y mismo domicilio, entidad distinta
+   para Google. Esto solo le agrega `geo` al nodo que ya existe.
+
+   Va únicamente en la ciudad con oficina: declarar coordenadas donde no hay
+   domicilio no es SEO agresivo, es información falsa, y cuesta la ficha de
+   Google Business Profile.
+   ---------------------------------------------------------------- */
+const geoSchema = landing.localBusiness
+  ? {
+      "@context": "https://schema.org",
+      "@id": `${SITE.url}/#organization`,
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: landing.geo.latitude,
+        longitude: landing.geo.longitude,
+      },
+    }
+  : null;
+
+/* ----------------------------------------------------------------
+   BreadcrumbList — jerarquía de navegación
+   ---------------------------------------------------------------- */
+const breadcrumbSchema: BreadcrumbListStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: currentLang === "es" ? "Inicio" : "Home",
+      item: currentLang === "es" ? SITE.url : `${SITE.url}/en`,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: currentLang === "es" ? "Servicios" : "Services",
+      item: currentLang === "es" ? `${SITE.url}/services` : `${SITE.url}/en/services`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: copy.breadcrumb,
+      item: canonicalUrl,
+    },
+  ],
+};
+---
+
+<Layout
+  title={copy.seo.title}
+  description={copy.seo.description}
+  keywords={copy.seo.keywords}
+  structuredData={serviceSchema}
+  additionalStructuredData={[
+    faqSchema,
+    howToSchema,
+    breadcrumbSchema,
+    ...(geoSchema ? [geoSchema] : []),
+  ]}
+  canonical={canonicalUrl}
+  ogImage={SITE.ogImage}
+  showMegaMenu={false}
+  showChatbot={false}
+>
+  <Header minimal />
+  <main id="main-content">
+    <HeroLanding hero={copy.hero} />
+    <ServicesIncluded services={copy.services} />
+    <ProcessSteps process={copy.process} />
+    <SocialProof socialProof={copy.socialProof} proof={landing.proof} />
+    <FaqSection faq={copy.faq} />
+    <LeadForm
+      source={`landing-diseno-web-${landing.id}`}
+      subject={`Landing ${copy.breadcrumb}`}
+      phoneSample={landing.phoneSample}
+    />
+    <NearbyLandings landing={landing} lang={currentLang} nearby={copy.nearby} />
+    <CtaBanner />
+  </main>
+  <Footer minimal />
+</Layout>

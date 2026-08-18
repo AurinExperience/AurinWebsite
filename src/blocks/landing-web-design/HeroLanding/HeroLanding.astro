@@ -4,14 +4,16 @@
  * Single H1 with the geo-targeted keyword, supporting copy, dual CTA and a stats strip.
  * Reuses the site's ScrollReveal animation and Main/Secondary button components.
  */
-import { getLangFromUrl, translations } from '@/i18n';
+import type { LandingCopy } from '@/data/landings';
 import MainButton from '@/components/ui/MainButton.astro';
 import SecondaryButton from '@/components/ui/SecondaryButton.astro';
 import styles from './HeroLanding.module.css';
 
-const currentLang = getLangFromUrl(Astro.url);
-const t = translations[currentLang];
-const hero = t.webDesignNL.hero;
+interface Props {
+  hero: LandingCopy['hero'];
+}
+
+const { hero } = Astro.props;
 ---
 
 <section class={styles.hero} aria-labelledby="landing-hero-heading">

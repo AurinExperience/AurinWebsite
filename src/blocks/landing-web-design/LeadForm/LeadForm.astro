@@ -7,6 +7,17 @@
 import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
 import styles from './LeadForm.module.css';
 
+interface Props {
+  /** Identificador de la landing. Viaja al correo para poder atribuir el lead. */
+  source: string;
+  /** Asunto del correo, con la ciudad, para no leer 20 avisos idénticos. */
+  subject: string;
+  /** Placeholder con la lada local de la ciudad. */
+  phoneSample: string;
+}
+
+const { source, subject, phoneSample } = Astro.props;
+
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
 const leadForm = t.webDesignNL.leadForm;
@@ -25,8 +36,9 @@ const leadForm = t.webDesignNL.leadForm;
       data-success-text={t.webDesignNL.leadForm.success}
       data-error-text={t.webDesignNL.leadForm.error}
       data-button-text={t.webDesignNL.leadForm.button}
+      data-subject={subject}
     >
-      <input type="hidden" name="source" value="landing-diseno-web-nl" />
+      <input type="hidden" name="source" value={source} />
 
       <div class={styles.fieldGroup}>
         <div class={styles.field}>
@@ -68,7 +80,7 @@ const leadForm = t.webDesignNL.leadForm;
             type="tel"
             id="lead-phone"
             name="phone"
-            placeholder={t.webDesignNL.leadForm.placeholders.phone}
+            placeholder={phoneSample}
             class={styles.input}
             autocomplete="tel"
           />
@@ -137,6 +149,7 @@ const leadForm = t.webDesignNL.leadForm;
     var successText = form.dataset.successText;
     var errorText = form.dataset.errorText;
     var buttonText = form.dataset.buttonText;
+    var subject = form.dataset.subject;
 
     form.addEventListener('submit', async function(event) {
       event.preventDefault();
@@ -168,12 +181,12 @@ const leadForm = t.webDesignNL.leadForm;
             nombre: data.name,
             correo: data.email,
             servicio: data.projectType,
-            asunto: 'Landing Diseño Web NL - ' + data.projectType,
+            asunto: subject + ' - ' + data.projectType,
             mensaje: messageBody,
             sumaA: sumaA,
             sumaB: sumaB,
             sumaRespuesta: sumaA + sumaB,
-            origen: data.source || 'landing-diseno-web-nl',
+            origen: data.source,
             referrer: window.location.href
           })
         });
