@@ -1,0 +1,361 @@
+/* Mismo lugar y tamaño que tenía el botón del chatbot (64px, 24px del borde). */
+.root {
+  position: fixed;
+  right: var(--spacing-6);
+  bottom: var(--spacing-6);
+  z-index: 1000;
+}
+
+.button {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-3);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.circle {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-whatsapp);
+  color: var(--color-white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: scale 0.2s ease;
+  /* Entra rebotando, "saluda" cada pocos segundos y emite un halo que pulsa */
+  animation:
+    waPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both,
+    waWiggle 6s ease-in-out 3s infinite,
+    waRing 2s ease-out 1.4s infinite;
+}
+
+.icon {
+  width: 34px;
+  height: 34px;
+}
+
+/* Burbuja de chat a la izquierda del círculo; la esquina que "sale" del
+   círculo va casi recta, como un globo de mensaje. */
+.bubble {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-5);
+  border-radius: 18px 18px 4px 18px;
+  background: var(--color-white);
+  color: var(--color-black-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: translate 0.2s ease, box-shadow 0.2s ease;
+  /* Entra a los 3 s y luego rebota junto con la sacudida del círculo */
+  animation:
+    waBubble 0.5s ease-out 3s both,
+    waNudge 6s ease-in-out 3s infinite;
+}
+
+/* `translate` no pisa el `transform` de las animaciones */
+.button:hover .bubble {
+  translate: 0 -2px;
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Manita que saluda */
+.wave {
+  display: inline-block;
+  font-size: 1.2em;
+  line-height: 1;
+  transform-origin: 70% 70%;
+  animation: waWave 6s ease-in-out 3.4s infinite;
+}
+
+
+/* `scale` es independiente de `transform`, así que no pisa las animaciones.
+   Nunca poner `animation: none` aquí: al volver, el navegador reinicia
+   waPop desde scale(0) y el círculo desaparece casi un segundo. */
+.button:hover .circle,
+.root[data-open] .circle {
+  scale: 1.08;
+}
+
+/* Con el panel abierto se congela el movimiento (pausar no reinicia) */
+.root[data-open] .circle {
+  animation-play-state: paused;
+}
+
+/* Con el panel abierto, o si ya lo abrió una vez, la burbuja sobra */
+.root[data-open] .bubble,
+.root[data-seen] .bubble {
+  display: none;
+}
+
+.button:focus-visible {
+  outline: none;
+}
+
+.button:focus-visible .circle {
+  outline: 3px solid var(--color-yellow);
+  outline-offset: 3px;
+}
+
+/* ---------- Panel ---------- */
+
+.panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + var(--spacing-4));
+  width: 340px;
+  max-width: calc(100vw - 2 * var(--spacing-4));
+  padding: var(--spacing-5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  background: var(--color-black-b);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  animation: waPanel 0.25s ease-out;
+}
+
+.panel[hidden],
+.form[hidden],
+.success[hidden] {
+  display: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: var(--spacing-2) 0 0;
+  color: var(--color-gray-a);
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+}
+
+.close {
+  flex: 0 0 auto;
+  display: flex;
+  padding: var(--spacing-2);
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--color-gray-a);
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--color-white);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.label {
+  margin-top: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--spacing-3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--color-whatsapp);
+}
+
+.input::placeholder {
+  color: var(--color-gray-a);
+}
+
+select.input {
+  cursor: pointer;
+}
+
+select.input option {
+  background: var(--color-black-a);
+  color: var(--color-white);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.4;
+}
+
+/* Fuera de pantalla, no display:none (algunos bots lo ignoran si está oculto) */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* Botón de enviar y enlace "Abrir WhatsApp" comparten estilo */
+.submit {
+  display: block;
+  margin-top: var(--spacing-3);
+  text-align: center;
+  text-decoration: none;
+  padding: var(--spacing-3);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-whatsapp);
+  color: var(--color-black-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.submit:hover {
+  filter: brightness(1.08);
+}
+
+.submit:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+
+.success {
+  padding: var(--spacing-3) 0;
+  text-align: center;
+}
+
+.successTitle {
+  margin: 0 0 var(--spacing-2);
+  color: var(--color-whatsapp);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+}
+
+.successText {
+  margin: 0;
+  color: var(--color-gray-a);
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+}
+
+
+
+/* ---------- Animaciones ---------- */
+
+@keyframes waPop {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes waWiggle {
+  0%, 84%, 100% { transform: rotate(0); }
+  87% { transform: rotate(-14deg); }
+  90% { transform: rotate(12deg); }
+  93% { transform: rotate(-8deg); }
+  96% { transform: rotate(4deg); }
+}
+
+/* Halo verde que se expande; conserva la sombra base */
+@keyframes waRing {
+  from { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(37, 211, 102, 0.6); }
+  to { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 22px rgba(37, 211, 102, 0); }
+}
+
+@keyframes waBubble {
+  from { transform: translateX(12px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes waNudge {
+  0%, 84%, 100% { transform: translateX(0); }
+  88% { transform: translateX(-6px); }
+  92% { transform: translateX(0); }
+  95% { transform: translateX(-3px); }
+}
+
+
+@keyframes waWave {
+  0%, 80%, 100% { transform: rotate(0); }
+  83% { transform: rotate(18deg); }
+  86% { transform: rotate(-10deg); }
+  89% { transform: rotate(18deg); }
+  92% { transform: rotate(-6deg); }
+}
+
+@keyframes waPanel {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .root {
+    right: var(--spacing-4);
+    bottom: var(--spacing-4);
+  }
+
+  .circle {
+    width: 56px;
+    height: 56px;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* En móvil la burbuja taparía contenido: solo el círculo */
+  .bubble {
+    display: none;
+  }
+}
+
+/* Sin movimiento para quien lo pidió en su sistema */
+@media (prefers-reduced-motion: reduce) {
+  .circle,
+  .bubble,
+  .wave,
+  .panel {
+    animation: none;
+  }
+}

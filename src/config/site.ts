@@ -7,6 +7,9 @@ export const SITE = {
   logoUrl: "https://aurin.mx/og/aurin-logo.png",
   ogImage: "https://aurin.mx/og/aurin-og.png",
   contactEmail: "hey@aurin.mx",
+  // Botón flotante de WhatsApp (formato wa.me: solo dígitos, con lada de país).
+  // ponytail: número personal provisional; cambiar aquí cuando haya línea de Aurin.
+  whatsapp: "527773272365",
   // `sameAs` = otros perfiles OFICIALES de Aurin, no sitios de terceros. Antes
   // apuntaba a aldeacreativa.mx, que es el coworking donde estamos, no una
   // identidad de Aurin: eso le decía a Google que ambas marcas son la misma entidad.
