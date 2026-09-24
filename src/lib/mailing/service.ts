@@ -10,6 +10,12 @@ import crypto from 'crypto';
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
+/* Bandeja del equipo. MAIL_TEST_TO la reemplaza para probar en local sin
+   escribirle a info@; nunca definirla en Vercel. */
+const TEAM_INBOX = process.env.MAIL_TEST_TO
+  ? process.env.MAIL_TEST_TO.split(',')
+  : ['info@sodio.net', 'leonel@sodio.net'];
+
 /**
  * Send contact form email
  */
@@ -17,7 +23,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<EmailResp
   try {
     const emailPayload: any = {
       from: 'Aurin <noreply@aurin.mx>',
-      to: ['info@sodio.net', 'leonel@sodio.net'],
+      to: TEAM_INBOX,
       subject: `${data.asunto} - ${data.nombre}`,
       replyTo: data.correo,
       html: contactEmailTemplate(data),
@@ -62,7 +68,7 @@ export async function sendTicketEmail(data: TicketData): Promise<EmailResponse> 
   try {
     const emailPayload: any = {
       from: 'Aurin <noreply@aurin.mx>',
-      to: ['info@sodio.net', 'leonel@sodio.net'],
+      to: TEAM_INBOX,
       subject: `Ticket de Agente Aurin - ${data.name}`,
       replyTo: data.email,
       html: ticketEmailTemplate(data),
@@ -178,7 +184,7 @@ export async function sendAppointmentNotificationToAdmin(data: AppointmentData):
 
     const result = await resend.emails.send({
       from: 'Aurin Calendar <noreply@aurin.mx>',
-      to: ['info@sodio.net', 'leonel@sodio.net'],
+      to: TEAM_INBOX,
       subject: `Nueva Cita: ${data.name} - ${formattedDate}`,
       html,
     });

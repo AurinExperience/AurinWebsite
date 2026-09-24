@@ -9,9 +9,13 @@ export interface EmailAttachment {
 }
 
 export interface ContactFormData {
+  /** Encabezado del correo; por defecto "Nuevo mensaje de contacto". */
+  titulo?: string;
   nombre: string;
-  correo: string;
-  servicio: string;
+  correo?: string; // el mini-formulario de WhatsApp no lo pide
+  telefono?: string; // el mini-formulario de WhatsApp no lo pide
+  contacto: string; // readable label: WhatsApp, Llamada telefónica…
+  servicio?: string;
   asunto: string;
   mensaje: string;
   attachment?: EmailAttachment;

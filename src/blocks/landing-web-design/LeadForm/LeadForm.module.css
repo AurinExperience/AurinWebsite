@@ -200,3 +200,8 @@
 .legalLink:hover {
   color: var(--color-yellow);
 }
+
+/* Placeholder ("Selecciona…") en gris mientras no haya opción elegida */
+.select:invalid {
+  color: rgba(160, 160, 160, 0.5);
+}

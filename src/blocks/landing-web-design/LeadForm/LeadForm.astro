@@ -5,6 +5,7 @@
  * Uses native form validation and provides client-side feedback.
  */
 import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
+import PhoneInput from '@/components/ui/PhoneInput.astro';
 import styles from './LeadForm.module.css';
 
 interface Props {
@@ -74,33 +75,44 @@ const leadForm = t.webDesignNL.leadForm;
       <div class={styles.fieldGroup}>
         <div class={styles.field}>
           <label for="lead-phone" class={styles.label}>
-            {t.webDesignNL.leadForm.labels.phone}
+            {t.webDesignNL.leadForm.labels.phone} <span class={styles.required} aria-label="required">*</span>
           </label>
-          <input
-            type="tel"
+          <PhoneInput
             id="lead-phone"
             name="phone"
-            placeholder={phoneSample}
-            class={styles.input}
-            autocomplete="tel"
+            placeholder={phoneSample.replace(/^\+\d+\s*/, '')}
+            inputClass={styles.input}
+            selectClass={styles.select}
           />
         </div>
         <div class={styles.field}>
-          <label for="lead-project-type" class={styles.label}>
-            {t.webDesignNL.leadForm.labels.projectType} <span class={styles.required} aria-label="required">*</span>
+          <label for="lead-contact-pref" class={styles.label}>
+            {leadForm.labels.contactPref} <span class={styles.required} aria-label="required">*</span>
           </label>
-          <select
-            id="lead-project-type"
-            name="projectType"
-            required
-            class={styles.select}
-          >
-            <option value="" disabled selected>—</option>
-            {t.webDesignNL.leadForm.projectTypes.map((type) => (
-              <option value={type.value}>{type.label}</option>
+          <select id="lead-contact-pref" name="contactPref" required class={styles.select}>
+            <option value="" disabled selected>{leadForm.placeholders.contactPref}</option>
+            {t.contact.form.contactPrefs.map((pref) => (
+              <option value={pref.value}>{pref.label}</option>
             ))}
           </select>
         </div>
+      </div>
+
+      <div class={styles.field}>
+        <label for="lead-project-type" class={styles.label}>
+          {t.webDesignNL.leadForm.labels.projectType} <span class={styles.required} aria-label="required">*</span>
+        </label>
+        <select
+          id="lead-project-type"
+          name="projectType"
+          required
+          class={styles.select}
+        >
+          <option value="" disabled selected>{leadForm.placeholders.projectType}</option>
+          {t.webDesignNL.leadForm.projectTypes.map((type) => (
+            <option value={type.value}>{type.label}</option>
+          ))}
+        </select>
       </div>
 
       <div class={styles.field}>
@@ -169,10 +181,6 @@ const leadForm = t.webDesignNL.leadForm;
         ? String(data.message)
         : 'Solicitud desde landing de diseño web';
 
-      if (data.phone) {
-        messageBody += '\n\nTeléfono: ' + String(data.phone);
-      }
-
       try {
         var response = await fetch('/api/contact', {
           method: 'POST',
@@ -180,14 +188,16 @@ const leadForm = t.webDesignNL.leadForm;
           body: JSON.stringify({
             nombre: data.name,
             correo: data.email,
+            telefono: data.phoneLada + ' ' + data.phone,
+            contacto: data.contactPref,
             servicio: data.projectType,
-            asunto: subject + ' - ' + data.projectType,
+            asunto: subject + ' - ' + form.elements.projectType.selectedOptions[0].text,
             mensaje: messageBody,
             sumaA: sumaA,
             sumaB: sumaB,
             sumaRespuesta: sumaA + sumaB,
-            origen: data.source,
-            referrer: window.location.href
+            origen: window.location.href,
+            referrer: document.referrer || 'Directo'
           })
         });
 
