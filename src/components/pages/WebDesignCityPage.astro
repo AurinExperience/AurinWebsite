@@ -15,13 +15,13 @@
  */
 import type {
   ServiceStructuredData,
-  FAQPageStructuredData,
   HowToStructuredData,
   BreadcrumbListStructuredData,
 } from "@/types/seo";
 import type { Landing } from "@/data/landings";
 import { landingPath } from "@/data/landings";
 import { SITE } from "@/config/site";
+import { faqSchema } from "@/lib/seo";
 import { getLangFromUrl } from "@/i18n";
 import {
   HeroLanding,
@@ -92,18 +92,7 @@ const serviceSchema: ServiceStructuredData = {
 /* ----------------------------------------------------------------
    FAQPage — para AEO / People Also Ask
    ---------------------------------------------------------------- */
-const faqSchema: FAQPageStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: copy.faq.items.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.answer,
-    },
-  })),
-};
+const faqLd = faqSchema(copy.faq.items);
 
 /* ----------------------------------------------------------------
    HowTo — el proceso paso a paso
@@ -179,7 +168,7 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
   keywords={copy.seo.keywords}
   structuredData={serviceSchema}
   additionalStructuredData={[
-    faqSchema,
+    faqLd,
     howToSchema,
     breadcrumbSchema,
     ...(geoSchema ? [geoSchema] : []),
@@ -187,7 +176,6 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
   showMegaMenu={false}
-  showChatbot={false}
 >
   <Header minimal />
   <main id="main-content">

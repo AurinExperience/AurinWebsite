@@ -5,6 +5,7 @@
  * Language is detected automatically from the URL.
  */
 import type { ServiceStructuredData } from "@/types/seo";
+import { faqSchema } from "@/lib/seo";
 import { SITE } from "@/config/site";
 import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
 import { HeroServices, CardServices, ToolsScrollStory, HowWeWork } from "@/blocks/services";
@@ -13,6 +14,7 @@ import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
 import CtaBanner from "@/components/layout/CtaBanner.astro";
 import DynamicProjects from "@/components/projects/DynamicProjects.astro";
+import FaqSection from "@/blocks/landing-web-design/FaqSection/FaqSection.astro";
 
 // Detect current language from URL automatically
 const currentLang = getLangFromUrl(Astro.url);
@@ -60,6 +62,7 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/services", currentLang);
   description={seoDescription}
   keywords={seoKeywords}
   structuredData={structuredData}
+  additionalStructuredData={[faqSchema(t.services.faq.items)]}
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
 >
@@ -69,6 +72,7 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/services", currentLang);
     <CardServices />
     <ToolsScrollStory />
     <HowWeWork />
+    <FaqSection faq={t.services.faq} />
     <CtaBanner />
     <DynamicProjects maxProjects={4} showChips={false} variant="four-column" />
     <Footer />

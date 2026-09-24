@@ -3,12 +3,17 @@
  * FaqSection — FAQ accordion backing the FAQPage schema.
  * Uses native <details>/<summary> so answers stay in the DOM (crawlable) and accessible.
  */
-import type { LandingCopy } from '@/data/landings';
 import { getLangFromUrl, getLocalizedUrl } from '@/i18n';
 import styles from './FaqSection.module.css';
 
+/* Forma estructural, no `LandingCopy['faq']`: el bloque también lo usan Home y
+   Servicios con copy de translations.ts, que es `as const` (readonly). */
 interface Props {
-  faq: LandingCopy['faq'];
+  faq: {
+    heading: string;
+    description: string;
+    items: readonly { question: string; answer: string }[];
+  };
 }
 
 const { faq } = Astro.props;

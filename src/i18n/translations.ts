@@ -22,6 +22,8 @@ export const translations = {
         labels: {
           name: "Name",
           email: "Email",
+          phone: "Phone",
+          contactPref: "How should we reach you?",
           service: "Service of interest",
           subject: "Subject",
           message: "Message",
@@ -30,12 +32,20 @@ export const translations = {
         placeholders: {
           name: "Write your name and last name here...",
           email: "Write your email here",
+          phone: "777 123 4567",
+          contactPref: "Select an option...",
           service: "Select a service...",
-          subject: "What do you want to talk to us about?",
+          subject: "E.g. Quote to redesign my company website",
           message: "Write your message...",
           sum: "Your answer"
         },
         sumError: "Incorrect sum. Please try again.",
+        contactPrefs: [
+          { value: "whatsapp", label: "WhatsApp" },
+          { value: "llamada", label: "Phone call" },
+          { value: "videollamada", label: "Video call" },
+          { value: "correo", label: "Email" }
+        ],
         services: [
           {
             value: "diseno-ux-ui",
@@ -70,6 +80,22 @@ export const translations = {
         description1: "Every great story starts with an idea and the people willing to make it a reality.",
         description2: "At Aurin, we work with you to transform that vision into something that inspires and endures."
       }
+    },
+    whatsapp: {
+      label: "Message us on WhatsApp",
+      cta: "Let's talk on WhatsApp",
+      title: "Let's talk on WhatsApp",
+      subtitle: "Your message is ready, just fill in your details to send it.",
+      nameLabel: "Name",
+      namePlaceholder: "Your name",
+      phoneLabel: "Your WhatsApp",
+      messageLabel: "Message",
+      send: "Send via WhatsApp",
+      successTitle: "Your message is ready!",
+      successText: "WhatsApp opened with your message. Just tap Send and we'll reply as soon as possible. Didn't open? Use the button below.",
+      openNow: "Open WhatsApp",
+      close: "Close",
+      message: "Hi Aurin! I found you through your website and I'd like to request your services. Could you tell me more about how you work and how to get a quote?"
     },
     chatbot: {
       welcome: "Hello! 👋 I'm Aurin's virtual assistant. I'm here to help you with any questions about our visual communication and branding services. How can I help you today?",
@@ -124,6 +150,7 @@ export const translations = {
         services: "Services",
         projects: "Portfolio",
         about: "Aurin",
+        guides: "Guides",
         contact: "Contact"
       }
     },
@@ -187,6 +214,36 @@ export const translations = {
         title: "Services",
         description: "We transform ideas into exceptional digital experiences. Our services are designed to create solutions that connect, inspire and generate tangible results for your business.",
         buttonText: "Discover our services"
+      },
+      faq: {
+        heading: "Frequently asked questions",
+        description: "Straight answers about what we do, how long it takes and how we quote.",
+        items: [
+          {
+            question: "What services does Aurin offer?",
+            answer: "Aurin is a Mexican agency that covers UX/UI design, branding and corporate identity, custom website design and development, mobile and web app development, and digital strategy. One team handles research, design and development, so nothing gets lost between a design studio and a separate developer."
+          },
+          {
+            question: "How long does a web design project take?",
+            answer: "A landing page takes 2 to 3 weeks. A corporate website with 5 to 10 sections takes 4 to 8 weeks from brief to launch. A web app or platform runs 3 to 6 months. The biggest variable is how fast content and approvals arrive from the client's side."
+          },
+          {
+            question: "How much does it cost to work with Aurin?",
+            answer: "We quote a fixed scope after a free 30-minute call. Every quote is broken down by stage (research, UX, UI, development, launch) with deliverables and dates, so you know what you are paying for before signing."
+          },
+          {
+            question: "Do you work with companies outside Cuernavaca?",
+            answer: "Yes. Our office is in Cuernavaca, Morelos, and most of our clients are in Mexico City, Monterrey, Querétaro, Guadalajara and the United States. The whole process runs remotely: video calls, shared boards and weekly reviews, with in-person sessions when the project calls for them."
+          },
+          {
+            question: "What does a branding project include?",
+            answer: "Brand research and strategy, naming when needed, logo and visual system (color, typography, iconography, photography guidelines), a brand manual, and applications such as stationery, social media templates and packaging. We deliver editable source files and a guide your team can actually use."
+          },
+          {
+            question: "Which technologies do you use for web development?",
+            answer: "Custom sites built with Astro and React on a headless CMS, so you can update content without touching code, deployed on modern infrastructure with a PageSpeed target of 90+. We also work with WordPress and Shopify when the project or the client's team needs them."
+          }
+        ]
       },
       servicesList: [
         {
@@ -290,6 +347,28 @@ export const translations = {
           "That experience is what drives the tool, not the other way around. It's the difference between a result that looks good and one your user can actually use."
         ]
       }
+    },
+    homeFaq: {
+      heading: "About Aurin",
+      description: "Who we are, where we work and how to start a project.",
+      items: [
+        {
+          question: "What is Aurin?",
+          answer: "Aurin is a Mexican UX/UI design, branding and web and app development agency founded in 1999. We design brands and digital products for companies that need their website or app to bring in customers, not just look good. One team covers research, design and development end to end."
+        },
+        {
+          question: "Where is Aurin and who do you work with?",
+          answer: "Our office is in Cuernavaca, Morelos, and we work remotely with companies across Mexico (Mexico City, Monterrey, Querétaro, Guadalajara, Puebla, Mérida, Cancún) and in the United States. Clients range from startups launching a product to established companies in finance, retail, health and education."
+        },
+        {
+          question: "What makes Aurin different from other agencies?",
+          answer: "More than 20 years designing and building real products, before and after generative AI. We use AI to move faster, but every decision about flows, hierarchy and usability comes from experience with real users. Fixed-scope quotes, one accountable team and measurable results: PageSpeed 90+ and conversion tracking on every launch."
+        },
+        {
+          question: "How do I start a project with Aurin?",
+          answer: "Fill in the contact form or book a 30-minute call. We talk about goals, audience and budget, and within a week you get a quote broken down by stage with dates. Most projects start within two weeks of approval."
+        }
+      ]
     },
     banner: {
       badge: 'User Experts',
@@ -662,14 +741,17 @@ export const translations = {
         labels: {
           name: "Full name",
           email: "Email",
-          phone: "Phone (optional)",
+          phone: "Phone",
+          contactPref: "How would you like us to reach you?",
           projectType: "Project type",
           message: "Tell us about your project (optional)"
         },
         placeholders: {
           name: "Your full name",
           email: "your@email.com",
-          message: "Briefly describe what you need..."
+          contactPref: "Select an option...",
+          projectType: "Select a project type...",
+          message: "E.g. We need a 6-section website with a blog and a quote form, launching in two months."
         },
         projectTypes: [
           { value: "sitio-web", label: "Corporate website" },
@@ -711,6 +793,8 @@ export const translations = {
         labels: {
           name: "Nombre",
           email: "Correo",
+          phone: "Teléfono",
+          contactPref: "¿Cómo te contactamos?",
           service: "Servicio de interés",
           subject: "Asunto",
           message: "Mensaje",
@@ -719,12 +803,20 @@ export const translations = {
         placeholders: {
           name: "Escribe tu nombre aquí y apellidos...",
           email: "Escribe tu correo aquí",
+          phone: "777 123 4567",
+          contactPref: "Selecciona una opción...",
           service: "Selecciona un servicio...",
-          subject: "¿De qué quieres hablarnos?",
+          subject: "Ej. Cotización para rediseñar el sitio de mi empresa",
           message: "Escribe tu mensaje...",
           sum: "Tu respuesta"
         },
         sumError: "Suma incorrecta. Inténtalo de nuevo.",
+        contactPrefs: [
+          { value: "whatsapp", label: "WhatsApp" },
+          { value: "llamada", label: "Llamada telefónica" },
+          { value: "videollamada", label: "Videollamada" },
+          { value: "correo", label: "Correo electrónico" }
+        ],
         services: [
           {
             value: "diseno-ux-ui",
@@ -759,6 +851,22 @@ export const translations = {
         description1: "Toda gran historia empieza con una idea y con las personas dispuestas a hacerla realidad.",
         description2: "En Aurin, trabajamos contigo para transformar esa visión en algo que inspire y perdure."
       }
+    },
+    whatsapp: {
+      label: "Escríbenos por WhatsApp",
+      cta: "Hablemos por WhatsApp",
+      title: "Hablemos por WhatsApp",
+      subtitle: "Tu mensaje ya está listo, solo completa tus datos para enviarlo.",
+      nameLabel: "Nombre",
+      namePlaceholder: "Tu nombre",
+      phoneLabel: "Tu WhatsApp",
+      messageLabel: "Mensaje",
+      send: "Enviar por WhatsApp",
+      successTitle: "¡Tu mensaje está listo!",
+      successText: "Se abrió WhatsApp con tu mensaje. Solo presiona Enviar y te respondemos lo antes posible. ¿No se abrió? Usa el botón de abajo.",
+      openNow: "Abrir WhatsApp",
+      close: "Cerrar",
+      message: "¡Hola, Aurin! Vengo de su sitio web y me gustaría solicitar sus servicios. ¿Me pueden contar cómo trabajan y cómo puedo pedir una cotización?"
     },
     chatbot: {
       welcome: "¡Hola! 👋 Soy el asistente virtual de Aurin. Estoy aquí para ayudarte con cualquier pregunta sobre nuestros servicios de comunicación visual y branding. ¿En qué puedo ayudarte hoy?",
@@ -813,6 +921,7 @@ export const translations = {
         services: "Servicios",
         projects: "Portafolio",
         about: "Aurin",
+        guides: "Guías",
         contact: "Contacto"
       }
     },
@@ -876,6 +985,36 @@ export const translations = {
         title: "que transforman",
         description: "Cada proyecto es único, tan distinto como las personas que lo hacen posible. Con la visión para descubrir lo que se necesita y la experiencia para crearlo, convertimos cada desafío en una oportunidad para innovar y trascender.",
         buttonText: "Hablemos de tu proyecto"
+      },
+      faq: {
+        heading: "Preguntas frecuentes",
+        description: "Respuestas directas sobre qué hacemos, cuánto tarda y cómo cotizamos.",
+        items: [
+          {
+            question: "¿Qué servicios ofrece Aurin?",
+            answer: "Aurin es una agencia mexicana que cubre diseño UX/UI, branding e identidad corporativa, diseño y desarrollo de sitios web a medida, desarrollo de aplicaciones móviles y web, y estrategia digital. Un mismo equipo lleva investigación, diseño y desarrollo, así que nada se pierde entre un estudio de diseño y un desarrollador aparte."
+          },
+          {
+            question: "¿Cuánto tarda un proyecto de diseño web?",
+            answer: "Una landing page toma de 2 a 3 semanas. Un sitio corporativo de 5 a 10 secciones, de 4 a 8 semanas del brief al lanzamiento. Una aplicación web o plataforma, de 3 a 6 meses. La variable que más pesa es qué tan rápido llegan el contenido y las aprobaciones del lado del cliente."
+          },
+          {
+            question: "¿Cuánto cuesta trabajar con Aurin?",
+            answer: "Cotizamos con alcance cerrado después de una llamada de 30 minutos sin costo. Cada cotización llega desglosada por etapa (investigación, UX, UI, desarrollo, lanzamiento) con entregables y fechas, para que sepas qué estás pagando antes de firmar."
+          },
+          {
+            question: "¿Trabajan con empresas fuera de Cuernavaca?",
+            answer: "Sí. La oficina está en Cuernavaca, Morelos, y la mayoría de nuestros clientes están en Ciudad de México, Monterrey, Querétaro, Guadalajara y Estados Unidos. Todo el proceso corre a distancia: videollamadas, tableros compartidos y revisiones semanales, con sesiones presenciales cuando el proyecto lo pide."
+          },
+          {
+            question: "¿Qué incluye un proyecto de branding?",
+            answer: "Investigación y estrategia de marca, naming cuando hace falta, logotipo y sistema visual (color, tipografía, iconografía, lineamientos de fotografía), manual de identidad y aplicaciones como papelería, plantillas para redes sociales y empaque. Entregamos archivos fuente editables y una guía que tu equipo sí pueda usar."
+          },
+          {
+            question: "¿Qué tecnologías usan para desarrollo web?",
+            answer: "Sitios a medida con Astro y React sobre un CMS headless, para que actualices contenido sin tocar código, desplegados en infraestructura moderna con meta de PageSpeed 90+. También trabajamos con WordPress y Shopify cuando el proyecto o el equipo del cliente lo necesitan."
+          }
+        ]
       },
       servicesList: [
         {
@@ -979,6 +1118,28 @@ export const translations = {
           "Esa experiencia es la que dirige la herramienta, no al revés. Es la diferencia entre un resultado que se ve bien y uno que tu usuario realmente puede usar."
         ]
       }
+    },
+    homeFaq: {
+      heading: "Sobre Aurin",
+      description: "Quiénes somos, dónde trabajamos y cómo empezar un proyecto.",
+      items: [
+        {
+          question: "¿Qué es Aurin?",
+          answer: "Aurin es una agencia mexicana de diseño UX/UI, branding y desarrollo web y de aplicaciones fundada en 1999. Diseñamos marcas y productos digitales para empresas que necesitan que su sitio o su app traiga clientes, no solo que se vea bien. Un mismo equipo cubre investigación, diseño y desarrollo de principio a fin."
+        },
+        {
+          question: "¿Dónde está Aurin y con quién trabaja?",
+          answer: "La oficina está en Cuernavaca, Morelos, y trabajamos a distancia con empresas de todo México (Ciudad de México, Monterrey, Querétaro, Guadalajara, Puebla, Mérida, Cancún) y de Estados Unidos. Los clientes van desde startups que lanzan un producto hasta empresas consolidadas de finanzas, retail, salud y educación."
+        },
+        {
+          question: "¿Qué hace diferente a Aurin de otras agencias?",
+          answer: "Más de 20 años diseñando y construyendo productos reales, antes y después de la IA generativa. Usamos IA para ir más rápido, pero cada decisión sobre flujos, jerarquía y usabilidad sale de experiencia con usuarios reales. Cotización con alcance cerrado, un solo equipo responsable y resultados medibles: PageSpeed 90+ y medición de conversiones en cada lanzamiento."
+        },
+        {
+          question: "¿Cómo empiezo un proyecto con Aurin?",
+          answer: "Llena el formulario de contacto o agenda una llamada de 30 minutos. Hablamos de objetivos, audiencia y presupuesto, y en menos de una semana recibes una cotización desglosada por etapa con fechas. La mayoría de los proyectos arranca en las dos semanas siguientes a la aprobación."
+        }
+      ]
     },
     banner: {
       badge: 'Expertos en usuarios',
@@ -1352,14 +1513,17 @@ export const translations = {
         labels: {
           name: "Nombre completo",
           email: "Correo electrónico",
-          phone: "Teléfono (opcional)",
+          phone: "Teléfono",
+          contactPref: "¿Cómo te gustaría que nos comuniquemos?",
           projectType: "Tipo de proyecto",
           message: "Cuéntanos sobre tu proyecto (opcional)"
         },
         placeholders: {
           name: "Tu nombre completo",
           email: "tu@correo.com",
-          message: "Describe brevemente lo que necesitas..."
+          contactPref: "Selecciona una opción...",
+          projectType: "Selecciona un tipo de proyecto...",
+          message: "Ej. Necesitamos un sitio de 6 secciones con blog y formulario de cotización, para lanzar en dos meses."
         },
         projectTypes: [
           { value: "sitio-web", label: "Sitio web corporativo" },
