@@ -4,6 +4,7 @@ import { getLangFromUrl, translations } from "@/i18n";
 import Mail from "lucide-astro/Mail";
 import MapPin from "lucide-astro/MapPin";
 import MainButton from "@/components/ui/MainButton.astro";
+import PhoneInput from "@/components/ui/PhoneInput.astro";
 
 // Detect current language
 const currentLang = getLangFromUrl(Astro.url);
@@ -58,6 +59,31 @@ const sumB = Math.floor(Math.random() * 9) + 1;
                 class="form-input"
                 required
               />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telefono" class="form-label"
+                >{t.contact.form.labels.phone}</label
+              >
+              <PhoneInput
+                id="telefono"
+                name="telefono"
+                placeholder={t.contact.form.placeholders.phone}
+                inputClass="form-input"
+                selectClass="form-select"
+              />
+            </div>
+            <div class="form-group">
+              <label for="contacto" class="form-label"
+                >{t.contact.form.labels.contactPref}</label
+              >
+              <select id="contacto" name="contacto" class="form-select" required>
+                <option value="" disabled selected>{t.contact.form.placeholders.contactPref}</option>
+                {t.contact.form.contactPrefs.map((pref) => (
+                  <option value={pref.value}>{pref.label}</option>
+                ))}
+              </select>
             </div>
           </div>
 
@@ -134,60 +160,6 @@ const sumB = Math.floor(Math.random() * 9) + 1;
               class="form-textarea"
               rows="5"
               required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="archivo" class="form-label"
-              >Archivo adjunto (opcional)</label
-            >
-            <div class="file-upload-area">
-              <input
-                type="file"
-                id="archivo"
-                name="archivo"
-                class="file-input"
-                accept="image/*,.pdf,.txt"
-              />
-              <label for="archivo" class="file-upload-label">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></path>
-                </svg>
-                <span class="file-upload-text">Adjuntar archivo (máx 10MB)</span
-                >
-              </label>
-              <div class="file-preview" style="display: none;">
-                <div class="file-preview-info">
-                  <span class="file-preview-name"></span>
-                  <span class="file-preview-size"></span>
-                </div>
-                <button type="button" class="file-remove-btn">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 4L4 12M4 4l8 8"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
           </div>
 
           <div class="form-group">
@@ -321,6 +293,8 @@ const sumB = Math.floor(Math.random() * 9) + 1;
   .form-row {
     display: flex;
     gap: 20px;
+    /* Si una etiqueta ocupa dos líneas, los campos siguen alineados abajo */
+    align-items: flex-end;
   }
 
   .form-group {
@@ -337,32 +311,50 @@ const sumB = Math.floor(Math.random() * 9) + 1;
     font-weight: 600;
   }
 
-  .form-input,
+  .contact-form :global(.form-input),
   .form-textarea,
-  .form-select {
+  .contact-form :global(.form-select) {
     width: 100%;
     box-sizing: border-box;
     background: var(--color-gray-b);
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-4);
     color: var(--color-white);
     font-family: var(--font-body);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     font-weight: 400;
     transition:
       background 0.3s ease,
       outline 0.3s ease;
   }
 
-  .form-input::placeholder,
+  .contact-form :global(.form-select) {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A0A0A0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+
+  .contact-form :global(.form-select):invalid {
+    color: var(--color-gray-a);
+  }
+
+  .contact-form :global(.form-select) option {
+    background: var(--color-black-a);
+    color: var(--color-white);
+  }
+
+  .contact-form :global(.form-input)::placeholder,
   .form-textarea::placeholder {
     color: var(--color-gray-a);
   }
 
-  .form-input:focus,
+  .contact-form :global(.form-input):focus,
   .form-textarea:focus,
-  .form-select:focus {
+  .contact-form :global(.form-select):focus {
     outline: 2px solid var(--color-yellow);
     background: #333;
   }
@@ -377,14 +369,13 @@ const sumB = Math.floor(Math.random() * 9) + 1;
     width: 100%;
     box-sizing: border-box;
     background: var(--color-gray-b);
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-4);
     color: var(--color-white) !important;
     font-family: var(--font-body);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     font-weight: 400;
-    height: 44px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -433,7 +424,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
     left: 0;
     right: 0;
     background: var(--color-gray-b);
-    border-radius: 5px;
+    border-radius: var(--radius-md);
     margin-top: 4px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     z-index: 1000;
@@ -483,8 +474,16 @@ const sumB = Math.floor(Math.random() * 9) + 1;
     opacity: 0.9;
   }
 
-  .form-input {
-    height: 44px;
+  /* Teléfono: lada a su ancho natural, el número toma el resto */
+  .contact-form :global([data-phone-input] .form-select) {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .contact-form :global([data-phone-input] .form-input) {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
   }
 
   .form-textarea {
@@ -496,97 +495,6 @@ const sumB = Math.floor(Math.random() * 9) + 1;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-  }
-
-  /* File Upload Styles */
-  .file-upload-area {
-    width: 100%;
-  }
-
-  .file-input {
-    display: none;
-  }
-
-  .file-upload-label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px;
-    background: var(--color-gray-b);
-    border: 2px dashed var(--color-gray-a);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: var(--color-gray-a);
-  }
-
-  .file-upload-label:hover {
-    border-color: var(--color-yellow);
-    background: #333;
-    color: var(--color-yellow);
-  }
-
-  .file-upload-label svg {
-    flex-shrink: 0;
-  }
-
-  .file-upload-text {
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    font-weight: 400;
-  }
-
-  .file-preview {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    background: var(--color-gray-b);
-    border: 1px solid var(--color-yellow);
-    border-radius: 5px;
-    margin-top: 8px;
-  }
-
-  .file-preview-info {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    flex: 1;
-    min-width: 0;
-  }
-
-  .file-preview-name {
-    color: var(--color-white);
-    font-family: var(--font-body);
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .file-preview-size {
-    color: var(--color-gray-a);
-    font-family: var(--font-body);
-    font-size: 12px;
-  }
-
-  .file-remove-btn {
-    background: transparent;
-    border: none;
-    color: var(--color-gray-a);
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .file-remove-btn:hover {
-    background: rgba(239, 68, 68, 0.2);
-    color: #ef4444;
   }
 
   /* Responsive Design */
@@ -648,6 +556,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
 
     .form-row {
       flex-direction: column;
+      align-items: stretch;
     }
   }
 
@@ -836,56 +745,6 @@ const sumB = Math.floor(Math.random() * 9) + 1;
       }
     }
 
-    // File upload handling
-    const fileInput = document.getElementById("archivo") as HTMLInputElement;
-    const fileUploadLabel = document.querySelector(
-      ".file-upload-label",
-    ) as HTMLElement;
-    const filePreview = document.querySelector(".file-preview") as HTMLElement;
-    const filePreviewName = document.querySelector(
-      ".file-preview-name",
-    ) as HTMLElement;
-    const filePreviewSize = document.querySelector(
-      ".file-preview-size",
-    ) as HTMLElement;
-    const fileRemoveBtn = document.querySelector(
-      ".file-remove-btn",
-    ) as HTMLButtonElement;
-
-    let selectedFile: File | null = null;
-
-    if (fileInput) {
-      fileInput.addEventListener("change", (e) => {
-        const file = (e.target as HTMLInputElement).files?.[0];
-        if (file) {
-          // Validate file size (10MB max)
-          if (file.size > 10 * 1024 * 1024) {
-            (window as any).showToast({
-              title: "Archivo muy grande",
-              description: "El archivo debe ser menor a 10MB",
-              type: "error",
-              duration: 5000,
-            });
-            fileInput.value = "";
-            return;
-          }
-
-          selectedFile = file;
-          filePreviewName.textContent = file.name;
-          filePreviewSize.textContent = `${(file.size / 1024).toFixed(1)} KB`;
-          fileUploadLabel.style.display = "none";
-          filePreview.style.display = "flex";
-        }
-      });
-
-      fileRemoveBtn?.addEventListener("click", () => {
-        selectedFile = null;
-        fileInput.value = "";
-        fileUploadLabel.style.display = "flex";
-        filePreview.style.display = "none";
-      });
-    }
-
     // Form submission logic
     if (form) {
       form.addEventListener("submit", async (e) => {
@@ -917,48 +776,12 @@ const sumB = Math.floor(Math.random() * 9) + 1;
           return;
         }
 
-        let fileUrl: string | null = null;
-        let filename: string | null = null;
-
-        // Upload file first if present
-        if (selectedFile) {
-          try {
-            const fileFormData = new FormData();
-            fileFormData.append("file", selectedFile);
-
-            const uploadResponse = await fetch("/api/upload", {
-              method: "POST",
-              body: fileFormData,
-            });
-
-            if (!uploadResponse.ok) {
-              throw new Error("Failed to upload file");
-            }
-
-            const uploadData = await uploadResponse.json();
-            fileUrl = uploadData.url;
-            filename = uploadData.filename;
-          } catch (uploadError) {
-            console.error("File upload error:", uploadError);
-            (window as any).showToast({
-              title: "Error al subir archivo",
-              description: "No se pudo subir el archivo. Intenta sin archivo.",
-              type: "error",
-              duration: 5000,
-            });
-
-            if (submitButton) {
-              submitButton.disabled = false;
-              setButtonLabel(t.contact.form.button);
-            }
-            return;
-          }
-        }
-
         const formData = new FormData(form);
         const data: any = {
           nombre: formData.get("nombre") as string,
           correo: formData.get("correo") as string,
+          telefono: `${formData.get("telefonoLada")} ${formData.get("telefono")}`,
+          contacto: formData.get("contacto") as string,
           servicio: formData.get("servicio") as string,
           asunto: formData.get("asunto") as string,
           mensaje: formData.get("mensaje") as string,
@@ -968,12 +791,6 @@ const sumB = Math.floor(Math.random() * 9) + 1;
           origen: window.location.href,
           referrer: document.referrer || "Directo",
         };
-
-        // Add file info if uploaded
-        if (fileUrl && filename) {
-          data.fileUrl = fileUrl;
-          data.filename = filename;
-        }
 
         try {
           const response = await fetch("/api/contact", {
@@ -1000,13 +817,6 @@ const sumB = Math.floor(Math.random() * 9) + 1;
               text.textContent = t.contact.form.placeholders.service;
               text.classList.remove("selected");
               hiddenInput.value = "";
-            }
-            // Reset file upload
-            if (selectedFile) {
-              selectedFile = null;
-              fileInput.value = "";
-              fileUploadLabel.style.display = "flex";
-              filePreview.style.display = "none";
             }
           } else {
             // Server error

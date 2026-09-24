@@ -1,0 +1,97 @@
+---
+/**
+ * PhoneInput — teléfono con selector de lada internacional.
+ * La lada se preselecciona con el país de la IP (header de Vercel); si no hay
+ * header (local), el script cae al idioma del navegador y luego a México.
+ * Si el usuario pega un número con "+XX", la lada se ajusta sola.
+ * Envía dos campos: `${name}` (número nacional) y `${name}Lada` ("+52").
+ */
+import styles from './PhoneInput.module.css';
+
+interface Props {
+  id: string;
+  name: string;
+  placeholder?: string;
+  /** Clases del formulario anfitrión, para heredar su look. */
+  inputClass?: string;
+  selectClass?: string;
+}
+
+const { id, name, placeholder, inputClass, selectClass } = Astro.props;
+
+// ponytail: lista corta de los mercados reales de Aurin; agregar países aquí si llegan leads de otros.
+const COUNTRIES = [
+  ['MX', '🇲🇽', '+52'],
+  ['US', '🇺🇸', '+1'],
+  ['CA', '🇨🇦', '+1'],
+  ['ES', '🇪🇸', '+34'],
+  ['CO', '🇨🇴', '+57'],
+  ['AR', '🇦🇷', '+54'],
+  ['CL', '🇨🇱', '+56'],
+  ['PE', '🇵🇪', '+51'],
+  ['GT', '🇬🇹', '+502'],
+  ['CR', '🇨🇷', '+506'],
+  ['EC', '🇪🇨', '+593'],
+  ['VE', '🇻🇪', '+58'],
+] as const;
+
+const ipCountry = Astro.request.headers.get('x-vercel-ip-country')?.toUpperCase();
+const detected = COUNTRIES.some(([code]) => code === ipCountry) ? ipCountry : undefined;
+const selected = detected ?? 'MX';
+---
+
+<div class={styles.wrapper} data-phone-input data-detected={detected ? 'ip' : ''}>
+  <select
+    class:list={[selectClass, styles.lada]}
+    name={`${name}Lada`}
+    aria-label="Lada"
+    autocomplete="tel-country-code"
+  >
+    {COUNTRIES.map(([code, flag, dial]) => (
+      <option value={dial} data-country={code} selected={code === selected}>
+        {flag} {dial}
+      </option>
+    ))}
+  </select>
+  <input
+    class:list={[inputClass, styles.number]}
+    type="tel"
+    id={id}
+    name={name}
+    placeholder={placeholder}
+    autocomplete="tel-national"
+    inputmode="tel"
+    pattern={String.raw`[0-9 \(\)\-]{7,20}`}
+    required
+  />
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-phone-input]').forEach((wrapper) => {
+    const select = wrapper.querySelector('select')!;
+    const input = wrapper.querySelector('input')!;
+    const options = [...select.options];
+
+    // Sin país por IP: usar la región del idioma del navegador (es-MX, en-US…).
+    if (!wrapper.dataset.detected) {
+      const region = navigator.languages
+        .map((lang) => lang.split('-')[1]?.toUpperCase())
+        .find((r) => r && options.some((o) => o.dataset.country === r));
+      const match = options.find((o) => o.dataset.country === region);
+      if (match) match.selected = true;
+    }
+
+    // "+34 612…" pegado o tecleado: mover la lada al selector.
+    input.addEventListener('input', () => {
+      const raw = input.value.trim();
+      if (!raw.startsWith('+')) return;
+      const digits = raw.replace(/[^\d]/g, '');
+      const match = options
+        .filter((o) => digits.startsWith(o.value.slice(1)))
+        .sort((a, b) => b.value.length - a.value.length)[0];
+      if (!match) return;
+      match.selected = true;
+      input.value = digits.slice(match.value.length - 1);
+    });
+  });
+</script>

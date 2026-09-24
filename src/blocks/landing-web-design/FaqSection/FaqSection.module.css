@@ -86,7 +86,6 @@
   padding-block: var(--spacing-6);
   cursor: pointer;
   list-style: none;
-  user-select: none;
 }
 
 .question::-webkit-details-marker {

@@ -4,8 +4,10 @@
  * Used by both src/pages/project/[slug].astro (ES)
  * and src/pages/en/project/[slug].astro (EN).
  * Language is detected automatically from the URL.
+ *
+ * Recibe el proyecto ya resuelto: las páginas [slug] responden 404 si no
+ * existe y 503 si Payload falla, así que aquí nunca hay datos de relleno.
  */
-import type { WebPageStructuredData } from "@/types/seo";
 import { SITE } from "@/config/site";
 import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
 import Layout from "@/layouts/Layout.astro";
@@ -15,8 +17,8 @@ import CtaBanner from "@/components/layout/CtaBanner.astro";
 import Vignette from "@/components/ui/Vignette.astro";
 import Template from "@/blocks/shared/Template/Template.astro";
 import DynamicProjects from "@/components/projects/DynamicProjects.astro";
+import { metaDescription } from "@/lib/seo";
 import {
-  PayloadAPI,
   type PayloadProject,
   getImageUrl,
   renderRichText,
@@ -24,61 +26,34 @@ import {
   renderRichTextBody,
 } from "@/lib/payload";
 
-export const prerender = false;
+interface Props {
+  project: PayloadProject;
+}
+
+const { project } = Astro.props;
 
 // Detect current language from URL automatically
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
 
-// Fetch project dynamically on each request
-const { slug } = Astro.params;
-let project: PayloadProject | null = null;
-
-try {
-  const projects = await PayloadAPI.getProjects(currentLang);
-  project = projects.find((p) => p.slug === slug) || null;
-} catch (error) {
-  console.error("❌ Error fetching project:", error);
-}
-
-// Fallback data in case project is not found — localized
-const exampleData = {
-  projectTitle:
-    currentLang === "es" ? "Proyecto de Ejemplo" : "Example Project",
-  projectCategories:
-    currentLang === "es"
-      ? ["Diseño UX/UI", "Desarrollo Web"]
-      : ["UX/UI Design", "Web Development"],
-  projectDescription:
-    currentLang === "es"
-      ? "Un proyecto de ejemplo para demostrar la funcionalidad."
-      : "An example project to demonstrate functionality.",
-  gallery: [],
-  publishDate: new Date(),
-  featured: false,
-  status: "published",
-};
-
 // Transform Payload project to template format
-const projectData = project
-  ? {
-      projectTitle: project.title,
-      projectCategories:
-        project.hero.services?.map((service) => service.name) || [],
-      projectDescription: renderRichText(project.hero.description),
-      descriptionHeading: renderRichTextHeadings(project.hero.description),
-      descriptionBody: renderRichTextBody(project.hero.description),
-      clientLogo: getImageUrl(project.client?.logo?.url),
-      clientName: project.client?.name,
-      clientIndustry: project.client?.industry,
-      heroImage: getImageUrl(project.hero.bannerImage?.url),
-      gallery:
-        project.gallery?.map((item) => ({
-          imgUrl: getImageUrl(item.image?.url),
-          alt: item.alt || project.title,
-        })) || [],
-    }
-  : exampleData;
+const projectData = {
+  projectTitle: project.title,
+  projectCategories:
+    project.hero.services?.map((service) => service.name) || [],
+  projectDescription: renderRichText(project.hero.description),
+  descriptionHeading: renderRichTextHeadings(project.hero.description),
+  descriptionBody: renderRichTextBody(project.hero.description),
+  clientLogo: getImageUrl(project.client?.logo?.url),
+  clientName: project.client?.name,
+  clientIndustry: project.client?.industry,
+  heroImage: getImageUrl(project.hero.bannerImage?.url),
+  gallery:
+    project.gallery?.map((item) => ({
+      imgUrl: getImageUrl(item.image?.url),
+      alt: item.alt || project.title,
+    })) || [],
+};
 
 // SEO
 const seoTitleSuffix = currentLang === "es" ? "| Portafolio Aurin" : "| Aurin Design Portfolio";
@@ -87,22 +62,46 @@ const fallbackDesc =
   currentLang === "es"
     ? "Caso de éxito: proyecto de diseño estratégico creado por Aurin, agencia de comunicación visual en México."
     : "Case study: strategic design project by Aurin, a visual communication agency based in Mexico.";
-const seoDescription = projectData.projectDescription || fallbackDesc;
+const seoDescription = metaDescription(projectData.projectDescription) || fallbackDesc;
 const seoKeywords =
   currentLang === "es"
     ? "proyecto diseño Aurin, caso éxito branding, identidad corporativa México, portafolio agencia creativa"
     : "design project Aurin, branding case study, corporate identity Mexico, creative agency portfolio";
 
-const structuredData: WebPageStructuredData = {
+// El slug puede traer espacios o acentos ("Fruit Academy"): se codifica igual que en el sitemap
+const canonicalUrl = getCanonicalUrl(SITE.url, `/project/${encodeURIComponent(project.slug)}`, currentLang);
+
+/* ponytail: sin imagen del proyecto en OG ni en el schema. Los banners de
+   Payload hoy son casi todos placeholders (800x600-…, Image-400x300-…); usar
+   project.hero.bannerImage aquí cuando el CMS tenga imágenes reales. */
+// CreativeWork con Aurin como autor: es lo que deja a un buscador o a una IA
+// responder "¿quién hizo el sitio de X?" o "¿qué agencias tienen casos de fintech?".
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: seoTitle,
+  "@type": "CreativeWork",
+  "@id": `${canonicalUrl}#work`,
+  name: projectData.projectTitle,
   description: seoDescription,
-  url: `${SITE.url}/project/${slug}`,
-  provider: { "@id": `${SITE.url}/#organization` },
+  url: canonicalUrl,
+  inLanguage: currentLang === "es" ? "es-MX" : "en",
+  ...(projectData.projectCategories.length && { genre: projectData.projectCategories }),
+  ...(projectData.clientName && {
+    sourceOrganization: { "@type": "Organization", name: projectData.clientName },
+  }),
+  creator: { "@id": `${SITE.url}/#organization` },
 };
 
-const canonicalUrl = getCanonicalUrl(SITE.url, `/project/${slug}`, currentLang);
+const portfolioPath = currentLang === "es" ? "/projects" : "/en/projects";
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: currentLang === "es" ? "Inicio" : "Home", item: getCanonicalUrl(SITE.url, "/", currentLang) },
+    { "@type": "ListItem", position: 2, name: currentLang === "es" ? "Portafolio" : "Portfolio", item: `${SITE.url}${portfolioPath}` },
+    { "@type": "ListItem", position: 3, name: projectData.projectTitle, item: canonicalUrl },
+  ],
+};
+
 ---
 
 <Layout
@@ -110,6 +109,7 @@ const canonicalUrl = getCanonicalUrl(SITE.url, `/project/${slug}`, currentLang);
   description={seoDescription}
   keywords={seoKeywords}
   structuredData={structuredData}
+  additionalStructuredData={[breadcrumbSchema]}
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
 >

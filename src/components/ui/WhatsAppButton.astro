@@ -1,0 +1,176 @@
+---
+/**
+ * WhatsAppButton — círculo flotante que abre un mini-formulario (nombre,
+ * WhatsApp y mensaje). Vive en el Layout: aparece en todo el sitio.
+ * El teléfono es el respaldo: si no termina de enviar en WhatsApp, igual
+ * queda su número en el correo. Si sí envía, allá se ve su número real.
+ *
+ * Al enviar pasan dos cosas en el mismo clic:
+ *  1. Se abre WhatsApp (wa.me) con su mensaje listo; el usuario solo presiona
+ *     "enviar". Sale de su propia cuenta, así que su número es el real.
+ *  2. En paralelo, /api/whatsapp-lead manda el correo al equipo: queda el
+ *     registro aunque no termine de enviarlo en WhatsApp.
+ * WhatsApp se abre ANTES de cualquier await: si esperáramos al servidor, el
+ * navegador lo trataría como popup y lo bloquearía.
+ *
+ * Métricas (GA4 + Clarity): `whatsapp_open` al abrir, `whatsapp_lead` al enviar.
+ */
+import { SITE } from '@/config/site';
+import { getLangFromUrl, translations } from '@/i18n';
+import PhoneInput from './PhoneInput.astro';
+import styles from './WhatsAppButton.module.css';
+
+const t = translations[getLangFromUrl(Astro.url)].whatsapp;
+---
+
+<div class={styles.root} data-wa data-wa-url={`https://wa.me/${SITE.whatsapp}`}>
+  <div
+    class={styles.panel}
+    id="wa-panel"
+    role="dialog"
+    aria-labelledby="wa-title"
+    hidden
+    data-wa-panel
+  >
+    <div class={styles.header}>
+      <div>
+        <p class={styles.title} id="wa-title">{t.title}</p>
+        <p class={styles.subtitle}>{t.subtitle}</p>
+      </div>
+      <button type="button" class={styles.close} aria-label={t.close} data-wa-close>
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6 6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <form class={styles.form} data-wa-form>
+      <label class={styles.label} for="wa-name">{t.nameLabel}</label>
+      <input class={styles.input} id="wa-name" name="nombre" type="text" autocomplete="name" maxlength="100" placeholder={t.namePlaceholder} required />
+
+      <label class={styles.label} for="wa-phone">{t.phoneLabel}</label>
+      <PhoneInput id="wa-phone" name="telefono" placeholder="777 123 4567" inputClass={styles.input} selectClass={styles.input} />
+
+      <label class={styles.label} for="wa-message">{t.messageLabel}</label>
+      <textarea class:list={[styles.input, styles.textarea]} id="wa-message" name="mensaje" rows="3" maxlength="1000" required>{t.message}</textarea>
+
+      {/* Honeypot: invisible para personas, los bots lo llenan */}
+      <input class={styles.honeypot} name="empresa" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <button type="submit" class={styles.submit}>{t.send}</button>
+    </form>
+
+    <div class={styles.success} hidden data-wa-success aria-live="polite">
+      <p class={styles.successTitle}>{t.successTitle}</p>
+      <p class={styles.successText}>{t.successText}</p>
+      <a class={styles.submit} target="_blank" rel="noopener noreferrer" data-wa-direct>{t.openNow}</a>
+    </div>
+  </div>
+
+  <button
+    type="button"
+    class={styles.button}
+    aria-label={t.label}
+    aria-expanded="false"
+    aria-controls="wa-panel"
+    data-wa-toggle
+  >
+    <span class={styles.bubble} aria-hidden="true">
+      <span class={styles.wave}>👋</span>
+      {t.cta}
+    </span>
+    <span class={styles.circle}>
+      <svg class={styles.icon} viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"
+        ></path>
+      </svg>
+    </span>
+  </button>
+</div>
+
+<script>
+  const w = window as any;
+  const track = (name: string) => {
+    w.gtag?.('event', name, { transport_type: 'beacon' });
+    w.clarity?.('event', name);
+  };
+
+  const root = document.querySelector<HTMLElement>('[data-wa]');
+  if (root) {
+    const q = <T extends Element>(sel: string) => root.querySelector<T>(sel)!;
+    const panel = q<HTMLElement>('[data-wa-panel]');
+    const toggle = q<HTMLButtonElement>('[data-wa-toggle]');
+    const form = q<HTMLFormElement>('[data-wa-form]');
+    const success = q<HTMLElement>('[data-wa-success]');
+    const direct = q<HTMLAnchorElement>('[data-wa-direct]');
+    let sent = false;
+
+    const open = () => {
+      panel.hidden = false;
+      root.dataset.open = '';
+      root.dataset.seen = ''; // la burbuja ya cumplió: no vuelve a salir
+      toggle.setAttribute('aria-expanded', 'true');
+      q<HTMLInputElement>('#wa-name').focus();
+      track('whatsapp_open');
+    };
+
+    const close = () => {
+      panel.hidden = true;
+      delete root.dataset.open;
+      toggle.setAttribute('aria-expanded', 'false');
+      // Tras un envío, la siguiente apertura empieza limpia
+      if (sent) {
+        sent = false;
+        form.reset();
+        form.hidden = false;
+        success.hidden = true;
+      }
+    };
+
+    toggle.addEventListener('click', () => (panel.hidden ? open() : close()));
+    q('[data-wa-close]').addEventListener('click', close);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !panel.hidden) {
+        close();
+        toggle.focus();
+      }
+    });
+    document.addEventListener('click', (e) => {
+      if (!panel.hidden && !root.contains(e.target as Node)) close();
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const nombre = String(data.get('nombre')).trim();
+      const telefono = `${data.get('telefonoLada')} ${data.get('telefono')}`;
+      const mensaje = String(data.get('mensaje')).trim();
+      const texto = `${mensaje}\n\n— ${nombre}`;
+      direct.href = `${root.dataset.waUrl}?text=${encodeURIComponent(texto)}`;
+
+      // 1. WhatsApp primero, dentro del gesto del clic (si no, es un popup bloqueado)
+      window.open(direct.href, '_blank', 'noopener');
+
+      // 2. Registro por correo en paralelo; keepalive lo completa aunque cambie de app
+      fetch('/api/whatsapp-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        keepalive: true,
+        body: JSON.stringify({
+          nombre,
+          telefono,
+          mensaje,
+          empresa: data.get('empresa'),
+          origen: location.href,
+          referrer: document.referrer || 'Directo',
+        }),
+      }).catch(() => {}); // el mensaje ya va por WhatsApp; el correo es respaldo
+
+      track('whatsapp_lead');
+      sent = true;
+      form.hidden = true;
+      success.hidden = false;
+    });
+  }
+</script>

@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  gap: var(--spacing-2);
+  width: 100%;
+}
+
+/* Doble clase: gana a los `width: 100%` de los formularios anfitriones. */
+.wrapper .lada {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.wrapper .number {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+}

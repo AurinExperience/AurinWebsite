@@ -5,6 +5,10 @@
 
 import type { ContactFormData, TicketData } from './types';
 
+/** Escapes user input before it goes into email HTML. */
+const esc = (value: string) =>
+  value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+
 export const contactEmailTemplate = (data: ContactFormData): string => {
   const fecha = new Date().toLocaleString('es-MX', {
     timeZone: 'America/Mexico_City',
@@ -30,7 +34,7 @@ export const contactEmailTemplate = (data: ContactFormData): string => {
     : '';
 
   const origen = data.origen
-    ? `<a href="${data.origen}" style="color:#0A0A0A;" target="_blank">${data.origen}</a>`
+    ? `<a href="${esc(data.origen)}" style="color:#0A0A0A;" target="_blank">${esc(data.origen)}</a>`
     : 'No disponible';
 
   return `
@@ -41,17 +45,19 @@ export const contactEmailTemplate = (data: ContactFormData): string => {
       <tr>
         <td style="background: #0A0A0A; padding: 28px 32px;">
           <div style="color: #D0DF00; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: bold;">Aurin</div>
-          <div style="color: #ffffff; font-size: 22px; font-weight: bold; margin-top: 6px;">Nuevo mensaje de contacto</div>
+          <div style="color: #ffffff; font-size: 22px; font-weight: bold; margin-top: 6px;">${esc(data.titulo ?? 'Nuevo mensaje de contacto')}</div>
         </td>
       </tr>
 
       <!-- Contact info -->
       <tr><td style="padding: 24px 32px 8px;">
         <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
-          ${row('Nombre', data.nombre)}
-          ${row('Correo', `<a href="mailto:${data.correo}" style="color:#0A0A0A;">${data.correo}</a>`)}
-          ${row('Servicio', data.servicio)}
-          ${row('Asunto', data.asunto)}
+          ${row('Nombre', esc(data.nombre))}
+          ${data.correo ? row('Correo', `<a href="mailto:${esc(data.correo)}" style="color:#0A0A0A;">${esc(data.correo)}</a>`) : ''}
+          ${data.telefono ? row('Teléfono', `<a href="tel:${esc(data.telefono.replace(/[^0-9+]/g, ''))}" style="color:#0A0A0A;">${esc(data.telefono)}</a>`) : ''}
+          ${row('Contactar por', `<strong>${esc(data.contacto)}</strong>`)}
+          ${data.servicio ? row('Servicio', esc(data.servicio)) : ''}
+          ${row('Asunto', esc(data.asunto))}
         </table>
       </td></tr>
 
@@ -59,7 +65,7 @@ export const contactEmailTemplate = (data: ContactFormData): string => {
       <tr><td style="padding: 16px 32px 8px;">
         <div style="background: #fafaf0; border-left: 4px solid #D0DF00; border-radius: 8px; padding: 16px 18px;">
           <div style="color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Mensaje</div>
-          <div style="color: #333; font-size: 15px; line-height: 1.6; white-space: pre-wrap;">${data.mensaje}</div>
+          <div style="color: #333; font-size: 15px; line-height: 1.6; white-space: pre-wrap;">${esc(data.mensaje)}</div>
         </div>
       </td></tr>
 
@@ -70,7 +76,7 @@ export const contactEmailTemplate = (data: ContactFormData): string => {
         <div style="color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin: 12px 0 4px;">Origen del lead</div>
         <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
           ${row('Página', origen)}
-          ${row('Procedencia', data.referrer || 'No disponible')}
+          ${row('Procedencia', esc(data.referrer || 'No disponible'))}
           ${row('Ubicación', data.ubicacion || 'No disponible')}
           ${row('IP', data.ip || 'No disponible')}
         </table>
@@ -78,7 +84,7 @@ export const contactEmailTemplate = (data: ContactFormData): string => {
 
       <!-- Footer -->
       <tr><td style="padding: 24px 32px; background: #fafafa; color: #999; font-size: 12px; line-height: 1.5;">
-        Enviado desde el formulario de contacto de <strong>aurin.mx</strong><br>
+        Enviado desde <strong>aurin.mx</strong><br>
         ${fecha}
       </td></tr>
 

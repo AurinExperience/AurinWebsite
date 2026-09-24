@@ -5,7 +5,7 @@ import MegaMenu from '@/components/layout/MegaMenu.astro';
 import AdvancedSEO from '@/blocks/shared/SEO/AdvancedSEO.astro';
 import GlobalSchema from '@/blocks/shared/SEO/GlobalSchema.astro';
 {/* import PageLoader from '@/components/layout/PageLoader.astro'; */}
-import ChatbotContainer from '@/blocks/shared/Chatbot/ChatbotContainer.astro';
+import WhatsAppButton from '@/components/ui/WhatsAppButton.astro';
 
 import Vignette from '@/components/ui/Vignette.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
@@ -29,8 +29,6 @@ interface Props {
 	noindex?: boolean;
 	/* Landings de captura: sin MegaMenu, para no dar salidas de la página. */
 	showMegaMenu?: boolean;
-	/** Hide the floating chatbot on specific pages (e.g. capture landings). */
-	showChatbot?: boolean;
 }
 
 const { 
@@ -48,8 +46,7 @@ const {
 	vignetteColor,
 	showVignette = false,
 	noindex = false,
-	showMegaMenu = true,
-	showChatbot = true
+	showMegaMenu = true
 } = Astro.props;
 ---
 
@@ -157,7 +154,7 @@ const {
 				color={vignetteColor}
 			/>
 		)}
-		{showChatbot && <ChatbotContainer />}
+		<WhatsAppButton />
 		<SpeedInsights />
 	</body>
 </html>

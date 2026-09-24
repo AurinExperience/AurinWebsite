@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, translations } from '@/i18n';
+import { guidesIndexPath } from '@/data/guides';
 import styles from './MegaMenu.module.css';
 import ArrowRight from 'lucide-astro/ArrowRight';
 import X from 'lucide-astro/X';
@@ -18,6 +19,8 @@ const menuItems = [
   { label: t.megaMenu.menuItems.services, href: currentLang === 'es' ? '/services' : '/en/services' },
   { label: t.megaMenu.menuItems.projects, href: currentLang === 'es' ? '/projects' : '/en/projects' },
   { label: t.megaMenu.menuItems.about, href: currentLang === 'es' ? '/about' : '/en/about' },
+  // Las guías solo se enlazaban desde el footer: para Google y para el usuario eran casi huérfanas.
+  { label: t.megaMenu.menuItems.guides, href: guidesIndexPath[currentLang] },
   { label: t.megaMenu.menuItems.contact, href: currentLang === 'es' ? '/contact' : '/en/contact' },
 ];
 ---

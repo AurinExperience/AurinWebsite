@@ -4,6 +4,7 @@
  * Used by both src/pages/index.astro (ES) and src/pages/en/index.astro (EN).
  * Language is detected automatically from the URL.
  */
+import { faqSchema } from "@/lib/seo";
 import { SITE } from "@/config/site";
 import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
 import {
@@ -19,6 +20,7 @@ import Header from "@/components/layout/Header.astro";
 import Banner from "@/components/layout/CtaBanner.astro";
 import Footer from "@/components/layout/Footer.astro";
 import Projects from "@/components/projects/DynamicProjects.astro";
+import FaqSection from "@/blocks/landing-web-design/FaqSection/FaqSection.astro";
 
 // Detect current language from URL automatically
 const currentLang = getLangFromUrl(Astro.url);
@@ -28,9 +30,10 @@ const seoTitle = t.seo.title;
 const seoDescription = t.seo.description;
 const seoKeywords = t.seo.keywords;
 
-/* Sin structuredData propio: el Organization + WebSite del sitio lo emite
-   GlobalSchema.astro en todas las páginas, con @id y sin la dirección
-   inventada que este bloque duplicaba. */
+/* El Organization + WebSite del sitio lo emite GlobalSchema.astro en todas las
+   páginas. Aquí solo va el FAQPage: "¿qué es Aurin?", "¿dónde están?" son las
+   preguntas que un motor generativo responde citando al sitio, y necesitan
+   una respuesta corta y literal en el HTML. */
 
 const canonicalUrl = getCanonicalUrl(SITE.url, "/", currentLang);
 ---
@@ -39,6 +42,7 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/", currentLang);
   title={seoTitle}
   description={seoDescription}
   keywords={seoKeywords}
+  structuredData={faqSchema(t.homeFaq.items)}
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
 >
@@ -51,6 +55,7 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/", currentLang);
     <Specialties />
     <Banner />
     <ToolsSuite />
+    <FaqSection faq={t.homeFaq} />
     <Projects maxProjects={4} showChips={false} variant="four-column" />
     <Footer />
   </main>

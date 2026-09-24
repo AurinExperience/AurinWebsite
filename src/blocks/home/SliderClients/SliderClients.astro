@@ -2,38 +2,39 @@
 import styles from "./SliderClients.module.css";
 
 const LOGOS = [
-  { src: "/logos/antojos-sabores.webp", alt: "Antojos Sabores Logo", height: 80, width: 80 },
-  { src: "/logos/galicia.svg", alt: "Galicia Logo", height: 72, width: 96 },
-  { src: "/logos/ingles-individual.webp", alt: "Inglés Individual Logo", height: 60, width: 94 },
-  { src: "/logos/latiz.svg", alt: "Latiz Logo", height: 108, width: 108 },
-  { src: "/logos/mexico-pacific.webp", alt: "Mexico Pacific Logo", height: 96, width: 96 },
-  { src: "/logos/pinnacle.webp", alt: "Pinnacle Logo", height: 80, width: 94 },
-  { src: "/logos/sinfonica-mineria.svg", alt: "Sinfónica de Minería Logo", height: 96, width: 96 },
-  { src: "/logos/tio-francisco.webp", alt: "Tío Francisco Logo", height: 80, width: 80 },
-  { src: "/logos/ancient.svg", alt: "Ancient", height: 80, width: 106 },
-  { src: "/logos/bonanza.svg", alt: "bonanza", height: 80, width: 94 },
-  { src: "/logos/dentol.svg", alt: "dentol", height: 80, width: 94 },
-  { src: "/logos/elite.svg", alt: "elite", height: 80, width: 94 },
-  { src: "/logos/estrella.webp", alt: "estrella", height: 80, width: 80 },
-  { src: "/logos/fruit.svg", alt: "fruit", height: 80, width: 69 },
-  { src: "/logos/identidad.webp", alt: "identidad", height: 80, width: 94 },
-  { src: "/logos/ideograma.svg", alt: "ideograma", height: 80, width: 106 },
-  { src: "/logos/mexico.webp", alt: "mexico", height: 80, width: 80 },
-  { src: "/logos/monetix.svg", alt: "monetix", height: 80, width: 106 },
+  { src: "/logos/antojos-sabores.webp", alt: "Logo de Antojos Sabores", height: 80, width: 80 },
+  { src: "/logos/galicia.svg", alt: "Logo de Galicia", height: 72, width: 96 },
+  { src: "/logos/ingles-individual.webp", alt: "Logo de Inglés Individual", height: 60, width: 94 },
+  { src: "/logos/latiz.svg", alt: "Logo de Latiz", height: 108, width: 108 },
+  { src: "/logos/mexico-pacific.webp", alt: "Logo de Mexico Pacific", height: 96, width: 96 },
+  { src: "/logos/pinnacle.webp", alt: "Logo de Pinnacle", height: 80, width: 94 },
+  { src: "/logos/sinfonica-mineria.svg", alt: "Logo de Sinfónica de Minería", height: 96, width: 96 },
+  { src: "/logos/tio-francisco.webp", alt: "Logo de Tío Francisco", height: 80, width: 80 },
+  { src: "/logos/ancient.svg", alt: "Logo de Ancient Wallets", height: 80, width: 106 },
+  { src: "/logos/bonanza.svg", alt: "Logo de Bonanza", height: 80, width: 94 },
+  { src: "/logos/dentol.svg", alt: "Logo de Dentol", height: 80, width: 94 },
+  { src: "/logos/elite.svg", alt: "Logo de Elite", height: 80, width: 94 },
+  { src: "/logos/estrella.webp", alt: "Logo de Estrella", height: 80, width: 80 },
+  { src: "/logos/fruit.svg", alt: "Logo de Fruit", height: 80, width: 69 },
+  { src: "/logos/identidad.webp", alt: "Logo de Identidad", height: 80, width: 94 },
+  { src: "/logos/ideograma.svg", alt: "Logo de Ideograma", height: 80, width: 106 },
+  { src: "/logos/mexico.webp", alt: "Logo de México", height: 80, width: 80 },
+  { src: "/logos/monetix.svg", alt: "Logo de Monetix", height: 80, width: 106 },
 ];
 
 const ALL_LOGOS = [...LOGOS, ...LOGOS];
 ---
 
-<section class={styles.slider}>
+<section class={styles.slider} aria-label="Clientes de Aurin">
   <div class={styles.track}>
     {
       ALL_LOGOS.map((logo, i) => (
         <>
-          <div class={styles.logo}>
+          {/* La segunda vuelta solo existe para el loop visual: oculta para lectores y crawlers */}
+          <div class={styles.logo} aria-hidden={i >= LOGOS.length ? 'true' : undefined}>
             <img
               src={logo.src}
-              alt={logo.alt}
+              alt={i >= LOGOS.length ? '' : logo.alt}
               style={`height: calc(${logo.height}px * var(--logo-scale, 1))`}
               width={logo.width}
               height={logo.height}

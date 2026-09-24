@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { sendContactEmail } from '@/lib/mailing/service';
 import type { ContactFormData } from '@/lib/mailing/types';
+import { leadContext } from '@/lib/mailing/leadContext';
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   try {
@@ -13,10 +14,10 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     }
 
     const data = JSON.parse(body);
-    const { nombre, correo, servicio, asunto, mensaje, fileUrl, filename, sumaA, sumaB, sumaRespuesta, origen, referrer } = data;
+    const { nombre, correo, telefono, contacto, servicio, asunto, mensaje, fileUrl, filename, sumaA, sumaB, sumaRespuesta, origen, referrer } = data;
 
     // Validación básica
-    if (!nombre || !correo || !servicio || !asunto || !mensaje) {
+    if (!nombre || !correo || !telefono || !contacto || !servicio || !asunto || !mensaje) {
       return new Response(
         JSON.stringify({ error: 'Todos los campos son requeridos' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
@@ -32,6 +33,28 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       );
     }
 
+    // Teléfono: 10 a 15 dígitos, admite +, espacios, guiones y paréntesis
+    const phoneDigits = String(telefono).replace(/\D/g, '');
+    if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+      return new Response(
+        JSON.stringify({ error: 'Teléfono inválido' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const contactoLabels: Record<string, string> = {
+      whatsapp: 'WhatsApp',
+      llamada: 'Llamada telefónica',
+      videollamada: 'Videollamada',
+      correo: 'Correo electrónico',
+    };
+    if (!contactoLabels[contacto]) {
+      return new Response(
+        JSON.stringify({ error: 'Medio de contacto inválido' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
     // Anti-spam: re-check the manual sum server-side
     if (Number(sumaA) + Number(sumaB) !== Number(sumaRespuesta)) {
       return new Response(
@@ -40,20 +63,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       );
     }
 
-    // Geolocation from Vercel's edge headers (present in production; empty locally)
-    const h = request.headers;
-    const city = h.get('x-vercel-ip-city');
-    const region = h.get('x-vercel-ip-country-region');
-    const country = h.get('x-vercel-ip-country');
-    const ubicacion =
-      [city ? decodeURIComponent(city) : null, region, country]
-        .filter(Boolean)
-        .join(', ') || 'No disponible';
-    const ip =
-      h.get('x-vercel-forwarded-for') ||
-      h.get('x-forwarded-for') ||
-      clientAddress ||
-      'No disponible';
+    const { ubicacion, ip } = leadContext(request, clientAddress);
 
     // Map the service slug to its readable label for the email
     const serviciosLabels: Record<string, string> = {
@@ -63,15 +73,22 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       'marketing-digital': 'Marketing digital y redes sociales',
       'pruebas-usabilidad': 'Pruebas de usabilidad',
       'otro': 'Otro',
+      // Tipos de proyecto del LeadForm de las landings
+      'sitio-web': 'Sitio web corporativo',
+      'ux-ui': 'Diseño UX/UI',
+      'landing-page': 'Landing page',
+      'rediseno': 'Rediseño de sitio web',
     };
     const servicioLabel = serviciosLabels[servicio] || servicio;
 
-    console.log('Intentando enviar email con datos:', { nombre, correo, servicio, asunto, mensaje, fileUrl });
+    console.log('Intentando enviar email con datos:', { nombre, correo, telefono, contacto, servicio, asunto, mensaje, fileUrl });
 
     // Prepare contact form data
     const contactData: ContactFormData = {
       nombre,
       correo,
+      telefono: String(telefono),
+      contacto: contactoLabels[contacto],
       servicio: servicioLabel,
       asunto,
       mensaje,
