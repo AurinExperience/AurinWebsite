@@ -14,7 +14,8 @@ const { es: c, en: C } = COMMON;
  */
 export const nayarit: Landing = {
   id: 'nayarit',
-  status: 'draft',
+  status: 'live',
+  publishAt: '2026-10-01T00:00:00-06:00',
   slug: { es: 'nayarit', en: 'nayarit' },
   region: 'Nayarit',
   geo: { latitude: 20.8773, longitude: -105.4413 },

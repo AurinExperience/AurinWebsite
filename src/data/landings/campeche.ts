@@ -13,7 +13,8 @@ const { es: c, en: C } = COMMON;
  */
 export const campeche: Landing = {
   id: 'campeche',
-  status: 'draft',
+  status: 'live',
+  publishAt: '2026-10-16T00:00:00-06:00',
   slug: { es: 'campeche', en: 'campeche' },
   region: 'Campeche',
   geo: { latitude: 19.8454, longitude: -90.5237 },

@@ -13,7 +13,8 @@ const { es: c, en: C } = COMMON;
  */
 export const oaxaca: Landing = {
   id: 'oaxaca',
-  status: 'draft',
+  status: 'live',
+  publishAt: '2026-09-28T00:00:00-06:00',
   slug: { es: 'oaxaca', en: 'oaxaca' },
   region: 'Oaxaca',
   geo: { latitude: 17.0732, longitude: -96.7266 },

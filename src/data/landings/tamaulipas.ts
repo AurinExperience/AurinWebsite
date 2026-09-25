@@ -15,7 +15,8 @@ const { es: c, en: C } = COMMON;
  */
 export const tamaulipas: Landing = {
   id: 'tamaulipas',
-  status: 'draft',
+  status: 'live',
+  publishAt: '2026-10-10T00:00:00-06:00',
   slug: { es: 'tamaulipas', en: 'tamaulipas' },
   region: 'Tamaulipas',
   geo: { latitude: 26.0806, longitude: -98.2883 },

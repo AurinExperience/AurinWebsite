@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { SITE } from '@/config/site';
-import { LANDINGS, landingPath } from '@/data/landings';
+import { publishedLandings, landingPath } from '@/data/landings';
 import { GUIDES, guidePath, guidesIndexPath } from '@/data/guides';
 import { PayloadAPI, renderRichText } from '@/lib/payload';
 import { metaDescription } from '@/lib/seo';
@@ -72,11 +72,11 @@ export const GET: APIRoute = async () => {
     '',
     '## Diseño web por ciudad (ES)',
     '',
-    ...LANDINGS.map((l) => line(l.copy.es.breadcrumb, landingPath(l, 'es'), l.copy.es.seo.description)),
+    ...publishedLandings().map((l) => line(l.copy.es.breadcrumb, landingPath(l, 'es'), l.copy.es.seo.description)),
     '',
     '## Web design by city (EN)',
     '',
-    ...LANDINGS.map((l) => line(l.copy.en.breadcrumb, landingPath(l, 'en'), l.copy.en.seo.description)),
+    ...publishedLandings().map((l) => line(l.copy.en.breadcrumb, landingPath(l, 'en'), l.copy.en.seo.description)),
     '',
     '## Guías (ES)',
     '',

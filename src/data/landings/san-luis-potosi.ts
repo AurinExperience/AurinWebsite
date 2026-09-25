@@ -13,7 +13,8 @@ const { es: c, en: C } = COMMON;
  */
 export const sanLuisPotosi: Landing = {
   id: 'san-luis-potosi',
-  status: 'draft',
+  status: 'live',
+  publishAt: '2026-10-07T00:00:00-06:00',
   slug: { es: 'san-luis-potosi', en: 'san-luis-potosi' },
   region: 'San Luis Potosí',
   geo: { latitude: 22.1565, longitude: -100.9855 },

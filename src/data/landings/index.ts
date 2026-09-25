@@ -14,7 +14,7 @@ import { sanAntonio } from './san-antonio';
 import { inlandEmpire } from './inland-empire';
 import { phoenix } from './phoenix';
 import { dallas } from './dallas';
-// Estados de México en borrador (status: 'draft'): se revisan en dev/preview y se sueltan de a poco.
+// Estados de México programados con `publishAt` (uno por día): se revisan en dev/preview y se publican solos.
 import { aguascalientes } from './aguascalientes';
 import { bajaCaliforniaSur } from './baja-california-sur';
 import { campeche } from './campeche';
@@ -68,7 +68,7 @@ const ALL_LANDINGS: Landing[] = [
   inlandEmpire,
   phoenix,
   dallas,
-  // México, borradores.
+  // México: programados uno por día con `publishAt`.
   aguascalientes,
   bajaCaliforniaSur,
   campeche,
@@ -94,19 +94,33 @@ const ALL_LANDINGS: Landing[] = [
 ];
 
 /**
- * Las landings PUBLICADAS. Todo lo que mira al exterior —rutas, sitemap,
- * footer, enlaces cruzados— consume esta lista, así que una ciudad en `draft`
- * es invisible para Google y para el usuario sin tener que borrar su archivo.
+ * Qué landings están publicadas. Todo lo que mira al exterior —rutas, sitemap,
+ * llms.txt, guías, enlaces cruzados— pasa por `publishedLandings()`, así que una
+ * ciudad no publicada es invisible para Google y para el usuario sin borrar su
+ * archivo.
  *
- * Excepción: en `npm run dev` y en los previews de Vercel también se muestran
- * los `draft`, para revisarlos antes de publicarlos. Producción nunca los ve,
- * y Vercel ya marca los previews como noindex.
+ * Publicada = `status: 'live'` y, si tiene `publishAt`, que esa fecha ya pasó.
+ * Es una función y no una constante a propósito: se evalúa en cada request, así
+ * que una landing programada aparece sola en su fecha, sin deploy ni cron. Una
+ * constante se calcularía una vez al arrancar la función de Vercel y no se
+ * enteraría del cambio de día.
+ *
+ * Excepción: en `npm run dev` y en los previews de Vercel se muestran todas
+ * (draft y programadas) para revisarlas. `PROD_PREVIEW=1 npm run dev` simula lo
+ * que ve producción. Vercel ya marca los previews como noindex.
  */
-const SHOW_DRAFTS = import.meta.env.DEV || process.env.VERCEL_ENV === 'preview';
+const SHOW_ALL =
+  (import.meta.env.DEV && !process.env.PROD_PREVIEW) || process.env.VERCEL_ENV === 'preview';
 
-export const LANDINGS: Landing[] = ALL_LANDINGS.filter(
-  (l) => l.status === 'live' || SHOW_DRAFTS
-);
+export function isPublished(landing: Landing, now = Date.now()): boolean {
+  if (SHOW_ALL) return true;
+  if (landing.status !== 'live') return false;
+  return !landing.publishAt || Date.parse(landing.publishAt) <= now;
+}
+
+export function publishedLandings(): Landing[] {
+  return ALL_LANDINGS.filter((l) => isPublished(l));
+}
 
 const PREFIX: Record<Lang, string> = {
   es: '/diseno-web-',
@@ -124,13 +138,13 @@ export function landingPath(landing: Landing, lang: Lang): string {
  */
 export function findLanding(slug: string | undefined, lang: Lang): Landing | undefined {
   if (!slug) return undefined;
-  return LANDINGS.find((landing) => landing.slug[lang] === slug);
+  return publishedLandings().find((landing) => landing.slug[lang] === slug);
 }
 
 /** Las demás landings del mismo país, para el bloque de enlaces cruzados. */
 export function siblingLandings(current: Landing): Landing[] {
   const country = current.country ?? 'MX';
-  return LANDINGS.filter(
+  return publishedLandings().filter(
     (landing) => landing.id !== current.id && (landing.country ?? 'MX') === country
   );
 }
@@ -139,9 +153,10 @@ export function siblingLandings(current: Landing): Landing[] {
  * Pares de rutas ES/EN de todas las landings, en el formato que espera
  * `slugExceptions` de i18n/utils. Sin esto el botón de idioma y los hreflang
  * apuntarían a URLs que no existen, porque estos slugs no se traducen solos.
+ * Incluye las no publicadas: solo traduce rutas, no las hace visibles.
  */
 export const landingSlugPairs: Record<string, { es: string; en: string }> = Object.fromEntries(
-  LANDINGS.flatMap((landing) => {
+  ALL_LANDINGS.flatMap((landing) => {
     const pair = { es: landingPath(landing, 'es'), en: landingPath(landing, 'en') };
     return [
       [pair.es, pair],

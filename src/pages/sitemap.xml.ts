@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { PayloadAPI } from '@/lib/payload';
-import { LANDINGS, landingPath } from '@/data/landings';
+import { publishedLandings, landingPath } from '@/data/landings';
 import { GUIDES, guidePath, guidesIndexPath } from '@/data/guides';
 
 export const prerender = false;
@@ -31,7 +31,7 @@ const staticPages = [
  * ciudad no dependa de acordarse de volver a este archivo: una landing fuera
  * del sitemap se rastrea tarde y con menos prioridad.
  */
-const landingPages = LANDINGS.map((landing) => ({
+const landingPages = publishedLandings().map((landing) => ({
   es: landingPath(landing, 'es'),
   en: landingPath(landing, 'en'),
   priority: '0.9',
@@ -162,7 +162,7 @@ ${urls}
   return new Response(xml, {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800'
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400'
     }
   });
 };

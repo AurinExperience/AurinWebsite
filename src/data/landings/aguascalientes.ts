@@ -12,7 +12,8 @@ const { es: c, en: C } = COMMON;
  */
 export const aguascalientes: Landing = {
   id: 'aguascalientes',
-  status: 'draft',
+  status: 'live',
+  publishAt: '2026-10-09T00:00:00-06:00',
   slug: { es: 'aguascalientes', en: 'aguascalientes' },
   region: 'Aguascalientes',
   geo: { latitude: 21.8853, longitude: -102.2916 },

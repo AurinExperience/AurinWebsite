@@ -16,7 +16,8 @@ const { es: c, en: C } = COMMON;
  */
 export const estadoDeMexico: Landing = {
   id: 'estado-de-mexico',
-  status: 'draft',
+  status: 'live',
+  publishAt: '2026-09-27T00:00:00-06:00',
   slug: { es: 'estado-de-mexico', en: 'state-of-mexico' },
   region: 'Estado de México',
   geo: { latitude: 19.2826, longitude: -99.6557 },

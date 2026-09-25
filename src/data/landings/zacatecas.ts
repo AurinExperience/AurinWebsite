@@ -12,7 +12,8 @@ const { es: c, en: C } = COMMON;
  */
 export const zacatecas: Landing = {
   id: 'zacatecas',
-  status: 'draft',
+  status: 'live',
+  publishAt: '2026-10-17T00:00:00-06:00',
   slug: { es: 'zacatecas', en: 'zacatecas' },
   region: 'Zacatecas',
   geo: { latitude: 22.7709, longitude: -102.5832 },

@@ -14,7 +14,8 @@ const { es: c, en: C } = COMMON;
  */
 export const bajaCaliforniaSur: Landing = {
   id: 'baja-california-sur',
-  status: 'draft',
+  status: 'live',
+  publishAt: '2026-09-26T00:00:00-06:00',
   slug: { es: 'baja-california-sur', en: 'baja-california-sur' },
   region: 'Baja California Sur',
   geo: { latitude: 22.8905, longitude: -109.9167 },

@@ -14,7 +14,8 @@ const { es: c, en: C } = COMMON;
  */
 export const michoacan: Landing = {
   id: 'michoacan',
-  status: 'draft',
+  status: 'live',
+  publishAt: '2026-10-02T00:00:00-06:00',
   slug: { es: 'michoacan', en: 'michoacan' },
   region: 'Michoacán',
   geo: { latitude: 19.7006, longitude: -101.1844 },
