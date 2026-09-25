@@ -51,7 +51,7 @@ export { PROOF_PROJECTS } from './projects';
  * Cualquier slug que no esté en esta lista NO genera página (ver las rutas
  * `diseno-web-[ciudad].astro` y `en/web-design-[city].astro`).
  */
-const ALL_LANDINGS: Landing[] = [
+export const ALL_LANDINGS: Landing[] = [
   monterrey,
   queretaro,
   cdmx,
