@@ -14,6 +14,29 @@ import { sanAntonio } from './san-antonio';
 import { inlandEmpire } from './inland-empire';
 import { phoenix } from './phoenix';
 import { dallas } from './dallas';
+// Estados de México en borrador (status: 'draft'): se revisan en dev/preview y se sueltan de a poco.
+import { aguascalientes } from './aguascalientes';
+import { bajaCaliforniaSur } from './baja-california-sur';
+import { campeche } from './campeche';
+import { chiapas } from './chiapas';
+import { chihuahua } from './chihuahua';
+import { coahuila } from './coahuila';
+import { colima } from './colima';
+import { durango } from './durango';
+import { estadoDeMexico } from './estado-de-mexico';
+import { guerrero } from './guerrero';
+import { hidalgo } from './hidalgo';
+import { michoacan } from './michoacan';
+import { nayarit } from './nayarit';
+import { oaxaca } from './oaxaca';
+import { sanLuisPotosi } from './san-luis-potosi';
+import { sinaloa } from './sinaloa';
+import { sonora } from './sonora';
+import { tabasco } from './tabasco';
+import { tamaulipas } from './tamaulipas';
+import { tlaxcala } from './tlaxcala';
+import { veracruz } from './veracruz';
+import { zacatecas } from './zacatecas';
 
 export type { Lang, Landing, LandingCopy } from './types';
 export type { ProofProject, ProofProjectId } from './projects';
@@ -45,14 +68,45 @@ const ALL_LANDINGS: Landing[] = [
   inlandEmpire,
   phoenix,
   dallas,
+  // México, borradores.
+  aguascalientes,
+  bajaCaliforniaSur,
+  campeche,
+  chiapas,
+  chihuahua,
+  coahuila,
+  colima,
+  durango,
+  estadoDeMexico,
+  guerrero,
+  hidalgo,
+  michoacan,
+  nayarit,
+  oaxaca,
+  sanLuisPotosi,
+  sinaloa,
+  sonora,
+  tabasco,
+  tamaulipas,
+  tlaxcala,
+  veracruz,
+  zacatecas,
 ];
 
 /**
  * Las landings PUBLICADAS. Todo lo que mira al exterior —rutas, sitemap,
  * footer, enlaces cruzados— consume esta lista, así que una ciudad en `draft`
  * es invisible para Google y para el usuario sin tener que borrar su archivo.
+ *
+ * Excepción: en `npm run dev` y en los previews de Vercel también se muestran
+ * los `draft`, para revisarlos antes de publicarlos. Producción nunca los ve,
+ * y Vercel ya marca los previews como noindex.
  */
-export const LANDINGS: Landing[] = ALL_LANDINGS.filter((l) => l.status === 'live');
+const SHOW_DRAFTS = import.meta.env.DEV || process.env.VERCEL_ENV === 'preview';
+
+export const LANDINGS: Landing[] = ALL_LANDINGS.filter(
+  (l) => l.status === 'live' || SHOW_DRAFTS
+);
 
 const PREFIX: Record<Lang, string> = {
   es: '/diseno-web-',

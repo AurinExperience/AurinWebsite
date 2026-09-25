@@ -16,13 +16,20 @@ const currentLang = getLangFromUrl(Astro.url);
 
 const moreLabel =
   currentLang === 'es' ? 'Ver todos nuestros servicios' : 'See all our services';
+
+// Los giros de cada landing son ejemplos, no el límite: esto va detrás del intro
+// en todas para que nadie lea que solo atendemos esos sectores.
+const anySector =
+  currentLang === 'es'
+    ? 'Estos son solo algunos ejemplos: nos adaptamos a casi cualquier sector.'
+    : 'These are just a few examples: we adapt to almost any industry.';
 ---
 
 <section class={styles.section} id="servicios-web" aria-labelledby="servicios-web-heading">
   <div class={styles.inner}>
     <header class={styles.header}>
       <h2 class={styles.heading} id="servicios-web-heading">{services.heading}</h2>
-      <p class={styles.intro}>{services.intro}</p>
+      <p class={styles.intro}>{services.intro} {anySector}</p>
     </header>
 
     <div class={styles.grid}>

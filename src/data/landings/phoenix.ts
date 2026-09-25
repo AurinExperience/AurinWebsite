@@ -33,7 +33,7 @@ export const phoenix: Landing = {
           'diseño web Phoenix, diseño de páginas web Phoenix Arizona, página web para compañía de roofing, página web para negocio de landscaping, diseño web para contratistas Phoenix, agencia hispana Phoenix',
       },
       hero: {
-        subtitle: 'Diseño web para contratistas en Phoenix',
+        subtitle: 'Diseño web y branding en Phoenix',
         titleLead: 'Diseño Web en',
         titleAccent: 'Phoenix',
         description:
@@ -176,7 +176,7 @@ export const phoenix: Landing = {
           'contractor web design Phoenix, roofing website design Phoenix, HVAC website design Phoenix, Latino-owned business website Phoenix, web designer who speaks Spanish Phoenix, bilingual web design Arizona',
       },
       hero: {
-        subtitle: 'Web design for contractors in Phoenix',
+        subtitle: 'Web design and branding in Phoenix',
         titleLead: 'Web Design in',
         titleAccent: 'Phoenix',
         description:

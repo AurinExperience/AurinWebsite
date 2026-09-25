@@ -613,11 +613,13 @@ const sumB = Math.floor(Math.random() * 9) + 1;
 
 <script>
   import { animate, stagger } from "motion";
-  import { getLangFromUrl, translations } from "@/i18n";
+  // Directo de translations y no del barrel "@/i18n": utils importa los datos de
+  // todas las landings y guías, y este script corre en el navegador.
+  import { translations } from "@/i18n/translations";
 
   document.addEventListener("DOMContentLoaded", () => {
     // Get current language and translations
-    const currentLang = getLangFromUrl(new URL(window.location.href));
+    const currentLang = window.location.pathname.split("/")[1] === "en" ? "en" : "es";
     const t = translations[currentLang];
     const form = document.querySelector(".contact-form") as HTMLFormElement;
     const submitButton = form?.querySelector(
