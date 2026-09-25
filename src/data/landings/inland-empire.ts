@@ -145,9 +145,9 @@ export const inlandEmpire: Landing = {
               'Sí. Revisamos lo que tienes, conservamos lo que funciona y rediseñamos lo que está frenando a tus clientes: cómo se ve en el celular, qué tan fácil es contactarte y si tu trabajo se ve al nivel que tiene.',
           },
           {
-            question: '¿Cómo trabajan si están en México?',
+            question: '¿Trabajan con negocios en el Inland Empire?',
             answer:
-              'Trabajamos a distancia. La diferencia de horario con California es de una a dos horas según la temporada.',
+              'Sí, trabajamos a distancia. La diferencia de horario con California es de una a dos horas según la temporada.',
           },
           {
             question: '¿Cómo se paga?',
@@ -287,9 +287,9 @@ export const inlandEmpire: Landing = {
               'Yes. We review what you have, keep what works, and redesign what is holding customers back: how it looks on a phone, how easy it is to contact you, and whether your work shows at the level it deserves.',
           },
           {
-            question: 'How do you work from Mexico?',
+            question: 'Do you work with businesses in the Inland Empire?',
             answer:
-              'We work remotely. The time difference with California is one to two hours depending on the season.',
+              'Yes, we work remotely. The time difference with California is one to two hours depending on the season.',
           },
           {
             question: 'How does payment work?',

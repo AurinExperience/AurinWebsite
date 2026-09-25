@@ -112,8 +112,7 @@ export const sonora: Landing = {
               'Sí, y ahí casi siempre lo recomendamos. El sitio queda disponible en inglés y en español con la misma información.',
           },
           c.faqPayment,
-          c.faqRemote,
-          c.faqLanguages,
+          c.faqRemote('Sonora'),
         ],
       },
       socialProof: {
@@ -217,8 +216,7 @@ export const sonora: Landing = {
               'Yes, and there we almost always recommend it. The site is available in English and Spanish with the same information.',
           },
           C.faqPayment,
-          C.faqRemote,
-          C.faqLanguages,
+          C.faqRemote('Sonora'),
         ],
       },
       socialProof: {

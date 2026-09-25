@@ -107,13 +107,12 @@ export const tamaulipas: Landing = {
               'Sí, en la frontera casi siempre lo recomendamos. El sitio queda disponible en inglés y en español con la misma información.',
           },
           {
-            question: '¿El sitio puede mostrar el estatus de las operaciones de mis clientes?',
+            question: 'Doy servicio a la industria, ¿qué debe tener mi sitio?',
             answer:
-              'Eso ya sería un sistema a la medida y no es lo que ofrecemos. Lo que hacemos es un sitio corporativo que presenta tu empresa, tus servicios y cómo contactarte.',
+              'Lo que un cliente industrial revisa antes de invitarte: qué servicios das, qué experiencia y certificaciones tienes, a qué sectores atiendes y cómo contactarte. Presentado con orden y sin exagerar.',
           },
           c.faqPayment,
-          c.faqRemote,
-          c.faqLanguages,
+          c.faqRemote('Tamaulipas'),
         ],
       },
       socialProof: {
@@ -212,13 +211,12 @@ export const tamaulipas: Landing = {
               'Yes, on the border we almost always recommend it. The site is available in English and Spanish with the same information.',
           },
           {
-            question: 'Can the site show the status of my clients’ operations?',
+            question: 'I serve the industry. What should my site include?',
             answer:
-              'That would be a custom system, and it is not what we offer. What we build is a corporate website that presents your company, your services, and how to reach you.',
+              'What an industrial client reviews before inviting you: what services you provide, your experience and certifications, the sectors you serve, and how to reach you. Presented clearly and without exaggeration.',
           },
           C.faqPayment,
-          C.faqRemote,
-          C.faqLanguages,
+          C.faqRemote('Tamaulipas'),
         ],
       },
       socialProof: {

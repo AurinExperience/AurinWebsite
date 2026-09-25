@@ -136,9 +136,9 @@ export const phoenix: Landing = {
               'Sí. En Phoenix buena parte de las búsquedas de servicios para el hogar son en inglés, también de clientes latinos. El sitio puede quedar en inglés y en español para no perder a ninguno de los dos.',
           },
           {
-            question: '¿Cómo trabajan si están en México?',
+            question: '¿Trabajan con negocios en Phoenix?',
             answer:
-              'Trabajamos a distancia. Arizona no cambia de horario en verano, así que la diferencia con nosotros es de una hora todo el año.',
+              'Sí, trabajamos a distancia. Arizona no cambia de horario en verano, así que la diferencia con nosotros es de una hora todo el año.',
           },
           {
             question: '¿Cómo se paga?',
@@ -279,9 +279,9 @@ export const phoenix: Landing = {
               'Yes. Many Latino owners prefer to run the project in Spanish while their customers search in English. We can work in whichever language you prefer and build the site in English, Spanish, or both depending on who you sell to.',
           },
           {
-            question: 'How do you work from Mexico?',
+            question: 'Do you work with businesses in Phoenix?',
             answer:
-              'We work remotely. Arizona does not change clocks in summer, so the difference with us is one hour year-round.',
+              'Yes, we work remotely. Arizona does not change clocks in summer, so the difference with us is one hour year-round.',
           },
           {
             question: 'How does payment work?',

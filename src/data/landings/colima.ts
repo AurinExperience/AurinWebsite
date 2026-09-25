@@ -105,9 +105,9 @@ export const colima: Landing = {
         items: [
           c.faqCost('Manzanillo'),
           {
-            question: '¿El sitio puede mostrar el estatus de las operaciones de mis clientes?',
+            question: 'Tengo una agencia aduanal, ¿qué debe tener mi sitio?',
             answer:
-              'Eso ya sería un sistema a la medida y no es lo que ofrecemos. Lo que hacemos es un sitio corporativo que presenta tu empresa, tus servicios y cómo contactarte.',
+              'Lo que un importador o exportador revisa antes de contactarte: qué servicios das, en qué operaciones tienes experiencia, con qué sectores trabajas y cómo contactarte. Presentado con orden y sin tecnicismos de más.',
           },
           {
             question: 'Tengo un hotel en Manzanillo, ¿puedo recibir reservas en mi sitio?',
@@ -115,7 +115,7 @@ export const colima: Landing = {
               'Sí. El sitio puede incluir reservas o solicitud de disponibilidad. Cómo se conecta con tu forma de operar lo definimos en la cotización.',
           },
           c.faqPayment,
-          c.faqRemote,
+          c.faqRemote('Colima'),
           c.faqLanguages,
         ],
       },
@@ -214,9 +214,9 @@ export const colima: Landing = {
         items: [
           C.faqCost('Manzanillo'),
           {
-            question: 'Can the site show the status of my clients’ operations?',
+            question: 'I run a customs brokerage. What should my site include?',
             answer:
-              'That would be a custom system, and it is not what we offer. What we build is a corporate website that presents your company, your services, and how to reach you.',
+              'What an importer or exporter reviews before contacting you: what services you provide, which operations you have experience in, which sectors you work with, and how to reach you. Presented clearly and without excess jargon.',
           },
           {
             question: 'I run a hotel in Manzanillo. Can I take bookings on my site?',
@@ -224,7 +224,7 @@ export const colima: Landing = {
               'Yes. The site can include bookings or availability requests. How it fits the way you operate is defined in the quote.',
           },
           C.faqPayment,
-          C.faqRemote,
+          C.faqRemote('Colima'),
           C.faqLanguages,
         ],
       },

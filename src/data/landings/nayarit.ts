@@ -111,8 +111,7 @@ export const nayarit: Landing = {
               'Sí, y en Riviera Nayarit casi siempre lo recomendamos. El sitio queda disponible en inglés y en español con la misma información.',
           },
           c.faqPayment,
-          c.faqRemote,
-          c.faqLanguages,
+          c.faqRemote('Nayarit'),
         ],
       },
       socialProof: {
@@ -212,8 +211,7 @@ export const nayarit: Landing = {
               'Yes, and in Riviera Nayarit we almost always recommend it. The site is available in English and Spanish with the same information.',
           },
           C.faqPayment,
-          C.faqRemote,
-          C.faqLanguages,
+          C.faqRemote('Nayarit'),
         ],
       },
       socialProof: {

@@ -42,11 +42,11 @@ const es = {
     answer:
       'Te cotizamos según tu proyecto. La forma de pago se acuerda en la cotización, antes de arrancar.',
   } satisfies Faq,
-  faqRemote: {
-    question: 'Están en Morelos, ¿pueden trabajar con mi empresa?',
+  faqRemote: (place: string): Faq => ({
+    question: `¿Trabajan con empresas en ${place}?`,
     answer:
-      'Sí. Nuestra oficina está en Cuernavaca y trabajamos a distancia con clientes en México, Estados Unidos, Canadá, España, República Dominicana y muchos países más.',
-  } satisfies Faq,
+      'Sí. Trabajamos a distancia con clientes en México, Estados Unidos, Canadá, España, República Dominicana y muchos países más.',
+  }),
   faqLanguages: {
     question: '¿Pueden hacer el sitio en inglés y en español?',
     answer:
@@ -86,11 +86,11 @@ const en: typeof es = {
     answer:
       'We quote based on your project. Payment terms are agreed in the quote, before work starts.',
   },
-  faqRemote: {
-    question: 'You are based in Morelos. Can you work with my company?',
+  faqRemote: (place: string): Faq => ({
+    question: `Do you work with companies in ${place}?`,
     answer:
-      'Yes. Our office is in Cuernavaca and we work remotely with clients in Mexico, the United States, Canada, Spain, the Dominican Republic, and many more countries.',
-  },
+      'Yes. We work remotely with clients in Mexico, the United States, Canada, Spain, the Dominican Republic, and many more countries.',
+  }),
   faqLanguages: {
     question: 'Can you build the site in English and Spanish?',
     answer:

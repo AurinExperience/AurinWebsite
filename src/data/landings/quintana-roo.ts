@@ -135,9 +135,9 @@ export const quintanaRoo: Landing = {
               'Sí. El patrón se repite en todo el giro: el visitante decide desde el celular, muchas veces ya estando de viaje y con poca señal. Eso obliga a un sitio ligero, con disponibilidad y precios claros, y con la reserva o el contacto a un toque. La fotografía carga el peso de la venta, así que se optimiza sin que pierda calidad.',
           },
           {
-            question: 'Están en Morelos, ¿cómo trabajan con un cliente en Cancún?',
+            question: '¿Trabajan con empresas en Quintana Roo?',
             answer:
-              'Todo el proceso está pensado para trabajarse a distancia: videollamadas, entregables en línea y comentarios directos sobre el diseño. Es como trabajamos con la mayoría de nuestros clientes fuera de Morelos. Lo único que pedimos es un responsable de tu lado que pueda revisar y aprobar en tiempo, porque ahí es donde se atoran los proyectos.',
+              'Sí. Trabajamos a distancia con clientes en México, Estados Unidos, Canadá, España, República Dominicana y muchos países más.',
           },
           {
             question: '¿Puedo actualizar precios y temporadas yo mismo?',
@@ -278,9 +278,9 @@ export const quintanaRoo: Landing = {
               'Yes. The pattern repeats across the industry: the visitor decides from a phone, often already traveling and with weak signal. That forces a light site with clear availability and pricing, and booking or contact one tap away. Photography carries the sale, so it gets optimized without losing quality.',
           },
           {
-            question: 'You are based in Morelos. How do you work with a client in Cancún?',
+            question: 'Do you work with companies in Quintana Roo?',
             answer:
-              'The whole process is built to run remotely: video calls, deliverables online, and comments directly on the design. It is how we work with most of our clients outside Morelos. All we ask is a project owner on your side who can review and approve on time, because that is where projects stall.',
+              'Yes. We work remotely with clients in Mexico, the United States, Canada, Spain, the Dominican Republic, and many more countries.',
           },
           {
             question: 'Can I update prices and seasons myself?',

@@ -119,8 +119,7 @@ export const bajaCaliforniaSur: Landing = {
               'Las plataformas ayudan, pero la marca y la relación con el huésped son de ellas. Un sitio propio te da un lugar para presentar tu propiedad a tu manera y recibir solicitudes directas.',
           },
           c.faqPayment,
-          c.faqRemote,
-          c.faqLanguages,
+          c.faqRemote('Baja California Sur'),
         ],
       },
       socialProof: {
@@ -228,8 +227,7 @@ export const bajaCaliforniaSur: Landing = {
               'Platforms help, but the brand and the guest relationship belong to them. Your own site gives you a place to present your property your way and receive direct inquiries.',
           },
           C.faqPayment,
-          C.faqRemote,
-          C.faqLanguages,
+          C.faqRemote('Baja California Sur'),
         ],
       },
       socialProof: {

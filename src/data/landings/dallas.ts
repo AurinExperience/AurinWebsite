@@ -144,9 +144,9 @@ export const dallas: Landing = {
               'Sí. En Dallas muchos clientes latinos buscan en inglés y otros prefieren el español, así que casi siempre recomendamos tener el sitio en los dos idiomas.',
           },
           {
-            question: '¿Cómo trabajan si están en México?',
+            question: '¿Trabajan con negocios en Dallas?',
             answer:
-              'Trabajamos a distancia. La diferencia de horario con Dallas es de cero a una hora según la temporada.',
+              'Sí, trabajamos a distancia. La diferencia de horario con Dallas es de cero a una hora según la temporada.',
           },
           {
             question: '¿Cómo se paga?',
@@ -286,9 +286,9 @@ export const dallas: Landing = {
               'Yes. We run the whole project in Spanish or English, whichever you prefer, and build the site in the languages your customers use. Plenty of Latino owners prefer to run the project in Spanish even when most of their customers search in English, and that works fine.',
           },
           {
-            question: 'How do you work from Mexico?',
+            question: 'Do you work with businesses in Dallas?',
             answer:
-              'We work remotely. The time difference with Dallas is zero to one hour depending on the season.',
+              'Yes, we work remotely. The time difference with Dallas is zero to one hour depending on the season.',
           },
           {
             question: 'How does payment work?',

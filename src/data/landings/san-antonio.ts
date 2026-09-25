@@ -134,9 +134,9 @@ export const sanAntonio: Landing = {
               'Sí. En San Antonio lo recomendamos casi siempre, porque buena parte de los clientes latinos prefiere leer en inglés y otra parte en español. El sitio queda disponible en los dos idiomas con la misma información.',
           },
           {
-            question: '¿Por qué una agencia en México y no una local?',
+            question: '¿Trabajan con negocios en San Antonio?',
             answer:
-              'Porque marca, diseño y desarrollo los resuelve un mismo equipo que entiende tu cultura y la de tus clientes. Ya trabajamos a distancia con clientes en México, Estados Unidos, Canadá, España, República Dominicana y muchos países más. La diferencia de horario con San Antonio es de cero a una hora según la temporada.',
+              'Sí. Marca, diseño y desarrollo los resuelve un mismo equipo que entiende tu cultura y la de tus clientes. Ya trabajamos a distancia con clientes en México, Estados Unidos, Canadá, España, República Dominicana y muchos países más. La diferencia de horario con San Antonio es de cero a una hora según la temporada.',
           },
           {
             question: '¿Cómo se paga?',
@@ -276,9 +276,9 @@ export const sanAntonio: Landing = {
               'Yes, and in San Antonio we almost always recommend it. A large share of Hispanic customers prefer English and another share prefer Spanish. The site is available in both languages with the same information.',
           },
           {
-            question: 'Why an agency in Mexico instead of a local one?',
+            question: 'Do you work with businesses in San Antonio?',
             answer:
-              'Brand, design, and development are handled by the same team, one that understands your culture and your customers’. We already work remotely with clients in Mexico, the United States, Canada, Spain, the Dominican Republic, and many more countries. The time difference with San Antonio is zero to one hour depending on the season.',
+              'Yes. Brand, design, and development are handled by the same team, one that understands your culture and your customers’. We already work remotely with clients in Mexico, the United States, Canada, Spain, the Dominican Republic, and many more countries. The time difference with San Antonio is zero to one hour depending on the season.',
           },
           {
             question: 'How does payment work?',

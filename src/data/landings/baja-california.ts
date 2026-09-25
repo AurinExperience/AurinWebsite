@@ -136,9 +136,9 @@ export const bajaCalifornia: Landing = {
               'Sí. Se puede mostrar el precio en dólares en la versión en inglés y en pesos en la española, o dejar ambas monedas visibles según lo que te convenga comercialmente. Es una decisión de negocio más que técnica y la definimos en el descubrimiento, porque cambia cómo se estructura la información de precios en todo el sitio.',
           },
           {
-            question: 'Están en Morelos, ¿cómo trabajan con un cliente en Tijuana?',
+            question: '¿Trabajan con empresas en Baja California?',
             answer:
-              'Todo el proceso corre a distancia: videollamadas, entregables en línea y comentarios directos sobre el diseño. La diferencia de horario con Baja California son dos horas y ajustamos las juntas a tu agenda. Es como trabajamos con la mayoría de nuestros clientes fuera de Morelos.',
+              'Sí. Trabajamos a distancia con clientes en México, Estados Unidos, Canadá, España, República Dominicana y muchos países más.',
           },
           {
             question: '¿Nos ayudan a aparecer en búsquedas desde Estados Unidos?',
@@ -279,9 +279,9 @@ export const bajaCalifornia: Landing = {
               'Yes. Prices can show in dollars on the English version and pesos on the Spanish one, or both currencies can stay visible depending on what works commercially. It is a business decision more than a technical one and we settle it during discovery, because it changes how pricing information is structured across the whole site.',
           },
           {
-            question: 'You are based in Morelos. How do you work with a client in Tijuana?',
+            question: 'Do you work with companies in Baja California?',
             answer:
-              'The whole process runs remotely: video calls, deliverables online, and comments directly on the design. The time difference with Baja California is two hours and we fit meetings to your calendar. It is how we work with most of our clients outside Morelos.',
+              'Yes. We work remotely with clients in Mexico, the United States, Canada, Spain, the Dominican Republic, and many more countries.',
           },
           {
             question: 'Can you help us show up in searches from the United States?',
