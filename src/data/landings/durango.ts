@@ -13,7 +13,7 @@ const { es: c, en: C } = COMMON;
 export const durango: Landing = {
   id: 'durango',
   status: 'live',
-  publishAt: '2026-10-14T00:00:00-06:00',
+  publishAt: '2026-10-05T00:00:00-06:00',
   slug: { es: 'durango', en: 'durango' },
   region: 'Durango',
   geo: { latitude: 24.0277, longitude: -104.6532 },

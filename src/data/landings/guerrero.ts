@@ -14,7 +14,7 @@ const { es: c, en: C } = COMMON;
 export const guerrero: Landing = {
   id: 'guerrero',
   status: 'live',
-  publishAt: '2026-09-29T00:00:00-06:00',
+  publishAt: '2026-09-27T00:00:00-06:00',
   slug: { es: 'guerrero', en: 'guerrero' },
   region: 'Guerrero',
   geo: { latitude: 16.8531, longitude: -99.8237 },

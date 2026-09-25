@@ -15,7 +15,7 @@ const { es: c, en: C } = COMMON;
 export const veracruz: Landing = {
   id: 'veracruz',
   status: 'live',
-  publishAt: '2026-10-03T00:00:00-06:00',
+  publishAt: '2026-09-29T00:00:00-06:00',
   slug: { es: 'veracruz', en: 'veracruz' },
   region: 'Veracruz',
   geo: { latitude: 19.1738, longitude: -96.1342 },

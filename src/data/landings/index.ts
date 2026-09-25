@@ -14,7 +14,7 @@ import { sanAntonio } from './san-antonio';
 import { inlandEmpire } from './inland-empire';
 import { phoenix } from './phoenix';
 import { dallas } from './dallas';
-// Estados de México programados con `publishAt` (uno por día): se revisan en dev/preview y se publican solos.
+// Estados de México programados con `publishAt` (dos por día): se revisan en dev/preview y se publican solos.
 import { aguascalientes } from './aguascalientes';
 import { bajaCaliforniaSur } from './baja-california-sur';
 import { campeche } from './campeche';
@@ -68,7 +68,7 @@ const ALL_LANDINGS: Landing[] = [
   inlandEmpire,
   phoenix,
   dallas,
-  // México: programados uno por día con `publishAt`.
+  // México: programados dos por día con `publishAt`.
   aguascalientes,
   bajaCaliforniaSur,
   campeche,

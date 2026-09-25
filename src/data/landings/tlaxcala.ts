@@ -14,7 +14,7 @@ const { es: c, en: C } = COMMON;
 export const tlaxcala: Landing = {
   id: 'tlaxcala',
   status: 'live',
-  publishAt: '2026-10-15T00:00:00-06:00',
+  publishAt: '2026-10-05T00:00:00-06:00',
   slug: { es: 'tlaxcala', en: 'tlaxcala' },
   region: 'Tlaxcala',
   geo: { latitude: 19.3182, longitude: -98.2375 },

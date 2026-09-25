@@ -16,7 +16,7 @@ const { es: c, en: C } = COMMON;
 export const sonora: Landing = {
   id: 'sonora',
   status: 'live',
-  publishAt: '2026-10-06T00:00:00-06:00',
+  publishAt: '2026-10-01T00:00:00-06:00',
   slug: { es: 'sonora', en: 'sonora' },
   region: 'Sonora',
   geo: { latitude: 29.0729, longitude: -110.9559 },

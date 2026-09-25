@@ -15,7 +15,7 @@ const { es: c, en: C } = COMMON;
 export const chihuahua: Landing = {
   id: 'chihuahua',
   status: 'live',
-  publishAt: '2026-09-30T00:00:00-06:00',
+  publishAt: '2026-09-28T00:00:00-06:00',
   slug: { es: 'chihuahua', en: 'chihuahua' },
   region: 'Chihuahua',
   geo: { latitude: 28.6353, longitude: -106.0889 },

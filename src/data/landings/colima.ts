@@ -15,7 +15,7 @@ const { es: c, en: C } = COMMON;
 export const colima: Landing = {
   id: 'colima',
   status: 'live',
-  publishAt: '2026-10-13T00:00:00-06:00',
+  publishAt: '2026-10-04T00:00:00-06:00',
   slug: { es: 'colima', en: 'colima' },
   region: 'Colima',
   geo: { latitude: 19.1138, longitude: -104.3385 },

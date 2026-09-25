@@ -14,7 +14,7 @@ const { es: c, en: C } = COMMON;
 export const hidalgo: Landing = {
   id: 'hidalgo',
   status: 'live',
-  publishAt: '2026-10-08T00:00:00-06:00',
+  publishAt: '2026-10-02T00:00:00-06:00',
   slug: { es: 'hidalgo', en: 'hidalgo' },
   region: 'Hidalgo',
   geo: { latitude: 20.1011, longitude: -98.7591 },

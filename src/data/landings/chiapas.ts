@@ -13,7 +13,7 @@ const { es: c, en: C } = COMMON;
 export const chiapas: Landing = {
   id: 'chiapas',
   status: 'live',
-  publishAt: '2026-10-11T00:00:00-06:00',
+  publishAt: '2026-10-03T00:00:00-06:00',
   slug: { es: 'chiapas', en: 'chiapas' },
   region: 'Chiapas',
   geo: { latitude: 16.7531, longitude: -93.1156 },

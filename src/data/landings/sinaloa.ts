@@ -14,7 +14,7 @@ const { es: c, en: C } = COMMON;
 export const sinaloa: Landing = {
   id: 'sinaloa',
   status: 'live',
-  publishAt: '2026-10-05T00:00:00-06:00',
+  publishAt: '2026-09-30T00:00:00-06:00',
   slug: { es: 'sinaloa', en: 'sinaloa' },
   region: 'Sinaloa',
   geo: { latitude: 24.8091, longitude: -107.394 },

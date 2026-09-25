@@ -14,7 +14,7 @@ const { es: c, en: C } = COMMON;
 export const tabasco: Landing = {
   id: 'tabasco',
   status: 'live',
-  publishAt: '2026-10-12T00:00:00-06:00',
+  publishAt: '2026-10-04T00:00:00-06:00',
   slug: { es: 'tabasco', en: 'tabasco' },
   region: 'Tabasco',
   geo: { latitude: 17.9869, longitude: -92.9303 },

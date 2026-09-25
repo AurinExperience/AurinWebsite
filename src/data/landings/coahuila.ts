@@ -16,7 +16,7 @@ const { es: c, en: C } = COMMON;
 export const coahuila: Landing = {
   id: 'coahuila',
   status: 'live',
-  publishAt: '2026-10-04T00:00:00-06:00',
+  publishAt: '2026-09-30T00:00:00-06:00',
   slug: { es: 'coahuila', en: 'coahuila' },
   region: 'Coahuila',
   geo: { latitude: 25.4232, longitude: -101.0053 },
