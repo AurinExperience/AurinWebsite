@@ -110,8 +110,12 @@ export const ALL_LANDINGS: Landing[] = [
  * mostraban en los previews de Vercel vía VERCEL_ENV, pero en producción esa
  * condición resultó verdadera y publicó las programadas antes de su fecha: nada
  * que dependa de variables del entorno de Vercel decide qué se publica.
+ *
+ * `MODE` y no `DEV`: DEV sigue a NODE_ENV, y con NODE_ENV=development en Vercel
+ * un build de producción compilaba DEV = true y publicaba todo. MODE lo fija el
+ * comando (`astro dev` → development, `astro build` → production).
  */
-const SHOW_ALL = import.meta.env.DEV && !process.env.PROD_PREVIEW;
+const SHOW_ALL = import.meta.env.MODE === 'development' && !process.env.PROD_PREVIEW;
 
 export function isPublished(landing: Landing, now = Date.now()): boolean {
   if (SHOW_ALL) return true;
