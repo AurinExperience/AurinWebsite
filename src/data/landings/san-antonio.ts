@@ -4,9 +4,9 @@ import type { Landing } from './types';
  * San Antonio — palabra clave objetivo: "diseño web San Antonio" (ES) y
  * "bilingual web design San Antonio" (EN).
  *
- * Ángulo propio: el negocio familiar que pasa a la siguiente generación. Es la
- * gran ciudad más mexicana de EE. UU., llena de negocios de segunda y tercera
- * generación: restaurantes, panaderías, talleres, servicios. Muchos de sus
+ * Ángulo propio: negocios con años de historia que renuevan marca y sitio. Es
+ * la gran ciudad más mexicana de EE. UU., llena de negocios establecidos:
+ * restaurantes, panaderías, talleres, servicios. Muchos de sus
  * clientes latinos ya prefieren el inglés, así que aquí el inglés no es "el
  * otro mercado": es la mitad del propio. Branding es el servicio fuerte; en
  * español casi no hay competencia para "branding San Antonio".
@@ -26,7 +26,7 @@ export const sanAntonio: Landing = {
       seo: {
         title: 'Diseño Web y Branding en San Antonio, TX | Aurin',
         description:
-          'Diseño web y branding en San Antonio para negocios latinos y familiares. Sitios bilingües para restaurantes, servicios y empresas que quieren crecer.',
+          'Diseño web y branding en San Antonio para negocios latinos. Sitios bilingües para restaurantes, servicios y empresas que quieren crecer.',
         keywords:
           'diseño web San Antonio, diseño de páginas web San Antonio Texas, branding San Antonio, diseño de logotipos San Antonio, logo para food truck San Antonio, agencia hispana San Antonio',
       },
@@ -35,7 +35,7 @@ export const sanAntonio: Landing = {
         titleLead: 'Diseño Web y Branding en',
         titleAccent: 'San Antonio',
         description:
-          'Tu negocio lleva años con clientes fieles y buena fama de boca en boca, pero la siguiente generación de clientes te busca primero en Google y en inglés. Renovamos tu marca y tu sitio para que el negocio de la familia se vea tan bien como trabaja.',
+          'Tu negocio lleva años con clientes fieles y buena fama de boca en boca, pero la siguiente generación de clientes te busca primero en Google y en inglés. Renovamos tu marca y tu sitio para que tu negocio se vea tan bien como trabaja.',
         cta: 'Cotiza tu proyecto',
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
@@ -47,10 +47,10 @@ export const sanAntonio: Landing = {
       services: {
         heading: 'Servicios de branding y diseño web en San Antonio',
         intro:
-          'Trabajamos con negocios de San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin y Boerne: restaurantes y panaderías, talleres, contratistas, clínicas, despachos y negocios familiares que ya van en su segunda o tercera generación.',
+          'Trabajamos con negocios de San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin y Boerne: restaurantes y panaderías, talleres, contratistas, clínicas, despachos y negocios con años de historia.',
         items: [
           {
-            title: 'Renovación de marca para negocios familiares',
+            title: 'Renovación de marca para negocios con historia',
             description:
               'Un logo que funcionó treinta años puede empezar a verse viejo junto a la competencia nueva. Renovamos tu identidad sin borrar lo que tus clientes reconocen: conservamos la esencia y la llevamos a algo que funcione en letreros, empaques, redes y web.',
             bullets: [
@@ -98,7 +98,7 @@ export const sanAntonio: Landing = {
         steps: [
           {
             name: 'Conocer el negocio',
-            text: 'Empezamos por la historia: cómo nació el negocio, qué lo hace distinto y qué quieres conservar. En un negocio familiar eso importa tanto como los datos, porque es lo que el cliente fiel reconoce.',
+            text: 'Empezamos por la historia: cómo nació el negocio, qué lo hace distinto y qué quieres conservar. En un negocio con años de historia eso importa tanto como los datos, porque es lo que el cliente fiel reconoce.',
           },
           {
             name: 'Marca y estructura',
@@ -106,7 +106,7 @@ export const sanAntonio: Landing = {
           },
           {
             name: 'Diseño',
-            text: 'Te presentamos el diseño, con la familia o el equipo que decide, y lo ajustamos contigo según lo acordado en la cotización.',
+            text: 'Te presentamos el diseño, con las personas que deciden, y lo ajustamos contigo según lo acordado en la cotización.',
           },
           {
             name: 'Lanzamiento',
@@ -134,9 +134,9 @@ export const sanAntonio: Landing = {
               'Sí. En San Antonio lo recomendamos casi siempre, porque buena parte de los clientes latinos prefiere leer en inglés y otra parte en español. El sitio queda disponible en los dos idiomas con la misma información.',
           },
           {
-            question: '¿Por qué una agencia en México y no una local?',
+            question: '¿Trabajan con negocios en San Antonio?',
             answer:
-              'Porque marca, diseño y desarrollo los resuelve un mismo equipo que entiende tu cultura y la de tus clientes. Ya trabajamos a distancia con clientes en México, Estados Unidos, Canadá, España, República Dominicana y muchos países más. La diferencia de horario con San Antonio es de cero a una hora según la temporada.',
+              'Sí. Marca, diseño y desarrollo los resuelve un mismo equipo que entiende tu cultura y la de tus clientes. Ya trabajamos a distancia con clientes en Estados Unidos, Canadá y España, y con empresas de todo México. La diferencia de horario con San Antonio es de cero a una hora según la temporada.',
           },
           {
             question: '¿Cómo se paga?',
@@ -163,13 +163,13 @@ export const sanAntonio: Landing = {
       breadcrumb: 'Diseño Web San Antonio',
       serviceName: 'Diseño Web y Branding en San Antonio',
       howToDescription:
-        'Proceso paso a paso para renovar la marca y el sitio web de un negocio familiar en San Antonio.',
+        'Proceso paso a paso para renovar la marca y el sitio web de un negocio con historia en San Antonio.',
     },
     en: {
       seo: {
         title: 'Branding & Bilingual Web Design in San Antonio | Aurin',
         description:
-          'Branding and bilingual web design in San Antonio for family businesses, restaurants, and local services. English and Spanish sites for both sides of your market.',
+          'Branding and bilingual web design in San Antonio for established businesses, restaurants, and local services. English and Spanish sites for both sides of your market.',
         keywords:
           'branding agency San Antonio, bilingual web design San Antonio, logo redesign San Antonio, restaurant website San Antonio, Latino-owned business website San Antonio, web designer who speaks Spanish San Antonio, food truck logo San Antonio',
       },
@@ -178,7 +178,7 @@ export const sanAntonio: Landing = {
         titleLead: 'Branding & Web Design in',
         titleAccent: 'San Antonio',
         description:
-          'Your business has loyal customers and a strong word-of-mouth reputation, but the next generation finds you on Google before they walk in. We refresh your brand and build your site so the family business looks as good as it works, in English and in Spanish.',
+          'Your business has loyal customers and a strong word-of-mouth reputation, but the next generation finds you on Google before they walk in. We refresh your brand and build your site so your business looks as good as it works, in English and in Spanish.',
         cta: 'Request a quote',
         ctaSecondary: 'See how we work',
         stats: [
@@ -190,10 +190,10 @@ export const sanAntonio: Landing = {
       services: {
         heading: 'Branding and web design services in San Antonio',
         intro:
-          'We work with businesses in San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin, and Boerne: restaurants and bakeries, auto shops, contractors, clinics, professional firms, and family businesses on their second or third generation.',
+          'We work with businesses in San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin, and Boerne: restaurants and bakeries, auto shops, contractors, clinics, professional firms, and businesses with years of history.',
         items: [
           {
-            title: 'Brand refresh for family businesses',
+            title: 'Brand refresh for established businesses',
             description:
               'A logo that worked for thirty years can start to look dated next to newer competitors. We refresh your identity without erasing what customers recognize: we keep the essence and make it work on signs, packaging, social media, and the web.',
             bullets: [
@@ -240,7 +240,7 @@ export const sanAntonio: Landing = {
         steps: [
           {
             name: 'Learn the business',
-            text: 'We start with the story: how the business began, what makes it different, and what you want to keep. In a family business that matters as much as the data, because it is what loyal customers recognize.',
+            text: 'We start with the story: how the business began, what makes it different, and what you want to keep. In an established business that matters as much as the data, because it is what loyal customers recognize.',
           },
           {
             name: 'Brand and structure',
@@ -248,7 +248,7 @@ export const sanAntonio: Landing = {
           },
           {
             name: 'Design',
-            text: 'We present the design to whoever makes the decision, family or team, and refine it with you as agreed in the quote.',
+            text: 'We present the design to whoever makes the decision and refine it with you as agreed in the quote.',
           },
           {
             name: 'Launch',
@@ -276,9 +276,9 @@ export const sanAntonio: Landing = {
               'Yes, and in San Antonio we almost always recommend it. A large share of Hispanic customers prefer English and another share prefer Spanish. The site is available in both languages with the same information.',
           },
           {
-            question: 'Why an agency in Mexico instead of a local one?',
+            question: 'Do you work with businesses in San Antonio?',
             answer:
-              'Brand, design, and development are handled by the same team, one that understands your culture and your customers’. We already work remotely with clients in Mexico, the United States, Canada, Spain, the Dominican Republic, and many more countries. The time difference with San Antonio is zero to one hour depending on the season.',
+              'Yes. Brand, design, and development are handled by the same team, one that understands your culture and your customers’. We already work remotely with clients in the United States, Canada, and Spain, and with companies all over Mexico. The time difference with San Antonio is zero to one hour depending on the season.',
           },
           {
             question: 'How does payment work?',
@@ -305,7 +305,7 @@ export const sanAntonio: Landing = {
       breadcrumb: 'Web Design San Antonio',
       serviceName: 'Branding and Bilingual Web Design in San Antonio',
       howToDescription:
-        'Step-by-step process to refresh the brand and website of a family business in San Antonio.',
+        'Step-by-step process to refresh the brand and website of an established business in San Antonio.',
     },
   },
 };

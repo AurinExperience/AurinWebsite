@@ -135,9 +135,9 @@ export const yucatan: Landing = {
               'Sí. De hecho llevamos más de veinte años haciendo branding, y en un negocio nuevo conviene resolverlo junto con el sitio: si la identidad se define después, el sitio termina rehaciéndose. Podemos trabajar desde cero o partir de lo que ya tengas si la marca ya existe.',
           },
           {
-            question: 'Están en Morelos, ¿cómo trabajan con un cliente en Mérida?',
+            question: '¿Trabajan con empresas en Yucatán?',
             answer:
-              'Todo el proceso corre a distancia: videollamadas, entregables en línea y comentarios directos sobre el diseño. Es como trabajamos con la mayoría de nuestros clientes fuera de Morelos y no cambia el resultado. Lo único que pedimos es alguien de tu lado que pueda revisar y aprobar en tiempo.',
+              'Claro. Trabajamos a distancia con empresas de todo México y con clientes en Estados Unidos, Canadá y España, entre otros países.',
           },
           {
             question: '¿El sitio necesita versión en inglés?',
@@ -277,9 +277,9 @@ export const yucatan: Landing = {
               'Yes. We have been doing branding for more than twenty years, and in a new business it is worth solving alongside the site: if identity gets defined afterward, the site ends up being rebuilt. We can work from scratch or start from what you already have if the brand exists.',
           },
           {
-            question: 'You are based in Morelos. How do you work with a client in Mérida?',
+            question: 'Do you work with companies in Yucatán?',
             answer:
-              'The whole process runs remotely: video calls, deliverables online, and comments directly on the design. It is how we work with most of our clients outside Morelos and it does not change the result. All we ask is someone on your side who can review and approve on time.',
+              'Absolutely. We work remotely with companies all over Mexico and with clients in the United States, Canada, and Spain, among other countries.',
           },
           {
             question: 'Does the site need an English version?',

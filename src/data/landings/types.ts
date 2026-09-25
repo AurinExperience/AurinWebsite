@@ -75,6 +75,12 @@ export interface Landing {
    */
   status: 'live' | 'draft';
   /**
+   * Fecha y hora (ISO con zona, p. ej. '2026-09-26T00:00:00-06:00') a partir de
+   * la cual una landing `live` se publica sola. Antes de esa fecha se comporta
+   * como `draft`. Es lo que permite soltar ciudades de a una por día sin deploy.
+   */
+  publishAt?: string;
+  /**
    * Solo para la ciudad donde Aurin tiene domicilio real. Agrega el nodo
    * LocalBusiness con el NAP verdadero. En cualquier otra ciudad sería una
    * dirección inventada: eso sí es motivo de penalización y de suspensión de la

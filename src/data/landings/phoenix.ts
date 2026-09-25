@@ -33,7 +33,7 @@ export const phoenix: Landing = {
           'diseño web Phoenix, diseño de páginas web Phoenix Arizona, página web para compañía de roofing, página web para negocio de landscaping, diseño web para contratistas Phoenix, agencia hispana Phoenix',
       },
       hero: {
-        subtitle: 'Diseño web para contratistas en Phoenix',
+        subtitle: 'Diseño web y branding en Phoenix',
         titleLead: 'Diseño Web en',
         titleAccent: 'Phoenix',
         description:
@@ -136,9 +136,9 @@ export const phoenix: Landing = {
               'Sí. En Phoenix buena parte de las búsquedas de servicios para el hogar son en inglés, también de clientes latinos. El sitio puede quedar en inglés y en español para no perder a ninguno de los dos.',
           },
           {
-            question: '¿Cómo trabajan si están en México?',
+            question: '¿Trabajan con negocios en Phoenix?',
             answer:
-              'Trabajamos a distancia. Arizona no cambia de horario en verano, así que la diferencia con nosotros es de una hora todo el año.',
+              'Sí, trabajamos a distancia. Arizona no cambia de horario en verano, así que la diferencia con nosotros es de una hora todo el año.',
           },
           {
             question: '¿Cómo se paga?',
@@ -176,7 +176,7 @@ export const phoenix: Landing = {
           'contractor web design Phoenix, roofing website design Phoenix, HVAC website design Phoenix, Latino-owned business website Phoenix, web designer who speaks Spanish Phoenix, bilingual web design Arizona',
       },
       hero: {
-        subtitle: 'Web design for contractors in Phoenix',
+        subtitle: 'Web design and branding in Phoenix',
         titleLead: 'Web Design in',
         titleAccent: 'Phoenix',
         description:
@@ -279,9 +279,9 @@ export const phoenix: Landing = {
               'Yes. Many Latino owners prefer to run the project in Spanish while their customers search in English. We can work in whichever language you prefer and build the site in English, Spanish, or both depending on who you sell to.',
           },
           {
-            question: 'How do you work from Mexico?',
+            question: 'Do you work with businesses in Phoenix?',
             answer:
-              'We work remotely. Arizona does not change clocks in summer, so the difference with us is one hour year-round.',
+              'Yes, we work remotely. Arizona does not change clocks in summer, so the difference with us is one hour year-round.',
           },
           {
             question: 'How does payment work?',

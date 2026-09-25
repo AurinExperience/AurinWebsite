@@ -126,9 +126,9 @@ export const houston: Landing = {
               'Depende del alcance: cuántas páginas, si el sitio va en dos idiomas, si hay tienda en línea o integraciones y si producimos el contenido. Después de la llamada de diagnóstico te mandamos una cotización con todo desglosado para que veas exactamente qué estás pagando.',
           },
           {
-            question: '¿Por qué contratar una agencia que está en México?',
+            question: '¿Trabajan con negocios en Houston?',
             answer:
-              'Porque diseño, desarrollo y marca los resuelve un mismo equipo. Ya trabajamos a distancia con clientes en México, Estados Unidos, Canadá, España, República Dominicana y muchos países más. Hablamos tu idioma y el de tus clientes, y la diferencia de horario con Houston es de cero a una hora según la temporada.',
+              'Sí. Diseño, desarrollo y marca los resuelve un mismo equipo. Ya trabajamos a distancia con clientes en Estados Unidos, Canadá y España, y con empresas de todo México. Hablamos tu idioma y el de tus clientes, y la diferencia de horario con Houston es de cero a una hora según la temporada.',
           },
           {
             question: '¿Hacen el sitio en inglés y en español?',
@@ -269,9 +269,9 @@ export const houston: Landing = {
               'It depends on scope: how many pages, whether the site runs in two languages, whether there is an online store or integrations, and whether we produce the content. After the discovery call we send an itemized quote, so you see exactly what you are paying for.',
           },
           {
-            question: 'Why hire an agency based in Mexico?',
+            question: 'Do you work with businesses in Houston?',
             answer:
-              'Design, development, and brand are handled by the same team. We already work remotely with clients in Mexico, the United States, Canada, Spain, the Dominican Republic, and many more countries. We work in Spanish and English, and the time difference with Houston is zero to one hour depending on the season.',
+              'Yes. Design, development, and brand are handled by the same team. We already work remotely with clients in the United States, Canada, and Spain, and with companies all over Mexico. We work in Spanish and English, and the time difference with Houston is zero to one hour depending on the season.',
           },
           {
             question: 'Do you build the site in English and Spanish?',

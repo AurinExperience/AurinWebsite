@@ -23,7 +23,13 @@ interface Props {
 }
 
 const { landing, lang, nearby } = Astro.props;
-const others = siblingLandings(landing);
+// Orden alfabético por el lugar que se lee en el enlace ("…en Houston" → "Houston"),
+// no por la etiqueta completa, que cambia de prefijo entre landings.
+const place = (l: Landing) =>
+  l.copy[lang].linkLabel.replace(/^.*\s(?:en|in)\s+(?:el\s+|the\s+)?/i, '');
+const others = siblingLandings(landing).sort((a, b) =>
+  place(a).localeCompare(place(b), lang, { sensitivity: 'base' })
+);
 ---
 
 <section class={styles.section} aria-labelledby="nearby-heading">

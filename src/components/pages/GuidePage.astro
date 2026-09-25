@@ -10,7 +10,7 @@
 import type { ArticleStructuredData, BreadcrumbListStructuredData } from '@/types/seo';
 import type { Guide } from '@/data/guides';
 import { guidePath, guidesIndexPath, siblingGuides } from '@/data/guides';
-import { LANDINGS, landingPath } from '@/data/landings';
+import { publishedLandings, landingPath } from '@/data/landings';
 import { SITE } from '@/config/site';
 import { getLangFromUrl } from '@/i18n';
 import Layout from '@/layouts/Layout.astro';
@@ -44,7 +44,7 @@ const inline = (value: string) =>
 
 /* Landings relacionadas: es el enlace que hace útil a la guía para el ranking. */
 const related = guide.relatedLandings
-  .map((id) => LANDINGS.find((l) => l.id === id))
+  .map((id) => publishedLandings().find((l) => l.id === id))
   .filter((l): l is NonNullable<typeof l> => Boolean(l));
 
 const others = siblingGuides(guide).slice(0, 3);

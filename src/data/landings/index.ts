@@ -14,6 +14,29 @@ import { sanAntonio } from './san-antonio';
 import { inlandEmpire } from './inland-empire';
 import { phoenix } from './phoenix';
 import { dallas } from './dallas';
+// Estados de México programados con `publishAt` (dos por día): se revisan en dev/preview y se publican solos.
+import { aguascalientes } from './aguascalientes';
+import { bajaCaliforniaSur } from './baja-california-sur';
+import { campeche } from './campeche';
+import { chiapas } from './chiapas';
+import { chihuahua } from './chihuahua';
+import { coahuila } from './coahuila';
+import { colima } from './colima';
+import { durango } from './durango';
+import { estadoDeMexico } from './estado-de-mexico';
+import { guerrero } from './guerrero';
+import { hidalgo } from './hidalgo';
+import { michoacan } from './michoacan';
+import { nayarit } from './nayarit';
+import { oaxaca } from './oaxaca';
+import { sanLuisPotosi } from './san-luis-potosi';
+import { sinaloa } from './sinaloa';
+import { sonora } from './sonora';
+import { tabasco } from './tabasco';
+import { tamaulipas } from './tamaulipas';
+import { tlaxcala } from './tlaxcala';
+import { veracruz } from './veracruz';
+import { zacatecas } from './zacatecas';
 
 export type { Lang, Landing, LandingCopy } from './types';
 export type { ProofProject, ProofProjectId } from './projects';
@@ -28,7 +51,7 @@ export { PROOF_PROJECTS } from './projects';
  * Cualquier slug que no esté en esta lista NO genera página (ver las rutas
  * `diseno-web-[ciudad].astro` y `en/web-design-[city].astro`).
  */
-const ALL_LANDINGS: Landing[] = [
+export const ALL_LANDINGS: Landing[] = [
   monterrey,
   queretaro,
   cdmx,
@@ -45,14 +68,59 @@ const ALL_LANDINGS: Landing[] = [
   inlandEmpire,
   phoenix,
   dallas,
+  // México: programados dos por día con `publishAt`.
+  aguascalientes,
+  bajaCaliforniaSur,
+  campeche,
+  chiapas,
+  chihuahua,
+  coahuila,
+  colima,
+  durango,
+  estadoDeMexico,
+  guerrero,
+  hidalgo,
+  michoacan,
+  nayarit,
+  oaxaca,
+  sanLuisPotosi,
+  sinaloa,
+  sonora,
+  tabasco,
+  tamaulipas,
+  tlaxcala,
+  veracruz,
+  zacatecas,
 ];
 
 /**
- * Las landings PUBLICADAS. Todo lo que mira al exterior —rutas, sitemap,
- * footer, enlaces cruzados— consume esta lista, así que una ciudad en `draft`
- * es invisible para Google y para el usuario sin tener que borrar su archivo.
+ * Qué landings están publicadas. Todo lo que mira al exterior —rutas, sitemap,
+ * llms.txt, guías, enlaces cruzados— pasa por `publishedLandings()`, así que una
+ * ciudad no publicada es invisible para Google y para el usuario sin borrar su
+ * archivo.
+ *
+ * Publicada = `status: 'live'` y, si tiene `publishAt`, que esa fecha ya pasó.
+ * Es una función y no una constante a propósito: se evalúa en cada request, así
+ * que una landing programada aparece sola en su fecha, sin deploy ni cron. Una
+ * constante se calcularía una vez al arrancar la función de Vercel y no se
+ * enteraría del cambio de día.
+ *
+ * Excepción: en `npm run dev` y en los previews de Vercel se muestran todas
+ * (draft y programadas) para revisarlas. `PROD_PREVIEW=1 npm run dev` simula lo
+ * que ve producción. Vercel ya marca los previews como noindex.
  */
-export const LANDINGS: Landing[] = ALL_LANDINGS.filter((l) => l.status === 'live');
+const SHOW_ALL =
+  (import.meta.env.DEV && !process.env.PROD_PREVIEW) || process.env.VERCEL_ENV === 'preview';
+
+export function isPublished(landing: Landing, now = Date.now()): boolean {
+  if (SHOW_ALL) return true;
+  if (landing.status !== 'live') return false;
+  return !landing.publishAt || Date.parse(landing.publishAt) <= now;
+}
+
+export function publishedLandings(): Landing[] {
+  return ALL_LANDINGS.filter((l) => isPublished(l));
+}
 
 const PREFIX: Record<Lang, string> = {
   es: '/diseno-web-',
@@ -70,13 +138,13 @@ export function landingPath(landing: Landing, lang: Lang): string {
  */
 export function findLanding(slug: string | undefined, lang: Lang): Landing | undefined {
   if (!slug) return undefined;
-  return LANDINGS.find((landing) => landing.slug[lang] === slug);
+  return publishedLandings().find((landing) => landing.slug[lang] === slug);
 }
 
 /** Las demás landings del mismo país, para el bloque de enlaces cruzados. */
 export function siblingLandings(current: Landing): Landing[] {
   const country = current.country ?? 'MX';
-  return LANDINGS.filter(
+  return publishedLandings().filter(
     (landing) => landing.id !== current.id && (landing.country ?? 'MX') === country
   );
 }
@@ -85,9 +153,10 @@ export function siblingLandings(current: Landing): Landing[] {
  * Pares de rutas ES/EN de todas las landings, en el formato que espera
  * `slugExceptions` de i18n/utils. Sin esto el botón de idioma y los hreflang
  * apuntarían a URLs que no existen, porque estos slugs no se traducen solos.
+ * Incluye las no publicadas: solo traduce rutas, no las hace visibles.
  */
 export const landingSlugPairs: Record<string, { es: string; en: string }> = Object.fromEntries(
-  LANDINGS.flatMap((landing) => {
+  ALL_LANDINGS.flatMap((landing) => {
     const pair = { es: landingPath(landing, 'es'), en: landingPath(landing, 'en') };
     return [
       [pair.es, pair],
