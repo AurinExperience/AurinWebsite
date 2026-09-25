@@ -45,6 +45,8 @@ const { landing } = Astro.props;
 const currentLang = getLangFromUrl(Astro.url);
 const copy = landing.copy[currentLang];
 
+const isUS = landing.country === "US";
+
 const canonicalUrl = `${SITE.url}${landingPath(landing, currentLang)}`;
 
 /* ----------------------------------------------------------------
@@ -176,6 +178,7 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
   showMegaMenu={false}
+  showWhatsApp={!(isUS && currentLang === "en")}
 >
   <Header minimal />
   <main id="main-content">
@@ -192,5 +195,5 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
     <NearbyLandings landing={landing} lang={currentLang} nearby={copy.nearby} />
     <CtaBanner />
   </main>
-  <Footer minimal />
+  <Footer minimal hidePhone={isUS} />
 </Layout>

@@ -9,6 +9,11 @@ import { puebla } from './puebla';
 import { guanajuato } from './guanajuato';
 import { yucatan } from './yucatan';
 import { bajaCalifornia } from './baja-california';
+import { houston } from './houston';
+import { sanAntonio } from './san-antonio';
+import { inlandEmpire } from './inland-empire';
+import { phoenix } from './phoenix';
+import { dallas } from './dallas';
 
 export type { Lang, Landing, LandingCopy } from './types';
 export type { ProofProject, ProofProjectId } from './projects';
@@ -34,6 +39,12 @@ const ALL_LANDINGS: Landing[] = [
   guanajuato,
   yucatan,
   bajaCalifornia,
+  // EE. UU. (country: 'US'): se enlazan solo entre ellas.
+  houston,
+  sanAntonio,
+  inlandEmpire,
+  phoenix,
+  dallas,
 ];
 
 /**
@@ -62,9 +73,12 @@ export function findLanding(slug: string | undefined, lang: Lang): Landing | und
   return LANDINGS.find((landing) => landing.slug[lang] === slug);
 }
 
-/** Las demás landings, para el bloque de enlaces cruzados. */
+/** Las demás landings del mismo país, para el bloque de enlaces cruzados. */
 export function siblingLandings(current: Landing): Landing[] {
-  return LANDINGS.filter((landing) => landing.id !== current.id);
+  const country = current.country ?? 'MX';
+  return LANDINGS.filter(
+    (landing) => landing.id !== current.id && (landing.country ?? 'MX') === country
+  );
 }
 
 /**

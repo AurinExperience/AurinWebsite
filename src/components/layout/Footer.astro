@@ -8,9 +8,11 @@ import styles from "./Footer.module.css";
 interface Props {
   /* Landings de captura: sin la columna de servicios, que solo lleva a otras páginas. */
   minimal?: boolean;
+  /* Landings de EE. UU.: el +52 suena a llamada internacional, queda solo el correo. */
+  hidePhone?: boolean;
 }
 
-const { minimal = false } = Astro.props;
+const { minimal = false, hidePhone = false } = Astro.props;
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
@@ -62,9 +64,11 @@ const guidesLabel = currentLang === "es" ? "Guías" : "Guides";
                 <div class={styles.footerLinkContainer}>
                   <a href="mailto:hey@aurin.mx" class={styles.footerLink}>hey@aurin.mx</a>
                 </div>
-                <div class={styles.footerLinkContainer}>
-                  <a href="tel:+527771020339" class={styles.footerLink}>+52 777 102 0339</a>
-                </div>
+                {!hidePhone && (
+                  <div class={styles.footerLinkContainer}>
+                    <a href="tel:+527771020339" class={styles.footerLink}>+52 777 102 0339</a>
+                  </div>
+                )}
               </div>
 
               <!-- Servicios -->

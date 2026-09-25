@@ -29,6 +29,8 @@ interface Props {
 	noindex?: boolean;
 	/* Landings de captura: sin MegaMenu, para no dar salidas de la página. */
 	showMegaMenu?: boolean;
+	/* WhatsApp es +52: en las landings en inglés de EE. UU. se oculta. */
+	showWhatsApp?: boolean;
 }
 
 const { 
@@ -46,7 +48,8 @@ const {
 	vignetteColor,
 	showVignette = false,
 	noindex = false,
-	showMegaMenu = true
+	showMegaMenu = true,
+	showWhatsApp = true
 } = Astro.props;
 ---
 
@@ -154,7 +157,7 @@ const {
 				color={vignetteColor}
 			/>
 		)}
-		<WhatsAppButton />
+		{showWhatsApp && <WhatsAppButton />}
 		<SpeedInsights />
 	</body>
 </html>

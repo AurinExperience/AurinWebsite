@@ -81,9 +81,16 @@ export interface Landing {
    * ficha de Google Business Profile.
    */
   localBusiness?: boolean;
+  /**
+   * País de la landing. Las hermanas se enlazan solo dentro del mismo país:
+   * debajo de Houston no tiene sentido ofrecer Morelos. En EE. UU. además se
+   * ocultan el teléfono y el WhatsApp +52 (para un cliente de allá suenan a
+   * llamada internacional). Sin valor = MX.
+   */
+  country?: 'MX' | 'US';
   /** Segmento de URL por idioma. ES: /diseno-web-<slug>. EN: /en/web-design-<slug>. */
   slug: Record<Lang, string>;
-  /** Estado / entidad federativa, para el schema `areaServed`. */
+  /** Estado / entidad federativa (o estado de EE. UU.), para el schema `areaServed`. */
   region: string;
   /** Centro geográfico de la zona atendida. */
   geo: { latitude: number; longitude: number };
