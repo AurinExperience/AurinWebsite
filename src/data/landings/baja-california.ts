@@ -138,7 +138,7 @@ export const bajaCalifornia: Landing = {
           {
             question: '¿Trabajan con empresas en Baja California?',
             answer:
-              'Sí. Trabajamos a distancia con clientes en México, Estados Unidos, Canadá, España, República Dominicana y muchos países más.',
+              'Claro. Trabajamos a distancia con empresas de todo México y con clientes en Estados Unidos, Canadá y España, entre otros países.',
           },
           {
             question: '¿Nos ayudan a aparecer en búsquedas desde Estados Unidos?',
@@ -281,7 +281,7 @@ export const bajaCalifornia: Landing = {
           {
             question: 'Do you work with companies in Baja California?',
             answer:
-              'Yes. We work remotely with clients in Mexico, the United States, Canada, Spain, the Dominican Republic, and many more countries.',
+              'Absolutely. We work remotely with companies all over Mexico and with clients in the United States, Canada, and Spain, among other countries.',
           },
           {
             question: 'Can you help us show up in searches from the United States?',
