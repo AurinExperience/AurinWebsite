@@ -10,7 +10,7 @@ const { es: c, en: C } = COMMON;
  * Ángulo propio: dos ciudades con perfiles distintos. Saltillo, con empresas
  * de servicios alrededor de la industria automotriz (mantenimiento,
  * ingeniería, capacitación, seguridad industrial); y Torreón y La Laguna, con
- * comercio, salud privada y empresas familiares. Sin catálogos B2B con acceso
+ * comercio, salud privada y empresas de servicios. Sin catálogos B2B con acceso
  * privado: eso es de Guanajuato.
  */
 export const coahuila: Landing = {
@@ -27,7 +27,7 @@ export const coahuila: Landing = {
       seo: {
         title: 'Diseño Web en Saltillo, Torreón y Coahuila | Aurin',
         description:
-          'Diseño web y branding en Saltillo, Torreón y Coahuila para empresas de servicios industriales, salud privada, comercio y empresas familiares.',
+          'Diseño web y branding en Saltillo, Torreón y Coahuila para empresas de servicios industriales, salud privada, comercio y empresas de servicios.',
         keywords:
           'diseño web Saltillo, diseño web Torreón, páginas web Coahuila, página web empresa de mantenimiento industrial, branding Saltillo, diseño web Ramos Arizpe',
       },
@@ -44,7 +44,7 @@ export const coahuila: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Coahuila',
         intro:
-          'Trabajamos con empresas de Saltillo, Ramos Arizpe, Torreón, Monclova y Piedras Negras: mantenimiento e ingeniería industrial, seguridad y capacitación, clínicas y consultorios, comercios y empresas familiares.',
+          'Trabajamos con empresas de Saltillo, Ramos Arizpe, Torreón, Monclova y Piedras Negras: mantenimiento e ingeniería industrial, seguridad y capacitación, clínicas y consultorios, comercios y empresas de servicios.',
         items: [
           {
             title: 'Sitios para empresas de servicios industriales',
@@ -67,7 +67,7 @@ export const coahuila: Landing = {
             ],
           },
           {
-            title: 'Branding para empresas familiares',
+            title: 'Branding para empresas que crecieron',
             description:
               'Muchas empresas de La Laguna y de Saltillo crecieron con una imagen que ya no las representa. Renovamos la identidad sin perder lo que tus clientes reconocen.',
             bullets: [
@@ -140,7 +140,7 @@ export const coahuila: Landing = {
       seo: {
         title: 'Web Design in Saltillo, Torreón & Coahuila | Aurin',
         description:
-          'Web design and branding in Saltillo, Torreón, and Coahuila for industrial service companies, private healthcare, retail, and family businesses.',
+          'Web design and branding in Saltillo, Torreón, and Coahuila for industrial service companies, private healthcare, retail, and service businesses.',
         keywords:
           'web design Saltillo, web design Torreón, website design Coahuila, industrial services website Mexico, branding Saltillo',
       },
@@ -157,7 +157,7 @@ export const coahuila: Landing = {
       services: {
         heading: 'Web design and branding services in Coahuila',
         intro:
-          'We work with companies in Saltillo, Ramos Arizpe, Torreón, Monclova, and Piedras Negras: industrial maintenance and engineering, safety and training, clinics and practices, retailers, and family businesses.',
+          'We work with companies in Saltillo, Ramos Arizpe, Torreón, Monclova, and Piedras Negras: industrial maintenance and engineering, safety and training, clinics and practices, retailers, and service companies.',
         items: [
           {
             title: 'Websites for industrial service companies',
@@ -176,7 +176,7 @@ export const coahuila: Landing = {
             bullets: ['Medical team and specialties', 'Online appointments', 'Location, hours, and contact'],
           },
           {
-            title: 'Branding for family businesses',
+            title: 'Branding for companies that have grown',
             description:
               'Many companies in La Laguna and Saltillo grew with an image that no longer represents them. We refresh the identity without losing what customers recognize.',
             bullets: [

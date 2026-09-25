@@ -7,7 +7,7 @@ const { es: c, en: C } = COMMON;
  * Aguascalientes — palabra clave objetivo: "diseño web Aguascalientes".
  *
  * Ángulo propio: la industria textil y de la confección (bordado, uniformes,
- * ropa) y los negocios familiares que se profesionalizan. Nada de proveedores
+ * ropa) y los negocios que se profesionalizan. Nada de proveedores
  * automotrices B2B: ese terreno es de Coahuila y Guanajuato.
  */
 export const aguascalientes: Landing = {
@@ -24,7 +24,7 @@ export const aguascalientes: Landing = {
       seo: {
         title: 'Diseño Web y Branding en Aguascalientes | Aurin',
         description:
-          'Diseño web, tiendas en línea y branding en Aguascalientes para marcas de ropa, confección, uniformes y negocios familiares que quieren crecer.',
+          'Diseño web, tiendas en línea y branding en Aguascalientes para marcas de ropa, confección, uniformes y negocios que quieren crecer.',
         keywords:
           'diseño web Aguascalientes, páginas web Aguascalientes, tienda en línea Aguascalientes, branding Aguascalientes, diseño de marca de ropa',
       },
@@ -41,7 +41,7 @@ export const aguascalientes: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Aguascalientes',
         intro:
-          'Trabajamos con negocios de Aguascalientes, Jesús María, Calvillo y Rincón de Romos: marcas de ropa y confección, fabricantes de uniformes, talleres de bordado, comercios y negocios familiares.',
+          'Trabajamos con negocios de Aguascalientes, Jesús María, Calvillo y Rincón de Romos: marcas de ropa y confección, fabricantes de uniformes, talleres de bordado, comercios y empresas de servicios.',
         items: [
           {
             title: 'Tienda en línea para tu marca de ropa',
@@ -74,7 +74,7 @@ export const aguascalientes: Landing = {
             ],
           },
           {
-            title: 'Rediseño para negocios familiares',
+            title: 'Rediseño de sitio',
             description:
               'Si tu sitio tiene años sin tocarse o no se ve bien en el celular, estás perdiendo clientes que ya te estaban buscando. Lo rediseñamos conservando lo que funciona.',
             bullets: [
@@ -137,7 +137,7 @@ export const aguascalientes: Landing = {
       seo: {
         title: 'Web Design & Branding in Aguascalientes | Aurin',
         description:
-          'Web design, online stores, and branding in Aguascalientes for apparel brands, uniform makers, and family businesses ready to grow.',
+          'Web design, online stores, and branding in Aguascalientes for apparel brands, uniform makers, and businesses ready to grow.',
         keywords:
           'web design Aguascalientes, website Aguascalientes Mexico, online store Aguascalientes, branding Aguascalientes, apparel brand design Mexico',
       },
@@ -154,7 +154,7 @@ export const aguascalientes: Landing = {
       services: {
         heading: 'Web design and branding services in Aguascalientes',
         intro:
-          'We work with businesses in Aguascalientes, Jesús María, Calvillo, and Rincón de Romos: apparel brands, uniform makers, embroidery shops, retailers, and family businesses.',
+          'We work with businesses in Aguascalientes, Jesús María, Calvillo, and Rincón de Romos: apparel brands, uniform makers, embroidery shops, retailers, and service companies.',
         items: [
           {
             title: 'Online store for your apparel brand',
@@ -183,7 +183,7 @@ export const aguascalientes: Landing = {
             ],
           },
           {
-            title: 'Redesign for family businesses',
+            title: 'Website redesign',
             description:
               'If your site has not been touched in years or breaks on a phone, you are losing customers who were already looking for you. We redesign it and keep what works.',
             bullets: ['Review of what you have today', 'Mobile-first design', 'Basic technical SEO'],
