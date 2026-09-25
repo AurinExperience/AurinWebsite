@@ -105,12 +105,13 @@ export const ALL_LANDINGS: Landing[] = [
  * constante se calcularía una vez al arrancar la función de Vercel y no se
  * enteraría del cambio de día.
  *
- * Excepción: en `npm run dev` y en los previews de Vercel se muestran todas
- * (draft y programadas) para revisarlas. `PROD_PREVIEW=1 npm run dev` simula lo
- * que ve producción. Vercel ya marca los previews como noindex.
+ * Excepción: solo `npm run dev` muestra todas (draft y programadas) para
+ * revisarlas; `PROD_PREVIEW=1 npm run dev` simula producción. Antes también se
+ * mostraban en los previews de Vercel vía VERCEL_ENV, pero en producción esa
+ * condición resultó verdadera y publicó las programadas antes de su fecha: nada
+ * que dependa de variables del entorno de Vercel decide qué se publica.
  */
-const SHOW_ALL =
-  (import.meta.env.DEV && !process.env.PROD_PREVIEW) || process.env.VERCEL_ENV === 'preview';
+const SHOW_ALL = import.meta.env.DEV && !process.env.PROD_PREVIEW;
 
 export function isPublished(landing: Landing, now = Date.now()): boolean {
   if (SHOW_ALL) return true;
