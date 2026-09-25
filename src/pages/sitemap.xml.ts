@@ -31,11 +31,17 @@ const staticPages = [
  * ciudad no dependa de acordarse de volver a este archivo: una landing fuera
  * del sitemap se rastrea tarde y con menos prioridad.
  */
-const landingPages = publishedLandings().map((landing) => ({
+// Función y no constante: se evalúa en cada request, para que las landings con
+// `publishAt` entren al sitemap el día que se publican aunque la función de
+// Vercel siga caliente desde antes.
+const landingPages = () => publishedLandings().map((landing) => ({
   es: landingPath(landing, 'es'),
   en: landingPath(landing, 'en'),
   priority: '0.9',
   changefreq: 'weekly',
+  // Las programadas declaran su fecha de publicación: Google ve un lastmod nuevo
+  // el día que aparecen, en vez de la fecha del último deploy.
+  lastmod: landing.publishAt ? toW3C(new Date(landing.publishAt)) : BUILD_DATE,
 }));
 
 /*
@@ -77,7 +83,7 @@ export const GET: APIRoute = async () => {
   const entries: SitemapEntry[] = [];
 
   // 1. Static pages with reciprocal hreflang alternates
-  for (const page of [...staticPages, ...landingPages, ...guidePages]) {
+  for (const page of [...staticPages, ...landingPages(), ...guidePages]) {
     const esUrl = `${baseUrl}${page.es}`;
     const enUrl = `${baseUrl}${page.en}`;
 
@@ -87,7 +93,7 @@ export const GET: APIRoute = async () => {
       { hreflang: 'x-default', href: esUrl }
     ];
 
-    const lastmod = 'lastmod' in page ? page.lastmod : BUILD_DATE;
+    const lastmod = (page as { lastmod?: string }).lastmod ?? BUILD_DATE;
 
     entries.push({ loc: esUrl, alternates, lastmod, priority: page.priority, changefreq: page.changefreq });
     entries.push({ loc: enUrl, alternates, lastmod, priority: page.priority, changefreq: page.changefreq });
