@@ -21,9 +21,10 @@ import PhoneInput from './PhoneInput.astro';
 import styles from './WhatsAppButton.module.css';
 
 const t = translations[getLangFromUrl(Astro.url)].whatsapp;
+const waUrl = `https://wa.me/${SITE.whatsapp}`;
 ---
 
-<div class={styles.root} data-wa data-wa-url={`https://wa.me/${SITE.whatsapp}`}>
+<div class={styles.root} data-wa data-wa-url={waUrl}>
   <div
     class={styles.panel}
     id="wa-panel"
@@ -63,7 +64,7 @@ const t = translations[getLangFromUrl(Astro.url)].whatsapp;
     <div class={styles.success} hidden data-wa-success aria-live="polite">
       <p class={styles.successTitle}>{t.successTitle}</p>
       <p class={styles.successText}>{t.successText}</p>
-      <a class={styles.submit} target="_blank" rel="noopener noreferrer" data-wa-direct>{t.openNow}</a>
+      <a class={styles.submit} href={waUrl} target="_blank" rel="noopener noreferrer" data-wa-direct>{t.openNow}</a>
     </div>
   </div>
 
