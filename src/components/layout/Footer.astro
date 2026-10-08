@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, translations } from "@/i18n";
+import { getLangFromUrl, getLocalizedUrl, translations } from "@/i18n";
 import { guidesIndexPath } from "@/data/guides";
 // Footer component with parallax effect
 import styles from "./Footer.module.css";
@@ -27,6 +27,8 @@ const copyright = t.footer.copyright.replace("{year}", new Date().getFullYear().
  * era la única entrada y quitarlo sí habría aislado la red.
  */
 const servicesUrl = currentLang === "es" ? "/services" : "/en/services";
+const privacyUrl = getLocalizedUrl("/privacy", currentLang);
+const termsUrl = getLocalizedUrl("/terms", currentLang);
 /* Única entrada al cluster de guías desde el resto del sitio. */
 const guidesLabel = currentLang === "es" ? "Guías" : "Guides";
 ---
@@ -94,10 +96,10 @@ const guidesLabel = currentLang === "es" ? "Guías" : "Guides";
                   <div class={`${styles.footerSection} footer-column`}>
                     <h3 class={styles.footerTitle}>{t.footer.legal}</h3>
                     <div class={styles.footerLinkContainer}>
-                      <a href="/privacy" class={styles.footerLink}>{t.footer.privacyPolicy}</a>
+                      <a href={privacyUrl} class={styles.footerLink}>{t.footer.privacyPolicy}</a>
                     </div>
                     <div class={styles.footerLinkContainer}>
-                      <a href="/terms" class={styles.footerLink}>{t.footer.termsConditions}</a>
+                      <a href={termsUrl} class={styles.footerLink}>{t.footer.termsConditions}</a>
                     </div>
                   </div>
                 )
@@ -127,7 +129,7 @@ const guidesLabel = currentLang === "es" ? "Guías" : "Guides";
               existente, en vez de devolver una columna entera de salidas.
             */}
             {minimal && (
-              <a href="/terms" class={styles.footerLegalLink}>{t.footer.termsConditions}</a>
+              <a href={termsUrl} class={styles.footerLegalLink}>{t.footer.termsConditions}</a>
             )}
           </div>
         </div>

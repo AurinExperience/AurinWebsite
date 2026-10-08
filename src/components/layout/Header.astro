@@ -13,9 +13,11 @@ interface Props {
   class?: string;
   /* Landings de captura: solo logo e idioma, sin acceso al MegaMenu. */
   minimal?: boolean;
+  /** Cuando el slug difiere entre ES/EN (p. ej. proyectos del CMS). */
+  languageAlternateHref?: string;
 }
 
-const { class: className, minimal = false } = Astro.props;
+const { class: className, minimal = false, languageAlternateHref } = Astro.props;
 
 // Detect current language
 const currentLang = getLangFromUrl(Astro.url);
@@ -25,7 +27,9 @@ const t = translations[currentLang];
 // La misma página en el otro idioma. El helper conoce las rutas cuyo slug
 // cambia entre idiomas (la landing de Nuevo León, la confirmación de cita);
 // la cadena de `if` que había aquí no las incluía y mandaba a un 404.
-const alternateUrl = getLocalizedPath(Astro.url.pathname, alternateLang as 'es' | 'en');
+const alternateUrl =
+  languageAlternateHref ??
+  getLocalizedPath(Astro.url.pathname, alternateLang as 'es' | 'en');
 ---
 
 <header class={`${styles.header} header ${className || ""}`}>
