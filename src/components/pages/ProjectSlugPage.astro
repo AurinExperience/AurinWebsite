@@ -19,6 +19,12 @@ import Template from "@/blocks/shared/Template/Template.astro";
 import DynamicProjects from "@/components/projects/DynamicProjects.astro";
 import { metaDescription } from "@/lib/seo";
 import {
+  type HreflangAlternate,
+  projectPageUrl,
+  resolveProjectOgImage,
+  isLikelyStockProjectImage,
+} from "@/lib/project-page";
+import {
   type PayloadProject,
   getImageUrl,
   renderRichText,
@@ -28,9 +34,11 @@ import {
 
 interface Props {
   project: PayloadProject;
+  sibling?: PayloadProject;
+  alternateLinks?: HreflangAlternate[];
 }
 
-const { project } = Astro.props;
+const { project, sibling, alternateLinks } = Astro.props;
 
 // Detect current language from URL automatically
 const currentLang = getLangFromUrl(Astro.url);
@@ -71,9 +79,12 @@ const seoKeywords =
 // El slug puede traer espacios o acentos ("Fruit Academy"): se codifica igual que en el sitemap
 const canonicalUrl = getCanonicalUrl(SITE.url, `/project/${encodeURIComponent(project.slug)}`, currentLang);
 
-/* ponytail: sin imagen del proyecto en OG ni en el schema. Los banners de
-   Payload hoy son casi todos placeholders (800x600-…, Image-400x300-…); usar
-   project.hero.bannerImage aquí cuando el CMS tenga imágenes reales. */
+const ogImage = resolveProjectOgImage(project);
+const schemaImage =
+  project.hero?.bannerImage?.url && !isLikelyStockProjectImage(project.hero.bannerImage.url)
+    ? getImageUrl(project.hero.bannerImage.url)
+    : undefined;
+
 // CreativeWork con Aurin como autor: es lo que deja a un buscador o a una IA
 // responder "¿quién hizo el sitio de X?" o "¿qué agencias tienen casos de fintech?".
 const structuredData = {
@@ -83,7 +94,8 @@ const structuredData = {
   name: projectData.projectTitle,
   description: seoDescription,
   url: canonicalUrl,
-  inLanguage: currentLang === "es" ? "es-MX" : "en",
+  inLanguage: currentLang === "es" ? "es-MX" : "en-US",
+  ...(schemaImage && { image: schemaImage }),
   ...(projectData.projectCategories.length && { genre: projectData.projectCategories }),
   ...(projectData.clientName && {
     sourceOrganization: { "@type": "Organization", name: projectData.clientName },
@@ -102,6 +114,10 @@ const breadcrumbSchema = {
   ],
 };
 
+const languageAlternateHref = sibling
+  ? projectPageUrl(sibling, currentLang === "es" ? "en" : "es")
+  : undefined;
+
 ---
 
 <Layout
@@ -111,10 +127,12 @@ const breadcrumbSchema = {
   structuredData={structuredData}
   additionalStructuredData={[breadcrumbSchema]}
   canonical={canonicalUrl}
-  ogImage={SITE.ogImage}
+  alternateLinks={alternateLinks}
+  ogImage={ogImage}
+  ogType="article"
 >
   <Vignette intensity="medium" />
-  <Header />
+  <Header languageAlternateHref={languageAlternateHref} />
   <main id="main-content">
     <Template projectData={projectData} />
     <DynamicProjects maxProjects={3} showChips={false} />

@@ -27,6 +27,7 @@ interface Props {
 	vignetteColor?: string;
 	showVignette?: boolean;
 	noindex?: boolean;
+	alternateLinks?: { hreflang: string; href: string }[];
 	/* Landings de captura: sin MegaMenu, para no dar salidas de la página. */
 	showMegaMenu?: boolean;
 	/* WhatsApp es +52: en las landings en inglés de EE. UU. se oculta. */
@@ -48,6 +49,7 @@ const {
 	vignetteColor,
 	showVignette = false,
 	noindex = false,
+	alternateLinks,
 	showMegaMenu = true,
 	showWhatsApp = true
 } = Astro.props;
@@ -100,6 +102,7 @@ const {
 			author={author}
 			twitterCard={twitterCard}
 			noindex={noindex}
+			alternateLinks={alternateLinks}
 		/>
 		<GlobalSchema />
 		{/* Google tag (gtag.js) — diferido.

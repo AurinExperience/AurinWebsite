@@ -9,5 +9,7 @@
 
 User-agent: *
 Allow: /
+Allow: /llms.txt
 
+# Índice para crawlers de IA (AEO/GEO): https://aurin.mx/llms.txt
 Sitemap: https://aurin.mx/sitemap.xml

@@ -66,6 +66,7 @@ const resolvedAlternateLinks = alternateLinks || [
 {keywords && <meta name="keywords" content={keywords} />}
 {author && <meta name="author" content={author} />}
 <link rel="canonical" href={canonicalURL} />
+<link rel="alternate" type="text/plain" href={`${siteUrl}/llms.txt`} title="LLM site index" />
 
 <!-- Alternativas de Idioma (hreflang) -->
 {
@@ -95,6 +96,7 @@ const resolvedAlternateLinks = alternateLinks || [
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 <meta name="twitter:image:alt" content={title} />
+<meta name="twitter:site" content="@aurinmx" />
 
 <!-- Search Console -->
 <meta

@@ -117,7 +117,7 @@ export const GET: APIRoute = async () => {
 
     for (const { es, en } of projectsMap.values()) {
       const lastmodDate = es?.updatedAt || en?.updatedAt;
-      const lastmod = lastmodDate ? new Date(lastmodDate).toISOString().split('T')[0] : BUILD_DATE;
+      const lastmod = lastmodDate ? toW3C(new Date(lastmodDate)) : BUILD_DATE;
 
       // encodeURIComponent keeps the URL valid even if a CMS slug has spaces
       // or accents (e.g. "Fruit Academy" → "Fruit%20Academy").

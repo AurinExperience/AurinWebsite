@@ -149,7 +149,7 @@ export const translations = {
         home: "Home",
         services: "Services",
         projects: "Portfolio",
-        about: "Aurin",
+        about: "About",
         guides: "Guides",
         contact: "Contact"
       }
@@ -354,7 +354,7 @@ export const translations = {
       items: [
         {
           question: "What is Aurin?",
-          answer: "Aurin is a Mexican UX/UI design, branding and web and app development agency founded in 1999. We design brands and digital products for companies that need their website or app to bring in customers, not just look good. One team covers research, design and development end to end."
+          answer: "Aurin is a Mexican UX/UI design, branding and web and app development agency founded in 1998. We design brands and digital products for companies that need their website or app to bring in customers, not just look good. One team covers research, design and development end to end."
         },
         {
           question: "Where is Aurin and who do you work with?",
@@ -703,7 +703,7 @@ export const translations = {
         headingWhite: "How did we get",
         headingYellow: "Here?",
         buttonText: "Start your project today",
-        paragraph1: "You may wonder how, after 26 years, you're only now hearing about Aurin. The answer lies in our journey of transformation. We ventured into uncharted territories and reinvented ourselves.",
+        paragraph1: "You may wonder how, after 28 years, you're only now hearing about Aurin. The answer lies in our journey of transformation. We ventured into uncharted territories and reinvented ourselves.",
         paragraph2: "We became our own success story, proving that by staying close to our essence and looking further ahead, we could evolve. Today, this new identity reflects who we are and the impact we want to create with you."
       },
       nameOrigin: {
@@ -920,7 +920,7 @@ export const translations = {
         home: "Inicio",
         services: "Servicios",
         projects: "Portafolio",
-        about: "Aurin",
+        about: "Nosotros",
         guides: "Guías",
         contact: "Contacto"
       }
@@ -1125,7 +1125,7 @@ export const translations = {
       items: [
         {
           question: "¿Qué es Aurin?",
-          answer: "Aurin es una agencia mexicana de diseño UX/UI, branding y desarrollo web y de aplicaciones fundada en 1999. Diseñamos marcas y productos digitales para empresas que necesitan que su sitio o su app traiga clientes, no solo que se vea bien. Un mismo equipo cubre investigación, diseño y desarrollo de principio a fin."
+          answer: "Aurin es una agencia mexicana de diseño UX/UI, branding y desarrollo web y de aplicaciones fundada en 1998. Diseñamos marcas y productos digitales para empresas que necesitan que su sitio o su app traiga clientes, no solo que se vea bien. Un mismo equipo cubre investigación, diseño y desarrollo de principio a fin."
         },
         {
           question: "¿Dónde está Aurin y con quién trabaja?",
@@ -1475,7 +1475,7 @@ export const translations = {
         headingWhite: "¿Cómo llegamos",
         headingYellow: "Hasta aquí?",
         buttonText: "Comienza tu proyecto hoy",
-        paragraph1: "Quizá te preguntes cómo, después de 26 años, apenas escuchas de Aurin. La respuesta está en nuestro propio viaje de transformación. Recorrimos nuevas rutas y nos reinventamos.",
+        paragraph1: "Quizá te preguntes cómo, después de 28 años, apenas escuchas de Aurin. La respuesta está en nuestro propio viaje de transformación. Recorrimos nuevas rutas y nos reinventamos.",
         paragraph2: "Hemos sido nuestro propio caso de éxito, demostrando que al estar más cerca de nuestra esencia y mirar más lejos, logramos evolucionar. Hoy, esta nueva identidad refleja quiénes somos y el impacto que queremos crear contigo."
       },
       nameOrigin: {
