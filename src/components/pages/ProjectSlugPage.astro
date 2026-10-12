@@ -23,45 +23,25 @@ import {
   projectPageUrl,
   resolveProjectOgImage,
   isLikelyStockProjectImage,
+  toProjectData,
 } from "@/lib/project-page";
-import {
-  type PayloadProject,
-  getImageUrl,
-  renderRichText,
-  renderRichTextHeadings,
-  renderRichTextBody,
-} from "@/lib/payload";
+import { type PayloadProject, getImageUrl, PAYLOAD_SERVER_URL } from "@/lib/payload";
 
 interface Props {
   project: PayloadProject;
   sibling?: PayloadProject;
   alternateLinks?: HreflangAlternate[];
+  /** Live preview del admin: sin indexar y redibuja la Template con lo que se escribe en el formulario */
+  preview?: boolean;
 }
 
-const { project, sibling, alternateLinks } = Astro.props;
+const { project, sibling, alternateLinks, preview = false } = Astro.props;
 
 // Detect current language from URL automatically
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
 
-// Transform Payload project to template format
-const projectData = {
-  projectTitle: project.title,
-  projectCategories:
-    project.hero.services?.map((service) => service.name) || [],
-  projectDescription: renderRichText(project.hero.description),
-  descriptionHeading: renderRichTextHeadings(project.hero.description),
-  descriptionBody: renderRichTextBody(project.hero.description),
-  clientLogo: getImageUrl(project.client?.logo?.url),
-  clientName: project.client?.name,
-  clientIndustry: project.client?.industry,
-  heroImage: getImageUrl(project.hero.bannerImage?.url),
-  gallery:
-    project.gallery?.map((item) => ({
-      imgUrl: getImageUrl(item.image?.url),
-      alt: item.alt || project.title,
-    })) || [],
-};
+const projectData = toProjectData(project);
 
 // SEO
 const seoTitleSuffix = currentLang === "es" ? "| Portafolio Aurin" : "| Aurin Design Portfolio";
@@ -130,13 +110,64 @@ const languageAlternateHref = sibling
   alternateLinks={alternateLinks}
   ogImage={ogImage}
   ogType="article"
+  noindex={preview}
 >
   <Vignette intensity="medium" />
   <Header languageAlternateHref={languageAlternateHref} />
   <main id="main-content">
-    <Template projectData={projectData} />
-    <DynamicProjects maxProjects={3} showChips={false} />
+    {preview ? (
+      <div id="project-preview">
+        <Template projectData={projectData} />
+      </div>
+    ) : (
+      <Template projectData={projectData} />
+    )}
     <CtaBanner />
+    <DynamicProjects maxProjects={3} showChips={false} />
     <Footer />
   </main>
+  {preview && (
+    <script
+      is:inline
+      define:vars={{
+        // Mismos orígenes del admin que el CORS de aurin-cms. Solo ellos pueden mandar HTML a esta página.
+        cmsOrigins: [
+          new URL(PAYLOAD_SERVER_URL).origin,
+          "https://admin.aurin.mx",
+          "https://www.admin.aurin.mx",
+          ...(import.meta.env.DEV ? ["http://localhost:3000"] : []),
+        ],
+      }}
+    >
+      const root = document.getElementById("project-preview");
+      const admin = window.opener || window.parent;
+      let timer;
+      let controller;
+
+      window.addEventListener("message", (event) => {
+        if (!cmsOrigins.includes(event.origin)) return;
+        if (event.data?.type !== "payload-live-preview" || !event.data.data) return;
+        clearTimeout(timer);
+        timer = setTimeout(async () => {
+          controller?.abort();
+          controller = new AbortController();
+          try {
+            const res = await fetch("/preview/project-partial", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(event.data.data),
+              signal: controller.signal,
+            });
+            // createContextualFragment (no innerHTML) para que el carrusel de React vuelva a hidratarse
+            if (res.ok) root.replaceChildren(document.createRange().createContextualFragment(await res.text()));
+          } catch {
+            // Cancelado por una edición más nueva
+          }
+        }, 300);
+      });
+
+      // Le avisa al admin que ya puede mandar los datos del formulario
+      for (const origin of cmsOrigins) admin?.postMessage({ type: "payload-live-preview", ready: true }, origin);
+    </script>
+  )}
 </Layout>

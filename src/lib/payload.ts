@@ -1,6 +1,6 @@
 // Payload CMS API Helper for Astro
 const PAYLOAD_API_URL = import.meta.env.PAYLOAD_API_URL || 'https://aurin-payload-cms.vercel.app/api';
-const PAYLOAD_SERVER_URL = import.meta.env.PAYLOAD_SERVER_URL || 'https://aurin-payload-cms.vercel.app';
+export const PAYLOAD_SERVER_URL = import.meta.env.PAYLOAD_SERVER_URL || 'https://aurin-payload-cms.vercel.app';
 
 export interface PayloadProject {
   id: string;
@@ -118,6 +118,15 @@ export class PayloadAPI {
       console.error('Payload API fetch error:', error);
       throw error;
     }
+  }
+
+  // Cualquier estado: lo usa el live preview del admin, que también muestra borradores
+  static async getProjectById(id: string, locale: string = 'es'): Promise<PayloadProject> {
+    return this.fetchAPI(`/projects/${encodeURIComponent(id)}`, locale);
+  }
+
+  static async getMedia(id: string) {
+    return this.fetchAPI(`/media/${encodeURIComponent(id)}?depth=0`);
   }
 
   // Get all published projects
@@ -288,8 +297,10 @@ export function renderRichText(content: any): string {
       // Handle link nodes
       if (node.type === 'link' || node.type === 'autolink') {
         const children = node.children?.map(serializeNode).join('') || '';
-        const url = node.url || '#';
-        return `<a href="${url}" target="${node.newTab ? '_blank' : '_self'}" rel="${node.newTab ? 'noopener noreferrer' : ''}">${children}</a>`;
+        // Payload 3 guarda el enlace en node.fields; node.url/newTab era el formato de Payload 2
+        const url = node.fields?.url || node.url || '#';
+        const newTab = node.fields?.newTab ?? node.newTab;
+        return `<a href="${url}" target="${newTab ? '_blank' : '_self'}" rel="${newTab ? 'noopener noreferrer' : ''}">${children}</a>`;
       }
 
       // Handle line break
@@ -458,8 +469,11 @@ export function renderRichTextBody(content: any): string {
       }
       if (node.type === 'link' || node.type === 'autolink') {
         const children = node.children?.map(serializeNode).join('') || '';
-        const url = node.url || '#';
-        return `<a href="${url}">${children}</a>`;
+        const url = node.fields?.url || node.url || '#';
+        const newTab = node.fields?.newTab ?? node.newTab;
+        return newTab
+          ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${children}</a>`
+          : `<a href="${url}">${children}</a>`;
       }
       if (node.type === 'linebreak') return '<br>';
       if (node.children) return node.children.map(serializeNode).join('');

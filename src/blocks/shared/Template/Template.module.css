@@ -60,6 +60,34 @@
   margin-bottom: 0;
 }
 
+/* Formatos que permite el editor del CMS: listas, citas y enlaces */
+.descriptionText ul,
+.descriptionText ol {
+  margin: 0 0 1em 0;
+  padding-left: 1.25em;
+}
+
+.descriptionText li + li {
+  margin-top: 0.25em;
+}
+
+.descriptionText blockquote {
+  margin: 0 0 1em 0;
+  padding-left: 1em;
+  border-left: 2px solid currentColor;
+  opacity: 0.85;
+}
+
+.descriptionText a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.descriptionText > :last-child {
+  margin-bottom: 0;
+}
+
 /* ── Gallery wrapper ── */
 .galleryWrapper {
   width: 100%;
