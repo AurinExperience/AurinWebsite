@@ -1,6 +1,5 @@
 'use client'
 import { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Define the type for card data
 interface CardData {
@@ -22,6 +21,8 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
   const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
+  // Arrastre con mouse o dedo: x inicial y desplazamiento actual en px
+  const dragRef = useRef<{ startX: number; dx: number } | null>(null);
 
   // Precarga para el auto-slide. Las imágenes se dibujan desde el servidor (sin
   // estado "Cargando…") para que los buscadores y los crawlers de IA, que no
@@ -48,11 +49,8 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
       });
   }, [data]);
 
-  // Always show 1 card per view for maximum image size
-  const cardsPerView = 1;
-
-  // Show navigation only if more than 2 images
-  const showNavigation = data.length > 2;
+  // Puntos y arrastre desde 2 imágenes (sin flechas: el cursor de mano indica que se puede arrastrar)
+  const showNavigation = data.length > 1;
 
   // Create extended array for infinite scroll
   // [last, ...data, first] for seamless looping
@@ -123,6 +121,22 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
     }
   };
 
+  // Salto directo desde los puntos (índice real, sin contar los clones del loop)
+  const goToSlide = (realIndex: number) => {
+    const target = realIndex + 1;
+    if (isAnimating || target === currentIndex || !containerRef.current) return;
+    setIsAnimating(true);
+    containerRef.current.style.transition = "transform 600ms cubic-bezier(0.4, 0, 0.2, 1)";
+    containerRef.current.style.transform = `translateX(-${target * slidePercentage}%)`;
+    setTimeout(() => {
+      setCurrentIndex(target);
+      setIsAnimating(false);
+    }, 600);
+  };
+
+  // Imagen real visible: currentIndex cuenta el clon del inicio
+  const activeIndex = data.length > 1 ? (((currentIndex - 1) % data.length) + data.length) % data.length : 0;
+
   const prevSlide = () => {
     if (isAnimating || data.length <= 1) return;
 
@@ -145,6 +159,36 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
         }
         setIsAnimating(false);
       }, 600);
+    }
+  };
+
+  // Arrastrar (mouse, dedo o pluma): la imagen sigue al puntero y al soltar pasa
+  // a la siguiente/anterior si se movió más de 50px; si no, regresa a su lugar.
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!showNavigation || isAnimating || e.button !== 0) return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    dragRef.current = { startX: e.clientX, dx: 0 };
+    setIsPaused(true);
+    if (containerRef.current) containerRef.current.style.transition = "none";
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (!drag || !containerRef.current) return;
+    drag.dx = e.clientX - drag.startX;
+    containerRef.current.style.transform = `translateX(calc(-${currentIndex * slidePercentage}% + ${drag.dx}px))`;
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    dragRef.current = null;
+    if (e.pointerType !== "mouse") setIsPaused(false);
+    if (drag.dx < -50) return nextSlide();
+    if (drag.dx > 50) return prevSlide();
+    if (containerRef.current) {
+      containerRef.current.style.transition = "transform 300ms ease";
+      containerRef.current.style.transform = `translateX(-${currentIndex * slidePercentage}%)`;
     }
   };
 
@@ -184,34 +228,19 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
         width: '100%',
         position: 'relative'
       }}>
-        {/* Navigation Buttons — inside the image, vertically centered */}
-        {showNavigation && data.length > cardsPerView && (
-          <>
-            <button
-              onClick={prevSlide}
-              disabled={isAnimating}
-              aria-label="Imagen anterior"
-              className="gallery-nav-btn gallery-nav-prev"
-            >
-              <ChevronLeft size={24} strokeWidth={2} />
-            </button>
-            <button
-              onClick={nextSlide}
-              disabled={isAnimating}
-              aria-label="Siguiente imagen"
-              className="gallery-nav-btn gallery-nav-next"
-            >
-              <ChevronRight size={24} strokeWidth={2} />
-            </button>
-          </>
-        )}
-
         {/* Cards Container Wrapper */}
-        <div style={{
-          overflow: 'hidden',
-          width: '100%',
-          borderRadius: '10px'
-        }}>
+        <div
+          className={showNavigation ? 'gallery-track' : undefined}
+          style={{
+            overflow: 'hidden',
+            width: '100%',
+            borderRadius: '10px'
+          }}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+        >
           {/* Sliding Cards Container */}
           <div
             ref={containerRef}
@@ -257,43 +286,56 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
         </div>
       </div>
 
+      {showNavigation && (
+        <div className="gallery-dots" role="tablist" aria-label="Imágenes del proyecto">
+          {data.map((card, idx) => (
+            <button
+              key={`dot-${idx}`}
+              type="button"
+              role="tab"
+              aria-selected={idx === activeIndex}
+              aria-label={`Imagen ${idx + 1} de ${data.length}${card.alt ? `: ${card.alt}` : ''}`}
+              className={`gallery-dot${idx === activeIndex ? ' gallery-dot--active' : ''}`}
+              onClick={() => goToSlide(idx)}
+            />
+          ))}
+        </div>
+      )}
+
       {/* Carousel styles */}
       <style>{`
-        .gallery-nav-btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          z-index: 10;
-          background: transparent;
-          color: white;
-          padding: 0;
-          border-radius: 0;
-          border: none;
-          cursor: pointer;
-          width: 24px;
-          height: 24px;
+        /* pan-y: en celular el scroll vertical de la página sigue funcionando */
+        .gallery-track {
+          cursor: grab;
+          touch-action: pan-y;
+          user-select: none;
+        }
+        .gallery-track:active {
+          cursor: grabbing;
+        }
+        .gallery-dots {
           display: flex;
-          align-items: center;
           justify-content: center;
-          transition: opacity 0.3s ease;
-          opacity: 0.8;
+          gap: 8px;
+          margin-top: 16px;
         }
-        .gallery-nav-btn:hover {
-          opacity: 1;
+        .gallery-dot {
+          width: 8px;
+          height: 8px;
+          padding: 0;
+          border: none;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.35);
+          cursor: pointer;
+          transition: width 0.3s ease, background-color 0.3s ease;
         }
-        .gallery-nav-prev {
-          left: 20px;
+        .gallery-dot--active {
+          width: 24px;
+          background: #d0df00;
         }
-        .gallery-nav-next {
-          right: 12px;
-        }
-        @media (max-width: 768px) {
-          .gallery-nav-prev {
-            left: 12px;
-          }
-          .gallery-nav-next {
-            right: 8px;
-          }
+        .gallery-dot:focus-visible {
+          outline: 2px solid #d0df00;
+          outline-offset: 2px;
         }
       `}</style>
     </div>
