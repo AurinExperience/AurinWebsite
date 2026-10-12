@@ -51,8 +51,8 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
   // Always show 1 card per view for maximum image size
   const cardsPerView = 1;
 
-  // Show navigation only if more than 2 images
-  const showNavigation = data.length > 2;
+  // Flechas y puntos desde 2 imágenes
+  const showNavigation = data.length > 1;
 
   // Create extended array for infinite scroll
   // [last, ...data, first] for seamless looping
@@ -122,6 +122,22 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
       }, 600);
     }
   };
+
+  // Salto directo desde los puntos (índice real, sin contar los clones del loop)
+  const goToSlide = (realIndex: number) => {
+    const target = realIndex + 1;
+    if (isAnimating || target === currentIndex || !containerRef.current) return;
+    setIsAnimating(true);
+    containerRef.current.style.transition = "transform 600ms cubic-bezier(0.4, 0, 0.2, 1)";
+    containerRef.current.style.transform = `translateX(-${target * slidePercentage}%)`;
+    setTimeout(() => {
+      setCurrentIndex(target);
+      setIsAnimating(false);
+    }, 600);
+  };
+
+  // Imagen real visible: currentIndex cuenta el clon del inicio
+  const activeIndex = data.length > 1 ? (((currentIndex - 1) % data.length) + data.length) % data.length : 0;
 
   const prevSlide = () => {
     if (isAnimating || data.length <= 1) return;
@@ -193,7 +209,7 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
               aria-label="Imagen anterior"
               className="gallery-nav-btn gallery-nav-prev"
             >
-              <ChevronLeft size={24} strokeWidth={2} />
+              <ChevronLeft size={22} strokeWidth={2.25} />
             </button>
             <button
               onClick={nextSlide}
@@ -201,7 +217,7 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
               aria-label="Siguiente imagen"
               className="gallery-nav-btn gallery-nav-next"
             >
-              <ChevronRight size={24} strokeWidth={2} />
+              <ChevronRight size={22} strokeWidth={2.25} />
             </button>
           </>
         )}
@@ -257,42 +273,91 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
         </div>
       </div>
 
+      {showNavigation && (
+        <div className="gallery-dots" role="tablist" aria-label="Imágenes del proyecto">
+          {data.map((card, idx) => (
+            <button
+              key={`dot-${idx}`}
+              type="button"
+              role="tab"
+              aria-selected={idx === activeIndex}
+              aria-label={`Imagen ${idx + 1} de ${data.length}${card.alt ? `: ${card.alt}` : ''}`}
+              className={`gallery-dot${idx === activeIndex ? ' gallery-dot--active' : ''}`}
+              onClick={() => goToSlide(idx)}
+            />
+          ))}
+        </div>
+      )}
+
       {/* Carousel styles */}
       <style>{`
+        /* Círculo oscuro translúcido: se ve igual sobre fotos claras u oscuras */
         .gallery-nav-btn {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
           z-index: 10;
-          background: transparent;
-          color: white;
+          width: 44px;
+          height: 44px;
           padding: 0;
-          border-radius: 0;
-          border: none;
-          cursor: pointer;
-          width: 24px;
-          height: 24px;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: opacity 0.3s ease;
-          opacity: 0.8;
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          border-radius: 50%;
+          background: rgba(10, 10, 10, 0.55);
+          backdrop-filter: blur(6px);
+          color: white;
+          cursor: pointer;
+          transition: background-color 0.2s ease, transform 0.2s ease;
         }
         .gallery-nav-btn:hover {
-          opacity: 1;
+          background: rgba(10, 10, 10, 0.8);
+        }
+        .gallery-nav-btn:focus-visible {
+          outline: 2px solid #d0df00;
+          outline-offset: 2px;
         }
         .gallery-nav-prev {
-          left: 20px;
+          left: 16px;
         }
         .gallery-nav-next {
-          right: 12px;
+          right: 16px;
+        }
+        .gallery-dots {
+          display: flex;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 16px;
+        }
+        .gallery-dot {
+          width: 8px;
+          height: 8px;
+          padding: 0;
+          border: none;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.35);
+          cursor: pointer;
+          transition: width 0.3s ease, background-color 0.3s ease;
+        }
+        .gallery-dot--active {
+          width: 24px;
+          background: #d0df00;
+        }
+        .gallery-dot:focus-visible {
+          outline: 2px solid #d0df00;
+          outline-offset: 2px;
         }
         @media (max-width: 768px) {
+          .gallery-nav-btn {
+            width: 36px;
+            height: 36px;
+          }
           .gallery-nav-prev {
-            left: 12px;
+            left: 10px;
           }
           .gallery-nav-next {
-            right: 8px;
+            right: 10px;
           }
         }
       `}</style>
