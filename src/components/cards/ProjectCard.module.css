@@ -42,7 +42,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-color: #18192C;
-    filter: grayscale(100%);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -171,10 +170,6 @@
   .project-card:hover .arrow-button :global(svg) {
     color: var(--color-black-a);
     transform: rotate(45deg);
-  }
-
-  .project-card:hover .image-container {
-    filter: grayscale(0%);
   }
 
   /* Active state */
