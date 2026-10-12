@@ -1,5 +1,5 @@
 .projects {
-  --_card-gap: 26px;
+  --_card-gap: var(--spacing-8);
 
   position: relative;
   overflow: hidden;
