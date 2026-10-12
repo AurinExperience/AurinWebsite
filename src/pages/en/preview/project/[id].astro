@@ -10,6 +10,8 @@ export const prerender = false;
 
 const project = await PayloadAPI.getProjectById(Astro.params.id!, "en").catch(() => null);
 if (!project) return Astro.rewrite("/404");
+// Siempre fresco: sin esto el middleware lo guardaría en el CDN y el preview abriría con datos viejos
+Astro.response.headers.set("Cache-Control", "no-store");
 ---
 
 <ProjectSlugPage project={project} preview />
