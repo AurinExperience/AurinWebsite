@@ -212,6 +212,12 @@ export function getCardImage(project: PayloadProject) {
   return project.thumbnail?.url ? project.thumbnail : project.hero?.bannerImage;
 }
 
+/** false si la imagen de la tarjeta es de relleno ("placeholder-2.jpg", "Image-400x300-…") */
+export function hasRealCardImage(project: PayloadProject) {
+  const url = getCardImage(project)?.url;
+  return Boolean(url && !/placeholder|Image-\d+x\d+/i.test(url));
+}
+
 export function getImageUrl(imageUrl: string | undefined): string {
   if (!imageUrl) return '';
   if (imageUrl.startsWith('http')) return imageUrl;
