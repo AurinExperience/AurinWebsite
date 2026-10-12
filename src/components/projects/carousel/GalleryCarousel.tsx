@@ -1,6 +1,5 @@
 'use client'
 import { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Define the type for card data
 interface CardData {
@@ -22,6 +21,8 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
   const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
+  // Arrastre con mouse o dedo: x inicial y desplazamiento actual en px
+  const dragRef = useRef<{ startX: number; dx: number } | null>(null);
 
   // Precarga para el auto-slide. Las imágenes se dibujan desde el servidor (sin
   // estado "Cargando…") para que los buscadores y los crawlers de IA, que no
@@ -48,10 +49,7 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
       });
   }, [data]);
 
-  // Always show 1 card per view for maximum image size
-  const cardsPerView = 1;
-
-  // Flechas y puntos desde 2 imágenes
+  // Puntos y arrastre desde 2 imágenes (sin flechas: el cursor de mano indica que se puede arrastrar)
   const showNavigation = data.length > 1;
 
   // Create extended array for infinite scroll
@@ -164,6 +162,36 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
     }
   };
 
+  // Arrastrar (mouse, dedo o pluma): la imagen sigue al puntero y al soltar pasa
+  // a la siguiente/anterior si se movió más de 50px; si no, regresa a su lugar.
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!showNavigation || isAnimating || e.button !== 0) return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    dragRef.current = { startX: e.clientX, dx: 0 };
+    setIsPaused(true);
+    if (containerRef.current) containerRef.current.style.transition = "none";
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (!drag || !containerRef.current) return;
+    drag.dx = e.clientX - drag.startX;
+    containerRef.current.style.transform = `translateX(calc(-${currentIndex * slidePercentage}% + ${drag.dx}px))`;
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    dragRef.current = null;
+    if (e.pointerType !== "mouse") setIsPaused(false);
+    if (drag.dx < -50) return nextSlide();
+    if (drag.dx > 50) return prevSlide();
+    if (containerRef.current) {
+      containerRef.current.style.transition = "transform 300ms ease";
+      containerRef.current.style.transform = `translateX(-${currentIndex * slidePercentage}%)`;
+    }
+  };
+
   // Pause auto-slide on mouse enter
   const handleMouseEnter = () => {
     setIsPaused(true);
@@ -200,34 +228,19 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
         width: '100%',
         position: 'relative'
       }}>
-        {/* Navigation Buttons — inside the image, vertically centered */}
-        {showNavigation && data.length > cardsPerView && (
-          <>
-            <button
-              onClick={prevSlide}
-              disabled={isAnimating}
-              aria-label="Imagen anterior"
-              className="gallery-nav-btn gallery-nav-prev"
-            >
-              <ChevronLeft size={22} strokeWidth={2.25} />
-            </button>
-            <button
-              onClick={nextSlide}
-              disabled={isAnimating}
-              aria-label="Siguiente imagen"
-              className="gallery-nav-btn gallery-nav-next"
-            >
-              <ChevronRight size={22} strokeWidth={2.25} />
-            </button>
-          </>
-        )}
-
         {/* Cards Container Wrapper */}
-        <div style={{
-          overflow: 'hidden',
-          width: '100%',
-          borderRadius: '10px'
-        }}>
+        <div
+          className={showNavigation ? 'gallery-track' : undefined}
+          style={{
+            overflow: 'hidden',
+            width: '100%',
+            borderRadius: '10px'
+          }}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+        >
           {/* Sliding Cards Container */}
           <div
             ref={containerRef}
@@ -291,38 +304,14 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
 
       {/* Carousel styles */}
       <style>{`
-        /* Círculo oscuro translúcido: se ve igual sobre fotos claras u oscuras */
-        .gallery-nav-btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          z-index: 10;
-          width: 44px;
-          height: 44px;
-          padding: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid rgba(255, 255, 255, 0.25);
-          border-radius: 50%;
-          background: rgba(10, 10, 10, 0.55);
-          backdrop-filter: blur(6px);
-          color: white;
-          cursor: pointer;
-          transition: background-color 0.2s ease, transform 0.2s ease;
+        /* pan-y: en celular el scroll vertical de la página sigue funcionando */
+        .gallery-track {
+          cursor: grab;
+          touch-action: pan-y;
+          user-select: none;
         }
-        .gallery-nav-btn:hover {
-          background: rgba(10, 10, 10, 0.8);
-        }
-        .gallery-nav-btn:focus-visible {
-          outline: 2px solid #d0df00;
-          outline-offset: 2px;
-        }
-        .gallery-nav-prev {
-          left: 16px;
-        }
-        .gallery-nav-next {
-          right: 16px;
+        .gallery-track:active {
+          cursor: grabbing;
         }
         .gallery-dots {
           display: flex;
@@ -347,18 +336,6 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
         .gallery-dot:focus-visible {
           outline: 2px solid #d0df00;
           outline-offset: 2px;
-        }
-        @media (max-width: 768px) {
-          .gallery-nav-btn {
-            width: 36px;
-            height: 36px;
-          }
-          .gallery-nav-prev {
-            left: 10px;
-          }
-          .gallery-nav-next {
-            right: 10px;
-          }
         }
       `}</style>
     </div>
