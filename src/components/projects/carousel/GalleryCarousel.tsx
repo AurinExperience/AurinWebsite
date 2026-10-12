@@ -316,21 +316,25 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
         .gallery-dots {
           display: flex;
           justify-content: center;
-          gap: 8px;
-          margin-top: 16px;
+          gap: 10px;
+          margin-top: 20px;
         }
         .gallery-dot {
-          width: 8px;
-          height: 8px;
+          width: 10px;
+          height: 10px;
           padding: 0;
           border: none;
           border-radius: 999px;
-          background: rgba(255, 255, 255, 0.35);
+          background: rgba(255, 255, 255, 0.6);
           cursor: pointer;
           transition: width 0.3s ease, background-color 0.3s ease;
         }
-        .gallery-dot--active {
-          width: 24px;
+        .gallery-dot:hover {
+          background: rgba(255, 255, 255, 0.9);
+        }
+        .gallery-dot--active,
+        .gallery-dot--active:hover {
+          width: 32px;
           background: #d0df00;
         }
         .gallery-dot:focus-visible {
