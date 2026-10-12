@@ -1,4 +1,6 @@
 import type { APIRoute } from 'astro';
+import { addCacheTag } from '@vercel/functions';
+import { CMS_CACHE_TAG } from '@/lib/cache';
 import { SITE } from '@/config/site';
 import { publishedLandings, landingPath } from '@/data/landings';
 import { GUIDES, guidePath, guidesIndexPath } from '@/data/guides';
@@ -58,6 +60,7 @@ async function projectLines(): Promise<string[]> {
 }
 
 export const GET: APIRoute = async () => {
+  await addCacheTag(CMS_CACHE_TAG); // lista proyectos: se purga al guardar en Payload
   const body = [
     `# ${SITE.name}`,
     '',

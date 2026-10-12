@@ -1,4 +1,6 @@
 import type { APIRoute } from 'astro';
+import { addCacheTag } from '@vercel/functions';
+import { CMS_CACHE_TAG } from '@/lib/cache';
 import { PayloadAPI } from '@/lib/payload';
 import { publishedLandings, landingPath } from '@/data/landings';
 import { GUIDES, guidePath, guidesIndexPath } from '@/data/guides';
@@ -80,6 +82,7 @@ const escapeXml = (value: string) =>
   );
 
 export const GET: APIRoute = async () => {
+  await addCacheTag(CMS_CACHE_TAG); // lista proyectos: se purga al guardar en Payload
   const entries: SitemapEntry[] = [];
 
   // 1. Static pages with reciprocal hreflang alternates
