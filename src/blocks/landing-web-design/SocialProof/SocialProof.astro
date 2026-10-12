@@ -4,14 +4,15 @@
  * Muestra trabajo real (imágenes de proyecto) + el marquee de logos de clientes.
  * Sin testimonios.
  *
- * ponytail: las imágenes van fijas, no por Payload. Hoy TODOS los proyectos del
- * CMS traen `placeholder-2.jpg` como banner, así que tirar de la API pintaba
- * cajas grises que decían "Proyecto Aurin". Cuando el CMS tenga banners reales,
- * esto se cambia por PayloadAPI.getFeaturedProjects().
+ * Las imágenes salen de Payload (miniatura del proyecto o, si no hay, su imagen
+ * principal) para los proyectos del sector de la landing. Los que solo tienen
+ * imagen de relleno se saltan y se completa con capturas fijas, para no pintar
+ * cajas grises.
  */
 import type { LandingCopy, ProofProjectId } from '@/data/landings';
 import { PROOF_PROJECTS } from '@/data/landings';
 import { getLangFromUrl, getLocalizedUrl } from '@/i18n';
+import { PayloadAPI, getCardImage, getImageUrl, getProjectUrl, hasRealCardImage } from '@/lib/payload';
 import SliderClients from '@/blocks/home/SliderClients/SliderClients.astro';
 import styles from './SocialProof.module.css';
 
@@ -46,7 +47,7 @@ const proofLabels =
 const portfolioLabel =
   currentLang === 'es' ? 'Ver nuestro portafolio de proyectos' : 'See our project portfolio';
 
-const work = [
+const fallbackWork = [
   {
     src: '/work/galicia.webp',
     width: 1000,
@@ -69,6 +70,27 @@ const work = [
     discipline: currentLang === 'es' ? 'Diseño y desarrollo web' : 'Web design and development',
   },
 ];
+
+const cmsProjects = await PayloadAPI.getProjects(currentLang).catch(() => []);
+const fromCms = proof
+  .map((id) => cmsProjects.find((p) => p.id === PROOF_PROJECTS[id]?.cmsId))
+  .filter((p) => p && hasRealCardImage(p))
+  .map((p) => {
+    const image = getCardImage(p!)!;
+    return {
+      src: getImageUrl(image.url),
+      width: image.width,
+      height: image.height,
+      name: p!.title,
+      discipline: p!.hero?.services?.map((s) => s.name).filter(Boolean).slice(0, 2).join(' · ') || '',
+      href: getProjectUrl(p!, currentLang),
+    };
+  });
+// Siempre 3: primero los del CMS, luego capturas fijas de otros proyectos
+const work: Array<(typeof fallbackWork)[number] & { href?: string }> = [
+  ...fromCms,
+  ...fallbackWork.filter((f) => !fromCms.some((c) => c.name.startsWith(f.name.split(' ')[0]))),
+].slice(0, 3);
 ---
 
 <section class={styles.section} aria-labelledby="social-proof-heading">
@@ -83,10 +105,11 @@ const work = [
     <ul class={styles.projects}>
       {work.map((item) => (
         <li class={styles.project}>
+          <a class={styles.projectLink} href={item.href}>
           <img
             class={styles.projectImage}
             src={item.src}
-            alt={`${item.discipline} ${currentLang === 'es' ? 'para' : 'for'} ${item.name} — Aurin`}
+            alt={`${item.discipline ? `${item.discipline} ${currentLang === 'es' ? 'para' : 'for'} ` : ''}${item.name} — Aurin`}
             width={item.width}
             height={item.height}
             loading="lazy"
@@ -94,8 +117,9 @@ const work = [
           />
           <div class={styles.projectMeta}>
             <span class={styles.projectName}>{item.name}</span>
-            <span class={styles.projectDiscipline}>{item.discipline}</span>
+            {item.discipline && <span class={styles.projectDiscipline}>{item.discipline}</span>}
           </div>
+          </a>
         </li>
       ))}
     </ul>
