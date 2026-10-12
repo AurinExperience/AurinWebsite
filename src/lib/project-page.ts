@@ -30,6 +30,7 @@ export interface HreflangAlternate {
 export type ProjectPageResult =
   | "error"
   | "not-found"
+  | { redirect: string }
   | { project: PayloadProject; sibling?: PayloadProject; alternateLinks: HreflangAlternate[] };
 
 /** Ruta relativa, con el slug codificado (puede traer espacios o acentos). */
@@ -45,6 +46,8 @@ export function isLikelyStockProjectImage(url: string): boolean {
 }
 
 export function resolveProjectOgImage(project: PayloadProject): string {
+  // La "Imagen al compartir" del CMS manda; si no hay, la imagen principal
+  if (project.seo?.ogImage?.url) return getImageUrl(project.seo.ogImage.url);
   const url = project.hero?.bannerImage?.url;
   return url && !isLikelyStockProjectImage(url) ? getImageUrl(url) : SITE.ogImage;
 }
@@ -63,13 +66,19 @@ export async function loadProjectBySlug(
     return "error";
   }
 
+  const otherProjects = PayloadAPI.getProjects(otherLang).catch(() => [] as PayloadProject[]);
+
   const project = projects.find((p) => p.slug === slug);
-  if (!project) return "not-found";
+  if (!project) {
+    // El slug es por idioma: /en/project/{slug-en-español} (la URL vieja, de cuando
+    // había un solo slug) responde 301 a la URL con el slug de este idioma.
+    const match = (await otherProjects).find((p) => p.slug === slug);
+    const target = match && projects.find((p) => p.id === match.id);
+    return target ? { redirect: projectPageUrl(target, lang) } : "not-found";
+  }
 
   // Sin hermano la página sigue sirviendo; solo pierde el hreflang cruzado.
-  const sibling = await PayloadAPI.getProjects(otherLang)
-    .then((list) => list.find((p) => p.id === project.id))
-    .catch(() => undefined);
+  const sibling = (await otherProjects).find((p) => p.id === project.id);
 
   const byLang = { [lang]: project, [otherLang]: sibling } as Record<Lang, PayloadProject | undefined>;
   const esUrl = byLang.es && `${SITE.url}${projectPageUrl(byLang.es, "es")}`;
@@ -83,6 +92,11 @@ export async function loadProjectBySlug(
   return { project, sibling, alternateLinks };
 }
 
+// Opciones del CMS ("md" = el tamaño de siempre)
+const LOGO_SCALE = { sm: 0.7, md: 1, lg: 1.4, xl: 1.8 };
+const HERO_SCALE = { sm: 0.75, md: 1, lg: 1.35, xl: 1.75 };
+const GALLERY_HEIGHT = { sm: 280, md: 362, lg: 480, xl: 600 };
+
 /** Proyecto de Payload → props de Template. Tolera campos vacíos: el live preview manda el formulario a medio llenar. */
 export function toProjectData(project: PayloadProject) {
   return {
@@ -92,13 +106,18 @@ export function toProjectData(project: PayloadProject) {
     descriptionHeading: renderRichTextHeadings(project.hero?.description),
     descriptionBody: renderRichTextBody(project.hero?.description),
     clientLogo: getImageUrl(project.client?.logo?.url),
+    logoColor: project.client?.logoColor ?? "white",
+    logoScale: LOGO_SCALE[project.client?.logoSize ?? "md"] ?? 1,
+    galleryHeight: GALLERY_HEIGHT[project.galleryHeight ?? "md"] ?? 362,
     clientName: project.client?.name,
     clientIndustry: project.client?.industry,
     heroImage: getImageUrl(project.hero?.bannerImage?.url),
+    heroScale: HERO_SCALE[project.hero?.bannerHeight ?? "md"] ?? 1,
     gallery:
       project.gallery?.map((item) => ({
         imgUrl: getImageUrl(item?.image?.url),
-        alt: item?.alt || project.title,
+        // El alt del proyecto es opcional; si no hay, el de la imagen en Archivos
+        alt: item?.alt || item?.image?.alt || project.title,
       })) || [],
   };
 }

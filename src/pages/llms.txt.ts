@@ -43,9 +43,10 @@ async function projectLines(): Promise<string[]> {
       '## Portafolio (ES)',
       '',
       ...projects.map((p) => {
-        const services = p.hero.services?.map((s) => s.name).join(', ');
-        const summary = metaDescription(renderRichText(p.hero.description), 140);
-        const note = [services, summary].filter(Boolean).join(' — ') || 'Caso de estudio.';
+        const services = p.hero?.services?.map((s) => s.name).join(', ');
+        const client = p.client?.name && `Cliente: ${p.client.name}${p.client.industry ? ` (${p.client.industry})` : ''}`;
+        const summary = p.seo?.metaDescription?.trim() || metaDescription(renderRichText(p.hero?.description), 140);
+        const note = [client, services, summary].filter(Boolean).join(' — ') || 'Caso de estudio.';
         return line(p.title, `/project/${encodeURIComponent(p.slug)}`, note);
       }),
       '',

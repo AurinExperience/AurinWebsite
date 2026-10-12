@@ -6,10 +6,13 @@ interface Props {
   categories: string[];
   description: string;
   clientLogo?: string;
+  logoScale?: number;
+  logoColor?: string;
   heroImage?: string;
+  heroScale?: number;
 }
 
-const { title, categories, description, clientLogo, heroImage } = Astro.props;
+const { title, categories, description, clientLogo, logoScale = 1, logoColor = 'white', heroImage, heroScale = 1 } = Astro.props;
 ---
 
 <section class={styles.banner}>
@@ -17,7 +20,7 @@ const { title, categories, description, clientLogo, heroImage } = Astro.props;
     <div class={styles.information}>
       {clientLogo && (
         <div class={styles.logoWrapper}>
-          <img src={clientLogo} alt={`${title} logo`} class={styles.logoImage} />
+          <img src={clientLogo} alt={`${title} logo`} class={styles.logoImage} data-color={logoColor} style={`--logo-scale: ${logoScale}`} />
         </div>
       )}
       
@@ -34,7 +37,7 @@ const { title, categories, description, clientLogo, heroImage } = Astro.props;
       )}
     </div>
 
-    <div class={styles.heroImageWrapper}>
+    <div class={styles.heroImageWrapper} style={`--hero-scale: ${heroScale}`}>
       {heroImage ? (
         <img src={heroImage} alt={title} class={styles.heroImage} />
       ) : (

@@ -17,6 +17,7 @@ if (result === "error") {
 }
 
 if (result === "not-found") return Astro.rewrite("/404");
+if ("redirect" in result) return Astro.redirect(result.redirect, 301);
 
 const { project, sibling, alternateLinks } = result;
 ---

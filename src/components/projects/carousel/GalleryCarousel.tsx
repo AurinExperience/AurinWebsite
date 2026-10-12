@@ -10,9 +10,12 @@ interface CardData {
 
 interface GalleryCarouselProps {
   data?: CardData[];
+  /** Alto en px elegido en el CMS; en celular nunca pasa de 110vw */
+  height?: number;
 }
 
-const GalleryCarousel = ({ data = [] }: GalleryCarouselProps) => {
+const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
+  const slideHeight = `min(${height}px, 110vw)`;
   const [currentIndex, setCurrentIndex] = useState(1); // Start at 1 to allow infinite scroll
   const [isAnimating, setIsAnimating] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -20,7 +23,9 @@ const GalleryCarousel = ({ data = [] }: GalleryCarouselProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Prefetch all images on mount
+  // Precarga para el auto-slide. Las imágenes se dibujan desde el servidor (sin
+  // estado "Cargando…") para que los buscadores y los crawlers de IA, que no
+  // ejecutan JS, vean las fotos y su texto alternativo.
   useEffect(() => {
     if (data.length === 0) return;
 
@@ -166,24 +171,6 @@ const GalleryCarousel = ({ data = [] }: GalleryCarouselProps) => {
     );
   }
 
-  // Show loading state while images are prefetching
-  if (!imagesLoaded) {
-    return (
-      <div style={{
-        width: '100%',
-        height: '362px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: '10px',
-        background: 'rgba(255, 255, 255, 0.05)',
-        color: 'white'
-      }}>
-        Cargando imágenes...
-      </div>
-    );
-  }
-
   return (
     <div
       style={{
@@ -247,7 +234,7 @@ const GalleryCarousel = ({ data = [] }: GalleryCarouselProps) => {
               >
                 <div style={{
                   width: '100%',
-                  height: '362px',
+                  height: slideHeight,
                   overflow: 'hidden'
                 }}>
                   <img

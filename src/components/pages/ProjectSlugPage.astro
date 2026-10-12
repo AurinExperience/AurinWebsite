@@ -22,10 +22,9 @@ import {
   type HreflangAlternate,
   projectPageUrl,
   resolveProjectOgImage,
-  isLikelyStockProjectImage,
   toProjectData,
 } from "@/lib/project-page";
-import { type PayloadProject, getImageUrl, PAYLOAD_SERVER_URL } from "@/lib/payload";
+import { type PayloadProject, PAYLOAD_SERVER_URL } from "@/lib/payload";
 
 interface Props {
   project: PayloadProject;
@@ -45,25 +44,22 @@ const projectData = toProjectData(project);
 
 // SEO
 const seoTitleSuffix = currentLang === "es" ? "| Portafolio Aurin" : "| Aurin Design Portfolio";
-const seoTitle = `${projectData.projectTitle} ${seoTitleSuffix}`;
+// Los campos de la pestaña SEO del CMS mandan; vacíos, se arman del contenido
+const seoTitle = project.seo?.metaTitle?.trim() || `${projectData.projectTitle} ${seoTitleSuffix}`;
 const fallbackDesc =
   currentLang === "es"
     ? "Caso de éxito: proyecto de diseño estratégico creado por Aurin, agencia de comunicación visual en México."
     : "Case study: strategic design project by Aurin, a visual communication agency based in Mexico.";
-const seoDescription = metaDescription(projectData.projectDescription) || fallbackDesc;
-const seoKeywords =
-  currentLang === "es"
-    ? "proyecto diseño Aurin, caso éxito branding, identidad corporativa México, portafolio agencia creativa"
-    : "design project Aurin, branding case study, corporate identity Mexico, creative agency portfolio";
+const seoDescription =
+  project.seo?.metaDescription?.trim() || metaDescription(projectData.projectDescription) || fallbackDesc;
+// Google ignora meta keywords; se dejan los servicios reales del proyecto para otros buscadores
+const seoKeywords = [...projectData.projectCategories, projectData.clientName, "Aurin"].filter(Boolean).join(", ");
 
 // El slug puede traer espacios o acentos ("Fruit Academy"): se codifica igual que en el sitemap
 const canonicalUrl = getCanonicalUrl(SITE.url, `/project/${encodeURIComponent(project.slug)}`, currentLang);
 
 const ogImage = resolveProjectOgImage(project);
-const schemaImage =
-  project.hero?.bannerImage?.url && !isLikelyStockProjectImage(project.hero.bannerImage.url)
-    ? getImageUrl(project.hero.bannerImage.url)
-    : undefined;
+const schemaImage = ogImage !== SITE.ogImage ? ogImage : undefined;
 
 // CreativeWork con Aurin como autor: es lo que deja a un buscador o a una IA
 // responder "¿quién hizo el sitio de X?" o "¿qué agencias tienen casos de fintech?".
@@ -76,11 +72,26 @@ const structuredData = {
   url: canonicalUrl,
   inLanguage: currentLang === "es" ? "es-MX" : "en-US",
   ...(schemaImage && { image: schemaImage }),
-  ...(projectData.projectCategories.length && { genre: projectData.projectCategories }),
-  ...(projectData.clientName && {
-    sourceOrganization: { "@type": "Organization", name: projectData.clientName },
+  ...(projectData.projectCategories.length && {
+    genre: projectData.projectCategories,
+    keywords: projectData.projectCategories.join(", "),
   }),
+  ...(project.publishDate && { datePublished: project.publishDate }),
+  ...(project.updatedAt && { dateModified: project.updatedAt }),
+  ...(projectData.clientName && {
+    // El cliente para quien se hizo: es lo que permite responder "¿quién hizo el sitio de X?"
+    sourceOrganization: {
+      "@type": "Organization",
+      name: projectData.clientName,
+      ...(project.client?.industry && { description: project.client.industry }),
+      ...(project.website && { url: project.website }),
+    },
+  }),
+  ...(project.website && { workExample: { "@type": "WebSite", url: project.website } }),
+  isPartOf: { "@type": "CollectionPage", url: `${SITE.url}${currentLang === "es" ? "/projects" : "/en/projects"}` },
+  mainEntityOfPage: canonicalUrl,
   creator: { "@id": `${SITE.url}/#organization` },
+  publisher: { "@id": `${SITE.url}/#organization` },
 };
 
 const portfolioPath = currentLang === "es" ? "/projects" : "/en/projects";
