@@ -4,6 +4,7 @@ import Layout from "@/layouts/Layout.astro";
 import {
   PayloadAPI,
   getImageUrl,
+  getCardImage,
   getProjectUrl,
   PROJECT_FILTERS,
 } from "@/lib/payload";
@@ -103,12 +104,12 @@ const ui = {
                 >
                   <a href={getProjectUrl(project, lang)}>
                     <div class="project-image">
-                      {project.hero.bannerImage ? (
+                      {getCardImage(project) ? (
                         <img
-                          src={getImageUrl(project.hero.bannerImage.url)}
-                          alt={project.hero.bannerImage.alt || project.title}
-                          width={project.hero.bannerImage.width}
-                          height={project.hero.bannerImage.height}
+                          src={getImageUrl(getCardImage(project)!.url)}
+                          alt={getCardImage(project)!.alt || project.title}
+                          width={getCardImage(project)!.width}
+                          height={getCardImage(project)!.height}
                           loading="lazy"
                         />
                       ) : (

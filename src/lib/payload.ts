@@ -36,6 +36,14 @@ export interface PayloadProject {
       name: string;
     }>;
   };
+  /** Miniatura cuadrada para las tarjetas; vacía = se recorta la imagen principal */
+  thumbnail?: {
+    id: string;
+    url: string;
+    alt: string;
+    width: number;
+    height: number;
+  } | null;
   gallery: Array<{
     image: {
       id: string;
@@ -199,6 +207,11 @@ export class PayloadAPI {
 }
 
 // Helper function to get full image URL
+/** Imagen de las tarjetas de proyecto: la miniatura del CMS o, si no hay, la imagen principal */
+export function getCardImage(project: PayloadProject) {
+  return project.thumbnail?.url ? project.thumbnail : project.hero?.bannerImage;
+}
+
 export function getImageUrl(imageUrl: string | undefined): string {
   if (!imageUrl) return '';
   if (imageUrl.startsWith('http')) return imageUrl;
