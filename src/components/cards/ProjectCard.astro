@@ -30,11 +30,10 @@ const {
 const uniqueId = `project-card-${Math.random().toString(36).substr(2, 9)}`;
 
 const allTags = [...(tags || []), ...(services ? services.map(s => s.name) : [])];
-// If the first tag is too long, only show 1 tag to prevent the second tag's dot from rendering weirdly
-const displayCount = (allTags[0] && allTags[0].length > 18) ? 1 : 2;
-const displayTags = allTags.slice(0, displayCount);
-const remainingCount = allTags.length - displayCount;
-const hiddenTags = allTags.slice(displayCount);
+// Una sola etiqueta visible; el resto aparece en el tooltip al pasar el mouse
+const displayTags = allTags.slice(0, 1);
+const remainingCount = allTags.length - displayTags.length;
+const hiddenTags = allTags.slice(displayTags.length);
 ---
 
 <a href={href} class={`${styles['project-card']} ${className}`} data-card-id={uniqueId} data-project-card data-category={category} data-filters={JSON.stringify(filters)}>
@@ -59,8 +58,9 @@ const hiddenTags = allTags.slice(displayCount);
     <!-- Info section -->
     <div class={styles['info-section']}>
       <div class={styles['info-content']}>
-        <!-- Tags (Services and categories) -->
-        {allTags.length > 0 && (
+        <h3 class={styles['project-title']} set:html={title}></h3>
+
+        {displayTags.length > 0 && (
           <div class={styles['tags-container']}>
             {displayTags.map((tag) => (
               <div class={styles['tag-item']}>
@@ -68,17 +68,8 @@ const hiddenTags = allTags.slice(displayCount);
                 <div class={styles['tag-text']}>{tag}</div>
               </div>
             ))}
-            {remainingCount > 0 && (
-              <div class={`${styles['tag-item']} ${styles['tag-count']}`}>
-                <div class={styles['tag-dot']}></div>
-                <div class={styles['tag-text']}>+{remainingCount}</div>
-              </div>
-            )}
           </div>
         )}
-
-        <!-- Title -->
-        <h3 class={styles['project-title']} set:html={title}></h3>
       </div>
 
       <!-- Arrow button -->
