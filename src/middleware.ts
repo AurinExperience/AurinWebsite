@@ -1,4 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
+import { addCacheTag } from '@vercel/functions';
+import { CMS_CACHE_TAG } from '@/lib/cache';
 
 /*
  * Cache del CDN para las páginas HTML. Sin esto cada visita (y cada bot) paga
@@ -8,10 +10,9 @@ import { defineMiddleware } from 'astro:middleware';
  * `Vary: X-Vercel-IP-Country` porque PhoneInput (en el botón de WhatsApp, o sea
  * en todas las páginas) preselecciona la lada por país: sin él, el primer
  * visitante de Colombia le fijaría +57 a todos.
- * s-maxage=60: un cambio en Payload se ve en ~1 min (la visita que llega tras
- * ese minuto aún recibe la copia anterior y dispara la nueva; la siguiente ya
- * la ve). stale-while-revalidate sigue evitando que alguien espere el SSR.
- * ponytail: purga por webhook de Payload (Vercel cache tags) si 1 min estorba.
+ * Las páginas llevan la etiqueta CMS_CACHE_TAG: Payload avisa a /api/revalidate
+ * al guardar y se borran del CDN al instante. s-maxage=60 queda de respaldo por
+ * si un aviso falla (el cambio sale igual en ~1 min).
  */
 export const onRequest = defineMiddleware(async (context, next) => {
   const response = await next();
@@ -26,6 +27,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   ) {
     response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=60, stale-while-revalidate=86400');
     response.headers.set('Vary', 'X-Vercel-IP-Country');
+    await addCacheTag(CMS_CACHE_TAG); // fuera de Vercel no hace nada
   }
 
   return response;
