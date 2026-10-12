@@ -36,8 +36,8 @@
           "value": "nosniff"
         },
         {
-          "key": "X-Frame-Options",
-          "value": "DENY"
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self' https://aurin-payload-cms.vercel.app http://localhost:3000"
         },
         {
           "key": "X-XSS-Protection",
