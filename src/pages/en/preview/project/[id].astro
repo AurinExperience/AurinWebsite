@@ -1,0 +1,15 @@
+---
+/**
+ * Live preview del admin de Payload (en). Carga el proyecto por id en cualquier
+ * estado (también borradores) y no se indexa.
+ */
+import ProjectSlugPage from "@/components/pages/ProjectSlugPage.astro";
+import { PayloadAPI } from "@/lib/payload";
+
+export const prerender = false;
+
+const project = await PayloadAPI.getProjectById(Astro.params.id!, "en").catch(() => null);
+if (!project) return Astro.rewrite("/404");
+---
+
+<ProjectSlugPage project={project} preview />

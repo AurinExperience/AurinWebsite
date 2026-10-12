@@ -1,0 +1,20 @@
+---
+/**
+ * Redibuja solo la Template con los datos del formulario del admin (live preview).
+ * Solo acepta JSON: un <form> de otro sitio no puede mandarlo sin pasar por CORS.
+ */
+import Template from "@/blocks/shared/Template/Template.astro";
+import { populateLivePreviewMedia, toProjectData } from "@/lib/project-page";
+
+export const prerender = false;
+export const partial = true;
+
+if (Astro.request.method !== "POST" || !Astro.request.headers.get("content-type")?.includes("application/json")) {
+  return new Response(null, { status: 405 });
+}
+
+const project = await populateLivePreviewMedia(await Astro.request.json());
+Astro.response.headers.set("X-Robots-Tag", "noindex");
+---
+
+<Template projectData={toProjectData(project)} />

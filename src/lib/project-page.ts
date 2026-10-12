@@ -11,7 +11,14 @@
  * el slug puede cambiar entre idiomas.
  */
 import { SITE } from "@/config/site";
-import { PayloadAPI, getImageUrl, type PayloadProject } from "@/lib/payload";
+import {
+  PayloadAPI,
+  getImageUrl,
+  renderRichText,
+  renderRichTextBody,
+  renderRichTextHeadings,
+  type PayloadProject,
+} from "@/lib/payload";
 
 type Lang = "es" | "en";
 
@@ -74,4 +81,54 @@ export async function loadProjectBySlug(
   alternateLinks.push({ hreflang: "x-default", href: (esUrl || enUrl)! });
 
   return { project, sibling, alternateLinks };
+}
+
+/** Proyecto de Payload → props de Template. Tolera campos vacíos: el live preview manda el formulario a medio llenar. */
+export function toProjectData(project: PayloadProject) {
+  return {
+    projectTitle: project.title,
+    projectCategories: project.hero?.services?.map((service) => service?.name).filter(Boolean) || [],
+    projectDescription: renderRichText(project.hero?.description),
+    descriptionHeading: renderRichTextHeadings(project.hero?.description),
+    descriptionBody: renderRichTextBody(project.hero?.description),
+    clientLogo: getImageUrl(project.client?.logo?.url),
+    clientName: project.client?.name,
+    clientIndustry: project.client?.industry,
+    heroImage: getImageUrl(project.hero?.bannerImage?.url),
+    gallery:
+      project.gallery?.map((item) => ({
+        imgUrl: getImageUrl(item?.image?.url),
+        alt: item?.alt || project.title,
+      })) || [],
+  };
+}
+
+/* ponytail: caché en memoria por instancia del servidor; una imagen editada
+   después de cargarla se ve vieja en el preview hasta que la instancia se recicla. */
+const mediaCache = new Map<string, Promise<unknown>>();
+
+function resolveMedia(value: unknown) {
+  if (typeof value !== "string") return value;
+  if (!mediaCache.has(value)) {
+    mediaCache.set(
+      value,
+      PayloadAPI.getMedia(value).catch(() => {
+        mediaCache.delete(value);
+        return undefined;
+      })
+    );
+  }
+  return mediaCache.get(value);
+}
+
+/** El formulario del admin trae las imágenes como IDs; las cambia por el documento de media. */
+export async function populateLivePreviewMedia(data: any): Promise<PayloadProject> {
+  const [bannerImage, logo, gallery] = await Promise.all([
+    resolveMedia(data?.hero?.bannerImage),
+    resolveMedia(data?.client?.logo),
+    Promise.all(
+      (data?.gallery ?? []).map(async (item: any) => ({ ...item, image: await resolveMedia(item?.image) }))
+    ),
+  ]);
+  return { ...data, hero: { ...data?.hero, bannerImage }, client: { ...data?.client, logo }, gallery };
 }
