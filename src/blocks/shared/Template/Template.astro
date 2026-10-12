@@ -20,9 +20,13 @@ interface ProjectTemplateProps {
   descriptionHeading?: string;
   descriptionBody?: string;
   clientLogo?: string;
+  logoScale?: number;
+  logoColor?: string;
+  galleryHeight?: number;
   clientName?: string;
   clientIndustry?: string;
   heroImage?: string;
+  heroScale?: number;
   gallery?: GalleryImage[];
   publishDate?: Date;
   featured?: boolean;
@@ -45,7 +49,10 @@ const hasBody = projectData.descriptionBody && projectData.descriptionBody.trim(
     categories={projectData.projectCategories}
     description={projectData.projectDescription}
     clientLogo={projectData.clientLogo}
+    logoScale={projectData.logoScale}
+    logoColor={projectData.logoColor}
     heroImage={projectData.heroImage}
+    heroScale={projectData.heroScale}
   />
 
   <section class={styles.contentSection}>
@@ -63,6 +70,7 @@ const hasBody = projectData.descriptionBody && projectData.descriptionBody.trim(
           <GalleryCarousel
             client:visible
             data={projectData.gallery}
+            height={projectData.galleryHeight}
           />
         </div>
       )}

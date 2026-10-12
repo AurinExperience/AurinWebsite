@@ -2,6 +2,8 @@
 const PAYLOAD_API_URL = import.meta.env.PAYLOAD_API_URL || 'https://aurin-payload-cms.vercel.app/api';
 export const PAYLOAD_SERVER_URL = import.meta.env.PAYLOAD_SERVER_URL || 'https://aurin-payload-cms.vercel.app';
 
+export type SizeOption = 'sm' | 'md' | 'lg' | 'xl';
+
 export interface PayloadProject {
   id: string;
   title: string;
@@ -29,6 +31,7 @@ export interface PayloadProject {
       width: number;
       height: number;
     };
+    bannerHeight?: SizeOption | null;
     services: Array<{
       name: string;
     }>;
@@ -56,7 +59,10 @@ export interface PayloadProject {
       url: string;
       alt: string;
     };
+    logoSize?: SizeOption | null;
+    logoColor?: 'white' | 'original' | null;
   };
+  galleryHeight?: SizeOption | null;
   seo?: {
     metaTitle?: string;
     metaDescription?: string;
