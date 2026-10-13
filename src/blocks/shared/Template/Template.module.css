@@ -37,6 +37,8 @@
  */
 .sectionHeading {
   max-width: 466px;
+  /* Reparte el título en renglones parejos: sin una palabra sola al final */
+  text-wrap: balance;
 }
 
 /*
@@ -50,6 +52,8 @@
   line-height: 1.32;
   font-weight: 400;
   max-width: 877px;
+  /* Evita que el último renglón de un párrafo quede con una sola palabra */
+  text-wrap: pretty;
 }
 
 .descriptionText p {
