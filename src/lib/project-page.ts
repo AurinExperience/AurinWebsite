@@ -140,14 +140,24 @@ function resolveMedia(value: unknown) {
   return mediaCache.get(value);
 }
 
+/* Un array vacío del formulario llega como su número de filas (`gallery: 0`), no
+   como `[]`: sin esto el `.map` reventaba, el partial daba 500 y el preview dejaba
+   de actualizarse en todo proyecto sin galería o sin servicios. */
+const list = (value: unknown): any[] => (Array.isArray(value) ? value : []);
+
 /** El formulario del admin trae las imágenes como IDs; las cambia por el documento de media. */
 export async function populateLivePreviewMedia(data: any): Promise<PayloadProject> {
   const [bannerImage, logo, gallery] = await Promise.all([
     resolveMedia(data?.hero?.bannerImage),
     resolveMedia(data?.client?.logo),
     Promise.all(
-      (data?.gallery ?? []).map(async (item: any) => ({ ...item, image: await resolveMedia(item?.image) }))
+      list(data?.gallery).map(async (item: any) => ({ ...item, image: await resolveMedia(item?.image) }))
     ),
   ]);
-  return { ...data, hero: { ...data?.hero, bannerImage }, client: { ...data?.client, logo }, gallery };
+  return {
+    ...data,
+    hero: { ...data?.hero, bannerImage, services: list(data?.hero?.services) },
+    client: { ...data?.client, logo },
+    gallery,
+  };
 }
