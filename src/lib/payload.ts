@@ -378,6 +378,27 @@ export function renderRichText(content: any): string {
 // Output uses the h2 > span pattern from base.css:
 //   span = first line (white, 32px)
 //   h2 text = second line (yellow, 48px)
+/**
+ * Une con espacios fijos las últimas palabras de cada bloque (párrafo, viñeta,
+ * cita) para que el último renglón nunca quede con una o dos palabras sueltas:
+ * se lleva 3 si caben en `maxChars`, si no 2. El tope evita un bloque irrompible
+ * más ancho que la pantalla en celular. Funciona en todos los navegadores, a
+ * diferencia de `text-wrap: pretty`. En los encabezados no se usa: a 36–40 px
+ * un bloque de 3 palabras ya no cabe en un celular; ahí manda `text-wrap: balance`.
+ */
+export function tieLastWords(html: string, maxChars: number): string {
+  return html.replace(/([^<>]+)(<\/(?:p|h[1-6]|li|blockquote)>)/g, (_, text: string, close: string) => {
+    const words = text.split(' ');
+    for (const n of [3, 2]) {
+      const tail = words.slice(-n);
+      if (words.length > n && tail.join(' ').length <= maxChars) {
+        return `${words.slice(0, -n).join(' ')} ${tail.join('\u00a0')}${close}`;
+      }
+    }
+    return text + close;
+  });
+}
+
 export function renderRichTextHeadings(content: any): string {
   if (!content) return '';
   if (typeof content === 'string') return '';
@@ -399,7 +420,7 @@ export function renderRichTextHeadings(content: any): string {
     if (headingNodes.length >= 2) {
       const firstLine = headingNodes[0].children?.map(serializeText).join('') || '';
       const secondLine = headingNodes[1].children?.map(serializeText).join('') || '';
-      return `<h2><span>${firstLine}</span>${secondLine}</h2>`;
+      return `<h2><span>${firstLine}</span> ${secondLine}</h2>`;
     }
 
     if (headingNodes.length === 1) {
@@ -423,7 +444,7 @@ export function renderRichTextHeadings(content: any): string {
           const midIndex = Math.ceil(words.length / 2);
           const firstLine = words.slice(0, midIndex).join(' ');
           const secondLine = words.slice(midIndex).join(' ');
-          return `<h2><span>${firstLine}</span>${secondLine}</h2>`;
+          return `<h2><span>${firstLine}</span> ${secondLine}</h2>`;
         }
 
         // Short text — render as single h2
@@ -517,7 +538,7 @@ export function renderRichTextBody(content: any): string {
       return '';
     };
 
-    return bodyNodes.map(serializeNode).join('');
+    return tieLastWords(bodyNodes.map(serializeNode).join(''), 30);
   } catch {
     return '';
   }

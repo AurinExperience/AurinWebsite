@@ -36,9 +36,21 @@
  *   h2 span = 32px, white, line-height 35px, display block
  */
 .sectionHeading {
-  max-width: 466px;
+  /* Era 466px (Figma): solo cabían ~25 letras por renglón y los títulos de dos
+     encabezados salían en 3 renglones, con alguno de 1–2 palabras. A 640px salen
+     en 2 renglones parejos. */
+  max-width: 640px;
   /* Reparte el título en renglones parejos: sin una palabra sola al final */
   text-wrap: balance;
+}
+
+/* Los dos encabezados del CMS se leen como un solo título: sin el salto forzado
+   del <span> (display: block en base.css), el texto se reparte parejo y el
+   segundo encabezado no se queda con una o dos palabras en su propio renglón. */
+.sectionHeading :global(h2 span) {
+  display: inline;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 /*
@@ -110,5 +122,11 @@
 
   .descriptionText {
     font-size: 16px;
+  }
+
+  /* A 36px (base.css) caben ~17 letras por renglón y el título se partía en
+     pares de palabras; a 30px entran tres. */
+  .sectionHeading :global(h2) {
+    font-size: 30px;
   }
 }
