@@ -37,9 +37,9 @@
  */
 .sectionHeading {
   /* Era 466px (Figma): solo cabían ~25 letras por renglón y los títulos de dos
-     encabezados salían en 3 renglones, con alguno de 1–2 palabras. A 640px salen
-     en 2 renglones parejos. */
-  max-width: 640px;
+     encabezados salían en 3 renglones, con alguno de 1–2 palabras. A 780px (casi
+     el ancho del texto, 877px) los títulos largos salen en 2 renglones parejos. */
+  max-width: 780px;
   /* Reparte el título en renglones parejos: sin una palabra sola al final */
   text-wrap: balance;
 }
@@ -125,8 +125,8 @@
   }
 
   /* A 36px (base.css) caben ~17 letras por renglón y el título se partía en
-     pares de palabras; a 30px entran tres. */
+     pares de palabras. Escala con la pantalla: 30px en 400px+, 27px en 360px. */
   .sectionHeading :global(h2) {
-    font-size: 30px;
+    font-size: clamp(26px, 7.5vw, 30px);
   }
 }
