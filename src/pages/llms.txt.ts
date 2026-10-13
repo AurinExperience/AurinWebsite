@@ -83,11 +83,11 @@ export const GET: APIRoute = async () => {
     '',
     ...publishedLandings().map((l) => line(l.copy.en.breadcrumb, landingPath(l, 'en'), l.copy.en.seo.description)),
     '',
-    '## Diseño web por sector (ES)',
+    '## Diseño web y UX/UI por sector (ES)',
     '',
     ...publishedSectors().map((s) => line(s.copy.es.breadcrumb, sectorPath(s, 'es'), s.copy.es.seo.description)),
     '',
-    '## Web design by industry (EN)',
+    '## Web and UX/UI design by industry (EN)',
     '',
     ...publishedSectors().map((s) => line(s.copy.en.breadcrumb, sectorPath(s, 'en'), s.copy.en.seo.description)),
     '',
@@ -118,7 +118,7 @@ export const GET: APIRoute = async () => {
   return new Response(body, {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400',
     },
   });
 };
