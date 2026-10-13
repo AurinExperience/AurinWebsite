@@ -114,11 +114,6 @@
   object-fit: cover;
 }
 
-.imagePlaceholder {
-  width: 100%;
-  height: calc(250px * var(--hero-scale, 1));
-  background-color: #d9d9d9;
-}
 
 /* Mobile: up to 767px */
 @media (max-width: 767px) {
@@ -146,9 +141,6 @@
     font-size: 18px;
   }
 
-  .imagePlaceholder {
-    height: calc(300px * var(--hero-scale, 1));
-  }
   .heroImage {
     height: calc(300px * var(--hero-scale, 1));
   }
@@ -173,9 +165,6 @@
     font-size: 20px;
   }
 
-  .imagePlaceholder {
-    height: calc(362px * var(--hero-scale, 1));
-  }
 
   .heroImage {
     height: calc(362px * var(--hero-scale, 1));

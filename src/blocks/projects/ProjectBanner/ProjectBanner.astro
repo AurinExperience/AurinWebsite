@@ -37,13 +37,13 @@ const { title, categories, description, clientLogo, logoScale = 1, logoColor = '
       )}
     </div>
 
-    <div class={styles.heroImageWrapper} style={`--hero-scale: ${heroScale}`}>
-      {heroImage ? (
+    {/* Sin imagen principal no se pinta nada: el recuadro gris de antes dejaba un
+        hueco entre el título y el texto en los proyectos que aún no tienen fotos. */}
+    {heroImage && (
+      <div class={styles.heroImageWrapper} style={`--hero-scale: ${heroScale}`}>
         <img src={heroImage} alt={title} class={styles.heroImage} />
-      ) : (
-        <div class={styles.imagePlaceholder}></div>
-      )}
-    </div>
+      </div>
+    )}
   </div>
 </section>
 

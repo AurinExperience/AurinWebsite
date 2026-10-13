@@ -113,12 +113,15 @@ export function toProjectData(project: PayloadProject) {
     clientIndustry: project.client?.industry,
     heroImage: getImageUrl(project.hero?.bannerImage?.url),
     heroScale: HERO_SCALE[project.hero?.bannerHeight ?? "md"] ?? 1,
-    gallery:
-      project.gallery?.map((item) => ({
-        imgUrl: getImageUrl(item?.image?.url),
+    gallery: (project.gallery ?? [])
+      // Una fila sin imagen (agregada en el admin y sin elegir archivo) pintaba un
+      // slide vacío: con todas vacías quedaba un hueco del alto de la galería.
+      .filter((item) => item?.image?.url)
+      .map((item) => ({
+        imgUrl: getImageUrl(item.image!.url),
         // El alt del proyecto es opcional; si no hay, el de la imagen en Archivos
         alt: item?.alt || item?.image?.alt || project.title,
-      })) || [],
+      })),
   };
 }
 
