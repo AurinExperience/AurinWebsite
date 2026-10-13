@@ -10,8 +10,7 @@ import type { Landing } from './types';
  * selector de idioma, no dos sitios distintos). Giros: construcción y remodelación, proveedores de la industria
  * energética, clínicas y restaurantes.
  *
- * Primera tanda de landings en EE. UU. Sin domicilio allá: `localBusiness`
- * queda apagado y todo se sostiene como área de servicio.
+ * Primera tanda de landings en EE. UU. Sin domicilio allá: todo se sostiene como área de servicio.
  */
 export const houston: Landing = {
   id: 'houston',

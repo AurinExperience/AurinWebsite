@@ -1,0 +1,51 @@
+---
+/**
+ * Office — domicilio, horario y accesos a la ficha de Google Business Profile.
+ * Repite en texto visible el mismo NAP y horario que publican el schema global
+ * y la ficha, y empuja reseñas: las dos señales que más pesan en el mapa local.
+ * Va solo donde hay oficina real: Contacto y la landing de Morelos.
+ */
+import { getLangFromUrl } from "@/i18n";
+import { SITE } from "@/config/site";
+import MainButton from "@/components/ui/MainButton.astro";
+import SecondaryButton from "@/components/ui/SecondaryButton.astro";
+import styles from "./Office.module.css";
+
+const lang = getLangFromUrl(Astro.url);
+const { streetAddress, postalCode, addressLocality, addressRegion } = SITE.address;
+const { opens, closes } = SITE.openingHours;
+
+const copy = {
+  es: {
+    heading: `Visítanos en ${addressLocality}`,
+    hours: `Lunes a viernes, ${opens} a ${closes} h`,
+    map: "Ver en Google Maps",
+    review: "Déjanos una reseña",
+  },
+  en: {
+    heading: `Visit us in ${addressLocality}`,
+    hours: `Monday to Friday, ${opens} to ${closes}`,
+    map: "View on Google Maps",
+    review: "Leave us a review",
+  },
+}[lang];
+---
+
+<section class={styles.section} aria-labelledby="office-heading">
+  <div class={styles.inner}>
+    <div class={styles.info}>
+      <h2 class={styles.heading} id="office-heading">{copy.heading}</h2>
+      <address class={styles.address}>
+        {SITE.name}<br />
+        {streetAddress}, {postalCode}<br />
+        {addressLocality}, {addressRegion}<br />
+        <a href={`tel:${SITE.telephone.replace(/\s/g, "")}`} class={styles.link}>{SITE.telephone}</a>
+      </address>
+      <p class={styles.hours}>{copy.hours}</p>
+    </div>
+    <div class={styles.actions}>
+      <MainButton text={copy.map} href={SITE.mapsUrl} />
+      <SecondaryButton text={copy.review} href={SITE.reviewUrl} />
+    </div>
+  </div>
+</section>

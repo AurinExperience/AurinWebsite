@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, getLocalizedUrl, translations } from "@/i18n";
 import { guidesIndexPath } from "@/data/guides";
+import { SITE } from "@/config/site";
 // Footer component with parallax effect
 import styles from "./Footer.module.css";
 
@@ -68,7 +69,7 @@ const guidesLabel = currentLang === "es" ? "Guías" : "Guides";
                 </div>
                 {!hidePhone && (
                   <div class={styles.footerLinkContainer}>
-                    <a href="tel:+527771020339" class={styles.footerLink}>+52 777 102 0339</a>
+                    <a href={`tel:${SITE.telephone.replace(/\s/g, "")}`} class={styles.footerLink}>{SITE.telephone}</a>
                   </div>
                 )}
               </div>
