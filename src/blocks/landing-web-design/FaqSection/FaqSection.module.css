@@ -64,6 +64,20 @@
   border-bottom-color: var(--color-yellow);
 }
 
+.relatedLink {
+  align-self: flex-start;
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.relatedLink:hover {
+  color: var(--color-yellow);
+}
+
 .list {
   display: flex;
   flex-direction: column;

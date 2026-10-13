@@ -7,13 +7,10 @@ const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
 
 const services = [
-  { id: "service-intro", letter: "U", ...t.services.servicesList[0] },
-  { id: "service-stuff", letter: "X", ...t.services.servicesList[1] },
-  { id: "service-contact", letter: "D", ...t.services.servicesList[2] },
+  { id: "diseno-web", letter: "U", ...t.services.servicesList[0] },
+  { id: "ux-ui", letter: "X", ...t.services.servicesList[1] },
+  { id: "ux-ui-apps", letter: "D", ...t.services.servicesList[2] },
 ];
-
-const vectorSrc =
-  "http://localhost:3845/assets/a246d8039761c4e8d4abdc99883198f810c40869.svg";
 ---
 
 <section class={styles.section}>
@@ -37,7 +34,7 @@ const vectorSrc =
                 <span class={styles.cardLetter} aria-hidden="true">
                   {service.letter}
                 </span>
-                <p class={styles.cardTitle}>{service.title}</p>
+                <h3 class={styles.cardTitle}>{service.title}</h3>
               </div>
               <div class={styles.cardDark}>
                 <p class={styles.cardDescription}>{service.description}</p>
