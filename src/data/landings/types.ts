@@ -81,13 +81,6 @@ export interface Landing {
    */
   publishAt?: string;
   /**
-   * Solo para la ciudad donde Aurin tiene domicilio real. Agrega el nodo
-   * LocalBusiness con el NAP verdadero. En cualquier otra ciudad sería una
-   * dirección inventada: eso sí es motivo de penalización y de suspensión de la
-   * ficha de Google Business Profile.
-   */
-  localBusiness?: boolean;
-  /**
    * País de la landing. Las hermanas se enlazan solo dentro del mismo país:
    * debajo de Houston no tiene sentido ofrecer Morelos. En EE. UU. además se
    * ocultan el teléfono y el WhatsApp +52 (para un cliente de allá suenan a

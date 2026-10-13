@@ -4,9 +4,9 @@ import type { Landing } from './types';
  * Morelos — palabra clave objetivo: "diseño web Morelos", con Cuernavaca como
  * ciudad principal dentro del contenido.
  *
- * Es la ÚNICA landing con `localBusiness: true`: aquí está el domicilio real de
- * Aurin, así que es la única ciudad donde se puede competir por el paquete local
- * de Google (el mapa) y no solo por resultados orgánicos. También es la única
+ * Es la landing de la ciudad donde está el domicilio real de Aurin, así que es
+ * la única donde se puede competir por el paquete local de Google (el mapa) y no
+ * solo por resultados orgánicos. También es la única
  * donde tiene sentido ofrecer verse en persona.
  *
  * Ángulo propio: cercanía y negocios locales de servicio y turismo. Ni industria
@@ -15,7 +15,6 @@ import type { Landing } from './types';
 export const morelos: Landing = {
   id: 'morelos',
   status: 'live',
-  localBusiness: true,
   slug: { es: 'morelos', en: 'morelos' },
   region: 'Morelos',
   geo: { latitude: 18.9242, longitude: -99.2216 },

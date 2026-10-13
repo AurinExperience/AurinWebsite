@@ -41,6 +41,7 @@ const graph = {
       "@type": orgType,
       "@id": orgId,
       name: SITE.name,
+      alternateName: SITE.alternateName,
       url: SITE.url,
       logo: {
         "@type": "ImageObject",
@@ -63,6 +64,9 @@ const graph = {
       ...(SITE.telephone && { telephone: SITE.telephone }),
       ...(hasAddress && {
         address: { "@type": "PostalAddress", ...address },
+        geo: { "@type": "GeoCoordinates", ...SITE.geo },
+        hasMap: SITE.mapsUrl,
+        openingHoursSpecification: { "@type": "OpeningHoursSpecification", ...SITE.openingHours },
       }),
       // Omitir la propiedad si no hay perfiles; un `sameAs: []` no aporta nada.
       ...(SITE.sameAs.length > 0 && { sameAs: SITE.sameAs }),
@@ -72,6 +76,7 @@ const graph = {
       "@id": siteId,
       url: SITE.url,
       name: SITE.name,
+      alternateName: SITE.alternateName,
       description: orgDescription,
       publisher: { "@id": orgId },
       inLanguage: ["es-MX", "en-US"],
