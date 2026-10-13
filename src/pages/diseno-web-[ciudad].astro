@@ -10,12 +10,17 @@
  * es justo el patrón de "doorway pages" que Google castiga.
  */
 import { findLanding } from '@/data/landings';
+import { findSector } from '@/data/sectors';
 import WebDesignCityPage from '@/components/pages/WebDesignCityPage.astro';
+import WebDesignSectorPage from '@/components/pages/WebDesignSectorPage.astro';
 
+// Los sectores comparten el prefijo de URL (/diseno-web-para-medicos), así que
+// se resuelven aquí mismo, también contra su lista cerrada.
 const landing = findLanding(Astro.params.ciudad, 'es');
+const sector = landing ? undefined : findSector(Astro.params.ciudad, 'es');
 // 404 real, no redirect al home: mandar cada URL inventada al inicio es el
 // patrón que Google marca como soft 404.
-if (!landing) return Astro.rewrite('/404');
+if (!landing && !sector) return Astro.rewrite('/404');
 ---
 
-<WebDesignCityPage landing={landing} />
+{landing ? <WebDesignCityPage landing={landing} /> : <WebDesignSectorPage sector={sector!} />}

@@ -117,7 +117,7 @@ export const ALL_LANDINGS: Landing[] = [
  */
 const SHOW_ALL = import.meta.env.MODE === 'development' && !process.env.PROD_PREVIEW;
 
-export function isPublished(landing: Landing, now = Date.now()): boolean {
+export function isPublished(landing: Pick<Landing, 'status' | 'publishAt'>, now = Date.now()): boolean {
   if (SHOW_ALL) return true;
   if (landing.status !== 'live') return false;
   return !landing.publishAt || Date.parse(landing.publishAt) <= now;
@@ -144,6 +144,14 @@ export function landingPath(landing: Landing, lang: Lang): string {
 export function findLanding(slug: string | undefined, lang: Lang): Landing | undefined {
   if (!slug) return undefined;
   return publishedLandings().find((landing) => landing.slug[lang] === slug);
+}
+
+/**
+ * El lugar que se lee en el enlace ("Diseño web en Houston" → "Houston"), para
+ * ordenar y para listas donde el prefijo "Diseño web en" ya va en el título.
+ */
+export function landingPlace(landing: Landing, lang: Lang): string {
+  return landing.copy[lang].linkLabel.replace(/^.*\s(?:en|in)\s+(?:el\s+|the\s+)?/i, '');
 }
 
 /** Las demás landings del mismo país, para el bloque de enlaces cruzados. */

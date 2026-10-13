@@ -151,3 +151,150 @@
 .itemCta {
   transition: gap var(--transition-smooth);
 }
+
+/* --------------------------------------------------------------
+   Directorio de landings: diseño web por ubicación
+   -------------------------------------------------------------- */
+.locations {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: var(--spacing-10);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.locationsHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  max-width: 60ch;
+}
+
+.locationsHeading {
+  color: var(--color-text);
+  font-family: var(--font-family-display);
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: var(--font-weight-light);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.locationsIntro {
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.locationGroups {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--spacing-10);
+}
+
+.locationGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.locationGroupHeading {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-2);
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--color-yellow);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.locationCount {
+  color: var(--color-text);
+  font-weight: var(--font-weight-light);
+  letter-spacing: normal;
+  font-variant-numeric: tabular-nums;
+}
+
+.locationList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  column-gap: var(--spacing-6);
+}
+
+.locationGroup[data-country='us'] .locationList {
+  grid-template-columns: 1fr;
+}
+
+.locationLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding-block: var(--spacing-2);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-light);
+  text-decoration: none;
+  transition: color var(--transition-smooth);
+}
+
+.locationRegion {
+  opacity: 0.6;
+}
+
+.locationArrow {
+  flex-shrink: 0;
+  color: var(--color-yellow);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.locationLink:hover,
+.locationLink:focus-visible {
+  color: var(--color-yellow);
+}
+
+.locationLink:hover .locationArrow,
+.locationLink:focus-visible .locationArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 992px) {
+  .locationGroups {
+    grid-template-columns: 1fr;
+  }
+
+  .locationGroup[data-country='us'] .locationList {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .locations {
+    padding: var(--spacing-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .locationList,
+  .locationGroup[data-country='us'] .locationList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--spacing-4);
+  }
+}

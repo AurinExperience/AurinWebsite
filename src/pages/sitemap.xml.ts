@@ -3,6 +3,7 @@ import { addCacheTag } from '@vercel/functions';
 import { CMS_CACHE_TAG } from '@/lib/cache';
 import { PayloadAPI } from '@/lib/payload';
 import { publishedLandings, landingPath } from '@/data/landings';
+import { publishedSectors, sectorPath } from '@/data/sectors';
 import { GUIDES, guidePath, guidesIndexPath } from '@/data/guides';
 
 export const prerender = false;
@@ -46,6 +47,15 @@ const landingPages = () => publishedLandings().map((landing) => ({
   lastmod: landing.publishAt ? toW3C(new Date(landing.publishAt)) : BUILD_DATE,
 }));
 
+// Landings por sector: mismo trato que las de ciudad.
+const sectorPages = () => publishedSectors().map((sector) => ({
+  es: sectorPath(sector, 'es'),
+  en: sectorPath(sector, 'en'),
+  priority: '0.9',
+  changefreq: 'weekly',
+  lastmod: sector.publishAt ? toW3C(new Date(sector.publishAt)) : BUILD_DATE,
+}));
+
 /*
  * Guías + su índice. Mismo motivo que las landings: la lista se deriva de los
  * datos para que publicar una guía no dependa de acordarse de este archivo.
@@ -86,7 +96,7 @@ export const GET: APIRoute = async () => {
   const entries: SitemapEntry[] = [];
 
   // 1. Static pages with reciprocal hreflang alternates
-  for (const page of [...staticPages, ...landingPages(), ...guidePages]) {
+  for (const page of [...staticPages, ...landingPages(), ...sectorPages(), ...guidePages]) {
     const esUrl = `${baseUrl}${page.es}`;
     const enUrl = `${baseUrl}${page.en}`;
 

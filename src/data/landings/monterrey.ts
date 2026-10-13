@@ -45,7 +45,7 @@ export const monterrey: Landing = {
         stats: [
           { value: '+20', label: 'años diseñando marcas y productos digitales' },
           { value: '90+', label: 'la meta de PageSpeed que medimos en cada entrega' },
-          { value: '2-8', label: 'semanas del brief al sitio en línea, según el alcance' },
+          { value: '0', label: 'plantillas: cada sitio se diseña desde cero' },
         ],
       },
       services: {
@@ -129,7 +129,7 @@ export const monterrey: Landing = {
           {
             question: '¿Cuánto tiempo toma diseñar un sitio web profesional?',
             answer:
-              'Una landing page toma de 2 a 4 semanas y un sitio corporativo de 6 a 8, desde el descubrimiento hasta el lanzamiento. No es solo maquetar: hay research, arquitectura de información, wireframes, diseño de interfaz y rondas de revisión antes de escribir la primera línea de código. Los tiempos se alargan sobre todo por dos cosas: la entrega de contenidos y la rapidez del feedback de tu equipo.',
+              'Depende del alcance, y las fechas se acuerdan en la cotización. No es solo maquetar: hay research, arquitectura de información, wireframes, diseño de interfaz y rondas de revisión antes de escribir la primera línea de código. Los tiempos se alargan sobre todo por dos cosas: la entrega de contenidos y la rapidez del feedback de tu equipo.',
           },
           {
             question: '¿Qué incluye el diseño UX/UI de un sitio web?',
@@ -187,7 +187,7 @@ export const monterrey: Landing = {
         stats: [
           { value: '+20', label: 'years designing brands and digital products' },
           { value: '90+', label: 'the PageSpeed target we measure on every delivery' },
-          { value: '2-8', label: 'weeks from brief to a live site, depending on scope' },
+          { value: '0', label: 'templates: every site is designed from scratch' },
         ],
       },
       services: {
@@ -271,7 +271,7 @@ export const monterrey: Landing = {
           {
             question: 'How long does it take to design a professional website?',
             answer:
-              'A landing page takes 2 to 4 weeks and a corporate site 6 to 8, from discovery to launch. It is not just building screens: there is research, information architecture, wireframes, interface design and review rounds before the first line of code. What stretches timelines is mostly two things: content delivery and how fast your team turns around feedback.',
+              'It depends on scope, and the dates are agreed in the quote. It is not just building screens: there is research, information architecture, wireframes, interface design and review rounds before the first line of code. What stretches timelines is mostly two things: content delivery and how fast your team turns around feedback.',
           },
           {
             question: 'What does your UX/UI design include?',

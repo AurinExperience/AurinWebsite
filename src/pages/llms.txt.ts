@@ -3,6 +3,7 @@ import { addCacheTag } from '@vercel/functions';
 import { CMS_CACHE_TAG } from '@/lib/cache';
 import { SITE } from '@/config/site';
 import { publishedLandings, landingPath } from '@/data/landings';
+import { publishedSectors, sectorPath } from '@/data/sectors';
 import { GUIDES, guidePath, guidesIndexPath } from '@/data/guides';
 import { PayloadAPI, renderRichText } from '@/lib/payload';
 import { metaDescription } from '@/lib/seo';
@@ -19,14 +20,14 @@ const staticPages = {
   es: [
     ['Inicio', '/', 'Diseño UX/UI, branding y desarrollo web en México.'],
     ['Nosotros', '/about', 'Equipo, enfoque y metodología de la agencia.'],
-    ['Servicios', '/services', 'Diseño UX/UI, branding, identidad corporativa, diseño web y desarrollo de aplicaciones.'],
+    ['Servicios', '/services', 'Diseño UX/UI, branding, identidad corporativa, diseño y desarrollo web.'],
     ['Portafolio', '/projects', 'Proyectos y casos de estudio.'],
     ['Contacto', '/contact', 'Formulario de contacto y agenda de citas.'],
   ],
   en: [
     ['Home', '/en', 'UX/UI design, branding and web development in Mexico.'],
     ['About', '/en/about', 'Team, approach and methodology.'],
-    ['Services', '/en/services', 'UX/UI design, branding, corporate identity, web design and app development.'],
+    ['Services', '/en/services', 'UX/UI design, branding, corporate identity, web design and development.'],
     ['Portfolio', '/en/projects', 'Projects and case studies.'],
     ['Contact', '/en/contact', 'Contact form and appointment booking.'],
   ],
@@ -64,7 +65,7 @@ export const GET: APIRoute = async () => {
   const body = [
     `# ${SITE.name}`,
     '',
-    `> Aurin es una agencia mexicana de diseño UX/UI, branding y desarrollo web y de aplicaciones, con más de 20 años de experiencia y oficina en ${SITE.address.addressLocality}, ${SITE.address.addressRegion}. Atiende clientes en todo México de forma remota.`,
+    `> Aurin es una agencia mexicana de diseño UX/UI, branding y desarrollo web, con más de 20 años de experiencia y oficina en ${SITE.address.addressLocality}, ${SITE.address.addressRegion}. Atiende clientes en todo México de forma remota.`,
     '',
     '## Páginas principales (ES)',
     '',
@@ -81,6 +82,14 @@ export const GET: APIRoute = async () => {
     '## Web design by city (EN)',
     '',
     ...publishedLandings().map((l) => line(l.copy.en.breadcrumb, landingPath(l, 'en'), l.copy.en.seo.description)),
+    '',
+    '## Diseño web por sector (ES)',
+    '',
+    ...publishedSectors().map((s) => line(s.copy.es.breadcrumb, sectorPath(s, 'es'), s.copy.es.seo.description)),
+    '',
+    '## Web design by industry (EN)',
+    '',
+    ...publishedSectors().map((s) => line(s.copy.en.breadcrumb, sectorPath(s, 'en'), s.copy.en.seo.description)),
     '',
     '## Guías (ES)',
     '',

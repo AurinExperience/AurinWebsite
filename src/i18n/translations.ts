@@ -7,7 +7,7 @@ export const translations = {
     seo: {
       title: "Aurin | UX/UI Design, Branding & Web Dev Mexico",
       description: "Branding, UX/UI design, and web development in Mexico. We create brands and digital experiences that people actually want to use. Let's talk.",
-      keywords: "branding agency Mexico, UX UI design company, web app development Mexico, ecommerce development, digital strategy agency"
+      keywords: "branding agency Mexico, UX UI design company, web development Mexico, ecommerce development, web design agency Mexico"
     },
     contact: {
       seo: {
@@ -54,8 +54,8 @@ export const translations = {
           },
           {
             value: "desarrollo-web-movil",
-            title: "Web & Mobile App Development",
-            description: "Websites, apps, and custom ecommerce solutions"
+            title: "Web & Platform Development",
+            description: "Websites, platforms, and custom online stores"
           },
           {
             value: "desarrollo-branding",
@@ -124,10 +124,9 @@ export const translations = {
       ariaLabel: "Type your question about services",
       submitAriaLabel: "Submit question",
       services: [
-        "Need a website or mobile app?",
+        "Need a website?",
         "UX/UI design for your product",
         "Branding and brand identity",
-        "Digital marketing and social media",
         "Usability testing",
         "Brand and experience audits"
       ]
@@ -158,8 +157,8 @@ export const translations = {
     projects: {
       seo: {
         title: "UX/UI & Branding Portfolio | Aurin Mexico",
-        description: "Portfolio of UX/UI design, web/app development and branding. Real companies, real projects. See how we work.",
-        keywords: "UX UI design portfolio Mexico, branding projects case studies, web development showcase, digital marketing results, mobile app design portfolio"
+        description: "Portfolio of UX/UI design, web development and branding. Real companies, real projects. See how we work.",
+        keywords: "UX UI design portfolio Mexico, branding projects case studies, web development showcase, mobile app design portfolio"
       },
       introduction: {
         headingLight: "When the abstract",
@@ -198,9 +197,8 @@ export const translations = {
       filters: {
         "all": "All",
         "diseno-ux-ui": "UX/UI Design",
-        "desarrollo-web-movil": "Web and mobile app development",
+        "desarrollo-web-movil": "Web and platform development",
         "desarrollo-branding": "Branding development",
-        "marketing-digital": "Digital marketing and social media",
         "pruebas-usabilidad": "Usability testing"
       }
     },
@@ -222,11 +220,11 @@ export const translations = {
         items: [
           {
             question: "What services does Aurin offer?",
-            answer: "Aurin is a Mexican agency that covers UX/UI design, branding and corporate identity, custom website design and development, mobile and web app development, and digital strategy. One team handles research, design and development, so nothing gets lost between a design studio and a separate developer."
+            answer: "Aurin is a Mexican agency that covers UX/UI design, branding and corporate identity, custom website and and web platform design and development. One team handles research, design and development, so nothing gets lost between a design studio and a separate developer."
           },
           {
             question: "How long does a web design project take?",
-            answer: "A landing page takes 2 to 3 weeks. A corporate website with 5 to 10 sections takes 4 to 8 weeks from brief to launch. A web app or platform runs 3 to 6 months. The biggest variable is how fast content and approvals arrive from the client's side."
+            answer: "It depends on scope: a landing page is not the same as a corporate website or a web platform. The dates for each stage are set in the quote. The biggest variable is how fast content and approvals arrive from the client's side."
           },
           {
             question: "How much does it cost to work with Aurin?",
@@ -278,8 +276,8 @@ export const translations = {
           },
           {
             letter: "Dev",
-            title: "Web and app development",
-            description: "Functional sites, platforms and apps"
+            title: "Web development",
+            description: "Custom websites and web platforms"
           },
           {
             letter: "Br",
@@ -290,16 +288,13 @@ export const translations = {
         description: "With these capabilities, we shape solutions that connect, inspire and generate impact.",
         items: [
           {
-            title: "Web and mobile app development"
+            title: "Web and platform development"
           },
           {
             title: "Usability testing"
           },
           {
             title: "Branding development (Identity)"
-          },
-          {
-            title: "Digital marketing and social media"
           },
           {
             title: "UX/UI Design"
@@ -318,19 +313,14 @@ export const translations = {
           description: "As technology users that we are, we love to explore and build intuitive interfaces designed to adapt to user needs, achieving experiences that balance form and function. From designing banking applications that simplify transactions to accessible navigation systems for complex websites, our solutions transform the complicated into something easy to use."
         },
         {
-          title: "Web and mobile app development:",
+          title: "Web and platform development:",
           subtitle: "Information and functionality, at hand.",
-          description: "We design and develop websites and mobile applications that combine functionality, design and performance. From sites that offer immersive experiences to apps that optimize processes and improve user interaction, our solutions are designed to adapt to your needs and generate impact."
+          description: "We design and develop websites and web platforms that combine functionality, design and performance. From sites that offer immersive experiences to platforms that optimize processes and improve user interaction, our solutions are designed to adapt to your needs and generate impact."
         },
         {
           title: "Branding development:",
           subtitle: "We design your brand from start to finish.",
           description: "We create systems that transcend, connecting deeply with audiences. From the complete redesign of visual identities, including logos and corporate stationery, to the creation of style guides that guarantee consistency across all channels, our solutions bring life to memorable and consistent brands."
-        },
-        {
-          title: "Digital marketing and social media:",
-          subtitle: "We connect with intention.",
-          description: "We create digital strategies that build communities and generate results. From content marketing campaigns to creative social media management, we develop messages that reflect your voice and connect with the right audience. We focus on real metrics, meaningful content and constant creativity to strengthen your digital presence."
         },
         {
           title: "Usability testing:",
@@ -355,7 +345,7 @@ export const translations = {
       items: [
         {
           question: "What is Aurin?",
-          answer: "Aurin is a Mexican UX/UI design, branding and web and app development agency founded in 1998. We design brands and digital products for companies that need their website or app to bring in customers, not just look good. One team covers research, design and development end to end."
+          answer: "Aurin is a Mexican UX/UI design, branding and web development agency founded in 1998. We design brands and digital products for companies that need their website to bring in customers, not just look good. One team covers research, design and development end to end."
         },
         {
           question: "Where is Aurin and who do you work with?",
@@ -424,10 +414,9 @@ export const translations = {
       titlePart1: 'Our',
       titlePart2: 'Toolbox',
       description: 'Each tool we master brings us closer to what matters most: creating something meaningful.',
-      webDev: 'Web and mobile app development',
+      webDev: 'Web and platform development',
       usability: 'Usability testing',
       branding: 'Branding development (Identity)',
-      marketing: 'Digital marketing and social media',
       uxui: 'UX | UI Design',
       viewServices: 'View Services'
     },
@@ -531,12 +520,11 @@ export const translations = {
         },
         services: {
           title: "2. Service Description",
-          intro: "Aurin is a visual communication agency specialized in graphic design, branding, corporate identity, UX/UI design and digital strategy. We offer professional services that include:",
+          intro: "Aurin is a visual communication agency specialized in graphic design, branding, corporate identity, UX/UI design and web development. We offer professional services that include:",
           servicesList: [
             "Brand and experience audits",
             "Corporate identity and branding design",
             "User experience design (UX/UI)",
-            "Digital strategy and marketing",
             "Visual communication consulting"
           ],
           conclusion: "Specific services, scope, deliverables and timelines will be defined in commercial proposals and individual contracts."
@@ -654,7 +642,6 @@ export const translations = {
         "Branding",
         "Corporate Identity",
         "Web Design",
-        "Digital Strategy",
         "UX/UI Design"
       ]
     },
@@ -671,7 +658,7 @@ export const translations = {
           "Branding",
           "Corporate Identity",
           "Visual Communication",
-          "Digital Strategy",
+          "Web Development",
           "UX/UI Design"
         ],
         serviceTypes: [
@@ -679,7 +666,7 @@ export const translations = {
           "Branding",
           "Corporate Identity",
           "Visual Communication",
-          "Digital Strategy"
+          "Web Development"
         ]
       },
       usBanner: {
@@ -779,7 +766,7 @@ export const translations = {
     seo: {
       title: "Aurin | UX/UI, Branding y Desarrollo Web México",
       description: "Branding, diseño UX/UI y desarrollo web para empresas en México. Creamos marcas y experiencias digitales que conectan con las personas. Cotiza hoy.",
-      keywords: "agencia branding México, diseño UX UI empresas, desarrollo web ecommerce México, estrategia digital, identidad corporativa"
+      keywords: "agencia branding México, diseño UX UI empresas, desarrollo web ecommerce México, identidad corporativa"
     },
     contact: {
       seo: {
@@ -826,8 +813,8 @@ export const translations = {
           },
           {
             value: "desarrollo-web-movil",
-            title: "Desarrollo web y aplicaciones móviles",
-            description: "Webs, apps y soluciones ecommerce a medida"
+            title: "Desarrollo web y plataformas",
+            description: "Sitios, plataformas y tiendas en línea a medida"
           },
           {
             value: "desarrollo-branding",
@@ -896,10 +883,9 @@ export const translations = {
       ariaLabel: "Escribe tu pregunta sobre servicios",
       submitAriaLabel: "Enviar pregunta",
       services: [
-        "¿Necesitas un sitio web o app móvil?",
+        "¿Necesitas un sitio web?",
         "Diseño UX/UI para tu producto",
         "Branding e identidad de marca",
-        "Marketing digital y redes sociales",
         "Pruebas de usabilidad",
         "Auditoría de marca y experiencia"
       ]
@@ -930,8 +916,8 @@ export const translations = {
     projects: {
       seo: {
         title: "Portafolio UX/UI, Branding y Web | Aurin",
-        description: "Portafolio de diseño UX/UI, desarrollo web/apps y branding. Empresas reales, proyectos reales. Descubre cómo trabajamos.",
-        keywords: "portafolio diseño UX UI México, proyectos branding exitosos, casos desarrollo web app, marketing digital resultados, pruebas usabilidad proyectos"
+        description: "Portafolio de diseño UX/UI, desarrollo web y branding. Empresas reales, proyectos reales. Descubre cómo trabajamos.",
+        keywords: "portafolio diseño UX UI México, proyectos branding exitosos, casos desarrollo web, pruebas usabilidad proyectos"
       },
       introduction: {
         headingLight: "Cuando lo abstracto",
@@ -970,9 +956,8 @@ export const translations = {
       filters: {
         "all": "Todos",
         "diseno-ux-ui": "Diseño UX/UI",
-        "desarrollo-web-movil": "Desarrollo web y de aplicaciones móviles",
+        "desarrollo-web-movil": "Desarrollo web y plataformas",
         "desarrollo-branding": "Desarrollo de branding",
-        "marketing-digital": "Marketing digital y redes sociales",
         "pruebas-usabilidad": "Pruebas de usabilidad"
       }
     },
@@ -994,11 +979,11 @@ export const translations = {
         items: [
           {
             question: "¿Qué servicios ofrece Aurin?",
-            answer: "Aurin es una agencia mexicana que cubre diseño UX/UI, branding e identidad corporativa, diseño y desarrollo de sitios web a medida, desarrollo de aplicaciones móviles y web, y estrategia digital. Un mismo equipo lleva investigación, diseño y desarrollo, así que nada se pierde entre un estudio de diseño y un desarrollador aparte."
+            answer: "Aurin es una agencia mexicana que cubre diseño UX/UI, branding e identidad corporativa, diseño y desarrollo de y diseño y desarrollo de sitios y plataformas web a medida. Un mismo equipo lleva investigación, diseño y desarrollo, así que nada se pierde entre un estudio de diseño y un desarrollador aparte."
           },
           {
             question: "¿Cuánto tarda un proyecto de diseño web?",
-            answer: "Una landing page toma de 2 a 3 semanas. Un sitio corporativo de 5 a 10 secciones, de 4 a 8 semanas del brief al lanzamiento. Una aplicación web o plataforma, de 3 a 6 meses. La variable que más pesa es qué tan rápido llegan el contenido y las aprobaciones del lado del cliente."
+            answer: "Depende del alcance: no es lo mismo una landing page que un sitio corporativo o una plataforma web. Las fechas de cada etapa van en la cotización. La variable que más pesa es qué tan rápido llegan el contenido y las aprobaciones del lado del cliente."
           },
           {
             question: "¿Cuánto cuesta trabajar con Aurin?",
@@ -1050,8 +1035,8 @@ export const translations = {
           },
           {
             letter: "Dev",
-            title: "Desarrollo web y de aplicaciones",
-            description: "Sitios, plataformas y apps funcionales"
+            title: "Desarrollo web",
+            description: "Sitios y plataformas web a la medida"
           },
           {
             letter: "Br",
@@ -1062,16 +1047,13 @@ export const translations = {
         description: "Todo lo que imaginamos, lo creamos con intención. Cada herramienta es una forma de acercarnos, conectar y dar vida a lo que aún no existe.",
         items: [
           {
-            title: "Desarrollo web y de aplicaciones móviles"
+            title: "Desarrollo web y plataformas"
           },
           {
             title: "Pruebas de usabilidad"
           },
           {
             title: "Desarrollo de Branding"
-          },
-          {
-            title: "Marketing digital y redes sociales"
           },
           {
             title: "Diseño UX/UI"
@@ -1090,19 +1072,14 @@ export const translations = {
           description: "Como usuarios de tecnología que somos, nos encanta explorar y construir interfaces intuitivas diseñadas para adaptarse a las necesidades de los usuarios, logrando experiencias que equilibran forma y función. Desde el diseño de aplicaciones bancarias que simplifican transacciones hasta sistemas de navegación accesibles para sitios web complejos, nuestras soluciones transforman lo complicado en algo fácil de usar."
         },
         {
-          title: "Desarrollo web y de aplicaciones móviles: ",
+          title: "Desarrollo web y plataformas: ",
           subtitle: "Información y funcionalidad, a la mano.",
-          description: "Diseñamos y desarrollamos sitios web y aplicaciones móviles que combinan funcionalidad, diseño y rendimiento. Desde sitios que ofrecen experiencias inmersivas hasta apps que optimizan procesos y mejoran la interacción del usuario, nuestras soluciones están pensadas para adaptarse a tus necesidades y generar impacto."
+          description: "Diseñamos y desarrollamos sitios y plataformas web que combinan funcionalidad, diseño y rendimiento. Desde sitios que ofrecen experiencias inmersivas hasta plataformas que optimizan procesos y mejoran la interacción del usuario, nuestras soluciones están pensadas para adaptarse a tus necesidades y generar impacto."
         },
         {
           title: "Desarrollo de branding: ",
           subtitle: "Diseñamos tu marca de principio a fin.",
           description: "Creamos sistemas que trascienden, conectando profundamente con las audiencias. Desde el rediseño completo de identidades visuales, incluyendo logotipos y papelería corporativa, hasta la creación de guías de estilo que garantizan coherencia en todos los canales, nuestras soluciones dan vida a marcas memorables y consistentes."
-        },
-        {
-          title: "Marketing digital y redes sociales: ",
-          subtitle: "Conectamos con intención.",
-          description: "Creamos estrategias digitales que construyen comunidades y generan resultados. Desde campañas de marketing de contenido hasta la gestión creativa de redes sociales, desarrollamos mensajes que reflejan tu voz y conectan con la audiencia correcta. Nos enfocamos en métricas reales, contenido significativo y creatividad constante para fortalecer tu presencia digital."
         },
         {
           title: "Pruebas de usabilidad: ",
@@ -1127,7 +1104,7 @@ export const translations = {
       items: [
         {
           question: "¿Qué es Aurin?",
-          answer: "Aurin es una agencia mexicana de diseño UX/UI, branding y desarrollo web y de aplicaciones fundada en 1998. Diseñamos marcas y productos digitales para empresas que necesitan que su sitio o su app traiga clientes, no solo que se vea bien. Un mismo equipo cubre investigación, diseño y desarrollo de principio a fin."
+          answer: "Aurin es una agencia mexicana de diseño UX/UI, branding y desarrollo web fundada en 1998. Diseñamos marcas y productos digitales para empresas que necesitan que su sitio traiga clientes, no solo que se vea bien. Un mismo equipo cubre investigación, diseño y desarrollo de principio a fin."
         },
         {
           question: "¿Dónde está Aurin y con quién trabaja?",
@@ -1196,10 +1173,9 @@ export const translations = {
       titlePart1: 'Nuestra caja',
       titlePart2: 'de Herramientas',
       description: 'Con estas capacidades, damos forma a soluciones que conectan, inspiran y generan impacto.',
-      webDev: 'Desarrollo web y de aplicaciones móviles',
+      webDev: 'Desarrollo web y plataformas',
       usability: 'Pruebas de usabilidad',
       branding: 'Desarrollo de Branding (Identidad)',
-      marketing: 'Marketing digital y redes sociales',
       uxui: 'Diseño UX | UI',
       viewServices: 'Ver Servicios'
     },
@@ -1303,13 +1279,12 @@ export const translations = {
         },
         services: {
           title: "2. Descripción de Servicios",
-          intro: "Aurin es una agencia de comunicación visual especializada en diseño gráfico, branding, identidad corporativa, diseño UX/UI y estrategia digital. Ofrecemos servicios profesionales que incluyen:",
+          intro: "Aurin es una agencia de comunicación visual especializada en diseño gráfico, branding, identidad corporativa, diseño UX/UI y desarrollo web. Ofrecemos servicios profesionales que incluyen:",
           servicesList: [
             "Auditorías de marca y experiencia",
             "Diseño de identidad corporativa y branding",
             "Diseño de experiencias de usuario (UX/UI)",
-            "Desarrollo web y aplicaciones móviles",
-            "Estrategia digital y marketing",
+            "Desarrollo web y plataformas",
             "Consultoría en comunicación visual"
           ],
           conclusion: "Los servicios específicos, alcance, entregables y cronogramas serán definidos en propuestas comerciales y contratos individuales."
@@ -1427,7 +1402,6 @@ export const translations = {
         "Branding",
         "Identidad Corporativa",
         "Diseño Web",
-        "Estrategia Digital",
         "Diseño UX/UI"
       ]
     },
@@ -1444,7 +1418,7 @@ export const translations = {
           "Branding",
           "Identidad Corporativa",
           "Comunicación Visual",
-          "Estrategia Digital",
+          "Desarrollo Web",
           "Diseño UX/UI"
         ],
         serviceTypes: [
@@ -1452,7 +1426,7 @@ export const translations = {
           "Branding",
           "Identidad Corporativa",
           "Comunicación Visual",
-          "Estrategia Digital"
+          "Desarrollo Web"
         ]
       },
       usBanner: {

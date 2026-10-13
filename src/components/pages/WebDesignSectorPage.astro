@@ -1,0 +1,131 @@
+---
+/**
+ * WebDesignSectorPage — Plantilla de las landings de diseño web por sector
+ * ("diseño web para médicos"). Usa los mismos bloques que WebDesignCityPage;
+ * cambia solo lo que depende de la geografía: el schema atiende a todo México
+ * y no hay oficina ni lada local.
+ *
+ * Mismas secciones y en el mismo orden que una landing por ciudad; el bloque
+ * de enlaces del final lista los demás sectores (se oculta si no hay otro).
+ */
+import type {
+  ServiceStructuredData,
+  HowToStructuredData,
+  BreadcrumbListStructuredData,
+} from "@/types/seo";
+import type { Sector } from "@/data/sectors";
+import { sectorPath, sectorService, siblingSectors } from "@/data/sectors";
+import { SITE } from "@/config/site";
+import { faqSchema } from "@/lib/seo";
+import { getLangFromUrl } from "@/i18n";
+import {
+  HeroLanding,
+  ServicesIncluded,
+  ProcessSteps,
+  SocialProof,
+  FaqSection,
+  LeadForm,
+  NearbyLandings,
+} from "@/blocks/landing-web-design";
+import Layout from "@/layouts/Layout.astro";
+import CtaBanner from "@/components/layout/CtaBanner.astro";
+import Header from "@/components/layout/Header.astro";
+import Footer from "@/components/layout/Footer.astro";
+
+interface Props {
+  sector: Sector;
+}
+
+const { sector } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const copy = sector.copy[lang];
+const canonicalUrl = `${SITE.url}${sectorPath(sector, lang)}`;
+const isUxUi = sectorService(sector) === "uxui";
+
+const serviceSchema: ServiceStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: copy.serviceName,
+  description: copy.seo.description,
+  url: canonicalUrl,
+  serviceType: isUxUi
+    ? lang === "es" ? "Diseño UX/UI de Productos Digitales" : "UX/UI Design for Digital Products"
+    : lang === "es" ? "Diseño y Desarrollo de Sitios Web" : "Website Design and Development",
+  provider: { "@id": `${SITE.url}/#organization` },
+  areaServed: lang === "es" ? "México" : "Mexico",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: isUxUi
+      ? lang === "es" ? "Servicios de Diseño UX/UI" : "UX/UI Design Services"
+      : lang === "es" ? "Servicios de Diseño Web" : "Web Design Services",
+    itemListElement: copy.services.items.map((service) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: service.title, description: service.description },
+    })),
+  },
+};
+
+const howToSchema: HowToStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: copy.process.heading,
+  description: copy.howToDescription,
+  step: copy.process.steps.map((step) => ({ "@type": "HowToStep", name: step.name, text: step.text })),
+};
+
+const breadcrumbSchema: BreadcrumbListStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: lang === "es" ? "Inicio" : "Home",
+      item: lang === "es" ? SITE.url : `${SITE.url}/en`,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: lang === "es" ? "Servicios" : "Services",
+      item: lang === "es" ? `${SITE.url}/services` : `${SITE.url}/en/services`,
+    },
+    { "@type": "ListItem", position: 3, name: copy.breadcrumb, item: canonicalUrl },
+  ],
+};
+---
+
+<Layout
+  title={copy.seo.title}
+  description={copy.seo.description}
+  keywords={copy.seo.keywords}
+  structuredData={serviceSchema}
+  additionalStructuredData={[faqSchema(copy.faq.items), howToSchema, breadcrumbSchema]}
+  canonical={canonicalUrl}
+  ogImage={SITE.ogImage}
+  showMegaMenu={false}
+>
+  <Header minimal />
+  {/* data-fx: activa los efectos de movimiento de los bloques (ver comentario "Efectos" en cada uno) */}
+  <main id="main-content">
+    <HeroLanding hero={copy.hero} />
+    <ServicesIncluded services={copy.services} />
+    <ProcessSteps process={copy.process} />
+    <SocialProof socialProof={copy.socialProof} proof={sector.proof} />
+    <FaqSection faq={copy.faq} />
+    <LeadForm
+      source={`sector-diseno-web-${sector.id}`}
+      subject={`Sector ${copy.breadcrumb}`}
+      phoneSample="+52 55 1234 5678"
+      copy={sector.lead?.[lang]}
+    />
+    <NearbyLandings
+      lang={lang}
+      nearby={copy.nearby}
+      links={siblingSectors(sector)
+        .sort((a, b) => a.name[lang].localeCompare(b.name[lang], lang))
+        .map((s) => ({ href: sectorPath(s, lang), label: s.copy[lang].linkLabel, detail: s.name[lang] }))}
+    />
+    <CtaBanner />
+  </main>
+  <Footer minimal />
+</Layout>

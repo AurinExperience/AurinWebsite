@@ -1,4 +1,5 @@
 import { landingSlugPairs } from '@/data/landings';
+import { sectorSlugPairs } from '@/data/sectors';
 import { guideSlugPairs } from '@/data/guides';
 
 export const languages = {
@@ -61,6 +62,7 @@ const slugExceptions: Record<string, { es: string; en: string }> = {
   // Las landings por ciudad se generan desde src/data/landings: agregar una
   // ciudad no debe obligar a tocar este archivo.
   ...landingSlugPairs,
+  ...sectorSlugPairs,
   ...guideSlugPairs,
 };
 

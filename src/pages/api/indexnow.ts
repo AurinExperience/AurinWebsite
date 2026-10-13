@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { ALL_LANDINGS, isPublished, landingPath } from '@/data/landings';
+import { publishedSectors, sectorPath } from '@/data/sectors';
 import { GUIDES, guidePath } from '@/data/guides';
 import { PayloadAPI } from '@/lib/payload';
 
@@ -48,6 +49,11 @@ export const GET: APIRoute = async ({ request }) => {
     (l) => l.publishAt && isPublished(l, now) && cdmxDate(Date.parse(l.publishAt)) === today
   ).flatMap((l) => [url(landingPath(l, 'es')), url(landingPath(l, 'en'))]);
 
+  // Sectores que se publicaron hoy (publishedSectors ya descarta fechas futuras).
+  const sectors = publishedSectors()
+    .filter((s) => s.publishAt && cdmxDate(Date.parse(s.publishAt)) === today)
+    .flatMap((s) => [url(sectorPath(s, 'es')), url(sectorPath(s, 'en'))]);
+
   const guides = GUIDES.filter((g) => g.updated === yesterday).flatMap((g) => [
     url(guidePath(g, 'es')),
     url(guidePath(g, 'en')),
@@ -71,7 +77,7 @@ export const GET: APIRoute = async ({ request }) => {
     console.error('IndexNow: no se pudieron leer los proyectos de Payload', error);
   }
 
-  const urlList = [...new Set([...landings, ...guides, ...projects])];
+  const urlList = [...new Set([...landings, ...sectors, ...guides, ...projects])];
   if (urlList.length === 0) return Response.json({ sent: 0 });
 
   const res = await fetch('https://api.indexnow.org/indexnow', {

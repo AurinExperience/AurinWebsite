@@ -68,7 +68,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     // Map the service slug to its readable label for the email
     const serviciosLabels: Record<string, string> = {
       'diseno-ux-ui': 'Diseño UX/UI',
-      'desarrollo-web-movil': 'Desarrollo web y aplicaciones móviles',
+      'desarrollo-web-movil': 'Desarrollo web y plataformas',
       'desarrollo-branding': 'Desarrollo de Branding',
       'marketing-digital': 'Marketing digital y redes sociales',
       'pruebas-usabilidad': 'Pruebas de usabilidad',
