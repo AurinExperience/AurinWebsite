@@ -14,9 +14,11 @@ interface Props {
     description: string;
     items: readonly { question: string; answer: string }[];
   };
+  /** Enlaces relacionados bajo el aside (p. ej. guías desde Servicios). */
+  links?: { label: string; href: string }[];
 }
 
-const { faq } = Astro.props;
+const { faq, links = [] } = Astro.props;
 const currentLang = getLangFromUrl(Astro.url);
 
 const contactLabel =
@@ -33,6 +35,9 @@ const contactLabel =
       <a class={styles.contactLink} href={getLocalizedUrl('/contact', currentLang)}>
         {contactLabel}
       </a>
+      {links.map((link) => (
+        <a class={styles.relatedLink} href={link.href}>{link.label}</a>
+      ))}
     </aside>
 
     <div class={styles.list}>

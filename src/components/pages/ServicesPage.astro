@@ -8,6 +8,7 @@ import type { ServiceStructuredData } from "@/types/seo";
 import { faqSchema } from "@/lib/seo";
 import { SITE } from "@/config/site";
 import { getLangFromUrl, getCanonicalUrl, translations } from "@/i18n";
+import { GUIDES, guidePath } from "@/data/guides";
 import { HeroServices, CardServices, ToolsScrollStory, HowWeWork } from "@/blocks/services";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/layout/Header.astro";
@@ -26,13 +27,13 @@ const seoKeywords = t.services.seo.keywords;
 
 const serviceTypeLabel =
   currentLang === "es"
-    ? "Servicios de Comunicación Visual y Diseño"
-    : "Visual Communication and Design Services";
+    ? "Diseño web, desarrollo web y diseño UX/UI"
+    : "Web design, web development and UX/UI design";
 
 const catalogName =
   currentLang === "es"
-    ? "Servicios de Diseño y Comunicación Visual"
-    : "Design and Visual Communication Services";
+    ? "Servicios de diseño web, desarrollo y UX/UI"
+    : "Web design, development and UX/UI services";
 
 const structuredData: ServiceStructuredData = {
   "@context": "https://schema.org",
@@ -55,6 +56,11 @@ const structuredData: ServiceStructuredData = {
 };
 
 const canonicalUrl = getCanonicalUrl(SITE.url, "/services", currentLang);
+
+/* Las guías responden lo que se pregunta antes de contratar (costo, cómo elegir
+   agencia, rediseño): enlazarlas desde aquí reparte autoridad hacia ellas y le
+   da a Servicios contexto temático. */
+const guideLinks = GUIDES.map((g) => ({ label: g.copy[currentLang].title, href: guidePath(g, currentLang) }));
 ---
 
 <Layout
@@ -72,7 +78,7 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/services", currentLang);
     <CardServices />
     <ToolsScrollStory />
     <HowWeWork />
-    <FaqSection faq={t.services.faq} />
+    <FaqSection faq={t.services.faq} links={guideLinks} />
     <CtaBanner />
     <DynamicProjects maxProjects={4} showChips={false} variant="four-column" />
     <Footer />

@@ -205,13 +205,13 @@ export const translations = {
     },
     services: {
       seo: {
-        title: "UX/UI, Branding & Web Development | Aurin Mexico",
-        description: "UX/UI design, web and mobile development, branding, digital marketing and usability testing — all under one roof. Build a brand that converts.",
-        keywords: "UX UI design Mexico, web app development agency, branding development Mexico, digital marketing social media, usability testing services"
+        title: "Web Design, Web Development & UX/UI in Mexico | Aurin",
+        description: "Web design and development, online stores, and UX/UI design for apps and platforms. A Mexican agency since 1998, with fixed-scope quotes.",
+        keywords: "web design Mexico, web development agency Mexico, UX UI design agency, app UX UI design, ecommerce development, website redesign, SEO"
       },
       banner: {
-        subtitle: "Experts in",
-        title: "Services",
+        subtitle: "We build paths that transform",
+        title: "Web design, development & UX/UI",
         description: "We transform ideas into exceptional digital experiences. Our services are designed to create solutions that connect, inspire and generate tangible results for your business.",
         buttonText: "Discover our services"
       },
@@ -247,16 +247,16 @@ export const translations = {
       },
       servicesList: [
         {
-          title: "User research",
-          description: "We understand your user before designing anything: we analyze how they interact with your product, where they get frustrated and what they really need. We assess existing flows, run interviews and tests when the project calls for it, and translate all of that into well-founded design decisions, not guesswork."
+          title: "Web design & development",
+          description: "We design and build custom websites, online stores and landing pages: fast, easy to update from a CMS and SEO-ready from launch. We also redesign your current site without losing the Google rankings you already have."
         },
         {
-          title: "Experience design",
-          description: "We identify opportunities, solve challenges and align every touchpoint with your strategic vision. We evaluate your brand's visual identity, analyze customer experience across all channels and propose strategies to optimize market perception."
+          title: "UX/UI design",
+          description: "We research your users and design clear interfaces for websites, mobile apps and platforms: flows, wireframes, clickable prototypes and usability testing. Decisions backed by evidence, not guesswork, so your users find what they need and get in touch."
         },
         {
-          title: "Digital product development",
-          description: "We identify opportunities, solve challenges and align every touchpoint with your strategic vision. We evaluate your brand's visual identity, analyze customer experience across all channels and propose strategies to optimize market perception."
+          title: "UX/UI for apps & platforms",
+          description: "We design the experience and interface of iOS and Android apps, client portals and dashboards: flows, clickable prototypes and screens ready for your development team. When the platform is web-based, we build it too."
         }
       ],
       cardServices: {
@@ -976,13 +976,13 @@ export const translations = {
     },
     services: {
       seo: {
-        title: "Diseño UX/UI, Branding y Desarrollo Web | Aurin",
-        description: "Diseñamos experiencias UX/UI, construimos webs y apps, desarrollamos tu branding y gestionamos tu marketing digital. Haz que tu marca trabaje para ti.",
-        keywords: "diseño UX UI México, desarrollo web aplicaciones móviles, desarrollo branding identidad, marketing digital redes sociales, pruebas usabilidad"
+        title: "Diseño de Páginas Web, Desarrollo Web y UX/UI | Aurin",
+        description: "Diseño y desarrollo de páginas web y tiendas en línea, y diseño UX/UI de apps y plataformas. Agencia mexicana desde 1998, cotización de alcance cerrado.",
+        keywords: "diseño de páginas web, desarrollo web México, diseño UX UI, diseño UX UI de apps, tiendas en línea, rediseño web, SEO, agencia de diseño web Cuernavaca"
       },
       banner: {
-        subtitle: "Construimos caminos",
-        title: "que transforman",
+        subtitle: "Construimos caminos que transforman",
+        title: "Diseño web, desarrollo y UX/UI",
         description: "Cada proyecto es único, tan distinto como las personas que lo hacen posible. Con la visión para descubrir lo que se necesita y la experiencia para crearlo, convertimos cada desafío en una oportunidad para innovar y trascender.",
         buttonText: "Hablemos de tu proyecto"
       },
@@ -1018,16 +1018,16 @@ export const translations = {
       },
       servicesList: [
         {
-          title: "Investigación de usuario",
-          description: "Entendemos a tu usuario antes de diseñar nada: analizamos cómo interactúa con tu producto, dónde se frustra y qué necesita realmente. Evaluamos flujos existentes, hacemos entrevistas y pruebas cuando el proyecto lo requiere, y traducimos todo eso en decisiones de diseño con fundamento, no en intuición."
+          title: "Diseño y desarrollo web",
+          description: "Diseñamos y desarrollamos páginas web a la medida, tiendas en línea y landing pages: rápidas, fáciles de actualizar desde un CMS y optimizadas para Google (SEO) desde el lanzamiento. También rediseñamos tu sitio actual sin perder el posicionamiento que ya tienes."
         },
         {
-          title: "Diseño de experiencias",
-          description: "Creamos conexiones emocionales que van desde espacios físicos hasta entornos digitales. Diseñamos experiencias que generan lealtad, desarrollamos aplicaciones que simplifican procesos y reforzamos el vínculo con tu marca en cada interacción."
+          title: "Diseño UX/UI",
+          description: "Investigamos a tus usuarios y diseñamos interfaces claras para sitios, apps móviles y plataformas: flujos, wireframes, prototipos navegables y pruebas de usabilidad. Decisiones con fundamento, no con intuición, para que tus usuarios encuentren lo que buscan y te contacten."
         },
         {
-          title: "Desarrollo de producto digital",
-          description: "Diseñamos plataformas y sistemas que optimizan procesos y los hacen más amigables. Digitalizamos y automatizamos tareas clave con dashboards personalizados, herramientas digitales y plataformas interactivas que transforman la operación y mejoran la experiencia del usuario."
+          title: "UX/UI de apps y plataformas",
+          description: "Diseñamos la experiencia y la interfaz de apps móviles para iOS y Android, portales de clientes y dashboards: flujos, prototipos navegables y pantallas listas para tu equipo de desarrollo. Si la plataforma es web, también la desarrollamos."
         }
       ],
       cardServices: {
