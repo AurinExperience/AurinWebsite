@@ -12,7 +12,7 @@
 import type { LandingCopy, ProofProjectId } from '@/data/landings';
 import { PROOF_PROJECTS } from '@/data/landings';
 import { getLangFromUrl, getLocalizedUrl } from '@/i18n';
-import { PayloadAPI, getCardImage, getImageUrl, getProjectUrl, hasRealCardImage } from '@/lib/payload';
+import { PayloadAPI, getImageUrl, getProjectUrl, ownCardImage } from '@/lib/payload';
 import SliderClients from '@/blocks/home/SliderClients/SliderClients.astro';
 import styles from './SocialProof.module.css';
 
@@ -74,9 +74,9 @@ const fallbackWork = [
 const cmsProjects = await PayloadAPI.getProjects(currentLang).catch(() => []);
 const fromCms = proof
   .map((id) => cmsProjects.find((p) => p.id === PROOF_PROJECTS[id]?.cmsId))
-  .filter((p) => p && hasRealCardImage(p))
+  .filter((p) => p && ownCardImage(p, cmsProjects))
   .map((p) => {
-    const image = getCardImage(p!)!;
+    const image = ownCardImage(p!, cmsProjects)!;
     return {
       src: getImageUrl(image.url),
       width: image.width,
