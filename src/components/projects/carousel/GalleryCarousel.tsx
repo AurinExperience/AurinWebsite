@@ -247,7 +247,9 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
             style={{
               display: 'flex',
               width: `${extendedData.length * 100}%`,
-              transform: `translateX(-${currentIndex * slidePercentage}%)`,
+              // Con una sola imagen no hay clones: currentIndex (1) la sacaba de la vista
+              // y la galería quedaba como un hueco del alto del slide.
+              transform: showNavigation ? `translateX(-${currentIndex * slidePercentage}%)` : 'none',
               transition: 'none',
               willChange: 'transform'
             }}
