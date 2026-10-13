@@ -55,6 +55,7 @@
 }
 
 .title {
+  text-wrap: balance;
   color: var(--color-yellow);
   font-family: var(--font-family-display);
   font-size: 40px;
