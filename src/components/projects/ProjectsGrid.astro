@@ -2,7 +2,7 @@
 import { getLangFromUrl } from '@/i18n';
 import ProjectCard from '@/components/cards/ProjectCard.astro';
 
-import { PayloadAPI, getProjectUrl, getImageUrl, getCardImage, type PayloadProject } from '@/lib/payload';
+import { PayloadAPI, getProjectUrl, getImageUrl, ownCardImage, NO_PHOTO_IMAGE, type PayloadProject } from '@/lib/payload';
 import styles from './ProjectsGrid.module.css';
 
 interface Props {
@@ -24,8 +24,9 @@ const currentLang = getLangFromUrl(Astro.url);
 
 // Fetch all projects from Payload CMS
 let projects: PayloadProject[] = [];
+let allProjects: PayloadProject[] = [];
 try {
-  const allProjects = await PayloadAPI.getProjects(currentLang);
+  allProjects = await PayloadAPI.getProjects(currentLang);
   // Apply maxProjects limit if specified
   projects = maxProjects ? allProjects.slice(0, maxProjects) : allProjects;
 } catch (error) {
@@ -51,7 +52,7 @@ try {
             ...(project.category ? [project.category.name] : []),
             ...(project.tags?.slice(0, 2).map((tag: any) => tag.name) || [])
           ]}
-          image={getImageUrl(getCardImage(project)?.url) || 'https://placehold.co/800x600?text=No+Image'}
+          image={getImageUrl(ownCardImage(project, allProjects)?.url) || NO_PHOTO_IMAGE}
           href={getProjectUrl(project, currentLang)}
           category={project.category?.slug}
           services={project.hero.services || []}

@@ -212,11 +212,23 @@ export function getCardImage(project: PayloadProject) {
   return project.thumbnail?.url ? project.thumbnail : project.hero?.bannerImage;
 }
 
-/** false si la imagen de la tarjeta es de relleno ("placeholder-2.jpg", "Image-400x300-…") */
-export function hasRealCardImage(project: PayloadProject) {
-  const url = getCardImage(project)?.url;
-  return Boolean(url && !/placeholder|Image-\d+x\d+/i.test(url));
+/**
+ * La imagen de la tarjeta solo si de verdad es del proyecto. Descarta rellenos
+ * ("placeholder-2.jpg", "Image-400x300-…") y la foto de otro proyecto reciclada:
+ * en Payload 13 proyectos traen como banner `elite_banner.jpg`. Una imagen
+ * repetida se queda solo con el proyecto que nombra su alt ("Elite Home Health
+ * Website"); los demás muestran NO_PHOTO_IMAGE hasta que tengan su miniatura.
+ */
+export function ownCardImage(project: PayloadProject, all: PayloadProject[]) {
+  const image = getCardImage(project);
+  if (!image?.url || /placeholder|Image-\d+x\d+/i.test(image.url)) return undefined;
+  const shared = all.some((p) => p.id !== project.id && getCardImage(p)?.url === image.url);
+  if (shared && !image.alt?.toLowerCase().includes(project.title.toLowerCase())) return undefined;
+  return image;
 }
+
+/** Lo que muestra una tarjeta cuando el proyecto aún no tiene fotos propias. */
+export const NO_PHOTO_IMAGE = 'https://placehold.co/800x600?text=Proyecto+Aurin';
 
 export function getImageUrl(imageUrl: string | undefined): string {
   if (!imageUrl) return '';
@@ -224,7 +236,7 @@ export function getImageUrl(imageUrl: string | undefined): string {
   
   // Fallback for missing placeholder images from Payload CMS
   if (imageUrl.includes('placeholder-2.jpg') || imageUrl.includes('placeholder')) {
-    return 'https://placehold.co/800x600?text=Proyecto+Aurin';
+    return NO_PHOTO_IMAGE;
   }
   
   return `${PAYLOAD_SERVER_URL}${imageUrl}`;

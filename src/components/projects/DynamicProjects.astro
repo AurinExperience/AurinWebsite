@@ -3,7 +3,7 @@ import { getLangFromUrl, translations } from '@/i18n';
 import SectionHeading from '@/components/ui/SectionHeading.astro';
 import ProjectCard from '@/components/cards/ProjectCard.astro';
 import ButtonIsland from '@/components/ui/ButtonIsland.astro';
-import { PayloadAPI, getProjectUrl, getImageUrl, getCardImage, type PayloadProject } from '@/lib/payload';
+import { PayloadAPI, getProjectUrl, getImageUrl, ownCardImage, NO_PHOTO_IMAGE, type PayloadProject } from '@/lib/payload';
 import styles from './Projects.module.css';
 
 interface Props {
@@ -31,8 +31,9 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 let projects: PayloadProject[] = [];
+let allProjects: PayloadProject[] = [];
 try {
-  const allProjects = await PayloadAPI.getProjects(currentLang);
+  allProjects = await PayloadAPI.getProjects(currentLang);
   projects = shuffleArray(allProjects).slice(0, maxProjects);
 } catch (error) {
   console.error('Error fetching projects:', error);
@@ -59,7 +60,7 @@ try {
           <ProjectCard
             title={project.title}
             tags={[...(project.category ? [project.category.name] : [])]}
-            image={getImageUrl(getCardImage(project)?.url) || 'https://placehold.co/800x600?text=No+Image'}
+            image={getImageUrl(ownCardImage(project, allProjects)?.url) || NO_PHOTO_IMAGE}
             href={getProjectUrl(project, currentLang)}
             services={showChips ? (project.hero.services || []) : []}
             filters={project.projectFilters || []}
