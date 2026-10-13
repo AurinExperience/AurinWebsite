@@ -30,7 +30,7 @@
 
 .bodyText {
   align-self: stretch;
-  color: var(--color-white);
+  color: var(--color-text);
   font-size: 20px;
   font-weight: 200;
 }

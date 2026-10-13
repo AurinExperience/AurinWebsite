@@ -33,7 +33,7 @@
 }
 
 .description {
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-weight: 200;
   font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-xl));

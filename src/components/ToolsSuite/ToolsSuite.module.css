@@ -127,7 +127,7 @@
 }
 
 .contentSubtitle {
-  color: var(--color-white);
+  color: var(--color-text);
   font-size: var(--font-size-3xl);
   font-family: var(--font-family-display);
   font-weight: var(--font-weight-light);
@@ -140,7 +140,7 @@
 }
 
 .contentDescription {
-  color: var(--color-white);
+  color: var(--color-text);
   font-size: var(--font-size-xl);
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-regular);

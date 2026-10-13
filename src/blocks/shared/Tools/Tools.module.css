@@ -112,7 +112,7 @@
   justify-content: flex-end;
   display: flex;
   flex-direction: column;
-  color: #A0A0A0;
+  color: var(--color-text);
   font-size: var(--font-size-xl);
   font-family: var(--font-heading);
   font-weight: 300;

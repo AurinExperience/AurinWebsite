@@ -44,7 +44,7 @@
 }
 
 .searchPrompt {
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-family-body);
   font-size: 18px;
   font-weight: 300;

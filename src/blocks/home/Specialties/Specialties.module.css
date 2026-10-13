@@ -35,7 +35,7 @@
 }
 
 .description {
-  color: var(--color-white, #FFFFFF);
+  color: var(--color-text);
   font-size: var(--font-size-xl);
   font-weight: 200;
   line-height: normal;

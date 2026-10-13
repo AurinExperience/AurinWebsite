@@ -4,6 +4,10 @@
        COLORES
        ---------------------------------------------------------- */
     --color-white: #FFFFFF;
+    --color-text: #D5D5D5;
+    /* texto claro sobre fondo oscuro (antes blanco puro) */
+    --color-text-muted: rgba(213, 213, 213, 0.55);
+    /* placeholders y dropdowns sin elegir: más tenue que el texto escrito */
     --color-black-a: #0A0A0A;
     /* fondo oscuro principal */
     --color-black-b: #161616;

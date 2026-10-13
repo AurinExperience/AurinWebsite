@@ -24,7 +24,7 @@
 }
 
 .privacyTitle {
-  color: white;
+  color: var(--color-text);
   font-family: var(--font-heading, 'Titillium Web', sans-serif);
   font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 700;
@@ -33,7 +33,7 @@
 }
 
 .privacySubtitle {
-  color: var(--color-gray-a, #A0A0A0);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: 18px;
   font-weight: 400;
@@ -86,7 +86,7 @@
 }
 
 .privacySection p {
-  color: white;
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: 18px;
   font-weight: 400;
@@ -100,7 +100,7 @@
 
 /* Lists */
 .privacySection ul {
-  color: white;
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: 18px;
   font-weight: 400;

@@ -26,9 +26,14 @@ const UA =
 /* Solo los subsets que necesita un sitio en español/inglés. */
 const KEEP_SUBSETS = new Set(['latin', 'latin-ext']);
 
+/* Clarity City es ~10% más ancha que Urbanist (a la que reemplazó) con la misma
+   altura de letra. Al 95% ocupa casi lo mismo: los textos se parten igual que
+   antes sin tocar ningún font-size del sitio. */
+const SIZE_ADJUST = { 'Clarity City': '95%' };
+
 const FAMILIES = [
-  // Urbanist es variable: un solo archivo cubre 100..900.
-  'Urbanist:ital,wght@0,100..900;1,100..900',
+  // Texto (cuerpo), reemplazó a Urbanist. Es variable: un solo archivo cubre 100..900.
+  'Clarity+City:ital,wght@0,100..900;1,100..900',
   // Titillium solo en los pesos que aparecen en el CSS del sitio.
   'Titillium+Web:wght@200;300;400;600;700',
 ];
@@ -75,6 +80,7 @@ for (const block of blocks) {
   out.push(
     face
       .replace(/url\(https:\/\/[^)]+\.woff2\)/, `url('/fonts/${name}')`)
+      .replace(/font-display: swap;/, SIZE_ADJUST[family] ? `font-display: swap;\n  size-adjust: ${SIZE_ADJUST[family]};` : '$&')
       .replace(/^@font-face/, `/* ${subset} */\n@font-face`)
       .trim()
   );
