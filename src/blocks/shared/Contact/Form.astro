@@ -118,12 +118,12 @@ const sumB = Math.floor(Math.random() * 9) + 1;
                   {
                     t.contact.form.services.map((service) => (
                       <div class="dropdown-option" data-value={service.value}>
-                        <span style="color: white !important;">
+                        <span style="color: var(--color-text) !important;">
                           {service.title}
                         </span>
                         <div
                           class="option-description"
-                          style="color: white !important;"
+                          style="color: var(--color-text) !important;"
                         >
                           {service.description}
                         </div>
@@ -213,7 +213,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
   }
 
   .contact-title {
-    color: var(--color-white);
+    color: var(--color-text);
     font-family: var(--font-heading);
     font-size: var(--font-size-5xl);
     font-weight: 300;
@@ -254,7 +254,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
   }
 
   .info-text {
-    color: var(--color-white);
+    color: var(--color-text);
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     font-weight: 400;
@@ -305,7 +305,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
   }
 
   .form-label {
-    color: var(--color-white);
+    color: var(--color-text);
     font-family: var(--font-body);
     font-size: var(--font-size-xl);
     font-weight: 600;
@@ -320,7 +320,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
     border: 1px solid transparent;
     border-radius: var(--radius-md);
     padding: var(--spacing-4);
-    color: var(--color-white);
+    color: var(--color-text);
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     font-weight: 400;
@@ -339,17 +339,17 @@ const sumB = Math.floor(Math.random() * 9) + 1;
   }
 
   .contact-form :global(.form-select):invalid {
-    color: var(--color-gray-a);
+    color: var(--color-text-muted);
   }
 
   .contact-form :global(.form-select) option {
     background: var(--color-black-a);
-    color: var(--color-white);
+    color: var(--color-text);
   }
 
   .contact-form :global(.form-input)::placeholder,
   .form-textarea::placeholder {
-    color: var(--color-gray-a);
+    color: var(--color-text-muted);
   }
 
   .contact-form :global(.form-input):focus,
@@ -372,7 +372,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
     border: 1px solid transparent;
     border-radius: var(--radius-md);
     padding: var(--spacing-4);
-    color: var(--color-white) !important;
+    color: var(--color-text) !important;
     font-family: var(--font-body);
     font-size: var(--font-size-base);
     font-weight: 400;
@@ -395,15 +395,15 @@ const sumB = Math.floor(Math.random() * 9) + 1;
   .dropdown-text {
     flex: 1;
     text-align: left;
-    color: var(--color-white) !important;
+    color: var(--color-text) !important;
   }
 
   .dropdown-text.selected {
-    color: var(--color-white) !important;
+    color: var(--color-text) !important;
   }
 
   .dropdown-arrow {
-    color: var(--color-gray-a);
+    color: var(--color-text);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;

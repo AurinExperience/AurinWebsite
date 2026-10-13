@@ -31,7 +31,7 @@
   color: var(--color-black-a, #0a0a0a);
   position: relative;
   z-index: 3;
-  font-family: var(--font-body, 'Urbanist', sans-serif);
+  font-family: var(--font-body, 'Clarity City', sans-serif);
   font-size: 24px;
   font-weight: 400;
   line-height: normal;

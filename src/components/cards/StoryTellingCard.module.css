@@ -119,7 +119,7 @@
 }
 
 .card.dark .card-title {
-  color: white;
+  color: var(--color-text);
 }
 
 /* =====================================================

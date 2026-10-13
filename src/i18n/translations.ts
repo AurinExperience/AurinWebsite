@@ -95,6 +95,7 @@ export const translations = {
       successText: "WhatsApp opened with your message. Just tap Send and we'll reply as soon as possible. Didn't open? Use the button below.",
       openNow: "Open WhatsApp",
       close: "Close",
+      closeBubble: "Hide message",
       message: "Hi Aurin! I found you through your website and I'd like to request your services. Could you tell me more about how you work and how to get a quote?"
     },
     chatbot: {
@@ -866,6 +867,7 @@ export const translations = {
       successText: "Se abrió WhatsApp con tu mensaje. Solo presiona Enviar y te respondemos lo antes posible. ¿No se abrió? Usa el botón de abajo.",
       openNow: "Abrir WhatsApp",
       close: "Cerrar",
+      closeBubble: "Ocultar mensaje",
       message: "¡Hola, Aurin! Vengo de su sitio web y me gustaría solicitar sus servicios. ¿Me pueden contar cómo trabajan y cómo puedo pedir una cotización?"
     },
     chatbot: {

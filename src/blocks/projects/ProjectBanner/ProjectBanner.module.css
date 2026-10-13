@@ -78,7 +78,7 @@
 .category {
   position: relative;
   padding-inline: 12px;
-  color: white;
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 300;

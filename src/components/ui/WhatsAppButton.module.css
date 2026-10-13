@@ -4,6 +4,9 @@
   right: var(--spacing-6);
   bottom: var(--spacing-6);
   z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-3);
 }
 
 .button {
@@ -49,14 +52,13 @@
   align-items: center;
   gap: var(--spacing-2);
   margin-bottom: var(--spacing-2);
-  padding: var(--spacing-3) var(--spacing-5);
+  padding: var(--spacing-3) var(--spacing-3) var(--spacing-3) var(--spacing-5);
   border-radius: 18px 18px 4px 18px;
   background: var(--color-white);
   color: var(--color-black-a);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-weight: var(--font-weight-regular);
   white-space: nowrap;
   box-shadow:
     0 12px 32px rgba(0, 0, 0, 0.35),
@@ -69,13 +71,46 @@
 }
 
 /* `translate` no pisa el `transform` de las animaciones */
-.button:hover .bubble {
+.bubble:hover {
   translate: 0 -2px;
   box-shadow:
     0 16px 36px rgba(0, 0, 0, 0.4),
     0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+
+.bubbleText {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  cursor: pointer;
+}
+
+.bubbleClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-gray-a);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.bubbleClose:hover {
+  background: rgba(10, 10, 10, 0.08);
+  color: var(--color-black-a);
+}
+
+.bubbleClose:focus-visible {
+  outline: 2px solid var(--color-black-a);
+  outline-offset: 2px;
+}
 
 /* Manita que saluda */
 .wave {
@@ -127,7 +162,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
   background: var(--color-black-b);
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-body);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
   animation: waPanel 0.25s ease-out;
@@ -155,7 +190,7 @@
 
 .subtitle {
   margin: var(--spacing-2) 0 0;
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-size: var(--font-size-sm);
   line-height: 1.4;
 }
@@ -167,12 +202,12 @@
   border: 0;
   border-radius: 50%;
   background: none;
-  color: var(--color-gray-a);
+  color: var(--color-text);
   cursor: pointer;
 }
 
 .close:hover {
-  color: var(--color-white);
+  color: var(--color-text);
 }
 
 .form {
@@ -194,7 +229,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.04);
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
   outline: none;
@@ -205,7 +240,7 @@
 }
 
 .input::placeholder {
-  color: var(--color-gray-a);
+  color: var(--color-text-muted);
 }
 
 select.input {
@@ -214,7 +249,7 @@ select.input {
 
 select.input option {
   background: var(--color-black-a);
-  color: var(--color-white);
+  color: var(--color-text);
 }
 
 .textarea {
@@ -274,7 +309,7 @@ select.input option {
 
 .successText {
   margin: 0;
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-size: var(--font-size-sm);
   line-height: 1.4;
 }

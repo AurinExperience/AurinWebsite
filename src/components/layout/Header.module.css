@@ -47,7 +47,7 @@
   }
 
   .nav-link {
-    color: white;
+    color: var(--color-text);
     font-family: var(--font-family-primary);
     font-size: 18px;
     font-weight: 400;
@@ -98,7 +98,7 @@
     gap: 8px;
     background: transparent;
     border: 1px solid rgba(208, 223, 0, 0.3);
-    color: white;
+    color: var(--color-text);
     padding: 8px 16px;
     border-radius: 8px;
     font-family: var(--font-family-display);
@@ -130,7 +130,7 @@
   }
 
   .menu-text {
-    color: white;
+    color: var(--color-text);
     font-size: 20px;
     font-family: var(--font-family-primary);
     font-weight: 400;

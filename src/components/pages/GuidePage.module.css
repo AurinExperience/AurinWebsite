@@ -54,7 +54,7 @@
 }
 
 .title {
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-family-display);
   font-size: clamp(34px, 5vw, 68px);
   font-weight: var(--font-weight-light);
@@ -66,7 +66,7 @@
 }
 
 .excerpt {
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: clamp(18px, 1.5vw, 21px);
   font-weight: var(--font-weight-light);
@@ -80,7 +80,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--spacing-3);
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-light);
@@ -116,7 +116,7 @@
 }
 
 .tocTitle {
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
@@ -138,7 +138,7 @@
 .tocLink {
   counter-increment: toc;
   display: block;
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-light);
@@ -171,7 +171,7 @@
 }
 
 .lead {
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: clamp(19px, 1.6vw, 23px);
   font-weight: var(--font-weight-light);
@@ -191,7 +191,7 @@
 
 .sectionHeading {
   position: relative;
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-family-display);
   font-size: clamp(25px, 2.6vw, 36px);
   font-weight: var(--font-weight-light);
@@ -213,7 +213,7 @@
 }
 
 .paragraph {
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-light);
@@ -223,7 +223,7 @@
 
 .paragraph strong,
 .bullet strong {
-  color: var(--color-white);
+  color: var(--color-text);
   font-weight: var(--font-weight-semibold);
 }
 
@@ -249,7 +249,7 @@
 .bullet {
   position: relative;
   padding-left: var(--spacing-8);
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-light);
@@ -282,7 +282,7 @@
 }
 
 .ctaHeading {
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-family-display);
   font-size: clamp(23px, 2.2vw, 32px);
   font-weight: var(--font-weight-light);
@@ -293,7 +293,7 @@
 }
 
 .ctaText {
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-light);
@@ -339,7 +339,7 @@
 }
 
 .relatedHeading {
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
@@ -366,7 +366,7 @@
   margin-top: var(--spacing-16);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-light);
-  color: var(--color-gray-a);
+  color: var(--color-text);
 }
 
 .back:hover {

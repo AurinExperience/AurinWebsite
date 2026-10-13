@@ -28,7 +28,7 @@
 
 .btnSecondary {
   --btn-bg: var(--color-black-a);
-  --btn-color: var(--color-white);
+  --btn-color: var(--color-text);
   --btn-bg-hover: #000;
   --btn-shadow: rgba(10, 10, 10, 0.3);
   --btn-shadow-active: rgba(10, 10, 10, 0.15);

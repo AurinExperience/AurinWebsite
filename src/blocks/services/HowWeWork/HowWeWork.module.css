@@ -40,7 +40,7 @@
 }
 
 .paragraph {
-  color: var(--color-gray-a);
+  color: var(--color-text);
   line-height: var(--line-height-relaxed);
   margin: 0;
 }

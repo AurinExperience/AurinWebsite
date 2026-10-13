@@ -73,7 +73,7 @@
 
 .footerTagline {
   margin: var(--spacing-4) 0 0 0;
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-family-body);
   font-size: 16px;
   font-weight: 300;
@@ -144,7 +144,7 @@
 }
 
 .footerLink {
-  color: #b7b9b3;
+  color: var(--color-text);
   background: none;
   border: none;
   padding: 0;
@@ -152,19 +152,19 @@
   cursor: pointer;
   transition: color 0.3s ease;
   text-decoration: none;
-  font-family: "Urbanist", sans-serif;
+  font-family: var(--font-family-primary);
   font-size: 18px;
   font-weight: 400;
   line-height: 1.3;
 }
 
 .footerLink:hover {
-  color: white;
+  color: var(--color-text);
 }
 
 .footerAddress {
-  color: #b7b9b3;
-  font-family: "Urbanist", sans-serif;
+  color: var(--color-text);
+  font-family: var(--font-family-primary);
   font-size: 18px;
   font-weight: 400;
   font-style: normal;
@@ -182,7 +182,7 @@
 }
 
 .footerCopyright p {
-  color: white;
+  color: var(--color-text);
   font-size: 20px;
   font-weight: 300;
   text-decoration: underline;
@@ -195,7 +195,7 @@
 
 /* Modo minimal: los términos van bajo el copyright, discretos. */
 .footerLegalLink {
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-light);
   text-decoration: underline;
@@ -205,7 +205,7 @@
 
 .footerLegalLink:hover,
 .footerLegalLink:focus-visible {
-  color: var(--color-white);
+  color: var(--color-text);
 }
 
 /* Responsive */

@@ -54,11 +54,11 @@
 }
 
 /*
- * Body text — Urbanist Regular, 20px, line-height 1.32, white.
+ * Body text — Clarity City Regular, 20px, line-height 1.32, white.
  * Figma: max-width 877px.
  */
 .descriptionText {
-  color: white;
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: 20px;
   line-height: 1.32;

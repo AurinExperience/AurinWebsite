@@ -43,7 +43,7 @@
 }
 
 .subtitle {
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-heading);
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-light);
@@ -72,7 +72,7 @@
 }
 
 .description {
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--font-size-xl);
   font-weight: 200;

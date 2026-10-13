@@ -86,7 +86,7 @@
   cursor: not-allowed;
 }
 .input:disabled svg{
-  color: white;
+  color: var(--color-text);
 }
 
 .inputContainer:focus-within {

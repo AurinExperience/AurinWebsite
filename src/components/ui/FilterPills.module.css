@@ -8,7 +8,7 @@
 }
 
 .filterLabel {
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-size: var(--font-size-base);
   font-family: var(--font-body);
   font-weight: 400;
@@ -31,7 +31,7 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50px;
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-size: var(--font-size-base);
   font-family: var(--font-body);
   font-weight: 400;
@@ -44,7 +44,7 @@
 .pill:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.2);
-  color: var(--color-white);
+  color: var(--color-text);
   transform: translateY(-2px);
 }
 

@@ -207,7 +207,7 @@ const GalleryCarousel = ({ data = [], height = 362 }: GalleryCarouselProps) => {
       <div style={{
         width: '100%',
         textAlign: 'center',
-        color: 'white',
+        color: 'var(--color-text)',
         padding: '2rem 0'
       }}>
         No hay imágenes disponibles

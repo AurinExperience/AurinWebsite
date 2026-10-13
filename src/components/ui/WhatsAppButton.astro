@@ -68,6 +68,19 @@ const waUrl = `https://wa.me/${SITE.whatsapp}`;
     </div>
   </div>
 
+  {/* Fuera del botón del círculo: un <button> no puede llevar otro adentro (la ✕). */}
+  <div class={styles.bubble} data-wa-bubble>
+    <span class={styles.bubbleText} aria-hidden="true" data-wa-bubble-open>
+      <span class={styles.wave}>👋</span>
+      {t.cta}
+    </span>
+    <button type="button" class={styles.bubbleClose} aria-label={t.closeBubble} data-wa-bubble-close>
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M18 6 6 18M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
   <button
     type="button"
     class={styles.button}
@@ -76,10 +89,6 @@ const waUrl = `https://wa.me/${SITE.whatsapp}`;
     aria-controls="wa-panel"
     data-wa-toggle
   >
-    <span class={styles.bubble} aria-hidden="true">
-      <span class={styles.wave}>👋</span>
-      {t.cta}
-    </span>
     <span class={styles.circle}>
       <svg class={styles.icon} viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
         <path
@@ -130,6 +139,21 @@ const waUrl = `https://wa.me/${SITE.whatsapp}`;
     };
 
     toggle.addEventListener('click', () => (panel.hidden ? open() : close()));
+
+    // La burbuja: clic en el texto abre el formulario; la ✕ la oculta por el resto
+    // de la visita (no vuelve en cada página).
+    const BUBBLE_KEY = 'wa-bubble-closed';
+    try {
+      if (sessionStorage.getItem(BUBBLE_KEY)) root.dataset.seen = '';
+    } catch {}
+    q('[data-wa-bubble-open]').addEventListener('click', open);
+    q('[data-wa-bubble-close]').addEventListener('click', () => {
+      root.dataset.seen = '';
+      try {
+        sessionStorage.setItem(BUBBLE_KEY, '1');
+      } catch {}
+      track('whatsapp_bubble_close');
+    });
     q('[data-wa-close]').addEventListener('click', close);
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !panel.hidden) {

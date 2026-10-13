@@ -35,7 +35,7 @@
 }
 
 .heading {
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-family-display);
   font-size: clamp(30px, 3.6vw, 52px);
   font-weight: var(--font-weight-light);
@@ -46,7 +46,7 @@
 }
 
 .body {
-  color: var(--color-gray-a);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-light);
@@ -73,7 +73,7 @@
   padding: var(--spacing-3) var(--spacing-5);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius-md);
-  color: var(--color-white);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-light);

@@ -353,7 +353,7 @@
 }
 
 .chatbot-drag-text {
-  color: white;
+  color: var(--color-text);
   font-weight: 500;
   margin: 8px 0 4px;
 }
@@ -384,7 +384,7 @@
 
 .chatbot-file-name {
   font-size: 14px;
-  color: white;
+  color: var(--color-text);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -426,7 +426,7 @@
   border-radius: 22px;
   padding: 12px 16px 12px 52px;
   font-size: 14px;
-  color: white;
+  color: var(--color-text);
   resize: none;
   outline: none;
   transition: border-color 0.2s;
@@ -444,7 +444,7 @@
 }
 
 .chatbot-file-preview-name {
-  color: white;
+  color: var(--color-text);
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
