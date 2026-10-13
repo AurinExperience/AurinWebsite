@@ -1,0 +1,14 @@
+---
+/**
+ * Landings de diseño UX/UI por sector — español. URL: /diseno-ux-ui-<slug>
+ * (p. ej. /diseno-ux-ui-para-fintech). Lista cerrada en src/data/sectors: lo
+ * que no esté ahí responde 404.
+ */
+import { findSector } from '@/data/sectors';
+import WebDesignSectorPage from '@/components/pages/WebDesignSectorPage.astro';
+
+const sector = findSector(Astro.params.sector, 'es', 'uxui');
+if (!sector) return Astro.rewrite('/404');
+---
+
+<WebDesignSectorPage sector={sector} />

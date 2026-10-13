@@ -3,6 +3,9 @@ import { costoPaginaWeb } from './costo-pagina-web';
 import { elegirAgencia } from './elegir-agencia';
 import { redisenarSinPerderSeo } from './redisenar-sin-perder-seo';
 import { sitioWebBilingue } from './sitio-web-bilingue';
+import { costoBranding } from './costo-branding';
+import { wixWordpressAMedida } from './wix-wordpress-a-medida';
+import { paginaWebHotel } from './pagina-web-hotel';
 
 export type { Lang, Guide, GuideCopy, GuideSection } from './types';
 
@@ -15,6 +18,9 @@ const ALL_GUIDES: Guide[] = [
   elegirAgencia,
   redisenarSinPerderSeo,
   sitioWebBilingue,
+  costoBranding,
+  wixWordpressAMedida,
+  paginaWebHotel,
 ];
 
 export const GUIDES: Guide[] = ALL_GUIDES.filter((g) => g.status === 'live');

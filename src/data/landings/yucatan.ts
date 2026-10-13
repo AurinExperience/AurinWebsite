@@ -37,7 +37,7 @@ export const yucatan: Landing = {
         stats: [
           { value: '+20', label: 'años diseñando marcas y productos digitales' },
           { value: '90+', label: 'la meta de PageSpeed que medimos en cada entrega' },
-          { value: '2-8', label: 'semanas del brief al sitio en línea, según el alcance' },
+          { value: '0', label: 'plantillas: cada sitio se diseña desde cero' },
         ],
       },
       services: {
@@ -179,7 +179,7 @@ export const yucatan: Landing = {
         stats: [
           { value: '+20', label: 'years designing brands and digital products' },
           { value: '90+', label: 'the PageSpeed target we measure on every delivery' },
-          { value: '2-8', label: 'weeks from brief to a live site, depending on scope' },
+          { value: '0', label: 'templates: every site is designed from scratch' },
         ],
       },
       services: {

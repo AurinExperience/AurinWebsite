@@ -1,0 +1,13 @@
+---
+/**
+ * UX/UI design landings by industry — English. URL: /en/ux-ui-design-<slug>.
+ * Same closed list as the Spanish route.
+ */
+import { findSector } from '@/data/sectors';
+import WebDesignSectorPage from '@/components/pages/WebDesignSectorPage.astro';
+
+const sector = findSector(Astro.params.sector, 'en', 'uxui');
+if (!sector) return Astro.rewrite('/404');
+---
+
+<WebDesignSectorPage sector={sector} />

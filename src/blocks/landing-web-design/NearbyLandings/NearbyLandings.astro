@@ -13,25 +13,29 @@
  * salidas de la página quedan por debajo del punto de conversión.
  */
 import type { Lang, Landing, LandingCopy } from '@/data/landings';
-import { landingPath, siblingLandings } from '@/data/landings';
+import { landingPath, landingPlace, siblingLandings } from '@/data/landings';
 import styles from './NearbyLandings.module.css';
 
 interface Props {
-  landing: Landing;
+  /** La landing por ciudad actual: se listan las demás del mismo país. */
+  landing?: Landing;
+  /** Enlaces ya armados (landings por sector). Tienen prioridad sobre `landing`. */
+  links?: { href: string; label: string; detail: string }[];
   lang: Lang;
   nearby: LandingCopy['nearby'];
 }
 
-const { landing, lang, nearby } = Astro.props;
+const { landing, links, lang, nearby } = Astro.props;
 // Orden alfabético por el lugar que se lee en el enlace ("…en Houston" → "Houston"),
 // no por la etiqueta completa, que cambia de prefijo entre landings.
-const place = (l: Landing) =>
-  l.copy[lang].linkLabel.replace(/^.*\s(?:en|in)\s+(?:el\s+|the\s+)?/i, '');
-const others = siblingLandings(landing).sort((a, b) =>
-  place(a).localeCompare(place(b), lang, { sensitivity: 'base' })
-);
+const items =
+  links ??
+  (landing ? siblingLandings(landing) : [])
+    .sort((a, b) => landingPlace(a, lang).localeCompare(landingPlace(b, lang), lang, { sensitivity: 'base' }))
+    .map((l) => ({ href: landingPath(l, lang), label: l.copy[lang].linkLabel, detail: l.region }));
 ---
 
+{items.length > 0 && (
 <section class={styles.section} aria-labelledby="nearby-heading">
   <div class={styles.inner}>
     <div class={styles.header}>
@@ -39,11 +43,11 @@ const others = siblingLandings(landing).sort((a, b) =>
       <p class={styles.description}>{nearby.description}</p>
     </div>
     <ul class={styles.list}>
-      {others.map((other) => (
+      {items.map((item) => (
         <li>
-          <a class={styles.link} href={landingPath(other, lang)}>
-            <span class={styles.linkLabel}>{other.copy[lang].linkLabel}</span>
-            <span class={styles.linkRegion}>{other.region}</span>
+          <a class={styles.link} href={item.href}>
+            <span class={styles.linkLabel}>{item.label}</span>
+            <span class={styles.linkRegion}>{item.detail}</span>
             <span class={styles.arrow} aria-hidden="true">→</span>
           </a>
         </li>
@@ -51,3 +55,4 @@ const others = siblingLandings(landing).sort((a, b) =>
     </ul>
   </div>
 </section>
+)}

@@ -85,7 +85,7 @@ El modo 'search' instruye a n8n para:
 ## 📝 Servicios
 
 Los servicios que se muestran en el typewriter:
-- Desarrollo web y de aplicaciones móviles
+- Desarrollo web y plataformas
 - Pruebas de usabilidad
 - Desarrollo de Branding
 - Diseño UX/UI

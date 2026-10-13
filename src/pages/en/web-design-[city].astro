@@ -7,10 +7,14 @@
  * returns a real 404 instead of rendering a page.
  */
 import { findLanding } from '@/data/landings';
+import { findSector } from '@/data/sectors';
 import WebDesignCityPage from '@/components/pages/WebDesignCityPage.astro';
+import WebDesignSectorPage from '@/components/pages/WebDesignSectorPage.astro';
 
+// Industry pages share the URL prefix (/en/web-design-for-doctors).
 const landing = findLanding(Astro.params.city, 'en');
-if (!landing) return Astro.rewrite('/404');
+const sector = landing ? undefined : findSector(Astro.params.city, 'en');
+if (!landing && !sector) return Astro.rewrite('/404');
 ---
 
-<WebDesignCityPage landing={landing} />
+{landing ? <WebDesignCityPage landing={landing} /> : <WebDesignSectorPage sector={sector!} />}

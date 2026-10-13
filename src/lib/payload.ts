@@ -107,7 +107,7 @@ export interface ProjectFilter {
 export const PROJECT_FILTERS: ProjectFilter[] = [
   { value: 'all', label: 'All' },
   { value: 'diseno-ux-ui', label: 'Diseño UX/UI' },
-  { value: 'desarrollo-web-movil', label: 'Desarrollo web y de aplicaciones móviles' },
+  { value: 'desarrollo-web-movil', label: 'Desarrollo web y plataformas' },
   { value: 'desarrollo-branding', label: 'Desarrollo de branding' },
 ];
 

@@ -142,7 +142,7 @@ export const guanajuato: Landing = {
           {
             question: '¿Cuánto tiempo toma un proyecto con catálogo?',
             answer:
-              'Un sitio corporativo va de 6 a 8 semanas. Con catálogo, el diseño y el desarrollo toman un poco más, pero lo que realmente marca el tiempo es la carga de contenido: fotos de producto, fichas y especificaciones. Si ese material ya existe y está ordenado, el proyecto avanza; si hay que producirlo, se planea como una etapa aparte con su propia fecha.',
+              'Depende del alcance, y las fechas se acuerdan en la cotización. Con catálogo, lo que realmente marca el tiempo es la carga de contenido: fotos de producto, fichas y especificaciones. Si ese material ya existe y está ordenado, el proyecto avanza; si hay que producirlo, se planea como una etapa aparte con su propia fecha.',
           },
         ],
       },
@@ -285,7 +285,7 @@ export const guanajuato: Landing = {
           {
             question: 'How long does a catalog project take?',
             answer:
-              'A corporate site runs 6 to 8 weeks. With a catalog, design and development take somewhat longer, but what really sets the timeline is content loading: product photos, spec sheets, and specifications. If that material exists and is organized, the project moves; if it has to be produced, we plan it as a separate stage with its own date.',
+              'It depends on scope, and the dates are agreed in the quote. With a catalog, what really sets the timeline is content loading: product photos, spec sheets, and specifications. If that material exists and is organized, the project moves; if it has to be produced, we plan it as a separate stage with its own date.',
           },
         ],
       },

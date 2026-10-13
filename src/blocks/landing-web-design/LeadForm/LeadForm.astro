@@ -15,9 +15,11 @@ interface Props {
   subject: string;
   /** Placeholder con la lada local de la ciudad. */
   phoneSample: string;
+  /** Textos propios de la página (landings por sector). Lo que no venga usa translations.ts. */
+  copy?: { heading?: string; description?: string; messagePlaceholder?: string };
 }
 
-const { source, subject, phoneSample } = Astro.props;
+const { source, subject, phoneSample, copy = {} } = Astro.props;
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
@@ -27,8 +29,8 @@ const leadForm = t.webDesignNL.leadForm;
 <section class={styles.section} id="cotizar" aria-labelledby="cotizar-heading">
   <div class={styles.inner}>
     <div class={styles.header}>
-      <h2 class={styles.heading} id="cotizar-heading">{t.webDesignNL.leadForm.heading}</h2>
-      <p class={styles.description}>{t.webDesignNL.leadForm.description}</p>
+      <h2 class={styles.heading} id="cotizar-heading">{copy.heading ?? t.webDesignNL.leadForm.heading}</h2>
+      <p class={styles.description}>{copy.description ?? t.webDesignNL.leadForm.description}</p>
     </div>
     <form
       class={styles.form}
@@ -123,7 +125,7 @@ const leadForm = t.webDesignNL.leadForm;
           id="lead-message"
           name="message"
           rows="4"
-          placeholder={t.webDesignNL.leadForm.placeholders.message}
+          placeholder={copy.messagePlaceholder ?? t.webDesignNL.leadForm.placeholders.message}
           class={styles.textarea}
         ></textarea>
       </div>

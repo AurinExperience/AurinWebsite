@@ -32,7 +32,7 @@ export interface GuideCopy {
   /** Párrafos de entrada, antes del primer H2. */
   intro: string[];
   sections: GuideSection[];
-  /** Cierre que empuja a la landing comercial correspondiente. */
+  /** Cierre que lleva a la página de contacto. */
   cta: {
     heading: string;
     text: string;
@@ -51,8 +51,8 @@ export interface Guide {
   published: string;
   updated: string;
   /**
-   * Ids de landings a las que enlaza el CTA final, en orden. La primera es la
-   * que recibe el enlace principal.
+   * Ids de landings que se listan como relacionadas al final de la guía, en
+   * orden. El CTA va a contacto, no a una landing.
    */
   relatedLandings: string[];
   copy: Record<Lang, GuideCopy>;
