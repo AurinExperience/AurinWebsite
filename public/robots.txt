@@ -7,9 +7,13 @@
 # grupo propio, ignora `*` por completo. Un Allow: / redundante sobre `*` no
 # aporta nada y rompe el aislamiento si `*` algún día restringe una ruta.
 #
-# Bots de búsqueda IA (OAI-SearchBot, PerplexityBot, Claude-SearchBot…) y
-# bots de búsqueda clásicos (Googlebot, Bingbot…) quedan cubiertos por `*`.
-# Solo los bots de entrenamiento necesitan grupo propio porque su regla difiere.
+# Bots de búsqueda IA (OAI-SearchBot, PerplexityBot, Claude-SearchBot, meta-webindexer…)
+# y bots clásicos (Googlebot, Bingbot…) quedan cubiertos por `*`.
+#
+# ⚠ Excepción: Google-Extended — a diferencia de otros, acopla entrenamiento Y
+# grounding de Gemini Apps bajo el mismo token (no hay separación). Bloquearlo
+# impide que Gemini cite a Aurin como fuente en sus respuestas, por lo que se
+# permite vía `*` en lugar de tener grupo propio con Disallow.
 
 # ── Entrenamiento de modelos: BLOQUEAR ────────────────────────────────────────
 # Consumen contenido para entrenar modelos, no generan citas ni tráfico.
@@ -27,13 +31,13 @@ Disallow: /
 User-agent: anthropic-ai
 Disallow: /
 
-# Google — entrenamiento de Gemini/Vertex AI (≠ Googlebot; no afecta Google Search)
-User-agent: Google-Extended
-Disallow: /
-
-# Meta — entrenamiento de Llama y modelos Meta AI
+# Meta — entrenamiento de Llama y Meta AI (≠ meta-webindexer, que sí indexa para búsqueda)
 User-agent: meta-externalagent
 Disallow: /
+
+# Google-Extended queda cubierto por `*` (Allow) de forma intencional:
+# bloquear entrenamiento Gemini también bloquearía el grounding en Gemini Apps,
+# y ambos están acoplados bajo el mismo token sin posibilidad de separación.
 
 # ── General: todos los demás (Googlebot, Bingbot, OAI-SearchBot, Perplexity…) ─
 
