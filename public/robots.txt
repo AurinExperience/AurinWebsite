@@ -1,11 +1,41 @@
 # robots.txt de aurin.mx
 #
-# Un solo grupo abierto. Los grupos por bot que había antes (GPTBot,
-# ClaudeBot, PerplexityBot, Googlebot, Bingbot…) repetían exactamente lo que
-# ya dice `User-agent: *`, y cada bot obedece únicamente al grupo más
-# específico que lo nombra: mantenerlos solo abría la puerta a que una regla
-# futura en `*` se les olvidara. Si algún día hay que bloquear un crawler,
-# se le agrega su propio grupo con el Disallow que corresponda.
+# Estrategia AEO/GEO (AI Engine Optimization / Generative Engine Optimization):
+#
+# Solo se declara un grupo explícito cuando la regla del bot difiere de `*`.
+# Cada bot obedece únicamente al grupo más específico que lo nombra: si tiene
+# grupo propio, ignora `*` por completo. Un Allow: / redundante sobre `*` no
+# aporta nada y rompe el aislamiento si `*` algún día restringe una ruta.
+#
+# Bots de búsqueda IA (OAI-SearchBot, PerplexityBot, Claude-SearchBot…) y
+# bots de búsqueda clásicos (Googlebot, Bingbot…) quedan cubiertos por `*`.
+# Solo los bots de entrenamiento necesitan grupo propio porque su regla difiere.
+
+# ── Entrenamiento de modelos: BLOQUEAR ────────────────────────────────────────
+# Consumen contenido para entrenar modelos, no generan citas ni tráfico.
+# Bloquearlos protege el contenido único de Aurin sin afectar el SEO ni
+# la indexación en motores de búsqueda IA (esos usan bots distintos, abajo).
+
+# OpenAI — entrenamiento de GPT (≠ OAI-SearchBot, que sí indexa para búsqueda)
+User-agent: GPTBot
+Disallow: /
+
+# Anthropic — entrenamiento de Claude (≠ Claude-SearchBot)
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Google — entrenamiento de Gemini/Vertex AI (≠ Googlebot; no afecta Google Search)
+User-agent: Google-Extended
+Disallow: /
+
+# Meta — entrenamiento de Llama y modelos Meta AI
+User-agent: meta-externalagent
+Disallow: /
+
+# ── General: todos los demás (Googlebot, Bingbot, OAI-SearchBot, Perplexity…) ─
 
 User-agent: *
 Allow: /
