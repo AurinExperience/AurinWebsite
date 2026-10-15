@@ -1,8 +1,9 @@
 ---
 /**
  * PhoneInput — teléfono con selector de lada internacional.
- * La lada se preselecciona con el país de la IP (header de Vercel); si no hay
- * header (local), el script cae al idioma del navegador y luego a México.
+ * La lada se preselecciona en el navegador con la región de su idioma (es-CO → +57)
+ * y si no, México. No se usa el país de la IP: obligaría al CDN a guardar una copia
+ * de cada página por país (más SSR y más CPU).
  * Si el usuario pega un número con "+XX", la lada se ajusta sola.
  * Envía dos campos: `${name}` (número nacional) y `${name}Lada` ("+52").
  */
@@ -35,12 +36,9 @@ const COUNTRIES = [
   ['VE', '🇻🇪', '+58'],
 ] as const;
 
-const ipCountry = Astro.request.headers.get('x-vercel-ip-country')?.toUpperCase();
-const detected = COUNTRIES.some(([code]) => code === ipCountry) ? ipCountry : undefined;
-const selected = detected ?? 'MX';
 ---
 
-<div class={styles.wrapper} data-phone-input data-detected={detected ? 'ip' : ''}>
+<div class={styles.wrapper} data-phone-input>
   <select
     class:list={[selectClass, styles.lada]}
     name={`${name}Lada`}
@@ -48,7 +46,7 @@ const selected = detected ?? 'MX';
     autocomplete="tel-country-code"
   >
     {COUNTRIES.map(([code, flag, dial]) => (
-      <option value={dial} data-country={code} selected={code === selected}>
+      <option value={dial} data-country={code} selected={code === 'MX'}>
         {flag} {dial}
       </option>
     ))}
@@ -72,14 +70,12 @@ const selected = detected ?? 'MX';
     const input = wrapper.querySelector('input')!;
     const options = [...select.options];
 
-    // Sin país por IP: usar la región del idioma del navegador (es-MX, en-US…).
-    if (!wrapper.dataset.detected) {
-      const region = navigator.languages
-        .map((lang) => lang.split('-')[1]?.toUpperCase())
-        .find((r) => r && options.some((o) => o.dataset.country === r));
-      const match = options.find((o) => o.dataset.country === region);
-      if (match) match.selected = true;
-    }
+    // Región del idioma del navegador (es-MX, en-US…); sin coincidencia queda México.
+    const region = navigator.languages
+      .map((lang) => lang.split('-')[1]?.toUpperCase())
+      .find((r) => r && options.some((o) => o.dataset.country === r));
+    const match = options.find((o) => o.dataset.country === region);
+    if (match) match.selected = true;
 
     // "+34 612…" pegado o tecleado: mover la lada al selector.
     input.addEventListener('input', () => {
