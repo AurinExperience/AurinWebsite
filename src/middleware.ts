@@ -7,9 +7,7 @@ import { CMS_CACHE_TAG } from '@/lib/cache';
  * el SSR, y la primera tras un rato paga además el arranque en frío de la
  * función: ~4.5 s en el home, justo lo que ve un crawler que llega de a una.
  *
- * `Vary: X-Vercel-IP-Country` porque PhoneInput (en el botón de WhatsApp, o sea
- * en todas las páginas) preselecciona la lada por país: sin él, el primer
- * visitante de Colombia le fijaría +57 a todos.
+ * Sin `Vary` por país: una sola copia por página para todos los visitantes.
  * Las páginas llevan la etiqueta CMS_CACHE_TAG: Payload avisa a /api/revalidate
  * al guardar y se borran del CDN al instante. s-maxage=60 queda de respaldo por
  * si un aviso falla (el cambio sale igual en ~1 min).
@@ -26,7 +24,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
     !response.headers.has('cache-control')
   ) {
     response.headers.set('Cache-Control', 'public, max-age=0, s-maxage=60, stale-while-revalidate=86400');
-    response.headers.set('Vary', 'X-Vercel-IP-Country');
     await addCacheTag(CMS_CACHE_TAG); // fuera de Vercel no hace nada
   }
 
