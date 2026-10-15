@@ -10,6 +10,18 @@
   width: auto;
 }
 
+/* Flecha propia con aire a la derecha (la nativa queda pegada al borde).
+   `select.` sube la especificidad: el `background` de :focus de los formularios
+   anfitriones no la borra. Misma flecha que LeadForm. */
+.wrapper select.lada {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A0A0A0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--spacing-3) center;
+  padding-right: calc(var(--spacing-3) * 2 + 12px);
+  cursor: pointer;
+}
+
 .wrapper .number {
   flex: 1 1 auto;
   width: auto;
