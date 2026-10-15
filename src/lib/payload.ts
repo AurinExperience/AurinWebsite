@@ -36,6 +36,15 @@ export interface PayloadProject {
       name: string;
     }>;
   };
+  /** Texto de la tarjeta (sección 4 del CMS): si tiene texto, se muestra en vez de la miniatura */
+  cardText?: {
+    text?: any;
+    font?: 'display' | 'body' | null;
+    weight?: '400' | '600' | '700' | null;
+    size?: 'sm' | 'md' | 'lg' | 'xl' | null;
+    background?: string | null;
+    color?: string | null;
+  } | null;
   /** Miniatura cuadrada para las tarjetas; vacía = se recorta la imagen principal */
   thumbnail?: {
     id: string;
@@ -225,6 +234,33 @@ export function ownCardImage(project: PayloadProject, all: PayloadProject[]) {
   const shared = all.some((p) => p.id !== project.id && getCardImage(p)?.url === image.url);
   if (shared && !image.alt?.toLowerCase().includes(project.title.toLowerCase())) return undefined;
   return image;
+}
+
+export interface CardCover {
+  html: string;
+  font: 'display' | 'body';
+  weight: '400' | '600' | '700';
+  size: 'sm' | 'md' | 'lg' | 'xl';
+  background: string;
+  color: string;
+}
+
+// Los colores van directo al CSS de la tarjeta: solo hex de 6 dígitos
+const HEX_COLOR = /^#[0-9a-f]{6}$/i;
+
+/** El texto de la tarjeta listo para pintar, o undefined si el proyecto no tiene (usa la imagen). */
+export function getCardCover(project: PayloadProject): CardCover | undefined {
+  const card = project.cardText;
+  const html = renderRichText(card?.text);
+  if (!html.replace(/<[^>]*>/g, '').trim()) return undefined;
+  return {
+    html,
+    font: card?.font === 'body' ? 'body' : 'display',
+    weight: card?.weight === '400' || card?.weight === '700' ? card.weight : '600',
+    size: card?.size === 'sm' || card?.size === 'lg' || card?.size === 'xl' ? card.size : 'md',
+    background: HEX_COLOR.test(card?.background ?? '') ? card!.background! : '#D0DF00',
+    color: HEX_COLOR.test(card?.color ?? '') ? card!.color! : '#0A0A0A',
+  };
 }
 
 /** Lo que muestra una tarjeta cuando el proyecto aún no tiene fotos propias. */
