@@ -127,6 +127,9 @@ export class PayloadAPI {
     
     if (locale) {
       url.searchParams.set('locale', locale);
+      // Campo vacío en este idioma = se usa el del otro. Payload solo cae al español
+      // (default); sin esto, un texto capturado con el admin en English no salía en /projects.
+      url.searchParams.set('fallback-locale', locale === 'es' ? 'en' : 'es');
     }
 
     try {
