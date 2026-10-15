@@ -383,6 +383,26 @@ select.input option {
   .bubble {
     display: none;
   }
+
+  /* De orilla a orilla sobre el círculo; con el teclado abierto (dvh) hace scroll
+     por dentro en vez de salirse de la pantalla. */
+  .panel {
+    position: fixed;
+    left: var(--spacing-4);
+    right: var(--spacing-4);
+    bottom: calc(var(--spacing-4) + 56px + var(--spacing-3));
+    width: auto;
+    max-width: none;
+    box-sizing: border-box;
+    max-height: calc(100dvh - 56px - var(--spacing-3) - 3 * var(--spacing-4));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  /* iOS hace zoom (y corre la página) en campos de menos de 16px */
+  .input {
+    font-size: var(--font-size-base);
+  }
 }
 
 /* Sin movimiento para quien lo pidió en su sistema */
