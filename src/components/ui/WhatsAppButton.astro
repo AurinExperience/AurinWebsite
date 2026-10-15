@@ -121,7 +121,8 @@ const waUrl = `https://wa.me/${SITE.whatsapp}`;
       root.dataset.open = '';
       root.dataset.seen = ''; // la burbuja ya cumplió: no vuelve a salir
       toggle.setAttribute('aria-expanded', 'true');
-      q<HTMLInputElement>('#wa-name').focus();
+      // Solo con mouse: en celular el foco abre el teclado de golpe y tapa el panel
+      if (matchMedia('(pointer: fine)').matches) q<HTMLInputElement>('#wa-name').focus();
       track('whatsapp_open');
     };
 
