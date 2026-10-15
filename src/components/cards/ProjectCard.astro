@@ -2,11 +2,14 @@
 import ArrowUpRight from 'lucide-astro/ArrowUpRight';
 import styles from './ProjectCard.module.css';
 import { Tilt } from '@/components/animation/Tilt';
+import type { CardCover } from '@/lib/payload';
 
 interface Props {
   title: string;
   tags?: string[];
   image: string;
+  /** Texto del CMS sobre color; si viene, ocupa el lugar de la imagen */
+  cover?: CardCover;
   href?: string;
   class?: string;
   category?: string;
@@ -19,6 +22,7 @@ const {
   title,
   tags = [],
   image,
+  cover,
   href = '#',
   class: className = '',
   category,
@@ -50,9 +54,21 @@ const hiddenTags = allTags.slice(displayTags.length);
       className="w-full h-full rounded-lg overflow-hidden"
       style={{ transformOrigin: 'center center' }}
     >
-      <div class={styles['image-container']} style={`background-image: url('${image}')`}>
-        <div class={styles['image-overlay']}></div>
-      </div>
+      {cover ? (
+        // Colores del CMS como variables (validados como hex en getCardCover)
+        <div
+          class:list={[styles['image-container'], styles['text-cover']]}
+          style={`--cover-bg: ${cover.background}; --cover-fg: ${cover.color}; --cover-weight: ${cover.weight}`}
+          data-size={cover.size}
+          data-font={cover.font}
+        >
+          <div class={styles['cover-text']} data-cover-text set:html={cover.html} />
+        </div>
+      ) : (
+        <div class={styles['image-container']} style={`background-image: url('${image}')`}>
+          <div class={styles['image-overlay']}></div>
+        </div>
+      )}
     </Tilt>
     
     <!-- Info section -->
@@ -156,4 +172,77 @@ const hiddenTags = allTags.slice(displayTags.length);
     // Soporte para view transitions de Astro
     document.addEventListener('astro:page-load', initProjectCards);
   })();
+</script>
+
+<script>
+  // Texto de la tarjeta (CMS): que se lea bien sin cortar palabras.
+  //  1. Ningún renglón con una sola palabra: se pega a la vecina con un espacio no
+  //     separable (NBSP), siempre que el renglón siga cabiendo.
+  //  2. Si no se logra, o el texto es más alto que la tarjeta, la letra baja 5 % y se
+  //     vuelve a intentar.
+  // Todo escala con la tarjeta (cqi): los cortes salen iguales en cualquier ancho, así
+  // que basta con hacerlo una vez, ya con las fuentes cargadas.
+  const NBSP = '\u00a0';
+
+  type Word = { top: number; spaceBefore?: [Text, number] };
+
+  // Palabras de un párrafo = tramos sin espacios, aunque crucen etiquetas ("manos</em>?")
+  const wordsOf = (paragraph: HTMLElement) => {
+    const words: Word[] = [];
+    let lastSpace: [Text, number] | undefined;
+    let inWord = false;
+    const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
+    for (let node = walker.nextNode() as Text | null; node; node = walker.nextNode() as Text | null) {
+      for (let i = 0; i < node.data.length; i++) {
+        if (/\s/.test(node.data[i])) {
+          // Solo un espacio normal se puede pegar (un NBSP ya está pegado)
+          lastSpace = node.data[i] === ' ' ? [node, i] : undefined;
+          inWord = false;
+        } else if (!inWord) {
+          inWord = true;
+          const range = document.createRange();
+          range.setStart(node, i);
+          range.setEnd(node, i + 1);
+          words.push({ top: Math.round(range.getBoundingClientRect().top), spaceBefore: words.length ? lastSpace : undefined });
+        }
+      }
+    }
+    return words;
+  };
+
+  const overflows = (el: HTMLElement) => el.scrollWidth > el.clientWidth + 1;
+
+  // true si el párrafo queda sin palabras solas y sin salirse a lo ancho
+  const joinLonelyWords = (paragraph: HTMLElement) => {
+    for (let pass = 0; pass < 20; pass++) {
+      if (overflows(paragraph)) return false;
+      const words = wordsOf(paragraph);
+      if (words.length < 2) return true;
+      const lonely = words.findIndex((word, i) => words[i - 1]?.top !== word.top && words[i + 1]?.top !== word.top);
+      if (lonely === -1) return true;
+      // La primera palabra se pega a la siguiente; las demás, a la anterior
+      const space = (lonely === 0 ? words[1] : words[lonely]).spaceBefore;
+      if (!space) return false;
+      const [node, index] = space;
+      node.data = node.data.slice(0, index) + NBSP + node.data.slice(index + 1);
+    }
+    return false;
+  };
+
+  const fitCoverText = (cover: HTMLElement) => {
+    const original = cover.innerHTML;
+    // De 100 % a 50 % en pasos de 5 % (enteros: sumar 0.05 acumula error de redondeo)
+    for (let step = 0; step <= 10; step++) {
+      cover.innerHTML = original;
+      cover.style.setProperty('--cover-fit', String(1 - step * 0.05));
+      const paragraphs = [...cover.querySelectorAll<HTMLElement>('p')];
+      if (paragraphs.every(joinLonelyWords) && cover.scrollHeight <= cover.clientHeight + 1) return;
+    }
+    // Ni al 50 % se logra: el texto sin pegar, que al menos no se sale ni parte palabras
+    cover.innerHTML = original;
+  };
+
+  document.fonts.ready.then(() => {
+    document.querySelectorAll<HTMLElement>('[data-cover-text]').forEach(fitCoverText);
+  });
 </script>

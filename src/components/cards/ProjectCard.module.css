@@ -45,6 +45,53 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  /* Texto del CMS en lugar de la imagen. Todo se mide en cqi (% del ancho de la
+     tarjeta): el texto escala con la tarjeta y se ve igual en celular y en web. */
+  .text-cover {
+    container-type: inline-size;
+    background-color: var(--cover-bg);
+    color: var(--cover-fg);
+    --cover-size: 9.5cqi;
+  }
+
+  .text-cover[data-size='sm'] { --cover-size: 7.5cqi; }
+  .text-cover[data-size='lg'] { --cover-size: 11.5cqi; }
+  .text-cover[data-size='xl'] { --cover-size: 14cqi; }
+
+  .cover-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center; /* si no cabe, recorta abajo y no arriba */
+    padding: 13cqi;
+    overflow: hidden;
+    font-family: var(--font-heading);
+    /* --cover-fit lo baja el script si el texto no cabe (ProjectCard.astro) */
+    font-size: calc(var(--cover-size) * var(--cover-fit, 1));
+    font-weight: var(--cover-weight);
+    line-height: 1.2;
+  }
+
+  .text-cover[data-font='body'] .cover-text {
+    font-family: var(--font-body);
+  }
+
+  /* base.css le pone 20px y peso 300 a todo <p>: aquí manda lo elegido en el CMS */
+  .cover-text :global(p) {
+    margin: 0;
+    font: inherit;
+  }
+
+  .cover-text :global(strong) {
+    font-weight: 700;
+  }
+
+  .cover-text :global(u) {
+    text-underline-offset: 0.12em;
+    text-decoration-thickness: 0.06em;
+  }
+
   .image-overlay {
     position: absolute;
     top: 0;
