@@ -356,7 +356,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
   .form-textarea:focus,
   .contact-form :global(.form-select):focus {
     outline: 2px solid var(--color-yellow);
-    background: #333;
+    background-color: #333; /* solo el color: `background` borraba la flecha del select */
   }
 
   /* Motion Dropdown Styling */
