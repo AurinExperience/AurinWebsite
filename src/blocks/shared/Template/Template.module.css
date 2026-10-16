@@ -87,8 +87,119 @@
   text-wrap: balance;
 }
 
-.descriptionText > h3:first-child {
+.descriptionText > :is(h2, h3, h4, h5):first-child {
   margin-top: 0;
+}
+
+/* "Encabezado 1" del CMS: título gigante blanco */
+.descriptionText h2 {
+  margin: 1.5em 0 0.5em 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(var(--font-size-5xl), 7vw, 96px);
+  line-height: 1.05;
+  font-weight: var(--font-weight-light);
+  color: var(--color-white);
+  text-wrap: balance;
+}
+
+/* base.css hace h2 span bloque amarillo de 40px (título en dos tonos); aquí un
+   span es solo un estilo de los menús del editor */
+.descriptionText h2 span {
+  display: inline;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* "Encabezado 3": etiqueta en negritas pegada al párrafo que sigue */
+.descriptionText h4 {
+  margin: 1.5em 0 0 0;
+  font-family: var(--font-body);
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-yellow);
+}
+
+/* "Encabezado 4": subtítulo chico */
+.descriptionText h5 {
+  margin: 1.5em 0 0.5em 0;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-2xl);
+  line-height: 1.2;
+  font-weight: var(--font-weight-regular);
+  color: var(--color-white);
+}
+
+/* Menús de la barra del editor (aurin-cms src/components/admin/textStyles.ts: mismos valores) */
+.descriptionText [data-color="amarillo"] { color: var(--color-yellow); }
+.descriptionText [data-color="blanco"] { color: var(--color-white); }
+.descriptionText [data-color="gris"] { color: var(--color-gray-a); }
+
+.descriptionText [data-mark] {
+  padding: 0 0.15em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.descriptionText [data-mark="amarillo"] { background-color: var(--color-yellow); color: var(--color-black-a); }
+.descriptionText [data-mark="gris"] { background-color: var(--color-gray-b); color: var(--color-white); }
+
+.descriptionText [data-font="display"] { font-family: var(--font-family-display); }
+.descriptionText [data-font="body"] { font-family: var(--font-body); }
+
+.descriptionText [data-weight="thin"] { font-weight: 200; }
+.descriptionText [data-weight="light"] { font-weight: var(--font-weight-light); }
+.descriptionText [data-weight="regular"] { font-weight: var(--font-weight-regular); }
+.descriptionText [data-weight="semibold"] { font-weight: var(--font-weight-semibold); }
+.descriptionText [data-weight="bold"] { font-weight: var(--font-weight-bold); }
+.descriptionText [data-weight="extrabold"] { font-weight: 800; }
+.descriptionText [data-weight="black"] { font-weight: 900; }
+
+/* Tamaños en px como en el editor; los grandes se encogen con la pantalla para caber en celular */
+.descriptionText [data-size] { line-height: 1.15; }
+.descriptionText [data-size="14"] { font-size: var(--font-size-sm); }
+.descriptionText [data-size="16"] { font-size: var(--font-size-base); }
+.descriptionText [data-size="18"] { font-size: var(--font-size-lg); }
+.descriptionText [data-size="20"] { font-size: var(--font-size-xl); }
+.descriptionText [data-size="24"] { font-size: var(--font-size-2xl); }
+.descriptionText [data-size="32"] { font-size: min(var(--font-size-3xl), 8vw); }
+.descriptionText [data-size="40"] { font-size: min(var(--font-size-4xl), 9vw); }
+.descriptionText [data-size="48"] { font-size: min(var(--font-size-5xl), 10vw); }
+.descriptionText [data-size="64"] { font-size: min(var(--font-size-6xl), 12vw); }
+.descriptionText [data-size="80"] { font-size: min(80px, 13vw); }
+.descriptionText [data-size="96"] { font-size: min(96px, 14vw); }
+
+.descriptionText [data-align="center"] { text-align: center; }
+.descriptionText [data-align="right"] { text-align: right; }
+.descriptionText [data-align="justify"] { text-align: justify; }
+
+.descriptionText [data-indent="1"] { margin-inline-start: 2em; }
+.descriptionText [data-indent="2"] { margin-inline-start: 4em; }
+.descriptionText [data-indent="3"] { margin-inline-start: 6em; }
+.descriptionText [data-indent="4"] { margin-inline-start: 8em; }
+
+.descriptionText figure {
+  margin: 2em 0;
+}
+
+.descriptionText figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Ancho y alineación de la imagen (lápiz y barra de alineación en el editor) */
+.descriptionText figure[data-width="sm"] { width: 33%; }
+.descriptionText figure[data-width="md"] { width: 50%; }
+.descriptionText figure[data-width="lg"] { width: 75%; }
+.descriptionText figure[data-align="center"] { margin-inline: auto; }
+.descriptionText figure[data-align="right"],
+.descriptionText figure[data-align="end"] { margin-inline-start: auto; }
+
+.descriptionText hr {
+  margin: 2em 0;
+  border: 0;
+  border-top: 1px solid var(--color-gray-b);
 }
 
 .descriptionText strong {
@@ -106,11 +217,19 @@
   margin-top: 0.25em;
 }
 
+.descriptionText li::marker {
+  color: var(--color-yellow);
+}
+
+/* Cita: frase destacada con barra amarilla */
 .descriptionText blockquote {
-  margin: 0 0 1em 0;
+  margin: 1.5em 0;
   padding-left: 1em;
-  border-left: 2px solid currentColor;
-  opacity: 0.85;
+  border-left: 2px solid var(--color-yellow);
+  font-family: var(--font-family-display);
+  font-size: 1.4em;
+  line-height: 1.25;
+  color: var(--color-white);
 }
 
 .descriptionText a {
@@ -145,6 +264,12 @@
 
   .descriptionText h3 {
     font-size: var(--font-size-2xl);
+  }
+
+  /* A 1/3 de un celular la imagen no se distingue */
+  .descriptionText figure[data-width="sm"],
+  .descriptionText figure[data-width="md"] {
+    width: 75%;
   }
 
   /* A 36px (base.css) caben ~17 letras por renglón y el título se partía en

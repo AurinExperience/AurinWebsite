@@ -416,6 +416,21 @@ export function tieLastWords(html: string, maxChars: number): string {
   });
 }
 
+// Estilos del CMS (color, tamaño, tipografía…: TextStateFeature en aurin-cms Projects.ts)
+// y alineación/sangría como data-*; Template.module.css los dibuja. Solo [a-z0-9-] para
+// que un valor raro guardado por API no rompa el atributo.
+const safe = (v: unknown) => (typeof v === 'string' && /^[a-z0-9-]+$/.test(v) ? v : '');
+function blockAttrs(node: any): string {
+  const align = safe(node.format);
+  const indent = Math.min(Number(node.indent) || 0, 4);
+  return (align ? ` data-align="${align}"` : '') + (indent > 0 ? ` data-indent="${indent}"` : '');
+}
+function textStateAttrs(node: any): string {
+  return Object.entries(node.$ || {})
+    .map(([k, v]) => (safe(k) && safe(v) ? ` data-${k}="${v}"` : ''))
+    .join('');
+}
+
 // Sección "2 · Texto": los encabezados con los que EMPIEZA el texto son el título grande
 // de la sección; todo lo demás va al cuerpo en el mismo orden en que se capturó (un
 // encabezado a media sección queda ahí como subtítulo). Las negritas son solo negritas.
@@ -424,8 +439,9 @@ function splitLeadingHeadings(content: any): { headings: any[]; body: any[] } {
   // Renglones vacíos al inicio no cuentan
   let start = 0;
   while (nodes[start]?.type === 'paragraph' && !nodes[start].children?.length) start++;
+  // Solo "Encabezado 2" es el título en dos tonos; los demás tamaños se quedan en el cuerpo
   let end = start;
-  while (nodes[end]?.type === 'heading') end++;
+  while (nodes[end]?.type === 'heading' && (nodes[end].tag || 'h2') === 'h2') end++;
   return { headings: nodes.slice(start, end), body: nodes.slice(end) };
 }
 
@@ -460,19 +476,23 @@ export function renderRichTextBody(content: any): string {
         if (node.format) {
           if (node.format & 1) text = `<strong>${text}</strong>`;
           if (node.format & 2) text = `<em>${text}</em>`;
+          if (node.format & 4) text = `<s>${text}</s>`;
           if (node.format & 8) text = `<u>${text}</u>`;
           if (node.format & 16) text = `<code>${text}</code>`;
         }
-        return text;
+        const attrs = textStateAttrs(node);
+        return attrs ? `<span${attrs}>${text}</span>` : text;
       }
       if (node.type === 'paragraph') {
         const children = node.children?.map(serializeNode).join('') || '';
-        return `<p>${children}</p>`;
+        return `<p${blockAttrs(node)}>${children}</p>`;
       }
-      // Encabezado a media sección: subtítulo (el h2 es el título grande de la sección)
+      // Encabezado a media sección: un nivel abajo del CMS (h1 → h2…) porque la página
+      // ya tiene su h1; Template.module.css da a cada nivel su estilo.
       if (node.type === 'heading') {
+        const level = Math.min(Number(String(node.tag || 'h2').slice(1)) || 2, 5) + 1;
         const children = node.children?.map(serializeNode).join('') || '';
-        return `<h3>${children}</h3>`;
+        return `<h${level}${blockAttrs(node)}>${children}</h${level}>`;
       }
       if (node.type === 'list') {
         const tag = node.listType === 'number' ? 'ol' : 'ul';
@@ -485,7 +505,18 @@ export function renderRichTextBody(content: any): string {
       }
       if (node.type === 'quote') {
         const children = node.children?.map(serializeNode).join('') || '';
-        return `<blockquote>${children}</blockquote>`;
+        return `<blockquote${blockAttrs(node)}>${children}</blockquote>`;
+      }
+      if (node.type === 'horizontalrule') return '<hr>';
+      // Imagen dentro del texto (UploadFeature); sin documento de media poblado no hay URL
+      if (node.type === 'upload') {
+        const media = node.value;
+        if (!media?.url) return '';
+        const alt = String(media.alt || '').replace(/"/g, '&quot;');
+        const size = media.width && media.height ? ` width="${media.width}" height="${media.height}"` : '';
+        // Sin ancho elegido = Mediana, el default del CMS (una imagen a todo lo ancho no se alinea)
+        const width = safe(node.fields?.width) || 'md';
+        return `<figure${blockAttrs(node)} data-width="${width}"><img src="${getImageUrl(media.url)}" alt="${alt}"${size} loading="lazy" decoding="async"></figure>`;
       }
       if (node.type === 'link' || node.type === 'autolink') {
         const children = node.children?.map(serializeNode).join('') || '';
