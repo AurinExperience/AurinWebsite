@@ -1,24 +1,27 @@
 ---
 import { getLangFromUrl, translations } from "@/i18n";
-import { PROJECT_FILTERS } from "@/lib/payload";
+import { getProjectFilters, type PayloadProject } from "@/lib/payload";
 
 import styles from "./FilterPills.module.css";
 
 interface Props {
-  currentFilter?: string;
+  projects: PayloadProject[];
 }
 
-const { currentFilter = "all" } = Astro.props;
+const { projects } = Astro.props;
 
 // Detect current language
 const currentLang = getLangFromUrl(Astro.url);
 const t = translations[currentLang];
+
+// Las Categorías del CMS (Taxonomía → Categorías) que usan los proyectos
+const filters = getProjectFilters(projects, t.projects.filters.all);
 ---
 
 <div class={styles.filterContainer}>
   <div class={styles.pillsContainer} data-filter-pills>
     {
-      PROJECT_FILTERS.map((filter) => (
+      filters.map((filter) => (
         <button
           class={styles.pill}
           data-filter={filter.value}
@@ -26,9 +29,7 @@ const t = translations[currentLang];
           data-active={filter.value === "all" ? "true" : "false"}
           data-is-all={filter.value === "all" ? "true" : "false"}
         >
-          {t.projects.filters[
-            filter.value as keyof typeof t.projects.filters
-          ] || filter.label}
+          {filter.label}
         </button>
       ))
     }
