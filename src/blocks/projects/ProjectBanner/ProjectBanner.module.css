@@ -137,10 +137,6 @@
     font-size: 40px;
   }
 
-  .category {
-    font-size: 18px;
-  }
-
   .heroImage {
     height: calc(300px * var(--hero-scale, 1));
   }
@@ -160,11 +156,6 @@
     font-size: 40px;
     line-height: 50px;
   }
-
-  .category {
-    font-size: 20px;
-  }
-
 
   .heroImage {
     height: calc(362px * var(--hero-scale, 1));
