@@ -76,7 +76,26 @@
   margin-bottom: 0;
 }
 
-/* Formatos que permite el editor del CMS: listas, citas y enlaces */
+/* Encabezado capturado a media sección (el del inicio es el título grande) */
+.descriptionText h3 {
+  margin: 1.5em 0 0.5em 0;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-3xl);
+  line-height: 1.2;
+  font-weight: var(--font-weight-light);
+  color: var(--color-yellow);
+  text-wrap: balance;
+}
+
+.descriptionText > h3:first-child {
+  margin-top: 0;
+}
+
+.descriptionText strong {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Formatos que permite el editor del CMS: negritas, cursivas, subrayado, listas, citas y enlaces */
 .descriptionText ul,
 .descriptionText ol {
   margin: 0 0 1em 0;
@@ -122,6 +141,10 @@
 
   .descriptionText {
     font-size: 16px;
+  }
+
+  .descriptionText h3 {
+    font-size: var(--font-size-2xl);
   }
 
   /* A 36px (base.css) caben ~17 letras por renglón y el título se partía en
