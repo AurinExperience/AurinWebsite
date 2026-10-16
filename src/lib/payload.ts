@@ -448,11 +448,82 @@ function splitLeadingHeadings(content: any): { headings: any[]; body: any[] } {
 const plainText = (node: any): string =>
   node.type === 'text' ? node.text || '' : (node.children || []).map(plainText).join('');
 
+// Cuerpo de "2 · Texto" (y título con estilos): Lexical → HTML con los estilos del CMS
+function serializeNode(node: any): string {
+  if (node.type === 'text') {
+    let text = node.text || '';
+    if (node.format) {
+      if (node.format & 1) text = `<strong>${text}</strong>`;
+      if (node.format & 2) text = `<em>${text}</em>`;
+      if (node.format & 4) text = `<s>${text}</s>`;
+      if (node.format & 8) text = `<u>${text}</u>`;
+      if (node.format & 16) text = `<code>${text}</code>`;
+    }
+    const attrs = textStateAttrs(node);
+    return attrs ? `<span${attrs}>${text}</span>` : text;
+  }
+  if (node.type === 'paragraph') {
+    const children = node.children?.map(serializeNode).join('') || '';
+    return `<p${blockAttrs(node)}>${children}</p>`;
+  }
+  // Encabezado a media sección: un nivel abajo del CMS (h1 → h2…) porque la página
+  // ya tiene su h1; Template.module.css da a cada nivel su estilo.
+  if (node.type === 'heading') {
+    const level = Math.min(Number(String(node.tag || 'h2').slice(1)) || 2, 5) + 1;
+    const children = node.children?.map(serializeNode).join('') || '';
+    return `<h${level}${blockAttrs(node)}>${children}</h${level}>`;
+  }
+  if (node.type === 'list') {
+    const tag = node.listType === 'number' ? 'ol' : 'ul';
+    const children = node.children?.map(serializeNode).join('') || '';
+    return `<${tag}>${children}</${tag}>`;
+  }
+  if (node.type === 'listitem') {
+    const children = node.children?.map(serializeNode).join('') || '';
+    return `<li>${children}</li>`;
+  }
+  if (node.type === 'quote') {
+    const children = node.children?.map(serializeNode).join('') || '';
+    return `<blockquote${blockAttrs(node)}>${children}</blockquote>`;
+  }
+  if (node.type === 'horizontalrule') return '<hr>';
+  // Imagen dentro del texto (UploadFeature); sin documento de media poblado no hay URL
+  if (node.type === 'upload') {
+    const media = node.value;
+    if (!media?.url) return '';
+    const alt = String(media.alt || '').replace(/"/g, '&quot;');
+    const size = media.width && media.height ? ` width="${media.width}" height="${media.height}"` : '';
+    // Sin ancho elegido = Mediana, el default del CMS (una imagen a todo lo ancho no se alinea)
+    const width = safe(node.fields?.width) || 'md';
+    return `<figure${blockAttrs(node)} data-width="${width}"><img src="${getImageUrl(media.url)}" alt="${alt}"${size} loading="lazy" decoding="async"></figure>`;
+  }
+  if (node.type === 'link' || node.type === 'autolink') {
+    const children = node.children?.map(serializeNode).join('') || '';
+    const url = node.fields?.url || node.url || '#';
+    const newTab = node.fields?.newTab ?? node.newTab;
+    return newTab
+      ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${children}</a>`
+      : `<a href="${url}">${children}</a>`;
+  }
+  if (node.type === 'linebreak') return '<br>';
+  if (node.children) return node.children.map(serializeNode).join('');
+  return '';
+}
+
 // Título en dos tonos (h2 > span de base.css): con un encabezado se parte a la mitad;
 // con dos o más, el primero es el span y el resto el segundo tono.
 export function renderRichTextHeadings(content: any): string {
   if (!content || typeof content === 'string') return '';
-  const lines = splitLeadingHeadings(content).headings.map((h) => plainText(h).trim()).filter(Boolean);
+  const headings = splitLeadingHeadings(content).headings;
+  // Con estilos del editor (color, tamaño, negritas…) el título sale tal cual se capturó;
+  // el corte automático en dos tonos es solo para títulos sin formato.
+  const styled = (node: any): boolean =>
+    Object.keys(node.$ || {}).length > 0 || (node.type === 'text' && node.format > 0) || (node.children || []).some(styled);
+  if (headings.some(styled)) {
+    const html = headings.map((h) => (h.children || []).map(serializeNode).join('')).join(' ');
+    return `<h2${blockAttrs(headings[0])}>${html}</h2>`;
+  }
+  const lines = headings.map((h) => plainText(h).trim()).filter(Boolean);
   if (lines.length === 0) return '';
   if (lines.length >= 2) return `<h2><span>${lines[0]}</span> ${lines.slice(1).join(' ')}</h2>`;
 
@@ -470,66 +541,6 @@ export function renderRichTextBody(content: any): string {
     const bodyNodes = splitLeadingHeadings(content).body;
     if (bodyNodes.length === 0) return '';
 
-    const serializeNode = (node: any): string => {
-      if (node.type === 'text') {
-        let text = node.text || '';
-        if (node.format) {
-          if (node.format & 1) text = `<strong>${text}</strong>`;
-          if (node.format & 2) text = `<em>${text}</em>`;
-          if (node.format & 4) text = `<s>${text}</s>`;
-          if (node.format & 8) text = `<u>${text}</u>`;
-          if (node.format & 16) text = `<code>${text}</code>`;
-        }
-        const attrs = textStateAttrs(node);
-        return attrs ? `<span${attrs}>${text}</span>` : text;
-      }
-      if (node.type === 'paragraph') {
-        const children = node.children?.map(serializeNode).join('') || '';
-        return `<p${blockAttrs(node)}>${children}</p>`;
-      }
-      // Encabezado a media sección: un nivel abajo del CMS (h1 → h2…) porque la página
-      // ya tiene su h1; Template.module.css da a cada nivel su estilo.
-      if (node.type === 'heading') {
-        const level = Math.min(Number(String(node.tag || 'h2').slice(1)) || 2, 5) + 1;
-        const children = node.children?.map(serializeNode).join('') || '';
-        return `<h${level}${blockAttrs(node)}>${children}</h${level}>`;
-      }
-      if (node.type === 'list') {
-        const tag = node.listType === 'number' ? 'ol' : 'ul';
-        const children = node.children?.map(serializeNode).join('') || '';
-        return `<${tag}>${children}</${tag}>`;
-      }
-      if (node.type === 'listitem') {
-        const children = node.children?.map(serializeNode).join('') || '';
-        return `<li>${children}</li>`;
-      }
-      if (node.type === 'quote') {
-        const children = node.children?.map(serializeNode).join('') || '';
-        return `<blockquote${blockAttrs(node)}>${children}</blockquote>`;
-      }
-      if (node.type === 'horizontalrule') return '<hr>';
-      // Imagen dentro del texto (UploadFeature); sin documento de media poblado no hay URL
-      if (node.type === 'upload') {
-        const media = node.value;
-        if (!media?.url) return '';
-        const alt = String(media.alt || '').replace(/"/g, '&quot;');
-        const size = media.width && media.height ? ` width="${media.width}" height="${media.height}"` : '';
-        // Sin ancho elegido = Mediana, el default del CMS (una imagen a todo lo ancho no se alinea)
-        const width = safe(node.fields?.width) || 'md';
-        return `<figure${blockAttrs(node)} data-width="${width}"><img src="${getImageUrl(media.url)}" alt="${alt}"${size} loading="lazy" decoding="async"></figure>`;
-      }
-      if (node.type === 'link' || node.type === 'autolink') {
-        const children = node.children?.map(serializeNode).join('') || '';
-        const url = node.fields?.url || node.url || '#';
-        const newTab = node.fields?.newTab ?? node.newTab;
-        return newTab
-          ? `<a href="${url}" target="_blank" rel="noopener noreferrer">${children}</a>`
-          : `<a href="${url}">${children}</a>`;
-      }
-      if (node.type === 'linebreak') return '<br>';
-      if (node.children) return node.children.map(serializeNode).join('');
-      return '';
-    };
 
     return tieLastWords(bodyNodes.map(serializeNode).join(''), 30);
   } catch {
