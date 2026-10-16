@@ -395,13 +395,6 @@ export function renderRichText(content: any): string {
   }
 }
 
-// Splits rich text into heading-only HTML.
-// Handles two cases:
-// 1. Actual heading nodes in the Lexical JSON
-// 2. First bold paragraph (common pattern in Payload CMS)
-// Output uses the h2 > span pattern from base.css:
-//   span = first line (white, 32px)
-//   h2 text = second line (yellow, 48px)
 /**
  * Une con espacios fijos las últimas palabras de cada bloque (párrafo, viñeta,
  * cita) para que el último renglón nunca quede con una o dos palabras sueltas:
@@ -423,99 +416,42 @@ export function tieLastWords(html: string, maxChars: number): string {
   });
 }
 
-// Un párrafo cuenta como título solo si TODO su texto va en negritas. Antes bastaba
-// con que la primera palabra lo estuviera, y negritas puestas a propósito al inicio
-// de un párrafo lo volvían título (y se perdía el resto del texto).
-function isBoldHeadingParagraph(node: any): boolean {
-  if (node?.type !== 'paragraph') return false;
-  const children = node.children || [];
-  return children.length > 0 && children.every((n: any) => n.type === 'text' && n.format & 1);
+// Sección "2 · Texto": los encabezados con los que EMPIEZA el texto son el título grande
+// de la sección; todo lo demás va al cuerpo en el mismo orden en que se capturó (un
+// encabezado a media sección queda ahí como subtítulo). Las negritas son solo negritas.
+function splitLeadingHeadings(content: any): { headings: any[]; body: any[] } {
+  const nodes: any[] = content?.root?.children || [];
+  // Renglones vacíos al inicio no cuentan
+  let start = 0;
+  while (nodes[start]?.type === 'paragraph' && !nodes[start].children?.length) start++;
+  let end = start;
+  while (nodes[end]?.type === 'heading') end++;
+  return { headings: nodes.slice(start, end), body: nodes.slice(end) };
 }
 
+const plainText = (node: any): string =>
+  node.type === 'text' ? node.text || '' : (node.children || []).map(plainText).join('');
+
+// Título en dos tonos (h2 > span de base.css): con un encabezado se parte a la mitad;
+// con dos o más, el primero es el span y el resto el segundo tono.
 export function renderRichTextHeadings(content: any): string {
-  if (!content) return '';
-  if (typeof content === 'string') return '';
+  if (!content || typeof content === 'string') return '';
+  const lines = splitLeadingHeadings(content).headings.map((h) => plainText(h).trim()).filter(Boolean);
+  if (lines.length === 0) return '';
+  if (lines.length >= 2) return `<h2><span>${lines[0]}</span> ${lines.slice(1).join(' ')}</h2>`;
 
-  try {
-    if (!content.root || !content.root.children) return '';
-
-    const serializeText = (node: any): string => {
-      if (node.type === 'text') return node.text || '';
-      if (node.children) return node.children.map(serializeText).join('');
-      return '';
-    };
-
-    // Case 1: Look for actual heading nodes
-    const headingNodes = content.root.children.filter(
-      (node: any) => node.type === 'heading'
-    );
-
-    if (headingNodes.length >= 2) {
-      const firstLine = headingNodes[0].children?.map(serializeText).join('') || '';
-      const secondLine = headingNodes[1].children?.map(serializeText).join('') || '';
-      return `<h2><span>${firstLine}</span> ${secondLine}</h2>`;
-    }
-
-    if (headingNodes.length === 1) {
-      const text = headingNodes[0].children?.map(serializeText).join('') || '';
-      return `<h2>${text}</h2>`;
-    }
-
-    // Case 2: First paragraph entirely in bold
-    const firstNode = content.root.children[0];
-    if (isBoldHeadingParagraph(firstNode)) {
-      const fullText = firstNode.children.map(serializeText).join('').trim();
-
-      // Try to split at a natural word boundary near the middle
-      const words = fullText.split(' ');
-      if (words.length >= 3) {
-        // Find a split point around the middle
-        const midIndex = Math.ceil(words.length / 2);
-        const firstLine = words.slice(0, midIndex).join(' ');
-        const secondLine = words.slice(midIndex).join(' ');
-        return `<h2><span>${firstLine}</span> ${secondLine}</h2>`;
-      }
-
-      // Short text — render as single h2
-      return `<h2>${fullText}</h2>`;
-    }
-
-    return '';
-  } catch {
-    return '';
-  }
+  const words = lines[0].split(' ');
+  if (words.length < 3) return `<h2>${lines[0]}</h2>`;
+  const mid = Math.ceil(words.length / 2);
+  return `<h2><span>${words.slice(0, mid).join(' ')}</span> ${words.slice(mid).join(' ')}</h2>`;
 }
 
-// Splits rich text into body-only HTML (paragraphs, lists, etc.)
-// Excludes heading nodes AND the first bold paragraph (used as heading).
 export function renderRichTextBody(content: any): string {
   if (!content) return '';
   if (typeof content === 'string') return content;
 
   try {
-    if (!content.root || !content.root.children) return '';
-
-    // Determine which nodes to skip
-    const hasHeadings = content.root.children.some(
-      (node: any) => node.type === 'heading'
-    );
-
-    let bodyNodes;
-    if (hasHeadings) {
-      // Skip heading nodes
-      bodyNodes = content.root.children.filter(
-        (node: any) => node.type !== 'heading'
-      );
-    } else {
-      // Skip the first paragraph if it's the heading (entirely bold)
-      if (isBoldHeadingParagraph(content.root.children[0])) {
-        // Skip the first paragraph (it's the heading)
-        bodyNodes = content.root.children.slice(1);
-      } else {
-        bodyNodes = content.root.children;
-      }
-    }
-
+    const bodyNodes = splitLeadingHeadings(content).body;
     if (bodyNodes.length === 0) return '';
 
     const serializeNode = (node: any): string => {
@@ -532,6 +468,11 @@ export function renderRichTextBody(content: any): string {
       if (node.type === 'paragraph') {
         const children = node.children?.map(serializeNode).join('') || '';
         return `<p>${children}</p>`;
+      }
+      // Encabezado a media sección: subtítulo (el h2 es el título grande de la sección)
+      if (node.type === 'heading') {
+        const children = node.children?.map(serializeNode).join('') || '';
+        return `<h3>${children}</h3>`;
       }
       if (node.type === 'list') {
         const tag = node.listType === 'number' ? 'ol' : 'ul';
