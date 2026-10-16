@@ -195,11 +195,7 @@ export const translations = {
         "Marketing": "Marketing"
       },
       filters: {
-        "all": "All",
-        "diseno-ux-ui": "UX/UI Design",
-        "desarrollo-web-movil": "Web and platform development",
-        "desarrollo-branding": "Branding development",
-        "pruebas-usabilidad": "Usability testing"
+        "all": "All"
       }
     },
     services: {
@@ -954,11 +950,7 @@ export const translations = {
         "Marketing": "Marketing"
       },
       filters: {
-        "all": "Todos",
-        "diseno-ux-ui": "Diseño UX/UI",
-        "desarrollo-web-movil": "Desarrollo web y plataformas",
-        "desarrollo-branding": "Desarrollo de branding",
-        "pruebas-usabilidad": "Pruebas de usabilidad"
+        "all": "Todos"
       }
     },
     services: {

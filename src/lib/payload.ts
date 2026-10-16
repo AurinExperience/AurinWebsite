@@ -21,7 +21,8 @@ export interface PayloadProject {
     slug: string;
     color: string;
   };
-  projectFilters: Array<'diseno-ux-ui' | 'desarrollo-web-movil' | 'desarrollo-branding' | 'marketing-digital' | 'pruebas-usabilidad'>;
+  /** "Categorías (filtros)" del CMS; con depth por defecto llegan pobladas */
+  categories?: Array<PayloadCategory | string> | null;
   hero: {
     description: string;
     bannerImage: {
@@ -97,8 +98,6 @@ export interface PayloadCategory {
   id: string;
   name: string;
   slug: string;
-  description?: string;
-  color: string;
 }
 
 export interface PayloadTag {
@@ -107,18 +106,25 @@ export interface PayloadTag {
   slug: string;
 }
 
-export interface ProjectFilter {
-  value: string;
-  label: string;
+/** Slugs de las categorías del proyecto: los usa el filtro del listado */
+export function getCategorySlugs(project: PayloadProject): string[] {
+  return (project.categories || []).flatMap((c) => (typeof c === 'object' && c?.slug ? [c.slug] : []));
 }
 
-// Definición de filtros predefinidos
-export const PROJECT_FILTERS: ProjectFilter[] = [
-  { value: 'all', label: 'All' },
-  { value: 'diseno-ux-ui', label: 'Diseño UX/UI' },
-  { value: 'desarrollo-web-movil', label: 'Desarrollo web y plataformas' },
-  { value: 'desarrollo-branding', label: 'Desarrollo de branding' },
-];
+/**
+ * Botones del filtro: "Todos" + las categorías que tiene al menos un proyecto de la lista,
+ * por nombre. Una categoría sin proyectos no sale, así ningún filtro deja la rejilla vacía.
+ */
+export function getProjectFilters(projects: PayloadProject[], allLabel: string): Array<{ value: string; label: string }> {
+  const bySlug = new Map<string, string>();
+  for (const p of projects) {
+    for (const c of p.categories || []) {
+      if (typeof c === 'object' && c?.slug) bySlug.set(c.slug, c.name || c.slug);
+    }
+  }
+  const categories = [...bySlug].map(([value, label]) => ({ value, label }));
+  return [{ value: 'all', label: allLabel }, ...categories.sort((a, b) => a.label.localeCompare(b.label))];
+}
 
 // API Functions
 export class PayloadAPI {
@@ -178,30 +184,9 @@ export class PayloadAPI {
     }
   }
 
-  // Get projects by filter (single or multiple)
-  static async getProjectsByFilter(filters: string[], locale: string = 'es'): Promise<PayloadProject[]> {
-    if (filters.length === 0 || filters.includes('all')) {
-      return this.getProjects(locale);
-    }
-
-    // Build query for multiple filters (OR condition)
-    const filterQueries = filters.map((filter, index) =>
-      `where[or][${index}][projectFilters][contains]=${filter}`
-    ).join('&');
-
-    const data = await this.fetchAPI(`/projects?${filterQueries}&where[status][equals]=published&sort=-publishDate&limit=100`, locale);
-    return data.docs || [];
-  }
-
   // Get projects by tag
   static async getProjectsByTag(tagSlug: string, locale: string = 'es'): Promise<PayloadProject[]> {
     const data = await this.fetchAPI(`/projects?where[tags.slug][contains]=${tagSlug}&where[status][equals]=published&sort=-publishDate&limit=100`, locale);
-    return data.docs || [];
-  }
-
-  // Get all categories
-  static async getCategories(locale: string = 'es'): Promise<PayloadCategory[]> {
-    const data = await this.fetchAPI('/categories?limit=100', locale);
     return data.docs || [];
   }
 
@@ -438,6 +423,15 @@ export function tieLastWords(html: string, maxChars: number): string {
   });
 }
 
+// Un párrafo cuenta como título solo si TODO su texto va en negritas. Antes bastaba
+// con que la primera palabra lo estuviera, y negritas puestas a propósito al inicio
+// de un párrafo lo volvían título (y se perdía el resto del texto).
+function isBoldHeadingParagraph(node: any): boolean {
+  if (node?.type !== 'paragraph') return false;
+  const children = node.children || [];
+  return children.length > 0 && children.every((n: any) => n.type === 'text' && n.format & 1);
+}
+
 export function renderRichTextHeadings(content: any): string {
   if (!content) return '';
   if (typeof content === 'string') return '';
@@ -467,28 +461,23 @@ export function renderRichTextHeadings(content: any): string {
       return `<h2>${text}</h2>`;
     }
 
-    // Case 2: First paragraph with bold text (format & 1)
+    // Case 2: First paragraph entirely in bold
     const firstNode = content.root.children[0];
-    if (firstNode?.type === 'paragraph') {
-      const firstTextNode = firstNode.children?.[0];
-      const isBold = firstTextNode?.format && (firstTextNode.format & 1);
+    if (isBoldHeadingParagraph(firstNode)) {
+      const fullText = firstNode.children.map(serializeText).join('').trim();
 
-      if (isBold && firstTextNode?.text) {
-        const fullText = firstTextNode.text.trim();
-
-        // Try to split at a natural word boundary near the middle
-        const words = fullText.split(' ');
-        if (words.length >= 3) {
-          // Find a split point around the middle
-          const midIndex = Math.ceil(words.length / 2);
-          const firstLine = words.slice(0, midIndex).join(' ');
-          const secondLine = words.slice(midIndex).join(' ');
-          return `<h2><span>${firstLine}</span> ${secondLine}</h2>`;
-        }
-
-        // Short text — render as single h2
-        return `<h2>${fullText}</h2>`;
+      // Try to split at a natural word boundary near the middle
+      const words = fullText.split(' ');
+      if (words.length >= 3) {
+        // Find a split point around the middle
+        const midIndex = Math.ceil(words.length / 2);
+        const firstLine = words.slice(0, midIndex).join(' ');
+        const secondLine = words.slice(midIndex).join(' ');
+        return `<h2><span>${firstLine}</span> ${secondLine}</h2>`;
       }
+
+      // Short text — render as single h2
+      return `<h2>${fullText}</h2>`;
     }
 
     return '';
@@ -518,15 +507,8 @@ export function renderRichTextBody(content: any): string {
         (node: any) => node.type !== 'heading'
       );
     } else {
-      // Check if first paragraph is bold (used as heading)
-      const firstNode = content.root.children[0];
-      const firstTextNode = firstNode?.children?.[0];
-      const isBoldFirstParagraph =
-        firstNode?.type === 'paragraph' &&
-        firstTextNode?.format &&
-        (firstTextNode.format & 1);
-
-      if (isBoldFirstParagraph) {
+      // Skip the first paragraph if it's the heading (entirely bold)
+      if (isBoldHeadingParagraph(content.root.children[0])) {
         // Skip the first paragraph (it's the heading)
         bodyNodes = content.root.children.slice(1);
       } else {

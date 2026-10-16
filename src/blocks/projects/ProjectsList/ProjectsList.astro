@@ -5,12 +5,22 @@
  */
 import FilterPills from "@/components/ui/FilterPills.astro";
 import ProjectsGrid from "@/components/projects/ProjectsGrid.astro";
+import { getLangFromUrl } from "@/i18n";
+import { PayloadAPI, type PayloadProject } from "@/lib/payload";
 import styles from "./ProjectsList.module.css";
+
+// Una sola petición: los filtros salen de las categorías de estos mismos proyectos
+let projects: PayloadProject[] = [];
+try {
+  projects = await PayloadAPI.getProjects(getLangFromUrl(Astro.url));
+} catch (error) {
+  console.error("Error fetching projects:", error);
+}
 ---
 
 <section class={styles.projectsSection}>
   <div class={styles.projectsContainer}>
-    <FilterPills />
-    <ProjectsGrid />
+    <FilterPills projects={projects} />
+    <ProjectsGrid projects={projects} />
   </div>
 </section>

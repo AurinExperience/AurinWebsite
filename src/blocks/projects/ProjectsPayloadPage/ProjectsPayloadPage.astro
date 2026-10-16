@@ -6,7 +6,8 @@ import {
   getImageUrl,
   ownCardImage,
   getProjectUrl,
-  PROJECT_FILTERS,
+  getCategorySlugs,
+  getProjectFilters,
 } from "@/lib/payload";
 import "./ProjectsPayloadPage.css";
 
@@ -18,6 +19,7 @@ const { lang } = Astro.props;
 const t = translations[lang];
 
 const projects = await PayloadAPI.getProjects(lang);
+const filters = getProjectFilters(projects, t.projects.filters.all);
 
 const seoTitle =
   t.projects?.seo?.title ||
@@ -60,7 +62,7 @@ const ui = {
         <h2>{ui.filtersHeading}</h2>
         <div class="filter-buttons" id="filter-buttons">
           {
-            PROJECT_FILTERS.map((filter) => (
+            filters.map((filter) => (
               <button
                 type="button"
                 class={`filter-btn ${filter.value === "all" ? "active" : ""}`}
@@ -100,7 +102,7 @@ const ui = {
               {projects.map((project) => (
                 <article
                   class="project-card"
-                  data-filters={JSON.stringify(project.projectFilters || [])}
+                  data-filters={JSON.stringify(getCategorySlugs(project))}
                 >
                   <a href={getProjectUrl(project, lang)}>
                     <div class="project-image">

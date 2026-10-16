@@ -3,7 +3,7 @@ import { getLangFromUrl, translations } from '@/i18n';
 import SectionHeading from '@/components/ui/SectionHeading.astro';
 import ProjectCard from '@/components/cards/ProjectCard.astro';
 import ButtonIsland from '@/components/ui/ButtonIsland.astro';
-import { PayloadAPI, getProjectUrl, getImageUrl, ownCardImage, getCardCover, NO_PHOTO_IMAGE, type PayloadProject } from '@/lib/payload';
+import { PayloadAPI, getProjectUrl, getImageUrl, ownCardImage, getCardCover, getCategorySlugs, NO_PHOTO_IMAGE, type PayloadProject } from '@/lib/payload';
 import styles from './Projects.module.css';
 
 interface Props {
@@ -64,7 +64,7 @@ try {
             cover={getCardCover(project)}
             href={getProjectUrl(project, currentLang)}
             services={showChips ? (project.hero.services || []) : []}
-            filters={project.projectFilters || []}
+            filters={getCategorySlugs(project)}
           />
         ))
       ) : (
