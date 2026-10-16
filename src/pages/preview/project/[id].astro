@@ -4,12 +4,16 @@
  * estado (también borradores) y no se indexa.
  */
 import ProjectSlugPage from "@/components/pages/ProjectSlugPage.astro";
-import { PayloadAPI } from "@/lib/payload";
+import { PayloadAPI, type PayloadProject } from "@/lib/payload";
 
 export const prerender = false;
 
-const project = await PayloadAPI.getProjectById(Astro.params.id!, "es").catch(() => null);
-if (!project) return Astro.rewrite("/404");
+// Si el CMS que abre el preview no es el que lee la web (CMS local con la web apuntando a
+// producción, o un proyecto aún sin guardar), se abre vacío en vez de 404: lo de abajo
+// se llena en cuanto el admin manda el formulario (script del preview en ProjectSlugPage).
+const project =
+  (await PayloadAPI.getProjectById(Astro.params.id!, "es").catch(() => null)) ??
+  ({ id: Astro.params.id!, slug: Astro.params.id! } as PayloadProject);
 // Siempre fresco: sin esto el middleware lo guardaría en el CDN y el preview abriría con datos viejos
 Astro.response.headers.set("Cache-Control", "no-store");
 ---

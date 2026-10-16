@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
+    "dev:cms-local": "PAYLOAD_API_URL=http://localhost:3000/api PAYLOAD_SERVER_URL=http://localhost:3000 astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",

@@ -150,16 +150,28 @@ const list = (value: unknown): any[] => (Array.isArray(value) ? value : []);
 
 /** El formulario del admin trae las imágenes como IDs; las cambia por el documento de media. */
 export async function populateLivePreviewMedia(data: any): Promise<PayloadProject> {
-  const [bannerImage, logo, gallery] = await Promise.all([
+  const description = data?.hero?.description;
+  const [bannerImage, logo, gallery, descriptionNodes] = await Promise.all([
     resolveMedia(data?.hero?.bannerImage),
     resolveMedia(data?.client?.logo),
     Promise.all(
       list(data?.gallery).map(async (item: any) => ({ ...item, image: await resolveMedia(item?.image) }))
     ),
+    // Imágenes dentro de "2 · Texto": el editor guarda solo el ID
+    Promise.all(
+      list(description?.root?.children).map(async (node: any) =>
+        node?.type === "upload" ? { ...node, value: await resolveMedia(node.value) } : node
+      )
+    ),
   ]);
   return {
     ...data,
-    hero: { ...data?.hero, bannerImage, services: list(data?.hero?.services) },
+    hero: {
+      ...data?.hero,
+      bannerImage,
+      services: list(data?.hero?.services),
+      description: description?.root ? { ...description, root: { ...description.root, children: descriptionNodes } } : description,
+    },
     client: { ...data?.client, logo },
     gallery,
   };
