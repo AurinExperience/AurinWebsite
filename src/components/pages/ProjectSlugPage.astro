@@ -177,8 +177,12 @@ const languageAlternateHref = sibling
         }, 300);
       });
 
-      // Le avisa al admin que ya puede mandar los datos del formulario
-      for (const origin of cmsOrigins) admin?.postMessage({ type: "payload-live-preview", ready: true }, origin);
+      // Le avisa al admin que ya puede mandar los datos del formulario. Solo al origen que
+      // abrió el preview (referrer): a los demás Safari llena la consola de errores.
+      const opener = cmsOrigins.find((origin) => document.referrer.startsWith(origin));
+      if (admin !== window) {
+        for (const origin of opener ? [opener] : cmsOrigins) admin.postMessage({ type: "payload-live-preview", ready: true }, origin);
+      }
     </script>
   )}
 </Layout>
