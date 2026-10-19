@@ -4,15 +4,12 @@ import styles from './ProjectBanner.module.css';
 interface Props {
   title: string;
   categories: string[];
-  description: string;
   clientLogo?: string;
   logoScale?: number;
   logoColor?: string;
-  heroImage?: string;
-  heroScale?: number;
 }
 
-const { title, categories, description, clientLogo, logoScale = 1, logoColor = 'white', heroImage, heroScale = 1 } = Astro.props;
+const { title, categories, clientLogo, logoScale = 1, logoColor = 'white' } = Astro.props;
 ---
 
 <section class={styles.banner}>
@@ -36,14 +33,6 @@ const { title, categories, description, clientLogo, logoScale = 1, logoColor = '
         </div>
       )}
     </div>
-
-    {/* Sin imagen principal no se pinta nada: el recuadro gris de antes dejaba un
-        hueco entre el título y el texto en los proyectos que aún no tienen fotos. */}
-    {heroImage && (
-      <div class={styles.heroImageWrapper} style={`--hero-scale: ${heroScale}`}>
-        <img src={heroImage} alt={title} class={styles.heroImage} />
-      </div>
-    )}
   </div>
 </section>
 
