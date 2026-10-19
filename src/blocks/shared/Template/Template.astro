@@ -2,7 +2,8 @@
 /**
  * Template — Project detail content block.
  * Renders the project banner, description heading, body text, and the gallery
- * (slider or masonry, chosen per project in the CMS).
+ * (slider or masonry, chosen per project in the CMS), with an optional device (laptop,
+ * tablet or phone) above it whose screen scrolls through screenshots.
  * Layout shell (Header, Footer, Vignette, etc.) is owned by the page component.
  */
 import ProjectBanner from "@/blocks/projects/ProjectBanner/ProjectBanner.astro";
@@ -38,6 +39,8 @@ interface ProjectTemplateProps {
   heroImage?: string;
   heroScale?: number;
   gallery?: GalleryImage[];
+  device?: "laptop" | "tablet" | "phone";
+  deviceImages?: GalleryImage[];
   publishDate?: Date;
   featured?: boolean;
   status?: string;
@@ -60,6 +63,33 @@ const hasBody = projectData.descriptionBody && projectData.descriptionBody.trim(
 // index = orden del CMS: el slide de la imagen ampliada lo sigue aunque el mosaico las acomode distinto
 const isSlider = projectData.galleryLayout !== "masonry";
 const gallery = (projectData.gallery ?? []).map((image, index) => ({ ...image, index }));
+// Dispositivo: sus fotos en una tira dentro de la pantalla; cuántas pantallas mide la tira alarga el scroll
+const SCREEN_RATIO = { laptop: 16 / 10, tablet: 3 / 4, phone: 9 / 19.5 }; // ancho / alto, igual que el CSS
+const device = projectData.device ?? "laptop";
+const deviceImages = projectData.deviceImages ?? [];
+// Láminas que forman el grosor (16, igual que el CSS)
+const sideLayers = Array.from({ length: 16 }, (_, i) => i + 1);
+// Botones del canto: lado, dónde empiezan y largo (% del alto del cuerpo)
+const DEVICE_BUTTONS = {
+  laptop: [],
+  tablet: [
+    { side: "Right", at: 7, length: 8 },
+    { side: "Right", at: 18, length: 6 },
+    { side: "Right", at: 26, length: 6 },
+  ],
+  phone: [
+    { side: "Left", at: 17, length: 5 },
+    { side: "Left", at: 25, length: 10 },
+    { side: "Left", at: 37, length: 10 },
+    { side: "Right", at: 27, length: 15 },
+  ],
+};
+// Láminas de cada botón (8, igual que el CSS); --round recorta las puntas en curva hacia el frente y atrás
+const buttonLayers = Array.from({ length: 8 }, (_, layer) => {
+  const t = ((layer + 0.5) / 8) * 2 - 1;
+  return { layer, round: 1 - Math.sqrt(1 - t * t) };
+});
+const devicePages = deviceImages.reduce((sum, image) => sum + (image.width && image.height ? image.height / image.width : 1), 0) * SCREEN_RATIO[device];
 const masonry = (count: number) => {
   const columns = Array.from({ length: Math.min(gallery.length, count) }, () => ({ height: 0, images: [] as typeof gallery }));
   for (const image of gallery) {
@@ -101,6 +131,36 @@ const galleryLayouts = [
 
       {hasBody && (
         <div class={styles.descriptionText} set:html={projectData.descriptionBody} />
+      )}
+
+      {deviceImages.length > 0 && (
+        <div class={styles.deviceScroll} style={`--device-pages: ${devicePages.toFixed(2)}`} data-device>
+          <div class={styles.deviceSticky}>
+            <div class:list={[styles.device, styles[device]]}>
+              <div class={styles.deviceBody}>
+                <div class={styles.deviceSide}>{sideLayers.map((layer) => <span style={`--layer: ${layer}`} />)}</div>
+                {DEVICE_BUTTONS[device].map(({ side, at, length }) => (
+                  <span class:list={[styles.deviceButton, styles[`button${side}`]]} style={`--at: ${at}%; --length: ${length}%`}>
+                    {buttonLayers.map(({ layer, round }) => <span style={`--layer: ${layer}; --round: ${round.toFixed(3)}`} />)}
+                  </span>
+                ))}
+                <div class={styles.deviceScreen}>
+                  <div class={styles.deviceStrip}>
+                    {deviceImages.map((image) => (
+                      <img src={image.imgUrl} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />
+                    ))}
+                  </div>
+                </div>
+                {device === "laptop" && (
+                  <div class={styles.laptopBase}>
+                    <div class={styles.laptopHinge} />
+                    <div class={styles.deviceSide}>{sideLayers.map((layer) => <span style={`--layer: ${layer}`} />)}</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
       )}
 
       {gallery.length > 0 && isSlider && (
@@ -217,4 +277,43 @@ const galleryLayouts = [
     swipeX = null;
     if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
   });
+
+  // Dispositivo, coreografía tipo Apple medida en px de scroll desde que se fija arriba:
+  // - entrada (--device-intro): empieza cuando la sección ya se ve casi entera y termina tras media
+  //   pantalla fijo (los 50svh extra de .deviceScroll);
+  // - captura (--device-scroll): el resto del tramo fijo.
+  // Las dos con curva suave de entrada y salida. Sigue al scroll con inercia (12 % por cuadro) para
+  // moverse como algo con peso. Con "reducir movimiento" no hay entrada.
+  const smoothed = new WeakMap<HTMLElement, number>();
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const clamp = (value: number) => Math.min(1, Math.max(0, value));
+  const ease = (t: number) => t * t * (3 - 2 * t);
+  let ticking = false;
+  function scrollDevices() {
+    let moving = false;
+    for (const device of document.querySelectorAll<HTMLElement>("[data-device]")) {
+      const { top, height } = device.getBoundingClientRect();
+      const target = -top;
+      const previous = smoothed.get(device) ?? target;
+      const next = Math.abs(target - previous) < 0.5 ? target : previous + (target - previous) * 0.12;
+      smoothed.set(device, next);
+      const intro = calm ? 1 : ease(clamp((next + 0.4 * innerHeight) / (0.9 * innerHeight)));
+      const scroll = ease(clamp((next - 0.5 * innerHeight) / (height - 1.5 * innerHeight)));
+      device.style.setProperty("--device-intro", intro.toFixed(4));
+      device.style.setProperty("--device-scroll", scroll.toFixed(4));
+      moving ||= next !== target;
+    }
+    ticking = moving;
+    if (moving) requestAnimationFrame(scrollDevices);
+  }
+  addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(scrollDevices);
+    },
+    { passive: true }
+  );
+  scrollDevices();
 </script>

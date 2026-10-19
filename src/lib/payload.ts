@@ -75,6 +75,12 @@ export interface PayloadProject {
     alt: string;
     caption?: string;
   }>;
+  /** "3 · Dispositivo": sus imágenes pasan por la pantalla, antes de la galería */
+  device?: 'laptop' | 'tablet' | 'phone' | null;
+  deviceImages?: Array<{
+    image: { id: string; url: string; alt: string; width: number; height: number };
+    alt?: string;
+  }> | null;
   learnings?: {
     title: string;
     content: any; // Rich text content
