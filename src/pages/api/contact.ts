@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { sendContactEmail } from '@/lib/mailing/service';
 import type { ContactFormData } from '@/lib/mailing/types';
 import { leadContext, leadAttribution } from '@/lib/mailing/leadContext';
+import { appendLeadRow } from '@/lib/mailing/leadSheet';
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   try {
@@ -100,8 +101,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       lead: leadAttribution(lead),
     };
 
-    // Send email using centralized service
-    const result = await sendContactEmail(contactData);
+    // Correo + fila en la hoja de leads (para marcar después si contrató)
+    const [result] = await Promise.all([sendContactEmail(contactData), appendLeadRow(contactData)]);
 
     if (!result.success) {
       throw new Error(result.error || 'Failed to send email');

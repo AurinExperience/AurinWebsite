@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { sendContactEmail } from '@/lib/mailing/service';
 import { leadContext, leadAttribution } from '@/lib/mailing/leadContext';
+import { appendLeadRow } from '@/lib/mailing/leadSheet';
 
 /*
  * Registro del mini-formulario del botón de WhatsApp (nombre, teléfono, mensaje).
@@ -30,7 +31,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   const digits = telefono.replace(/\D/g, '');
   if (digits.length < 10 || digits.length > 15) return json({ error: 'Teléfono inválido' }, 400);
 
-  const result = await sendContactEmail({
+  const contactData = {
     titulo: 'Nuevo mensaje por WhatsApp',
     nombre,
     telefono,
@@ -41,7 +42,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     referrer: String(data.referrer ?? 'Directo').slice(0, 500),
     ...leadContext(request, clientAddress),
     lead: leadAttribution(data.lead),
-  });
+  };
+  const [result] = await Promise.all([sendContactEmail(contactData), appendLeadRow(contactData)]);
 
   if (!result.success) {
     console.error('Error enviando lead de WhatsApp:', result.error);
