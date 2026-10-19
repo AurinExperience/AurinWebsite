@@ -115,21 +115,29 @@ export function toProjectData(project: PayloadProject) {
     clientIndustry: project.client?.industry,
     heroImage: getImageUrl(project.hero?.bannerImage?.url),
     heroScale: HERO_SCALE[project.hero?.bannerHeight ?? "md"] ?? 1,
-    gallery: (project.gallery ?? [])
-      // Una fila sin imagen (agregada en el admin y sin elegir archivo) pintaba un
-      // slide vacío: con todas vacías quedaba un hueco del alto de la galería.
-      .filter((item) => item?.image?.url)
-      .map((item) => ({
-        imgUrl: getImageUrl(item.image!.url),
-        // El alt del proyecto es opcional; si no hay, el de la imagen en Archivos
-        alt: item?.alt || item?.image?.alt || project.title,
-        // Texto sobre la foto en la galería y al ampliarla ("Descripción" en el CMS)
-        caption: item?.caption?.trim() || undefined,
-        // Reservan el alto en el masonry antes de que cargue la imagen
-        width: item.image!.width,
-        height: item.image!.height,
-      })),
+    gallery: toImages(project.gallery, project.title),
+    device: project.device ?? "laptop",
+    deviceImages: toImages(project.deviceImages, project.title),
   };
+}
+
+type ImageRow = { image?: { url?: string; alt?: string; width?: number; height?: number } | null; alt?: string; caption?: string };
+
+function toImages(rows: ImageRow[] | null | undefined, title: string) {
+  return (rows ?? [])
+    // Una fila sin imagen (agregada en el admin y sin elegir archivo) pintaba un
+    // slide vacío: con todas vacías quedaba un hueco del alto de la galería.
+    .filter((item) => item?.image?.url)
+    .map((item) => ({
+      imgUrl: getImageUrl(item.image!.url),
+      // El alt del proyecto es opcional; si no hay, el de la imagen en Archivos
+      alt: item?.alt || item?.image?.alt || title,
+      // Texto sobre la foto en la galería y al ampliarla ("Descripción" en el CMS)
+      caption: item?.caption?.trim() || undefined,
+      // Reservan el alto (masonry, tira de la laptop) antes de que cargue la imagen
+      width: item.image!.width,
+      height: item.image!.height,
+    }));
 }
 
 /* ponytail: caché en memoria por instancia del servidor; una imagen editada
@@ -159,12 +167,13 @@ const list = (value: unknown): any[] => (Array.isArray(value) ? value : []);
 /** El formulario del admin trae las imágenes como IDs; las cambia por el documento de media del CMS `cms`. */
 export async function populateLivePreviewMedia(data: any, cms?: string): Promise<PayloadProject> {
   const description = data?.hero?.description;
-  const [bannerImage, logo, gallery, descriptionNodes] = await Promise.all([
+  const rows = (value: unknown) =>
+    Promise.all(list(value).map(async (item: any) => ({ ...item, image: await resolveMedia(item?.image, cms) })));
+  const [bannerImage, logo, gallery, deviceImages, descriptionNodes] = await Promise.all([
     resolveMedia(data?.hero?.bannerImage, cms),
     resolveMedia(data?.client?.logo, cms),
-    Promise.all(
-      list(data?.gallery).map(async (item: any) => ({ ...item, image: await resolveMedia(item?.image, cms) }))
-    ),
+    rows(data?.gallery),
+    rows(data?.deviceImages),
     // Imágenes dentro de "2 · Texto": el editor guarda solo el ID
     Promise.all(
       list(description?.root?.children).map(async (node: any) =>
@@ -182,5 +191,6 @@ export async function populateLivePreviewMedia(data: any, cms?: string): Promise
     },
     client: { ...data?.client, logo },
     gallery,
+    deviceImages,
   };
 }
