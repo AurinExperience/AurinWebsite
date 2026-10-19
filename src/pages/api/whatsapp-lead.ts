@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { sendContactEmail } from '@/lib/mailing/service';
-import { leadContext } from '@/lib/mailing/leadContext';
+import { leadContext, leadAttribution } from '@/lib/mailing/leadContext';
 
 /*
  * Registro del mini-formulario del botón de WhatsApp (nombre, teléfono, mensaje).
@@ -40,6 +40,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     origen,
     referrer: String(data.referrer ?? 'Directo').slice(0, 500),
     ...leadContext(request, clientAddress),
+    lead: leadAttribution(data.lead),
   });
 
   if (!result.success) {

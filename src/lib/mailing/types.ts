@@ -1,3 +1,5 @@
+import type { LeadAttribution } from './leadContext';
+
 /**
  * Mailing Module Types
  * Shared types for email sending across the application
@@ -24,6 +26,8 @@ export interface ContactFormData {
   referrer?: string; // where the visitor came from (or "Directo")
   ubicacion?: string; // "City, Region, Country" from Vercel geo headers
   ip?: string;
+  /** Cómo llegó la persona la primera vez + ID para cruzar el correo con GA4/Clarity */
+  lead?: LeadAttribution;
 }
 
 export interface TicketData {

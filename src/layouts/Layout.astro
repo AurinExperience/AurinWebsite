@@ -149,6 +149,64 @@ const {
 				y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 			})(window, document, "clarity", "script", "y4d5j1lbfv");
 		</script>
+		{/* Atribución de leads. El referrer al enviar un formulario es casi siempre la
+		     página anterior del propio sitio; lo que importa es cómo llegó la persona
+		     la primera vez (Google, ChatGPT, un anuncio…). Se guarda esa llegada y se
+		     reemplaza solo si entra por otra campaña (utm/gclid/fbclid).
+		     window.aurinLead(evento?, lead?) arma el lead con un ID único que viaja
+		     al correo y a GA4/Clarity, para poder cruzar un correo con su sesión. */}
+		<script is:inline>
+			(function () {
+				var KEY = 'aurin-attribution';
+				var q = new URLSearchParams(location.search);
+				var ref = '';
+				try { if (document.referrer && new URL(document.referrer).host !== location.host) ref = document.referrer; } catch (e) {}
+				var refHost = ref ? new URL(ref).host.replace(/^www\./, '') : '';
+				var paid = q.get('gclid') ? 'google' : q.get('fbclid') ? 'facebook' : '';
+				var attr = null;
+				try { attr = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+				if (!attr || q.get('utm_source') || paid) {
+					attr = {
+						first_source: q.get('utm_source') || paid || refHost || 'directo',
+						first_medium: q.get('utm_medium') || (paid ? 'cpc'
+							: /google\.|bing\.|yahoo\.|duckduckgo\.|ecosia\./.test(refHost) ? 'organic'
+							: /chatgpt\.|openai\.|perplexity\.|claude\.ai|gemini\.|copilot\./.test(refHost) ? 'ia'
+							: refHost ? 'referral' : 'none'),
+						first_campaign: q.get('utm_campaign') || '',
+						first_landing: location.pathname + location.search,
+						first_referrer: ref,
+						first_visit: new Date().toISOString(),
+					};
+					try { localStorage.setItem(KEY, JSON.stringify(attr)); } catch (e) {}
+				}
+
+				window.aurinLead = function (event, lead) {
+					lead = lead || Object.assign({
+						lead_id: (Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 6)).toUpperCase(),
+						form_page: location.pathname,
+					}, attr);
+					if (event) {
+						// GA4 corta los parámetros a 100 caracteres; el referrer completo va solo al correo
+						var params = { transport_type: 'beacon' };
+						for (var k in lead) if (k !== 'first_referrer' && lead[k]) params[k] = String(lead[k]).slice(0, 100);
+						window.gtag && gtag('event', event, params);
+						window.clarity && clarity('set', 'lead_id', lead.lead_id);
+						window.clarity && clarity('event', event);
+					}
+					return lead;
+				};
+
+				// Quién empezó a llenar un formulario de contacto (data-lead-form), para
+				// medir abandono contra los envíos
+				var started = new WeakSet();
+				document.addEventListener('focusin', function (e) {
+					var form = e.target.closest && e.target.closest('form[data-lead-form]');
+					if (!form || started.has(form)) return;
+					started.add(form);
+					window.gtag && gtag('event', 'form_start', { form_id: form.dataset.leadForm, form_page: location.pathname });
+				});
+			})();
+		</script>
 	</head>
 	<body>
 		{/* <PageLoader /> */}

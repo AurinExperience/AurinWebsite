@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { sendContactEmail } from '@/lib/mailing/service';
 import type { ContactFormData } from '@/lib/mailing/types';
-import { leadContext } from '@/lib/mailing/leadContext';
+import { leadContext, leadAttribution } from '@/lib/mailing/leadContext';
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   try {
@@ -14,7 +14,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     }
 
     const data = JSON.parse(body);
-    const { nombre, correo, telefono, contacto, servicio, asunto, mensaje, fileUrl, filename, sumaA, sumaB, sumaRespuesta, origen, referrer } = data;
+    const { nombre, correo, telefono, contacto, servicio, asunto, mensaje, fileUrl, filename, sumaA, sumaB, sumaRespuesta, origen, referrer, lead } = data;
 
     // Validación básica
     if (!nombre || !correo || !telefono || !contacto || !servicio || !asunto || !mensaje) {
@@ -97,6 +97,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       referrer,
       ubicacion,
       ip,
+      lead: leadAttribution(lead),
     };
 
     // Send email using centralized service

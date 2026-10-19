@@ -32,7 +32,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
 
       <div class="contact-form-wrapper">
         <h3 class="form-title">{t.contact.form.formTitle}</h3>
-        <form class="contact-form">
+        <form class="contact-form" data-lead-form="contacto">
           <div class="form-row">
             <div class="form-group">
               <label for="nombre" class="form-label"
@@ -779,6 +779,8 @@ const sumB = Math.floor(Math.random() * 9) + 1;
         }
 
         const formData = new FormData(form);
+        const lead = (window as any).aurinLead?.();
+        if (lead) lead.lead_source = "contacto";
         const data: any = {
           nombre: formData.get("nombre") as string,
           correo: formData.get("correo") as string,
@@ -792,6 +794,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
           sumaRespuesta: sumAnswer,
           origen: window.location.href,
           referrer: document.referrer || "Directo",
+          lead,
         };
 
         try {
@@ -807,6 +810,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
 
           if (response.ok) {
             // Success
+            if (lead) (window as any).aurinLead("generate_lead", lead);
             (window as any).showToast({
               title: t.contact.form.success,
               description: "",
