@@ -55,5 +55,10 @@ export interface Guide {
    * orden. El CTA va a contacto, no a una landing.
    */
   relatedLandings: string[];
+  /**
+   * Ids de src/data/sectors, misma idea: la landing comercial del "para quién".
+   * Un sector programado aparece aquí solo el día que se publica.
+   */
+  relatedSectors: string[];
   copy: Record<Lang, GuideCopy>;
 }

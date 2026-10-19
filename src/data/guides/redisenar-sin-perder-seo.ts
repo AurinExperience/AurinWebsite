@@ -17,6 +17,7 @@ export const redisenarSinPerderSeo: Guide = {
   published: '2026-08-18',
   updated: '2026-08-18',
   relatedLandings: ['puebla', 'cdmx', 'guanajuato'],
+  relatedSectors: ['inmobiliarias', 'concesionarias', 'ux-ecommerce'],
   copy: {
     es: {
       seo: {

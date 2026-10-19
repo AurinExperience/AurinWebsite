@@ -11,6 +11,7 @@ import type { ArticleStructuredData, BreadcrumbListStructuredData } from '@/type
 import type { Guide } from '@/data/guides';
 import { guidePath, guidesIndexPath, siblingGuides } from '@/data/guides';
 import { publishedLandings, landingPath } from '@/data/landings';
+import { publishedSectors, sectorPath } from '@/data/sectors';
 import { SITE } from '@/config/site';
 import { getLangFromUrl, getLocalizedUrl } from '@/i18n';
 import Layout from '@/layouts/Layout.astro';
@@ -46,6 +47,11 @@ const inline = (value: string) =>
 const related = guide.relatedLandings
   .map((id) => publishedLandings().find((l) => l.id === id))
   .filter((l): l is NonNullable<typeof l> => Boolean(l));
+
+/* Lo mismo con las landings por sector, que si no solo reciben enlaces entre ellas. */
+const relatedSectors = guide.relatedSectors
+  .map((id) => publishedSectors().find((s) => s.id === id))
+  .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
 const others = siblingGuides(guide).slice(0, 3);
 
@@ -87,6 +93,7 @@ const labels =
         toc: 'En esta guía',
         minutes: `${readingMinutes} min de lectura`,
         related: 'Dónde trabajamos esto',
+        sectors: 'Para quién lo hacemos',
         more: 'Sigue leyendo',
         back: 'Ver todas las guías',
       }
@@ -96,6 +103,7 @@ const labels =
         toc: 'In this guide',
         minutes: `${readingMinutes} min read`,
         related: 'Where we do this',
+        sectors: 'Who we do this for',
         more: 'Keep reading',
         back: 'See all guides',
       };
@@ -233,6 +241,22 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
               <li>
                 <a class={styles.relatedLink} href={landingPath(landing, lang)}>
                   {landing.copy[lang].linkLabel}
+                  <span aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {relatedSectors.length > 0 && (
+        <section class={styles.related}>
+          <h2 class={styles.relatedHeading}>{labels.sectors}</h2>
+          <ul class={styles.relatedList}>
+            {relatedSectors.map((sector) => (
+              <li>
+                <a class={styles.relatedLink} href={sectorPath(sector, lang)}>
+                  {sector.copy[lang].linkLabel}
                   <span aria-hidden="true">→</span>
                 </a>
               </li>
