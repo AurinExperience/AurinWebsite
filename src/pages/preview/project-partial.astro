@@ -5,6 +5,7 @@
  */
 import Template from "@/blocks/shared/Template/Template.astro";
 import { populateLivePreviewMedia, toProjectData } from "@/lib/project-page";
+import { CMS_ORIGINS } from "@/lib/payload";
 
 export const prerender = false;
 export const partial = true;
@@ -13,7 +14,12 @@ if (Astro.request.method !== "POST" || !Astro.request.headers.get("content-type"
   return new Response(null, { status: 405 });
 }
 
-const project = await populateLivePreviewMedia(await Astro.request.json());
+// Las imágenes se piden al admin que abrió el preview, solo si es uno de los nuestros
+const cms = Astro.request.headers.get("x-payload-origin");
+const project = await populateLivePreviewMedia(
+  await Astro.request.json(),
+  cms && CMS_ORIGINS.includes(cms) ? cms : undefined
+);
 Astro.response.headers.set("X-Robots-Tag", "noindex");
 ---
 

@@ -242,9 +242,210 @@
   margin-bottom: 0;
 }
 
-/* ── Gallery wrapper ── */
-.galleryWrapper {
+/* ── Galería masonry (columnas armadas en Template.astro) ── */
+.gallery {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+}
+
+/* Columnas a la misma altura: la foto que sobra crece y se recorta un poco (object-fit) */
+.galleryEven {
+  align-items: stretch;
+}
+
+.galleryColumn {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+/* Tarjeta: los PNG con fondo transparente (mockups, recortes) no flotan sobre el negro */
+.galleryOpen {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
   width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-gray-b);
+  border-radius: var(--radius-md);
+  background: var(--color-black-b);
+  cursor: zoom-in;
+  transition: border-color var(--transition-smooth);
+}
+
+.gallery img {
+  display: block;
+  flex: 1 0 auto;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.galleryOpen:hover,
+.galleryOpen:focus-visible {
+  border-color: var(--color-yellow);
+}
+
+.galleryOpen:focus-visible {
+  outline: 2px solid var(--color-yellow);
+  outline-offset: 2px;
+}
+
+.galleryOpen:hover img {
+  transform: scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galleryOpen:hover img {
+    transform: none;
+  }
+}
+
+/* ── Imagen ampliada (slide) ── */
+.lightbox {
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  /* Lados: espacio para las flechas, que van fijas y no encima de la foto */
+  padding: var(--spacing-16) calc(var(--spacing-12) + var(--spacing-8)) var(--spacing-6);
+  border: 0;
+  background: rgba(10, 10, 10, 0.96);
+  color: var(--color-white);
+}
+
+/* Solo abierto: un display en el <dialog> cerrado lo dejaría siempre visible */
+.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox::backdrop {
+  background: transparent;
+}
+
+.lightboxFigure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  max-height: 100%;
+  margin: 0;
+}
+
+.lightboxImage {
+  display: block;
+  min-height: 0;
+  max-width: 100%;
+  max-height: calc(100dvh - 200px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightboxCaption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  max-width: 720px;
+  margin-top: var(--spacing-5);
+  text-align: center;
+}
+
+.lightboxCounter {
+  color: var(--color-yellow);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.08em;
+}
+
+.lightboxText {
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-tight);
+  text-wrap: pretty;
+}
+
+.lightboxCounter:empty,
+.lightboxText:empty {
+  display: none;
+}
+
+.lightboxNav,
+.lightboxClose {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: var(--spacing-12);
+  height: var(--spacing-12);
+  padding: 0;
+  border: 1px solid var(--color-gray-b);
+  border-radius: 50%;
+  background: var(--color-black-b);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lightboxNav:hover,
+.lightboxClose:hover {
+  background: var(--color-yellow);
+  color: var(--color-black-a);
+}
+
+.lightboxClose {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+}
+
+/* Fijas a los lados de la pantalla: no se mueven con el ancho de cada foto */
+.lightboxNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightboxPrev {
+  left: var(--spacing-4);
+}
+
+.lightboxNext {
+  right: var(--spacing-4);
+}
+
+.lightbox[data-single] .lightboxNav {
+  display: none;
+}
+
+/* Celular: flechas abajo, a los lados del texto, para no quitarle ancho a la foto */
+@media (max-width: 768px) {
+  .lightboxNav {
+    top: auto;
+    bottom: var(--spacing-4);
+    transform: none;
+  }
+
+  .lightbox {
+    padding-inline: var(--spacing-4);
+    padding-bottom: calc(var(--spacing-12) + var(--spacing-8));
+  }
+
+  .lightboxText {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Las fotos con loading="lazy" en la versión oculta no se descargan */
+.galleryMobile {
+  display: none;
 }
 
 /* ── Responsive ── */
@@ -266,6 +467,19 @@
     font-size: var(--font-size-2xl);
   }
 
+  .gallery,
+  .galleryColumn {
+    gap: var(--spacing-3);
+  }
+
+  .galleryDesktop {
+    display: none;
+  }
+
+  .galleryMobile {
+    display: flex;
+  }
+
   /* A 1/3 de un celular la imagen no se distingue */
   .descriptionText figure[data-width="sm"],
   .descriptionText figure[data-width="md"] {
@@ -276,5 +490,12 @@
      pares de palabras. Escala con la pantalla: 30px en 400px+, 27px en 360px. */
   .sectionHeading :global(h2) {
     font-size: clamp(26px, 7.5vw, 30px);
+  }
+}
+
+/* Celular: una sola columna con las fotos a lo ancho */
+@media (max-width: 480px) {
+  .galleryMobile {
+    flex-direction: column;
   }
 }

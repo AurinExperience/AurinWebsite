@@ -24,7 +24,7 @@ import {
   resolveProjectOgImage,
   toProjectData,
 } from "@/lib/project-page";
-import { type PayloadProject, PAYLOAD_SERVER_URL } from "@/lib/payload";
+import { type PayloadProject, CMS_ORIGINS } from "@/lib/payload";
 
 interface Props {
   project: PayloadProject;
@@ -141,13 +141,8 @@ const languageAlternateHref = sibling
     <script
       is:inline
       define:vars={{
-        // Mismos orígenes del admin que el CORS de aurin-cms. Solo ellos pueden mandar HTML a esta página.
-        cmsOrigins: [
-          new URL(PAYLOAD_SERVER_URL).origin,
-          "https://admin.aurin.mx",
-          "https://www.admin.aurin.mx",
-          ...(import.meta.env.DEV ? ["http://localhost:3000"] : []),
-        ],
+        // Solo el admin puede mandar HTML a esta página
+        cmsOrigins: CMS_ORIGINS,
       }}
     >
       const root = document.getElementById("project-preview");
@@ -165,7 +160,8 @@ const languageAlternateHref = sibling
           try {
             const res = await fetch("/preview/project-partial", {
               method: "POST",
-              headers: { "Content-Type": "application/json" },
+              // El admin que manda los datos: de ahí salen sus imágenes (en local puede no ser el CMS de la web)
+              headers: { "Content-Type": "application/json", "X-Payload-Origin": event.origin },
               body: JSON.stringify(event.data.data),
               signal: controller.signal,
             });

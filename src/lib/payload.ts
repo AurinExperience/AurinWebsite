@@ -2,6 +2,14 @@
 const PAYLOAD_API_URL = import.meta.env.PAYLOAD_API_URL || 'https://aurin-payload-cms.vercel.app/api';
 export const PAYLOAD_SERVER_URL = import.meta.env.PAYLOAD_SERVER_URL || 'https://aurin-payload-cms.vercel.app';
 
+/** Orígenes del admin que pueden mandar el live preview (mismos que el CORS de aurin-cms) */
+export const CMS_ORIGINS = [
+  new URL(PAYLOAD_SERVER_URL).origin,
+  'https://admin.aurin.mx',
+  'https://www.admin.aurin.mx',
+  ...(import.meta.env.DEV ? ['http://localhost:3000'] : []),
+];
+
 export type SizeOption = 'sm' | 'md' | 'lg' | 'xl';
 
 export interface PayloadProject {
@@ -54,6 +62,8 @@ export interface PayloadProject {
     width: number;
     height: number;
   } | null;
+  galleryLayout?: 'slider' | 'masonry' | null;
+  galleryHeight?: SizeOption | null;
   gallery: Array<{
     image: {
       id: string;
@@ -80,7 +90,6 @@ export interface PayloadProject {
     logoSize?: SizeOption | null;
     logoColor?: 'white' | 'original' | null;
   };
-  galleryHeight?: SizeOption | null;
   seo?: {
     metaTitle?: string;
     metaDescription?: string;
@@ -157,8 +166,14 @@ export class PayloadAPI {
     return this.fetchAPI(`/projects/${encodeURIComponent(id)}`, locale);
   }
 
-  static async getMedia(id: string) {
-    return this.fetchAPI(`/media/${encodeURIComponent(id)}?depth=0`);
+  /** `cms`: origen del admin que manda el preview; en local puede no ser el CMS que lee esta web */
+  static async getMedia(id: string, cms?: string) {
+    if (!cms) return this.fetchAPI(`/media/${encodeURIComponent(id)}?depth=0`);
+    const response = await fetch(`${cms}/api/media/${encodeURIComponent(id)}?depth=0`);
+    if (!response.ok) throw new Error(`Payload API error: ${response.status} ${response.statusText}`);
+    const media = await response.json();
+    // URL absoluta para que getImageUrl no la mande a PAYLOAD_SERVER_URL
+    return { ...media, url: media.url && new URL(media.url, cms).href };
   }
 
   // Get all published projects

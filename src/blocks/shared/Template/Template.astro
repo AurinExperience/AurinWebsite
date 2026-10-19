@@ -1,16 +1,25 @@
 ---
 /**
  * Template — Project detail content block.
- * Renders the project banner, description heading, body text, and gallery carousel.
+ * Renders the project banner, description heading, body text, and the gallery
+ * (slider or masonry, chosen per project in the CMS).
  * Layout shell (Header, Footer, Vignette, etc.) is owned by the page component.
  */
 import ProjectBanner from "@/blocks/projects/ProjectBanner/ProjectBanner.astro";
 import GalleryCarousel from "@/components/projects/carousel/GalleryCarousel";
+import { getLangFromUrl } from "@/i18n/utils";
+import { translations } from "@/i18n/translations";
+import ChevronLeft from "lucide-astro/ChevronLeft";
+import ChevronRight from "lucide-astro/ChevronRight";
+import X from "lucide-astro/X";
 import styles from "./Template.module.css";
 
 interface GalleryImage {
   imgUrl: string;
   alt: string;
+  width?: number;
+  height?: number;
+  caption?: string;
 }
 
 interface ProjectTemplateProps {
@@ -22,6 +31,7 @@ interface ProjectTemplateProps {
   clientLogo?: string;
   logoScale?: number;
   logoColor?: string;
+  galleryLayout?: "slider" | "masonry";
   galleryHeight?: number;
   clientName?: string;
   clientIndustry?: string;
@@ -38,9 +48,37 @@ interface Props {
 }
 
 const { projectData } = Astro.props;
+const t = translations[getLangFromUrl(Astro.url)].projects.gallery;
 
 const hasHeading = projectData.descriptionHeading && projectData.descriptionHeading.trim() !== '';
 const hasBody = projectData.descriptionBody && projectData.descriptionBody.trim() !== '';
+
+// Masonry: cada foto va a la columna más corta (por su proporción), así se lee de izquierda
+// a derecha. Se usan las columnas que dejen el mosaico parejo (hasta 3 en escritorio, 2 en
+// celular); el CSS muestra una versión. Parejo = las fotos se estiran un poco para que todas
+// las columnas terminen a la misma altura, sin huecos abajo.
+// index = orden del CMS: el slide de la imagen ampliada lo sigue aunque el mosaico las acomode distinto
+const isSlider = projectData.galleryLayout !== "masonry";
+const gallery = (projectData.gallery ?? []).map((image, index) => ({ ...image, index }));
+const masonry = (count: number) => {
+  const columns = Array.from({ length: Math.min(gallery.length, count) }, () => ({ height: 0, images: [] as typeof gallery }));
+  for (const image of gallery) {
+    const shortest = columns.reduce((a, b) => (b.height < a.height ? b : a));
+    shortest.images.push(image);
+    shortest.height += image.width && image.height ? image.height / image.width : 1;
+  }
+  const heights = columns.map((column) => column.height);
+  return { columns, even: Math.min(...heights) / Math.max(...heights) >= 0.75 };
+};
+// ponytail: con fotos muy dispares ni 2 columnas quedan parejas; se dejan sin estirar para no recortar de más
+const bestMasonry = (max: number) => {
+  const options = Array.from({ length: max - 1 }, (_, i) => masonry(max - i));
+  return options.find((option) => option.even) ?? options[options.length - 1];
+};
+const galleryLayouts = [
+  { ...bestMasonry(3), className: styles.galleryDesktop },
+  { ...bestMasonry(2), className: styles.galleryMobile },
+];
 ---
 
 <article class={styles.projectTemplate}>
@@ -65,15 +103,118 @@ const hasBody = projectData.descriptionBody && projectData.descriptionBody.trim(
         <div class={styles.descriptionText} set:html={projectData.descriptionBody} />
       )}
 
-      {projectData.gallery && projectData.gallery.length > 0 && (
-        <div class={styles.galleryWrapper}>
-          <GalleryCarousel
-            client:visible
-            data={projectData.gallery}
-            height={projectData.galleryHeight}
-          />
-        </div>
+      {gallery.length > 0 && isSlider && (
+        <GalleryCarousel client:visible data={projectData.gallery} height={projectData.galleryHeight} />
       )}
+
+      {gallery.length > 0 && !isSlider &&
+        galleryLayouts.map(({ columns, even, className }) => (
+          <div class:list={[styles.gallery, className, { [styles.galleryEven]: even }]}>
+            {columns.map((column) => (
+              <div class={styles.galleryColumn}>
+                {column.images.map((image) => (
+                  <button
+                    type="button"
+                    class={styles.galleryOpen}
+                    data-lightbox={image.index}
+                    data-caption={image.caption}
+                    aria-label={`${t.expand}: ${image.alt}`}
+                  >
+                    <img
+                      src={image.imgUrl}
+                      alt={image.alt}
+                      width={image.width}
+                      height={image.height}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                ))}
+              </div>
+            ))}
+          </div>
+        ))}
     </div>
   </section>
+
+  {gallery.length > 0 && !isSlider && (
+    <dialog class={styles.lightbox} data-lightbox-dialog>
+      <form method="dialog">
+        <button class={styles.lightboxClose} aria-label={t.close}><X /></button>
+      </form>
+      <button type="button" class:list={[styles.lightboxNav, styles.lightboxPrev]} data-lightbox-step="-1" aria-label={t.prev}>
+        <ChevronLeft />
+      </button>
+      <figure class={styles.lightboxFigure}>
+        <img class={styles.lightboxImage} alt="" />
+        <figcaption class={styles.lightboxCaption}>
+          <span class={styles.lightboxCounter}></span>
+          <span class={styles.lightboxText}></span>
+        </figcaption>
+      </figure>
+      <button type="button" class:list={[styles.lightboxNav, styles.lightboxNext]} data-lightbox-step="1" aria-label={t.next}>
+        <ChevronRight />
+      </button>
+    </dialog>
+  )}
 </article>
+
+<script>
+  // Imagen ampliada como slide. Todo delegado en document: sigue funcionando cuando el
+  // live preview reemplaza la galería. Las fotos van en el orden del CMS (data-lightbox).
+  let items: HTMLElement[] = [];
+  let current = 0;
+  let swipeX: number | null = null;
+
+  const dialog = () => document.querySelector<HTMLDialogElement>("[data-lightbox-dialog]");
+
+  function show(index: number) {
+    const box = dialog();
+    if (!box || items.length === 0) return;
+    current = (index + items.length) % items.length;
+    const source = items[current].querySelector("img")!;
+    const image = box.querySelector("img")!;
+    image.src = source.currentSrc || source.src;
+    image.alt = source.alt;
+    box.querySelector("figcaption span:first-child")!.textContent = items.length > 1 ? `${current + 1} / ${items.length}` : "";
+    box.querySelector("figcaption span:last-child")!.textContent = items[current].dataset.caption ?? "";
+    box.toggleAttribute("data-single", items.length < 2);
+  }
+
+  document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement;
+    const box = dialog();
+    if (!box) return;
+    const open = target.closest<HTMLElement>("[data-lightbox]");
+    const step = target.closest<HTMLElement>("[data-lightbox-step]");
+    if (open) {
+      // Solo la versión visible del mosaico (escritorio o celular), sin repetidas
+      items = [...document.querySelectorAll<HTMLElement>("[data-lightbox]")]
+        .filter((item) => item.offsetParent !== null)
+        .sort((a, b) => Number(a.dataset.lightbox) - Number(b.dataset.lightbox));
+      show(items.indexOf(open));
+      box.showModal();
+    } else if (step) {
+      show(current + Number(step.dataset.lightboxStep));
+    } else if (target === box) {
+      box.close(); // clic en el fondo
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!dialog()?.open) return;
+    if (event.key === "ArrowLeft") show(current - 1);
+    if (event.key === "ArrowRight") show(current + 1);
+  });
+
+  // Deslizar con el dedo en celular
+  document.addEventListener("pointerdown", (event) => {
+    if (dialog()?.open && event.pointerType !== "mouse") swipeX = event.clientX;
+  });
+  document.addEventListener("pointerup", (event) => {
+    if (swipeX === null) return;
+    const dx = event.clientX - swipeX;
+    swipeX = null;
+    if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+  });
+</script>
