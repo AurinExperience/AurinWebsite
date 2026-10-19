@@ -155,6 +155,7 @@ export const translations = {
       }
     },
     projects: {
+      gallery: { expand: "Enlarge image", close: "Close", prev: "Previous image", next: "Next image" },
       seo: {
         title: "UX/UI & Branding Portfolio | Aurin Mexico",
         description: "Portfolio of UX/UI design, web development and branding. Real companies, real projects. See how we work.",
@@ -910,6 +911,7 @@ export const translations = {
       }
     },
     projects: {
+      gallery: { expand: "Ampliar imagen", close: "Cerrar", prev: "Imagen anterior", next: "Imagen siguiente" },
       seo: {
         title: "Portafolio UX/UI, Branding y Web | Aurin",
         description: "Portafolio de diseño UX/UI, desarrollo web y branding. Empresas reales, proyectos reales. Descubre cómo trabajamos.",

@@ -18,6 +18,7 @@ export const costoBranding: Guide = {
   published: '2026-10-13',
   updated: '2026-10-13',
   relatedLandings: ['jalisco', 'puebla', 'estado-de-mexico'],
+  relatedSectors: ['franquicias', 'joyerias', 'estetica'],
   copy: {
     es: {
       seo: {

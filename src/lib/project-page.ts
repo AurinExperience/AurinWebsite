@@ -108,6 +108,8 @@ export function toProjectData(project: PayloadProject) {
     clientLogo: getImageUrl(project.client?.logo?.url),
     logoColor: project.client?.logoColor ?? "white",
     logoScale: LOGO_SCALE[project.client?.logoSize ?? "md"] ?? 1,
+    // Sin elegir = slider, como estaban todos antes del mosaico
+    galleryLayout: project.galleryLayout ?? "slider",
     galleryHeight: GALLERY_HEIGHT[project.galleryHeight ?? "md"] ?? 362,
     clientName: project.client?.name,
     clientIndustry: project.client?.industry,
@@ -121,6 +123,11 @@ export function toProjectData(project: PayloadProject) {
         imgUrl: getImageUrl(item.image!.url),
         // El alt del proyecto es opcional; si no hay, el de la imagen en Archivos
         alt: item?.alt || item?.image?.alt || project.title,
+        // Texto sobre la foto en la galería y al ampliarla ("Descripción" en el CMS)
+        caption: item?.caption?.trim() || undefined,
+        // Reservan el alto en el masonry antes de que cargue la imagen
+        width: item.image!.width,
+        height: item.image!.height,
       })),
   };
 }
@@ -129,18 +136,19 @@ export function toProjectData(project: PayloadProject) {
    después de cargarla se ve vieja en el preview hasta que la instancia se recicla. */
 const mediaCache = new Map<string, Promise<unknown>>();
 
-function resolveMedia(value: unknown) {
+function resolveMedia(value: unknown, cms?: string) {
   if (typeof value !== "string") return value;
-  if (!mediaCache.has(value)) {
+  const key = `${cms}|${value}`;
+  if (!mediaCache.has(key)) {
     mediaCache.set(
-      value,
-      PayloadAPI.getMedia(value).catch(() => {
-        mediaCache.delete(value);
+      key,
+      PayloadAPI.getMedia(value, cms).catch(() => {
+        mediaCache.delete(key);
         return undefined;
       })
     );
   }
-  return mediaCache.get(value);
+  return mediaCache.get(key);
 }
 
 /* Un array vacío del formulario llega como su número de filas (`gallery: 0`), no
@@ -148,19 +156,19 @@ function resolveMedia(value: unknown) {
    de actualizarse en todo proyecto sin galería o sin servicios. */
 const list = (value: unknown): any[] => (Array.isArray(value) ? value : []);
 
-/** El formulario del admin trae las imágenes como IDs; las cambia por el documento de media. */
-export async function populateLivePreviewMedia(data: any): Promise<PayloadProject> {
+/** El formulario del admin trae las imágenes como IDs; las cambia por el documento de media del CMS `cms`. */
+export async function populateLivePreviewMedia(data: any, cms?: string): Promise<PayloadProject> {
   const description = data?.hero?.description;
   const [bannerImage, logo, gallery, descriptionNodes] = await Promise.all([
-    resolveMedia(data?.hero?.bannerImage),
-    resolveMedia(data?.client?.logo),
+    resolveMedia(data?.hero?.bannerImage, cms),
+    resolveMedia(data?.client?.logo, cms),
     Promise.all(
-      list(data?.gallery).map(async (item: any) => ({ ...item, image: await resolveMedia(item?.image) }))
+      list(data?.gallery).map(async (item: any) => ({ ...item, image: await resolveMedia(item?.image, cms) }))
     ),
     // Imágenes dentro de "2 · Texto": el editor guarda solo el ID
     Promise.all(
       list(description?.root?.children).map(async (node: any) =>
-        node?.type === "upload" ? { ...node, value: await resolveMedia(node.value) } : node
+        node?.type === "upload" ? { ...node, value: await resolveMedia(node.value, cms) } : node
       )
     ),
   ]);

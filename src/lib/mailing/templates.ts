@@ -37,6 +37,21 @@ export const contactEmailTemplate = (data: ContactFormData): string => {
     ? `<a href="${esc(data.origen)}" style="color:#0A0A0A;" target="_blank">${esc(data.origen)}</a>`
     : 'No disponible';
 
+  // Primera llegada de la persona (no la página anterior del sitio)
+  const lead = data.lead ?? {};
+  const firstVisit = lead.first_visit ? new Date(lead.first_visit) : null;
+  const days = firstVisit && !isNaN(+firstVisit) ? Math.floor((Date.now() - +firstVisit) / 86_400_000) : null;
+  const attributionRows = data.lead
+    ? [
+        lead.first_source && row('Llegó desde', `<strong>${esc(lead.first_source)}</strong> / ${esc(lead.first_medium ?? '')}`),
+        lead.first_campaign && row('Campaña', esc(lead.first_campaign)),
+        lead.first_landing && row('Primera página', esc(lead.first_landing)),
+        lead.first_referrer && row('Referrer', esc(lead.first_referrer)),
+        days !== null && row('Primera visita', days === 0 ? 'Hoy' : `Hace ${days} día${days === 1 ? '' : 's'}`),
+        lead.lead_id && row('ID del lead', `<code>${esc(lead.lead_id)}</code>`),
+      ].filter(Boolean).join('')
+    : '';
+
   return `
   <div style="background: #f4f4f4; padding: 24px 0; font-family: Arial, sans-serif;">
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="max-width: 620px; margin: 0 auto; background: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
@@ -75,8 +90,9 @@ export const contactEmailTemplate = (data: ContactFormData): string => {
       <tr><td style="padding: 8px 32px 4px;">
         <div style="color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin: 12px 0 4px;">Origen del lead</div>
         <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+          ${attributionRows}
           ${row('Página', origen)}
-          ${row('Procedencia', esc(data.referrer || 'No disponible'))}
+          ${data.lead ? '' : row('Procedencia', esc(data.referrer || 'No disponible'))}
           ${row('Ubicación', data.ubicacion || 'No disponible')}
           ${row('IP', data.ip || 'No disponible')}
         </table>

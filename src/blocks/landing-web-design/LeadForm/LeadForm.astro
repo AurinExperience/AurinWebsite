@@ -35,6 +35,7 @@ const leadForm = t.webDesignNL.leadForm;
     <form
       class={styles.form}
       id="lead-form"
+      data-lead-form="landing"
       data-sending-text={t.webDesignNL.leadForm.sending}
       data-success-text={t.webDesignNL.leadForm.success}
       data-error-text={t.webDesignNL.leadForm.error}
@@ -183,6 +184,9 @@ const leadForm = t.webDesignNL.leadForm;
         ? String(data.message)
         : 'Solicitud desde landing de diseño web';
 
+      var lead = window.aurinLead ? window.aurinLead() : null;
+      if (lead) lead.lead_source = data.source;
+
       try {
         var response = await fetch('/api/contact', {
           method: 'POST',
@@ -199,11 +203,14 @@ const leadForm = t.webDesignNL.leadForm;
             sumaB: sumaB,
             sumaRespuesta: sumaA + sumaB,
             origen: window.location.href,
-            referrer: document.referrer || 'Directo'
+            referrer: document.referrer || 'Directo',
+            lead: lead
           })
         });
 
         if (response.ok) {
+          // Conversión en GA4: `lead_source` dice qué landing la trajo; el resto, de dónde llegó la persona.
+          if (lead) window.aurinLead('generate_lead', lead);
           feedback.textContent = successText;
           feedback.style.color = '#D0DF00';
           form.reset();

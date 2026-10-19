@@ -45,7 +45,7 @@ const waUrl = `https://wa.me/${SITE.whatsapp}`;
       </button>
     </div>
 
-    <form class={styles.form} data-wa-form>
+    <form class={styles.form} data-wa-form data-lead-form="whatsapp">
       <label class={styles.label} for="wa-name">{t.nameLabel}</label>
       <input class={styles.input} id="wa-name" name="nombre" type="text" autocomplete="name" maxlength="100" placeholder={t.namePlaceholder} required />
 
@@ -179,6 +179,8 @@ const waUrl = `https://wa.me/${SITE.whatsapp}`;
       window.open(direct.href, '_blank', 'noopener');
 
       // 2. Registro por correo en paralelo; keepalive lo completa aunque cambie de app
+      const lead = w.aurinLead?.();
+      if (lead) lead.lead_source = 'whatsapp';
       fetch('/api/whatsapp-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -190,10 +192,12 @@ const waUrl = `https://wa.me/${SITE.whatsapp}`;
           empresa: data.get('empresa'),
           origen: location.href,
           referrer: document.referrer || 'Directo',
+          lead,
         }),
       }).catch(() => {}); // el mensaje ya va por WhatsApp; el correo es respaldo
 
-      track('whatsapp_lead');
+      if (lead) w.aurinLead('whatsapp_lead', lead);
+      else track('whatsapp_lead');
       sent = true;
       form.hidden = true;
       success.hidden = false;

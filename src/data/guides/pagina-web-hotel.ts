@@ -18,6 +18,7 @@ export const paginaWebHotel: Guide = {
   published: '2026-10-13',
   updated: '2026-10-13',
   relatedLandings: ['quintana-roo', 'guerrero', 'chiapas'],
+  relatedSectors: ['hoteles', 'agencias-viajes', 'ux-turismo'],
   copy: {
     es: {
       seo: {
