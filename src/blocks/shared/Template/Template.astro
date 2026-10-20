@@ -64,8 +64,11 @@ const hasMasonry = projectData.sections.some((section) => section.type === "gall
 
 // Dispositivo: sus fotos en una tira dentro de la pantalla; cuántas pantallas mide la tira alarga el scroll
 const SCREEN_RATIO = { laptop: 16 / 10, tablet: 3 / 4, phone: 9 / 19.5 }; // ancho / alto, igual que el CSS
-const devicePages = ({ device, images }: Extract<Section, { type: "device" }>) =>
-  images.reduce((sum, image) => sum + (image.width && image.height ? image.height / image.width : 1), 0) * SCREEN_RATIO[device];
+// A los lados, una pantalla por captura
+const devicePages = ({ device, horizontal, images }: Extract<Section, { type: "device" }>) =>
+  horizontal
+    ? images.length
+    : images.reduce((sum, image) => sum + (image.width && image.height ? image.height / image.width : 1), 0) * SCREEN_RATIO[device];
 // Láminas que forman el grosor (16, igual que el CSS)
 const sideLayers = Array.from({ length: 16 }, (_, i) => i + 1);
 // Botones del canto: lado, dónde empiezan y largo (% del alto del cuerpo)
@@ -120,9 +123,14 @@ const buttonLayers = Array.from({ length: 8 }, (_, layer) => {
         }
 
         if (section.type === "device") {
-          const { device, images } = section;
+          const { device, horizontal, images } = section;
           return (
-            <div class={styles.deviceScroll} style={`--device-pages: ${devicePages(section).toFixed(2)}`} data-device>
+            <div
+              class={styles.deviceScroll}
+              style={`--device-pages: ${devicePages(section).toFixed(2)}`}
+              data-device
+              data-device-screens={horizontal ? images.length : undefined}
+            >
               <div class={styles.deviceSticky}>
                 <div class:list={[styles.device, styles[device]]}>
                   <div class={styles.deviceBody}>
@@ -133,7 +141,7 @@ const buttonLayers = Array.from({ length: 8 }, (_, layer) => {
                       </span>
                     ))}
                     <div class={styles.deviceScreen}>
-                      <div class={styles.deviceStrip}>
+                      <div class:list={[styles.deviceStrip, horizontal && styles.deviceStripHorizontal]}>
                         {images.map((image) => (
                           <img src={image.imgUrl} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />
                         ))}
@@ -285,14 +293,20 @@ const buttonLayers = Array.from({ length: 8 }, (_, layer) => {
   let ticking = false;
   function scrollDevices() {
     let moving = false;
+    // Alto sin la barra del navegador: innerHeight cambia cuando el celular la esconde y el dispositivo daba un salto
+    const viewport = document.documentElement.clientHeight;
     for (const device of document.querySelectorAll<HTMLElement>("[data-device]")) {
       const { top, height } = device.getBoundingClientRect();
       const target = -top;
       const previous = smoothed.get(device) ?? target;
       const next = Math.abs(target - previous) < 0.5 ? target : previous + (target - previous) * 0.12;
       smoothed.set(device, next);
-      const intro = calm ? 1 : ease(clamp((next + 0.4 * innerHeight) / (0.9 * innerHeight)));
-      const scroll = ease(clamp((next - 0.5 * innerHeight) / (height - 1.5 * innerHeight)));
+      const intro = calm ? 1 : ease(clamp((next + 0.4 * viewport) / (0.9 * viewport)));
+      const progress = clamp((next - 0.5 * viewport) / (height - 1.5 * viewport));
+      // A los lados: se queda un momento en cada captura y desliza a la siguiente
+      const steps = Number(device.dataset.deviceScreens) - 1;
+      const step = Math.min(Math.floor(progress * steps), steps - 1);
+      const scroll = steps > 0 ? (step + ease(clamp((progress * steps - step - 0.2) / 0.6))) / steps : ease(progress);
       device.style.setProperty("--device-intro", intro.toFixed(4));
       device.style.setProperty("--device-scroll", scroll.toFixed(4));
       moving ||= next !== target;

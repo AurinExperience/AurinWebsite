@@ -99,7 +99,7 @@ export interface PayloadImageRow {
 export type PayloadSection =
   | { blockType: 'image'; id?: string; image?: PayloadImageRow['image'] | null; height?: SizeOption | null }
   | { blockType: 'text'; id?: string; content?: any }
-  | { blockType: 'device'; id?: string; device?: 'laptop' | 'tablet' | 'phone' | null; images?: PayloadImageRow[] | null }
+  | { blockType: 'device'; id?: string; device?: 'laptop' | 'tablet' | 'phone' | null; direction?: 'vertical' | 'horizontal' | null; images?: PayloadImageRow[] | null }
   | { blockType: 'gallery'; id?: string; layout?: 'slider' | 'masonry' | null; height?: SizeOption | null; images?: PayloadImageRow[] | null };
 
 export interface PayloadCategory {
