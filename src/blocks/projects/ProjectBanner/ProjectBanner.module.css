@@ -99,20 +99,6 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-.heroImageWrapper {
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #d9d9d9;
-}
-
-/* --hero-scale: alto elegido en el CMS, multiplica los altos de cada breakpoint */
-.heroImage {
-  width: 100%;
-  height: calc(250px * var(--hero-scale, 1));
-  display: block;
-  object-fit: cover;
-}
 
 
 /* Mobile: up to 767px */
@@ -136,10 +122,6 @@
   .title {
     font-size: 40px;
   }
-
-  .heroImage {
-    height: calc(300px * var(--hero-scale, 1));
-  }
 }
 
 /* Desktop: 1024px and up */
@@ -155,9 +137,5 @@
   .title {
     font-size: 40px;
     line-height: 50px;
-  }
-
-  .heroImage {
-    height: calc(362px * var(--hero-scale, 1));
   }
 }

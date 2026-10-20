@@ -28,6 +28,34 @@
   gap: 56px;
 }
 
+/* Sección Imagen (antes la imagen principal del banner). --hero-scale: alto elegido en el CMS,
+   multiplica el alto de cada breakpoint */
+.sectionImage {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #d9d9d9;
+}
+
+.sectionImage img {
+  width: 100%;
+  height: calc(250px * var(--hero-scale, 1));
+  display: block;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .sectionImage img {
+    height: calc(300px * var(--hero-scale, 1));
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionImage img {
+    height: calc(362px * var(--hero-scale, 1));
+  }
+}
+
 /*
  * Section heading — rendered from rich text <h2> nodes.
  * Figma: max-width 466px, Titillium Web Light.

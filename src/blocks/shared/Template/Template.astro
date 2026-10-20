@@ -1,49 +1,29 @@
 ---
 /**
  * Template — Project detail content block.
- * Renders the project banner, description heading, body text, and the gallery
- * (slider or masonry, chosen per project in the CMS), with an optional device (laptop,
- * tablet or phone) above it whose screen scrolls through screenshots.
+ * Renders the project banner (logo, title, services) and then the CMS "Secciones" in their
+ * order: image, text, device (laptop, tablet or phone whose screen scrolls through
+ * screenshots) and gallery (slider or masonry). Any of them can repeat or be missing.
  * Layout shell (Header, Footer, Vignette, etc.) is owned by the page component.
  */
 import ProjectBanner from "@/blocks/projects/ProjectBanner/ProjectBanner.astro";
 import GalleryCarousel from "@/components/projects/carousel/GalleryCarousel";
 import { getLangFromUrl } from "@/i18n/utils";
 import { translations } from "@/i18n/translations";
+import type { Section } from "@/lib/project-page";
 import ChevronLeft from "lucide-astro/ChevronLeft";
 import ChevronRight from "lucide-astro/ChevronRight";
 import X from "lucide-astro/X";
 import styles from "./Template.module.css";
 
-interface GalleryImage {
-  imgUrl: string;
-  alt: string;
-  width?: number;
-  height?: number;
-  caption?: string;
-}
-
 interface ProjectTemplateProps {
   projectTitle: string;
   projectCategories: string[];
-  projectDescription: string;
-  descriptionHeading?: string;
-  descriptionBody?: string;
+  projectDescription?: string;
   clientLogo?: string;
   logoScale?: number;
   logoColor?: string;
-  galleryLayout?: "slider" | "masonry";
-  galleryHeight?: number;
-  clientName?: string;
-  clientIndustry?: string;
-  heroImage?: string;
-  heroScale?: number;
-  gallery?: GalleryImage[];
-  device?: "laptop" | "tablet" | "phone";
-  deviceImages?: GalleryImage[];
-  publishDate?: Date;
-  featured?: boolean;
-  status?: string;
+  sections: Section[];
 }
 
 interface Props {
@@ -53,20 +33,39 @@ interface Props {
 const { projectData } = Astro.props;
 const t = translations[getLangFromUrl(Astro.url)].projects.gallery;
 
-const hasHeading = projectData.descriptionHeading && projectData.descriptionHeading.trim() !== '';
-const hasBody = projectData.descriptionBody && projectData.descriptionBody.trim() !== '';
+type GalleryImage = Extract<Section, { type: "gallery" }>["images"][number];
 
 // Masonry: cada foto va a la columna más corta (por su proporción), así se lee de izquierda
 // a derecha. Se usan las columnas que dejen el mosaico parejo (hasta 3 en escritorio, 2 en
 // celular); el CSS muestra una versión. Parejo = las fotos se estiran un poco para que todas
 // las columnas terminen a la misma altura, sin huecos abajo.
 // index = orden del CMS: el slide de la imagen ampliada lo sigue aunque el mosaico las acomode distinto
-const isSlider = projectData.galleryLayout !== "masonry";
-const gallery = (projectData.gallery ?? []).map((image, index) => ({ ...image, index }));
+const masonry = (images: GalleryImage[], count: number) => {
+  const gallery = images.map((image, index) => ({ ...image, index }));
+  const columns = Array.from({ length: Math.min(gallery.length, count) }, () => ({ height: 0, images: [] as typeof gallery }));
+  for (const image of gallery) {
+    const shortest = columns.reduce((a, b) => (b.height < a.height ? b : a));
+    shortest.images.push(image);
+    shortest.height += image.width && image.height ? image.height / image.width : 1;
+  }
+  const heights = columns.map((column) => column.height);
+  return { columns, even: Math.min(...heights) / Math.max(...heights) >= 0.75 };
+};
+// ponytail: con fotos muy dispares ni 2 columnas quedan parejas; se dejan sin estirar para no recortar de más
+const bestMasonry = (images: GalleryImage[], max: number) => {
+  const options = Array.from({ length: max - 1 }, (_, i) => masonry(images, max - i));
+  return options.find((option) => option.even) ?? options[options.length - 1];
+};
+const galleryLayouts = (images: GalleryImage[]) => [
+  { ...bestMasonry(images, 3), className: styles.galleryDesktop },
+  { ...bestMasonry(images, 2), className: styles.galleryMobile },
+];
+const hasMasonry = projectData.sections.some((section) => section.type === "gallery" && section.layout === "masonry");
+
 // Dispositivo: sus fotos en una tira dentro de la pantalla; cuántas pantallas mide la tira alarga el scroll
 const SCREEN_RATIO = { laptop: 16 / 10, tablet: 3 / 4, phone: 9 / 19.5 }; // ancho / alto, igual que el CSS
-const device = projectData.device ?? "laptop";
-const deviceImages = projectData.deviceImages ?? [];
+const devicePages = ({ device, images }: Extract<Section, { type: "device" }>) =>
+  images.reduce((sum, image) => sum + (image.width && image.height ? image.height / image.width : 1), 0) * SCREEN_RATIO[device];
 // Láminas que forman el grosor (16, igual que el CSS)
 const sideLayers = Array.from({ length: 16 }, (_, i) => i + 1);
 // Botones del canto: lado, dónde empiezan y largo (% del alto del cuerpo)
@@ -89,115 +88,109 @@ const buttonLayers = Array.from({ length: 8 }, (_, layer) => {
   const t = ((layer + 0.5) / 8) * 2 - 1;
   return { layer, round: 1 - Math.sqrt(1 - t * t) };
 });
-const devicePages = deviceImages.reduce((sum, image) => sum + (image.width && image.height ? image.height / image.width : 1), 0) * SCREEN_RATIO[device];
-const masonry = (count: number) => {
-  const columns = Array.from({ length: Math.min(gallery.length, count) }, () => ({ height: 0, images: [] as typeof gallery }));
-  for (const image of gallery) {
-    const shortest = columns.reduce((a, b) => (b.height < a.height ? b : a));
-    shortest.images.push(image);
-    shortest.height += image.width && image.height ? image.height / image.width : 1;
-  }
-  const heights = columns.map((column) => column.height);
-  return { columns, even: Math.min(...heights) / Math.max(...heights) >= 0.75 };
-};
-// ponytail: con fotos muy dispares ni 2 columnas quedan parejas; se dejan sin estirar para no recortar de más
-const bestMasonry = (max: number) => {
-  const options = Array.from({ length: max - 1 }, (_, i) => masonry(max - i));
-  return options.find((option) => option.even) ?? options[options.length - 1];
-};
-const galleryLayouts = [
-  { ...bestMasonry(3), className: styles.galleryDesktop },
-  { ...bestMasonry(2), className: styles.galleryMobile },
-];
 ---
 
 <article class={styles.projectTemplate}>
   <ProjectBanner
     title={projectData.projectTitle}
     categories={projectData.projectCategories}
-    description={projectData.projectDescription}
     clientLogo={projectData.clientLogo}
     logoScale={projectData.logoScale}
     logoColor={projectData.logoColor}
-    heroImage={projectData.heroImage}
-    heroScale={projectData.heroScale}
   />
 
   <section class={styles.contentSection}>
     <div class={styles.contentContainer}>
-      {hasHeading && (
-        <div class={styles.sectionHeading} set:html={projectData.descriptionHeading} />
-      )}
+      {projectData.sections.map((section) => {
+        if (section.type === "image") {
+          return (
+            <div class={styles.sectionImage} style={`--hero-scale: ${section.scale}`}>
+              <img src={section.imgUrl} alt={section.alt} />
+            </div>
+          );
+        }
 
-      {hasBody && (
-        <div class={styles.descriptionText} set:html={projectData.descriptionBody} />
-      )}
+        if (section.type === "text") {
+          return (
+            <Fragment>
+              {section.heading.trim() && <div class={styles.sectionHeading} set:html={section.heading} />}
+              {section.body.trim() && <div class={styles.descriptionText} set:html={section.body} />}
+            </Fragment>
+          );
+        }
 
-      {deviceImages.length > 0 && (
-        <div class={styles.deviceScroll} style={`--device-pages: ${devicePages.toFixed(2)}`} data-device>
-          <div class={styles.deviceSticky}>
-            <div class:list={[styles.device, styles[device]]}>
-              <div class={styles.deviceBody}>
-                <div class={styles.deviceSide}>{sideLayers.map((layer) => <span style={`--layer: ${layer}`} />)}</div>
-                {DEVICE_BUTTONS[device].map(({ side, at, length }) => (
-                  <span class:list={[styles.deviceButton, styles[`button${side}`]]} style={`--at: ${at}%; --length: ${length}%`}>
-                    {buttonLayers.map(({ layer, round }) => <span style={`--layer: ${layer}; --round: ${round.toFixed(3)}`} />)}
-                  </span>
-                ))}
-                <div class={styles.deviceScreen}>
-                  <div class={styles.deviceStrip}>
-                    {deviceImages.map((image) => (
-                      <img src={image.imgUrl} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />
+        if (section.type === "device") {
+          const { device, images } = section;
+          return (
+            <div class={styles.deviceScroll} style={`--device-pages: ${devicePages(section).toFixed(2)}`} data-device>
+              <div class={styles.deviceSticky}>
+                <div class:list={[styles.device, styles[device]]}>
+                  <div class={styles.deviceBody}>
+                    <div class={styles.deviceSide}>{sideLayers.map((layer) => <span style={`--layer: ${layer}`} />)}</div>
+                    {DEVICE_BUTTONS[device].map(({ side, at, length }) => (
+                      <span class:list={[styles.deviceButton, styles[`button${side}`]]} style={`--at: ${at}%; --length: ${length}%`}>
+                        {buttonLayers.map(({ layer, round }) => <span style={`--layer: ${layer}; --round: ${round.toFixed(3)}`} />)}
+                      </span>
                     ))}
+                    <div class={styles.deviceScreen}>
+                      <div class={styles.deviceStrip}>
+                        {images.map((image) => (
+                          <img src={image.imgUrl} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" />
+                        ))}
+                      </div>
+                    </div>
+                    {device === "laptop" && (
+                      <div class={styles.laptopBase}>
+                        <div class={styles.laptopHinge} />
+                        <div class={styles.deviceSide}>{sideLayers.map((layer) => <span style={`--layer: ${layer}`} />)}</div>
+                      </div>
+                    )}
                   </div>
                 </div>
-                {device === "laptop" && (
-                  <div class={styles.laptopBase}>
-                    <div class={styles.laptopHinge} />
-                    <div class={styles.deviceSide}>{sideLayers.map((layer) => <span style={`--layer: ${layer}`} />)}</div>
-                  </div>
-                )}
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          );
+        }
 
-      {gallery.length > 0 && isSlider && (
-        <GalleryCarousel client:visible data={projectData.gallery} height={projectData.galleryHeight} />
-      )}
+        if (section.layout === "slider") {
+          return <GalleryCarousel client:visible data={section.images} height={section.height} />;
+        }
 
-      {gallery.length > 0 && !isSlider &&
-        galleryLayouts.map(({ columns, even, className }) => (
-          <div class:list={[styles.gallery, className, { [styles.galleryEven]: even }]}>
-            {columns.map((column) => (
-              <div class={styles.galleryColumn}>
-                {column.images.map((image) => (
-                  <button
-                    type="button"
-                    class={styles.galleryOpen}
-                    data-lightbox={image.index}
-                    data-caption={image.caption}
-                    aria-label={`${t.expand}: ${image.alt}`}
-                  >
-                    <img
-                      src={image.imgUrl}
-                      alt={image.alt}
-                      width={image.width}
-                      height={image.height}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </button>
+        return (
+          <div data-gallery>
+            {galleryLayouts(section.images).map(({ columns, even, className }) => (
+              <div class:list={[styles.gallery, className, { [styles.galleryEven]: even }]}>
+                {columns.map((column) => (
+                  <div class={styles.galleryColumn}>
+                    {column.images.map((image) => (
+                      <button
+                        type="button"
+                        class={styles.galleryOpen}
+                        data-lightbox={image.index}
+                        data-caption={image.caption}
+                        aria-label={`${t.expand}: ${image.alt}`}
+                      >
+                        <img
+                          src={image.imgUrl}
+                          alt={image.alt}
+                          width={image.width}
+                          height={image.height}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </button>
+                    ))}
+                  </div>
                 ))}
               </div>
             ))}
           </div>
-        ))}
+        );
+      })}
     </div>
   </section>
 
-  {gallery.length > 0 && !isSlider && (
+  {hasMasonry && (
     <dialog class={styles.lightbox} data-lightbox-dialog>
       <form method="dialog">
         <button class={styles.lightboxClose} aria-label={t.close}><X /></button>
@@ -221,7 +214,8 @@ const galleryLayouts = [
 
 <script>
   // Imagen ampliada como slide. Todo delegado en document: sigue funcionando cuando el
-  // live preview reemplaza la galería. Las fotos van en el orden del CMS (data-lightbox).
+  // live preview reemplaza la galería. Las fotos van en el orden del CMS (data-lightbox), solo
+  // las de la galería que se abrió (puede haber varias en la página).
   let items: HTMLElement[] = [];
   let current = 0;
   let swipeX: number | null = null;
@@ -249,7 +243,7 @@ const galleryLayouts = [
     const step = target.closest<HTMLElement>("[data-lightbox-step]");
     if (open) {
       // Solo la versión visible del mosaico (escritorio o celular), sin repetidas
-      items = [...document.querySelectorAll<HTMLElement>("[data-lightbox]")]
+      items = [...open.closest("[data-gallery]")!.querySelectorAll<HTMLElement>("[data-lightbox]")]
         .filter((item) => item.offsetParent !== null)
         .sort((a, b) => Number(a.dataset.lightbox) - Number(b.dataset.lightbox));
       show(items.indexOf(open));

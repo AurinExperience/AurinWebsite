@@ -18,6 +18,8 @@ import {
   renderRichTextBody,
   renderRichTextHeadings,
   type PayloadProject,
+  type PayloadImageRow,
+  type PayloadSection,
 } from "@/lib/payload";
 
 type Lang = "es" | "en";
@@ -99,44 +101,79 @@ const GALLERY_HEIGHT = { sm: 280, md: 362, lg: 480, xl: 600 };
 
 /** Proyecto de Payload → props de Template. Tolera campos vacíos: el live preview manda el formulario a medio llenar. */
 export function toProjectData(project: PayloadProject) {
+  const sections = list(project.sections).map((section: PayloadSection) => toSection(section, project)).filter(Boolean) as Section[];
+  const firstText = list(project.sections).find((section: PayloadSection) => section?.blockType === "text") as
+    | Extract<PayloadSection, { blockType: "text" }>
+    | undefined;
   return {
     projectTitle: project.title,
     projectCategories: project.hero?.services?.map((service) => service?.name).filter(Boolean) || [],
-    projectDescription: renderRichText(project.hero?.description),
-    descriptionHeading: renderRichTextHeadings(project.hero?.description),
-    descriptionBody: renderRichTextBody(project.hero?.description),
+    // Para la meta descripción: el primer Texto
+    projectDescription: renderRichText(firstText?.content),
     clientLogo: getImageUrl(project.client?.logo?.url),
     logoColor: project.client?.logoColor ?? "white",
     logoScale: LOGO_SCALE[project.client?.logoSize ?? "md"] ?? 1,
-    // Sin elegir = slider, como estaban todos antes del mosaico
-    galleryLayout: project.galleryLayout ?? "slider",
-    galleryHeight: GALLERY_HEIGHT[project.galleryHeight ?? "md"] ?? 362,
-    clientName: project.client?.name,
-    clientIndustry: project.client?.industry,
-    heroImage: getImageUrl(project.hero?.bannerImage?.url),
-    heroScale: HERO_SCALE[project.hero?.bannerHeight ?? "md"] ?? 1,
-    gallery: toImages(project.gallery, project.title),
-    device: project.device ?? "laptop",
-    deviceImages: toImages(project.deviceImages, project.title),
+    sections,
   };
 }
 
-type ImageRow = { image?: { url?: string; alt?: string; width?: number; height?: number } | null; alt?: string; caption?: string };
+export type Section = NonNullable<ReturnType<typeof toSection>>;
 
-function toImages(rows: ImageRow[] | null | undefined, title: string) {
-  return (rows ?? [])
+/** Un bloque de "2 · Secciones" → lo que dibuja Template; vacío (sin imagen, texto ni fotos) = null y no se muestra */
+function toSection(section: PayloadSection, project: PayloadProject) {
+  switch (section?.blockType) {
+    case "image": {
+      // Sin imagen propia, la portada
+      const image = section.image?.url ? section.image : project.hero?.bannerImage;
+      if (!image?.url) return null;
+      return {
+        type: "image" as const,
+        imgUrl: getImageUrl(image.url),
+        alt: image.alt || project.title,
+        scale: HERO_SCALE[section.height ?? "md"] ?? 1,
+      };
+    }
+    case "text": {
+      const heading = renderRichTextHeadings(section.content);
+      const body = renderRichTextBody(section.content);
+      if (!heading.trim() && !body.trim()) return null;
+      return { type: "text" as const, heading, body };
+    }
+    case "device": {
+      const images = toImages(section.images, project.title);
+      if (!images.length) return null;
+      return { type: "device" as const, device: section.device ?? "laptop", images };
+    }
+    case "gallery": {
+      const images = toImages(section.images, project.title);
+      if (!images.length) return null;
+      return {
+        type: "gallery" as const,
+        // Sin elegir = slider, como estaban todos antes del mosaico
+        layout: section.layout ?? "slider",
+        height: GALLERY_HEIGHT[section.height ?? "md"] ?? 362,
+        images,
+      };
+    }
+    default:
+      return null;
+  }
+}
+
+function toImages(rows: PayloadImageRow[] | null | undefined, title: string) {
+  return list(rows)
     // Una fila sin imagen (agregada en el admin y sin elegir archivo) pintaba un
     // slide vacío: con todas vacías quedaba un hueco del alto de la galería.
-    .filter((item) => item?.image?.url)
-    .map((item) => ({
-      imgUrl: getImageUrl(item.image!.url),
+    .filter((item: PayloadImageRow) => item?.image?.url)
+    .map((item: PayloadImageRow) => ({
+      imgUrl: getImageUrl(item.image.url),
       // El alt del proyecto es opcional; si no hay, el de la imagen en Archivos
-      alt: item?.alt || item?.image?.alt || title,
-      // Texto sobre la foto en la galería y al ampliarla ("Descripción" en el CMS)
-      caption: item?.caption?.trim() || undefined,
-      // Reservan el alto (masonry, tira de la laptop) antes de que cargue la imagen
-      width: item.image!.width,
-      height: item.image!.height,
+      alt: item.alt || item.image.alt || title,
+      // Texto sobre la foto en la galería y al ampliarla
+      caption: item.caption?.trim() || undefined,
+      // Reservan el alto (masonry, tira del dispositivo) antes de que cargue la imagen
+      width: item.image.width,
+      height: item.image.height,
     }));
 }
 
@@ -166,31 +203,39 @@ const list = (value: unknown): any[] => (Array.isArray(value) ? value : []);
 
 /** El formulario del admin trae las imágenes como IDs; las cambia por el documento de media del CMS `cms`. */
 export async function populateLivePreviewMedia(data: any, cms?: string): Promise<PayloadProject> {
-  const description = data?.hero?.description;
   const rows = (value: unknown) =>
     Promise.all(list(value).map(async (item: any) => ({ ...item, image: await resolveMedia(item?.image, cms) })));
-  const [bannerImage, logo, gallery, deviceImages, descriptionNodes] = await Promise.all([
+  // Imágenes dentro de un Texto: el editor guarda solo el ID
+  const richText = async (value: any) =>
+    value?.root
+      ? {
+          ...value,
+          root: {
+            ...value.root,
+            children: await Promise.all(
+              list(value.root.children).map(async (node: any) =>
+                node?.type === "upload" ? { ...node, value: await resolveMedia(node.value, cms) } : node
+              )
+            ),
+          },
+        }
+      : value;
+  const [bannerImage, logo, sections] = await Promise.all([
     resolveMedia(data?.hero?.bannerImage, cms),
     resolveMedia(data?.client?.logo, cms),
-    rows(data?.gallery),
-    rows(data?.deviceImages),
-    // Imágenes dentro de "2 · Texto": el editor guarda solo el ID
     Promise.all(
-      list(description?.root?.children).map(async (node: any) =>
-        node?.type === "upload" ? { ...node, value: await resolveMedia(node.value, cms) } : node
-      )
+      list(data?.sections).map(async (section: any) => ({
+        ...section,
+        image: await resolveMedia(section?.image, cms),
+        content: await richText(section?.content),
+        images: await rows(section?.images),
+      }))
     ),
   ]);
   return {
     ...data,
-    hero: {
-      ...data?.hero,
-      bannerImage,
-      services: list(data?.hero?.services),
-      description: description?.root ? { ...description, root: { ...description.root, children: descriptionNodes } } : description,
-    },
+    hero: { ...data?.hero, bannerImage, services: list(data?.hero?.services) },
     client: { ...data?.client, logo },
-    gallery,
-    deviceImages,
+    sections,
   };
 }

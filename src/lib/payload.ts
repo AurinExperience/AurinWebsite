@@ -32,7 +32,6 @@ export interface PayloadProject {
   /** "Categorías (filtros)" del CMS; con depth por defecto llegan pobladas */
   categories?: Array<PayloadCategory | string> | null;
   hero: {
-    description: string;
     bannerImage: {
       id: string;
       url: string;
@@ -40,12 +39,11 @@ export interface PayloadProject {
       width: number;
       height: number;
     };
-    bannerHeight?: SizeOption | null;
     services: Array<{
       name: string;
     }>;
   };
-  /** Texto de la tarjeta (sección 4 del CMS): si tiene texto, se muestra en vez de la miniatura */
+  /** Texto de la tarjeta (sección 3 del CMS): si tiene texto, se muestra en vez de la miniatura */
   cardText?: {
     text?: any;
     font?: 'display' | 'body' | null;
@@ -62,25 +60,8 @@ export interface PayloadProject {
     width: number;
     height: number;
   } | null;
-  galleryLayout?: 'slider' | 'masonry' | null;
-  galleryHeight?: SizeOption | null;
-  gallery: Array<{
-    image: {
-      id: string;
-      url: string;
-      alt: string;
-      width: number;
-      height: number;
-    };
-    alt: string;
-    caption?: string;
-  }>;
-  /** "3 · Dispositivo": sus imágenes pasan por la pantalla, antes de la galería */
-  device?: 'laptop' | 'tablet' | 'phone' | null;
-  deviceImages?: Array<{
-    image: { id: string; url: string; alt: string; width: number; height: number };
-    alt?: string;
-  }> | null;
+  /** "2 · Secciones": bloques debajo del título, en el orden del CMS */
+  sections?: PayloadSection[] | null;
   learnings?: {
     title: string;
     content: any; // Rich text content
@@ -108,6 +89,18 @@ export interface PayloadProject {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface PayloadImageRow {
+  image: { id: string; url: string; alt: string; width: number; height: number };
+  alt?: string;
+  caption?: string;
+}
+
+export type PayloadSection =
+  | { blockType: 'image'; id?: string; image?: PayloadImageRow['image'] | null; height?: SizeOption | null }
+  | { blockType: 'text'; id?: string; content?: any }
+  | { blockType: 'device'; id?: string; device?: 'laptop' | 'tablet' | 'phone' | null; images?: PayloadImageRow[] | null }
+  | { blockType: 'gallery'; id?: string; layout?: 'slider' | 'masonry' | null; height?: SizeOption | null; images?: PayloadImageRow[] | null };
 
 export interface PayloadCategory {
   id: string;
@@ -219,7 +212,7 @@ export class PayloadAPI {
 
   // Search projects
   static async searchProjects(query: string, locale: string = 'es'): Promise<PayloadProject[]> {
-    const data = await this.fetchAPI(`/projects?where[or][0][title][contains]=${encodeURIComponent(query)}&where[or][1][hero.description][contains]=${encodeURIComponent(query)}&where[status][equals]=published&limit=100`, locale);
+    const data = await this.fetchAPI(`/projects?where[or][0][title][contains]=${encodeURIComponent(query)}&where[or][1][sections.content][contains]=${encodeURIComponent(query)}&where[status][equals]=published&limit=100`, locale);
     return data.docs || [];
   }
 }
