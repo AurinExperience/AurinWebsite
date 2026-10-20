@@ -142,7 +142,7 @@ function toSection(section: PayloadSection, project: PayloadProject) {
     case "device": {
       const images = toImages(section.images, project.title);
       if (!images.length) return null;
-      return { type: "device" as const, device: section.device ?? "laptop", images };
+      return { type: "device" as const, device: section.device ?? "laptop", horizontal: section.direction === "horizontal", images };
     }
     case "gallery": {
       const images = toImages(section.images, project.title);

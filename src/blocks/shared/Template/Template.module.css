@@ -533,6 +533,21 @@
   height: auto;
 }
 
+/* A los lados: una captura por pantalla, la tira corre hacia la izquierda */
+.deviceStripHorizontal {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  translate: calc(var(--device-scroll, 0) * (100cqw - 100%)) 0;
+}
+
+.deviceStripHorizontal img {
+  width: 100cqw;
+  height: 100cqh;
+  object-fit: cover;
+  object-position: top;
+}
+
 /* Laptop abierta vista desde arriba: tapa 16:10 con notch y la base con el teclado inclinada
    hacia uno en 3D. La base cuelga de la tapa fuera del flujo; el padding de abajo le hace lugar
    (en % del ancho: cqw aquí sería del viewport, la laptop no se mide a sí misma). */
@@ -904,6 +919,26 @@
 
   .deviceScroll {
     margin-block: 32px;
+  }
+
+  /* En celular el grosor mide unos px: sus láminas quedaban a ~0.2px y parpadeaban al girar
+     (el GPU no decide cuál va enfrente). Sin giro con el scroll ni láminas: entra y crece, y
+     la base de la laptop conserva su canto frontal. */
+  .device {
+    transform: translateY(calc((1 - var(--device-intro, 1)) * 14%)) scale(calc(0.8 + var(--device-intro, 1) * 0.2));
+  }
+
+  .deviceSide {
+    display: none;
+  }
+
+  .laptopHinge {
+    transform: translateZ(1px);
+  }
+
+  /* El blur sobre una capa 3D se recalcula en cada cuadro */
+  .device::before {
+    filter: none;
   }
 
   .contentSection {
