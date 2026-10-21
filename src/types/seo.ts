@@ -94,7 +94,7 @@ export interface ServiceStructuredData {
   url?: string;
   serviceType: string;
   provider: OrganizationStructuredData | { "@id": string };
-  areaServed?: string | AdministrativeArea | (AdministrativeArea | City)[];
+  areaServed?: string | string[] | AdministrativeArea | (AdministrativeArea | City)[];
   hasOfferCatalog?: {
     "@type": "OfferCatalog";
     name: string;

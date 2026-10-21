@@ -314,6 +314,16 @@ const buttonLayers = Array.from({ length: 8 }, (_, layer) => {
     ticking = moving;
     if (moving) requestAnimationFrame(scrollDevices);
   }
+  // Aire entre el área fija y el dispositivo (sin transformaciones), para el margen negativo del CSS
+  function measureDevices() {
+    for (const device of document.querySelectorAll<HTMLElement>("[data-device]")) {
+      const sticky = device.firstElementChild as HTMLElement;
+      const body = sticky.firstElementChild as HTMLElement;
+      device.style.setProperty("--device-gap", `${Math.max(0, (sticky.clientHeight - body.offsetHeight) / 2)}px`);
+    }
+  }
+  measureDevices();
+  addEventListener("resize", measureDevices, { passive: true });
   addEventListener(
     "scroll",
     () => {

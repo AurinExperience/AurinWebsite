@@ -65,7 +65,7 @@ export const GET: APIRoute = async () => {
   const body = [
     `# ${SITE.name}`,
     '',
-    `> Aurin es una agencia mexicana de diseño UX/UI, branding y desarrollo web, con más de 20 años de experiencia y oficina en ${SITE.address.addressLocality}, ${SITE.address.addressRegion}. Atiende clientes en todo México de forma remota.`,
+    `> Aurin es una agencia mexicana de diseño UX/UI, branding y desarrollo web, fundada en 1998 y con oficina en ${SITE.address.addressLocality}, ${SITE.address.addressRegion}. Trabaja a distancia: tiene clientes en México y República Dominicana y diseña para empresas de Estados Unidos, Canadá, España y Latinoamérica.`,
     '',
     '## Páginas principales (ES)',
     '',

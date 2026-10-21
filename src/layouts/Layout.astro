@@ -6,6 +6,7 @@ import AdvancedSEO from '@/blocks/shared/SEO/AdvancedSEO.astro';
 import GlobalSchema from '@/blocks/shared/SEO/GlobalSchema.astro';
 {/* import PageLoader from '@/components/layout/PageLoader.astro'; */}
 import WhatsAppButton from '@/components/ui/WhatsAppButton.astro';
+import CookieConsent from '@/components/ui/CookieConsent.astro';
 
 import Vignette from '@/components/ui/Vignette.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
@@ -105,49 +106,98 @@ const {
 			alternateLinks={alternateLinks}
 		/>
 		<GlobalSchema />
-		{/* Google tag (gtag.js) — diferido.
-		     Cargado en el <head> se comía ~2.2 s de CPU y bloqueaba el hilo principal
-		     justo cuando el navegador debía pintar el LCP. El dataLayer queda listo de
-		     inmediato, así que cualquier gtag() temprano se encola y se procesa cuando
-		     el script llega: la analítica no pierde eventos, solo deja pasar el render. */}
+		{/* Consentimiento de cookies (ver CookieConsent.astro y el aviso de privacidad). El aviso sale
+		     a todos hasta que eligen; lo que cambia por región es qué pasa mientras tanto:
+		     - Europa (EEE, Reino Unido, Suiza) y Canadá: GA4 y Clarity solo con "Aceptar" (opt-in, RGPD/Ley 25).
+		     - Resto (México, EE. UU., Latinoamérica): activas por defecto y se apagan desde
+		       "Preferencias de cookies" (opt-out). La señal GPC del navegador cuenta como "no".
+		     La elección vive en localStorage; window.aurinSetConsent(true|false) la cambia. */}
 		<script is:inline>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-CQTWM27WDC');
-
 			(function () {
-				var loaded = false;
+				var KEY = 'aurin-consent';
+				// "granted|fecha" o "denied|fecha"; a los 12 meses se vuelve a preguntar (lo que piden AEPD y CNIL)
+				var choice = null;
+				try {
+					var saved = (localStorage.getItem(KEY) || '').split('|');
+					if (Date.now() - Number(saved[1]) < 365 * 864e5) choice = saved[0];
+				} catch (e) {}
+				var tz = '';
+				try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+				// ponytail: la zona horaria hace de país (sin IP, para no partir la caché del CDN por país);
+				// con VPN o reloj mal puesto puede fallar. Si hace falta precisión: /api/geo con x-vercel-ip-country.
+				var optIn = /^(Europe\/|Arctic\/|Atlantic\/(Canary|Madeira|Azores|Reykjavik|Faroe)|Asia\/(Nicosia|Famagusta)|Indian\/(Reunion|Mayotte)|America\/(Martinique|Guadeloupe|Cayenne|Toronto|Montreal|Vancouver|Edmonton|Winnipeg|Halifax|St_Johns|Regina|Moncton|Glace_Bay|Goose_Bay|Whitehorse|Dawson|Dawson_Creek|Fort_Nelson|Creston|Yellowknife|Iqaluit|Rankin_Inlet|Cambridge_Bay|Inuvik|Swift_Current|Atikokan|Blanc-Sablon|Nipigon|Thunder_Bay|Rainy_River|Pangnirtung|Resolute))/.test(tz);
+				var granted = choice ? choice === 'granted' : !optIn && !navigator.globalPrivacyControl;
+				// El aviso sale a todos la primera vez: en Europa/Canadá pide permiso; en el resto informa
+				window.aurinConsent = { granted: granted, ask: !choice, optIn: optIn };
+
+				window.dataLayer = window.dataLayer || [];
+				window.gtag = function () { dataLayer.push(arguments); };
+				function consentState(on) {
+					var v = on ? 'granted' : 'denied';
+					return { analytics_storage: v, ad_storage: v, ad_user_data: v, ad_personalization: v };
+				}
+				gtag('consent', 'default', consentState(granted));
+				gtag('js', new Date());
+				gtag('config', 'G-CQTWM27WDC');
+
+				// Google tag diferido: cargado en el <head> se comía ~2.2 s de CPU y bloqueaba el LCP.
+				// El dataLayer ya encola los gtag() tempranos, así que no se pierden eventos.
+				var gtagLoaded = false;
 				function loadGtag() {
-					if (loaded) return;
-					loaded = true;
+					if (gtagLoaded || !window.aurinConsent.granted) return;
+					gtagLoaded = true;
 					var s = document.createElement('script');
 					s.async = true;
 					s.src = 'https://www.googletagmanager.com/gtag/js?id=G-CQTWM27WDC';
 					document.head.appendChild(s);
 				}
-				var events = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
-				events.forEach(function (e) {
+				['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (e) {
 					addEventListener(e, loadGtag, { once: true, passive: true });
 				});
-				// Red de seguridad: si nadie interactúa, cargar en el primer hueco de CPU
-				// después de load (o a los 3 s en navegadores sin requestIdleCallback).
+				// Red de seguridad: si nadie interactúa, cargar en el primer hueco de CPU tras load.
 				addEventListener('load', function () {
 					if (window.requestIdleCallback) requestIdleCallback(loadGtag, { timeout: 3000 });
 					else setTimeout(loadGtag, 3000);
 				});
+
+				// Microsoft Clarity, snippet oficial. No se difiere: graba desde el primer frame y
+				// esperar a la interacción perdería el tramo de carga que interesa en los replays.
+				function loadClarity() {
+					if (window.clarity) return;
+					(function(c,l,a,r,i,t,y){
+						c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+						t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+						y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+					})(window, document, "clarity", "script", "y4d5j1lbfv");
+					clarity('consentv2', { ad_Storage: 'granted', analytics_Storage: 'granted' });
+				}
+				if (granted) loadClarity();
+
+				window.aurinSetConsent = function (on) {
+					try { localStorage.setItem(KEY, (on ? 'granted' : 'denied') + '|' + Date.now()); } catch (e) {}
+					window.aurinConsent = { granted: on, ask: false, optIn: optIn };
+					gtag('consent', 'update', consentState(on));
+					if (on) {
+						loadGtag();
+						loadClarity();
+						return;
+					}
+					if (window.clarity) {
+						clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
+						clarity('consent', false);
+					}
+					try { localStorage.removeItem('aurin-attribution'); } catch (e) {}
+					// Borra las cookies de GA4 y Clarity que ya se hubieran puesto
+					document.cookie.split(';').forEach(function (c) {
+						var name = c.split('=')[0].trim();
+						if (!/^(_ga|_clck|_clsk|CLID|MUID|ANONCHK|SM$)/.test(name)) return;
+						[location.hostname, '.' + location.hostname.replace(/^www\./, '')].forEach(function (domain) {
+							document.cookie = name + '=; Max-Age=0; path=/; domain=' + domain;
+						});
+						document.cookie = name + '=; Max-Age=0; path=/';
+					});
+				};
 			})();
-		</script>
-		{/* Microsoft Clarity — snippet oficial, se inyecta async.
-		     A diferencia de gtag no se difiere: Clarity graba la sesión desde el
-		     primer frame, y esperar a la primera interacción perdería justo el
-		     tramo de carga que interesa ver en los replays y heatmaps. */}
-		<script is:inline>
-			(function(c,l,a,r,i,t,y){
-				c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-				t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-				y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-			})(window, document, "clarity", "script", "y4d5j1lbfv");
 		</script>
 		{/* Atribución de leads. El referrer al enviar un formulario es casi siempre la
 		     página anterior del propio sitio; lo que importa es cómo llegó la persona
@@ -177,7 +227,8 @@ const {
 						first_referrer: ref,
 						first_visit: new Date().toISOString(),
 					};
-					try { localStorage.setItem(KEY, JSON.stringify(attr)); } catch (e) {}
+					// Sin consentimiento se usa solo en esta visita, sin guardarla
+					if (window.aurinConsent.granted) try { localStorage.setItem(KEY, JSON.stringify(attr)); } catch (e) {}
 				}
 
 				window.aurinLead = function (event, lead) {
@@ -219,6 +270,7 @@ const {
 			/>
 		)}
 		{showWhatsApp && <WhatsAppButton />}
+		<CookieConsent />
 		<SpeedInsights />
 	</body>
 </html>

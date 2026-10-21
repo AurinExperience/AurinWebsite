@@ -54,6 +54,8 @@ const sectorPages = () => publishedSectors().map((sector) => ({
   priority: '0.9',
   changefreq: 'weekly',
   lastmod: sector.publishAt ? toW3C(new Date(sector.publishAt)) : BUILD_DATE,
+  // Las de EE. UU. son para angloparlantes: x-default al inglés, igual que en la página
+  xDefault: sector.country === 'US' ? ('en' as const) : undefined,
 }));
 
 /*
@@ -103,7 +105,7 @@ export const GET: APIRoute = async () => {
     const alternates = [
       { hreflang: 'es', href: esUrl },
       { hreflang: 'en', href: enUrl },
-      { hreflang: 'x-default', href: esUrl }
+      { hreflang: 'x-default', href: (page as { xDefault?: 'en' }).xDefault ? enUrl : esUrl }
     ];
 
     const lastmod = (page as { lastmod?: string }).lastmod ?? BUILD_DATE;

@@ -43,6 +43,14 @@ const copy = sector.copy[lang];
 const canonicalUrl = `${SITE.url}${sectorPath(sector, lang)}`;
 const isUxUi = sectorService(sector) === "uxui";
 const isUS = sector.country === "US";
+// Las de EE. UU. son para angloparlantes: x-default apunta al inglés (el resto usa el default de AdvancedSEO)
+const usAlternates = isUS
+  ? [
+      { hreflang: "es", href: `${SITE.url}${sectorPath(sector, "es")}` },
+      { hreflang: "en", href: `${SITE.url}${sectorPath(sector, "en")}` },
+      { hreflang: "x-default", href: `${SITE.url}${sectorPath(sector, "en")}` },
+    ]
+  : undefined;
 
 const serviceSchema: ServiceStructuredData = {
   "@context": "https://schema.org",
@@ -103,6 +111,7 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
   structuredData={serviceSchema}
   additionalStructuredData={[faqSchema(copy.faq.items), howToSchema, breadcrumbSchema]}
   canonical={canonicalUrl}
+  alternateLinks={usAlternates}
   ogImage={SITE.ogImage}
   showMegaMenu={false}
   showWhatsApp={!(isUS && lang === "en")}

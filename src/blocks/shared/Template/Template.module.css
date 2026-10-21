@@ -335,9 +335,11 @@
 }
 
 /* ── Dispositivo (laptop, tablet o celular): las capturas corren por su pantalla mientras queda fijo ── */
-/* Recorrido de scroll: ~30svh por pantalla de contenido en la tira (--device-pages, de Template.astro) */
+/* Recorrido de scroll: ~30svh por pantalla de contenido en la tira (--device-pages, de Template.astro).
+   El área fija mide toda la pantalla y el dispositivo no la llena: el margen negativo se come ese
+   aire (--device-gap, del script) para que quede a la distancia normal del texto y la galería. */
 .deviceScroll {
-  margin-block: 64px;
+  margin-block: calc(var(--spacing-6) - var(--device-gap, 0px));
   /* + 50svh para la entrada (el dispositivo llega y, si es laptop, se abre) */
   height: calc(150svh + max(60svh, (var(--device-pages, 1) - 1) * 30svh));
 }
@@ -352,6 +354,8 @@
   align-items: center;
   justify-content: center;
   perspective: 1300px;
+  /* Su aire de arriba puede quedar encima del texto: que no tape clics */
+  pointer-events: none;
 }
 
 /* Fondo: retícula de puntos que se desvanece hacia las orillas, como plano técnico */
@@ -417,7 +421,7 @@
      --device-scroll 0 → 1: la captura recorre la pantalla; el dispositivo apenas deriva.
      Sin JS valen 1 y 0: queda en su lugar. */
   transform:
-    translateY(calc((1 - var(--device-intro, 1)) * 14%))
+    translateY(calc((1 - var(--device-intro, 1)) * 6%))
     scale(calc(0.8 + var(--device-intro, 1) * 0.2))
     rotateX(calc(5deg + (1 - var(--device-intro, 1)) * 16deg))
     rotateY(calc((1 - var(--device-intro, 1)) * -28deg + (var(--device-scroll, 0) - 0.5) * -12deg));
@@ -917,15 +921,11 @@
     --laptop-width: calc(100% + 2 * var(--section-padding-x));
   }
 
-  .deviceScroll {
-    margin-block: 32px;
-  }
-
   /* En celular el grosor mide unos px: sus láminas quedaban a ~0.2px y parpadeaban al girar
      (el GPU no decide cuál va enfrente). Sin giro con el scroll ni láminas: entra y crece, y
      la base de la laptop conserva su canto frontal. */
   .device {
-    transform: translateY(calc((1 - var(--device-intro, 1)) * 14%)) scale(calc(0.8 + var(--device-intro, 1) * 0.2));
+    transform: translateY(calc((1 - var(--device-intro, 1)) * 6%)) scale(calc(0.8 + var(--device-intro, 1) * 0.2));
   }
 
   .deviceSide {

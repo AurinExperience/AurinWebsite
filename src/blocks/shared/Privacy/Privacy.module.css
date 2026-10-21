@@ -48,6 +48,8 @@
 }
 
 .privacySection {
+  /* El aviso de cookies enlaza a #cookies: que no quede bajo el header fijo */
+  scroll-margin-top: 120px;
   animation: fadeInUp 0.6s ease-out forwards;
   opacity: 0;
 }

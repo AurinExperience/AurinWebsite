@@ -5,9 +5,9 @@ export const translations = {
       viewMore: 'View more'
     },
     seo: {
-      title: "Aurin | UX/UI Design, Branding & Web Dev Mexico",
-      description: "Branding, UX/UI design, and web development in Mexico. We create brands and digital experiences that people actually want to use. Let's talk.",
-      keywords: "branding agency Mexico, UX UI design company, web development Mexico, ecommerce development, web design agency Mexico"
+      title: "Aurin | Nearshore UX/UI, Branding & Web Design from Mexico",
+      description: "A Mexico-based design agency since 1998: UX/UI, branding and web development for companies in the US, Canada, Spain and Mexico. In English, during your business hours.",
+      keywords: "nearshore design agency, nearshore web design, UX UI design agency, branding agency, web development agency Mexico, design agency for US companies"
     },
     contact: {
       seo: {
@@ -201,8 +201,8 @@ export const translations = {
     },
     services: {
       seo: {
-        title: "Web Design, Web Development & UX/UI in Mexico | Aurin",
-        description: "Web design and development, online stores, and UX/UI design for apps and platforms. A Mexican agency since 1998, with fixed-scope quotes.",
+        title: "Web Design, Development & UX/UI, Nearshore from Mexico | Aurin",
+        description: "Websites, online stores and UX/UI for apps and platforms, designed and built by one team in Mexico for companies in the US, Canada, Spain and Mexico. Fixed-scope quotes.",
         keywords: "web design Mexico, web development agency Mexico, UX UI design agency, app UX UI design, ecommerce development, website redesign, SEO"
       },
       banner: {
@@ -217,7 +217,7 @@ export const translations = {
         items: [
           {
             question: "What services does Aurin offer?",
-            answer: "Aurin is a Mexican agency that covers UX/UI design, branding and corporate identity, custom website and and web platform design and development. One team handles research, design and development, so nothing gets lost between a design studio and a separate developer."
+            answer: "Aurin is a Mexican agency that covers UX/UI design, branding and corporate identity, custom website and web platform design and development. One team handles research, design and development, so nothing gets lost between a design studio and a separate developer."
           },
           {
             question: "How long does a web design project take?",
@@ -228,8 +228,8 @@ export const translations = {
             answer: "We quote a fixed scope after a free 30-minute call. Every quote is broken down by stage (research, UX, UI, development, launch) with deliverables and dates, so you know what you are paying for before signing."
           },
           {
-            question: "Do you work with companies outside Cuernavaca?",
-            answer: "Yes. Our office is in Cuernavaca, Morelos, and most of our clients are in Mexico City, Monterrey, Querétaro, Guadalajara and the United States. The whole process runs remotely: video calls, shared boards and weekly reviews, with in-person sessions when the project calls for them."
+            question: "Do you work with companies outside Mexico?",
+            answer: "Yes. Our office is in Cuernavaca, Morelos. We have clients in Mexico and the Dominican Republic, and we design for companies in the United States, Canada, Spain, Puerto Rico, Panama, Costa Rica, Chile and Uruguay. The whole process runs remotely and in English: video calls during your business hours, shared boards and weekly reviews."
           },
           {
             question: "What does a branding project include?",
@@ -345,12 +345,12 @@ export const translations = {
           answer: "Aurin is a Mexican UX/UI design, branding and web development agency founded in 1998. We design brands and digital products for companies that need their website to bring in customers, not just look good. One team covers research, design and development end to end."
         },
         {
-          question: "Where is Aurin and who do you work with?",
-          answer: "Our office is in Cuernavaca, Morelos, and we work remotely with companies across Mexico (Mexico City, Monterrey, Querétaro, Guadalajara, Puebla, Mérida, Cancún) and in the United States. Clients range from startups launching a product to established companies in finance, retail, health and education."
+          question: "Where is Aurin and who do you design for?",
+          answer: "Our office is in Cuernavaca, Morelos, Mexico, and we work remotely. We have clients in Mexico and the Dominican Republic, and we design for companies in the United States, Canada, Spain, Puerto Rico, Panama, Costa Rica, Chile and Uruguay, from startups launching a product to established companies in finance, retail, health and education. Calls and documentation are in English, and our working hours overlap with US and Canadian business hours."
         },
         {
           question: "What makes Aurin different from other agencies?",
-          answer: "More than 20 years designing and building real products, before and after generative AI. We use AI to move faster, but every decision about flows, hierarchy and usability comes from experience with real users. Fixed-scope quotes, one accountable team and measurable results: PageSpeed 90+ and conversion tracking on every launch."
+          answer: "28 years designing and building real products (since 1998), before and after generative AI. We use AI to move faster, but every decision about flows, hierarchy and usability comes from experience with real users. Fixed-scope quotes, one accountable team and measurable results: PageSpeed 90+ and conversion tracking on every launch."
         },
         {
           question: "How do I start a project with Aurin?",
@@ -418,7 +418,7 @@ export const translations = {
       viewServices: 'View Services'
     },
     footer: {
-      tagline: 'UX/UI design, web development and branding in Mexico',
+      tagline: 'UX/UI design, web development and branding from Mexico',
       offices: 'OFFICES',
       addressLine1: 'San Jerónimo 207, Tlaltenango',
       addressLine2: 'Cuernavaca, Morelos, Mexico',
@@ -428,78 +428,140 @@ export const translations = {
       legal: 'LEGAL',
       privacyPolicy: 'Privacy policy',
       termsConditions: 'Terms and conditions',
+      cookieSettings: 'Cookie settings',
       copyright: '©{year} aurin. All rights reserved'
+    },
+    cookies: {
+      title: "Do you accept cookies?",
+      text: "We use our own and third-party cookies to analyze how the site is used and improve your experience.",
+      link: "Learn more",
+      reject: "Reject",
+      accept: "Accept",
+      noticeTitle: "We use cookies",
+      noticeText: "They help us analyze how the site is used and improve your experience. You can turn them off in",
+      noticeSettings: "Cookie settings",
+      ok: "Got it"
     },
     privacy: {
       seo: {
-        title: "Privacy Policy | Aurin",
-        description: "Read Aurin's privacy policy. Learn how we protect and manage your personal data in compliance with Mexico's personal data protection law (LFPDPPP).",
-        keywords: "privacy policy Aurin, personal data protection Mexico, LFPDPPP compliance, data rights, ARCO rights Mexico"
+        title: "Privacy and Cookie Policy | Aurin",
+        description: "How Aurin collects, uses and protects your personal data and which cookies it uses, under Mexican law, the EU GDPR and the privacy laws of the United States, Canada and Latin America.",
+        keywords: "Aurin privacy policy, cookie policy, personal data protection, GDPR, CCPA, privacy rights"
       },
       title: "Privacy Policy",
-      lastUpdated: "Last updated: January 2025",
+      lastUpdated: "Last updated: October 21, 2026",
       contactEmail: "hey@aurin.mx",
-      sections: {
-        identity: {
-          title: "1. Identity and Address of the Responsible Party",
-          content: "Aurin, located at Aldea Creativa, Mexico, is responsible for processing your personal data. We are committed to protecting your information in accordance with the Federal Law on Protection of Personal Data Held by Private Parties."
-        },
-        dataCollection: {
-          title: "2. Personal Data We Collect",
-          intro: "For the purposes outlined in this privacy notice, we may collect your personal data in different ways when you provide it directly; when you visit our website or use our online services.",
-          directData: "The personal data we collect directly includes:",
-          dataTypes: [
-            "Full name",
-            "Email address",
-            "Contact phone number",
-            "Information about your project or service needs",
-            "Communication data and preferences"
+      sections: [
+        {
+          title: "1. Who is responsible",
+          paragraphs: [
+            "Aurin (aurin.mx), located at San Jerónimo 207, Tlaltenango, 62170 Cuernavaca, Morelos, Mexico, is responsible for processing your personal data. Aurin’s management is in charge of personal data protection and can be reached at hey@aurin.mx."
           ]
         },
-        purposes: {
-          title: "3. Processing Purposes",
-          intro: "The personal data we collect will be used for the following purposes:",
-          purposesList: [
-            "Provide graphic design, branding and visual communication services requested",
-            "Respond to inquiries, requests and communications",
-            "Send information about our services and promotions",
-            "Improve our services and customer experience",
-            "Comply with legal and regulatory obligations",
-            "Conduct statistical and market analysis"
+        {
+          title: "2. Data we collect",
+          paragraphs: ["What you give us when you write to us, request a quote, book a call or use the chat:"],
+          list: [
+            "Name, email address and phone or WhatsApp number",
+            "Company and information about your project",
+            "Messages, chat conversations and details needed to book appointments",
+            "Files you choose to send us"
+          ],
+          after: [
+            "And, through analytics cookies (see section 7), browsing data: landing page and referring site, pages viewed and time on them, device and browser type, and approximate location (country or city).",
+            "We do not ask for sensitive data. The site is not directed at children under 16 and we do not knowingly collect their data."
           ]
         },
-        dataTransfer: {
-          title: "4. Data Transfer",
-          content1: "Your personal data may be shared with service providers who help us operate our business, such as hosting services, web analytics and communication tools. All our providers are required to maintain the confidentiality of your information.",
-          content2: "We do not share, sell or transfer your personal data to third parties for marketing purposes without your express consent."
+        {
+          title: "3. How we use it",
+          list: [
+            "To answer your request, send you a quote and book calls, because you ask us to (steps prior to a contract).",
+            "To deliver and invoice the services you hire (performance of a contract and legal obligations).",
+            "To send you information about our services, only if you asked for it or agreed to it; you can unsubscribe anytime.",
+            "To measure and improve the site with analytics (with your consent where the law requires it; elsewhere, based on our legitimate interest in improving it).",
+            "To protect the site against abuse and spam (legitimate interest)."
+          ],
+          after: ["We do not sell your personal data or share it for cross-context behavioral advertising."]
         },
-        arcoRights: {
-          title: "5. ARCO Rights",
-          content: "You have the right to know what personal data we have about you, what we use it for and the conditions of use we give it (Access). Likewise, it is your right to request the correction of your personal information in case it is outdated, inaccurate or incomplete (Rectification); that we delete it from our records or databases when you consider that it is not being used properly (Cancellation); as well as oppose the use of your personal data for specific purposes (Opposition).",
-          contact: "To exercise any of these rights, you can contact us at "
+        {
+          title: "4. Who we share it with",
+          paragraphs: ["Service providers that help us operate, who only receive what they need for their task and are required to protect it:"],
+          list: [
+            "Vercel: hosting for the site and for files you send us (US)",
+            "Google: Google Analytics, plus Google Calendar and Google Workspace to book appointments and organize requests (US)",
+            "Microsoft: Clarity, analytics and heatmaps (US)",
+            "Resend: email delivery (US)",
+            "Automation and artificial intelligence providers that run the site’s chat",
+            "Meta (WhatsApp), only if you choose to message us on WhatsApp"
+          ],
+          after: ["We may also disclose data when a competent authority lawfully requires it."]
         },
-        consentRevocation: {
-          title: "6. Consent Revocation",
-          content1: "You may revoke the consent you have given us for the processing of your personal data at any time, by sending a request to ",
-          content2: " However, it is important that you keep in mind that we cannot always attend to your request or conclude use immediately, as it is possible that due to some legal obligation we need to continue processing your personal data."
+        {
+          title: "5. International transfers",
+          paragraphs: [
+            "Aurin operates from Mexico and several of these providers are in the United States, so your data may be processed outside your country. If you contact us from the European Economic Area, the United Kingdom or Switzerland, those transfers rely on the EU–US Data Privacy Framework (and its UK and Swiss extensions) when the provider participates, or on the standard contractual clauses approved by the European Commission."
+          ]
         },
-        cookies: {
-          title: "7. Use of Cookies and Tracking Technologies",
-          content1: "We inform you that on our website we use cookies, web beacons and other technologies through which it is possible to monitor your behavior as an internet user, provide you with better service and user experience when browsing our page, as well as offer you new products and services based on your preferences.",
-          content2: "The personal data we obtain from these tracking technologies are the following: browsing hours, browsing time on our website, sections consulted, and websites accessed prior to ours."
+        {
+          title: "6. How long we keep it",
+          list: [
+            "Requests that do not become a project: up to 2 years from the last contact.",
+            "Clients: for the length of the relationship and afterwards for as long as tax and legal obligations require.",
+            "Analytics: a maximum of 14 months."
+          ]
         },
-        modifications: {
-          title: "8. Privacy Policy Modifications",
-          content: "We reserve the right to make modifications or updates to this privacy policy at any time. These modifications will be available on our website with the date of last update."
+        {
+          id: "cookies",
+          title: "7. Cookies and similar technologies",
+          paragraphs: [
+            "We use cookies and the browser’s local storage. Necessary ones make the site work. Analytics ones (Google Analytics and Microsoft Clarity) tell us which pages are visited and how they are used, so we can improve them; Clarity anonymously records mouse movement, clicks and scrolling, and masks what you type in forms.",
+            "These are the ones we use (name, provider, purpose and duration):"
+          ],
+          list: [
+            "aurin-consent (local storage, Aurin): stores your cookie choice and its date. Necessary. 12 months.",
+            "chatbot_* (local storage, Aurin): keeps chat details so you can finish booking an appointment. Necessary if you use the chat. Until the booking is complete.",
+            "aurin-attribution (local storage, Aurin): how you first reached the site (search engine, ad or link). Analytics. Until you clear it.",
+            "_ga and _ga_* (Google Analytics): tell visits and sessions apart. Analytics. Up to 2 years.",
+            "_clck, _clsk, CLID, MUID, ANONCHK and SM (Microsoft Clarity): group visits and sessions for analytics and heatmaps. Analytics. From the session up to 1 year."
+          ],
+          after: [
+            "Vercel Speed Insights measures site speed without cookies.",
+            "On your first visit we show you a notice. If you visit from the European Economic Area, the United Kingdom, Switzerland or Canada, analytics cookies are only turned on if you accept them. In other countries they are on by default, as their laws allow, and you can turn them off anytime. We honor your browser’s Global Privacy Control (GPC) signal as an opt-out.",
+            "Change your choice anytime from “Cookie settings” in the footer of every page, or by clearing your browser’s cookies. We ask again every 12 months."
+          ]
         },
-        contact: {
-          title: "9. Contact",
-          content: "For any questions, clarifications or exercise of your rights related to the protection of personal data, you can contact us at:",
-          emailLabel: "Email:",
-          websiteLabel: "Website:",
-          websiteUrl: "www.aurin.mx"
+        {
+          title: "8. Your rights",
+          paragraphs: [
+            "Wherever you are, you can ask us to access, correct or delete your data, object to its use, or withdraw your consent by writing to hey@aurin.mx. We respond within the time limits set by the law that applies to you, we will not treat you differently for exercising your rights, and we may ask you to confirm your identity to protect your data. Depending on where you live:"
+          ],
+          list: [
+            "Mexico: ARCO rights (Access, Rectification, Cancellation and Opposition) and withdrawal of consent, under the Federal Law on Protection of Personal Data Held by Private Parties.",
+            "European Economic Area, United Kingdom and Switzerland (GDPR, UK GDPR and Swiss FADP): also restriction of processing, data portability and the right to lodge a complaint with your data protection authority (in Spain, the Agencia Española de Protección de Datos).",
+            "United States (California CCPA/CPRA and similar state laws): to know what data we hold, to have it corrected or deleted, and to opt out of its sale or sharing. We do not sell or share personal information in that sense. You may act through an authorized agent.",
+            "Canada (PIPEDA and Quebec’s Law 25): access, correction, withdrawal of consent and the right to complain to the Office of the Privacy Commissioner of Canada or Quebec’s Commission d’accès à l’information.",
+            "Dominican Republic (Law 172-13), Panama (Law 81 of 2019), Costa Rica (Law 8968), Chile (Law 19.628) and Uruguay (Law 18.331): access, rectification, cancellation or erasure, and objection."
+          ]
+        },
+        {
+          title: "9. Security",
+          paragraphs: [
+            "We use encrypted connections (HTTPS), give access only to people who need it and work with providers that follow recognized security standards. If a breach affects your data, we will notify you and the authorities where the law requires it."
+          ]
+        },
+        {
+          title: "10. Changes to this policy",
+          paragraphs: [
+            "We may update this policy. The current version is the one published here with its date; if a change is significant, we will highlight it on the site."
+          ]
+        },
+        {
+          title: "11. Contact",
+          paragraphs: [
+            "For any question about your data or to exercise your rights, write to us at hey@aurin.mx."
+          ]
         }
-      }
+      ]
     },
     termsConditions: {
       seo: {
@@ -644,8 +706,8 @@ export const translations = {
     },
     about: {
       seo: {
-        title: "About Aurin | Creative Design Agency Mexico",
-        description: "Meet Aurin — designers and strategists creating memorable brand experiences in Mexico. Branding, UX/UI, and visual communication with purpose.",
+        title: "About Aurin | Nearshore Design Agency from Mexico",
+        description: "Meet Aurin: designers and strategists in Mexico creating brands and digital products since 1998, for companies in Mexico, the US, Canada and Spain.",
         keywords: "about aurin agency, design team Mexico, branding methodology, creative studio history, multidisciplinary design agency"
       },
       structuredData: {
@@ -973,7 +1035,7 @@ export const translations = {
         items: [
           {
             question: "¿Qué servicios ofrece Aurin?",
-            answer: "Aurin es una agencia mexicana que cubre diseño UX/UI, branding e identidad corporativa, diseño y desarrollo de y diseño y desarrollo de sitios y plataformas web a medida. Un mismo equipo lleva investigación, diseño y desarrollo, así que nada se pierde entre un estudio de diseño y un desarrollador aparte."
+            answer: "Aurin es una agencia mexicana que cubre diseño UX/UI, branding e identidad corporativa, y diseño y desarrollo de sitios y plataformas web a medida. Un mismo equipo lleva investigación, diseño y desarrollo, así que nada se pierde entre un estudio de diseño y un desarrollador aparte."
           },
           {
             question: "¿Cuánto tarda un proyecto de diseño web?",
@@ -984,8 +1046,8 @@ export const translations = {
             answer: "Cotizamos con alcance cerrado después de una llamada de 30 minutos sin costo. Cada cotización llega desglosada por etapa (investigación, UX, UI, desarrollo, lanzamiento) con entregables y fechas, para que sepas qué estás pagando antes de firmar."
           },
           {
-            question: "¿Trabajan con empresas fuera de Cuernavaca?",
-            answer: "Sí. La oficina está en Cuernavaca, Morelos, y la mayoría de nuestros clientes están en Ciudad de México, Monterrey, Querétaro, Guadalajara y Estados Unidos. Todo el proceso corre a distancia: videollamadas, tableros compartidos y revisiones semanales, con sesiones presenciales cuando el proyecto lo pide."
+            question: "¿Trabajan con empresas fuera de México?",
+            answer: "Sí. La oficina está en Cuernavaca, Morelos. Tenemos clientes en México y República Dominicana, y diseñamos para empresas de Estados Unidos, Canadá, España, Puerto Rico, Panamá, Costa Rica, Chile y Uruguay. Todo el proceso corre a distancia: videollamadas, tableros compartidos y revisiones semanales, con sesiones presenciales cuando el proyecto lo pide."
           },
           {
             question: "¿Qué incluye un proyecto de branding?",
@@ -1101,12 +1163,12 @@ export const translations = {
           answer: "Aurin es una agencia mexicana de diseño UX/UI, branding y desarrollo web fundada en 1998. Diseñamos marcas y productos digitales para empresas que necesitan que su sitio traiga clientes, no solo que se vea bien. Un mismo equipo cubre investigación, diseño y desarrollo de principio a fin."
         },
         {
-          question: "¿Dónde está Aurin y con quién trabaja?",
-          answer: "La oficina está en Cuernavaca, Morelos, y trabajamos a distancia con empresas de todo México (Ciudad de México, Monterrey, Querétaro, Guadalajara, Puebla, Mérida, Cancún) y de Estados Unidos. Los clientes van desde startups que lanzan un producto hasta empresas consolidadas de finanzas, retail, salud y educación."
+          question: "¿Dónde está Aurin y para quién diseña?",
+          answer: "La oficina está en Cuernavaca, Morelos, y trabajamos a distancia. Tenemos clientes en México y República Dominicana, y diseñamos para empresas de todo México (Ciudad de México, Monterrey, Querétaro, Guadalajara, Puebla, Mérida, Cancún), Estados Unidos, Canadá, España, Puerto Rico, Panamá, Costa Rica, Chile y Uruguay. Los proyectos van desde startups que lanzan un producto hasta empresas consolidadas de finanzas, retail, salud y educación."
         },
         {
           question: "¿Qué hace diferente a Aurin de otras agencias?",
-          answer: "Más de 20 años diseñando y construyendo productos reales, antes y después de la IA generativa. Usamos IA para ir más rápido, pero cada decisión sobre flujos, jerarquía y usabilidad sale de experiencia con usuarios reales. Cotización con alcance cerrado, un solo equipo responsable y resultados medibles: PageSpeed 90+ y medición de conversiones en cada lanzamiento."
+          answer: "28 años diseñando y construyendo productos reales (desde 1998), antes y después de la IA generativa. Usamos IA para ir más rápido, pero cada decisión sobre flujos, jerarquía y usabilidad sale de experiencia con usuarios reales. Cotización con alcance cerrado, un solo equipo responsable y resultados medibles: PageSpeed 90+ y medición de conversiones en cada lanzamiento."
         },
         {
           question: "¿Cómo empiezo un proyecto con Aurin?",
@@ -1184,78 +1246,140 @@ export const translations = {
       legal: 'LEGALES',
       privacyPolicy: 'Aviso de privacidad',
       termsConditions: 'Términos y condiciones',
+      cookieSettings: 'Preferencias de cookies',
       copyright: '©{year} aurin. Todos los derechos reservados'
+    },
+    cookies: {
+      title: "¿Aceptas las cookies?",
+      text: "Usamos cookies propias y de terceros para analizar el uso del sitio y mejorar tu experiencia.",
+      link: "Más información",
+      reject: "Rechazar",
+      accept: "Aceptar",
+      noticeTitle: "Usamos cookies",
+      noticeText: "Nos ayudan a analizar el uso del sitio y mejorar tu experiencia. Puedes desactivarlas en",
+      noticeSettings: "Preferencias de cookies",
+      ok: "Entendido"
     },
     privacy: {
       seo: {
-        title: "Aviso de Privacidad | Aurin",
-        description: "Consulta el aviso de privacidad de Aurin. Conoce cómo protegemos y gestionamos tus datos personales conforme a la ley mexicana de protección de datos.",
-        keywords: "aviso privacidad Aurin, protección datos personales México, LFPDPPP, tratamiento datos personales, derechos ARCO"
+        title: "Aviso de Privacidad y Cookies | Aurin",
+        description: "Cómo Aurin recaba, usa y protege tus datos personales y qué cookies usa, conforme a la ley mexicana, el RGPD europeo y las leyes de privacidad de Estados Unidos, Canadá y Latinoamérica.",
+        keywords: "aviso de privacidad Aurin, política de cookies, protección de datos personales, derechos ARCO, RGPD, LFPDPPP"
       },
       title: "Aviso de Privacidad",
-      lastUpdated: "Última actualización: Enero 2025",
+      lastUpdated: "Última actualización: 21 de octubre de 2026",
       contactEmail: "hey@aurin.mx",
-      sections: {
-        identity: {
-          title: "1. Identidad y Domicilio del Responsable",
-          content: "Aurin, con domicilio en Aldea Creativa, México, es responsable del tratamiento de sus datos personales. Nos comprometemos a proteger su información de acuerdo con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares."
-        },
-        dataCollection: {
-          title: "2. Datos Personales que Recabamos",
-          intro: "Para las finalidades señaladas en este aviso de privacidad, podemos recabar sus datos personales de distintas formas cuando nos los proporciona directamente; cuando visita nuestro sitio web o utiliza nuestros servicios en línea.",
-          directData: "Los datos personales que recabamos de forma directa incluyen:",
-          dataTypes: [
-            "Nombre completo",
-            "Correo electrónico",
-            "Teléfono de contacto",
-            "Información sobre su proyecto o necesidades de servicio",
-            "Datos de comunicación y preferencias"
+      sections: [
+        {
+          title: "1. Responsable",
+          paragraphs: [
+            "Aurin (aurin.mx), con domicilio en San Jerónimo 207, Tlaltenango, 62170 Cuernavaca, Morelos, México, es responsable del tratamiento de tus datos personales. La dirección de Aurin está a cargo de la protección de datos personales y la puedes contactar en hey@aurin.mx."
           ]
         },
-        purposes: {
-          title: "3. Finalidades del Tratamiento",
-          intro: "Los datos personales que recabamos serán utilizados para las siguientes finalidades:",
-          purposesList: [
-            "Proveer los servicios de diseño gráfico, branding y comunicación visual solicitados",
-            "Responder a consultas, solicitudes y comunicaciones",
-            "Enviar información sobre nuestros servicios y promociones",
-            "Mejorar nuestros servicios y experiencia del cliente",
-            "Cumplir con obligaciones legales y regulatorias",
-            "Realizar análisis estadísticos y de mercado"
+        {
+          title: "2. Datos que recabamos",
+          paragraphs: ["Los que tú nos das al escribirnos, cotizar, agendar una cita o usar el chat:"],
+          list: [
+            "Nombre, correo electrónico y teléfono o WhatsApp",
+            "Empresa e información sobre tu proyecto",
+            "Mensajes, conversaciones del chat y datos para agendar citas",
+            "Archivos que decidas enviarnos"
+          ],
+          after: [
+            "Y, con cookies de analítica (ver la sección 7), datos de navegación: página de llegada y sitio de origen, páginas vistas y tiempo en ellas, tipo de dispositivo y navegador, y ubicación aproximada (país o ciudad).",
+            "No pedimos datos sensibles. El sitio no está dirigido a menores de 16 años y no recabamos sus datos a sabiendas."
           ]
         },
-        dataTransfer: {
-          title: "4. Transferencia de Datos",
-          content1: "Sus datos personales pueden ser compartidos con proveedores de servicios que nos ayudan a operar nuestro negocio, como servicios de hosting, análisis web y herramientas de comunicación. Todos nuestros proveedores están obligados a mantener la confidencialidad de su información.",
-          content2: "No compartimos, vendemos ni transferimos sus datos personales a terceros para fines de marketing sin su consentimiento expreso."
+        {
+          title: "3. Para qué los usamos",
+          list: [
+            "Responder tu solicitud, cotizarte y agendar llamadas, porque tú lo pides (medidas previas a un contrato).",
+            "Prestar los servicios contratados y facturarlos (ejecución del contrato y obligaciones legales).",
+            "Enviarte información de nuestros servicios, solo si lo pediste o lo aceptaste; puedes darte de baja cuando quieras.",
+            "Medir y mejorar el sitio con analítica (con tu consentimiento donde la ley lo exige; en el resto, por nuestro interés legítimo en mejorarlo).",
+            "Proteger el sitio contra abuso y spam (interés legítimo)."
+          ],
+          after: ["No vendemos tus datos personales ni los compartimos para publicidad dirigida entre sitios."]
         },
-        arcoRights: {
-          title: "5. Derechos ARCO",
-          content: "Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada adecuadamente (Cancelación); así como oponerse al uso de sus datos personales para fines específicos (Oposición).",
-          contact: "Para ejercer cualquiera de estos derechos, puede contactarnos a través de "
+        {
+          title: "4. Con quién los compartimos",
+          paragraphs: ["Con proveedores que nos ayudan a operar, que solo reciben lo necesario para su función y están obligados a protegerlo:"],
+          list: [
+            "Vercel: alojamiento del sitio y de los archivos que nos envías (EE. UU.)",
+            "Google: Google Analytics, y Google Calendar y Google Workspace para agendar citas y organizar solicitudes (EE. UU.)",
+            "Microsoft: Clarity, analítica y mapas de calor (EE. UU.)",
+            "Resend: envío de correos (EE. UU.)",
+            "Proveedores de automatización e inteligencia artificial que operan el chat del sitio",
+            "Meta (WhatsApp), solo si eliges escribirnos por WhatsApp"
+          ],
+          after: ["También podemos entregar datos cuando una autoridad competente lo requiera conforme a la ley."]
         },
-        consentRevocation: {
-          title: "6. Revocación del Consentimiento",
-          content1: "Usted puede revocar el consentimiento que nos ha otorgado para el tratamiento de sus datos personales en cualquier momento, enviando una solicitud a ",
-          content2: " Sin embargo, es importante que tenga en cuenta que no en todos los casos podremos atender su solicitud o concluir el uso de forma inmediata, ya que es posible que por alguna obligación legal requiramos seguir tratando sus datos personales."
+        {
+          title: "5. Transferencias internacionales",
+          paragraphs: [
+            "Aurin opera desde México y varios de estos proveedores están en Estados Unidos, así que tus datos pueden tratarse fuera de tu país. Si nos escribes desde el Espacio Económico Europeo, el Reino Unido o Suiza, esas transferencias se apoyan en el Marco de Privacidad de Datos UE–EE. UU. (y sus extensiones para el Reino Unido y Suiza) cuando el proveedor está adherido, o en las cláusulas contractuales tipo aprobadas por la Comisión Europea."
+          ]
         },
-        cookies: {
-          title: "7. Uso de Cookies y Tecnologías de Rastreo",
-          content1: "Le informamos que en nuestra página de internet utilizamos cookies, web beacons y otras tecnologías a través de las cuales es posible monitorear su comportamiento como usuario de internet, brindarle un mejor servicio y experiencia de usuario al navegar en nuestra página, así como ofrecerle nuevos productos y servicios basados en sus preferencias.",
-          content2: "Los datos personales que obtenemos de estas tecnologías de rastreo son los siguientes: horario de navegación, tiempo de navegación en nuestra página de internet, secciones consultadas, y páginas de internet accedidas previo a la nuestra."
+        {
+          title: "6. Cuánto tiempo los guardamos",
+          list: [
+            "Solicitudes que no se convierten en proyecto: hasta 2 años desde el último contacto.",
+            "Clientes: mientras dure la relación y después el tiempo que exijan las obligaciones fiscales y legales.",
+            "Analítica: un máximo de 14 meses."
+          ]
         },
-        modifications: {
-          title: "8. Modificaciones al Aviso de Privacidad",
-          content: "Nos reservamos el derecho de efectuar en cualquier momento modificaciones o actualizaciones al presente aviso de privacidad. Estas modificaciones estarán disponibles en nuestro sitio web con la fecha de última actualización."
+        {
+          id: "cookies",
+          title: "7. Cookies y tecnologías similares",
+          paragraphs: [
+            "Usamos cookies y el almacenamiento local del navegador. Las necesarias hacen funcionar el sitio. Las de analítica (Google Analytics y Microsoft Clarity) nos dicen qué páginas se visitan y cómo se usan, para mejorarlas; Clarity registra de forma anónima movimientos, clics y desplazamiento, y oculta lo que escribes en los formularios.",
+            "Estas son las que usamos (nombre, de quién, para qué y cuánto duran):"
+          ],
+          list: [
+            "aurin-consent (almacenamiento local, Aurin): guarda tu elección sobre cookies y su fecha. Necesaria. 12 meses.",
+            "chatbot_* (almacenamiento local, Aurin): conserva los datos del chat para terminar de agendar una cita. Necesaria si usas el chat. Hasta terminar la cita.",
+            "aurin-attribution (almacenamiento local, Aurin): cómo llegaste al sitio la primera vez (buscador, anuncio o enlace). Analítica. Hasta que la borres.",
+            "_ga y _ga_* (Google Analytics): distinguen visitas y sesiones. Analítica. Hasta 2 años.",
+            "_clck, _clsk, CLID, MUID, ANONCHK y SM (Microsoft Clarity): agrupan visitas y sesiones para la analítica y los mapas de calor. Analítica. De la sesión hasta 1 año."
+          ],
+          after: [
+            "Vercel Speed Insights mide la velocidad del sitio sin usar cookies.",
+            "En tu primera visita te mostramos un aviso. Si nos visitas desde el Espacio Económico Europeo, el Reino Unido, Suiza o Canadá, las cookies de analítica solo se activan si las aceptas. En los demás países se activan por defecto, como permite su ley, y puedes desactivarlas cuando quieras. Respetamos la señal Global Privacy Control (GPC) de tu navegador como rechazo.",
+            "Cambia tu elección cuando quieras desde «Preferencias de cookies», al pie de cada página, o borrando las cookies de tu navegador. Te volvemos a preguntar cada 12 meses."
+          ]
         },
-        contact: {
-          title: "9. Contacto",
-          content: "Para cualquier duda, aclaración o ejercicio de sus derechos relacionados con la protección de datos personales, puede contactarnos en:",
-          emailLabel: "Email:",
-          websiteLabel: "Sitio web:",
-          websiteUrl: "www.aurin.mx"
+        {
+          title: "8. Tus derechos",
+          paragraphs: [
+            "Desde cualquier país puedes pedirnos acceso a tus datos, corregirlos, eliminarlos u oponerte a su uso, y retirar tu consentimiento, escribiendo a hey@aurin.mx. Respondemos en los plazos que marca la ley que te aplique, no te trataremos distinto por ejercerlos y podemos pedirte que confirmes tu identidad para proteger tus datos. Según dónde vivas:"
+          ],
+          list: [
+            "México: derechos ARCO (Acceso, Rectificación, Cancelación y Oposición) y revocación del consentimiento, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.",
+            "Espacio Económico Europeo, Reino Unido y Suiza (RGPD, UK GDPR y LPD suiza): además, limitar el tratamiento, la portabilidad de tus datos y presentar una reclamación ante tu autoridad de protección de datos (en España, la Agencia Española de Protección de Datos).",
+            "Estados Unidos (CCPA/CPRA de California y leyes estatales similares): saber qué datos tenemos, pedir que se corrijan o eliminen y excluirte de su venta o uso compartido. No vendemos ni compartimos datos personales en ese sentido. Puedes actuar por medio de un agente autorizado.",
+            "Canadá (PIPEDA y Ley 25 de Quebec): acceso, corrección, retiro del consentimiento y presentar una queja ante el Comisionado de Privacidad de Canadá o la Commission d’accès à l’information de Quebec.",
+            "República Dominicana (Ley 172-13), Panamá (Ley 81 de 2019), Costa Rica (Ley 8968), Chile (Ley 19.628) y Uruguay (Ley 18.331): acceso, rectificación, cancelación o supresión y oposición."
+          ]
+        },
+        {
+          title: "9. Seguridad",
+          paragraphs: [
+            "Usamos conexiones cifradas (HTTPS), damos acceso solo a quien lo necesita y trabajamos con proveedores con estándares de seguridad reconocidos. Si ocurriera una vulneración que afecte tus datos, te avisaremos a ti y a la autoridad cuando la ley lo exija."
+          ]
+        },
+        {
+          title: "10. Cambios a este aviso",
+          paragraphs: [
+            "Podemos actualizar este aviso. La versión vigente es la que está publicada aquí con su fecha; si el cambio es importante, lo destacaremos en el sitio."
+          ]
+        },
+        {
+          title: "11. Contacto",
+          paragraphs: [
+            "Para cualquier duda sobre tus datos o para ejercer tus derechos, escríbenos a hey@aurin.mx."
+          ]
         }
-      }
+      ]
     },
     termsConditions: {
       seo: {
