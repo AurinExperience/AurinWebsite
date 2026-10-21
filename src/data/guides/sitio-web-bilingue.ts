@@ -17,7 +17,7 @@ export const sitioWebBilingue: Guide = {
   published: '2026-08-18',
   updated: '2026-08-18',
   relatedLandings: ['queretaro', 'quintana-roo', 'baja-california'],
-  relatedSectors: ['hoteles', 'inmobiliarias', 'agencias-viajes'],
+  relatedSectors: ['hoteles', 'inmobiliarias', 'agencias-viajes', 'us-luxury-real-estate'],
   copy: {
     es: {
       seo: {

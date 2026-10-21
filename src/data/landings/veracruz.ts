@@ -21,7 +21,7 @@ export const veracruz: Landing = {
   geo: { latitude: 19.1738, longitude: -96.1342 },
   areas: ['Veracruz', 'Boca del Río', 'Xalapa', 'Coatepec', 'Córdoba', 'Orizaba', 'Coatzacoalcos'],
   phoneSample: '+52 229 123 4567',
-  proof: ['fruitAcademy', 'ceiich', 'galicia'],
+  proof: ['fruitAcademy', 'ceiich', 'elRollo'],
   copy: {
     es: {
       seo: {
@@ -114,7 +114,7 @@ export const veracruz: Landing = {
       socialProof: {
         heading: c.proofHeading,
         description:
-          'Proyectos reales de identidad y sitios web en sectores como alimentos, educación y servicios legales. Es el mismo estándar con el que trabajaríamos tu empresa en Veracruz.',
+          'Proyectos reales de identidad y sitios web en sectores como alimentos, educación y turismo. Es el mismo estándar con el que trabajaríamos tu empresa en Veracruz.',
       },
       nearby: c.nearby,
       linkLabel: 'Diseño web en Veracruz',
@@ -214,7 +214,7 @@ export const veracruz: Landing = {
       socialProof: {
         heading: C.proofHeading,
         description:
-          'Real identity and website work in sectors like food, education, and legal services. It is the same standard we would bring to your company in Veracruz.',
+          'Real identity and website work in sectors like food, education, and tourism. It is the same standard we would bring to your company in Veracruz.',
       },
       nearby: C.nearby,
       linkLabel: 'Web design in Veracruz',

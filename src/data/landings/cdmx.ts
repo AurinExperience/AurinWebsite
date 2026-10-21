@@ -26,13 +26,13 @@ export const cdmx: Landing = {
     'Azcapotzalco',
   ],
   phoneSample: '+52 55 1234 5678',
-  proof: ['galicia', 'ceiich', 'dentol'],
+  proof: ['monetix', 'ceiich', 'dentol'],
   copy: {
     es: {
       seo: {
         title: 'Diseño Web y UX/UI en CDMX | Aurin',
         description:
-          'Agencia de diseño web y UX/UI en la Ciudad de México. Sitios y landing pages para despachos, consultoras, clínicas y empresas de servicios.',
+          'Agencia de diseño web y UX/UI en la Ciudad de México. Sitios y landing pages para consultoras, despachos contables, clínicas y empresas de servicios.',
         keywords:
           'diseño web CDMX, diseño web Ciudad de México, agencia de diseño web CDMX, diseño UX UI CDMX, páginas web CDMX, rediseño de sitio web CDMX',
       },
@@ -53,7 +53,7 @@ export const cdmx: Landing = {
       services: {
         heading: 'Servicios de diseño web y UX/UI en la Ciudad de México',
         intro:
-          'Diseñamos sitios web para empresas de Polanco, Reforma, Roma, Condesa, Del Valle, Nápoles, Santa Fe y Coyoacán: despachos jurídicos y contables, consultoría, servicios financieros, salud privada, inmobiliario y hospitalidad. Estrategia, UX/UI y desarrollo con un mismo equipo.',
+          'Diseñamos sitios web para empresas de Polanco, Reforma, Roma, Condesa, Del Valle, Nápoles, Santa Fe y Coyoacán: despachos contables, consultoría, servicios financieros, salud privada, inmobiliario y hospitalidad. Estrategia, UX/UI y desarrollo con un mismo equipo.',
         items: [
           {
             title: 'Diseño web para empresas de servicios',
@@ -135,7 +135,7 @@ export const cdmx: Landing = {
               'Casi todos los sitios de un mismo giro en CDMX dicen lo mismo con las mismas palabras y las mismas fotos de banco. La diferencia no la hace un diseño más llamativo, la hace tener una postura: qué haces distinto, para quién no eres, qué te atreves a decir que tu competencia no. Esa definición sale en la etapa de descubrimiento y es la que después ordena todo el diseño.',
           },
           {
-            question: '¿Trabajan con despachos, consultoras y empresas de servicios profesionales?',
+            question: '¿Trabajan con consultoras, despachos contables y empresas de servicios profesionales?',
             answer:
               'Sí, es buena parte de nuestro trabajo. En servicios profesionales el sitio no cierra la venta, pero sí decide si te consideran: el cliente compara tres o cuatro opciones antes de escribir. El trabajo es que tu experiencia, tus casos y tu equipo se lean con credibilidad y sin el tono acartonado que usa la mayoría del sector.',
           },
@@ -175,7 +175,7 @@ export const cdmx: Landing = {
       seo: {
         title: 'Web & UX/UI Design in Mexico City | Aurin',
         description:
-          'Web and UX/UI design agency in Mexico City. Websites and landing pages for law firms, consultancies, clinics, and service companies.',
+          'Web and UX/UI design agency in Mexico City. Websites and landing pages for consultancies, accounting firms, clinics, and service companies.',
         keywords:
           'web design Mexico City, UX UI design Mexico City, web design agency CDMX, website design Mexico City, landing pages Mexico City, website redesign Mexico City',
       },
@@ -278,7 +278,7 @@ export const cdmx: Landing = {
               'Almost every site in a given industry in Mexico City says the same thing with the same words and the same stock photos. The difference is not a flashier design, it is having a point of view: what you do differently, who you are not for, what you are willing to say that your competition will not. That definition comes out of discovery and is what organizes the whole design afterward.',
           },
           {
-            question: 'Do you work with law firms, consultancies, and professional service companies?',
+            question: 'Do you work with consultancies, accounting firms, and professional service companies?',
             answer:
               'Yes, a good share of our work. In professional services the site does not close the sale, but it decides whether you get considered: the client compares three or four options before writing to anyone. The job is making your experience, your cases, and your team read as credible without the stiff tone most of the sector uses.',
           },

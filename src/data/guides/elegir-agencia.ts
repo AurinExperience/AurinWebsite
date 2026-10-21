@@ -18,7 +18,7 @@ export const elegirAgencia: Guide = {
   published: '2026-08-18',
   updated: '2026-08-18',
   relatedLandings: ['monterrey', 'cdmx', 'jalisco'],
-  relatedSectors: ['ux-saas', 'ux-fintech', 'franquicias'],
+  relatedSectors: ['ux-saas', 'ux-fintech', 'franquicias', 'us-nearshore', 'us-ux-nearshore'],
   copy: {
     es: {
       seo: {

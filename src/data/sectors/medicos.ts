@@ -22,7 +22,7 @@ export const medicos: Sector = {
   status: 'live',
   slug: { es: 'para-medicos', en: 'for-doctors' },
   name: { es: 'Médicos y consultorios', en: 'Doctors and clinics' },
-  proof: ['dentol', 'elite', 'galicia'],
+  proof: ['dentol', 'elite', 'ceiich'],
   lead: {
     es: {
       heading: 'Hablemos de tu consultorio',
@@ -172,7 +172,7 @@ export const medicos: Sector = {
       socialProof: {
         heading: c.proofHeading,
         description:
-          'Proyectos reales de identidad y sitios web en salud, salud dental y servicios profesionales. El mismo cuidado que ponemos en cada marca es el que pondríamos en tu consultorio.',
+          'Proyectos reales de identidad y sitios web en salud, salud dental e investigación. El mismo cuidado que ponemos en cada marca es el que pondríamos en tu consultorio.',
       },
       nearby: s.nearby,
       linkLabel: 'Diseño web para médicos',
@@ -313,7 +313,7 @@ export const medicos: Sector = {
       socialProof: {
         heading: C.proofHeading,
         description:
-          'Real identity and website work in healthcare, dental care, and professional services. The same care we put into every brand is what we would bring to your practice.',
+          'Real identity and website work in healthcare, dental care, and research. The same care we put into every brand is what we would bring to your practice.',
       },
       nearby: S.nearby,
       linkLabel: 'Web design for doctors',

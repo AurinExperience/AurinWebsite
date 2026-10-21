@@ -24,7 +24,7 @@ export const monterrey: Landing = {
     'Santa Catarina',
   ],
   phoneSample: '+52 81 1234 5678',
-  proof: ['galicia', 'monetix', 'grupoEstrella'],
+  proof: ['mexicoPacific', 'monetix', 'grupoEstrella'],
   copy: {
     es: {
       seo: {

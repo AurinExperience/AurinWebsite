@@ -4,14 +4,14 @@ import { defineSector } from './build';
  * Consultoras y firmas de servicios profesionales — "diseño web para
  * consultoras" / "página web para empresa de consultoría". Ángulo: venden
  * criterio, no productos; casos, metodología y liderazgo de pensamiento.
- * Prueba: Fortrade, Galicia y Ancient, clientes reales de servicios.
+ * Prueba: Fortrade, Monetix y Ancient, clientes reales de servicios.
  */
 export const consultoras = defineSector({
   id: 'consultoras',
   publishAt: '2026-10-20T00:00:00-06:00',
   slug: { es: 'para-consultoras', en: 'for-consulting-firms' },
   name: { es: 'Consultoras', en: 'Consulting firms' },
-  proof: ['fortrade', 'galicia', 'ancient'],
+  proof: ['fortrade', 'monetix', 'ancient'],
   es: {
     seoTitle: 'Diseño Web para Consultoras y Firmas de Servicios',
     seoDescription:
@@ -70,7 +70,7 @@ export const consultoras = defineSector({
     aiSubject: 'mi consultora',
     remoteWho: 'consultoras',
     proofText:
-      'Proyectos reales de identidad y sitios web en finanzas, servicios legales y software. El mismo cuidado que ponemos en cada marca es el que pondríamos en tu firma.',
+      'Proyectos reales de identidad y sitios web en finanzas, mercados internacionales y software. El mismo cuidado que ponemos en cada marca es el que pondríamos en tu firma.',
     howTo: 'el sitio web de una consultora',
     lead: {
       heading: 'Hablemos de tu consultora',
@@ -137,7 +137,7 @@ export const consultoras = defineSector({
     aiSubject: 'my consulting firm',
     remoteWho: 'consulting firms',
     proofText:
-      'Real identity and website work in finance, legal services, and software. The same care we put into every brand is what we would bring to your firm.',
+      'Real identity and website work in finance, international markets, and software. The same care we put into every brand is what we would bring to your firm.',
     howTo: 'a consulting firm website',
     lead: {
       heading: 'Let’s talk about your firm',

@@ -20,7 +20,7 @@ export const sanAntonio: Landing = {
   geo: { latitude: 29.4241, longitude: -98.4936 },
   areas: ['San Antonio', 'New Braunfels', 'Schertz', 'Converse', 'Leon Valley', 'Seguin', 'Boerne'],
   phoneSample: '+1 210 555 0123',
-  proof: ['fruitAcademy', 'dentol', 'galicia'],
+  proof: ['fruitAcademy', 'dentol', 'grupoEstrella'],
   copy: {
     es: {
       seo: {
@@ -153,7 +153,7 @@ export const sanAntonio: Landing = {
       socialProof: {
         heading: 'Trabajo que respalda la propuesta',
         description:
-          'Proyectos reales de identidad y sitios web en sectores como alimentos, salud y servicios profesionales. Es el mismo estándar con el que trabajaríamos tu negocio en San Antonio.',
+          'Proyectos reales de identidad y sitios web en sectores como alimentos, salud y construcción. Es el mismo estándar con el que trabajaríamos tu negocio en San Antonio.',
       },
       nearby: {
         heading: '¿Tu negocio está en otra ciudad de Estados Unidos?',
@@ -295,7 +295,7 @@ export const sanAntonio: Landing = {
       socialProof: {
         heading: 'Work that backs the proposal',
         description:
-          'Real identity and website work in sectors like food, healthcare, and professional services. It is the same standard we would bring to your San Antonio business.',
+          'Real identity and website work in sectors like food, healthcare, and construction. It is the same standard we would bring to your San Antonio business.',
       },
       nearby: {
         heading: 'Is your business in another U.S. city?',

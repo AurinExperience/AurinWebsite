@@ -20,7 +20,7 @@ export const sanLuisPotosi: Landing = {
   geo: { latitude: 22.1565, longitude: -100.9855 },
   areas: ['San Luis Potosí', 'Soledad de Graciano Sánchez', 'Ciudad Valles', 'Xilitla', 'Aquismón', 'Matehuala'],
   phoneSample: '+52 444 123 4567',
-  proof: ['elRollo', 'galicia', 'elite'],
+  proof: ['elRollo', 'grupoEstrella', 'elite'],
   copy: {
     es: {
       seo: {
@@ -118,7 +118,7 @@ export const sanLuisPotosi: Landing = {
       socialProof: {
         heading: c.proofHeading,
         description:
-          'Proyectos reales de identidad y sitios web en sectores como turismo, servicios legales y salud. Es el mismo estándar con el que trabajaríamos tu negocio en San Luis Potosí.',
+          'Proyectos reales de identidad y sitios web en sectores como turismo, construcción y salud. Es el mismo estándar con el que trabajaríamos tu negocio en San Luis Potosí.',
       },
       nearby: c.nearby,
       linkLabel: 'Diseño web en San Luis Potosí',
@@ -219,7 +219,7 @@ export const sanLuisPotosi: Landing = {
       socialProof: {
         heading: C.proofHeading,
         description:
-          'Real identity and website work in sectors like tourism, legal services, and healthcare. It is the same standard we would bring to your business in San Luis Potosí.',
+          'Real identity and website work in sectors like tourism, construction, and healthcare. It is the same standard we would bring to your business in San Luis Potosí.',
       },
       nearby: C.nearby,
       linkLabel: 'Web design in San Luis Potosí',
