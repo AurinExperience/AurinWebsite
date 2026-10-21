@@ -45,6 +45,7 @@ const projects = maxProjects ? allProjects.slice(0, maxProjects) : allProjects;
             ...(project.tags?.slice(0, 2).map((tag: any) => tag.name) || [])
           ]}
           image={getImageUrl(ownCardImage(project, allProjects)?.url) || NO_PHOTO_IMAGE}
+          alt={ownCardImage(project, allProjects)?.alt}
           cover={getCardCover(project)}
           href={getProjectUrl(project, currentLang)}
           category={project.category?.slug}

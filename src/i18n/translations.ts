@@ -5,14 +5,14 @@ export const translations = {
       viewMore: 'View more'
     },
     seo: {
-      title: "Aurin | Nearshore UX/UI, Branding & Web Design from Mexico",
+      title: "Aurin | Nearshore Web Design, UX/UI & Branding from Mexico",
       description: "A Mexico-based design agency since 1998: UX/UI, branding and web development for companies in the US, Canada, Spain and Mexico. In English, during your business hours.",
       keywords: "nearshore design agency, nearshore web design, UX UI design agency, branding agency, web development agency Mexico, design agency for US companies"
     },
     contact: {
       seo: {
-        title: "Contact Aurin | Get a Design Quote",
-        description: "Have a UX/UI, web development or branding project? Write to us and get a personalized proposal. Get a quote for your project today.",
+        title: "Contact | Quote Web Design, UX/UI or Branding with Aurin",
+        description: "Have a web design, UX/UI or branding project? Write to us or book a call and get a fixed-scope proposal.",
         keywords: "contact design agency Mexico, branding quote, graphic design proposal, hire creative agency, request design budget"
       },
       form: {
@@ -157,8 +157,8 @@ export const translations = {
     projects: {
       gallery: { expand: "Enlarge image", close: "Close", prev: "Previous image", next: "Next image" },
       seo: {
-        title: "UX/UI & Branding Portfolio | Aurin Mexico",
-        description: "Portfolio of UX/UI design, web development and branding. Real companies, real projects. See how we work.",
+        title: "Web Design, UX/UI & Branding Portfolio | Aurin",
+        description: "Web design and development, UX/UI and branding projects by Aurin, a Mexican agency since 1998. Real companies, real projects: see how we work.",
         keywords: "UX UI design portfolio Mexico, branding projects case studies, web development showcase, mobile app design portfolio"
       },
       introduction: {
@@ -201,8 +201,8 @@ export const translations = {
     },
     services: {
       seo: {
-        title: "Web Design, Development & UX/UI, Nearshore from Mexico | Aurin",
-        description: "Websites, online stores and UX/UI for apps and platforms, designed and built by one team in Mexico for companies in the US, Canada, Spain and Mexico. Fixed-scope quotes.",
+        title: "Web Design, UX/UI & Branding, Nearshore from Mexico | Aurin",
+        description: "Websites, online stores, UX/UI for apps and platforms, and branding, by one team in Mexico for companies in the US, Canada, Spain and Mexico. Fixed-scope quotes.",
         keywords: "web design Mexico, web development agency Mexico, UX UI design agency, app UX UI design, ecommerce development, website redesign, SEO"
       },
       banner: {
@@ -706,8 +706,8 @@ export const translations = {
     },
     about: {
       seo: {
-        title: "About Aurin | Nearshore Design Agency from Mexico",
-        description: "Meet Aurin: designers and strategists in Mexico creating brands and digital products since 1998, for companies in Mexico, the US, Canada and Spain.",
+        title: "About Aurin | Nearshore Web Design, UX/UI & Branding Agency",
+        description: "Aurin is a web design, UX/UI and branding agency founded in 1998 in Cuernavaca, Mexico. Meet who leads it and how we work, nearshore.",
         keywords: "about aurin agency, design team Mexico, branding methodology, creative studio history, multidisciplinary design agency"
       },
       structuredData: {
@@ -830,14 +830,14 @@ export const translations = {
       viewMore: 'Ver más'
     },
     seo: {
-      title: "Aurin | UX/UI, Branding y Desarrollo Web México",
-      description: "Branding, diseño UX/UI y desarrollo web para empresas en México. Creamos marcas y experiencias digitales que conectan con las personas. Cotiza hoy.",
+      title: "Aurin | Diseño web, UX/UI y branding en México",
+      description: "Agencia mexicana de diseño y desarrollo web, diseño UX/UI y branding desde 1998. Un solo equipo investiga, diseña y desarrolla tu sitio, app o marca.",
       keywords: "agencia branding México, diseño UX UI empresas, desarrollo web ecommerce México, identidad corporativa"
     },
     contact: {
       seo: {
-        title: "Contacto | Aurin — Cotiza tu Proyecto",
-        description: "¿Tienes un proyecto de UX/UI, desarrollo web o branding? Escríbenos y recibe una propuesta personalizada. Cotiza tu proyecto hoy.",
+        title: "Contacto | Cotiza diseño web, UX/UI o branding con Aurin",
+        description: "¿Tienes un proyecto de diseño web, UX/UI o branding? Escríbenos o agenda una llamada y recibe una propuesta de alcance cerrado.",
         keywords: "contactar agencia diseño México, cotización branding, presupuesto identidad corporativa, consulta diseño gráfico, agendar reunión diseño"
       },
       form: {
@@ -982,8 +982,8 @@ export const translations = {
     projects: {
       gallery: { expand: "Ampliar imagen", close: "Cerrar", prev: "Imagen anterior", next: "Imagen siguiente" },
       seo: {
-        title: "Portafolio UX/UI, Branding y Web | Aurin",
-        description: "Portafolio de diseño UX/UI, desarrollo web y branding. Empresas reales, proyectos reales. Descubre cómo trabajamos.",
+        title: "Portafolio de diseño web, UX/UI y branding | Aurin",
+        description: "Proyectos de diseño y desarrollo web, UX/UI y branding de Aurin, agencia mexicana desde 1998. Empresas reales, proyectos reales: así trabajamos.",
         keywords: "portafolio diseño UX UI México, proyectos branding exitosos, casos desarrollo web, pruebas usabilidad proyectos"
       },
       introduction: {
@@ -1026,8 +1026,8 @@ export const translations = {
     },
     services: {
       seo: {
-        title: "Diseño de Páginas Web, Desarrollo Web y UX/UI | Aurin",
-        description: "Diseño y desarrollo de páginas web y tiendas en línea, y diseño UX/UI de apps y plataformas. Agencia mexicana desde 1998, cotización de alcance cerrado.",
+        title: "Diseño de páginas web, UX/UI y branding | Aurin",
+        description: "Páginas web, tiendas en línea, UX/UI de apps y plataformas, y branding. Agencia mexicana de diseño desde 1998, con cotización de alcance cerrado.",
         keywords: "diseño de páginas web, desarrollo web México, diseño UX UI, diseño UX UI de apps, tiendas en línea, rediseño web, SEO, agencia de diseño web Cuernavaca"
       },
       banner: {
@@ -1532,9 +1532,9 @@ export const translations = {
     },
     about: {
       seo: {
-        title: "Nosotros | Aurin — Agencia Creativa en México",
-        description: "Conoce a Aurin: creadores de experiencias con diseño y tecnología. Equipo multidisciplinario especializado en branding y comunicación visual. Conócenos.",
-        keywords: "agencia diseño México historia, equipo creativo branding, metodología diseño UX, empresa diseño gráfico, Aurin Aldea Creativa"
+        title: "Nosotros | Aurin, agencia de diseño web, UX/UI y branding",
+        description: "Aurin es una agencia mexicana de diseño web, UX/UI y branding fundada en 1998 en Cuernavaca. Conoce a quienes la dirigen y cómo trabajamos.",
+        keywords: "agencia diseño México historia, equipo creativo branding, metodología diseño UX, empresa diseño gráfico"
       },
       structuredData: {
         description: "Realizadores de experiencias a través del diseño y la tecnología. Agencia de comunicación visual especializada en branding, diseño gráfico e identidad corporativa.",
