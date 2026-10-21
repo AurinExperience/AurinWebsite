@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usLongevityClinics = defineSector({
   id: 'us-longevity-clinics',
   country: 'US',
-  publishAt: '2026-10-26T00:00:00-06:00',
+  publishAt: '2026-10-25T00:00:00-06:00',
   slug: { es: 'para-clinicas-de-longevidad', en: 'for-longevity-clinics' },
   name: { es: 'Clínicas de longevidad', en: 'Longevity clinics' },
   proof: ['elite', 'ceiich', 'dentol'],

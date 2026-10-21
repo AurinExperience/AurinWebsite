@@ -10,7 +10,7 @@ import { defineSector } from './build';
 export const usLuxuryRealEstate = defineSector({
   id: 'us-luxury-real-estate',
   country: 'US',
-  publishAt: '2026-10-22T00:00:00-06:00',
+  publishAt: '2026-10-21T00:00:00-06:00',
   slug: { es: 'para-bienes-raices-de-lujo', en: 'for-luxury-real-estate' },
   name: { es: 'Bienes raíces de lujo', en: 'Luxury real estate' },
   proof: ['grupoEstrella', 'ideograma', 'fortrade'],

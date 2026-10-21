@@ -10,7 +10,7 @@ export const usUxAiStartups = defineSector({
   id: 'us-ux-ai-startups',
   service: 'uxui',
   country: 'US',
-  publishAt: '2026-10-23T00:00:00-06:00',
+  publishAt: '2026-10-22T00:00:00-06:00',
   slug: { es: 'para-productos-de-ia', en: 'for-ai-products' },
   name: { es: 'Productos de IA', en: 'AI products' },
   proof: ['ancient', 'monetix', 'debiti'],

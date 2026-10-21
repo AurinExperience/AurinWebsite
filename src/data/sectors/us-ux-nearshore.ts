@@ -10,7 +10,7 @@ export const usUxNearshore = defineSector({
   id: 'us-ux-nearshore',
   service: 'uxui',
   country: 'US',
-  publishAt: '2026-10-22T00:00:00-06:00',
+  publishAt: '2026-10-21T00:00:00-06:00',
   slug: { es: 'nearshore-para-startups-de-estados-unidos', en: 'nearshore-for-us-startups' },
   name: { es: 'Startups de EE. UU. (nearshore)', en: 'US startups (nearshore)' },
   proof: ['ancient', 'monetix', 'debiti'],

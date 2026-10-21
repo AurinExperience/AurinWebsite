@@ -8,7 +8,7 @@ import { defineSector } from './build';
 export const usInteriorDesigners = defineSector({
   id: 'us-interior-designers',
   country: 'US',
-  publishAt: '2026-10-24T00:00:00-06:00',
+  publishAt: '2026-10-23T00:00:00-06:00',
   slug: { es: 'para-disenadores-de-interiores', en: 'for-interior-designers' },
   name: { es: 'Diseñadores de interiores', en: 'Interior designers' },
   proof: ['ideograma', 'grupoEstrella', 'sinfonica'],

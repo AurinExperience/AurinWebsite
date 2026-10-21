@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usMedSpas = defineSector({
   id: 'us-med-spas',
   country: 'US',
-  publishAt: '2026-10-23T00:00:00-06:00',
+  publishAt: '2026-10-22T00:00:00-06:00',
   slug: { es: 'para-med-spas', en: 'for-med-spas' },
   name: { es: 'Med spas', en: 'Med spas' },
   proof: ['dentol', 'elite', 'ideograma'],

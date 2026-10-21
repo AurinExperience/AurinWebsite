@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usNearshore = defineSector({
   id: 'us-nearshore',
   country: 'US',
-  publishAt: '2026-10-22T00:00:00-06:00',
+  publishAt: '2026-10-21T00:00:00-06:00',
   slug: { es: 'nearshore-para-empresas-de-estados-unidos', en: 'nearshore-for-us-companies' },
   name: { es: 'Empresas de EE. UU. (nearshore)', en: 'US companies (nearshore)' },
   proof: ['elite', 'mexicoPacific', 'fortrade'],

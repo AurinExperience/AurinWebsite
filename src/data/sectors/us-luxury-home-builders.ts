@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usLuxuryHomeBuilders = defineSector({
   id: 'us-luxury-home-builders',
   country: 'US',
-  publishAt: '2026-10-23T00:00:00-06:00',
+  publishAt: '2026-10-22T00:00:00-06:00',
   slug: { es: 'para-constructores-de-casas-de-lujo', en: 'for-luxury-home-builders' },
   name: { es: 'Constructores de casas de lujo', en: 'Luxury home builders' },
   proof: ['grupoEstrella', 'ideograma', 'mexicoPacific'],

@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usPrivateAviation = defineSector({
   id: 'us-private-aviation',
   country: 'US',
-  publishAt: '2026-10-26T00:00:00-06:00',
+  publishAt: '2026-10-25T00:00:00-06:00',
   slug: { es: 'para-aviacion-privada', en: 'for-private-aviation' },
   name: { es: 'Aviación privada', en: 'Private aviation' },
   proof: ['fortrade', 'elRollo', 'ideograma'],

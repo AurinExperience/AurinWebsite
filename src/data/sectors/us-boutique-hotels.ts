@@ -8,7 +8,7 @@ import { defineSector } from './build';
 export const usBoutiqueHotels = defineSector({
   id: 'us-boutique-hotels',
   country: 'US',
-  publishAt: '2026-10-24T00:00:00-06:00',
+  publishAt: '2026-10-23T00:00:00-06:00',
   slug: { es: 'para-hoteles-boutique', en: 'for-boutique-hotels' },
   name: { es: 'Hoteles boutique', en: 'Boutique hotels' },
   proof: ['elRollo', 'sinfonica', 'ideograma'],

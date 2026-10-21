@@ -139,27 +139,27 @@ const ALL_SECTORS: Sector[] = [
   franquicias,
   agenciasViajes,
   // Estados Unidos (country: 'US'), solo se enlazan entre ellas
-  // 2026-10-22
+  // 2026-10-21
   usNearshore,
   usUxNearshore,
   usLuxuryRealEstate,
   usPlasticSurgeons,
-  // 2026-10-23
+  // 2026-10-22
   usMedSpas,
   usWealthManagement,
   usUxAiStartups,
   usLuxuryHomeBuilders,
-  // 2026-10-24
+  // 2026-10-23
   usInteriorDesigners,
   usBoutiqueHotels,
   usWineries,
   usConciergeMedicine,
-  // 2026-10-25
+  // 2026-10-24
   usPrivateEquity,
   usUxWealthtech,
   usLuxuryBrands,
   usPrivateClubs,
-  // 2026-10-26
+  // 2026-10-25
   usYachtCharters,
   usLuxuryVacationRentals,
   usLongevityClinics,
