@@ -1,0 +1,40 @@
+---
+/**
+ * Founders — quién fundó y dirige Aurin, con su LinkedIn. Las personas salen de SITE.founders,
+ * lo mismo que `founder` en el schema (GlobalSchema), para que Google ligue página y entidad.
+ * Sin fotos por ahora: iniciales en el círculo amarillo. Con foto, cambiar el span por un <img>.
+ */
+import Linkedin from 'lucide-astro/Linkedin';
+import { SITE } from '@/config/site';
+import { getLangFromUrl, translations } from '@/i18n';
+import styles from './Founders.module.css';
+
+const t = translations[getLangFromUrl(Astro.url)].about.founders;
+const initials = (name: string) => name.split(' ').map((word) => word[0]).join('');
+---
+
+<section class={styles.section}>
+  <div class={styles.container}>
+    <h2 class={styles.heading}>
+      <span>{t.headingWhite}</span>
+      <span class={styles.headingAccent}>{t.headingYellow}</span>
+    </h2>
+    <div class={styles.right}>
+      <p class={styles.intro}>{t.intro}</p>
+      <ul class={styles.list}>
+        {SITE.founders.map(({ id, name, linkedin }) => (
+          <li class={styles.card} id={id}>
+            <span class={styles.avatar} aria-hidden="true">{initials(name)}</span>
+            <div class={styles.info}>
+              <h3 class={styles.name}>{name}</h3>
+              <p class={styles.role}>{t.roles[id as keyof typeof t.roles]}</p>
+            </div>
+            <a class={styles.linkedin} href={linkedin} target="_blank" rel="noopener" aria-label={`${t.linkedin} ${name}`}>
+              <Linkedin size={20} />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
