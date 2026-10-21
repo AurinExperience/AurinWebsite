@@ -24,7 +24,7 @@ export const agroindustria = defineSector({
     hero: 'Un comprador internacional te evalúa antes de pedir una muestra: productos, temporadas, certificaciones, capacidad y trazabilidad, en su idioma. Si tu sitio no responde eso, pasa al siguiente proveedor. Diseñamos sitios que presentan tu operación al nivel de los mercados a los que quieres vender.',
     stat: { value: 'Agro', label: 'ya trabajamos con marcas de agroindustria como Fruit Academy' },
     intro:
-      'Trabajamos con productores, empacadoras, procesadoras y exportadoras de alimentos. Cada página web para empresa exportadora se diseña para el comprador que quieres conseguir.',
+      'Diseñamos para productores, empacadoras, procesadoras y exportadoras de alimentos. Cada página web para empresa exportadora se diseña para el comprador que quieres conseguir.',
     items: [
       {
         title: 'Productos y temporadas',
@@ -92,7 +92,7 @@ export const agroindustria = defineSector({
     hero: 'International buyers evaluate you before requesting a sample: products, seasons, certifications, capacity, and traceability, in their language. If your site does not answer that, they move on to the next supplier. We design websites that present your operation at the level of the markets you want to sell to.',
     stat: { value: 'Agro', label: 'we already work with agribusiness brands like Fruit Academy' },
     intro:
-      'We work with growers, packers, processors, and food exporters. Every exporter website is designed for the buyer you want to win.',
+      'We design for growers, packers, processors, and food exporters. Every exporter website is designed for the buyer you want to win.',
     items: [
       {
         title: 'Products and seasons',

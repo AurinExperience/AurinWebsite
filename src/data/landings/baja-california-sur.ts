@@ -44,7 +44,7 @@ export const bajaCaliforniaSur: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Baja California Sur',
         intro:
-          'Trabajamos con negocios de Cabo San Lucas, San José del Cabo, La Paz, Todos Santos y Loreto: villas y rentas vacacionales, restaurantes, inmobiliarias, tours y pesca deportiva, spas y centros de wellness.',
+          'Diseñamos para negocios de Cabo San Lucas, San José del Cabo, La Paz, Todos Santos y Loreto: villas y rentas vacacionales, restaurantes, inmobiliarias, tours y pesca deportiva, spas y centros de wellness.',
         items: [
           {
             title: 'Sitios para villas y rentas vacacionales',
@@ -156,7 +156,7 @@ export const bajaCaliforniaSur: Landing = {
       services: {
         heading: 'Web design and branding services in Baja California Sur',
         intro:
-          'We work with businesses in Cabo San Lucas, San José del Cabo, La Paz, Todos Santos, and Loreto: villas and vacation rentals, restaurants, real estate agencies, tours and sport fishing, spas, and wellness centers.',
+          'We design for businesses in Cabo San Lucas, San José del Cabo, La Paz, Todos Santos, and Loreto: villas and vacation rentals, restaurants, real estate agencies, tours and sport fishing, spas, and wellness centers.',
         items: [
           {
             title: 'Websites for villas and vacation rentals',

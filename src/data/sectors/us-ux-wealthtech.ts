@@ -25,7 +25,7 @@ export const usUxWealthtech = defineSector({
     target: 'plataformas wealthtech',
     hero: 'Un inversionista de alto patrimonio no tolera un portal confuso, y un asesor no tiene tiempo para pelear con su herramienta. Cuando los datos no se entienden, la confianza se va con ellos. Diseñamos plataformas que convierten portafolios complejos en información clara para decidir.',
     intro:
-      'Trabajamos con empresas wealthtech, plataformas para asesores e instituciones de gestión patrimonial en Estados Unidos que necesitan diseño de producto senior.',
+      'Diseñamos para empresas wealthtech, plataformas para asesores e instituciones de gestión patrimonial en Estados Unidos que necesitan diseño de producto senior.',
     items: [
       {
         title: 'Portales de inversionistas',
@@ -91,7 +91,7 @@ export const usUxWealthtech = defineSector({
     target: 'wealthtech platforms',
     hero: 'A high-net-worth investor won’t tolerate a confusing portal, and an advisor has no time to fight their tools. When the data doesn’t make sense, trust goes with it. We design platforms that turn complex portfolios into clear information for decisions.',
     intro:
-      'We work with wealthtech companies, advisor platforms, and wealth management institutions in the US that need senior product design.',
+      'We design for wealthtech companies, advisor platforms, and wealth management institutions in the US that need senior product design.',
     items: [
       {
         title: 'Investor portals',

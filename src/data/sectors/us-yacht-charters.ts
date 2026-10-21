@@ -24,7 +24,7 @@ export const usYachtCharters = defineSector({
     target: 'empresas de yates',
     hero: 'Quien renta o compra un yate de lujo decide por cómo se ve la embarcación y por la confianza que le da quien la ofrece. Si tu sitio parece un catálogo genérico, tu flota pierde todo su encanto. Diseñamos sitios que hacen sentir el viaje antes de zarpar y llevan a una consulta privada.',
     intro:
-      'Trabajamos con empresas de chárter, brokers y administradoras de yates de lujo en mercados como Miami, Fort Lauderdale, Palm Beach, Newport y San Diego.',
+      'Diseñamos para empresas de chárter, brokers y administradoras de yates de lujo en mercados como Miami, Fort Lauderdale, Palm Beach, Newport y San Diego.',
     items: [
       {
         title: 'Embarcaciones que lucen',
@@ -91,7 +91,7 @@ export const usYachtCharters = defineSector({
     target: 'yacht companies',
     hero: 'People who charter or buy a luxury yacht decide by how the vessel looks and how much they trust whoever offers it. If your site looks like a generic catalog, your fleet loses its magic. We design websites that let people feel the voyage before leaving the dock and lead to a private inquiry.',
     intro:
-      'We work with luxury yacht charter companies, brokers, and yacht management firms in markets like Miami, Fort Lauderdale, Palm Beach, Newport, and San Diego.',
+      'We design for luxury yacht charter companies, brokers, and yacht management firms in markets like Miami, Fort Lauderdale, Palm Beach, Newport, and San Diego.',
     items: [
       {
         title: 'Vessels that shine',

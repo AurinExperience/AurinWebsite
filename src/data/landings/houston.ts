@@ -48,7 +48,7 @@ export const houston: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Houston',
         intro:
-          'Trabajamos con negocios de Houston, Pasadena, Katy, Sugar Land, Pearland, Cypress y Spring: contratistas de construcción y remodelación, proveedores de la industria energética, clínicas, restaurantes y despachos de servicios. Diseño, desarrollo y marca con un mismo equipo.',
+          'Diseñamos para negocios de Houston, Pasadena, Katy, Sugar Land, Pearland, Cypress y Spring: contratistas de construcción y remodelación, proveedores de la industria energética, clínicas, restaurantes y despachos de servicios. Diseño, desarrollo y marca con un mismo equipo.',
         items: [
           {
             title: 'Sitio bilingüe para un mercado bilingüe',
@@ -127,7 +127,7 @@ export const houston: Landing = {
           {
             question: '¿Trabajan con negocios en Houston?',
             answer:
-              'Sí. Diseño, desarrollo y marca los resuelve un mismo equipo. Ya trabajamos a distancia con clientes en Estados Unidos, Canadá y España, y con empresas de todo México. Hablamos tu idioma y el de tus clientes, y la diferencia de horario con Houston es de cero a una hora según la temporada.',
+              'Sí. Diseño, desarrollo y marca los resuelve un mismo equipo. Trabajamos a distancia, así que el proceso funciona igual desde cualquier ciudad. Hablamos tu idioma y el de tus clientes, y la diferencia de horario con Houston es de cero a una hora según la temporada.',
           },
           {
             question: '¿Hacen el sitio en inglés y en español?',
@@ -191,7 +191,7 @@ export const houston: Landing = {
       services: {
         heading: 'Web design and branding services in Houston',
         intro:
-          'We work with businesses across Houston, Pasadena, Katy, Sugar Land, Pearland, Cypress, and Spring: construction and remodeling contractors, energy industry suppliers, clinics, restaurants, and professional services. Design, development, and brand from a single team.',
+          'We design for businesses across Houston, Pasadena, Katy, Sugar Land, Pearland, Cypress, and Spring: construction and remodeling contractors, energy industry suppliers, clinics, restaurants, and professional services. Design, development, and brand from a single team.',
         items: [
           {
             title: 'Your site in English and Spanish',
@@ -270,7 +270,7 @@ export const houston: Landing = {
           {
             question: 'Do you work with businesses in Houston?',
             answer:
-              'Yes. Design, development, and brand are handled by the same team. We already work remotely with clients in the United States, Canada, and Spain, and with companies all over Mexico. We work in Spanish and English, and the time difference with Houston is zero to one hour depending on the season.',
+              'Yes. Design, development, and brand are handled by the same team. We work remotely, so the process works the same from any city. We work in Spanish and English, and the time difference with Houston is zero to one hour depending on the season.',
           },
           {
             question: 'Do you build the site in English and Spanish?',

@@ -24,7 +24,7 @@ export const usPrivateEquity = defineSector({
     target: 'firmas de private equity y venture capital',
     hero: 'Antes de tomar tu llamada, un fundador, un LP o el dueño de una empresa revisa tu sitio para entender quién eres y qué haces. Si se ve genérico, tu firma se confunde con cientos más. Diseñamos sitios sobrios y precisos que comunican tu tesis, tu portafolio y a tu equipo con la claridad que tu reputación merece.',
     intro:
-      'Trabajamos con firmas de private equity, fondos de venture capital, family offices y firmas de inversión en mercados como Nueva York, San Francisco, Boston, Greenwich y Austin.',
+      'Diseñamos para firmas de private equity, fondos de venture capital, family offices y firmas de inversión en mercados como Nueva York, San Francisco, Boston, Greenwich y Austin.',
     items: [
       {
         title: 'Tesis de inversión clara',
@@ -91,7 +91,7 @@ export const usPrivateEquity = defineSector({
     target: 'private equity and VC firms',
     hero: 'Before taking your call, a founder, an LP, or a business owner reviews your site to understand who you are and what you do. If it looks generic, your firm blends in with hundreds of others. We design sober, precise websites that communicate your thesis, your portfolio, and your team with the clarity your reputation deserves.',
     intro:
-      'We work with private equity firms, venture capital funds, family offices, and investment firms in markets like New York, San Francisco, Boston, Greenwich, and Austin.',
+      'We design for private equity firms, venture capital funds, family offices, and investment firms in markets like New York, San Francisco, Boston, Greenwich, and Austin.',
     items: [
       {
         title: 'A clear investment thesis',

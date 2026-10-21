@@ -44,7 +44,7 @@ export const nayarit: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Nayarit',
         intro:
-          'Trabajamos con negocios de Nuevo Vallarta, Bucerías, Sayulita, San Pancho, Punta de Mita y Tepic: hoteles pequeños y rentas, escuelas de surf, estudios de yoga y retiros, restaurantes y bienes raíces.',
+          'Diseñamos para negocios de Nuevo Vallarta, Bucerías, Sayulita, San Pancho, Punta de Mita y Tepic: hoteles pequeños y rentas, escuelas de surf, estudios de yoga y retiros, restaurantes y bienes raíces.',
         items: [
           {
             title: 'Sitios para hoteles pequeños y rentas',
@@ -148,7 +148,7 @@ export const nayarit: Landing = {
       services: {
         heading: 'Web design and branding services in Nayarit',
         intro:
-          'We work with businesses in Nuevo Vallarta, Bucerías, Sayulita, San Pancho, Punta de Mita, and Tepic: small hotels and rentals, surf schools, yoga studios and retreats, restaurants, and real estate.',
+          'We design for businesses in Nuevo Vallarta, Bucerías, Sayulita, San Pancho, Punta de Mita, and Tepic: small hotels and rentals, surf schools, yoga studios and retreats, restaurants, and real estate.',
         items: [
           {
             title: 'Websites for small hotels and rentals',

@@ -42,7 +42,7 @@ export const durango: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Durango',
         intro:
-          'Trabajamos con negocios de Durango, Gómez Palacio, Lerdo y Santiago Papasquiaro: fabricantes de muebles y carpintería, comercios, clínicas y consultorios, y empresas de servicios.',
+          'Diseñamos para negocios de Durango, Gómez Palacio, Lerdo y Santiago Papasquiaro: fabricantes de muebles y carpintería, comercios, clínicas y consultorios, y empresas de servicios.',
         items: [
           {
             title: 'Tienda en línea para muebles y madera',
@@ -151,7 +151,7 @@ export const durango: Landing = {
       services: {
         heading: 'Web design and branding services in Durango',
         intro:
-          'We work with businesses in Durango, Gómez Palacio, Lerdo, and Santiago Papasquiaro: furniture makers and woodworkers, retailers, clinics and practices, and service companies.',
+          'We design for businesses in Durango, Gómez Palacio, Lerdo, and Santiago Papasquiaro: furniture makers and woodworkers, retailers, clinics and practices, and service companies.',
         items: [
           {
             title: 'Online store for furniture and wood',

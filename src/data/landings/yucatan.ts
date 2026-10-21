@@ -137,7 +137,7 @@ export const yucatan: Landing = {
           {
             question: '¿Trabajan con empresas en Yucatán?',
             answer:
-              'Claro. Trabajamos a distancia con empresas de todo México y con clientes en Estados Unidos, Canadá y España, entre otros países.',
+              'Claro. Trabajamos a distancia, así que podemos atender empresas en cualquier parte de México y en otros países, como Estados Unidos, Canadá o España.',
           },
           {
             question: '¿El sitio necesita versión en inglés?',
@@ -279,7 +279,7 @@ export const yucatan: Landing = {
           {
             question: 'Do you work with companies in Yucatán?',
             answer:
-              'Absolutely. We work remotely with companies all over Mexico and with clients in the United States, Canada, and Spain, among other countries.',
+              'Absolutely. We work remotely, so we can serve companies anywhere in Mexico and in other countries, such as the United States, Canada, or Spain.',
           },
           {
             question: 'Does the site need an English version?',

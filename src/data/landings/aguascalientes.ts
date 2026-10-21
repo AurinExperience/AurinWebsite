@@ -42,7 +42,7 @@ export const aguascalientes: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Aguascalientes',
         intro:
-          'Trabajamos con negocios de Aguascalientes, Jesús María, Calvillo y Rincón de Romos: marcas de ropa y confección, fabricantes de uniformes, talleres de bordado, comercios y empresas de servicios.',
+          'Diseñamos para negocios de Aguascalientes, Jesús María, Calvillo y Rincón de Romos: marcas de ropa y confección, fabricantes de uniformes, talleres de bordado, comercios y empresas de servicios.',
         items: [
           {
             title: 'Tienda en línea para tu marca de ropa',
@@ -155,7 +155,7 @@ export const aguascalientes: Landing = {
       services: {
         heading: 'Web design and branding services in Aguascalientes',
         intro:
-          'We work with businesses in Aguascalientes, Jesús María, Calvillo, and Rincón de Romos: apparel brands, uniform makers, embroidery shops, retailers, and service companies.',
+          'We design for businesses in Aguascalientes, Jesús María, Calvillo, and Rincón de Romos: apparel brands, uniform makers, embroidery shops, retailers, and service companies.',
         items: [
           {
             title: 'Online store for your apparel brand',

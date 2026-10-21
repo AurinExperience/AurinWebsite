@@ -43,7 +43,7 @@ export const hidalgo: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Hidalgo',
         intro:
-          'Trabajamos con negocios de Pachuca, Mineral de la Reforma, Tulancingo, Tula, Huasca e Ixmiquilpan: balnearios y parques acuáticos, cabañas y hoteles, restaurantes, escuelas, clínicas y comercios.',
+          'Diseñamos para negocios de Pachuca, Mineral de la Reforma, Tulancingo, Tula, Huasca e Ixmiquilpan: balnearios y parques acuáticos, cabañas y hoteles, restaurantes, escuelas, clínicas y comercios.',
         items: [
           {
             title: 'Sitios para balnearios y parques',
@@ -144,7 +144,7 @@ export const hidalgo: Landing = {
       services: {
         heading: 'Web design and branding services in Hidalgo',
         intro:
-          'We work with businesses in Pachuca, Mineral de la Reforma, Tulancingo, Tula, Huasca, and Ixmiquilpan: water parks, cabins and hotels, restaurants, schools, clinics, and retail.',
+          'We design for businesses in Pachuca, Mineral de la Reforma, Tulancingo, Tula, Huasca, and Ixmiquilpan: water parks, cabins and hotels, restaurants, schools, clinics, and retail.',
         items: [
           {
             title: 'Websites for water parks',

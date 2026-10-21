@@ -45,7 +45,7 @@ export const sonora: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Sonora',
         intro:
-          'Trabajamos con empresas de Hermosillo, Ciudad Obregón, Nogales, Guaymas, Puerto Peñasco y San Carlos: servicios a la minería y la industria, marcas de alimentos, rentas vacacionales, restaurantes y empresas de servicios.',
+          'Diseñamos para empresas de Hermosillo, Ciudad Obregón, Nogales, Guaymas, Puerto Peñasco y San Carlos: servicios a la minería y la industria, marcas de alimentos, rentas vacacionales, restaurantes y empresas de servicios.',
         items: [
           {
             title: 'Sitio corporativo para servicios a la minería',
@@ -149,7 +149,7 @@ export const sonora: Landing = {
       services: {
         heading: 'Web design and branding services in Sonora',
         intro:
-          'We work with companies in Hermosillo, Ciudad Obregón, Nogales, Guaymas, Puerto Peñasco, and San Carlos: mining and industrial services, food brands, vacation rentals, restaurants, and service companies.',
+          'We design for companies in Hermosillo, Ciudad Obregón, Nogales, Guaymas, Puerto Peñasco, and San Carlos: mining and industrial services, food brands, vacation rentals, restaurants, and service companies.',
         items: [
           {
             title: 'Corporate site for mining services',

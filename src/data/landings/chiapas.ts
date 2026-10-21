@@ -42,7 +42,7 @@ export const chiapas: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Chiapas',
         intro:
-          'Trabajamos con negocios de Tuxtla Gutiérrez, San Cristóbal de las Casas, Palenque, Comitán, Tapachula y Chiapa de Corzo: hoteles boutique, operadores de tours, restaurantes y cafeterías, y marcas de artesanía, textiles, ámbar y café.',
+          'Diseñamos para negocios de Tuxtla Gutiérrez, San Cristóbal de las Casas, Palenque, Comitán, Tapachula y Chiapa de Corzo: hoteles boutique, operadores de tours, restaurantes y cafeterías, y marcas de artesanía, textiles, ámbar y café.',
         items: [
           {
             title: 'Sitios para hoteles boutique',
@@ -151,7 +151,7 @@ export const chiapas: Landing = {
       services: {
         heading: 'Web design and branding services in Chiapas',
         intro:
-          'We work with businesses in Tuxtla Gutiérrez, San Cristóbal de las Casas, Palenque, Comitán, Tapachula, and Chiapa de Corzo: boutique hotels, tour operators, restaurants and cafés, and craft, textile, amber, and coffee brands.',
+          'We design for businesses in Tuxtla Gutiérrez, San Cristóbal de las Casas, Palenque, Comitán, Tapachula, and Chiapa de Corzo: boutique hotels, tour operators, restaurants and cafés, and craft, textile, amber, and coffee brands.',
         items: [
           {
             title: 'Websites for boutique hotels',

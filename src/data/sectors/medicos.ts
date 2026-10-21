@@ -65,7 +65,7 @@ export const medicos: Sector = {
       services: {
         heading: 'Servicios de diseño web para médicos',
         intro:
-          'Trabajamos con médicos especialistas, consultorios, clínicas y laboratorios. Cada página web para consultorio se diseña a partir de tu práctica: cómo llegan tus pacientes, qué te preguntan antes de la primera consulta y cómo prefieres agendar.',
+          'Diseñamos para médicos especialistas, consultorios, clínicas y laboratorios. Cada página web para consultorio se diseña a partir de tu práctica: cómo llegan tus pacientes, qué te preguntan antes de la primera consulta y cómo prefieres agendar.',
         items: [
           {
             title: 'Citas en línea',
@@ -164,7 +164,7 @@ export const medicos: Sector = {
           {
             question: '¿Trabajan con médicos de cualquier ciudad?',
             answer:
-              'Sí. Trabajamos a distancia con médicos y clínicas de todo México y con clientes en Estados Unidos, Canadá y España, entre otros países.',
+              'Sí. Trabajamos a distancia, así que podemos atender médicos y clínicas en cualquier parte de México y en otros países, como Estados Unidos, Canadá o España.',
           },
           c.faqLanguages,
         ],
@@ -206,7 +206,7 @@ export const medicos: Sector = {
       services: {
         heading: 'Web design services for doctors',
         intro:
-          'We work with specialist physicians, private practices, clinics, and laboratories. Every site is designed around your practice: how patients find you, what they ask before the first visit, and how you prefer to schedule.',
+          'We design for specialist physicians, private practices, clinics, and laboratories. Every site is designed around your practice: how patients find you, what they ask before the first visit, and how you prefer to schedule.',
         items: [
           {
             title: 'Online appointments',
@@ -305,7 +305,7 @@ export const medicos: Sector = {
           {
             question: 'Do you work with doctors in any city?',
             answer:
-              'Yes. We work remotely with doctors and clinics all over Mexico and with clients in the United States, Canada, and Spain, among other countries.',
+              'Yes. We work remotely, so we can serve doctors and clinics anywhere in Mexico and in other countries, such as the United States, Canada, or Spain.',
           },
           C.faqLanguages,
         ],

@@ -62,7 +62,7 @@ export const uxHealthtech: Sector = {
       services: {
         heading: 'Servicios de diseño UX/UI para healthtech',
         intro:
-          'Trabajamos con startups de salud, plataformas de telemedicina, clínicas que digitalizan su atención y empresas de bienestar. Cada proyecto parte del paciente y del profesional que usan tu producto.',
+          'Diseñamos para startups de salud, plataformas de telemedicina, clínicas que digitalizan su atención y empresas de bienestar. Cada proyecto parte del paciente y del profesional que usan tu producto.',
         items: [
           {
             title: 'Citas y telemedicina sin fricción',
@@ -163,7 +163,7 @@ export const uxHealthtech: Sector = {
       services: {
         heading: 'UX/UI design services for healthtech',
         intro:
-          'We work with health startups, telehealth platforms, clinics going digital, and wellness companies. Every project starts from the patients and professionals who use your product.',
+          'We design for health startups, telehealth platforms, clinics going digital, and wellness companies. Every project starts from the patients and professionals who use your product.',
         items: [
           {
             title: 'Frictionless booking and telehealth',

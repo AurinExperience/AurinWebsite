@@ -62,7 +62,7 @@ export const uxSaas: Sector = {
       services: {
         heading: 'Servicios de diseño UX/UI para SaaS',
         intro:
-          'Trabajamos con startups de software, empresas SaaS y equipos que construyen herramientas internas. Cada proyecto parte de tu usuario y del resultado que busca al usar tu producto.',
+          'Diseñamos para startups de software, empresas SaaS y equipos que construyen herramientas internas. Cada proyecto parte de tu usuario y del resultado que busca al usar tu producto.',
         items: [
           {
             title: 'Onboarding y activación',
@@ -163,7 +163,7 @@ export const uxSaas: Sector = {
       services: {
         heading: 'UX/UI design services for SaaS',
         intro:
-          'We work with software startups, SaaS companies, and teams building internal tools. Every project starts from your user and the result they want from your product.',
+          'We design for software startups, SaaS companies, and teams building internal tools. Every project starts from your user and the result they want from your product.',
         items: [
           {
             title: 'Onboarding and activation',

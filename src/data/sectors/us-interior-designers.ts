@@ -23,7 +23,7 @@ export const usInteriorDesigners = defineSector({
     target: 'diseñadores de interiores',
     hero: 'Un cliente de alto nivel te contrata por tu mirada, y la primera vez que la ve es en tu sitio. Si el portafolio se ve como una galería de Instagram, tu trabajo pierde todo lo que lo hace único. Diseñamos sitios editoriales que se sienten como hojear una revista de tu propio estudio.',
     intro:
-      'Trabajamos con diseñadores de interiores y estudios de interiorismo residencial y de hospitalidad en mercados como Manhattan, Los Ángeles, Palm Beach, los Hamptons y Aspen.',
+      'Diseñamos para diseñadores de interiores y estudios de interiorismo residencial y de hospitalidad en mercados como Manhattan, Los Ángeles, Palm Beach, los Hamptons y Aspen.',
     items: [
       {
         title: 'Portafolio editorial',
@@ -90,7 +90,7 @@ export const usInteriorDesigners = defineSector({
     target: 'interior designers',
     hero: 'High-end clients hire you for your eye, and the first time they see it is on your website. If your portfolio looks like an Instagram grid, your work loses everything that makes it unique. We design editorial websites that feel like leafing through a magazine about your studio.',
     intro:
-      'We work with interior designers and residential and hospitality interior design studios in markets like Manhattan, Los Angeles, Palm Beach, the Hamptons, and Aspen.',
+      'We design for interior designers and residential and hospitality interior design studios in markets like Manhattan, Los Angeles, Palm Beach, the Hamptons, and Aspen.',
     items: [
       {
         title: 'An editorial portfolio',

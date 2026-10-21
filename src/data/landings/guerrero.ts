@@ -43,7 +43,7 @@ export const guerrero: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Guerrero',
         intro:
-          'Trabajamos con negocios de Acapulco, Zihuatanejo, Ixtapa, Taxco, Chilpancingo e Iguala: hoteles, restaurantes, operadores de tours, platerías y talleres, y comercios y servicios.',
+          'Diseñamos para negocios de Acapulco, Zihuatanejo, Ixtapa, Taxco, Chilpancingo e Iguala: hoteles, restaurantes, operadores de tours, platerías y talleres, y comercios y servicios.',
         items: [
           {
             title: 'Sitios para hoteles y restaurantes',
@@ -152,7 +152,7 @@ export const guerrero: Landing = {
       services: {
         heading: 'Web design and branding services in Guerrero',
         intro:
-          'We work with businesses in Acapulco, Zihuatanejo, Ixtapa, Taxco, Chilpancingo, and Iguala: hotels, restaurants, tour operators, silver workshops, and local retail and services.',
+          'We design for businesses in Acapulco, Zihuatanejo, Ixtapa, Taxco, Chilpancingo, and Iguala: hotels, restaurants, tour operators, silver workshops, and local retail and services.',
         items: [
           {
             title: 'Websites for hotels and restaurants',

@@ -49,7 +49,7 @@ export const phoenix: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Phoenix',
         intro:
-          'Trabajamos con negocios de Phoenix, Mesa, Glendale, Chandler, Tempe, Avondale, Goodyear y Tolleson: roofing, aire acondicionado, remodelación, pools, landscaping, handyman, limpieza, taxes y aseguranzas.',
+          'Diseñamos para negocios de Phoenix, Mesa, Glendale, Chandler, Tempe, Avondale, Goodyear y Tolleson: roofing, aire acondicionado, remodelación, pools, landscaping, handyman, limpieza, taxes y aseguranzas.',
         items: [
           {
             title: 'Sitios que generan llamadas y estimados',
@@ -192,7 +192,7 @@ export const phoenix: Landing = {
       services: {
         heading: 'Web design and branding services in Phoenix',
         intro:
-          'We work with businesses in Phoenix, Mesa, Glendale, Chandler, Tempe, Avondale, Goodyear, and Tolleson: roofing, HVAC, remodeling, pools, landscaping, handyman, cleaning, tax prep, and insurance.',
+          'We design for businesses in Phoenix, Mesa, Glendale, Chandler, Tempe, Avondale, Goodyear, and Tolleson: roofing, HVAC, remodeling, pools, landscaping, handyman, cleaning, tax prep, and insurance.',
         items: [
           {
             title: 'Websites that generate calls and estimates',

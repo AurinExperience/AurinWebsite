@@ -42,7 +42,7 @@ export const zacatecas: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Zacatecas',
         intro:
-          'Trabajamos con negocios de Zacatecas, Guadalupe, Fresnillo, Jerez y Sombrerete: hoteles y hospedajes, recintos para bodas y eventos, operadores de recorridos, restaurantes y empresas de servicios a la minería.',
+          'Diseñamos para negocios de Zacatecas, Guadalupe, Fresnillo, Jerez y Sombrerete: hoteles y hospedajes, recintos para bodas y eventos, operadores de recorridos, restaurantes y empresas de servicios a la minería.',
         items: [
           {
             title: 'Sitios para hoteles del centro histórico',
@@ -143,7 +143,7 @@ export const zacatecas: Landing = {
       services: {
         heading: 'Web design and branding services in Zacatecas',
         intro:
-          'We work with businesses in Zacatecas, Guadalupe, Fresnillo, Jerez, and Sombrerete: hotels and lodging, wedding and event venues, tour operators, restaurants, and mining service companies.',
+          'We design for businesses in Zacatecas, Guadalupe, Fresnillo, Jerez, and Sombrerete: hotels and lodging, wedding and event venues, tour operators, restaurants, and mining service companies.',
         items: [
           {
             title: 'Websites for historic-center hotels',

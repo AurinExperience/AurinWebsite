@@ -25,7 +25,7 @@ export const uxProptech = defineSector({
     hero: 'Rentar, comprar o invertir en un inmueble son decisiones grandes, y la plataforma tiene que transmitir la misma seguridad que una firma ante notario. Diseñamos productos inmobiliarios que se recorren fácil, generan confianza y llevan al usuario a cerrar.',
     stat: { value: 'Construcción', label: 'ya trabajamos con empresas como Grupo Estrella' },
     intro:
-      'Trabajamos con marketplaces de propiedades, plataformas de administración de rentas, crowdfunding inmobiliario y desarrolladores que digitalizan su venta. Cada proyecto parte de quién busca, quién publica y quién administra.',
+      'Diseñamos para marketplaces de propiedades, plataformas de administración de rentas, crowdfunding inmobiliario y desarrolladores que digitalizan su venta. Cada proyecto parte de quién busca, quién publica y quién administra.',
     items: [
       {
         title: 'Búsqueda que encuentra',
@@ -92,7 +92,7 @@ export const uxProptech = defineSector({
     hero: 'Renting, buying, or investing in property are big decisions, and the platform has to convey the same security as signing with a notary. We design real estate products that are easy to browse, build trust, and lead users to close.',
     stat: { value: 'Construction', label: 'we already work with companies like Grupo Estrella' },
     intro:
-      'We work with property marketplaces, rental management platforms, real estate crowdfunding, and developers digitizing their sales. Every project starts from who searches, who lists, and who manages.',
+      'We design for property marketplaces, rental management platforms, real estate crowdfunding, and developers digitizing their sales. Every project starts from who searches, who lists, and who manages.',
     items: [
       {
         title: 'Search that finds',

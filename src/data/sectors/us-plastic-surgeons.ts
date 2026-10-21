@@ -24,7 +24,7 @@ export const usPlasticSurgeons = defineSector({
     target: 'cirujanos plásticos',
     hero: 'Un paciente compara a tres o cuatro cirujanos antes de pedir una consulta, y casi siempre empieza por su sitio. Si se ve igual que el de cualquier clínica, decide por precio. Diseñamos sitios que transmiten tu criterio, tu técnica y tus resultados para que te elijan por quién eres.',
     intro:
-      'Trabajamos con cirujanos plásticos y prácticas de cirugía estética en mercados como Beverly Hills, Manhattan, Miami, Scottsdale y Dallas.',
+      'Diseñamos para cirujanos plásticos y prácticas de cirugía estética en mercados como Beverly Hills, Manhattan, Miami, Scottsdale y Dallas.',
     items: [
       {
         title: 'El cirujano como marca',
@@ -91,7 +91,7 @@ export const usPlasticSurgeons = defineSector({
     target: 'plastic surgeons',
     hero: 'Patients compare three or four surgeons before booking a consultation, and they almost always start with the website. If yours looks like any clinic’s, they decide on price. We design websites that convey your judgment, your technique, and your results so patients choose you for who you are.',
     intro:
-      'We work with plastic surgeons and aesthetic surgery practices in markets like Beverly Hills, Manhattan, Miami, Scottsdale, and Dallas.',
+      'We design for plastic surgeons and aesthetic surgery practices in markets like Beverly Hills, Manhattan, Miami, Scottsdale, and Dallas.',
     items: [
       {
         title: 'The surgeon as a brand',

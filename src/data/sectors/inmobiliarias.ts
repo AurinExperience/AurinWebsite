@@ -63,7 +63,7 @@ export const inmobiliarias: Sector = {
       services: {
         heading: 'Servicios de diseño web para inmobiliarias',
         intro:
-          'Trabajamos con inmobiliarias, asesores, desarrolladores y proyectos en preventa. Cada página web inmobiliaria se diseña a partir de lo que vendes y del comprador que quieres atraer.',
+          'Diseñamos para inmobiliarias, asesores, desarrolladores y proyectos en preventa. Cada página web inmobiliaria se diseña a partir de lo que vendes y del comprador que quieres atraer.',
         items: [
           {
             title: 'Propiedades que se antojan',
@@ -176,7 +176,7 @@ export const inmobiliarias: Sector = {
       services: {
         heading: 'Web design services for real estate',
         intro:
-          'We work with agencies, agents, developers, and pre-sale projects. Every real estate website is designed around what you sell and the buyer you want to attract.',
+          'We design for agencies, agents, developers, and pre-sale projects. Every real estate website is designed around what you sell and the buyer you want to attract.',
         items: [
           {
             title: 'Properties people want',

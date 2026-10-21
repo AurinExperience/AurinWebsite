@@ -24,7 +24,7 @@ export const usLuxuryVacationRentals = defineSector({
     target: 'rentas vacacionales de lujo',
     hero: 'Una villa de miles de dólares por noche no debería verse igual que cualquier anuncio de Airbnb, ni pagar comisión por cada huésped que regresa. Un sitio propio convierte a tus huéspedes en clientes directos. Diseñamos sitios que presentan cada propiedad como una experiencia y llevan a la reserva sin intermediarios.',
     intro:
-      'Trabajamos con dueños de villas, administradoras de propiedades de lujo y marcas de hospitalidad en destinos como Aspen, los Hamptons, Malibú, Miami, Hawái y Lake Tahoe.',
+      'Diseñamos para dueños de villas, administradoras de propiedades de lujo y marcas de hospitalidad en destinos como Aspen, los Hamptons, Malibú, Miami, Hawái y Lake Tahoe.',
     items: [
       {
         title: 'Propiedades que lucen',
@@ -91,7 +91,7 @@ export const usLuxuryVacationRentals = defineSector({
     target: 'luxury vacation rentals',
     hero: 'A villa that rents for thousands a night shouldn’t look like any other Airbnb listing, or pay a commission on every returning guest. A site of your own turns guests into direct clients. We design websites that present every property as an experience and lead to the booking with no middleman.',
     intro:
-      'We work with villa owners, luxury property managers, and hospitality brands in destinations like Aspen, the Hamptons, Malibu, Miami, Hawaii, and Lake Tahoe.',
+      'We design for villa owners, luxury property managers, and hospitality brands in destinations like Aspen, the Hamptons, Malibu, Miami, Hawaii, and Lake Tahoe.',
     items: [
       {
         title: 'Properties that shine',

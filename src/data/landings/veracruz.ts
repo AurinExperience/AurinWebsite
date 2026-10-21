@@ -44,7 +44,7 @@ export const veracruz: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Veracruz',
         intro:
-          'Trabajamos con empresas de Veracruz, Boca del Río, Xalapa, Coatepec, Córdoba, Orizaba y Coatzacoalcos: marcas de café, escuelas y universidades, despachos, clínicas y empresas de servicios.',
+          'Diseñamos para empresas de Veracruz, Boca del Río, Xalapa, Coatepec, Córdoba, Orizaba y Coatzacoalcos: marcas de café, escuelas y universidades, despachos, clínicas y empresas de servicios.',
         items: [
           {
             title: 'Branding y tienda para marcas de café',
@@ -144,7 +144,7 @@ export const veracruz: Landing = {
       services: {
         heading: 'Web design and branding services in Veracruz',
         intro:
-          'We work with companies in Veracruz, Boca del Río, Xalapa, Coatepec, Córdoba, Orizaba, and Coatzacoalcos: coffee brands, schools and universities, firms, clinics, and service companies.',
+          'We design for companies in Veracruz, Boca del Río, Xalapa, Coatepec, Córdoba, Orizaba, and Coatzacoalcos: coffee brands, schools and universities, firms, clinics, and service companies.',
         items: [
           {
             title: 'Branding and online store for coffee brands',

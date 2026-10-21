@@ -47,7 +47,7 @@ export const morelos: Landing = {
       services: {
         heading: 'Servicios de diseño web y UX/UI en Morelos',
         intro:
-          'Trabajamos con negocios de Cuernavaca, Jiutepec, Temixco, Emiliano Zapata, Yautepec y Tepoztlán: hotelería y hospedaje, restaurantes, clínicas y consultorios, escuelas, despachos e inmobiliaria de descanso. Estrategia, UX/UI y desarrollo con un mismo equipo.',
+          'Diseñamos para negocios de Cuernavaca, Jiutepec, Temixco, Emiliano Zapata, Yautepec y Tepoztlán: hotelería y hospedaje, restaurantes, clínicas y consultorios, escuelas, despachos e inmobiliaria de descanso. Estrategia, UX/UI y desarrollo con un mismo equipo.',
         items: [
           {
             title: 'Sitio web para tu negocio',
@@ -131,7 +131,7 @@ export const morelos: Landing = {
           {
             question: '¿Trabajan con hoteles, restaurantes y negocios de turismo?',
             answer:
-              'Sí, y es de lo que más hacemos en la zona. El reto aquí es particular: mucho de tu tráfico llega desde el celular, desde la Ciudad de México y decidiendo a última hora. Eso cambia el diseño: la carga tiene que ser inmediata, las fotos tienen que vender el lugar y la reserva o el contacto no puede estar a más de un toque de distancia.',
+              'Sí. El reto aquí es particular: mucho de tu tráfico llega desde el celular, desde la Ciudad de México y decidiendo a última hora. Eso cambia el diseño: la carga tiene que ser inmediata, las fotos tienen que vender el lugar y la reserva o el contacto no puede estar a más de un toque de distancia.',
           },
           {
             question: 'Ya tengo Instagram y Facebook, ¿de verdad necesito un sitio web?',
@@ -189,7 +189,7 @@ export const morelos: Landing = {
       services: {
         heading: 'Web and UX/UI design services in Morelos',
         intro:
-          'We work with businesses in Cuernavaca, Jiutepec, Temixco, Emiliano Zapata, Yautepec, and Tepoztlán: hospitality and lodging, restaurants, clinics, schools, professional firms, and weekend-home real estate. Strategy, UX/UI, and development from a single team.',
+          'We design for businesses in Cuernavaca, Jiutepec, Temixco, Emiliano Zapata, Yautepec, and Tepoztlán: hospitality and lodging, restaurants, clinics, schools, professional firms, and weekend-home real estate. Strategy, UX/UI, and development from a single team.',
         items: [
           {
             title: 'A website for your business',
@@ -273,7 +273,7 @@ export const morelos: Landing = {
           {
             question: 'Do you work with hotels, restaurants, and tourism businesses?',
             answer:
-              'Yes, and it is a large part of what we do here. The challenge is specific: much of your traffic arrives on a phone, from Mexico City, deciding at the last minute. That changes the design: loading has to be immediate, photos have to sell the place, and booking or contact cannot be more than one tap away.',
+              'Yes. The challenge is specific: much of your traffic arrives on a phone, from Mexico City, deciding at the last minute. That changes the design: loading has to be immediate, photos have to sell the place, and booking or contact cannot be more than one tap away.',
           },
           {
             question: 'I already have Instagram and Facebook. Do I really need a website?',
