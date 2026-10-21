@@ -43,7 +43,7 @@ export const tabasco: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Tabasco',
         intro:
-          'Trabajamos con empresas de Villahermosa, Comalcalco, Cárdenas, Paraíso y Cunduacán: marcas de chocolate y cacao, haciendas cacaoteras, proveedores de la industria energética, despachos contables, clínicas y empresas de servicios.',
+          'Diseñamos para empresas de Villahermosa, Comalcalco, Cárdenas, Paraíso y Cunduacán: marcas de chocolate y cacao, haciendas cacaoteras, proveedores de la industria energética, despachos contables, clínicas y empresas de servicios.',
         items: [
           {
             title: 'Branding para chocolate y cacao',
@@ -144,7 +144,7 @@ export const tabasco: Landing = {
       services: {
         heading: 'Web design and branding services in Tabasco',
         intro:
-          'We work with companies in Villahermosa, Comalcalco, Cárdenas, Paraíso, and Cunduacán: chocolate and cacao brands, cacao haciendas, energy industry suppliers, accounting firms, clinics, and service companies.',
+          'We design for companies in Villahermosa, Comalcalco, Cárdenas, Paraíso, and Cunduacán: chocolate and cacao brands, cacao haciendas, energy industry suppliers, accounting firms, clinics, and service companies.',
         items: [
           {
             title: 'Branding for chocolate and cacao',

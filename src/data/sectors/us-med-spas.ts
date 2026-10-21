@@ -24,7 +24,7 @@ export const usMedSpas = defineSector({
     target: 'med spas',
     hero: 'Tus clientas eligen med spa desde el celular, en un par de minutos, comparando fotos, reseñas y qué tan fácil es reservar. Si tu sitio no se siente como tu experiencia en cabina, la cita se va a otro lado. Diseñamos sitios que transmiten tu nivel y convierten visitas en citas.',
     intro:
-      'Trabajamos con med spas, clínicas de medicina estética y marcas de bienestar en mercados como Los Ángeles, Miami, Scottsdale, Dallas y Nueva York.',
+      'Diseñamos para med spas, clínicas de medicina estética y marcas de bienestar en mercados como Los Ángeles, Miami, Scottsdale, Dallas y Nueva York.',
     items: [
       {
         title: 'Tratamientos que se entienden',
@@ -91,7 +91,7 @@ export const usMedSpas = defineSector({
     target: 'med spas',
     hero: 'Clients choose a med spa on their phone in a couple of minutes, comparing photos, reviews, and how easy it is to book. If your site doesn’t feel like your treatment room, the appointment goes elsewhere. We design websites that convey your level and turn visits into bookings.',
     intro:
-      'We work with med spas, aesthetic medicine clinics, and wellness brands in markets like Los Angeles, Miami, Scottsdale, Dallas, and New York.',
+      'We design for med spas, aesthetic medicine clinics, and wellness brands in markets like Los Angeles, Miami, Scottsdale, Dallas, and New York.',
     items: [
       {
         title: 'Treatments people understand',

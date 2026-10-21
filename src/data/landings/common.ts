@@ -45,7 +45,7 @@ const es = {
   faqRemote: (place: string): Faq => ({
     question: `¿Trabajan con empresas en ${place}?`,
     answer:
-      'Claro. Trabajamos a distancia con empresas de todo México y con clientes en Estados Unidos, Canadá y España, entre otros países.',
+      'Claro. Trabajamos a distancia, así que podemos atender empresas en cualquier parte de México y en otros países, como Estados Unidos, Canadá o España.',
   }),
   faqLanguages: {
     question: '¿Pueden hacer el sitio en inglés y en español?',
@@ -89,7 +89,7 @@ const en: typeof es = {
   faqRemote: (place: string): Faq => ({
     question: `Do you work with companies in ${place}?`,
     answer:
-      'Absolutely. We work remotely with companies all over Mexico and with clients in the United States, Canada, and Spain, among other countries.',
+      'Absolutely. We work remotely, so we can serve companies anywhere in Mexico and in other countries, such as the United States, Canada, or Spain.',
   }),
   faqLanguages: {
     question: 'Can you build the site in English and Spanish?',

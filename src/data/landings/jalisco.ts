@@ -133,7 +133,7 @@ export const jalisco: Landing = {
           {
             question: '¿Trabajan con marcas de consumo y e-commerce?',
             answer:
-              'Sí, es buena parte de lo que hacemos. En consumo el diseño carga con la marca: la fotografía, el ritmo y el detalle comunican precio y calidad antes de que el visitante lea una palabra. Y en e-commerce lo que se mide es distinto: no cuántas visitas llegan, sino cuántas terminan la compra y en qué paso exacto se caen las demás.',
+              'Sí. En consumo el diseño carga con la marca: la fotografía, el ritmo y el detalle comunican precio y calidad antes de que el visitante lea una palabra. Y en e-commerce lo que se mide es distinto: no cuántas visitas llegan, sino cuántas terminan la compra y en qué paso exacto se caen las demás.',
           },
           {
             question: '¿Nos entregan el design system para que nuestro equipo siga solo?',
@@ -143,7 +143,7 @@ export const jalisco: Landing = {
           {
             question: '¿Atienden Puerto Vallarta y el resto de Jalisco?',
             answer:
-              'Sí. Trabajamos a distancia con toda la Zona Metropolitana de Guadalajara y con Puerto Vallarta, donde el perfil de proyecto suele ser distinto: hotelería, restaurantes y clientes internacionales, casi siempre con sitio en dos idiomas. El proceso es el mismo, cambia el tipo de audiencia para la que se diseña.',
+              'Sí. Trabajamos a distancia, así que podemos atender toda la Zona Metropolitana de Guadalajara y Puerto Vallarta, donde el perfil de proyecto suele ser distinto: hotelería, restaurantes y clientes internacionales, casi siempre con sitio en dos idiomas. El proceso es el mismo, cambia el tipo de audiencia para la que se diseña.',
           },
         ],
       },
@@ -275,7 +275,7 @@ export const jalisco: Landing = {
           {
             question: 'Do you work with consumer brands and e-commerce?',
             answer:
-              'Yes, a large part of what we do. In consumer, design carries the brand: photography, pacing, and detail communicate price and quality before the visitor reads a word. And in e-commerce what gets measured is different: not how many visits arrive, but how many finish the purchase and at which exact step the rest drop off.',
+              'Yes. In consumer, design carries the brand: photography, pacing, and detail communicate price and quality before the visitor reads a word. And in e-commerce what gets measured is different: not how many visits arrive, but how many finish the purchase and at which exact step the rest drop off.',
           },
           {
             question: 'Do you hand over the design system so our team can continue?',
@@ -285,7 +285,7 @@ export const jalisco: Landing = {
           {
             question: 'Do you cover Puerto Vallarta and the rest of Jalisco?',
             answer:
-              'Yes. We work remotely with the whole Guadalajara metro area and with Puerto Vallarta, where the project profile tends to be different: hospitality, restaurants, and international clients, almost always with a two-language site. The process is the same, what changes is the audience being designed for.',
+              'Yes. We work remotely, so we can serve the whole Guadalajara metro area and Puerto Vallarta, where the project profile tends to be different: hospitality, restaurants, and international clients, almost always with a two-language site. The process is the same, what changes is the audience being designed for.',
           },
         ],
       },

@@ -61,7 +61,7 @@ export const hoteles: Sector = {
       services: {
         heading: 'Servicios de diseño web para hoteles',
         intro:
-          'Trabajamos con hoteles boutique, hoteles de ciudad, resorts y hospedajes. Cada página web para hotel se diseña a partir de tu huésped y de cómo quieres recibir tus reservas.',
+          'Diseñamos para hoteles boutique, hoteles de ciudad, resorts y hospedajes. Cada página web para hotel se diseña a partir de tu huésped y de cómo quieres recibir tus reservas.',
         items: [
           {
             title: 'Reservas directas',
@@ -170,7 +170,7 @@ export const hoteles: Sector = {
       services: {
         heading: 'Web design services for hotels',
         intro:
-          'We work with boutique hotels, city hotels, resorts, and lodging. Every hotel website is designed around your guests and how you want to take bookings.',
+          'We design for boutique hotels, city hotels, resorts, and lodging. Every hotel website is designed around your guests and how you want to take bookings.',
         items: [
           {
             title: 'Direct bookings',

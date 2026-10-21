@@ -25,7 +25,7 @@ export const uxBanca = defineSector({
     hero: 'Cada trámite que tu cliente no puede resolver en la app termina en una llamada o en una fila en sucursal. Diseñamos banca digital que cualquier cliente entiende, de 20 o de 70 años, con la seguridad a la vista y sin pasos de más.',
     stat: { value: 'Finanzas', label: 'ya trabajamos con marcas como Monetix, Bonanza y Debiti' },
     intro:
-      'Trabajamos con bancos, cajas de ahorro, sofipos y entidades financieras que llevan sus servicios a web y móvil. Cada proyecto parte de los trámites que tus clientes más hacen y de dónde se atoran hoy.',
+      'Diseñamos para bancos, cajas de ahorro, sofipos y entidades financieras que llevan sus servicios a web y móvil. Cada proyecto parte de los trámites que tus clientes más hacen y de dónde se atoran hoy.',
     items: [
       {
         title: 'Trámites que se resuelven solos',
@@ -92,7 +92,7 @@ export const uxBanca = defineSector({
     hero: 'Every task customers cannot finish in the app ends in a call or a line at the branch. We design digital banking any customer understands, whether they are 20 or 70, with security in plain sight and no extra steps.',
     stat: { value: 'Finance', label: 'we already work with brands like Monetix, Bonanza, and Debiti' },
     intro:
-      'We work with banks, credit unions, and financial institutions taking their services to web and mobile. Every project starts from the tasks your customers do most and where they get stuck today.',
+      'We design for banks, credit unions, and financial institutions taking their services to web and mobile. Every project starts from the tasks your customers do most and where they get stuck today.',
     items: [
       {
         title: 'Tasks customers finish on their own',

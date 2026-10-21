@@ -62,7 +62,7 @@ export const uxFintech: Sector = {
       services: {
         heading: 'Servicios de diseño UX/UI para fintech',
         intro:
-          'Trabajamos con fintechs, startups de pagos, plataformas de inversión y empresas financieras que digitalizan sus servicios. Cada proyecto parte de tu usuario y de la decisión que tiene que tomar en cada pantalla.',
+          'Diseñamos para fintechs, startups de pagos, plataformas de inversión y empresas financieras que digitalizan sus servicios. Cada proyecto parte de tu usuario y de la decisión que tiene que tomar en cada pantalla.',
         items: [
           {
             title: 'Onboarding que convierte',
@@ -163,7 +163,7 @@ export const uxFintech: Sector = {
       services: {
         heading: 'UX/UI design services for fintech',
         intro:
-          'We work with fintechs, payment startups, investment platforms, and financial companies going digital. Every project starts from your user and the decision they make on each screen.',
+          'We design for fintechs, payment startups, investment platforms, and financial companies going digital. Every project starts from your user and the decision they make on each screen.',
         items: [
           {
             title: 'Onboarding that converts',

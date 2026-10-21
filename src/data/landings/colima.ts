@@ -44,7 +44,7 @@ export const colima: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Colima',
         intro:
-          'Trabajamos con empresas de Manzanillo, Colima, Villa de Álvarez y Tecomán: agencias aduanales, despachos contables, empresas de servicios del puerto, hoteles y restaurantes.',
+          'Diseñamos para empresas de Manzanillo, Colima, Villa de Álvarez y Tecomán: agencias aduanales, despachos contables, empresas de servicios del puerto, hoteles y restaurantes.',
         items: [
           {
             title: 'Sitio corporativo para agencias aduanales',
@@ -153,7 +153,7 @@ export const colima: Landing = {
       services: {
         heading: 'Web design and branding services in Colima',
         intro:
-          'We work with companies in Manzanillo, Colima, Villa de Álvarez, and Tecomán: customs brokers, accounting firms, port service companies, hotels, and restaurants.',
+          'We design for companies in Manzanillo, Colima, Villa de Álvarez, and Tecomán: customs brokers, accounting firms, port service companies, hotels, and restaurants.',
         items: [
           {
             title: 'Corporate site for customs brokers',

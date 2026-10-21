@@ -47,7 +47,7 @@ export const sanAntonio: Landing = {
       services: {
         heading: 'Servicios de branding y diseño web en San Antonio',
         intro:
-          'Trabajamos con negocios de San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin y Boerne: restaurantes y panaderías, talleres, contratistas, clínicas, despachos y negocios con años de historia.',
+          'Diseñamos para negocios de San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin y Boerne: restaurantes y panaderías, talleres, contratistas, clínicas, despachos y negocios con años de historia.',
         items: [
           {
             title: 'Renovación de marca para negocios con historia',
@@ -136,7 +136,7 @@ export const sanAntonio: Landing = {
           {
             question: '¿Trabajan con negocios en San Antonio?',
             answer:
-              'Sí. Marca, diseño y desarrollo los resuelve un mismo equipo que entiende tu cultura y la de tus clientes. Ya trabajamos a distancia con clientes en Estados Unidos, Canadá y España, y con empresas de todo México. La diferencia de horario con San Antonio es de cero a una hora según la temporada.',
+              'Sí. Marca, diseño y desarrollo los resuelve un mismo equipo que entiende tu cultura y la de tus clientes. Trabajamos a distancia, así que el proceso funciona igual desde cualquier ciudad. La diferencia de horario con San Antonio es de cero a una hora según la temporada.',
           },
           {
             question: '¿Cómo se paga?',
@@ -190,7 +190,7 @@ export const sanAntonio: Landing = {
       services: {
         heading: 'Branding and web design services in San Antonio',
         intro:
-          'We work with businesses in San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin, and Boerne: restaurants and bakeries, auto shops, contractors, clinics, professional firms, and businesses with years of history.',
+          'We design for businesses in San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin, and Boerne: restaurants and bakeries, auto shops, contractors, clinics, professional firms, and businesses with years of history.',
         items: [
           {
             title: 'Brand refresh for established businesses',
@@ -278,7 +278,7 @@ export const sanAntonio: Landing = {
           {
             question: 'Do you work with businesses in San Antonio?',
             answer:
-              'Yes. Brand, design, and development are handled by the same team, one that understands your culture and your customers’. We already work remotely with clients in the United States, Canada, and Spain, and with companies all over Mexico. The time difference with San Antonio is zero to one hour depending on the season.',
+              'Yes. Brand, design, and development are handled by the same team, one that understands your culture and your customers’. We work remotely, so the process works the same from any city. The time difference with San Antonio is zero to one hour depending on the season.',
           },
           {
             question: 'How does payment work?',

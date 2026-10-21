@@ -62,7 +62,7 @@ export const dentistas: Sector = {
       services: {
         heading: 'Servicios de diseño web para dentistas',
         intro:
-          'Trabajamos con dentistas, ortodoncistas, endodoncistas y clínicas dentales. Cada página web para consultorio dental se diseña alrededor de los tratamientos que más te importan y de cómo prefieres recibir a tus pacientes.',
+          'Diseñamos para dentistas, ortodoncistas, endodoncistas y clínicas dentales. Cada página web para consultorio dental se diseña alrededor de los tratamientos que más te importan y de cómo prefieres recibir a tus pacientes.',
         items: [
           {
             title: 'Valoraciones en línea',
@@ -183,7 +183,7 @@ export const dentistas: Sector = {
       services: {
         heading: 'Web design services for dentists',
         intro:
-          'We work with dentists, orthodontists, endodontists, and dental clinics. Every dental practice website is designed around the treatments that matter most to you and how you prefer to welcome patients.',
+          'We design for dentists, orthodontists, endodontists, and dental clinics. Every dental practice website is designed around the treatments that matter most to you and how you prefer to welcome patients.',
         items: [
           {
             title: 'Online consultations',

@@ -43,7 +43,7 @@ export const sinaloa: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Sinaloa',
         intro:
-          'Trabajamos con empresas de Culiacán, Mazatlán, Los Mochis, Guasave y Navolato: agroindustria y productores, empacadoras de mariscos, hoteles, restaurantes, clínicas y empresas de servicios.',
+          'Diseñamos para empresas de Culiacán, Mazatlán, Los Mochis, Guasave y Navolato: agroindustria y productores, empacadoras de mariscos, hoteles, restaurantes, clínicas y empresas de servicios.',
         items: [
           {
             title: 'Sitio bilingüe para agroindustria',
@@ -148,7 +148,7 @@ export const sinaloa: Landing = {
       services: {
         heading: 'Web design and branding services in Sinaloa',
         intro:
-          'We work with companies in Culiacán, Mazatlán, Los Mochis, Guasave, and Navolato: agribusiness and growers, seafood packers, hotels, restaurants, clinics, and service companies.',
+          'We design for companies in Culiacán, Mazatlán, Los Mochis, Guasave, and Navolato: agribusiness and growers, seafood packers, hotels, restaurants, clinics, and service companies.',
         items: [
           {
             title: 'Bilingual site for agribusiness',

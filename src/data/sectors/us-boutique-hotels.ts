@@ -23,7 +23,7 @@ export const usBoutiqueHotels = defineSector({
     target: 'hoteles boutique',
     hero: 'Cada reserva que llega por una agencia en línea te cuesta una comisión y te quita la relación con el huésped. Un sitio que vende tu experiencia mejor que cualquier plataforma convierte al viajero en huésped directo. Diseñamos sitios que hacen sentir tu hotel antes de llegar y llevan a la reserva sin fricción.',
     intro:
-      'Trabajamos con hoteles boutique, resorts, posadas de lujo y grupos hoteleros independientes en destinos como Napa, Aspen, Miami, Charleston y los Hamptons.',
+      'Diseñamos para hoteles boutique, resorts, posadas de lujo y grupos hoteleros independientes en destinos como Napa, Aspen, Miami, Charleston y los Hamptons.',
     items: [
       {
         title: 'La experiencia antes de llegar',
@@ -90,7 +90,7 @@ export const usBoutiqueHotels = defineSector({
     target: 'boutique hotels',
     hero: 'Every booking from an online travel agency costs you a commission and takes away your relationship with the guest. A site that sells your experience better than any platform turns travelers into direct guests. We design websites that let people feel your hotel before arriving and lead to the booking without friction.',
     intro:
-      'We work with boutique hotels, resorts, luxury inns, and independent hotel groups in destinations like Napa, Aspen, Miami, Charleston, and the Hamptons.',
+      'We design for boutique hotels, resorts, luxury inns, and independent hotel groups in destinations like Napa, Aspen, Miami, Charleston, and the Hamptons.',
     items: [
       {
         title: 'The experience before arrival',

@@ -23,7 +23,7 @@ export const concesionarias = defineSector({
     target: 'concesionarias',
     hero: 'El comprador llega a tu piso de ventas con el auto ya elegido: lo comparó en línea, revisó versiones, precios y financiamiento, y cada vez más le preguntó a una IA. Diseñamos sitios que hacen lucir tu inventario y convierten esa búsqueda en una prueba de manejo agendada.',
     intro:
-      'Trabajamos con concesionarias, agencias de seminuevos y grupos automotrices. Cada página web para agencia de autos se diseña alrededor de tu inventario y de cómo prefieres recibir a tus prospectos.',
+      'Diseñamos para concesionarias, agencias de seminuevos y grupos automotrices. Cada página web para agencia de autos se diseña alrededor de tu inventario y de cómo prefieres recibir a tus prospectos.',
     items: [
       {
         title: 'Inventario que se antoja',
@@ -90,7 +90,7 @@ export const concesionarias = defineSector({
     target: 'car dealerships',
     hero: 'Buyers walk onto your lot with the car already chosen: they compared it online, checked trims, prices, and financing, and more and more often they asked an AI. We design websites that make your inventory shine and turn that search into a booked test drive.',
     intro:
-      'We work with dealerships, used car lots, and automotive groups. Every car dealership website is designed around your inventory and how you prefer to receive leads.',
+      'We design for dealerships, used car lots, and automotive groups. Every car dealership website is designed around your inventory and how you prefer to receive leads.',
     items: [
       {
         title: 'Inventory people want',

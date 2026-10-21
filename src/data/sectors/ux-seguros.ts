@@ -25,7 +25,7 @@ export const uxSeguros = defineSector({
     hero: 'Nadie disfruta comprar un seguro y casi nadie entiende su póliza. Cada pregunta sin respuesta es un cliente que abandona el cotizador o una llamada al momento del siniestro. Diseñamos experiencias de seguros claras, de la cotización al reclamo.',
     stat: { value: 'Finanzas', label: 'ya trabajamos con marcas como Fortrade, Monetix y Bonanza' },
     intro:
-      'Trabajamos con aseguradoras, insurtechs, brokers y agentes que digitalizan su venta y su servicio. Cada proyecto parte de las decisiones que el cliente toma en cada etapa de su póliza.',
+      'Diseñamos para aseguradoras, insurtechs, brokers y agentes que digitalizan su venta y su servicio. Cada proyecto parte de las decisiones que el cliente toma en cada etapa de su póliza.',
     items: [
       {
         title: 'Cotizadores que convierten',
@@ -92,7 +92,7 @@ export const uxSeguros = defineSector({
     hero: 'Nobody enjoys buying insurance and almost nobody understands their policy. Every unanswered question is a customer abandoning the quote or a call at the moment of a claim. We design clear insurance experiences, from quote to claim.',
     stat: { value: 'Finance', label: 'we already work with brands like Fortrade, Monetix, and Bonanza' },
     intro:
-      'We work with insurers, insurtechs, brokers, and agents digitizing their sales and service. Every project starts from the decisions customers make at each stage of their policy.',
+      'We design for insurers, insurtechs, brokers, and agents digitizing their sales and service. Every project starts from the decisions customers make at each stage of their policy.',
     items: [
       {
         title: 'Quote flows that convert',

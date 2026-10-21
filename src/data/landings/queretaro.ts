@@ -128,7 +128,7 @@ export const queretaro: Landing = {
           {
             question: '¿Diseñan sitios bilingües para empresas con matriz o clientes en el extranjero?',
             answer:
-              'Sí, y es una buena parte de lo que hacemos. Un sitio bilingüe bien hecho no es traducir textos: es una arquitectura paralela con etiquetas hreflang correctas, URLs propias por idioma y un CMS donde tu equipo publica en ambos sin duplicar trabajo. Hecho a medias, Google termina mostrando la versión equivocada al usuario equivocado.',
+              'Sí. Un sitio bilingüe bien hecho no es traducir textos: es una arquitectura paralela con etiquetas hreflang correctas, URLs propias por idioma y un CMS donde tu equipo publica en ambos sin duplicar trabajo. Hecho a medias, Google termina mostrando la versión equivocada al usuario equivocado.',
           },
           {
             question: '¿Pueden rediseñar nuestro sitio sin perder el posicionamiento que ya tenemos?',
@@ -271,7 +271,7 @@ export const queretaro: Landing = {
           {
             question: 'Do you build bilingual sites for companies with foreign clients or parent companies?',
             answer:
-              'Yes, and it is a good share of what we do. A proper bilingual site is not translated text: it is a parallel architecture with correct hreflang tags, dedicated URLs per language, and a CMS where your team publishes in both without duplicating work. Done halfway, Google ends up showing the wrong version to the wrong user.',
+              'Yes. A proper bilingual site is not translated text: it is a parallel architecture with correct hreflang tags, dedicated URLs per language, and a CMS where your team publishes in both without duplicating work. Done halfway, Google ends up showing the wrong version to the wrong user.',
           },
           {
             question: 'Can you redesign our site without losing the rankings we already have?',

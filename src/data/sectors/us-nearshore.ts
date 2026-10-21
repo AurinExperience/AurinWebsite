@@ -24,7 +24,7 @@ export const usNearshore = defineSector({
     target: 'empresas de Estados Unidos',
     hero: 'Contratar una agencia en Nueva York o San Francisco cuesta lo que cuesta su renta. Contratar al otro lado del mundo significa juntas a medianoche y entregas que no se parecen a lo que pediste. Somos un estudio en México que trabaja en tu horario, en inglés y con el nivel de diseño de una agencia de primera.',
     intro:
-      'Trabajamos con empresas de Estados Unidos que quieren un equipo de diseño senior y dedicado sin pagar la estructura de una agencia local: marcas en crecimiento, empresas de servicios de alto valor y equipos de marketing que necesitan más manos.',
+      'Diseñamos para empresas de Estados Unidos que quieren un equipo de diseño senior y dedicado sin pagar la estructura de una agencia local: marcas en crecimiento, empresas de servicios de alto valor y equipos de marketing que necesitan más manos.',
     items: [
       {
         title: 'Sitios web de nivel agencia',
@@ -91,7 +91,7 @@ export const usNearshore = defineSector({
     target: 'US companies',
     hero: 'Hiring an agency in New York or San Francisco means paying for their rent. Hiring across the world means midnight meetings and deliverables that don’t look like what you asked for. We are a studio in Mexico that works your hours, in English, at the design level of a top-tier agency.',
     intro:
-      'We work with US companies that want a dedicated senior design team without paying for a local agency’s overhead: growing brands, high-value service firms, and marketing teams that need more hands.',
+      'We design for US companies that want a dedicated senior design team without paying for a local agency’s overhead: growing brands, high-value service firms, and marketing teams that need more hands.',
     items: [
       {
         title: 'Agency-level websites',

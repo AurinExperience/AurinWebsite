@@ -24,7 +24,7 @@ export const laboratorios = defineSector({
     hero: 'Antes de ir, el paciente quiere saber si haces el estudio, cuánto tarda, cómo prepararse y en qué sucursal le queda más cerca. Después, quiere encontrar dónde ver sus resultados. Diseñamos sitios de laboratorio que resuelven todo eso en línea y que también entienden los buscadores con IA.',
     stat: { value: 'Salud', label: 'ya trabajamos con marcas como Elite Home Health y Dentol' },
     intro:
-      'Trabajamos con laboratorios clínicos, de imagen y redes de sucursales. Cada página web para laboratorio se diseña alrededor de tus estudios y de cómo atienden a tus pacientes.',
+      'Diseñamos para laboratorios clínicos, de imagen y redes de sucursales. Cada página web para laboratorio se diseña alrededor de tus estudios y de cómo atienden a tus pacientes.',
     items: [
       {
         title: 'Catálogo de estudios que se entiende',
@@ -92,7 +92,7 @@ export const laboratorios = defineSector({
     hero: 'Before coming in, patients want to know whether you run the test, how long it takes, how to prepare, and which location is closest. Afterward, they want to find where to see their results. We design lab websites that handle all of that online and that AI search tools understand too.',
     stat: { value: 'Health', label: 'we already work with brands like Elite Home Health and Dentol' },
     intro:
-      'We work with clinical labs, imaging centers, and location networks. Every lab website is designed around your tests and how you serve your patients.',
+      'We design for clinical labs, imaging centers, and location networks. Every lab website is designed around your tests and how you serve your patients.',
     items: [
       {
         title: 'A test catalog people understand',

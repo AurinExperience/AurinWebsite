@@ -137,7 +137,7 @@ export const quintanaRoo: Landing = {
           {
             question: '¿Trabajan con empresas en Quintana Roo?',
             answer:
-              'Claro. Trabajamos a distancia con empresas de todo México y con clientes en Estados Unidos, Canadá y España, entre otros países.',
+              'Claro. Trabajamos a distancia, así que podemos atender empresas en cualquier parte de México y en otros países, como Estados Unidos, Canadá o España.',
           },
           {
             question: '¿Puedo actualizar precios y temporadas yo mismo?',
@@ -280,7 +280,7 @@ export const quintanaRoo: Landing = {
           {
             question: 'Do you work with companies in Quintana Roo?',
             answer:
-              'Absolutely. We work remotely with companies all over Mexico and with clients in the United States, Canada, and Spain, among other countries.',
+              'Absolutely. We work remotely, so we can serve companies anywhere in Mexico and in other countries, such as the United States, Canada, or Spain.',
           },
           {
             question: 'Can I update prices and seasons myself?',

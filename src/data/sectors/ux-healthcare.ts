@@ -25,7 +25,7 @@ export const uxHealthcare = defineSector({
     hero: 'En un hospital conviven pacientes, familiares, médicos, enfermería y administración, y cada uno necesita algo distinto con prisa. Diseñamos portales, apps y sistemas internos que cada uno entiende a la primera, para que la experiencia digital esté a la altura de la atención.',
     stat: { value: 'Salud', label: 'ya trabajamos con marcas como Elite Home Health y Dentol' },
     intro:
-      'Trabajamos con hospitales, redes de clínicas, laboratorios y aseguradoras de salud. Cada proyecto parte de los distintos usuarios de tu sistema y del momento en que lo usan.',
+      'Diseñamos para hospitales, redes de clínicas, laboratorios y aseguradoras de salud. Cada proyecto parte de los distintos usuarios de tu sistema y del momento en que lo usan.',
     items: [
       {
         title: 'Portal y app de pacientes',
@@ -92,7 +92,7 @@ export const uxHealthcare = defineSector({
     hero: 'A hospital brings together patients, families, doctors, nurses, and administrators, and each needs something different, in a hurry. We design portals, apps, and internal systems each of them understands the first time, so the digital experience matches the quality of care.',
     stat: { value: 'Health', label: 'we already work with brands like Elite Home Health and Dentol' },
     intro:
-      'We work with hospitals, clinic networks, laboratories, and health insurers. Every project starts from the different users of your system and the moment they use it.',
+      'We design for hospitals, clinic networks, laboratories, and health insurers. Every project starts from the different users of your system and the moment they use it.',
     items: [
       {
         title: 'Patient portal and app',

@@ -43,7 +43,7 @@ export const campeche: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Campeche',
         intro:
-          'Trabajamos con empresas de Campeche, Ciudad del Carmen, Champotón y Escárcega: proveedores de servicios industriales, contratistas, hoteles, restaurantes y operadores de turismo.',
+          'Diseñamos para empresas de Campeche, Ciudad del Carmen, Champotón y Escárcega: proveedores de servicios industriales, contratistas, hoteles, restaurantes y operadores de turismo.',
         items: [
           {
             title: 'Sitio corporativo para empresas de servicios',
@@ -152,7 +152,7 @@ export const campeche: Landing = {
       services: {
         heading: 'Web design and branding services in Campeche',
         intro:
-          'We work with companies in Campeche, Ciudad del Carmen, Champotón, and Escárcega: industrial service providers, contractors, hotels, restaurants, and tour operators.',
+          'We design for companies in Campeche, Ciudad del Carmen, Champotón, and Escárcega: industrial service providers, contractors, hotels, restaurants, and tour operators.',
         items: [
           {
             title: 'Corporate site for service companies',

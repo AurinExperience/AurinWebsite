@@ -24,7 +24,7 @@ export const usPrivateAviation = defineSector({
     target: 'empresas de aviación privada',
     hero: 'Tu cliente está acostumbrado a que todo pase en minutos, y espera lo mismo al pedir una cotización. Si tu sitio es lento o se ve anticuado, piensa que tu servicio también lo es. Diseñamos sitios que transmiten seguridad, exclusividad e inmediatez desde el primer vistazo.',
     intro:
-      'Trabajamos con operadores de vuelos chárter, empresas de gestión de aeronaves, FBOs, programas de membresía de jet y brokers de aeronaves en Estados Unidos.',
+      'Diseñamos para operadores de vuelos chárter, empresas de gestión de aeronaves, FBOs, programas de membresía de jet y brokers de aeronaves en Estados Unidos.',
     items: [
       {
         title: 'Cotización en segundos',
@@ -91,7 +91,7 @@ export const usPrivateAviation = defineSector({
     target: 'private aviation companies',
     hero: 'Your clients are used to things happening in minutes, and they expect the same when requesting a quote. If your site is slow or dated, they assume your service is too. We design websites that convey safety, exclusivity, and immediacy at first glance.',
     intro:
-      'We work with charter operators, aircraft management companies, FBOs, jet membership programs, and aircraft brokers in the US.',
+      'We design for charter operators, aircraft management companies, FBOs, jet membership programs, and aircraft brokers in the US.',
     items: [
       {
         title: 'Quotes in seconds',

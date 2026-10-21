@@ -44,7 +44,7 @@ export const michoacan: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Michoacán',
         intro:
-          'Trabajamos con empresas de Morelia, Uruapan, Zamora, Pátzcuaro, Paracho y Lázaro Cárdenas: empacadoras y exportadoras, productores agrícolas, talleres artesanales, clínicas, escuelas y servicios.',
+          'Diseñamos para empresas de Morelia, Uruapan, Zamora, Pátzcuaro, Paracho y Lázaro Cárdenas: empacadoras y exportadoras, productores agrícolas, talleres artesanales, clínicas, escuelas y servicios.',
         items: [
           {
             title: 'Sitio bilingüe para empacadoras y exportadoras',
@@ -149,7 +149,7 @@ export const michoacan: Landing = {
       services: {
         heading: 'Web design and branding services in Michoacán',
         intro:
-          'We work with companies in Morelia, Uruapan, Zamora, Pátzcuaro, Paracho, and Lázaro Cárdenas: packers and exporters, growers, craft workshops, clinics, schools, and services.',
+          'We design for companies in Morelia, Uruapan, Zamora, Pátzcuaro, Paracho, and Lázaro Cárdenas: packers and exporters, growers, craft workshops, clinics, schools, and services.',
         items: [
           {
             title: 'Bilingual site for packers and exporters',

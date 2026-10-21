@@ -24,7 +24,7 @@ export const salonesEventos = defineSector({
     hero: 'Una boda o un evento corporativo se decide viendo el lugar. Antes de visitarte, la pareja o la empresa compara fotos, capacidades y paquetes de varios recintos, y cada vez más le pregunta a una IA. Diseñamos sitios que enamoran del espacio y convierten esa búsqueda en una visita agendada.',
     stat: { value: 'Recreación', label: 'ya trabajamos con marcas como El Rollo y la Sinfónica de Minería' },
     intro:
-      'Trabajamos con salones, jardines, haciendas y recintos para bodas y eventos corporativos. Cada página web para salón de eventos se diseña para que tu espacio se vea como se siente estar ahí.',
+      'Diseñamos para salones, jardines, haciendas y recintos para bodas y eventos corporativos. Cada página web para salón de eventos se diseña para que tu espacio se vea como se siente estar ahí.',
     items: [
       {
         title: 'Espacios que enamoran',
@@ -92,7 +92,7 @@ export const salonesEventos = defineSector({
     hero: 'A wedding or corporate event is decided by seeing the place. Before visiting, couples and companies compare photos, capacities, and packages across venues, and more and more often they ask an AI. We design websites that make people fall in love with your space and turn that search into a booked visit.',
     stat: { value: 'Leisure', label: 'we already work with brands like El Rollo and Sinfónica de Minería' },
     intro:
-      'We work with event halls, gardens, haciendas, and venues for weddings and corporate events. Every event venue website is designed so your space looks the way it feels to be there.',
+      'We design for event halls, gardens, haciendas, and venues for weddings and corporate events. Every event venue website is designed so your space looks the way it feels to be there.',
     items: [
       {
         title: 'Spaces people fall for',

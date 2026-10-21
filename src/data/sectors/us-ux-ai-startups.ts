@@ -25,7 +25,7 @@ export const usUxAiStartups = defineSector({
     target: 'productos de IA',
     hero: 'Tu modelo puede hacer muchísimo, pero si el usuario no entiende qué pedirle ni puede confiar en lo que responde, no lo vuelve a abrir. Diseñamos la experiencia que convierte un modelo potente en un producto que la gente entiende, usa y recomienda.',
     intro:
-      'Trabajamos con startups de IA y equipos de producto en Estados Unidos que están llevando modelos, copilotos y agentes a usuarios reales.',
+      'Diseñamos para startups de IA y equipos de producto en Estados Unidos que están llevando modelos, copilotos y agentes a usuarios reales.',
     items: [
       {
         title: 'Interfaces de chat y agentes',
@@ -91,7 +91,7 @@ export const usUxAiStartups = defineSector({
     target: 'AI products',
     hero: 'Your model can do a lot, but if users don’t know what to ask or can’t trust what it returns, they won’t open it again. We design the experience that turns a powerful model into a product people understand, use, and recommend.',
     intro:
-      'We work with AI startups and product teams in the US that are bringing models, copilots, and agents to real users.',
+      'We design for AI startups and product teams in the US that are bringing models, copilots, and agents to real users.',
     items: [
       {
         title: 'Chat and agent interfaces',

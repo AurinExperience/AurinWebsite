@@ -137,7 +137,7 @@ export const cdmx: Landing = {
           {
             question: '¿Trabajan con consultoras, despachos contables y empresas de servicios profesionales?',
             answer:
-              'Sí, es buena parte de nuestro trabajo. En servicios profesionales el sitio no cierra la venta, pero sí decide si te consideran: el cliente compara tres o cuatro opciones antes de escribir. El trabajo es que tu experiencia, tus casos y tu equipo se lean con credibilidad y sin el tono acartonado que usa la mayoría del sector.',
+              'Sí. En servicios profesionales el sitio no cierra la venta, pero sí decide si te consideran: el cliente compara tres o cuatro opciones antes de escribir. El trabajo es que tu experiencia, tus casos y tu equipo se lean con credibilidad y sin el tono acartonado que usa la mayoría del sector.',
           },
           {
             question: 'Mi sitio está en WordPress con una plantilla, ¿pueden migrarlo?',
@@ -280,7 +280,7 @@ export const cdmx: Landing = {
           {
             question: 'Do you work with consultancies, accounting firms, and professional service companies?',
             answer:
-              'Yes, a good share of our work. In professional services the site does not close the sale, but it decides whether you get considered: the client compares three or four options before writing to anyone. The job is making your experience, your cases, and your team read as credible without the stiff tone most of the sector uses.',
+              'Yes. In professional services the site does not close the sale, but it decides whether you get considered: the client compares three or four options before writing to anyone. The job is making your experience, your cases, and your team read as credible without the stiff tone most of the sector uses.',
           },
           {
             question: 'My site runs on a WordPress template. Can you migrate it?',

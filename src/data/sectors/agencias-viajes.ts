@@ -24,7 +24,7 @@ export const agenciasViajes = defineSector({
     hero: 'Un viaje se sueña antes de comprarse. El viajero recorre destinos y paquetes, compara y busca a alguien de confianza que lo asesore, y cada vez más le pregunta a una IA. Diseñamos sitios que inspiran a viajar y convierten esa inspiración en una cotización con tu equipo.',
     stat: { value: 'Turismo', label: 'ya trabajamos con marcas de turismo y recreación como El Rollo' },
     intro:
-      'Trabajamos con agencias de viajes, tour operadores, agencias de viajes de lujo y de grupos. Cada página web para agencia de viajes se diseña alrededor de tus destinos y del viajero que quieres atraer.',
+      'Diseñamos para agencias de viajes, tour operadores, agencias de viajes de lujo y de grupos. Cada página web para agencia de viajes se diseña alrededor de tus destinos y del viajero que quieres atraer.',
     items: [
       {
         title: 'Paquetes que inspiran',
@@ -92,7 +92,7 @@ export const agenciasViajes = defineSector({
     hero: 'A trip is dreamed about before it is bought. Travelers browse destinations and packages, compare, and look for someone they trust to advise them, and more and more often they ask an AI. We design websites that inspire travel and turn that inspiration into a quote with your team.',
     stat: { value: 'Tourism', label: 'we already work with tourism and leisure brands like El Rollo' },
     intro:
-      'We work with travel agencies, tour operators, and luxury and group travel agencies. Every travel agency website is designed around your destinations and the traveler you want to attract.',
+      'We design for travel agencies, tour operators, and luxury and group travel agencies. Every travel agency website is designed around your destinations and the traveler you want to attract.',
     items: [
       {
         title: 'Packages that inspire',

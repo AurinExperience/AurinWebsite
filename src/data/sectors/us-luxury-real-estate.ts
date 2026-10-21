@@ -25,7 +25,7 @@ export const usLuxuryRealEstate = defineSector({
     target: 'bienes raíces de lujo',
     hero: 'Un comprador de una propiedad de varios millones decide en segundos si el agente está a su nivel. Si tu sitio se ve como el de cualquier franquicia, pierdes la cita antes de tenerla. Diseñamos sitios que presentan cada propiedad como una pieza única y a ti como el agente que la merece.',
     intro:
-      'Trabajamos con agentes y equipos de lujo, brokerages boutique y desarrolladores residenciales en mercados como Miami, Manhattan, Los Ángeles, Palm Beach y Aspen.',
+      'Diseñamos para agentes y equipos de lujo, brokerages boutique y desarrolladores residenciales en mercados como Miami, Manhattan, Los Ángeles, Palm Beach y Aspen.',
     items: [
       {
         title: 'Propiedades presentadas como piezas únicas',
@@ -92,7 +92,7 @@ export const usLuxuryRealEstate = defineSector({
     target: 'luxury real estate',
     hero: 'A buyer for a multimillion-dollar property decides in seconds whether the agent is at their level. If your site looks like any franchise template, you lose the showing before you get it. We design websites that present every property as a one-of-a-kind piece and you as the agent who deserves it.',
     intro:
-      'We work with luxury agents and teams, boutique brokerages, and residential developers in markets like Miami, Manhattan, Los Angeles, Palm Beach, and Aspen.',
+      'We design for luxury agents and teams, boutique brokerages, and residential developers in markets like Miami, Manhattan, Los Angeles, Palm Beach, and Aspen.',
     items: [
       {
         title: 'Properties presented as one-of-a-kind pieces',

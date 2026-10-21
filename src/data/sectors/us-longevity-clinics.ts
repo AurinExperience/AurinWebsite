@@ -24,7 +24,7 @@ export const usLongevityClinics = defineSector({
     target: 'clínicas de longevidad',
     hero: 'Tus clientes invierten en su salud a largo plazo y leen con lupa antes de decidir. Un sitio que suena a promesa milagro los ahuyenta; uno que suena a laboratorio frío, también. Diseñamos sitios que explican tu ciencia con claridad y transmiten la experiencia personal que ofreces.',
     intro:
-      'Trabajamos con clínicas de longevidad, medicina preventiva, salud ejecutiva y bienestar de alto nivel en mercados como Los Ángeles, Miami, Austin, Nueva York y Scottsdale.',
+      'Diseñamos para clínicas de longevidad, medicina preventiva, salud ejecutiva y bienestar de alto nivel en mercados como Los Ángeles, Miami, Austin, Nueva York y Scottsdale.',
     items: [
       {
         title: 'La ciencia, explicada',
@@ -91,7 +91,7 @@ export const usLongevityClinics = defineSector({
     target: 'longevity clinics',
     hero: 'Your clients invest in their long-term health and read closely before deciding. A site that sounds like a miracle promise drives them away; so does one that feels like a cold lab. We design websites that explain your science clearly and convey the personal experience you provide.',
     intro:
-      'We work with longevity, preventive medicine, executive health, and high-end wellness clinics in markets like Los Angeles, Miami, Austin, New York, and Scottsdale.',
+      'We design for longevity, preventive medicine, executive health, and high-end wellness clinics in markets like Los Angeles, Miami, Austin, New York, and Scottsdale.',
     items: [
       {
         title: 'The science, explained',

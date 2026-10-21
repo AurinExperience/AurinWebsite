@@ -45,7 +45,7 @@ export const tamaulipas: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Tamaulipas',
         intro:
-          'Trabajamos con empresas de Reynosa, Nuevo Laredo, Matamoros, Tampico, Ciudad Madero y Ciudad Victoria: agencias aduanales, despachos, servicios a la industria, clínicas, escuelas y comercios.',
+          'Diseñamos para empresas de Reynosa, Nuevo Laredo, Matamoros, Tampico, Ciudad Madero y Ciudad Victoria: agencias aduanales, despachos, servicios a la industria, clínicas, escuelas y comercios.',
         items: [
           {
             title: 'Sitio corporativo bilingüe para la frontera',
@@ -149,7 +149,7 @@ export const tamaulipas: Landing = {
       services: {
         heading: 'Web design and branding services in Tamaulipas',
         intro:
-          'We work with companies in Reynosa, Nuevo Laredo, Matamoros, Tampico, Ciudad Madero, and Ciudad Victoria: customs brokers, firms, industrial services, clinics, schools, and retailers.',
+          'We design for companies in Reynosa, Nuevo Laredo, Matamoros, Tampico, Ciudad Madero, and Ciudad Victoria: customs brokers, firms, industrial services, clinics, schools, and retailers.',
         items: [
           {
             title: 'Bilingual corporate site for the border',

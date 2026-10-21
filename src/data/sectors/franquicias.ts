@@ -23,7 +23,7 @@ export const franquicias = defineSector({
     target: 'franquicias',
     hero: 'Tu sitio le habla a dos personas: al cliente que busca la sucursal más cercana y al inversionista que evalúa comprar una franquicia, y cada vez más los dos le preguntan a una IA. Diseñamos sitios que llevan a cada uno a lo suyo y mantienen tu marca igual de sólida en cada punto de venta.',
     intro:
-      'Trabajamos con franquicias, cadenas de sucursales y marcas que se preparan para franquiciar. Cada página web para franquicia se diseña para tus clientes y para tus futuros socios.',
+      'Diseñamos para franquicias, cadenas de sucursales y marcas que se preparan para franquiciar. Cada página web para franquicia se diseña para tus clientes y para tus futuros socios.',
     items: [
       {
         title: 'Sucursales que se encuentran',
@@ -90,7 +90,7 @@ export const franquicias = defineSector({
     target: 'franchises',
     hero: 'Your website speaks to two people: the customer looking for the nearest location and the investor evaluating a franchise, and more and more often both ask an AI. We design websites that take each of them to what they need and keep your brand equally solid at every location.',
     intro:
-      'We work with franchises, multi-location chains, and brands preparing to franchise. Every franchise website is designed for your customers and your future partners.',
+      'We design for franchises, multi-location chains, and brands preparing to franchise. Every franchise website is designed for your customers and your future partners.',
     items: [
       {
         title: 'Locations people find',

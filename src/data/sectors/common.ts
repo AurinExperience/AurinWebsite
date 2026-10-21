@@ -61,7 +61,7 @@ const es = {
     faqRemote: (who: string): Faq => ({
       question: `¿Un estudio en México puede trabajar con ${who} en Estados Unidos?`,
       answer:
-        'Sí, es lo que hacemos. Somos un estudio nearshore: México comparte horario con Estados Unidos, así que nos reunimos por videollamada en tus horas de trabajo, hablamos inglés y compartimos avances en cada etapa. Recibes el estándar de una agencia de Nueva York o Los Ángeles con un equipo senior dedicado y mejor relación entre calidad y precio.',
+        'Sí. Somos un estudio nearshore: México comparte horario con Estados Unidos, así que nos reunimos por videollamada en tus horas de trabajo, hablamos inglés y compartimos avances en cada etapa. Recibes el estándar de una agencia de Nueva York o Los Ángeles con un equipo senior dedicado y mejor relación entre calidad y precio.',
     }),
     // Mismo mensaje que "Cómo trabajamos" del home (translations.ts → howWeWork)
     faqAiProcess: {
@@ -80,7 +80,7 @@ const es = {
   faqRemote: (who: string): Faq => ({
     question: `¿Trabajan con ${who} de cualquier ciudad?`,
     answer:
-      'Sí. Trabajamos a distancia con negocios de todo México y con clientes en Estados Unidos, Canadá y España, entre otros países.',
+      'Sí. Trabajamos a distancia, así que podemos atender negocios en cualquier parte de México y en otros países, como Estados Unidos, Canadá o España.',
   }),
 };
 
@@ -126,7 +126,7 @@ const en: typeof es = {
     faqRemote: (who: string): Faq => ({
       question: `Can a studio in Mexico really work with ${who} in the US?`,
       answer:
-        'Yes, it is what we do. We are a nearshore studio: Mexico shares business hours with the US, so we meet over video during your workday, work in English, and share progress at every stage. You get the standard of a New York or Los Angeles agency, with a dedicated senior team and better value for the quality.',
+        'Yes. We are a nearshore studio: Mexico shares business hours with the US, so we meet over video during your workday, work in English, and share progress at every stage. You get the standard of a New York or Los Angeles agency, with a dedicated senior team and better value for the quality.',
     }),
     faqAiProcess: {
       question: 'Do you use AI?',
@@ -142,7 +142,7 @@ const en: typeof es = {
   faqRemote: (who: string): Faq => ({
     question: `Do you work with ${who} in any city?`,
     answer:
-      'Yes. We work remotely with businesses all over Mexico and with clients in the United States, Canada, and Spain, among other countries.',
+      'Yes. We work remotely, so we can serve businesses anywhere in Mexico and in other countries, such as the United States, Canada, or Spain.',
   }),
 };
 

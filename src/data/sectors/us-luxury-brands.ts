@@ -24,7 +24,7 @@ export const usLuxuryBrands = defineSector({
     target: 'marcas de lujo',
     hero: 'En lujo, el sitio comunica precio y calidad antes de que el cliente lea una palabra. Una plantilla de tienda convierte tu producto en uno más del catálogo. Diseñamos experiencias de marca y de compra tan cuidadas como tu producto, que justifican su precio y lo hacen deseable.',
     intro:
-      'Trabajamos con marcas de moda, accesorios, belleza, relojería y hogar de alta gama en Estados Unidos, desde marcas emergentes hasta casas establecidas.',
+      'Diseñamos para marcas de moda, accesorios, belleza, relojería y hogar de alta gama en Estados Unidos, desde marcas emergentes hasta casas establecidas.',
     items: [
       {
         title: 'Experiencia de marca',
@@ -91,7 +91,7 @@ export const usLuxuryBrands = defineSector({
     target: 'luxury brands',
     hero: 'In luxury, the website communicates price and quality before customers read a word. A store template turns your product into one more item in a catalog. We design brand and shopping experiences as refined as your product, that justify its price and make it desirable.',
     intro:
-      'We work with high-end fashion, accessories, beauty, watch, and home brands in the US, from emerging labels to established houses.',
+      'We design for high-end fashion, accessories, beauty, watch, and home brands in the US, from emerging labels to established houses.',
     items: [
       {
         title: 'Brand experience',

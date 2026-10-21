@@ -24,7 +24,7 @@ export const usWealthManagement = defineSector({
     target: 'firmas de gestión patrimonial',
     hero: 'Una familia con patrimonio importante no le entrega su dinero a quien no le transmite confianza en el primer minuto. Si tu sitio se ve genérico o anticuado, pierdes la conversación antes de tenerla. Diseñamos sitios sobrios y claros que reflejan el criterio con el que cuidas el patrimonio de tus clientes.',
     intro:
-      'Trabajamos con firmas de gestión patrimonial, RIAs independientes y equipos de asesores en mercados como Nueva York, Greenwich, Boston, Dallas y Palm Beach.',
+      'Diseñamos para firmas de gestión patrimonial, RIAs independientes y equipos de asesores en mercados como Nueva York, Greenwich, Boston, Dallas y Palm Beach.',
     items: [
       {
         title: 'Confianza a primera vista',
@@ -91,7 +91,7 @@ export const usWealthManagement = defineSector({
     target: 'wealth management firms',
     hero: 'A family with significant wealth won’t hand it to someone who doesn’t earn their trust in the first minute. If your site looks generic or dated, you lose the conversation before it starts. We design sober, clear websites that reflect the judgment you bring to your clients’ wealth.',
     intro:
-      'We work with wealth management firms, independent RIAs, and advisor teams in markets like New York, Greenwich, Boston, Dallas, and Palm Beach.',
+      'We design for wealth management firms, independent RIAs, and advisor teams in markets like New York, Greenwich, Boston, Dallas, and Palm Beach.',
     items: [
       {
         title: 'Trust at first sight',

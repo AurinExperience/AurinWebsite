@@ -43,7 +43,7 @@ export const sanLuisPotosi: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en San Luis Potosí',
         intro:
-          'Trabajamos con negocios de San Luis Potosí, Soledad, Ciudad Valles, Xilitla, Aquismón y Matehuala: operadores de tours, cabañas y hoteles, restaurantes, clínicas, despachos y comercios.',
+          'Diseñamos para negocios de San Luis Potosí, Soledad, Ciudad Valles, Xilitla, Aquismón y Matehuala: operadores de tours, cabañas y hoteles, restaurantes, clínicas, despachos y comercios.',
         items: [
           {
             title: 'Sitios para tours en la Huasteca',
@@ -148,7 +148,7 @@ export const sanLuisPotosi: Landing = {
       services: {
         heading: 'Web design and branding services in San Luis Potosí',
         intro:
-          'We work with businesses in San Luis Potosí, Soledad, Ciudad Valles, Xilitla, Aquismón, and Matehuala: tour operators, cabins and hotels, restaurants, clinics, firms, and retailers.',
+          'We design for businesses in San Luis Potosí, Soledad, Ciudad Valles, Xilitla, Aquismón, and Matehuala: tour operators, cabins and hotels, restaurants, clinics, firms, and retailers.',
         items: [
           {
             title: 'Websites for Huasteca tours',

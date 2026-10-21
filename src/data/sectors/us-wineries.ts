@@ -23,7 +23,7 @@ export const usWineries = defineSector({
     target: 'viñedos y bodegas',
     hero: 'Tu mejor cliente es el que se une al club de vinos y compra cada temporada, y esa decisión empieza en tu sitio. Si se ve igual que el de cualquier bodega, el vino se vuelve una etiqueta más. Diseñamos sitios que transmiten tu tierra y tu historia, y facilitan catas, compras y membresías.',
     intro:
-      'Trabajamos con viñedos, bodegas boutique y marcas de vino en regiones como Napa, Sonoma, Paso Robles, Willamette Valley y Texas Hill Country.',
+      'Diseñamos para viñedos, bodegas boutique y marcas de vino en regiones como Napa, Sonoma, Paso Robles, Willamette Valley y Texas Hill Country.',
     items: [
       {
         title: 'Club de vinos',
@@ -89,7 +89,7 @@ export const usWineries = defineSector({
     target: 'wineries',
     hero: 'Your best customer is the one who joins the wine club and buys every season, and that decision starts on your website. If it looks like every other winery’s, your wine becomes just another label. We design websites that convey your land and your story and make tastings, purchases, and memberships easy.',
     intro:
-      'We work with wineries, boutique vineyards, and wine brands in regions like Napa, Sonoma, Paso Robles, Willamette Valley, and Texas Hill Country.',
+      'We design for wineries, boutique vineyards, and wine brands in regions like Napa, Sonoma, Paso Robles, Willamette Valley, and Texas Hill Country.',
     items: [
       {
         title: 'Wine club',

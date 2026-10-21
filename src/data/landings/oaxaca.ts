@@ -43,7 +43,7 @@ export const oaxaca: Landing = {
       services: {
         heading: 'Servicios de branding y diseño web en Oaxaca',
         intro:
-          'Trabajamos con marcas y negocios de Oaxaca de Juárez, Santiago Matatlán, Teotitlán del Valle, Tlacolula, Puerto Escondido y Huatulco: mezcaleras, marcas de chocolate y café, talleres textiles, restaurantes y hoteles boutique.',
+          'Diseñamos para marcas y negocios de Oaxaca de Juárez, Santiago Matatlán, Teotitlán del Valle, Tlacolula, Puerto Escondido y Huatulco: mezcaleras, marcas de chocolate y café, talleres textiles, restaurantes y hoteles boutique.',
         items: [
           {
             title: 'Branding para mezcal y productos oaxaqueños',
@@ -148,7 +148,7 @@ export const oaxaca: Landing = {
       services: {
         heading: 'Branding and web design services in Oaxaca',
         intro:
-          'We work with brands and businesses in Oaxaca City, Santiago Matatlán, Teotitlán del Valle, Tlacolula, Puerto Escondido, and Huatulco: mezcal producers, chocolate and coffee brands, textile workshops, restaurants, and boutique hotels.',
+          'We design for brands and businesses in Oaxaca City, Santiago Matatlán, Teotitlán del Valle, Tlacolula, Puerto Escondido, and Huatulco: mezcal producers, chocolate and coffee brands, textile workshops, restaurants, and boutique hotels.',
         items: [
           {
             title: 'Branding for mezcal and Oaxacan products',

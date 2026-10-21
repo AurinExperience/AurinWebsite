@@ -23,7 +23,7 @@ export const usConciergeMedicine = defineSector({
     target: 'prácticas de medicina concierge',
     hero: 'Un paciente que paga una membresía anual no está comprando consultas, está comprando acceso, tiempo y tranquilidad. Si tu sitio no lo explica en segundos, se queda con la duda y no llama. Diseñamos sitios que hacen evidente el valor de tu membresía y transmiten la atención personal que ofreces.',
     intro:
-      'Trabajamos con prácticas de medicina concierge, medicina ejecutiva y atención primaria por membresía en mercados como Manhattan, Palm Beach, Beverly Hills, Greenwich y Scottsdale.',
+      'Diseñamos para prácticas de medicina concierge, medicina ejecutiva y atención primaria por membresía en mercados como Manhattan, Palm Beach, Beverly Hills, Greenwich y Scottsdale.',
     items: [
       {
         title: 'La membresía, clara',
@@ -90,7 +90,7 @@ export const usConciergeMedicine = defineSector({
     target: 'concierge medicine practices',
     hero: 'A patient paying an annual membership isn’t buying appointments; they are buying access, time, and peace of mind. If your site doesn’t explain that in seconds, they are left wondering and don’t call. We design websites that make your membership’s value obvious and convey the personal care you provide.',
     intro:
-      'We work with concierge medicine, executive health, and membership-based primary care practices in markets like Manhattan, Palm Beach, Beverly Hills, Greenwich, and Scottsdale.',
+      'We design for concierge medicine, executive health, and membership-based primary care practices in markets like Manhattan, Palm Beach, Beverly Hills, Greenwich, and Scottsdale.',
     items: [
       {
         title: 'The membership, made clear',

@@ -25,7 +25,7 @@ export const usUxNearshore = defineSector({
     target: 'startups de Estados Unidos',
     hero: 'Tu roadmap no espera a que contrates un diseñador senior en San Francisco. Somos un equipo de diseño de producto en México, en tu horario y en inglés, que se integra a tu equipo para diseñar las pantallas que tus usuarios entienden a la primera.',
     intro:
-      'Trabajamos con startups con inversión y empresas de software de Estados Unidos que necesitan diseño de producto senior: desde validar un MVP hasta ordenar un producto que creció sin sistema.',
+      'Diseñamos para startups con inversión y empresas de software de Estados Unidos que necesitan diseño de producto senior: desde validar un MVP hasta ordenar un producto que creció sin sistema.',
     items: [
       {
         title: 'Investigación con usuarios',
@@ -91,7 +91,7 @@ export const usUxNearshore = defineSector({
     target: 'US startups',
     hero: 'Your roadmap won’t wait for you to hire a senior designer in San Francisco. We are a product design team in Mexico, on your hours and in English, that plugs into your team to design screens your users get on the first try.',
     intro:
-      'We work with venture-backed startups and US software companies that need senior product design: from validating an MVP to bringing order to a product that grew without a system.',
+      'We design for venture-backed startups and US software companies that need senior product design: from validating an MVP to bringing order to a product that grew without a system.',
     items: [
       {
         title: 'User research',

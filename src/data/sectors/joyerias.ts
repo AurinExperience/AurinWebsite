@@ -23,7 +23,7 @@ export const joyerias = defineSector({
     target: 'joyerías',
     hero: 'Una joya se compra por cómo se ve y por la confianza en quien la vende. Si la foto no hace justicia a la pieza o el sitio no transmite seguridad, el cliente no paga en línea ni visita la tienda. Diseñamos sitios que hacen lucir cada pieza como en vitrina y convierten la admiración en compra.',
     intro:
-      'Trabajamos con joyerías, marcas de joyería de autor y relojerías. Cada sitio se diseña alrededor de tus piezas y de cómo prefieres vender: en línea, en showroom o ambos.',
+      'Diseñamos para joyerías, marcas de joyería de autor y relojerías. Cada sitio se diseña alrededor de tus piezas y de cómo prefieres vender: en línea, en showroom o ambos.',
     items: [
       {
         title: 'Piezas que lucen como en vitrina',
@@ -90,7 +90,7 @@ export const joyerias = defineSector({
     target: 'jewelry brands',
     hero: 'Jewelry is bought for how it looks and for trust in the seller. If the photo does not do the piece justice or the site does not feel secure, customers will not pay online or visit the store. We design websites that make every piece shine like in a display case and turn admiration into a purchase.',
     intro:
-      'We work with jewelers, designer jewelry brands, and watch stores. Every site is designed around your pieces and how you prefer to sell: online, in a showroom, or both.',
+      'We design for jewelers, designer jewelry brands, and watch stores. Every site is designed around your pieces and how you prefer to sell: online, in a showroom, or both.',
     items: [
       {
         title: 'Pieces that shine like in a display case',
