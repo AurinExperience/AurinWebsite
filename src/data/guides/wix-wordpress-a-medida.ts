@@ -11,6 +11,7 @@ import type { Guide } from './types';
 export const wixWordpressAMedida: Guide = {
   id: 'wix-wordpress-a-medida',
   status: 'live',
+  authors: ['elias-aquique'],
   slug: {
     es: 'wix-wordpress-o-sitio-a-medida',
     en: 'wix-wordpress-or-custom-website',

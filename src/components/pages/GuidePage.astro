@@ -13,7 +13,7 @@ import { guidePath, guidesIndexPath, siblingGuides } from '@/data/guides';
 import { publishedLandings, landingPath } from '@/data/landings';
 import { publishedSectors, sectorPath } from '@/data/sectors';
 import { SITE } from '@/config/site';
-import { getLangFromUrl, getLocalizedUrl } from '@/i18n';
+import { getLangFromUrl, getLocalizedUrl, translations } from '@/i18n';
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
@@ -85,9 +85,22 @@ const wordCount = [
   .split(/\s+/).length;
 const readingMinutes = Math.max(1, Math.round(wordCount / 200));
 
+// Quién firma: los fundadores, con su tarjeta en Nosotros como página de autor
+const roles = translations[lang].about.founders.roles;
+const authors = guide.authors.map((id) => {
+  const founder = SITE.founders.find((f) => f.id === id)!;
+  const path = `${getLocalizedUrl('/about', lang)}#${id}`;
+  return { ...founder, role: roles[id as keyof typeof roles], path, url: `${SITE.url}${path}` };
+});
+const listFormat = new Intl.ListFormat(lang, { type: 'conjunction' });
+
 const labels =
   lang === 'es'
     ? {
+        by: 'Por',
+        aboutAuthor: 'Escrita por',
+        since: 'de Aurin desde 1998.',
+        linkedin: 'Perfil de LinkedIn de',
         section: 'Guías',
         updated: 'Actualizado el',
         toc: 'En esta guía',
@@ -98,6 +111,10 @@ const labels =
         back: 'Ver todas las guías',
       }
     : {
+        by: 'By',
+        aboutAuthor: 'Written by',
+        since: 'of Aurin since 1998.',
+        linkedin: 'LinkedIn profile of',
         section: 'Guides',
         updated: 'Updated on',
         toc: 'In this guide',
@@ -122,7 +139,7 @@ const articleSchema: ArticleStructuredData = {
   datePublished: guide.published,
   dateModified: guide.updated,
   inLanguage: lang === 'es' ? 'es-MX' : 'en-US',
-  author: { '@id': `${SITE.url}/#organization` },
+  author: authors.map(({ id, name, url }) => ({ '@type': 'Person', '@id': `${SITE.url}/#${id}`, name, url })),
   publisher: { '@id': `${SITE.url}/#organization` },
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   image: SITE.ogImage,
@@ -172,6 +189,14 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
         <h1 class={styles.title}>{copy.title}</h1>
         <p class={styles.excerpt}>{copy.excerpt}</p>
         <p class={styles.meta}>
+          <span>
+            {labels.by}{' '}
+            {listFormat.formatToParts(authors.map((author) => author.name)).map((part) => {
+              const author = authors.find((a) => a.name === part.value);
+              return part.type === 'element' && author ? <a class={styles.authorLink} href={author.path}>{author.name}</a> : part.value;
+            })}
+          </span>
+          <span class={styles.metaDot} aria-hidden="true">·</span>
           <span>{labels.minutes}</span>
           <span class={styles.metaDot} aria-hidden="true">·</span>
           <span>
@@ -223,6 +248,22 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
           ))}
         </div>
       </div>
+
+      <section class={styles.authors} aria-label={labels.aboutAuthor}>
+        <p class={styles.authorsTitle}>{labels.aboutAuthor}</p>
+        {authors.map(({ name, role, linkedin, path }) => (
+          <div class={styles.author}>
+            <span class={styles.authorAvatar} aria-hidden="true">{name.split(' ').map((word) => word[0]).join('')}</span>
+            <div>
+              <a class={styles.authorName} href={path}>{name}</a>
+              <p class={styles.authorRole}>{role} {labels.since}</p>
+            </div>
+            <a class={styles.authorLinkedin} href={linkedin} target="_blank" rel="noopener">
+              LinkedIn<span class={styles.srOnly}> — {labels.linkedin} {name}</span>
+            </a>
+          </div>
+        ))}
+      </section>
 
       <aside class={styles.cta}>
         <h2 class={styles.ctaHeading}>{copy.cta.heading}</h2>

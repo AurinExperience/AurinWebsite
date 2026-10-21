@@ -11,6 +11,7 @@ import type { Guide } from './types';
 export const costoBranding: Guide = {
   id: 'costo-branding',
   status: 'live',
+  authors: ['nayeli-quinto'],
   slug: {
     es: 'cuanto-cuesta-un-logo-y-branding-en-mexico',
     en: 'how-much-does-a-logo-and-branding-cost-in-mexico',

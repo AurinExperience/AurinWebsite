@@ -11,6 +11,7 @@ import type { Guide } from './types';
 export const elegirAgencia: Guide = {
   id: 'elegir-agencia',
   status: 'live',
+  authors: ['elias-aquique'],
   slug: {
     es: 'como-elegir-agencia-de-diseno-web',
     en: 'how-to-choose-a-web-design-agency',

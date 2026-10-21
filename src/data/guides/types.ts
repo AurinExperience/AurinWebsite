@@ -46,6 +46,8 @@ export interface GuideCopy {
 export interface Guide {
   id: string;
   status: 'live' | 'draft';
+  /** Quién firma: ids de SITE.founders (uno o los dos). */
+  authors: string[];
   slug: Record<Lang, string>;
   /** ISO. Alimenta datePublished/dateModified del Article. */
   published: string;

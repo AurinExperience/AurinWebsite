@@ -10,6 +10,7 @@ import type { Guide } from './types';
 export const sitioWebBilingue: Guide = {
   id: 'sitio-web-bilingue',
   status: 'live',
+  authors: ['nayeli-quinto'],
   slug: {
     es: 'sitio-web-bilingue-espanol-ingles',
     en: 'bilingual-website-spanish-english',

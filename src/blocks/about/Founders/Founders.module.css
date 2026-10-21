@@ -56,6 +56,8 @@
 }
 
 .card {
+  /* Las guías enlazan a #elias-aquique / #nayeli-quinto: que no quede bajo el header fijo */
+  scroll-margin-top: 160px;
   display: flex;
   align-items: center;
   gap: var(--spacing-4);
