@@ -26,14 +26,14 @@ export const inmobiliarias: Sector = {
     es: {
       heading: 'Hablemos de tu inmobiliaria',
       description:
-        'Cuéntanos qué vendes o rentas y cómo llegan hoy tus prospectos. Te contactamos para entender tu negocio y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué vendes o rentas y cómo llegan hoy tus prospectos. Te contactaremos lo antes posible para entender tu negocio y te enviaremos una propuesta desglosada.',
       messagePlaceholder:
         'Ej. Somos desarrolladores y vamos a lanzar un proyecto de departamentos en preventa.',
     },
     en: {
       heading: 'Let’s talk about your real estate business',
       description:
-        'Tell us what you sell or rent and how leads find you today. We will reach out to understand your business and send you an itemized proposal.',
+        'Tell us what you sell or rent and how leads find you today. We will reach out as soon as possible to understand your business and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are developers about to launch a pre-sale condo project.',
     },
   },

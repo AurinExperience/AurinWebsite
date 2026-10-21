@@ -76,7 +76,7 @@ export const usLuxuryBrands = defineSector({
     lead: {
       heading: 'Hablemos de tu marca',
       description:
-        'Cuéntanos qué vendes y cómo vendes hoy. Te contactamos para entender tu marca y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué vendes y cómo vendes hoy. Te contactaremos lo antes posible para entender tu marca y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos una marca de bolsos de piel en Nueva York y nuestra tienda en línea se ve como cualquier otra.',
     },
   },
@@ -142,7 +142,7 @@ export const usLuxuryBrands = defineSector({
     lead: {
       heading: 'Let’s talk about your brand',
       description:
-        'Tell us what you sell and how you sell today. We will reach out to understand your brand and send you an itemized proposal.',
+        'Tell us what you sell and how you sell today. We will reach out as soon as possible to understand your brand and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a leather goods brand in New York and our online store looks like everyone else’s.',
     },
   },

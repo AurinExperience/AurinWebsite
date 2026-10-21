@@ -76,7 +76,7 @@ export const uxEnergia = defineSector({
     lead: {
       heading: 'Hablemos de tu plataforma',
       description:
-        'Cuéntanos qué información manejan y quién la usa. Te contactamos para entender tu operación y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué información manejan y quién la usa. Te contactaremos lo antes posible para entender tu operación y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos un panel de monitoreo de plantas que solo entienden los ingenieros.',
     },
   },
@@ -143,7 +143,7 @@ export const uxEnergia = defineSector({
     lead: {
       heading: 'Let’s talk about your platform',
       description:
-        'Tell us what information you handle and who uses it. We will reach out to understand your operation and send you an itemized proposal.',
+        'Tell us what information you handle and who uses it. We will reach out as soon as possible to understand your operation and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We have a plant monitoring dashboard only our engineers understand.',
     },
   },

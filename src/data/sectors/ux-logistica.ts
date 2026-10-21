@@ -75,7 +75,7 @@ export const uxLogistica = defineSector({
     lead: {
       heading: 'Hablemos de tu operación',
       description:
-        'Cuéntanos qué sistemas usan y quién los usa. Te contactamos para entender tu operación y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué sistemas usan y quién los usa. Te contactaremos lo antes posible para entender tu operación y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Nuestros clientes llaman todo el día para preguntar dónde va su envío.',
     },
   },
@@ -141,7 +141,7 @@ export const uxLogistica = defineSector({
     lead: {
       heading: 'Let’s talk about your operation',
       description:
-        'Tell us which systems you use and who uses them. We will reach out to understand your operation and send you an itemized proposal.',
+        'Tell us which systems you use and who uses them. We will reach out as soon as possible to understand your operation and send you an itemized proposal.',
       messagePlaceholder: 'E.g. Our customers call all day to ask where their shipment is.',
     },
   },

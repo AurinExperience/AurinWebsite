@@ -76,7 +76,7 @@ export const laboratorios = defineSector({
     lead: {
       heading: 'Hablemos de tu laboratorio',
       description:
-        'Cuéntanos qué estudios haces, cuántas sucursales tienes y cómo entregas resultados. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué estudios haces, cuántas sucursales tienes y cómo entregas resultados. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos cinco sucursales y queremos que los pacientes vean sus resultados en línea.',
     },
   },
@@ -144,7 +144,7 @@ export const laboratorios = defineSector({
     lead: {
       heading: 'Let’s talk about your lab',
       description:
-        'Tell us which tests you run, how many locations you have, and how you deliver results. We will reach out and send you an itemized proposal.',
+        'Tell us which tests you run, how many locations you have, and how you deliver results. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We have five locations and want patients to see their results online.',
     },
   },

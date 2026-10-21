@@ -75,7 +75,7 @@ export const consultoras = defineSector({
     lead: {
       heading: 'Hablemos de tu consultora',
       description:
-        'Cuéntanos qué servicios ofreces y a qué clientes quieres llegar. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué servicios ofreces y a qué clientes quieres llegar. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos una consultora de transformación digital y queremos llegar a empresas medianas.',
     },
   },
@@ -142,7 +142,7 @@ export const consultoras = defineSector({
     lead: {
       heading: 'Let’s talk about your firm',
       description:
-        'Tell us which services you offer and which clients you want to reach. We will reach out and send you an itemized proposal.',
+        'Tell us which services you offer and which clients you want to reach. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a digital transformation consultancy and want to reach mid-sized companies.',
     },
   },

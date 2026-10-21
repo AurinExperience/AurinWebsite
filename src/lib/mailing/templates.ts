@@ -287,16 +287,15 @@ export const ticketEmailTemplate = (data: TicketData): string => {
 export const ticketConfirmationMessage = (data: TicketData): string => {
   return `✅ **Perfecto, ${data.name}!**
 
-He creado un ticket de soporte y nuestro equipo te contactará a **${data.email}** muy pronto.
+He creado un ticket de soporte y nuestro equipo te contactará a **${data.email}** lo antes posible.
 
 **📋 Detalles de tu ticket:**
 - Número de ticket: **${data.ticketId}**
 - Estado: En proceso
-- Tiempo estimado de respuesta: 24 horas
 
 **📧 Email de contacto:** [hey@aurin.mx](mailto:hey@aurin.mx)
 
-Nos pondremos en contacto contigo dentro de las próximas 24 horas para atender tu solicitud personalmente.
+Nos pondremos en contacto contigo lo antes posible para atender tu solicitud personalmente.
 
 ¿Hay algo más en lo que pueda ayudarte mientras tanto?`;
 };

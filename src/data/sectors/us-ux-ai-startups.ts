@@ -76,7 +76,7 @@ export const usUxAiStartups = defineSector({
     lead: {
       heading: 'Hablemos de tu producto de IA',
       description:
-        'Cuéntanos qué hace tu producto y dónde se atoran tus usuarios. Te contactamos en tu horario y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué hace tu producto y dónde se atoran tus usuarios. Te contactaremos lo antes posible en tu horario y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos un copiloto para equipos de ventas y los usuarios no pasan del primer uso.',
     },
   },
@@ -142,7 +142,7 @@ export const usUxAiStartups = defineSector({
     lead: {
       heading: 'Let’s talk about your AI product',
       description:
-        'Tell us what your product does and where users get stuck. We will reach out during your business hours and send you an itemized proposal.',
+        'Tell us what your product does and where users get stuck. We will reach out as soon as possible during your business hours and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We built a copilot for sales teams and users drop off after the first session.',
     },
   },

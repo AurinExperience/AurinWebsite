@@ -76,7 +76,7 @@ export const usLuxuryVacationRentals = defineSector({
     lead: {
       heading: 'Hablemos de tus propiedades',
       description:
-        'Cuéntanos cuántas propiedades tienes y cómo reservan hoy tus huéspedes. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos cuántas propiedades tienes y cómo reservan hoy tus huéspedes. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Administramos 8 villas en Aspen y casi todas las reservas llegan por plataformas.',
     },
   },
@@ -143,7 +143,7 @@ export const usLuxuryVacationRentals = defineSector({
     lead: {
       heading: 'Let’s talk about your properties',
       description:
-        'Tell us how many properties you have and how guests book today. We will reach out and send you an itemized proposal.',
+        'Tell us how many properties you have and how guests book today. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We manage 8 villas in Aspen and almost every booking comes through platforms.',
     },
   },

@@ -25,14 +25,14 @@ export const arquitectos: Sector = {
     es: {
       heading: 'Hablemos de tu despacho de arquitectura',
       description:
-        'Cuéntanos qué tipo de proyectos haces y qué clientes quieres atraer. Te contactamos para entender tu despacho y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué tipo de proyectos haces y qué clientes quieres atraer. Te contactaremos lo antes posible para entender tu despacho y te enviaremos una propuesta desglosada.',
       messagePlaceholder:
         'Ej. Somos un despacho de arquitectura residencial y queremos mostrar mejor nuestros proyectos.',
     },
     en: {
       heading: 'Let’s talk about your architecture studio',
       description:
-        'Tell us what kind of projects you do and which clients you want to attract. We will reach out to understand your studio and send you an itemized proposal.',
+        'Tell us what kind of projects you do and which clients you want to attract. We will reach out as soon as possible to understand your studio and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a residential architecture studio and want to showcase our projects better.',
     },
   },

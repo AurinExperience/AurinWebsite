@@ -25,14 +25,14 @@ export const constructoras: Sector = {
     es: {
       heading: 'Hablemos de tu constructora',
       description:
-        'Cuéntanos qué tipo de obras haces y a quién le vendes. Te contactamos para entender tu empresa y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué tipo de obras haces y a quién le vendes. Te contactaremos lo antes posible para entender tu empresa y te enviaremos una propuesta desglosada.',
       messagePlaceholder:
         'Ej. Somos una constructora de naves industriales y queremos que nos inviten a más licitaciones.',
     },
     en: {
       heading: 'Let’s talk about your construction company',
       description:
-        'Tell us what kind of projects you build and who you sell to. We will reach out to understand your company and send you an itemized proposal.',
+        'Tell us what kind of projects you build and who you sell to. We will reach out as soon as possible to understand your company and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We build industrial warehouses and want to be invited to more tenders.',
     },
   },

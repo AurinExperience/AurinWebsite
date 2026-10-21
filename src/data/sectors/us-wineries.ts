@@ -74,7 +74,7 @@ export const usWineries = defineSector({
     lead: {
       heading: 'Hablemos de tu bodega',
       description:
-        'Cuéntanos sobre tus vinos y cómo vendes hoy. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos sobre tus vinos y cómo vendes hoy. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos una bodega boutique en Sonoma y queremos que crezca nuestro club de vinos.',
     },
   },
@@ -140,7 +140,7 @@ export const usWineries = defineSector({
     lead: {
       heading: 'Let’s talk about your winery',
       description:
-        'Tell us about your wines and how you sell today. We will reach out and send you an itemized proposal.',
+        'Tell us about your wines and how you sell today. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a boutique winery in Sonoma and want to grow our wine club.',
     },
   },

@@ -76,7 +76,7 @@ export const uxTurismo = defineSector({
     lead: {
       heading: 'Hablemos de tu plataforma de viajes',
       description:
-        'Cuéntanos qué vendes, a qué viajero y dónde sientes que pierdes reservas. Te contactamos para entender tu plataforma y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué vendes, a qué viajero y dónde sientes que pierdes reservas. Te contactaremos lo antes posible para entender tu plataforma y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Vendemos tours en línea y muchos turistas extranjeros abandonan al momento de pagar.',
     },
   },
@@ -143,7 +143,7 @@ export const uxTurismo = defineSector({
     lead: {
       heading: 'Let’s talk about your travel platform',
       description:
-        'Tell us what you sell, to which travelers, and where you feel you lose bookings. We will reach out to understand your platform and send you an itemized proposal.',
+        'Tell us what you sell, to which travelers, and where you feel you lose bookings. We will reach out as soon as possible to understand your platform and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We sell tours online and many foreign tourists abandon at payment.',
     },
   },

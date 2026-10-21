@@ -26,14 +26,14 @@ export const estetica: Sector = {
     es: {
       heading: 'Hablemos de tu clínica',
       description:
-        'Cuéntanos qué procedimientos quieres impulsar y cómo llegan hoy tus pacientes. Te contactamos para entender tu práctica y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué procedimientos quieres impulsar y cómo llegan hoy tus pacientes. Te contactaremos lo antes posible para entender tu práctica y te enviaremos una propuesta desglosada.',
       messagePlaceholder:
         'Ej. Soy cirujano plástico certificado y quiero más valoraciones de rinoplastia y contorno corporal.',
     },
     en: {
       heading: 'Let’s talk about your clinic',
       description:
-        'Tell us which procedures you want to grow and how patients find you today. We will reach out to understand your practice and send you an itemized proposal.',
+        'Tell us which procedures you want to grow and how patients find you today. We will reach out as soon as possible to understand your practice and send you an itemized proposal.',
       messagePlaceholder: 'E.g. I am a board-certified plastic surgeon and want more rhinoplasty and body contouring consultations.',
     },
   },

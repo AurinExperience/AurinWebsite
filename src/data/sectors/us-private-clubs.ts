@@ -76,7 +76,7 @@ export const usPrivateClubs = defineSector({
     lead: {
       heading: 'Hablemos de tu club',
       description:
-        'Cuéntanos sobre tu club y qué necesitan tus socios. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos sobre tu club y qué necesitan tus socios. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos un country club en Naples y los socios no usan el portal porque es complicado.',
     },
   },
@@ -141,7 +141,7 @@ export const usPrivateClubs = defineSector({
     lead: {
       heading: 'Let’s talk about your club',
       description:
-        'Tell us about your club and what your members need. We will reach out and send you an itemized proposal.',
+        'Tell us about your club and what your members need. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a country club in Naples and members don’t use the portal because it is complicated.',
     },
   },

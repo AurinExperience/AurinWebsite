@@ -76,7 +76,7 @@ export const uxSeguros = defineSector({
     lead: {
       heading: 'Hablemos de tu aseguradora',
       description:
-        'Cuéntanos qué productos vendes y qué parte de la experiencia quieres mejorar. Te contactamos para entender tu operación y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué productos vendes y qué parte de la experiencia quieres mejorar. Te contactaremos lo antes posible para entender tu operación y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Muchos clientes abandonan nuestro cotizador de seguros de auto antes de contratar.',
     },
   },
@@ -143,7 +143,7 @@ export const uxSeguros = defineSector({
     lead: {
       heading: 'Let’s talk about your insurance business',
       description:
-        'Tell us which products you sell and which part of the experience you want to improve. We will reach out to understand your operation and send you an itemized proposal.',
+        'Tell us which products you sell and which part of the experience you want to improve. We will reach out as soon as possible to understand your operation and send you an itemized proposal.',
       messagePlaceholder: 'E.g. Many customers abandon our auto insurance quote before buying.',
     },
   },

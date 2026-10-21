@@ -75,7 +75,7 @@ export const usConciergeMedicine = defineSector({
     lead: {
       heading: 'Hablemos de tu práctica',
       description:
-        'Cuéntanos cómo funciona tu membresía y a quién atiendes. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos cómo funciona tu membresía y a quién atiendes. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos una práctica concierge en Manhattan y queremos explicar mejor nuestra membresía.',
     },
   },
@@ -141,7 +141,7 @@ export const usConciergeMedicine = defineSector({
     lead: {
       heading: 'Let’s talk about your practice',
       description:
-        'Tell us how your membership works and who you serve. We will reach out and send you an itemized proposal.',
+        'Tell us how your membership works and who you serve. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a concierge practice in Manhattan and want to explain our membership better.',
     },
   },

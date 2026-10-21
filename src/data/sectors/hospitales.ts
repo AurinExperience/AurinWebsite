@@ -76,7 +76,7 @@ export const hospitales = defineSector({
     lead: {
       heading: 'Hablemos de tu hospital',
       description:
-        'Cuéntanos tus especialidades y cómo llegan hoy tus pacientes. Te contactamos para entender tu hospital y te enviamos una propuesta desglosada.',
+        'Cuéntanos tus especialidades y cómo llegan hoy tus pacientes. Te contactaremos lo antes posible para entender tu hospital y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos un hospital privado con 20 especialidades y queremos que los pacientes encuentren a sus médicos.',
     },
   },
@@ -144,7 +144,7 @@ export const hospitales = defineSector({
     lead: {
       heading: 'Let’s talk about your hospital',
       description:
-        'Tell us your specialties and how patients find you today. We will reach out to understand your hospital and send you an itemized proposal.',
+        'Tell us your specialties and how patients find you today. We will reach out as soon as possible to understand your hospital and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a private hospital with 20 specialties and want patients to find their doctors.',
     },
   },

@@ -75,7 +75,7 @@ export const joyerias = defineSector({
     lead: {
       heading: 'Hablemos de tu joyería',
       description:
-        'Cuéntanos qué piezas vendes y cómo vendes hoy. Te contactamos para entender tu marca y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué piezas vendes y cómo vendes hoy. Te contactaremos lo antes posible para entender tu marca y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Hacemos joyería de autor en plata y oro y queremos vender en línea en todo México.',
     },
   },
@@ -142,7 +142,7 @@ export const joyerias = defineSector({
     lead: {
       heading: 'Let’s talk about your jewelry brand',
       description:
-        'Tell us what pieces you sell and how you sell today. We will reach out to understand your brand and send you an itemized proposal.',
+        'Tell us what pieces you sell and how you sell today. We will reach out as soon as possible to understand your brand and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We make designer silver and gold jewelry and want to sell online across Mexico.',
     },
   },

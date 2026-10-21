@@ -77,7 +77,7 @@ export const usLuxuryRealEstate = defineSector({
     lead: {
       heading: 'Hablemos de tu marca',
       description:
-        'Cuéntanos qué mercado atiendes y qué propiedades vendes. Te contactamos para entender tu marca y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué mercado atiendes y qué propiedades vendes. Te contactaremos lo antes posible para entender tu marca y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos un equipo de lujo en Miami Beach y queremos un sitio a la altura de nuestras propiedades.',
     },
   },
@@ -144,7 +144,7 @@ export const usLuxuryRealEstate = defineSector({
     lead: {
       heading: 'Let’s talk about your brand',
       description:
-        'Tell us which market you serve and what properties you sell. We will reach out to understand your brand and send you an itemized proposal.',
+        'Tell us which market you serve and what properties you sell. We will reach out as soon as possible to understand your brand and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a luxury team in Miami Beach and want a site that matches our listings.',
     },
   },

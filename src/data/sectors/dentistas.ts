@@ -25,14 +25,14 @@ export const dentistas: Sector = {
     es: {
       heading: 'Hablemos de tu clínica dental',
       description:
-        'Cuéntanos qué tratamientos quieres impulsar y cómo agendas hoy. Te contactamos para entender tu clínica y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué tratamientos quieres impulsar y cómo agendas hoy. Te contactaremos lo antes posible para entender tu clínica y te enviaremos una propuesta desglosada.',
       messagePlaceholder:
         'Ej. Tenemos una clínica con tres sillones y queremos más pacientes de ortodoncia e implantes.',
     },
     en: {
       heading: 'Let’s talk about your dental clinic',
       description:
-        'Tell us which treatments you want to grow and how you schedule today. We will reach out to understand your clinic and send you an itemized proposal.',
+        'Tell us which treatments you want to grow and how you schedule today. We will reach out as soon as possible to understand your clinic and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We run a three-chair clinic and want more orthodontics and implant patients.',
     },
   },

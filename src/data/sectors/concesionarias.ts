@@ -75,7 +75,7 @@ export const concesionarias = defineSector({
     lead: {
       heading: 'Hablemos de tu concesionaria',
       description:
-        'Cuéntanos qué vendes, cuántas sucursales tienes y cómo llegan hoy tus prospectos. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué vendes, cuántas sucursales tienes y cómo llegan hoy tus prospectos. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos una agencia de seminuevos con dos sucursales y queremos más pruebas de manejo agendadas.',
     },
   },
@@ -142,7 +142,7 @@ export const concesionarias = defineSector({
     lead: {
       heading: 'Let’s talk about your dealership',
       description:
-        'Tell us what you sell, how many locations you have, and how leads find you today. We will reach out and send you an itemized proposal.',
+        'Tell us what you sell, how many locations you have, and how leads find you today. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a used car dealer with two locations and want more booked test drives.',
     },
   },

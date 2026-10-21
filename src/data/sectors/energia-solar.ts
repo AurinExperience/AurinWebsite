@@ -77,7 +77,7 @@ export const energiaSolar = defineSector({
     lead: {
       heading: 'Hablemos de tu empresa solar',
       description:
-        'Cuéntanos a qué clientes instalas y cómo cotizas hoy. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos a qué clientes instalas y cómo cotizas hoy. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Instalamos paneles en casas y negocios y queremos recibir cotizaciones con el recibo de luz.',
     },
   },
@@ -145,7 +145,7 @@ export const energiaSolar = defineSector({
     lead: {
       heading: 'Let’s talk about your solar company',
       description:
-        'Tell us which customers you install for and how you quote today. We will reach out and send you an itemized proposal.',
+        'Tell us which customers you install for and how you quote today. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We install panels for homes and businesses and want to receive quote requests with the electricity bill.',
     },
   },

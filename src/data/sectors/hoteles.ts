@@ -25,13 +25,13 @@ export const hoteles: Sector = {
     es: {
       heading: 'Hablemos de tu hotel',
       description:
-        'Cuéntanos cómo reciben hoy sus reservas y qué huésped quieren atraer. Te contactamos para entender tu hotel y te enviamos una propuesta desglosada.',
+        'Cuéntanos cómo reciben hoy sus reservas y qué huésped quieren atraer. Te contactaremos lo antes posible para entender tu hotel y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos un hotel boutique de 20 habitaciones y queremos más reservas directas.',
     },
     en: {
       heading: 'Let’s talk about your hotel',
       description:
-        'Tell us how you take bookings today and which guests you want to attract. We will reach out to understand your hotel and send you an itemized proposal.',
+        'Tell us how you take bookings today and which guests you want to attract. We will reach out as soon as possible to understand your hotel and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a 20-room boutique hotel and want more direct bookings.',
     },
   },

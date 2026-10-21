@@ -76,7 +76,7 @@ export const usMedSpas = defineSector({
     lead: {
       heading: 'Hablemos de tu med spa',
       description:
-        'Cuéntanos qué tratamientos ofreces y cómo reservan hoy tus clientas. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué tratamientos ofreces y cómo reservan hoy tus clientas. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos un med spa en Miami y queremos que las reservas en línea crezcan.',
     },
   },
@@ -142,7 +142,7 @@ export const usMedSpas = defineSector({
     lead: {
       heading: 'Let’s talk about your med spa',
       description:
-        'Tell us which treatments you offer and how clients book today. We will reach out and send you an itemized proposal.',
+        'Tell us which treatments you offer and how clients book today. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We run a med spa in Miami and want to grow online bookings.',
     },
   },

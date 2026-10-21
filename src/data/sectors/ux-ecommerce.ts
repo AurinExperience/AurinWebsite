@@ -75,7 +75,7 @@ export const uxEcommerce = defineSector({
     lead: {
       heading: 'Hablemos de tu tienda en línea',
       description:
-        'Cuéntanos qué vendes, en qué plataforma y dónde sientes que pierdes ventas. Te contactamos para entender tu tienda y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué vendes, en qué plataforma y dónde sientes que pierdes ventas. Te contactaremos lo antes posible para entender tu tienda y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos mucho tráfico pero muchos clientes abandonan el carrito antes de pagar.',
     },
   },
@@ -141,7 +141,7 @@ export const uxEcommerce = defineSector({
     lead: {
       heading: 'Let’s talk about your online store',
       description:
-        'Tell us what you sell, on which platform, and where you feel you lose sales. We will reach out to understand your store and send you an itemized proposal.',
+        'Tell us what you sell, on which platform, and where you feel you lose sales. We will reach out as soon as possible to understand your store and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We get lots of traffic, but many customers abandon the cart before paying.',
     },
   },

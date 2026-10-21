@@ -27,14 +27,14 @@ export const medicos: Sector = {
     es: {
       heading: 'Hablemos de tu consultorio',
       description:
-        'Cuéntanos tu especialidad y cómo agendas hoy. Te contactamos para entender tu práctica y te enviamos una propuesta desglosada.',
+        'Cuéntanos tu especialidad y cómo agendas hoy. Te contactaremos lo antes posible para entender tu práctica y te enviaremos una propuesta desglosada.',
       messagePlaceholder:
         'Ej. Soy cardióloga, atiendo en dos consultorios y quiero que mis pacientes puedan agendar en línea.',
     },
     en: {
       heading: 'Let’s talk about your practice',
       description:
-        'Tell us your specialty and how you schedule today. We will reach out to understand your practice and send you an itemized proposal.',
+        'Tell us your specialty and how you schedule today. We will reach out as soon as possible to understand your practice and send you an itemized proposal.',
       messagePlaceholder:
         'E.g. I am a cardiologist, I see patients at two offices, and I want them to be able to book online.',
     },

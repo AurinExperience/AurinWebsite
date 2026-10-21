@@ -76,7 +76,7 @@ export const usYachtCharters = defineSector({
     lead: {
       heading: 'Hablemos de tu flota',
       description:
-        'Cuéntanos qué embarcaciones ofreces y a quién atiendes. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué embarcaciones ofreces y a quién atiendes. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos una flota de chárter en Miami y queremos que las solicitudes lleguen por el sitio.',
     },
   },
@@ -143,7 +143,7 @@ export const usYachtCharters = defineSector({
     lead: {
       heading: 'Let’s talk about your fleet',
       description:
-        'Tell us which vessels you offer and who you serve. We will reach out and send you an itemized proposal.',
+        'Tell us which vessels you offer and who you serve. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We run a charter fleet in Miami and want inquiries to come through the site.',
     },
   },

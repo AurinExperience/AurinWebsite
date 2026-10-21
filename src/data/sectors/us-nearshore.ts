@@ -35,7 +35,7 @@ export const usNearshore = defineSector({
       {
         title: 'Tu horario, tu idioma',
         description:
-          'México comparte horario con Estados Unidos: juntas por videollamada en tus horas de trabajo y respuestas el mismo día, en inglés.',
+          'México comparte horario con Estados Unidos: juntas por videollamada en tus horas de trabajo y comunicación en inglés.',
         bullets: ['Juntas en horario de EE. UU.', 'Equipo que trabaja en inglés', 'Avances compartidos en cada etapa'],
       },
       {
@@ -76,7 +76,7 @@ export const usNearshore = defineSector({
     lead: {
       heading: 'Hablemos de tu proyecto',
       description:
-        'Cuéntanos qué necesita tu empresa. Te contactamos en tu horario para entender el proyecto y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué necesita tu empresa. Te contactaremos lo antes posible en tu horario para entender el proyecto y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos una empresa en Austin y queremos rediseñar el sitio con un equipo dedicado.',
     },
   },
@@ -102,7 +102,7 @@ export const usNearshore = defineSector({
       {
         title: 'Your hours, your language',
         description:
-          'Mexico shares business hours with the US: video meetings during your workday and same-day answers, in English.',
+          'Mexico shares business hours with the US: video meetings during your workday and communication in English.',
         bullets: ['Meetings on US business hours', 'English-speaking team', 'Progress shared at every stage'],
       },
       {
@@ -143,7 +143,7 @@ export const usNearshore = defineSector({
     lead: {
       heading: 'Let’s talk about your project',
       description:
-        'Tell us what your company needs. We will reach out during your business hours to understand the project and send you an itemized proposal.',
+        'Tell us what your company needs. We will reach out as soon as possible during your business hours to understand the project and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are an Austin company and want to redesign our site with a dedicated team.',
     },
   },
