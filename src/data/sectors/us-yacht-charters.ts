@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usYachtCharters = defineSector({
   id: 'us-yacht-charters',
   country: 'US',
-  publishAt: '2026-10-26T00:00:00-06:00',
+  publishAt: '2026-10-25T00:00:00-06:00',
   slug: { es: 'para-yates-charter-y-venta', en: 'for-yacht-charters-and-brokers' },
   name: { es: 'Yates: chárter y venta', en: 'Yacht charters and brokers' },
   proof: ['elRollo', 'fortrade', 'ideograma'],

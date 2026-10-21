@@ -8,7 +8,7 @@ import { defineSector } from './build';
 export const usWineries = defineSector({
   id: 'us-wineries',
   country: 'US',
-  publishAt: '2026-10-24T00:00:00-06:00',
+  publishAt: '2026-10-23T00:00:00-06:00',
   slug: { es: 'para-vinedos-y-bodegas', en: 'for-wineries' },
   name: { es: 'Viñedos y bodegas', en: 'Wineries' },
   proof: ['fruitAcademy', 'elRollo', 'ideograma'],

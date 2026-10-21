@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usPrivateEquity = defineSector({
   id: 'us-private-equity',
   country: 'US',
-  publishAt: '2026-10-25T00:00:00-06:00',
+  publishAt: '2026-10-24T00:00:00-06:00',
   slug: { es: 'para-private-equity-y-venture-capital', en: 'for-private-equity-and-vc-firms' },
   name: { es: 'Private equity y venture capital', en: 'Private equity and VC firms' },
   proof: ['fortrade', 'bonanza', 'ancient'],

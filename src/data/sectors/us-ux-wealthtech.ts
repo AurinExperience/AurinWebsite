@@ -10,7 +10,7 @@ export const usUxWealthtech = defineSector({
   id: 'us-ux-wealthtech',
   service: 'uxui',
   country: 'US',
-  publishAt: '2026-10-25T00:00:00-06:00',
+  publishAt: '2026-10-24T00:00:00-06:00',
   slug: { es: 'para-wealthtech', en: 'for-wealthtech' },
   name: { es: 'Wealthtech', en: 'Wealthtech' },
   proof: ['monetix', 'fortrade', 'debiti'],

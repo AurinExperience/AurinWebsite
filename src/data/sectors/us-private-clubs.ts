@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usPrivateClubs = defineSector({
   id: 'us-private-clubs',
   country: 'US',
-  publishAt: '2026-10-25T00:00:00-06:00',
+  publishAt: '2026-10-24T00:00:00-06:00',
   slug: { es: 'para-clubes-privados', en: 'for-private-clubs' },
   name: { es: 'Clubes privados', en: 'Private clubs' },
   proof: ['elRollo', 'sinfonica', 'ideograma'],

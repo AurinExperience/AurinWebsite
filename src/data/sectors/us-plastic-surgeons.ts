@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usPlasticSurgeons = defineSector({
   id: 'us-plastic-surgeons',
   country: 'US',
-  publishAt: '2026-10-22T00:00:00-06:00',
+  publishAt: '2026-10-21T00:00:00-06:00',
   slug: { es: 'para-cirujanos-plasticos', en: 'for-plastic-surgeons' },
   name: { es: 'Cirujanos plásticos', en: 'Plastic surgeons' },
   proof: ['dentol', 'elite', 'ideograma'],

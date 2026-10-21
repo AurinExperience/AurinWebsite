@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usLuxuryBrands = defineSector({
   id: 'us-luxury-brands',
   country: 'US',
-  publishAt: '2026-10-25T00:00:00-06:00',
+  publishAt: '2026-10-24T00:00:00-06:00',
   slug: { es: 'para-marcas-de-lujo', en: 'for-luxury-brands' },
   name: { es: 'Marcas de lujo', en: 'Luxury brands' },
   proof: ['ideograma', 'sinfonica', 'pfi'],

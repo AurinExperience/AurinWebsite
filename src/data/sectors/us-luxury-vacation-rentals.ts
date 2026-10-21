@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usLuxuryVacationRentals = defineSector({
   id: 'us-luxury-vacation-rentals',
   country: 'US',
-  publishAt: '2026-10-26T00:00:00-06:00',
+  publishAt: '2026-10-25T00:00:00-06:00',
   slug: { es: 'para-rentas-vacacionales-de-lujo', en: 'for-luxury-vacation-rentals' },
   name: { es: 'Rentas vacacionales de lujo', en: 'Luxury vacation rentals' },
   proof: ['elRollo', 'grupoEstrella', 'ideograma'],

@@ -9,7 +9,7 @@ import { defineSector } from './build';
 export const usWealthManagement = defineSector({
   id: 'us-wealth-management',
   country: 'US',
-  publishAt: '2026-10-23T00:00:00-06:00',
+  publishAt: '2026-10-22T00:00:00-06:00',
   slug: { es: 'para-gestion-patrimonial', en: 'for-wealth-management-firms' },
   name: { es: 'Gestión patrimonial', en: 'Wealth management firms' },
   proof: ['fortrade', 'monetix', 'bonanza'],
