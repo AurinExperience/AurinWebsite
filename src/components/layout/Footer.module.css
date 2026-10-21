@@ -203,6 +203,17 @@
   transition: color var(--transition-fast);
 }
 
+/* "Preferencias de cookies" es botón: que se vea igual que los enlaces de al lado */
+.footerButton {
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 .footerLegalLink:hover,
 .footerLegalLink:focus-visible {
   color: var(--color-text);

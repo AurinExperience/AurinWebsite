@@ -53,7 +53,8 @@ const graph = {
       email: SITE.contactEmail,
       foundingDate: "1998",
       knowsAbout,
-      areaServed: { "@type": "Country", name: "Mexico" },
+      // México y, a distancia, Norteamérica (nearshore), España y Latinoamérica de buen ingreso
+      areaServed: ["Mexico", "United States", "Canada", "Spain", "Dominican Republic", "Puerto Rico", "Panama", "Costa Rica", "Chile", "Uruguay"].map((name) => ({ "@type": "Country", name })),
       contactPoint: {
         "@type": "ContactPoint",
         email: SITE.contactEmail,

@@ -1,0 +1,64 @@
+---
+/**
+ * CookieConsent — aviso de cookies. Sale a todos hasta que eligen (y de nuevo a los 12 meses);
+ * en Europa y Canadá la analítica espera al "Aceptar" (la regla vive en el script de
+ * consentimiento de Layout.astro). "Preferencias de cookies" del pie ([data-cookie-settings])
+ * lo vuelve a abrir.
+ * Primera capa corta y amable (finalidad, propias y de terceros, enlace al detalle), como pide
+ * el RGPD en avisos por capas; el detalle vive en la sección #cookies del aviso de privacidad.
+ * Dos modos (data-mode):
+ * - "ask": Europa y Canadá, o abierto desde el pie. Pregunta, con Rechazar y Aceptar del
+ *   mismo tamaño y a la vista (obligatorio en el RGPD).
+ * - "notice": el resto (México, EE. UU., Latinoamérica), donde basta informar y dar cómo
+ *   desactivarlas: solo "Entendido"; rechazar queda en "Preferencias de cookies" (en el texto
+ *   del aviso y en el pie), que cambia el aviso a "ask".
+ */
+import Cookie from 'lucide-astro/Cookie';
+import { getLangFromUrl, getLocalizedUrl, translations } from '@/i18n';
+import styles from './CookieConsent.module.css';
+
+const lang = getLangFromUrl(Astro.url);
+const t = translations[lang].cookies;
+---
+
+<div class={styles.banner} role="dialog" aria-label={t.title} tabindex="-1" data-cookie-banner data-mode="ask" hidden>
+  <span class={styles.icon} aria-hidden="true"><Cookie size={22} /></span>
+  <div class={styles.body}>
+    <p class:list={[styles.title, styles.ask]} id="cookie-title">{t.title}</p>
+    <p class:list={[styles.title, styles.notice]}>{t.noticeTitle}</p>
+    <p class={styles.text}>
+      <span class={styles.ask}>{t.text}</span>
+      <span class={styles.notice}>
+        {t.noticeText} <button type="button" class={styles.inlineLink} data-cookie-settings>{t.noticeSettings}</button>.
+      </span>
+      <a class={styles.link} href={`${getLocalizedUrl('/privacy', lang)}#cookies`}>{t.link}</a>
+    </p>
+    <div class={styles.actions}>
+      <button type="button" class:list={[styles.button, styles.reject, styles.ask]} data-cookie-choice="denied">{t.reject}</button>
+      <button type="button" class:list={[styles.button, styles.accept, styles.ask]} data-cookie-choice="granted">{t.accept}</button>
+      <button type="button" class:list={[styles.button, styles.accept, styles.notice]} data-cookie-choice="granted">{t.ok}</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const w = window as any;
+  const banner = document.querySelector<HTMLElement>('[data-cookie-banner]');
+  if (banner) {
+    banner.dataset.mode = w.aurinConsent?.optIn ? 'ask' : 'notice';
+    banner.hidden = !w.aurinConsent?.ask;
+    banner.addEventListener('click', (event) => {
+      const choice = (event.target as HTMLElement).closest<HTMLElement>('[data-cookie-choice]')?.dataset.cookieChoice;
+      if (!choice) return;
+      w.aurinSetConsent?.(choice === 'granted');
+      banner.hidden = true;
+    });
+    document.addEventListener('click', (event) => {
+      if (!(event.target as HTMLElement).closest('[data-cookie-settings]')) return;
+      banner.dataset.manual = ''; // abierto a mano: sin la espera de la entrada
+      banner.dataset.mode = 'ask'; // desde el pie siempre con las dos opciones
+      banner.hidden = false;
+      banner.focus(); // al banner y no a un botón: ninguno se ve preseleccionado
+    });
+  }
+</script>

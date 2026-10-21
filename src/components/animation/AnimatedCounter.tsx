@@ -129,7 +129,9 @@ export default function AnimatedCounter({
       ref={ref}
       className={`${styles['counter-container']} ${className}`}
     >
-      <div className={styles['counter-counter']} style={counterStyle}>
+      {/* Lo que leen Google y los lectores de pantalla: sin esto solo veían las tiras de dígitos "0123456789" */}
+      <span className={styles['counter-text']}>{`${targetValue}${suffix}`}</span>
+      <div className={styles['counter-counter']} style={counterStyle} aria-hidden="true">
         {places.map(place => (
           <Digit 
             key={place} 
