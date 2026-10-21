@@ -37,6 +37,11 @@ export function leadSheetRow(data: ContactFormData, now = new Date()): string[] 
 }
 
 export async function appendLeadRow(data: ContactFormData): Promise<void> {
+  await appendSheetRow('Leads', leadSheetRow(data));
+}
+
+/** Agrega una fila al final de una pestaña. Nunca lanza: registrar es secundario. */
+export async function appendSheetRow(tab: string, row: string[]): Promise<void> {
   const sheetId = import.meta.env.LEADS_SHEET_ID;
   if (!sheetId) return;
   try {
@@ -47,15 +52,15 @@ export async function appendLeadRow(data: ContactFormData): Promise<void> {
     });
     const { token } = await auth.getAccessToken();
     // RAW: un nombre que empiece con "=" no se vuelve fórmula
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Leads!A1:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${tab}!A1:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
     const response = await fetch(url, {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ values: [leadSheetRow(data)] }),
+      body: JSON.stringify({ values: [row] }),
     });
     if (!response.ok) throw new Error(`${response.status} ${await response.text()}`);
   } catch (error) {
     // Va en paralelo al correo: perder la fila no debe tumbar el formulario
-    console.error('No se pudo registrar el lead en Sheets:', error);
+    console.error(`No se pudo registrar la fila en Sheets (${tab}):`, error);
   }
 }
