@@ -11,6 +11,7 @@ import type { Guide } from './types';
 export const paginaWebHotel: Guide = {
   id: 'pagina-web-hotel',
   status: 'live',
+  authors: ['nayeli-quinto'],
   slug: {
     es: 'que-debe-tener-la-pagina-web-de-un-hotel',
     en: 'what-a-hotel-website-needs',

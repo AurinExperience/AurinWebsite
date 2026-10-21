@@ -269,8 +269,104 @@
 /* ------------------------------------------------------------------
    Cierre: CTA, relacionados, volver
    ------------------------------------------------------------------ */
-.cta {
+/* Firma: quién escribió la guía (E-E-A-T), enlazado a su tarjeta en Nosotros */
+.authorLink {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.authorLink:hover {
+  color: var(--color-yellow);
+}
+
+.authors {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  max-width: 68ch;
   margin-top: var(--spacing-16);
+}
+
+.authorsTitle {
+  margin: 0;
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4) var(--spacing-5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  background: var(--color-black-b);
+}
+
+.authorAvatar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  color: var(--color-black-a);
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-semibold);
+}
+
+.author > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.authorName {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+}
+
+.authorName:hover {
+  color: var(--color-yellow);
+}
+
+.authorRole {
+  margin: 2px 0 0;
+  color: var(--color-gray-a);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+}
+
+.authorLinkedin {
+  flex-shrink: 0;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  text-underline-offset: 3px;
+}
+
+.authorLinkedin:hover {
+  color: var(--color-yellow);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.cta {
+  margin-top: var(--spacing-8);
   padding: clamp(var(--spacing-6), 3vw, var(--spacing-10));
   max-width: 68ch;
   border: 1px solid rgba(208, 223, 0, 0.45);

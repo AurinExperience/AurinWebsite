@@ -176,10 +176,9 @@ export type StructuredData =
   | BreadcrumbListStructuredData;
 
 /**
- * Article — datos estructurados de las guías. El autor apunta al nodo
- * Organization del @graph global en lugar de a una Person: declarar un autor
- * humano exigiría un nombre real y una página de autor que hoy no existen, y
- * un autor inventado es peor señal de E-E-A-T que ninguno.
+ * Article — datos estructurados de las guías. Los autores son los fundadores
+ * reales (SITE.founders): cada Person usa el mismo @id que `founder` en el
+ * @graph global y su `url` apunta a su tarjeta en Nosotros.
  */
 export interface ArticleStructuredData {
   "@context": "https://schema.org";
@@ -190,7 +189,7 @@ export interface ArticleStructuredData {
   datePublished: string;
   dateModified: string;
   inLanguage: string;
-  author: NodeReference;
+  author: { "@type": "Person"; "@id": string; name: string; url: string }[];
   publisher: NodeReference;
   mainEntityOfPage: {
     "@type": "WebPage";

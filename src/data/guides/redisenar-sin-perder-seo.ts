@@ -10,6 +10,7 @@ import type { Guide } from './types';
 export const redisenarSinPerderSeo: Guide = {
   id: 'redisenar-sin-perder-seo',
   status: 'live',
+  authors: ['elias-aquique'],
   slug: {
     es: 'redisenar-sitio-web-sin-perder-posicionamiento',
     en: 'redesign-a-website-without-losing-rankings',

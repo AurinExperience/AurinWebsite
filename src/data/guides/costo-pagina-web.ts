@@ -11,6 +11,7 @@ import type { Guide } from './types';
 export const costoPaginaWeb: Guide = {
   id: 'costo-pagina-web',
   status: 'live',
+  authors: ['elias-aquique'],
   slug: {
     es: 'cuanto-cuesta-una-pagina-web-en-mexico',
     en: 'how-much-does-a-website-cost-in-mexico',
