@@ -1,6 +1,7 @@
 {
   "crons": [
-    { "path": "/api/indexnow", "schedule": "10 6 * * *" }
+    { "path": "/api/indexnow", "schedule": "10 6 * * *" },
+    { "path": "/api/bing-stats", "schedule": "30 6 * * *" }
   ],
   "redirects": [
     {
