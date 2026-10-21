@@ -746,6 +746,13 @@ export const translations = {
         years: "Years",
         countries: "Countries"
       },
+      founders: {
+        headingWhite: "Who leads",
+        headingYellow: "Aurin",
+        intro: "Elias Aquique and Nayeli Quinto founded Aurin in 1998 and lead it today.",
+        roles: { "elias-aquique": "CEO and co-founder", "nayeli-quinto": "CCO and co-founder" },
+        linkedin: "LinkedIn profile of"
+      },
       ourStory: {
         headingWhite: "How did we get",
         headingYellow: "Here?",
@@ -1564,6 +1571,13 @@ export const translations = {
         clients: "Clientes",
         years: "Años",
         countries: "Países"
+      },
+      founders: {
+        headingWhite: "Quién dirige",
+        headingYellow: "Aurin",
+        intro: "Elias Aquique y Nayeli Quinto fundaron Aurin en 1998 y hoy la dirigen.",
+        roles: { "elias-aquique": "CEO y cofundador", "nayeli-quinto": "CCO y cofundadora" },
+        linkedin: "Perfil de LinkedIn de"
       },
       ourStory: {
         headingWhite: "¿Cómo llegamos",

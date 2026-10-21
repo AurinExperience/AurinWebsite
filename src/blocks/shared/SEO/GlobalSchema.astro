@@ -52,6 +52,14 @@ const graph = {
       description: orgDescription,
       email: SITE.contactEmail,
       foundingDate: "1998",
+      founder: SITE.founders.map(({ id, name, jobTitle, linkedin }) => ({
+        "@type": "Person",
+        "@id": `${SITE.url}/#${id}`,
+        name,
+        jobTitle,
+        sameAs: [linkedin],
+        worksFor: { "@id": orgId },
+      })),
       knowsAbout,
       // México y, a distancia, Norteamérica (nearshore), España y Latinoamérica de buen ingreso
       areaServed: ["Mexico", "United States", "Canada", "Spain", "Dominican Republic", "Puerto Rico", "Panama", "Costa Rica", "Chile", "Uruguay"].map((name) => ({ "@type": "Country", name })),

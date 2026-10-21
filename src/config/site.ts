@@ -46,6 +46,12 @@ export const SITE = {
   // Enlace de "Solicita opiniones" de la ficha (abre directo el formulario de reseña).
   reviewUrl: "https://g.page/r/CRaH8e8ea2HtEAE/review",
   geo: { latitude: 18.9389376, longitude: -99.2468182 },
+  // Fundadores (1998) y quienes dirigen hoy. Alimentan `founder` del schema y el bloque
+  // Founders de Nosotros: personas reales con su LinkedIn son la base del E-E-A-T.
+  founders: [
+    { id: "elias-aquique", name: "Elias Aquique", jobTitle: "CEO", linkedin: "https://www.linkedin.com/in/elias-aquique-a5772037/" },
+    { id: "nayeli-quinto", name: "Nayeli Quinto", jobTitle: "CCO", linkedin: "https://www.linkedin.com/in/nayeliquinto/" },
+  ],
   // Igual que el horario de la ficha. Formato schema.org: días en inglés, 24 h.
   openingHours: {
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

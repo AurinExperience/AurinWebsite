@@ -1,4 +1,5 @@
 export { default as Alliances } from './Alliances/Alliances.astro';
+export { default as Founders } from './Founders/Founders.astro';
 export { default as CollaborativeDesign } from './CollaborativeDesign/CollaborativeDesign.astro';
 export { default as LongCards } from './LongCards/LongCards.astro';
 export { default as HeroAbout } from './HeroAbout/HeroAbout.astro';
