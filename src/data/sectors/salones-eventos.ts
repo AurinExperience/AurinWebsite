@@ -76,7 +76,7 @@ export const salonesEventos = defineSector({
     lead: {
       heading: 'Hablemos de tu recinto',
       description:
-        'Cuéntanos qué espacios tienes y qué eventos quieres atraer. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué espacios tienes y qué eventos quieres atraer. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos un jardín para bodas de 300 personas y queremos más visitas agendadas.',
     },
   },
@@ -144,7 +144,7 @@ export const salonesEventos = defineSector({
     lead: {
       heading: 'Let’s talk about your venue',
       description:
-        'Tell us which spaces you have and which events you want to attract. We will reach out and send you an itemized proposal.',
+        'Tell us which spaces you have and which events you want to attract. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We have a 300-guest wedding garden and want more booked visits.',
     },
   },

@@ -76,7 +76,7 @@ export const usUxWealthtech = defineSector({
     lead: {
       heading: 'Hablemos de tu plataforma',
       description:
-        'Cuéntanos qué hace tu plataforma y quién la usa. Te contactamos en tu horario y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué hace tu plataforma y quién la usa. Te contactaremos lo antes posible en tu horario y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos una plataforma para RIAs y los asesores dicen que los reportes son difíciles de explicar.',
     },
   },
@@ -141,7 +141,7 @@ export const usUxWealthtech = defineSector({
     lead: {
       heading: 'Let’s talk about your platform',
       description:
-        'Tell us what your platform does and who uses it. We will reach out during your business hours and send you an itemized proposal.',
+        'Tell us what your platform does and who uses it. We will reach out as soon as possible during your business hours and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We run a platform for RIAs and advisors say the reports are hard to explain.',
     },
   },

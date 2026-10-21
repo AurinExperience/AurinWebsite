@@ -76,7 +76,7 @@ export const uxHealthcare = defineSector({
     lead: {
       heading: 'Hablemos de tu hospital',
       description:
-        'Cuéntanos qué sistemas tienes y qué experiencia quieres mejorar. Te contactamos para entender tu operación y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué sistemas tienes y qué experiencia quieres mejorar. Te contactaremos lo antes posible para entender tu operación y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos una red de clínicas y queremos un portal donde los pacientes vean resultados y agenden.',
     },
   },
@@ -143,7 +143,7 @@ export const uxHealthcare = defineSector({
     lead: {
       heading: 'Let’s talk about your hospital',
       description:
-        'Tell us which systems you have and which experience you want to improve. We will reach out to understand your operation and send you an itemized proposal.',
+        'Tell us which systems you have and which experience you want to improve. We will reach out as soon as possible to understand your operation and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a clinic network and want a portal where patients see results and book visits.',
     },
   },

@@ -77,7 +77,7 @@ export const uxGobierno = defineSector({
     lead: {
       heading: 'Hablemos de tus servicios digitales',
       description:
-        'Cuéntanos qué trámites o portales quieres mejorar. Te contactamos para entender tu proyecto y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué trámites o portales quieres mejorar. Te contactaremos lo antes posible para entender tu proyecto y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Queremos que la ciudadanía pueda solicitar y dar seguimiento a un permiso desde el celular.',
     },
   },
@@ -144,7 +144,7 @@ export const uxGobierno = defineSector({
     lead: {
       heading: 'Let’s talk about your digital services',
       description:
-        'Tell us which services or portals you want to improve. We will reach out to understand your project and send you an itemized proposal.',
+        'Tell us which services or portals you want to improve. We will reach out as soon as possible to understand your project and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We want citizens to apply for and track a permit from their phone.',
     },
   },

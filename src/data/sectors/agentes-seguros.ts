@@ -76,7 +76,7 @@ export const agentesSeguros = defineSector({
     lead: {
       heading: 'Hablemos de tu agencia de seguros',
       description:
-        'Cuéntanos qué ramos vendes y cómo llegan hoy tus prospectos. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué ramos vendes y cómo llegan hoy tus prospectos. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Soy agente de gastos médicos y vida y quiero recibir más cotizaciones en línea.',
     },
   },
@@ -144,7 +144,7 @@ export const agentesSeguros = defineSector({
     lead: {
       heading: 'Let’s talk about your insurance agency',
       description:
-        'Tell us which lines you sell and how prospects find you today. We will reach out and send you an itemized proposal.',
+        'Tell us which lines you sell and how prospects find you today. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. I sell health and life insurance and want more quote requests online.',
     },
   },

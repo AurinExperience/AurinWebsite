@@ -26,13 +26,13 @@ export const uxHealthtech: Sector = {
     es: {
       heading: 'Hablemos de tu producto de salud',
       description:
-        'Cuéntanos qué producto tienes o vas a lanzar y quién lo usa. Te contactamos para entender tu producto y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué producto tienes o vas a lanzar y quién lo usa. Te contactaremos lo antes posible para entender tu producto y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos una plataforma de telemedicina y queremos que los pacientes agenden y se conecten sin ayuda.',
     },
     en: {
       heading: 'Let’s talk about your health product',
       description:
-        'Tell us what product you have or are about to launch and who uses it. We will reach out to understand your product and send you an itemized proposal.',
+        'Tell us what product you have or are about to launch and who uses it. We will reach out as soon as possible to understand your product and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We have a telehealth platform and want patients to book and join calls without help.',
     },
   },

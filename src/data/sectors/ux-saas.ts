@@ -26,13 +26,13 @@ export const uxSaas: Sector = {
     es: {
       heading: 'Hablemos de tu software',
       description:
-        'Cuéntanos qué hace tu producto, quién lo usa y en qué etapa está. Te contactamos para entender tu producto y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué hace tu producto, quién lo usa y en qué etapa está. Te contactaremos lo antes posible para entender tu producto y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos un SaaS de logística y los usuarios nuevos tardan mucho en entender cómo usarlo.',
     },
     en: {
       heading: 'Let’s talk about your software',
       description:
-        'Tell us what your product does, who uses it, and what stage it is in. We will reach out to understand your product and send you an itemized proposal.',
+        'Tell us what your product does, who uses it, and what stage it is in. We will reach out as soon as possible to understand your product and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We have a logistics SaaS and new users take too long to figure out how to use it.',
     },
   },

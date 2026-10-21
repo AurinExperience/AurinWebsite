@@ -25,14 +25,14 @@ export const contadores: Sector = {
     es: {
       heading: 'Hablemos de tu despacho contable',
       description:
-        'Cuéntanos qué servicios ofreces y a qué clientes quieres atraer. Te contactamos para entender tu despacho y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué servicios ofreces y a qué clientes quieres atraer. Te contactaremos lo antes posible para entender tu despacho y te enviaremos una propuesta desglosada.',
       messagePlaceholder:
         'Ej. Somos un despacho de contabilidad y nómina y queremos atraer más empresas pequeñas.',
     },
     en: {
       heading: 'Let’s talk about your accounting firm',
       description:
-        'Tell us which services you offer and which clients you want to attract. We will reach out to understand your firm and send you an itemized proposal.',
+        'Tell us which services you offer and which clients you want to attract. We will reach out as soon as possible to understand your firm and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are an accounting and payroll firm and want to attract more small businesses.',
     },
   },

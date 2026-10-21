@@ -76,7 +76,7 @@ export const usPlasticSurgeons = defineSector({
     lead: {
       heading: 'Hablemos de tu práctica',
       description:
-        'Cuéntanos qué procedimientos quieres impulsar. Te contactamos para entender tu práctica y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué procedimientos quieres impulsar. Te contactaremos lo antes posible para entender tu práctica y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos una práctica de cirugía plástica en Scottsdale y queremos rediseñar el sitio.',
     },
   },
@@ -143,7 +143,7 @@ export const usPlasticSurgeons = defineSector({
     lead: {
       heading: 'Let’s talk about your practice',
       description:
-        'Tell us which procedures you want to grow. We will reach out to understand your practice and send you an itemized proposal.',
+        'Tell us which procedures you want to grow. We will reach out as soon as possible to understand your practice and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a plastic surgery practice in Scottsdale and want to redesign our site.',
     },
   },

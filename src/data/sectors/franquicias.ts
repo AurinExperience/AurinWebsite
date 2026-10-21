@@ -75,7 +75,7 @@ export const franquicias = defineSector({
     lead: {
       heading: 'Hablemos de tu franquicia',
       description:
-        'Cuéntanos cuántas sucursales tienes y si buscas nuevos franquiciatarios. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos cuántas sucursales tienes y si buscas nuevos franquiciatarios. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos 30 sucursales y queremos atraer franquiciatarios en otras ciudades.',
     },
   },
@@ -142,7 +142,7 @@ export const franquicias = defineSector({
     lead: {
       heading: 'Let’s talk about your franchise',
       description:
-        'Tell us how many locations you have and whether you are looking for new franchisees. We will reach out and send you an itemized proposal.',
+        'Tell us how many locations you have and whether you are looking for new franchisees. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We have 30 locations and want to attract franchisees in other cities.',
     },
   },

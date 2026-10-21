@@ -75,7 +75,7 @@ export const usBoutiqueHotels = defineSector({
     lead: {
       heading: 'Hablemos de tu hotel',
       description:
-        'Cuéntanos sobre tu hotel y cómo reservan hoy tus huéspedes. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos sobre tu hotel y cómo reservan hoy tus huéspedes. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos un hotel boutique de 24 habitaciones en Napa y casi todas las reservas llegan por agencias.',
     },
   },
@@ -142,7 +142,7 @@ export const usBoutiqueHotels = defineSector({
     lead: {
       heading: 'Let’s talk about your hotel',
       description:
-        'Tell us about your hotel and how guests book today. We will reach out and send you an itemized proposal.',
+        'Tell us about your hotel and how guests book today. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We run a 24-room boutique hotel in Napa and most bookings come through OTAs.',
     },
   },

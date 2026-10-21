@@ -76,7 +76,7 @@ export const usPrivateAviation = defineSector({
     lead: {
       heading: 'Hablemos de tu operación',
       description:
-        'Cuéntanos qué servicios ofreces y a quién atiendes. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué servicios ofreces y a quién atiendes. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos un operador chárter en Florida y queremos que las cotizaciones lleguen por el sitio.',
     },
   },
@@ -142,7 +142,7 @@ export const usPrivateAviation = defineSector({
     lead: {
       heading: 'Let’s talk about your operation',
       description:
-        'Tell us which services you offer and who you serve. We will reach out and send you an itemized proposal.',
+        'Tell us which services you offer and who you serve. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a charter operator in Florida and want quote requests to come through the site.',
     },
   },

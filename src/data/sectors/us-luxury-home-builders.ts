@@ -76,7 +76,7 @@ export const usLuxuryHomeBuilders = defineSector({
     lead: {
       heading: 'Hablemos de tu constructora',
       description:
-        'Cuéntanos qué construyes y qué clientes buscas. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué construyes y qué clientes buscas. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Construimos casas a la medida en Aspen y nuestro sitio no muestra el nivel de nuestra obra.',
     },
   },
@@ -143,7 +143,7 @@ export const usLuxuryHomeBuilders = defineSector({
     lead: {
       heading: 'Let’s talk about your firm',
       description:
-        'Tell us what you build and which clients you want. We will reach out and send you an itemized proposal.',
+        'Tell us what you build and which clients you want. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We build custom homes in Aspen and our site doesn’t show the level of our work.',
     },
   },

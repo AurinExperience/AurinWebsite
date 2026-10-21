@@ -76,7 +76,7 @@ export const agenciasViajes = defineSector({
     lead: {
       heading: 'Hablemos de tu agencia de viajes',
       description:
-        'Cuéntanos qué destinos vendes y cómo llegan hoy tus viajeros. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué destinos vendes y cómo llegan hoy tus viajeros. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Vendemos viajes de grupo a Europa y queremos más cotizaciones desde el sitio.',
     },
   },
@@ -144,7 +144,7 @@ export const agenciasViajes = defineSector({
     lead: {
       heading: 'Let’s talk about your travel agency',
       description:
-        'Tell us which destinations you sell and how travelers find you today. We will reach out and send you an itemized proposal.',
+        'Tell us which destinations you sell and how travelers find you today. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We sell group trips to Europe and want more quote requests from the site.',
     },
   },

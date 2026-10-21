@@ -76,7 +76,7 @@ export const uxInversiones = defineSector({
     lead: {
       heading: 'Hablemos de tu plataforma de inversión',
       description:
-        'Cuéntanos qué productos ofreces y en qué etapa está tu plataforma. Te contactamos para entenderla y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué productos ofreces y en qué etapa está tu plataforma. Te contactaremos lo antes posible para entenderla y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Muchos usuarios abren cuenta pero nunca hacen su primer depósito.',
     },
   },
@@ -143,7 +143,7 @@ export const uxInversiones = defineSector({
     lead: {
       heading: 'Let’s talk about your investment platform',
       description:
-        'Tell us which products you offer and what stage your platform is in. We will reach out to understand it and send you an itemized proposal.',
+        'Tell us which products you offer and what stage your platform is in. We will reach out as soon as possible to understand it and send you an itemized proposal.',
       messagePlaceholder: 'E.g. Many users open an account but never make their first deposit.',
     },
   },

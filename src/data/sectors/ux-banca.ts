@@ -76,7 +76,7 @@ export const uxBanca = defineSector({
     lead: {
       heading: 'Hablemos de tu banca digital',
       description:
-        'Cuéntanos qué canales tienes y qué trámites quieres mejorar. Te contactamos para entender tu operación y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué canales tienes y qué trámites quieres mejorar. Te contactaremos lo antes posible para entender tu operación y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos una caja de ahorro y queremos que nuestros socios hagan sus trámites desde la app.',
     },
   },
@@ -143,7 +143,7 @@ export const uxBanca = defineSector({
     lead: {
       heading: 'Let’s talk about your digital banking',
       description:
-        'Tell us which channels you have and which tasks you want to improve. We will reach out to understand your operation and send you an itemized proposal.',
+        'Tell us which channels you have and which tasks you want to improve. We will reach out as soon as possible to understand your operation and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a credit union and want our members to handle their banking from the app.',
     },
   },

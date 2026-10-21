@@ -24,13 +24,13 @@ export const veterinarias: Sector = {
     es: {
       heading: 'Hablemos de tu veterinaria',
       description:
-        'Cuéntanos qué servicios ofreces y cómo agendan hoy tus clientes. Te contactamos para entender tu clínica y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué servicios ofreces y cómo agendan hoy tus clientes. Te contactaremos lo antes posible para entender tu clínica y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos un hospital veterinario con urgencias 24 horas y queremos más consultas agendadas.',
     },
     en: {
       heading: 'Let’s talk about your veterinary clinic',
       description:
-        'Tell us which services you offer and how clients book today. We will reach out to understand your clinic and send you an itemized proposal.',
+        'Tell us which services you offer and how clients book today. We will reach out as soon as possible to understand your clinic and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a 24-hour veterinary hospital and want more scheduled visits.',
     },
   },

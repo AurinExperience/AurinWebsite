@@ -76,7 +76,7 @@ export const agroindustria = defineSector({
     lead: {
       heading: 'Hablemos de tu empresa',
       description:
-        'Cuéntanos qué produces y a qué mercados quieres vender. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué produces y a qué mercados quieres vender. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos empacadores de aguacate y queremos llegar a compradores en Estados Unidos y Asia.',
     },
   },
@@ -144,7 +144,7 @@ export const agroindustria = defineSector({
     lead: {
       heading: 'Let’s talk about your company',
       description:
-        'Tell us what you produce and which markets you want to sell to. We will reach out and send you an itemized proposal.',
+        'Tell us what you produce and which markets you want to sell to. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We pack avocados and want to reach buyers in the United States and Asia.',
     },
   },

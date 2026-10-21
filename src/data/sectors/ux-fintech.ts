@@ -26,13 +26,13 @@ export const uxFintech: Sector = {
     es: {
       heading: 'Hablemos de tu producto financiero',
       description:
-        'Cuéntanos qué producto tienes o vas a lanzar y en qué etapa está. Te contactamos para entender tu producto y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué producto tienes o vas a lanzar y en qué etapa está. Te contactaremos lo antes posible para entender tu producto y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos una app de pagos y queremos mejorar el onboarding y la tasa de activación.',
     },
     en: {
       heading: 'Let’s talk about your financial product',
       description:
-        'Tell us what product you have or are about to launch and what stage it is in. We will reach out to understand your product and send you an itemized proposal.',
+        'Tell us what product you have or are about to launch and what stage it is in. We will reach out as soon as possible to understand your product and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We have a payments app and want to improve onboarding and activation.',
     },
   },

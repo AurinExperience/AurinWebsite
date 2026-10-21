@@ -75,7 +75,7 @@ export const usInteriorDesigners = defineSector({
     lead: {
       heading: 'Hablemos de tu estudio',
       description:
-        'Cuéntanos qué proyectos haces y qué clientes buscas. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué proyectos haces y qué clientes buscas. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Tenemos un estudio de interiorismo residencial en Palm Beach y queremos un portafolio editorial.',
     },
   },
@@ -141,7 +141,7 @@ export const usInteriorDesigners = defineSector({
     lead: {
       heading: 'Let’s talk about your studio',
       description:
-        'Tell us what projects you do and which clients you want. We will reach out and send you an itemized proposal.',
+        'Tell us what projects you do and which clients you want. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We run a residential interior design studio in Palm Beach and want an editorial portfolio.',
     },
   },

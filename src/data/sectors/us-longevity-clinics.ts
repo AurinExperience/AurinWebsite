@@ -76,7 +76,7 @@ export const usLongevityClinics = defineSector({
     lead: {
       heading: 'Hablemos de tu clínica',
       description:
-        'Cuéntanos qué programas ofreces y a quién atiendes. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué programas ofreces y a quién atiendes. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Abrimos una clínica de longevidad en Austin y necesitamos marca y sitio.',
     },
   },
@@ -143,7 +143,7 @@ export const usLongevityClinics = defineSector({
     lead: {
       heading: 'Let’s talk about your clinic',
       description:
-        'Tell us which programs you offer and who you serve. We will reach out and send you an itemized proposal.',
+        'Tell us which programs you offer and who you serve. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are opening a longevity clinic in Austin and need a brand and a website.',
     },
   },

@@ -76,7 +76,7 @@ export const usUxNearshore = defineSector({
     lead: {
       heading: 'Hablemos de tu producto',
       description:
-        'Cuéntanos en qué etapa está tu producto y qué necesitas diseñar. Te contactamos en tu horario y te enviamos una propuesta desglosada.',
+        'Cuéntanos en qué etapa está tu producto y qué necesitas diseñar. Te contactaremos lo antes posible en tu horario y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos una startup SaaS en San Francisco y necesitamos rediseñar el onboarding.',
     },
   },
@@ -141,7 +141,7 @@ export const usUxNearshore = defineSector({
     lead: {
       heading: 'Let’s talk about your product',
       description:
-        'Tell us what stage your product is in and what you need designed. We will reach out during your business hours and send you an itemized proposal.',
+        'Tell us what stage your product is in and what you need designed. We will reach out as soon as possible during your business hours and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a SaaS startup in San Francisco and need to redesign our onboarding.',
     },
   },

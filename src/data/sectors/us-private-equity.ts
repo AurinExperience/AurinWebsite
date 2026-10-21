@@ -76,7 +76,7 @@ export const usPrivateEquity = defineSector({
     lead: {
       heading: 'Hablemos de tu firma',
       description:
-        'Cuéntanos sobre tu firma y a quién tiene que convencer el sitio. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos sobre tu firma y a quién tiene que convencer el sitio. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos un fondo de venture capital en Nueva York y nuestro sitio no refleja nuestra tesis.',
     },
   },
@@ -142,7 +142,7 @@ export const usPrivateEquity = defineSector({
     lead: {
       heading: 'Let’s talk about your firm',
       description:
-        'Tell us about your firm and who the site needs to convince. We will reach out and send you an itemized proposal.',
+        'Tell us about your firm and who the site needs to convince. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are a New York VC fund and our site doesn’t reflect our thesis.',
     },
   },

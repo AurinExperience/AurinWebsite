@@ -70,7 +70,7 @@ export const translations = {
         ],
         button: "Send",
         sending: "Sending...",
-        success: "Message sent successfully! We will contact you soon.",
+        success: "Message sent successfully! We will contact you as soon as possible.",
         error: "Error: Could not send message",
         networkError: "Connection error. Please try again."
       },
@@ -354,7 +354,7 @@ export const translations = {
         },
         {
           question: "How do I start a project with Aurin?",
-          answer: "Fill in the contact form or book a 30-minute call. We talk about goals, audience and budget, and within a week you get a quote broken down by stage with dates. Most projects start within two weeks of approval."
+          answer: "Fill in the contact form or book a 30-minute call. We talk about goals, audience and budget, and we prepare a quote broken down by stage with dates and send it to you as soon as possible. Most projects start within two weeks of approval."
         }
       ]
     },
@@ -722,7 +722,7 @@ export const translations = {
        */
       leadForm: {
         heading: "Ready to transform your digital presence?",
-        description: "Tell us about your project and we'll reach out to set up a call, understand the scope, and put your quote together.",
+        description: "Tell us about your project. We'll put your quote together and contact you as soon as possible to set up a call and understand the scope.",
         labels: {
           name: "Full name",
           email: "Email",
@@ -750,7 +750,7 @@ export const translations = {
         privacyNoteBefore: "By submitting this form you agree to our ",
         privacyNoteLink: "privacy notice",
         privacyNoteAfter: ".",
-        success: "Message sent! We'll be in touch shortly to schedule the intro call.",
+        success: "Message sent! We'll contact you as soon as possible to schedule the intro call.",
         error: "Could not send the message. Please try again."
       }
     }
@@ -826,7 +826,7 @@ export const translations = {
         ],
         button: "Enviar",
         sending: "Enviando...",
-        success: "¡Mensaje enviado correctamente! Te contactaremos pronto.",
+        success: "¡Mensaje enviado correctamente! Te contactaremos lo antes posible.",
         error: "Error: No se pudo enviar el mensaje",
         networkError: "Error de conexión. Por favor, inténtalo de nuevo."
       },
@@ -1110,7 +1110,7 @@ export const translations = {
         },
         {
           question: "¿Cómo empiezo un proyecto con Aurin?",
-          answer: "Llena el formulario de contacto o agenda una llamada de 30 minutos. Hablamos de objetivos, audiencia y presupuesto, y en menos de una semana recibes una cotización desglosada por etapa con fechas. La mayoría de los proyectos arranca en las dos semanas siguientes a la aprobación."
+          answer: "Llena el formulario de contacto o agenda una llamada de 30 minutos. Hablamos de objetivos, audiencia y presupuesto, y preparamos tu cotización desglosada por etapa con fechas para enviártela lo antes posible. La mayoría de los proyectos arranca en las dos semanas siguientes a la aprobación."
         }
       ]
     },
@@ -1479,7 +1479,7 @@ export const translations = {
        */
       leadForm: {
         heading: "¿Listo para transformar tu presencia digital?",
-        description: "Cuéntanos sobre tu proyecto y te contactamos para agendar una llamada, entender el alcance y preparar tu cotización.",
+        description: "Cuéntanos sobre tu proyecto. Te cotizamos y te contactaremos lo antes posible para agendar una llamada y entender el alcance.",
         labels: {
           name: "Nombre completo",
           email: "Correo electrónico",
@@ -1507,7 +1507,7 @@ export const translations = {
         privacyNoteBefore: "Al enviar este formulario aceptas nuestro ",
         privacyNoteLink: "aviso de privacidad",
         privacyNoteAfter: ".",
-        success: "¡Mensaje enviado! Te contactaremos en breve para agendar la llamada inicial.",
+        success: "¡Mensaje enviado! Te contactaremos lo antes posible para agendar la llamada inicial.",
         error: "No se pudo enviar el mensaje. Por favor, intenta de nuevo."
       }
     }

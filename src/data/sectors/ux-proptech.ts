@@ -76,7 +76,7 @@ export const uxProptech = defineSector({
     lead: {
       heading: 'Hablemos de tu plataforma inmobiliaria',
       description:
-        'Cuéntanos qué hace tu plataforma y quién la usa. Te contactamos para entenderla y te enviamos una propuesta desglosada.',
+        'Cuéntanos qué hace tu plataforma y quién la usa. Te contactaremos lo antes posible para entenderla y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Administramos cientos de departamentos en renta y queremos una plataforma para propietarios e inquilinos.',
     },
   },
@@ -143,7 +143,7 @@ export const uxProptech = defineSector({
     lead: {
       heading: 'Let’s talk about your real estate platform',
       description:
-        'Tell us what your platform does and who uses it. We will reach out to understand it and send you an itemized proposal.',
+        'Tell us what your platform does and who uses it. We will reach out as soon as possible to understand it and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We manage hundreds of rental apartments and want a platform for owners and tenants.',
     },
   },

@@ -76,7 +76,7 @@ export const usWealthManagement = defineSector({
     lead: {
       heading: 'Hablemos de tu firma',
       description:
-        'Cuéntanos a quién atiendes y qué necesita transmitir tu sitio. Te contactamos y te enviamos una propuesta desglosada.',
+        'Cuéntanos a quién atiendes y qué necesita transmitir tu sitio. Te contactaremos lo antes posible y te enviaremos una propuesta desglosada.',
       messagePlaceholder: 'Ej. Somos una RIA en Greenwich y nuestro sitio ya no refleja a la firma que somos hoy.',
     },
   },
@@ -143,7 +143,7 @@ export const usWealthManagement = defineSector({
     lead: {
       heading: 'Let’s talk about your firm',
       description:
-        'Tell us who you serve and what your site needs to convey. We will reach out and send you an itemized proposal.',
+        'Tell us who you serve and what your site needs to convey. We will reach out as soon as possible and send you an itemized proposal.',
       messagePlaceholder: 'E.g. We are an RIA in Greenwich and our site no longer reflects the firm we are today.',
     },
   },
