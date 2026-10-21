@@ -20,7 +20,7 @@ export const tabasco: Landing = {
   geo: { latitude: 17.9869, longitude: -92.9303 },
   areas: ['Villahermosa', 'Comalcalco', 'Cárdenas', 'Paraíso', 'Cunduacán', 'Tenosique'],
   phoneSample: '+52 993 123 4567',
-  proof: ['fruitAcademy', 'galicia', 'dentol'],
+  proof: ['fruitAcademy', 'mexicoPacific', 'dentol'],
   copy: {
     es: {
       seo: {
@@ -43,7 +43,7 @@ export const tabasco: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Tabasco',
         intro:
-          'Trabajamos con empresas de Villahermosa, Comalcalco, Cárdenas, Paraíso y Cunduacán: marcas de chocolate y cacao, haciendas cacaoteras, despachos contables y legales, clínicas y empresas de servicios.',
+          'Trabajamos con empresas de Villahermosa, Comalcalco, Cárdenas, Paraíso y Cunduacán: marcas de chocolate y cacao, haciendas cacaoteras, proveedores de la industria energética, despachos contables, clínicas y empresas de servicios.',
         items: [
           {
             title: 'Branding para chocolate y cacao',
@@ -114,7 +114,7 @@ export const tabasco: Landing = {
       socialProof: {
         heading: c.proofHeading,
         description:
-          'Proyectos reales de identidad y sitios web en sectores como alimentos, servicios legales y salud. Es el mismo estándar con el que trabajaríamos tu empresa en Tabasco.',
+          'Proyectos reales de identidad y sitios web en sectores como alimentos, energía y salud. Es el mismo estándar con el que trabajaríamos tu empresa en Tabasco.',
       },
       nearby: c.nearby,
       linkLabel: 'Diseño web en Tabasco',
@@ -144,7 +144,7 @@ export const tabasco: Landing = {
       services: {
         heading: 'Web design and branding services in Tabasco',
         intro:
-          'We work with companies in Villahermosa, Comalcalco, Cárdenas, Paraíso, and Cunduacán: chocolate and cacao brands, cacao haciendas, accounting and law firms, clinics, and service companies.',
+          'We work with companies in Villahermosa, Comalcalco, Cárdenas, Paraíso, and Cunduacán: chocolate and cacao brands, cacao haciendas, energy industry suppliers, accounting firms, clinics, and service companies.',
         items: [
           {
             title: 'Branding for chocolate and cacao',
@@ -215,7 +215,7 @@ export const tabasco: Landing = {
       socialProof: {
         heading: C.proofHeading,
         description:
-          'Real identity and website work in sectors like food, legal services, and healthcare. It is the same standard we would bring to your company in Tabasco.',
+          'Real identity and website work in sectors like food, energy, and healthcare. It is the same standard we would bring to your company in Tabasco.',
       },
       nearby: C.nearby,
       linkLabel: 'Web design in Tabasco',

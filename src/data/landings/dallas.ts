@@ -30,7 +30,7 @@ export const dallas: Landing = {
     'Oak Cliff',
   ],
   phoneSample: '+1 214 555 0123',
-  proof: ['fortrade', 'galicia', 'monetix'],
+  proof: ['fortrade', 'grupoEstrella', 'monetix'],
   copy: {
     es: {
       seo: {
@@ -57,7 +57,7 @@ export const dallas: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Dallas–Fort Worth',
         intro:
-          'Trabajamos con negocios de Dallas, Fort Worth, Irving, Garland, Grand Prairie, Arlington, Mesquite y Oak Cliff: oficinas de taxes y contabilidad, agencias de aseguranzas, bienes raíces, despachos legales, restaurantes con varias ubicaciones y empresas de servicios.',
+          'Trabajamos con negocios de Dallas, Fort Worth, Irving, Garland, Grand Prairie, Arlington, Mesquite y Oak Cliff: oficinas de taxes y contabilidad, agencias de aseguranzas, bienes raíces, constructoras, restaurantes con varias ubicaciones y empresas de servicios.',
         items: [
           {
             title: 'Marca para un negocio que creció',
@@ -163,7 +163,7 @@ export const dallas: Landing = {
       socialProof: {
         heading: 'Trabajo que respalda la propuesta',
         description:
-          'Proyectos reales de identidad y sitios web en sectores como finanzas y servicios legales. Es el mismo estándar con el que trabajaríamos tu negocio en Dallas.',
+          'Proyectos reales de identidad y sitios web en sectores como finanzas y construcción. Es el mismo estándar con el que trabajaríamos tu negocio en Dallas.',
       },
       nearby: {
         heading: '¿Tu negocio está en otra ciudad de Estados Unidos?',
@@ -200,7 +200,7 @@ export const dallas: Landing = {
       services: {
         heading: 'Web design and branding services in Dallas–Fort Worth',
         intro:
-          'We work with businesses in Dallas, Fort Worth, Irving, Garland, Grand Prairie, Arlington, Mesquite, and Oak Cliff: tax and accounting offices, insurance agencies, real estate, law firms, multi-location restaurants, and service companies.',
+          'We work with businesses in Dallas, Fort Worth, Irving, Garland, Grand Prairie, Arlington, Mesquite, and Oak Cliff: tax and accounting offices, insurance agencies, real estate, construction companies, multi-location restaurants, and service companies.',
         items: [
           {
             title: 'A brand for a business that grew',
@@ -305,7 +305,7 @@ export const dallas: Landing = {
       socialProof: {
         heading: 'Work that backs the proposal',
         description:
-          'Real identity and website work in sectors like finance and legal services. It is the same standard we would bring to your Dallas business.',
+          'Real identity and website work in sectors like finance and construction. It is the same standard we would bring to your Dallas business.',
       },
       nearby: {
         heading: 'Is your business in another U.S. city?',

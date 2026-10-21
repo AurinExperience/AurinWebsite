@@ -35,6 +35,27 @@ import { energiaSolar } from './energia-solar';
 import { agroindustria } from './agroindustria';
 import { franquicias } from './franquicias';
 import { agenciasViajes } from './agencias-viajes';
+// Estados Unidos (country: 'US'): clientes estadounidenses de alto nivel, 4 por día.
+import { usNearshore } from './us-nearshore';
+import { usUxNearshore } from './us-ux-nearshore';
+import { usLuxuryRealEstate } from './us-luxury-real-estate';
+import { usPlasticSurgeons } from './us-plastic-surgeons';
+import { usMedSpas } from './us-med-spas';
+import { usWealthManagement } from './us-wealth-management';
+import { usUxAiStartups } from './us-ux-ai-startups';
+import { usLuxuryHomeBuilders } from './us-luxury-home-builders';
+import { usInteriorDesigners } from './us-interior-designers';
+import { usBoutiqueHotels } from './us-boutique-hotels';
+import { usWineries } from './us-wineries';
+import { usConciergeMedicine } from './us-concierge-medicine';
+import { usPrivateEquity } from './us-private-equity';
+import { usUxWealthtech } from './us-ux-wealthtech';
+import { usLuxuryBrands } from './us-luxury-brands';
+import { usPrivateClubs } from './us-private-clubs';
+import { usYachtCharters } from './us-yacht-charters';
+import { usLuxuryVacationRentals } from './us-luxury-vacation-rentals';
+import { usLongevityClinics } from './us-longevity-clinics';
+import { usPrivateAviation } from './us-private-aviation';
 
 /**
  * Landings de diseño web por SECTOR ("diseño web para médicos"). Son la otra
@@ -56,6 +77,12 @@ export interface Sector {
   id: string;
   /** Qué se vende en la página. Sin valor = diseño web. */
   service?: SectorService;
+  /**
+   * Para clientes de qué país. 'US' = empresas estadounidenses de alto nivel
+   * (estudio nearshore): sin WhatsApp ni teléfono +52 en inglés, schema para
+   * Estados Unidos y enlaces solo entre sectores del mismo país. Sin valor = MX.
+   */
+  country?: 'MX' | 'US';
   status: 'live' | 'draft';
   publishAt?: string;
   /** Segmento de URL tras el prefijo del servicio (ver PREFIX). */
@@ -111,6 +138,32 @@ const ALL_SECTORS: Sector[] = [
   agroindustria,
   franquicias,
   agenciasViajes,
+  // Estados Unidos (country: 'US'), solo se enlazan entre ellas
+  // 2026-10-22
+  usNearshore,
+  usUxNearshore,
+  usLuxuryRealEstate,
+  usPlasticSurgeons,
+  // 2026-10-23
+  usMedSpas,
+  usWealthManagement,
+  usUxAiStartups,
+  usLuxuryHomeBuilders,
+  // 2026-10-24
+  usInteriorDesigners,
+  usBoutiqueHotels,
+  usWineries,
+  usConciergeMedicine,
+  // 2026-10-25
+  usPrivateEquity,
+  usUxWealthtech,
+  usLuxuryBrands,
+  usPrivateClubs,
+  // 2026-10-26
+  usYachtCharters,
+  usLuxuryVacationRentals,
+  usLongevityClinics,
+  usPrivateAviation,
 ];
 
 /** Misma regla que las landings (incluye ver borradores en `npm run dev`). */
@@ -125,9 +178,10 @@ const PREFIX: Record<SectorService, Record<Lang, string>> = {
 
 export const sectorService = (sector: Sector): SectorService => sector.service ?? 'web';
 
-/** Los demás sectores publicados, para el bloque de enlaces del final. */
+/** Los demás sectores publicados del mismo país, para el bloque de enlaces del final. */
 export function siblingSectors(current: Sector): Sector[] {
-  return publishedSectors().filter((s) => s.id !== current.id);
+  const country = current.country ?? 'MX';
+  return publishedSectors().filter((s) => s.id !== current.id && (s.country ?? 'MX') === country);
 }
 
 export function sectorPath(sector: Sector, lang: Lang): string {

@@ -21,7 +21,7 @@ export const colima: Landing = {
   geo: { latitude: 19.1138, longitude: -104.3385 },
   areas: ['Manzanillo', 'Colima', 'Villa de Álvarez', 'Tecomán', 'Comala'],
   phoneSample: '+52 314 123 4567',
-  proof: ['fortrade', 'galicia', 'elRollo'],
+  proof: ['fortrade', 'mexicoPacific', 'elRollo'],
   copy: {
     es: {
       seo: {
@@ -44,7 +44,7 @@ export const colima: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Colima',
         intro:
-          'Trabajamos con empresas de Manzanillo, Colima, Villa de Álvarez y Tecomán: agencias aduanales, despachos contables y legales, empresas de servicios del puerto, hoteles y restaurantes.',
+          'Trabajamos con empresas de Manzanillo, Colima, Villa de Álvarez y Tecomán: agencias aduanales, despachos contables, empresas de servicios del puerto, hoteles y restaurantes.',
         items: [
           {
             title: 'Sitio corporativo para agencias aduanales',
@@ -123,7 +123,7 @@ export const colima: Landing = {
       socialProof: {
         heading: c.proofHeading,
         description:
-          'Proyectos reales de identidad y sitios web en sectores como finanzas internacionales, servicios legales y turismo. Es el mismo estándar con el que trabajaríamos tu empresa en Colima.',
+          'Proyectos reales de identidad y sitios web en sectores como finanzas internacionales, energía y turismo. Es el mismo estándar con el que trabajaríamos tu empresa en Colima.',
       },
       nearby: c.nearby,
       linkLabel: 'Diseño web en Colima',
@@ -153,7 +153,7 @@ export const colima: Landing = {
       services: {
         heading: 'Web design and branding services in Colima',
         intro:
-          'We work with companies in Manzanillo, Colima, Villa de Álvarez, and Tecomán: customs brokers, accounting and law firms, port service companies, hotels, and restaurants.',
+          'We work with companies in Manzanillo, Colima, Villa de Álvarez, and Tecomán: customs brokers, accounting firms, port service companies, hotels, and restaurants.',
         items: [
           {
             title: 'Corporate site for customs brokers',
@@ -232,7 +232,7 @@ export const colima: Landing = {
       socialProof: {
         heading: C.proofHeading,
         description:
-          'Real identity and website work in sectors like international finance, legal services, and tourism. It is the same standard we would bring to your company in Colima.',
+          'Real identity and website work in sectors like international finance, energy, and tourism. It is the same standard we would bring to your company in Colima.',
       },
       nearby: C.nearby,
       linkLabel: 'Web design in Colima',

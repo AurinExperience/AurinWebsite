@@ -50,6 +50,26 @@ const es = {
     heading: '¿Tu negocio es de otro sector?',
     description: 'También diseñamos sitios web pensados para estos sectores.',
   },
+  /** Sectores para clientes de Estados Unidos (`country: 'US'`): estudio nearshore, no proveedor barato. */
+  us: {
+    stat: { value: 'Nearshore', label: 'desde México, en el horario de Estados Unidos' },
+    nearby: {
+      heading: 'Otros sectores que atendemos en Estados Unidos',
+      description: 'Sitios y productos digitales para empresas estadounidenses de estos sectores.',
+    },
+    /** `who`: "desarrolladores inmobiliarios", "clínicas"… */
+    faqRemote: (who: string): Faq => ({
+      question: `¿Un estudio en México puede trabajar con ${who} en Estados Unidos?`,
+      answer:
+        'Sí, es lo que hacemos. Somos un estudio nearshore: México comparte horario con Estados Unidos, así que nos reunimos por videollamada en tus horas de trabajo, hablamos inglés y compartimos avances en cada etapa. Recibes el estándar de una agencia de Nueva York o Los Ángeles con un equipo senior dedicado y mejor relación entre calidad y precio.',
+    }),
+    // Mismo mensaje que "Cómo trabajamos" del home (translations.ts → howWeWork)
+    faqAiProcess: {
+      question: '¿Usan inteligencia artificial?',
+      answer:
+        'Sí, y no lo escondemos: la IA acelera. La experiencia decide. La usamos para prototipar más rápido, explorar variaciones de diseño y acelerar tareas repetitivas de desarrollo. Pero cada decisión de diseño la toma un equipo con más de veinte años diseñando marcas y productos digitales, y cada entrega la revisamos a mano hasta que queda perfecta.',
+    } satisfies Faq,
+  },
   /** `subject`: "mi despacho", "mi clínica"… */
   faqAi: (subject: string): Faq => ({
     question: `¿${subject[0].toUpperCase()}${subject.slice(1)} puede aparecer en ChatGPT o en las respuestas con IA de Google?`,
@@ -96,6 +116,23 @@ const en: typeof es = {
   nearby: {
     heading: 'Is your business in another industry?',
     description: 'We also design websites built for these industries.',
+  },
+  us: {
+    stat: { value: 'Nearshore', label: 'based in Mexico, working US business hours' },
+    nearby: {
+      heading: 'More industries we serve in the US',
+      description: 'Websites and digital products for US companies in these industries.',
+    },
+    faqRemote: (who: string): Faq => ({
+      question: `Can a studio in Mexico really work with ${who} in the US?`,
+      answer:
+        'Yes, it is what we do. We are a nearshore studio: Mexico shares business hours with the US, so we meet over video during your workday, work in English, and share progress at every stage. You get the standard of a New York or Los Angeles agency, with a dedicated senior team and better value for the quality.',
+    }),
+    faqAiProcess: {
+      question: 'Do you use AI?',
+      answer:
+        'Yes, and we don’t hide it: AI accelerates. Experience decides. We use it to prototype faster, explore design variations, and speed up repetitive development tasks. But every design decision is made by a team with more than twenty years designing brands and digital products, and every deliverable is reviewed by hand until it is right.',
+    },
   },
   faqAi: (subject: string): Faq => ({
     question: `Can ${subject} show up in ChatGPT or Google’s AI answers?`,

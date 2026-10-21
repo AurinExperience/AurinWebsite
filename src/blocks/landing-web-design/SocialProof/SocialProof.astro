@@ -47,14 +47,8 @@ const proofLabels =
 const portfolioLabel =
   currentLang === 'es' ? 'Ver nuestro portafolio de proyectos' : 'See our project portfolio';
 
+// Último recurso si el CMS no responde
 const fallbackWork = [
-  {
-    src: '/work/galicia.webp',
-    width: 1000,
-    height: 661,
-    name: 'Galicia',
-    discipline: currentLang === 'es' ? 'UX/UI y desarrollo web' : 'UX/UI and web development',
-  },
   {
     src: '/work/sinfonica.webp',
     width: 1000,
@@ -62,35 +56,36 @@ const fallbackWork = [
     name: 'Sinfónica de Minería',
     discipline: currentLang === 'es' ? 'Branding y sitio web' : 'Branding and website',
   },
-  {
-    src: '/work/sai.webp',
-    width: 1000,
-    height: 551,
-    name: 'SAI Derecho y Economía',
-    discipline: currentLang === 'es' ? 'Diseño y desarrollo web' : 'Web design and development',
-  },
 ];
 
+// Proyectos de servicios legales: no se muestran en landings (contrato del estudio)
+const LEGAL = /galicia|derecho/i;
+
 const cmsProjects = await PayloadAPI.getProjects(currentLang).catch(() => []);
-const fromCms = proof
-  .map((id) => cmsProjects.find((p) => p.id === PROOF_PROJECTS[id]?.cmsId))
-  .filter((p) => p && ownCardImage(p, cmsProjects))
-  .map((p) => {
-    const image = ownCardImage(p!, cmsProjects)!;
-    return {
-      src: getImageUrl(image.url),
-      width: image.width,
-      height: image.height,
-      name: p!.title,
-      discipline: p!.hero?.services?.map((s) => s.name).filter(Boolean).slice(0, 2).join(' · ') || '',
-      href: getProjectUrl(p!, currentLang),
-    };
-  });
-// Siempre 3: primero los del CMS, luego capturas fijas de otros proyectos
+const toWork = (p: (typeof cmsProjects)[number]) => {
+  const image = ownCardImage(p, cmsProjects)!;
+  return {
+    src: getImageUrl(image.url),
+    width: image.width,
+    height: image.height,
+    name: p.title,
+    discipline: p.hero?.services?.map((s) => s.name).filter(Boolean).slice(0, 2).join(' · ') || '',
+    href: getProjectUrl(p, currentLang),
+  };
+};
+const withImage = cmsProjects.filter((p) => !LEGAL.test(p.title) && ownCardImage(p, cmsProjects));
+const proofIds = proof.map((id) => PROOF_PROJECTS[id]?.cmsId);
+const fromCms = proofIds
+  .map((cmsId) => withImage.find((p) => p.id === cmsId))
+  .filter((p): p is (typeof withImage)[number] => Boolean(p));
+// Siempre 3: primero los del sector, luego otros proyectos reales con imagen propia
 const work: Array<(typeof fallbackWork)[number] & { href?: string }> = [
   ...fromCms,
-  ...fallbackWork.filter((f) => !fromCms.some((c) => c.name.startsWith(f.name.split(' ')[0]))),
-].slice(0, 3);
+  ...withImage.filter((p) => !proofIds.includes(p.id)),
+]
+  .slice(0, 3)
+  .map(toWork);
+if (work.length < 3) work.push(...fallbackWork.slice(0, 3 - work.length));
 ---
 
 <section class={styles.section} aria-labelledby="social-proof-heading">

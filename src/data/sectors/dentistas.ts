@@ -20,7 +20,7 @@ export const dentistas: Sector = {
   publishAt: '2026-10-14T00:00:00-06:00',
   slug: { es: 'para-dentistas', en: 'for-dentists' },
   name: { es: 'Dentistas y clínicas dentales', en: 'Dentists and dental clinics' },
-  proof: ['dentol', 'elite', 'galicia'],
+  proof: ['dentol', 'elite', 'ceiich'],
   lead: {
     es: {
       heading: 'Hablemos de tu clínica dental',
@@ -150,7 +150,7 @@ export const dentistas: Sector = {
       socialProof: {
         heading: c.proofHeading,
         description:
-          'Proyectos reales de identidad y sitios web en salud dental, salud y servicios profesionales. El mismo cuidado que ponemos en cada marca es el que pondríamos en tu clínica.',
+          'Proyectos reales de identidad y sitios web en salud dental, salud e investigación. El mismo cuidado que ponemos en cada marca es el que pondríamos en tu clínica.',
       },
       nearby: s.nearby,
       linkLabel: 'Diseño web para dentistas',
@@ -267,7 +267,7 @@ export const dentistas: Sector = {
       socialProof: {
         heading: C.proofHeading,
         description:
-          'Real identity and website work in dental care, healthcare, and professional services. The same care we put into every brand is what we would bring to your clinic.',
+          'Real identity and website work in dental care, healthcare, and research. The same care we put into every brand is what we would bring to your clinic.',
       },
       nearby: S.nearby,
       linkLabel: 'Web design for dentists',

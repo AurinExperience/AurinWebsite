@@ -56,6 +56,8 @@ export interface LangSpec {
 export interface SectorDef {
   id: string;
   service?: SectorService;
+  /** 'US' = para empresas de Estados Unidos (ver Sector.country). */
+  country?: 'MX' | 'US';
   publishAt: string;
   slug: Record<Lang, string>;
   name: Record<Lang, string>;
@@ -95,12 +97,15 @@ const WORDS = {
   },
 };
 
-function buildCopy(spec: LangSpec, lang: Lang, service: SectorService): LandingCopy {
+function buildCopy(spec: LangSpec, lang: Lang, service: SectorService, us: boolean): LandingCopy {
   const w = WORDS[lang];
   const kind = w[service];
   const c = COMMON[lang];
   const s = SECTOR_COMMON[lang];
   const ux = service === 'uxui';
+  // EE. UU.: el dato de "nearshore" y la pregunta de trabajar desde México
+  if (us) spec = { ...spec, stat: spec.stat ?? s.us.stat };
+  const remote = us ? s.us.faqRemote(spec.remoteWho) : s.faqRemote(spec.remoteWho);
 
   const stats = ux
     ? [c.stats[0], s.ux.stats, spec.stat ?? c.stats[1]]
@@ -113,9 +118,11 @@ function buildCopy(spec: LangSpec, lang: Lang, service: SectorService): LandingC
     : [{ name: w.diagnosisName, text: spec.diagnosis ?? '' }, w.structure(spec.pages ?? ''), c.stepDesign, c.stepLaunch];
 
   const cost: Faq = { question: spec.costQuestion, answer: w.cost(spec.costScope) };
+  // EE. UU.: además, cómo usamos la IA en el proceso (rapidez sin bajar la calidad)
+  const faqs = us ? [...spec.faqs, s.us.faqAiProcess] : spec.faqs;
   const faqItems = ux
-    ? [cost, ...spec.faqs, s.ux.faqDev, s.ux.faqTeam, c.faqPayment, s.faqRemote(spec.remoteWho)]
-    : [cost, ...spec.faqs, s.faqAi(spec.aiSubject ?? ''), c.faqPayment, s.faqRemote(spec.remoteWho), c.faqLanguages];
+    ? [cost, ...faqs, s.ux.faqDev, s.ux.faqTeam, c.faqPayment, remote]
+    : [cost, ...faqs, s.faqAi(spec.aiSubject ?? ''), c.faqPayment, remote, c.faqLanguages];
 
   return {
     seo: { title: `${spec.seoTitle} | Aurin`, description: spec.seoDescription, keywords: spec.keywords },
@@ -140,7 +147,7 @@ function buildCopy(spec: LangSpec, lang: Lang, service: SectorService): LandingC
       items: faqItems,
     },
     socialProof: { heading: c.proofHeading, description: spec.proofText },
-    nearby: s.nearby,
+    nearby: us ? s.us.nearby : s.nearby,
     linkLabel: `${kind.link} ${spec.target}`,
     breadcrumb: `${kind.lead} ${spec.accent}`,
     serviceName: spec.seoTitle,
@@ -153,12 +160,13 @@ export function defineSector(def: SectorDef): Sector {
   return {
     id: def.id,
     service,
+    country: def.country,
     status: 'live',
     publishAt: def.publishAt,
     slug: def.slug,
     name: def.name,
     proof: def.proof,
     lead: { es: def.es.lead, en: def.en.lead },
-    copy: { es: buildCopy(def.es, 'es', service), en: buildCopy(def.en, 'en', service) },
+    copy: { es: buildCopy(def.es, 'es', service, def.country === 'US'), en: buildCopy(def.en, 'en', service, def.country === 'US') },
   };
 }

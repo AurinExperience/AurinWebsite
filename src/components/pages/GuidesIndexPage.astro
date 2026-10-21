@@ -54,7 +54,8 @@ const t =
         mx: 'México',
         us: 'Estados Unidos',
         sectorsHeading: 'Diseño web y UX/UI por sector',
-        sectorsIntro: 'Páginas pensadas para lo que necesita cada tipo de negocio, sin importar en qué ciudad esté.',
+        sectorsIntro:
+          'Páginas pensadas para lo que necesita cada tipo de negocio, en México y en Estados Unidos, sin importar en qué ciudad esté.',
       }
     : {
         title: 'Web design and UX/UI guides | Aurin',
@@ -73,7 +74,7 @@ const t =
         mx: 'Mexico',
         us: 'United States',
         sectorsHeading: 'Web and UX/UI design by industry',
-        sectorsIntro: 'Pages built around what each kind of business needs, wherever it is located.',
+        sectorsIntro: 'Pages built around what each kind of business needs, in Mexico and the United States, wherever it is located.',
       };
 
 /*
@@ -102,6 +103,11 @@ const locationGroups = [
 const sectors = publishedSectors().sort((a, b) =>
   a.name[lang].localeCompare(b.name[lang], lang, { sensitivity: 'base' })
 );
+/* Por país, como las ubicaciones: los sectores de EE. UU. son para clientes de allá */
+const sectorGroups = [
+  { id: 'mx', label: t.mx, items: sectors.filter((s) => s.country !== 'US') },
+  { id: 'us', label: t.us, items: sectors.filter((s) => s.country === 'US') },
+].filter((group) => group.items.length > 0);
 
 const webPageSchema: WebPageStructuredData = {
   '@context': 'https://schema.org',
@@ -208,20 +214,30 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
             <h2 class={styles.locationsHeading} id="sectors-heading">{t.sectorsHeading}</h2>
             <p class={styles.locationsIntro}>{t.sectorsIntro}</p>
           </header>
-          <ul class={styles.locationList}>
-            {sectors.map((sector) => (
-              <li>
-                <a
-                  class={styles.locationLink}
-                  href={sectorPath(sector, lang)}
-                  title={sector.copy[lang].linkLabel}
-                >
-                  <span>{sector.name[lang]}</span>
-                  <span class={styles.locationArrow} aria-hidden="true">→</span>
-                </a>
-              </li>
+          <div class:list={[styles.locationGroups, styles.sectorGroups]}>
+            {sectorGroups.map((group) => (
+              <div class={styles.locationGroup} data-country={group.id}>
+                <h3 class={styles.locationGroupHeading}>
+                  {group.label}
+                  <span class={styles.locationCount}>{group.items.length}</span>
+                </h3>
+                <ul class={styles.locationList}>
+                  {group.items.map((sector) => (
+                    <li>
+                      <a
+                        class={styles.locationLink}
+                        href={sectorPath(sector, lang)}
+                        title={sector.copy[lang].linkLabel}
+                      >
+                        <span>{sector.name[lang]}</span>
+                        <span class={styles.locationArrow} aria-hidden="true">→</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         </section>
       )}
     </div>

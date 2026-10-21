@@ -239,6 +239,15 @@
   grid-template-columns: 1fr;
 }
 
+/* Sectores: México y EE. UU. uno debajo del otro, los dos en columnas */
+.sectorGroups {
+  grid-template-columns: 1fr;
+}
+
+.sectorGroups .locationGroup[data-country='us'] .locationList {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
 .locationLink {
   display: flex;
   align-items: center;
@@ -293,7 +302,8 @@
 
 @media (max-width: 480px) {
   .locationList,
-  .locationGroup[data-country='us'] .locationList {
+  .locationGroup[data-country='us'] .locationList,
+  .sectorGroups .locationGroup[data-country='us'] .locationList {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: var(--spacing-4);
   }

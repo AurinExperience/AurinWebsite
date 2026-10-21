@@ -3,6 +3,7 @@
  * WebDesignSectorPage — Plantilla de las landings de diseño web por sector
  * ("diseño web para médicos"). Usa los mismos bloques que WebDesignCityPage;
  * cambia solo lo que depende de la geografía: el schema atiende a todo México
+ * (o a Estados Unidos en los sectores con `country: 'US'`)
  * y no hay oficina ni lada local.
  *
  * Mismas secciones y en el mismo orden que una landing por ciudad; el bloque
@@ -41,6 +42,7 @@ const lang = getLangFromUrl(Astro.url);
 const copy = sector.copy[lang];
 const canonicalUrl = `${SITE.url}${sectorPath(sector, lang)}`;
 const isUxUi = sectorService(sector) === "uxui";
+const isUS = sector.country === "US";
 
 const serviceSchema: ServiceStructuredData = {
   "@context": "https://schema.org",
@@ -52,7 +54,7 @@ const serviceSchema: ServiceStructuredData = {
     ? lang === "es" ? "Diseño UX/UI de Productos Digitales" : "UX/UI Design for Digital Products"
     : lang === "es" ? "Diseño y Desarrollo de Sitios Web" : "Website Design and Development",
   provider: { "@id": `${SITE.url}/#organization` },
-  areaServed: lang === "es" ? "México" : "Mexico",
+  areaServed: isUS ? (lang === "es" ? "Estados Unidos" : "United States") : lang === "es" ? "México" : "Mexico",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: isUxUi
@@ -103,6 +105,7 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
   canonical={canonicalUrl}
   ogImage={SITE.ogImage}
   showMegaMenu={false}
+  showWhatsApp={!(isUS && lang === "en")}
 >
   <Header minimal />
   {/* data-fx: activa los efectos de movimiento de los bloques (ver comentario "Efectos" en cada uno) */}
@@ -115,7 +118,7 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
     <LeadForm
       source={`sector-diseno-web-${sector.id}`}
       subject={`Sector ${copy.breadcrumb}`}
-      phoneSample="+52 55 1234 5678"
+      phoneSample={isUS ? "+1 212 555 0123" : "+52 55 1234 5678"}
       copy={sector.lead?.[lang]}
     />
     <NearbyLandings
@@ -127,5 +130,5 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
     />
     <CtaBanner />
   </main>
-  <Footer minimal />
+  <Footer minimal hidePhone={isUS} />
 </Layout>

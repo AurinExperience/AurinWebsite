@@ -44,7 +44,7 @@ export const bajaCalifornia: Landing = {
       services: {
         heading: 'Servicios de diseño web y UX/UI en Baja California',
         intro:
-          'Diseñamos sitios web para empresas de Tijuana, Mexicali, Ensenada, Playas de Rosarito, Tecate y San Quintín: turismo médico y dental, despachos legales de inmigración, manufactura y servicios de exportación, vitivinícola y hospitalidad. Estrategia, UX/UI y desarrollo con un mismo equipo.',
+          'Diseñamos sitios web para empresas de Tijuana, Mexicali, Ensenada, Playas de Rosarito, Tecate y San Quintín: turismo médico y dental, agencias aduanales, manufactura y servicios de exportación, vitivinícola y hospitalidad. Estrategia, UX/UI y desarrollo con un mismo equipo.',
         items: [
           {
             title: 'Sitio bilingüe para el mercado estadounidense',
@@ -187,7 +187,7 @@ export const bajaCalifornia: Landing = {
       services: {
         heading: 'Web and UX/UI design services in Baja California',
         intro:
-          'We design websites for companies in Tijuana, Mexicali, Ensenada, Playas de Rosarito, Tecate, and San Quintín: medical and dental tourism, immigration law firms, manufacturing and export services, wine country, and hospitality. Strategy, UX/UI, and development from a single team.',
+          'We design websites for companies in Tijuana, Mexicali, Ensenada, Playas de Rosarito, Tecate, and San Quintín: medical and dental tourism, customs brokers, manufacturing and export services, wine country, and hospitality. Strategy, UX/UI, and development from a single team.',
         items: [
           {
             title: 'Bilingual site for the U.S. market',
