@@ -2,12 +2,14 @@
 import ArrowUpRight from 'lucide-astro/ArrowUpRight';
 import styles from './ProjectCard.module.css';
 import { Tilt } from '@/components/animation/Tilt';
-import type { CardCover } from '@/lib/payload';
+import { NO_PHOTO_IMAGE, type CardCover } from '@/lib/payload';
 
 interface Props {
   title: string;
   tags?: string[];
   image: string;
+  /** Alt de la imagen en el CMS; si no viene, el título del proyecto */
+  alt?: string;
   /** Texto del CMS sobre color; si viene, ocupa el lugar de la imagen */
   cover?: CardCover;
   href?: string;
@@ -22,6 +24,7 @@ const {
   title,
   tags = [],
   image,
+  alt,
   cover,
   href = '#',
   class: className = '',
@@ -65,7 +68,15 @@ const hiddenTags = allTags.slice(displayTags.length);
           <div class={styles['cover-text']} data-cover-text set:html={cover.html} />
         </div>
       ) : (
-        <div class={styles['image-container']} style={`background-image: url('${image}')`}>
+        // <img> y no background-image: así lleva alt y Google la indexa
+        <div class={styles['image-container']}>
+          <img
+            class={styles['image']}
+            src={image}
+            alt={image === NO_PHOTO_IMAGE ? '' : alt || title.replace(/<[^>]+>/g, ' ')}
+            loading="lazy"
+            decoding="async"
+          />
           <div class={styles['image-overlay']}></div>
         </div>
       )}
