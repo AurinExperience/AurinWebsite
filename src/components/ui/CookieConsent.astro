@@ -51,6 +51,16 @@ const t = translations[lang].cookies;
       const choice = (event.target as HTMLElement).closest<HTMLElement>('[data-cookie-choice]')?.dataset.cookieChoice;
       if (!choice) return;
       w.aurinSetConsent?.(choice === 'granted');
+      // Conteo de aceptan/rechazan para Looker Studio (ver /api/consent)
+      let tz = '';
+      try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch {}
+      navigator.sendBeacon?.('/api/consent', JSON.stringify({
+        choice,
+        mode: 'manual' in banner.dataset ? 'settings' : banner.dataset.mode,
+        optIn: w.aurinConsent?.optIn,
+        tz,
+        page: location.pathname,
+      }));
       banner.hidden = true;
     });
     document.addEventListener('click', (event) => {
