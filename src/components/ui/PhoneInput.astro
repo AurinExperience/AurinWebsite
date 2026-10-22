@@ -45,13 +45,13 @@ const mx = main[0];
     >
       {main.map((c) => (
         <option value={c.dial} data-country={c.code} data-digits={c.digits} data-primary={c.primary || undefined} selected={c === mx}>
-          {c.name} {c.flag} {c.dial}
+          {c.name} {c.dial} {c.flag}
         </option>
       ))}
       <option value="" disabled>──────────</option>
       {rest.map((c) => (
         <option value={c.dial} data-country={c.code} data-digits={c.digits} data-primary={c.primary || undefined}>
-          {c.name} {c.flag} {c.dial}
+          {c.name} {c.dial} {c.flag}
         </option>
       ))}
     </select>
@@ -79,7 +79,7 @@ const mx = main[0];
     const options = [...select.options].filter((o) => o.value);
     const showLada = () => {
       const option = select.selectedOptions[0];
-      // La bandera va después del nombre: al inicio rompería buscar país tecleando ("alem").
+      // La bandera va al final: al inicio rompería buscar país tecleando ("alem").
       shown.textContent = `${option.text.match(/\p{Regional_Indicator}{2}/u)?.[0] ?? ''} ${option.value}`;
     };
 
