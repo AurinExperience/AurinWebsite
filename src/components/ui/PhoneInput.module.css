@@ -37,9 +37,9 @@
   font-size: var(--font-size-base);
 }
 
-.ladaSelect option {
-  background: var(--color-black-a);
-  color: var(--color-text);
+/* La lista abierta muestra nombres: más ancha que la etiqueta "🇲🇽 +52". */
+.ladaSelect::picker(select) {
+  width: max-content;
 }
 
 .lada:has(.ladaSelect:focus-visible) .ladaShown {

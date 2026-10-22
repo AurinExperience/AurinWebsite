@@ -70,6 +70,23 @@
   gap: var(--spacing-2);
 }
 
+/* En pareja, las dos columnas comparten fila de etiqueta y fila de campo
+   (subgrid): si una etiqueta ocupa dos líneas, los campos siguen alineados. */
+.fieldGroup > .field {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  row-gap: var(--spacing-2);
+}
+
+.fieldGroup > .field > .label {
+  align-self: end;
+}
+
+.fieldGroup > .field > :not(.label) {
+  align-self: start;
+}
+
 .label {
   color: var(--color-text);
   font-family: var(--font-body);
@@ -102,7 +119,7 @@
 .select:focus,
 .textarea:focus {
   border-color: var(--color-yellow);
-  background: rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.06); /* solo el color: `background` borraba la flecha del select */
   box-shadow: 0 0 0 3px rgba(208, 223, 0, 0.12);
 }
 
@@ -118,11 +135,6 @@
   background-position: right 16px center;
   padding-right: 40px;
   cursor: pointer;
-}
-
-.select option {
-  background: var(--color-black-a);
-  color: var(--color-text);
 }
 
 .textarea {

@@ -99,17 +99,16 @@ const sumB = Math.floor(Math.random() * 9) + 1;
                   <div class="dropdown-arrow" data-arrow>
                     <svg
                       width="12"
-                      height="8"
-                      viewBox="0 0 12 8"
+                      height="12"
+                      viewBox="0 0 24 24"
                       fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
                     >
-                      <path
-                        d="M1 1.5L6 6.5L11 1.5"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"></path>
+                      <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </div>
                 </button>
@@ -117,15 +116,8 @@ const sumB = Math.floor(Math.random() * 9) + 1;
                   {
                     t.contact.form.services.map((service) => (
                       <div class="dropdown-option" data-value={service.value}>
-                        <span style="color: var(--color-text) !important;">
-                          {service.title}
-                        </span>
-                        <div
-                          class="option-description"
-                          style="color: var(--color-text) !important;"
-                        >
-                          {service.description}
-                        </div>
+                        <span>{service.title}</span>
+                        <div class="option-description">{service.description}</div>
                       </div>
                     ))
                   }
@@ -341,11 +333,6 @@ const sumB = Math.floor(Math.random() * 9) + 1;
     color: var(--color-text-muted);
   }
 
-  .contact-form :global(.form-select) option {
-    background: var(--color-black-a);
-    color: var(--color-text);
-  }
-
   .contact-form :global(.form-input)::placeholder,
   .form-textarea::placeholder {
     color: var(--color-text-muted);
@@ -382,38 +369,30 @@ const sumB = Math.floor(Math.random() * 9) + 1;
     transition: all 0.3s ease;
   }
 
-  .dropdown-trigger:hover {
-    background: #333;
-  }
-
   .dropdown-trigger:focus {
     outline: 2px solid var(--color-yellow);
     background: #333;
   }
 
+  /* Igual que los <select>: relleno en gris hasta elegir, misma flecha gris */
   .dropdown-text {
     flex: 1;
     text-align: left;
-    color: var(--color-text) !important;
+    color: var(--color-text-muted);
   }
 
   .dropdown-text.selected {
-    color: var(--color-text) !important;
+    color: var(--color-text);
   }
 
   .dropdown-arrow {
-    color: var(--color-text);
+    color: var(--color-text-muted);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
   }
 
-  .dropdown-trigger:hover .dropdown-arrow {
-    color: var(--color-yellow);
-  }
-
   .dropdown-trigger.open .dropdown-arrow {
-    color: var(--color-yellow);
     transform: rotate(180deg);
   }
 
@@ -440,8 +419,10 @@ const sumB = Math.floor(Math.random() * 9) + 1;
     pointer-events: all;
   }
 
+  /* Mismo resaltado que la lista de los <select> (global.css, SELECTS) */
   .dropdown-option {
-    padding: 12px 16px;
+    padding: var(--spacing-3) var(--spacing-4);
+    color: var(--color-text);
     cursor: pointer;
     transition: all 0.2s ease;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -454,7 +435,6 @@ const sumB = Math.floor(Math.random() * 9) + 1;
   .dropdown-option:hover {
     background: var(--color-yellow);
     color: var(--color-black-a);
-    transform: translateX(4px);
   }
 
   .dropdown-option span {
