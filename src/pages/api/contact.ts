@@ -3,6 +3,7 @@ import { sendContactEmail } from '@/lib/mailing/service';
 import type { ContactFormData } from '@/lib/mailing/types';
 import { leadContext, leadAttribution } from '@/lib/mailing/leadContext';
 import { appendLeadRow } from '@/lib/mailing/leadSheet';
+import { isValidPhone } from '@/lib/phone';
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   try {
@@ -34,9 +35,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       );
     }
 
-    // Teléfono: 10 a 15 dígitos, admite +, espacios, guiones y paréntesis
-    const phoneDigits = String(telefono).replace(/\D/g, '');
-    if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+    if (!isValidPhone(telefono)) {
       return new Response(
         JSON.stringify({ error: 'Teléfono inválido' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }

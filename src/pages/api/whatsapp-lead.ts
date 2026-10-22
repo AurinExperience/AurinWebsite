@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { sendContactEmail } from '@/lib/mailing/service';
 import { leadContext, leadAttribution } from '@/lib/mailing/leadContext';
 import { appendLeadRow } from '@/lib/mailing/leadSheet';
+import { isValidPhone } from '@/lib/phone';
 
 /*
  * Registro del mini-formulario del botón de WhatsApp (nombre, teléfono, mensaje).
@@ -28,8 +29,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (data.empresa) return json({ success: true }, 200);
 
   if (!nombre || !mensaje) return json({ error: 'Nombre y mensaje requeridos' }, 400);
-  const digits = telefono.replace(/\D/g, '');
-  if (digits.length < 10 || digits.length > 15) return json({ error: 'Teléfono inválido' }, 400);
+  if (!isValidPhone(telefono)) return json({ error: 'Teléfono inválido' }, 400);
 
   const contactData = {
     titulo: 'Nuevo mensaje por WhatsApp',

@@ -40,6 +40,8 @@ export const translations = {
           sum: "Your answer"
         },
         sumError: "Incorrect sum. Please try again.",
+        emailSuggestion: "Did you mean",
+        phoneError: "Check the number: it is not a valid phone for country code {lada}.",
         contactPrefs: [
           { value: "whatsapp", label: "WhatsApp" },
           { value: "llamada", label: "Phone call" },
@@ -865,6 +867,8 @@ export const translations = {
           sum: "Tu respuesta"
         },
         sumError: "Suma incorrecta. Inténtalo de nuevo.",
+        emailSuggestion: "¿Quisiste decir",
+        phoneError: "Revisa el número: no es un teléfono válido con la lada {lada}.",
         contactPrefs: [
           { value: "whatsapp", label: "WhatsApp" },
           { value: "llamada", label: "Llamada telefónica" },

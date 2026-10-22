@@ -1,0 +1,62 @@
+---
+/**
+ * EmailInput — correo con sugerencia de dedazos en proveedores comunes
+ * ("juan@gmial.com" → "¿Quisiste decir juan@gmail.com?"). Un clic lo corrige;
+ * nunca bloquea el envío.
+ */
+import { getLangFromUrl, translations } from '@/i18n';
+import styles from './EmailInput.module.css';
+
+interface Props {
+  id: string;
+  name: string;
+  placeholder?: string;
+  /** Clase del formulario anfitrión, para heredar su look. */
+  inputClass?: string;
+}
+
+const { id, name, placeholder, inputClass } = Astro.props;
+const t = translations[getLangFromUrl(Astro.url)].contact.form;
+---
+
+<div class={styles.wrapper} data-email-input>
+  <input
+    class={inputClass}
+    type="email"
+    id={id}
+    name={name}
+    placeholder={placeholder}
+    autocomplete="email"
+    required
+  />
+  <p class={styles.hint} aria-live="polite">
+    <button type="button" class={styles.suggestion} data-label={t.emailSuggestion} hidden></button>
+  </p>
+</div>
+
+<script>
+  import { suggestEmail } from '@/lib/emailSuggest';
+
+  document.querySelectorAll<HTMLElement>('[data-email-input]').forEach((wrapper) => {
+    const input = wrapper.querySelector('input')!;
+    const button = wrapper.querySelector('button')!;
+    let suggestion: string | null = null;
+
+    const hide = () => (button.hidden = true);
+    input.addEventListener('input', hide);
+    input.form?.addEventListener('reset', hide);
+
+    input.addEventListener('blur', () => {
+      suggestion = suggestEmail(input.value);
+      if (!suggestion) return hide();
+      button.textContent = `${button.dataset.label} ${suggestion}?`;
+      button.hidden = false;
+    });
+
+    button.addEventListener('click', () => {
+      if (suggestion) input.value = suggestion;
+      hide();
+      input.focus();
+    });
+  });
+</script>

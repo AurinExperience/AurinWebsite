@@ -5,6 +5,7 @@ import Mail from "lucide-astro/Mail";
 import MapPin from "lucide-astro/MapPin";
 import MainButton from "@/components/ui/MainButton.astro";
 import PhoneInput from "@/components/ui/PhoneInput.astro";
+import EmailInput from "@/components/ui/EmailInput.astro";
 
 // Detect current language
 const currentLang = getLangFromUrl(Astro.url);
@@ -51,13 +52,11 @@ const sumB = Math.floor(Math.random() * 9) + 1;
               <label for="correo" class="form-label"
                 >{t.contact.form.labels.email}</label
               >
-              <input
-                type="email"
+              <EmailInput
                 id="correo"
                 name="correo"
                 placeholder={t.contact.form.placeholders.email}
-                class="form-input"
-                required
+                inputClass="form-input"
               />
             </div>
           </div>
