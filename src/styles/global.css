@@ -41,3 +41,73 @@
 *::-webkit-scrollbar-thumb:hover {
   background-color: #e0ef10;
 }
+/* ================================================================
+   SELECTS — lista desplegable estándar, fuera de capas
+   Todos los <select> abren la misma lista que el desplegable de
+   servicios (Contact/Form.astro): panel oscuro y la opción bajo el
+   mouse en amarillo con texto negro. Safari y Firefox aún no dejan
+   estilizar la lista (appearance: base-select): ahí sale la del sistema.
+   ================================================================ */
+
+select option {
+  background: var(--color-black-a);
+  color: var(--color-text);
+}
+
+@supports (appearance: base-select) {
+  /* !important: los formularios ponen `appearance: none` para quitar la
+     flecha nativa en los navegadores sin base-select. */
+  select {
+    appearance: base-select !important;
+  }
+
+  ::picker(select) {
+    appearance: base-select;
+    margin-block: var(--spacing-2);
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-md);
+    background: var(--color-gray-b);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-height: calc(var(--spacing-20) * 4);
+  }
+
+  /* Los formularios dibujan su propia flecha */
+  select::picker-icon {
+    display: none;
+  }
+
+  select option {
+    padding: var(--spacing-3) var(--spacing-4);
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+  }
+
+  select option::checkmark {
+    display: none;
+  }
+
+  select option:checked {
+    color: var(--color-yellow);
+  }
+
+  select option:not(:disabled):hover,
+  select option:not(:disabled):focus-visible {
+    background: var(--color-yellow);
+    color: var(--color-black-a);
+    outline: none;
+  }
+
+  select option:disabled {
+    color: var(--color-text-muted);
+    cursor: default;
+  }
+
+  /* El texto de relleno ("Selecciona una opción…") no es una opción: como en
+     el desplegable de servicios, no aparece en la lista. */
+  select option:disabled:first-child {
+    display: none;
+  }
+}

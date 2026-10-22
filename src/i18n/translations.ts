@@ -798,7 +798,7 @@ export const translations = {
           name: "Full name",
           email: "Email",
           phone: "Phone",
-          contactPref: "How would you like us to reach you?",
+          contactPref: "How should we reach you?",
           projectType: "Project type",
           message: "Tell us about your project (optional)"
         },
@@ -1626,7 +1626,7 @@ export const translations = {
           name: "Nombre completo",
           email: "Correo electrónico",
           phone: "Teléfono",
-          contactPref: "¿Cómo te gustaría que nos comuniquemos?",
+          contactPref: "¿Cómo te contactamos?",
           projectType: "Tipo de proyecto",
           message: "Cuéntanos sobre tu proyecto (opcional)"
         },
