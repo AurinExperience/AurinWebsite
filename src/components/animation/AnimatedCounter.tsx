@@ -1,4 +1,4 @@
-import { motion, useSpring, useTransform, useInView, MotionValue } from 'motion/react';
+import { motion, useSpring, useTransform, useInView, type MotionValue } from 'motion/react';
 import { useEffect, useRef } from 'react';
 import styles from './AnimatedCounter.module.css';
 

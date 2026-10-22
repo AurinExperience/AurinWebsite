@@ -12,15 +12,15 @@
     "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.0",
-    "@astrojs/vercel": "^8.2.8",
+    "@astrojs/react": "^5.0.7",
+    "@astrojs/vercel": "^10.0.8",
     "@splidejs/splide": "^4.1.4",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vercel/blob": "^2.0.0",
     "@vercel/functions": "^3.9.11",
     "@vercel/speed-insights": "^1.2.0",
-    "astro": "^5.14.1",
+    "astro": "^6.4.8",
     "clsx": "^2.1.1",
     "google-auth-library": "^10.9.1",
     "gsap": "^3.14.2",
@@ -38,5 +38,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.10.5"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
