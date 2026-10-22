@@ -21,7 +21,8 @@ export const SITE = {
     "https://www.facebook.com/profile.php?id=61569531232140",
     // Ficha de Google Business Profile por su ID del Knowledge Graph (kgmid): a
     // diferencia de los links de share.google, no caduca ni depende de la sesión.
-    "https://www.google.com/search?kgmid=/g/11zkyjfy49"
+    "https://www.google.com/search?kgmid=/g/11zkyjfy49",
+    "https://www.wikidata.org/wiki/Q141808745"
   ] as string[],
 
   // NAP (Name, Address, Phone) — la base del SEO local. Tiene que coincidir
