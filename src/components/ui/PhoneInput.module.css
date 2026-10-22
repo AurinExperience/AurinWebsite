@@ -4,22 +4,47 @@
   width: 100%;
 }
 
-/* Doble clase: gana a los `width: 100%` de los formularios anfitriones. */
-.wrapper .lada {
+/* Contenedor de la lada: la etiqueta visible y, encima, el <select> invisible. */
+.lada {
+  position: relative;
+  display: flex;
   flex: 0 0 auto;
-  width: auto;
 }
 
-/* Flecha propia con aire a la derecha (la nativa queda pegada al borde).
-   `select.` sube la especificidad: el `background` de :focus de los formularios
-   anfitriones no la borra. Misma flecha que LeadForm. */
-.wrapper select.lada {
+/* Hereda el look del select del formulario anfitrión. Flecha propia con aire
+   a la derecha. Doble clase: gana a los `width: 100%` de los anfitriones. */
+.wrapper .ladaShown {
+  display: flex;
+  align-items: center;
+  width: auto;
+  white-space: nowrap;
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A0A0A0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right var(--spacing-3) center;
   padding-right: calc(var(--spacing-3) * 2 + 12px);
+  color: var(--color-text);
+}
+
+/* El <select> real cubre la etiqueta: el clic y el teclado abren la lista nativa
+   (en celular, el selector del sistema). font-size base: iOS no hace zoom. */
+.ladaSelect {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
   cursor: pointer;
+  font-size: var(--font-size-base);
+}
+
+.ladaSelect option {
+  background: var(--color-black-a);
+  color: var(--color-text);
+}
+
+.lada:has(.ladaSelect:focus-visible) .ladaShown {
+  border-color: var(--color-yellow);
+  outline: 2px solid var(--color-yellow);
 }
 
 .wrapper .number {

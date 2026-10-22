@@ -1,15 +1,19 @@
 ---
 /**
  * PhoneInput — teléfono con selector de lada internacional.
+ * Trae todos los países: los mercados de Aurin arriba y el resto por nombre
+ * (src/lib/phoneCountries.ts). El <select> nativo va invisible encima de una
+ * etiqueta corta ("🇲🇽 +52"): la lista abierta muestra nombres sin ensanchar el campo.
  * La lada se preselecciona en el navegador con la región de su idioma (es-CO → +57)
  * y si no, México. No se usa el país de la IP: obligaría al CDN a guardar una copia
  * de cada página por país (más SSR y más CPU).
  * Si el usuario pega un número con "+XX", la lada se ajusta sola.
- * Solo admite dígitos (y separadores) y revisa que lada y número existan
- * (src/lib/phone.ts).
+ * Solo admite dígitos (y separadores), no deja pasar del largo del país y
+ * revisa que lada y número existan (src/lib/phone.ts).
  * Envía dos campos: `${name}` (número nacional) y `${name}Lada` ("+52").
  */
 import { getLangFromUrl, translations } from '@/i18n';
+import { phoneCountries } from '@/lib/phoneCountries';
 import styles from './PhoneInput.module.css';
 
 interface Props {
@@ -25,41 +29,33 @@ const { id, name, placeholder, inputClass, selectClass } = Astro.props;
 
 const phoneError = translations[getLangFromUrl(Astro.url)].contact.form.phoneError;
 
-// ponytail: lista corta de los mercados reales de Aurin; agregar países aquí si llegan leads de otros.
-const COUNTRIES = [
-  ['MX', '🇲🇽', '+52'],
-  ['US', '🇺🇸', '+1'],
-  ['CA', '🇨🇦', '+1'],
-  ['ES', '🇪🇸', '+34'],
-  ['DO', '🇩🇴', '+1'],
-  ['PR', '🇵🇷', '+1'],
-  ['PA', '🇵🇦', '+507'],
-  ['CO', '🇨🇴', '+57'],
-  ['AR', '🇦🇷', '+54'],
-  ['CL', '🇨🇱', '+56'],
-  ['PE', '🇵🇪', '+51'],
-  ['GT', '🇬🇹', '+502'],
-  ['CR', '🇨🇷', '+506'],
-  ['UY', '🇺🇾', '+598'],
-  ['EC', '🇪🇨', '+593'],
-  ['VE', '🇻🇪', '+58'],
-] as const;
+const { main, rest } = phoneCountries(getLangFromUrl(Astro.url));
+const mx = main[0];
 
 ---
 
 <div class={styles.wrapper} data-phone-input>
-  <select
-    class:list={[selectClass, styles.lada]}
-    name={`${name}Lada`}
-    aria-label="Lada"
-    autocomplete="tel-country-code"
-  >
-    {COUNTRIES.map(([code, flag, dial]) => (
-      <option value={dial} data-country={code} selected={code === 'MX'}>
-        {flag} {dial}
-      </option>
-    ))}
-  </select>
+  <div class={styles.lada}>
+    <span class:list={[selectClass, styles.ladaShown]} aria-hidden="true" data-lada-shown>{mx.flag} {mx.dial}</span>
+    <select
+      class={styles.ladaSelect}
+      name={`${name}Lada`}
+      aria-label="Lada"
+      autocomplete="tel-country-code"
+    >
+      {main.map((c) => (
+        <option value={c.dial} data-country={c.code} data-digits={c.digits} data-primary={c.primary || undefined} selected={c === mx}>
+          {c.name} {c.dial} {c.flag}
+        </option>
+      ))}
+      <option value="" disabled>──────────</option>
+      {rest.map((c) => (
+        <option value={c.dial} data-country={c.code} data-digits={c.digits} data-primary={c.primary || undefined}>
+          {c.name} {c.dial} {c.flag}
+        </option>
+      ))}
+    </select>
+  </div>
   <input
     class:list={[inputClass, styles.number]}
     type="tel"
@@ -79,7 +75,13 @@ const COUNTRIES = [
   document.querySelectorAll<HTMLElement>('[data-phone-input]').forEach((wrapper) => {
     const select = wrapper.querySelector('select')!;
     const input = wrapper.querySelector('input')!;
-    const options = [...select.options];
+    const shown = wrapper.querySelector<HTMLElement>('[data-lada-shown]')!;
+    const options = [...select.options].filter((o) => o.value);
+    const showLada = () => {
+      const option = select.selectedOptions[0];
+      // La bandera va al final: al inicio rompería buscar país tecleando ("alem").
+      shown.textContent = `${option.text.match(/\p{Regional_Indicator}{2}/u)?.[0] ?? ''} ${option.value}`;
+    };
 
     // Región del idioma del navegador (es-MX, en-US…); sin coincidencia queda México.
     const region = navigator.languages
@@ -87,14 +89,23 @@ const COUNTRIES = [
       .find((r) => r && options.some((o) => o.dataset.country === r));
     const match = options.find((o) => o.dataset.country === region);
     if (match) match.selected = true;
+    showLada();
 
     // La librería de numeración pesa: se descarga hasta que alguien escribe, no en cada página.
     let phone: Promise<typeof import('@/lib/phone')> | undefined;
     const validate = async () => {
       const { isValidPhone } = await (phone ??= import('@/lib/phone'));
       const option = select.selectedOptions[0];
-      const ok = !input.value || isValidPhone(input.value, option.dataset.country as CountryCode);
-      input.setCustomValidity(ok ? '' : input.dataset.error!.replace('{lada}', option.value));
+      const [min, max] = option.dataset.digits!.split('-');
+      const length = input.value.replace(/\D/g, '').replace(/^0/, '').length;
+      const ok =
+        !input.value ||
+        (length >= Number(min) &&
+          length <= Number(max) &&
+          isValidPhone(input.value, option.dataset.country as CountryCode));
+      input.setCustomValidity(
+        ok ? '' : input.dataset.error!.replace('{lada}', option.value).replace('{n}', min === max ? min : `${min}–${max}`),
+      );
     };
 
     input.addEventListener('input', () => {
@@ -108,14 +119,37 @@ const COUNTRIES = [
         const digits = raw.replace(/[^\d]/g, '');
         const match = options
           .filter((o) => digits.startsWith(o.value.slice(1)))
-          .sort((a, b) => b.value.length - a.value.length)[0];
+          .sort(
+            (a, b) =>
+              b.value.length - a.value.length ||
+              Number('primary' in b.dataset) - Number('primary' in a.dataset),
+          )[0];
         if (match) {
           match.selected = true;
+          showLada();
           input.value = digits.slice(match.value.length - 1);
         }
       }
+
+      // Tope del país: los dígitos de más no entran. Un 0 inicial (marcación
+      // nacional, "099…" en Ecuador) no cuenta. Con "+" a medias aún no hay país.
+      if (!input.value.startsWith('+')) {
+        // "+52 1 55…" (prefijo de celular viejo, común al copiar de WhatsApp): en
+        // México ningún número empieza con 1, así que ese 1 sobra.
+        if (select.selectedOptions[0].dataset.country === 'MX' && /^\D*1/.test(input.value)) {
+          input.value = input.value.replace(/^(\D*)1\D*/, '$1');
+        }
+        const max = Number(select.selectedOptions[0].dataset.digits!.split('-')[1]);
+        const keep = max + (/^\D*0/.test(input.value) ? 1 : 0);
+        let count = 0;
+        const capped = input.value.replace(/\d/g, (d) => (++count > keep ? '' : d));
+        if (capped !== input.value) input.value = capped;
+      }
       validate();
     });
-    select.addEventListener('change', validate);
+    select.addEventListener('change', () => {
+      showLada();
+      validate();
+    });
   });
 </script>
