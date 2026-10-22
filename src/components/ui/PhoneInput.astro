@@ -5,8 +5,8 @@
  * y si no, México. No se usa el país de la IP: obligaría al CDN a guardar una copia
  * de cada página por país (más SSR y más CPU).
  * Si el usuario pega un número con "+XX", la lada se ajusta sola.
- * Solo admite dígitos (y separadores) y revisa que lada y número existan
- * (src/lib/phone.ts).
+ * Solo admite dígitos (y separadores), no deja pasar del largo del país y
+ * revisa que lada y número existan (src/lib/phone.ts).
  * Envía dos campos: `${name}` (número nacional) y `${name}Lada` ("+52").
  */
 import { getLangFromUrl, translations } from '@/i18n';
@@ -26,23 +26,25 @@ const { id, name, placeholder, inputClass, selectClass } = Astro.props;
 const phoneError = translations[getLangFromUrl(Astro.url)].contact.form.phoneError;
 
 // ponytail: lista corta de los mercados reales de Aurin; agregar países aquí si llegan leads de otros.
+// Último campo: dígitos de celulares y fijos sin lada, "mín-máx". No se usan los
+// largos de libphonenumber: incluyen números especiales (1-800 de Guatemala: 11).
 const COUNTRIES = [
-  ['MX', '🇲🇽', '+52'],
-  ['US', '🇺🇸', '+1'],
-  ['CA', '🇨🇦', '+1'],
-  ['ES', '🇪🇸', '+34'],
-  ['DO', '🇩🇴', '+1'],
-  ['PR', '🇵🇷', '+1'],
-  ['PA', '🇵🇦', '+507'],
-  ['CO', '🇨🇴', '+57'],
-  ['AR', '🇦🇷', '+54'],
-  ['CL', '🇨🇱', '+56'],
-  ['PE', '🇵🇪', '+51'],
-  ['GT', '🇬🇹', '+502'],
-  ['CR', '🇨🇷', '+506'],
-  ['UY', '🇺🇾', '+598'],
-  ['EC', '🇪🇨', '+593'],
-  ['VE', '🇻🇪', '+58'],
+  ['MX', '🇲🇽', '+52', '10-10'],
+  ['US', '🇺🇸', '+1', '10-10'],
+  ['CA', '🇨🇦', '+1', '10-10'],
+  ['ES', '🇪🇸', '+34', '9-9'],
+  ['DO', '🇩🇴', '+1', '10-10'],
+  ['PR', '🇵🇷', '+1', '10-10'],
+  ['PA', '🇵🇦', '+507', '7-8'],
+  ['CO', '🇨🇴', '+57', '10-10'],
+  ['AR', '🇦🇷', '+54', '10-11'],
+  ['CL', '🇨🇱', '+56', '9-9'],
+  ['PE', '🇵🇪', '+51', '8-9'],
+  ['GT', '🇬🇹', '+502', '8-8'],
+  ['CR', '🇨🇷', '+506', '8-8'],
+  ['UY', '🇺🇾', '+598', '8-8'],
+  ['EC', '🇪🇨', '+593', '8-9'],
+  ['VE', '🇻🇪', '+58', '10-10'],
 ] as const;
 
 ---
@@ -54,8 +56,8 @@ const COUNTRIES = [
     aria-label="Lada"
     autocomplete="tel-country-code"
   >
-    {COUNTRIES.map(([code, flag, dial]) => (
-      <option value={dial} data-country={code} selected={code === 'MX'}>
+    {COUNTRIES.map(([code, flag, dial, digits]) => (
+      <option value={dial} data-country={code} data-digits={digits} selected={code === 'MX'}>
         {flag} {dial}
       </option>
     ))}
@@ -93,8 +95,16 @@ const COUNTRIES = [
     const validate = async () => {
       const { isValidPhone } = await (phone ??= import('@/lib/phone'));
       const option = select.selectedOptions[0];
-      const ok = !input.value || isValidPhone(input.value, option.dataset.country as CountryCode);
-      input.setCustomValidity(ok ? '' : input.dataset.error!.replace('{lada}', option.value));
+      const [min, max] = option.dataset.digits!.split('-');
+      const length = input.value.replace(/\D/g, '').replace(/^0/, '').length;
+      const ok =
+        !input.value ||
+        (length >= Number(min) &&
+          length <= Number(max) &&
+          isValidPhone(input.value, option.dataset.country as CountryCode));
+      input.setCustomValidity(
+        ok ? '' : input.dataset.error!.replace('{lada}', option.value).replace('{n}', min === max ? min : `${min}–${max}`),
+      );
     };
 
     input.addEventListener('input', () => {
@@ -113,6 +123,16 @@ const COUNTRIES = [
           match.selected = true;
           input.value = digits.slice(match.value.length - 1);
         }
+      }
+
+      // Tope del país: los dígitos de más no entran. Un 0 inicial (marcación
+      // nacional, "099…" en Ecuador) no cuenta. Con "+" a medias aún no hay país.
+      if (!input.value.startsWith('+')) {
+        const max = Number(select.selectedOptions[0].dataset.digits!.split('-')[1]);
+        const keep = max + (/^\D*0/.test(input.value) ? 1 : 0);
+        let count = 0;
+        const capped = input.value.replace(/\d/g, (d) => (++count > keep ? '' : d));
+        if (capped !== input.value) input.value = capped;
       }
       validate();
     });
