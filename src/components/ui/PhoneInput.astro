@@ -5,8 +5,11 @@
  * y si no, México. No se usa el país de la IP: obligaría al CDN a guardar una copia
  * de cada página por país (más SSR y más CPU).
  * Si el usuario pega un número con "+XX", la lada se ajusta sola.
+ * Solo admite dígitos (y separadores) y revisa que lada y número existan
+ * (src/lib/phone.ts).
  * Envía dos campos: `${name}` (número nacional) y `${name}Lada` ("+52").
  */
+import { getLangFromUrl, translations } from '@/i18n';
 import styles from './PhoneInput.module.css';
 
 interface Props {
@@ -19,6 +22,8 @@ interface Props {
 }
 
 const { id, name, placeholder, inputClass, selectClass } = Astro.props;
+
+const phoneError = translations[getLangFromUrl(Astro.url)].contact.form.phoneError;
 
 // ponytail: lista corta de los mercados reales de Aurin; agregar países aquí si llegan leads de otros.
 const COUNTRIES = [
@@ -63,12 +68,14 @@ const COUNTRIES = [
     placeholder={placeholder}
     autocomplete="tel-national"
     inputmode="tel"
-    pattern={String.raw`[0-9 \(\)\-]{7,20}`}
+    data-error={phoneError}
     required
   />
 </div>
 
 <script>
+  import type { CountryCode } from 'libphonenumber-js/min';
+
   document.querySelectorAll<HTMLElement>('[data-phone-input]').forEach((wrapper) => {
     const select = wrapper.querySelector('select')!;
     const input = wrapper.querySelector('input')!;
@@ -81,17 +88,34 @@ const COUNTRIES = [
     const match = options.find((o) => o.dataset.country === region);
     if (match) match.selected = true;
 
-    // "+34 612…" pegado o tecleado: mover la lada al selector.
+    // La librería de numeración pesa: se descarga hasta que alguien escribe, no en cada página.
+    let phone: Promise<typeof import('@/lib/phone')> | undefined;
+    const validate = async () => {
+      const { isValidPhone } = await (phone ??= import('@/lib/phone'));
+      const option = select.selectedOptions[0];
+      const ok = !input.value || isValidPhone(input.value, option.dataset.country as CountryCode);
+      input.setCustomValidity(ok ? '' : input.dataset.error!.replace('{lada}', option.value));
+    };
+
     input.addEventListener('input', () => {
+      // Solo dígitos, separadores y el "+" de una lada pegada: nada de letras.
+      const clean = input.value.replace(/[^\d\s()\-+]/g, '');
+      if (clean !== input.value) input.value = clean;
+
+      // "+34 612…" pegado o tecleado: mover la lada al selector.
       const raw = input.value.trim();
-      if (!raw.startsWith('+')) return;
-      const digits = raw.replace(/[^\d]/g, '');
-      const match = options
-        .filter((o) => digits.startsWith(o.value.slice(1)))
-        .sort((a, b) => b.value.length - a.value.length)[0];
-      if (!match) return;
-      match.selected = true;
-      input.value = digits.slice(match.value.length - 1);
+      if (raw.startsWith('+')) {
+        const digits = raw.replace(/[^\d]/g, '');
+        const match = options
+          .filter((o) => digits.startsWith(o.value.slice(1)))
+          .sort((a, b) => b.value.length - a.value.length)[0];
+        if (match) {
+          match.selected = true;
+          input.value = digits.slice(match.value.length - 1);
+        }
+      }
+      validate();
     });
+    select.addEventListener('change', validate);
   });
 </script>

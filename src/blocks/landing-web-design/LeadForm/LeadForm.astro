@@ -6,6 +6,7 @@
  */
 import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
 import PhoneInput from '@/components/ui/PhoneInput.astro';
+import EmailInput from '@/components/ui/EmailInput.astro';
 import styles from './LeadForm.module.css';
 
 interface Props {
@@ -63,14 +64,11 @@ const leadForm = t.webDesignNL.leadForm;
           <label for="lead-email" class={styles.label}>
             {t.webDesignNL.leadForm.labels.email} <span class={styles.required} aria-label="required">*</span>
           </label>
-          <input
-            type="email"
+          <EmailInput
             id="lead-email"
             name="email"
-            required
             placeholder={t.webDesignNL.leadForm.placeholders.email}
-            class={styles.input}
-            autocomplete="email"
+            inputClass={styles.input}
           />
         </div>
       </div>
