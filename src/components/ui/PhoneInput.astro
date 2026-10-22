@@ -44,14 +44,14 @@ const mx = main[0];
       autocomplete="tel-country-code"
     >
       {main.map((c) => (
-        <option value={c.dial} data-country={c.code} data-digits={c.digits} data-flag={c.flag} data-primary={c.primary || undefined} selected={c === mx}>
-          {c.name} {c.dial}
+        <option value={c.dial} data-country={c.code} data-digits={c.digits} data-primary={c.primary || undefined} selected={c === mx}>
+          {c.name} {c.flag} {c.dial}
         </option>
       ))}
-      <option disabled>──────────</option>
+      <option value="" disabled>──────────</option>
       {rest.map((c) => (
-        <option value={c.dial} data-country={c.code} data-digits={c.digits} data-flag={c.flag} data-primary={c.primary || undefined}>
-          {c.name} {c.dial}
+        <option value={c.dial} data-country={c.code} data-digits={c.digits} data-primary={c.primary || undefined}>
+          {c.name} {c.flag} {c.dial}
         </option>
       ))}
     </select>
@@ -79,7 +79,8 @@ const mx = main[0];
     const options = [...select.options].filter((o) => o.value);
     const showLada = () => {
       const option = select.selectedOptions[0];
-      shown.textContent = `${option.dataset.flag} ${option.value}`;
+      // La bandera va después del nombre: al inicio rompería buscar país tecleando ("alem").
+      shown.textContent = `${option.text.match(/\p{Regional_Indicator}{2}/u)?.[0] ?? ''} ${option.value}`;
     };
 
     // Región del idioma del navegador (es-MX, en-US…); sin coincidencia queda México.
