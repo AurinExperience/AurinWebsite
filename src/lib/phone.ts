@@ -1,4 +1,4 @@
-import { isValidPhoneNumber, type CountryCode } from 'libphonenumber-js/min';
+import { AsYouType, getCountryCallingCode, isValidPhoneNumber, type CountryCode } from 'libphonenumber-js/min';
 
 /**
  * Teléfono que existe en el plan de numeración del país (lada y longitud
@@ -14,4 +14,14 @@ export function isValidPhone(phone: unknown, country?: CountryCode): boolean {
     '01234567890123456789'.includes(national) ||
     '98765432109876543210'.includes(national);
   return !filler && isValidPhoneNumber(phone, country);
+}
+
+/** Número nacional con los espacios de su país: "7771234567" → "777 123 4567". */
+export function formatPhone(phone: string, country: CountryCode): string {
+  const digits = phone.replace(/\D/g, '');
+  // Con el 0 de marcación nacional, formato nacional ("01512 3456789"). Sin él, el
+  // nacional no aplica en países como Alemania: se usa el internacional sin la lada.
+  if (digits.startsWith('0')) return new AsYouType(country).input(digits);
+  const code = getCountryCallingCode(country);
+  return new AsYouType(country).input(`+${code}${digits}`).slice(code.length + 1).trimStart();
 }

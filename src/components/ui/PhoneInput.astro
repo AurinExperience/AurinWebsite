@@ -8,8 +8,9 @@
  * y si no, México. No se usa el país de la IP: obligaría al CDN a guardar una copia
  * de cada página por país (más SSR y más CPU).
  * Si el usuario pega un número con "+XX", la lada se ajusta sola.
- * Solo admite dígitos (y separadores), no deja pasar del largo del país y
- * revisa que lada y número existan (src/lib/phone.ts).
+ * Solo admite dígitos (y separadores), no deja pasar del largo del país, los
+ * espacia como se escriben allá ("777 123 4567") y revisa que lada y número
+ * existan (src/lib/phone.ts).
  * Envía dos campos: `${name}` (número nacional) y `${name}Lada` ("+52").
  */
 import { getLangFromUrl, translations } from '@/i18n';
@@ -93,22 +94,41 @@ const mx = main[0];
 
     // La librería de numeración pesa: se descarga hasta que alguien escribe, no en cada página.
     let phone: Promise<typeof import('@/lib/phone')> | undefined;
-    const validate = async () => {
-      const { isValidPhone } = await (phone ??= import('@/lib/phone'));
+    const update = async (reformat: boolean) => {
+      const { isValidPhone, formatPhone } = await (phone ??= import('@/lib/phone'));
       const option = select.selectedOptions[0];
+      const country = option.dataset.country as CountryCode;
+
+      if (reformat && input.value && !input.value.startsWith('+')) {
+        const focused = document.activeElement === input;
+        // El cursor vuelve a quedar tras el mismo número de dígitos.
+        const digitsBefore = input.value.slice(0, input.selectionStart ?? undefined).replace(/\D/g, '').length;
+        const formatted = formatPhone(input.value, country);
+        if (formatted !== input.value) {
+          input.value = formatted;
+          if (focused) {
+            let pos = 0;
+            for (let seen = 0; pos < formatted.length && seen < digitsBefore; pos++) {
+              if (/\d/.test(formatted[pos])) seen++;
+            }
+            input.setSelectionRange(pos, pos);
+          }
+        }
+      }
+
       const [min, max] = option.dataset.digits!.split('-');
       const length = input.value.replace(/\D/g, '').replace(/^0/, '').length;
       const ok =
         !input.value ||
         (length >= Number(min) &&
           length <= Number(max) &&
-          isValidPhone(input.value, option.dataset.country as CountryCode));
+          isValidPhone(input.value, country));
       input.setCustomValidity(
         ok ? '' : input.dataset.error!.replace('{lada}', option.value).replace('{n}', min === max ? min : `${min}–${max}`),
       );
     };
 
-    input.addEventListener('input', () => {
+    input.addEventListener('input', (e) => {
       // Solo dígitos, separadores y el "+" de una lada pegada: nada de letras.
       const clean = input.value.replace(/[^\d\s()\-+]/g, '');
       if (clean !== input.value) input.value = clean;
@@ -145,11 +165,13 @@ const mx = main[0];
         const capped = input.value.replace(/\d/g, (d) => (++count > keep ? '' : d));
         if (capped !== input.value) input.value = capped;
       }
-      validate();
+      // Al borrar no se reacomoda: si no, el espacio borrado reaparece y el cursor se atora.
+      update(!(e as InputEvent).inputType?.startsWith('delete'));
     });
+    input.addEventListener('blur', () => update(true));
     select.addEventListener('change', () => {
       showLada();
-      validate();
+      update(true);
     });
   });
 </script>
