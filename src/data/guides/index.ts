@@ -6,6 +6,10 @@ import { sitioWebBilingue } from './sitio-web-bilingue';
 import { costoBranding } from './costo-branding';
 import { wixWordpressAMedida } from './wix-wordpress-a-medida';
 import { paginaWebHotel } from './pagina-web-hotel';
+import { tiempoPaginaWeb } from './tiempo-pagina-web';
+import { costoUxUi } from './costo-ux-ui';
+import { nearshoreMexico } from './nearshore-mexico';
+import { briefPaginaWeb } from './brief-pagina-web';
 
 export type { Lang, Guide, GuideCopy, GuideSection } from './types';
 
@@ -21,6 +25,10 @@ const ALL_GUIDES: Guide[] = [
   costoBranding,
   wixWordpressAMedida,
   paginaWebHotel,
+  tiempoPaginaWeb,
+  costoUxUi,
+  nearshoreMexico,
+  briefPaginaWeb,
 ];
 
 export const GUIDES: Guide[] = ALL_GUIDES.filter((g) => g.status === 'live');
@@ -46,8 +54,14 @@ export function findGuide(slug: string | undefined, lang: Lang): Guide | undefin
   return GUIDES.find((guide) => guide.slug[lang] === slug);
 }
 
+/**
+ * Las guías que siguen a `current`, dando la vuelta al final de la lista. Con un
+ * simple filtro, "Otras guías" mostraba siempre las primeras tres y las guías
+ * nuevas, al final de la lista, no recibían enlaces de ninguna otra.
+ */
 export function siblingGuides(current: Guide): Guide[] {
-  return GUIDES.filter((guide) => guide.id !== current.id);
+  const i = GUIDES.findIndex((guide) => guide.id === current.id);
+  return [...GUIDES.slice(i + 1), ...GUIDES.slice(0, i)];
 }
 
 /**
