@@ -26,7 +26,7 @@ const {
   title,
   description = "Aurin User Experts",
   canonical,
-  ogImage = SITE.ogImage,
+  ogImage: ogImageProp,
   ogType = "website",
   structuredData,
   additionalStructuredData,
@@ -39,6 +39,13 @@ const {
 
 const siteUrl = (Astro.site?.href || "https://aurin.mx").replace(/\/$/, "");
 const canonicalURL = canonical || `${siteUrl}${Astro.url.pathname}`;
+
+// Sin imagen propia, cada página usa su miniatura con título (src/pages/og/).
+// Con una sola imagen genérica, todas las páginas citadas por ChatGPT o
+// Perplexity mostraban la misma miniatura.
+const ogPath = Astro.url.pathname.replace(/\/$/, "") || "/index";
+const ogImage =
+  ogImageProp && ogImageProp !== SITE.ogImage ? ogImageProp : `${siteUrl}/og${ogPath}.png`;
 
 // og:locale tiene que seguir al idioma de la página: hardcodeado a es_MX,
 // las páginas /en/ se anunciaban en español a Facebook y LinkedIn.

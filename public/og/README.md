@@ -1,8 +1,11 @@
 # Assets de Open Graph
 
-- `aurin-og.png` (1200×630) — preview de OG/Twitter, valor por defecto de `SITE.ogImage`.
-- `aurin-logo.png` (600×116) — logo raster para el schema `Organization`. Google prefiere
-  PNG/JPG sobre SVG aquí.
+- `aurin-og.png` (1200×630) — respaldo genérico de OG/Twitter (`SITE.ogImage`). Cada página usa
+  en su lugar `/og/<ruta>.png`, generada con su título por `src/pages/og/[...path].png.ts`; esta
+  imagen solo sale cuando esa ruta no existe.
+- `aurin-logo.png` (600×116) — ya no es el logo del schema: una tira ancha y oscura no se lee en
+  los recortes cuadrados de Google y las IAs. `SITE.logoUrl` apunta al ícono cuadrado
+  `/favicon/web-app-manifest-512x512.png`.
 
 Viven en `/public` a propósito. Antes apuntaban a un `.webp` en R2 que devolvía 404, así que
 todas las previews y el logo del schema salían rotos sin que nadie se enterara.

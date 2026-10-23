@@ -6,7 +6,7 @@ export const SITE = {
   // Assets servidos desde /public: antes apuntaban a un .webp en R2 que daba 404,
   // así que el logo del schema y todas las previews de OG salían rotas.
   // Regenerar con el script de public/og/README.md si cambia la marca.
-  logoUrl: "https://aurin.mx/og/aurin-logo.png",
+  logoUrl: "https://aurin.mx/favicon/web-app-manifest-512x512.png",
   ogImage: "https://aurin.mx/og/aurin-og.png",
   contactEmail: "hey@aurin.mx",
   // Botón flotante de WhatsApp (formato wa.me: solo dígitos, con lada de país).
