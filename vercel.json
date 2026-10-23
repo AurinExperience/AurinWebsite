@@ -46,6 +46,15 @@
       ]
     },
     {
+      "source": "/logos/:file(aurin-header\\.svg|aurin-tiny-white\\.svg|aurin-white\\.webp)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
       "source": "/(.*)\\.(css|js|mjs)",
       "headers": [
         {
