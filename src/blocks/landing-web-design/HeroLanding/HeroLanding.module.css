@@ -209,15 +209,12 @@
     gap: var(--spacing-6);
   }
 
-  .stat {
-    flex-direction: row;
-    align-items: baseline;
-    gap: var(--spacing-4);
-  }
-
+  /* Cifra arriba y texto abajo, como en desktop. En fila, un valor de palabra
+     ("Nearshore", "Instituciones") no cabía: el min-width fijo le quitaba al
+     flex item su mínimo automático y Safari lo encogía bajo la palabra, que se
+     encimaba con la etiqueta. */
   .statValue {
     font-size: 28px;
-    min-width: 68px;
   }
 
   .gradientOrb {
