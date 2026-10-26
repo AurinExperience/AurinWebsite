@@ -44,8 +44,8 @@ export const monterrey: Landing = {
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           { value: '+20', label: 'años diseñando marcas y productos digitales' },
-          { value: 'Tuyos', label: 'los datos: analítica y conversiones a tu nombre' },
-          { value: '0', label: 'plantillas: cada sitio se diseña desde cero' },
+          { value: 'SEO', label: 'básico incluido en cada sitio' },
+          { value: '0 plantillas', label: 'cada sitio se diseña desde cero' },
         ],
       },
       services: {
@@ -186,8 +186,8 @@ export const monterrey: Landing = {
         ctaSecondary: 'See how we work',
         stats: [
           { value: '+20', label: 'years designing brands and digital products' },
-          { value: 'Yours', label: 'the data: analytics and conversions in your name' },
-          { value: '0', label: 'templates: every site is designed from scratch' },
+          { value: 'SEO', label: 'basics included on every site' },
+          { value: '0 templates', label: 'every site is designed from scratch' },
         ],
       },
       services: {
