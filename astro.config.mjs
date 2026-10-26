@@ -36,6 +36,11 @@ export default defineConfig({
   redirects: {
     '/diseno-web-nuevo-leon': { status: 301, destination: '/diseno-web-monterrey' },
     '/en/web-design-nuevo-leon': { status: 301, destination: '/en/web-design-monterrey' },
+    // Rutas en español de la versión anterior del sitio: Search Console las sigue
+    // rastreando como 404.
+    '/servicios': { status: 301, destination: '/services' },
+    '/contacto': { status: 301, destination: '/contact' },
+    '/privacidad': { status: 301, destination: '/privacy' },
   },
   i18n: {
     defaultLocale: 'es',
