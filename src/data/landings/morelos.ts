@@ -40,7 +40,7 @@ export const morelos: Landing = {
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           { value: '+20', label: 'años diseñando desde Cuernavaca para todo México' },
-          { value: 'SEO', label: 'básico incluido: listo para Google y la IA' },
+          { value: 'SEO', label: 'básico incluido en cada sitio' },
           { value: '1', label: 'oficina en Tlaltenango, por si prefieres vernos en persona' },
         ],
       },
@@ -182,7 +182,7 @@ export const morelos: Landing = {
         ctaSecondary: 'See how we work',
         stats: [
           { value: '+20', label: 'years designing from Cuernavaca for all of Mexico' },
-          { value: 'SEO', label: 'basic, built in: ready for Google and AI search' },
+          { value: 'SEO', label: 'basics included on every site' },
           { value: '1', label: 'office in Tlaltenango, if you would rather meet in person' },
         ],
       },

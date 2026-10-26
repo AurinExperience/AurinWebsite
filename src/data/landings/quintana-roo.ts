@@ -36,7 +36,7 @@ export const quintanaRoo: Landing = {
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           { value: '+20', label: 'años diseñando marcas y productos digitales' },
-          { value: 'SEO', label: 'básico incluido: listo para Google y la IA' },
+          { value: 'SEO', label: 'básico incluido en cada sitio' },
           { value: 'ES/EN', label: 'sitios en dos idiomas para viajeros internacionales' },
         ],
       },
@@ -179,7 +179,7 @@ export const quintanaRoo: Landing = {
         ctaSecondary: 'See how we work',
         stats: [
           { value: '+20', label: 'years designing brands and digital products' },
-          { value: 'SEO', label: 'basic, built in: ready for Google and AI search' },
+          { value: 'SEO', label: 'basics included on every site' },
           { value: 'ES/EN', label: 'two-language sites for international travelers' },
         ],
       },

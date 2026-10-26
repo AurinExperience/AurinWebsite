@@ -42,7 +42,7 @@ export const queretaro: Landing = {
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           { value: '+20', label: 'años diseñando marcas y productos digitales' },
-          { value: 'SEO', label: 'básico incluido: listo para Google y la IA' },
+          { value: 'SEO', label: 'básico incluido en cada sitio' },
           { value: 'ES/EN', label: 'sitios bilingües para empresas con clientes fuera de México' },
         ],
       },
@@ -185,7 +185,7 @@ export const queretaro: Landing = {
         ctaSecondary: 'See how we work',
         stats: [
           { value: '+20', label: 'years designing brands and digital products' },
-          { value: 'SEO', label: 'basic, built in: ready for Google and AI search' },
+          { value: 'SEO', label: 'basics included on every site' },
           { value: 'ES/EN', label: 'bilingual sites for companies selling outside Mexico' },
         ],
       },
