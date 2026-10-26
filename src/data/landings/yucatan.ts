@@ -36,7 +36,7 @@ export const yucatan: Landing = {
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           { value: '+20', label: 'años diseñando marcas y productos digitales' },
-          { value: 'Tuyos', label: 'los datos: analítica y conversiones a tu nombre' },
+          { value: 'SEO', label: 'básico incluido: listo para Google y la IA' },
           { value: '0', label: 'plantillas: cada sitio se diseña desde cero' },
         ],
       },
@@ -178,7 +178,7 @@ export const yucatan: Landing = {
         ctaSecondary: 'See how we work',
         stats: [
           { value: '+20', label: 'years designing brands and digital products' },
-          { value: 'Yours', label: 'the data: analytics and conversions in your name' },
+          { value: 'SEO', label: 'basic, built in: ready for Google and AI search' },
           { value: '0', label: 'templates: every site is designed from scratch' },
         ],
       },
