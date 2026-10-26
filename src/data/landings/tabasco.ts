@@ -58,8 +58,9 @@ export const tabasco: Landing = {
           {
             title: 'Tienda en línea',
             description:
-              'Una tienda propia te deja vender a clientes de todo el país sin depender solo de tiendas locales. La diseñamos para que tu producto luzca y comprar sea sencillo.',
-            bullets: ['Catálogo por producto', 'Pagos en línea', 'Historia y origen del cacao'],
+              'Una tienda propia te deja vender a clientes de todo el país sin depender solo de tiendas locales. La diseñamos y desarrollamos a la medida para que tu producto luzca y comprar sea sencillo.',
+            bullets: ['Catálogo por producto', 'Historia y origen del cacao'],
+            custom: ['Pagos en línea'],
           },
           {
             title: 'Sitios para despachos y clínicas',
@@ -99,7 +100,7 @@ export const tabasco: Landing = {
           {
             question: 'Hago chocolate artesanal, ¿puedo venderlo en línea?',
             answer:
-              'Sí. Antes revisamos contigo cómo vas a enviar y cobrar, sobre todo por el calor y el empaque, para armar la tienda de acuerdo con lo que sí puedes cumplir.',
+              'Sí, como desarrollo a la medida. Antes revisamos contigo cómo vas a enviar y cobrar, sobre todo por el calor y el empaque, para armar la tienda de acuerdo con lo que sí puedes cumplir.',
           },
           {
             question: '¿Pueden diseñar el empaque de mi chocolate?',
@@ -159,8 +160,9 @@ export const tabasco: Landing = {
           {
             title: 'Online store',
             description:
-              'A store of your own lets you sell to customers across the country without relying only on local shops. We design it so your product stands out and buying is simple.',
-            bullets: ['Catalog by product', 'Online payments', 'Story and origin of the cacao'],
+              'A store of your own lets you sell to customers across the country without relying only on local shops. We design and custom-build it so your product stands out and buying is simple.',
+            bullets: ['Catalog by product', 'Story and origin of the cacao'],
+            custom: ['Online payments'],
           },
           {
             title: 'Websites for firms and clinics',
@@ -200,7 +202,7 @@ export const tabasco: Landing = {
           {
             question: 'I make artisan chocolate. Can I sell it online?',
             answer:
-              'Yes. First we review with you how you will ship and get paid, especially given heat and packaging, so the store is built around what you can actually deliver.',
+              'Yes, as custom development. First we review with you how you will ship and get paid, especially given heat and packaging, so the store is built around what you can actually deliver.',
           },
           {
             question: 'Can you design my chocolate packaging?',

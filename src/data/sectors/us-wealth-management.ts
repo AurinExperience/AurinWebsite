@@ -30,7 +30,7 @@ export const usWealthManagement = defineSector({
         title: 'Confianza a primera vista',
         description:
           'Un diseño sobrio, actual y cuidado que se ve a la altura de los clientes que atiendes, en escritorio y en celular.',
-        bullets: ['Diseño institucional a la medida', 'Equipo y credenciales', 'Divulgaciones a la vista'],
+        bullets: ['Diseño institucional propio', 'Equipo y credenciales', 'Divulgaciones a la vista'],
       },
       {
         title: 'Tu filosofía, explicada',
@@ -41,8 +41,9 @@ export const usWealthManagement = defineSector({
       {
         title: 'Portal de clientes',
         description:
-          'Diseñamos la experiencia del acceso de clientes y de los reportes para que se vean tan cuidados como el sitio.',
-        bullets: ['Acceso de clientes', 'Diseño de reportes', 'Experiencia en celular'],
+          'Diseñamos y desarrollamos a la medida el acceso de clientes, y diseñamos los reportes para que se vean tan cuidados como el sitio.',
+        bullets: ['Diseño de reportes', 'Experiencia en celular'],
+        custom: ['Acceso de clientes'],
       },
       {
         title: 'Contenido que posiciona',
@@ -55,7 +56,7 @@ export const usWealthManagement = defineSector({
     pages: 'filosofía, servicios, equipo, perspectivas, acceso de clientes, divulgaciones y contacto',
     costQuestion: '¿Cuánto cuesta el sitio web de una firma de gestión patrimonial?',
     costScope:
-      'cuántas páginas y perfiles, si incluye el diseño del portal de clientes, si lleva blog y si también necesitas marca',
+      'cuántas páginas y perfiles, si incluye el portal de clientes, si lleva blog y si también necesitas marca',
     faqs: [
       {
         question: '¿Cómo manejan las reglas de cumplimiento?',
@@ -65,7 +66,7 @@ export const usWealthManagement = defineSector({
       {
         question: '¿Pueden rediseñar el portal que ya tenemos?',
         answer:
-          'Sí. Diseñamos la experiencia del portal y la entregamos lista para que tu proveedor de tecnología la implemente.',
+          'Sí. Diseñamos la experiencia del portal y la desarrollamos a la medida, o la entregamos lista para que tu proveedor de tecnología la implemente.',
       },
     ],
     aiSubject: 'mi firma',
@@ -97,7 +98,7 @@ export const usWealthManagement = defineSector({
         title: 'Trust at first sight',
         description:
           'A sober, modern, carefully crafted design that matches the clients you serve, on desktop and on mobile.',
-        bullets: ['Custom institutional design', 'Team and credentials', 'Disclosures in plain sight'],
+        bullets: ['Original institutional design', 'Team and credentials', 'Disclosures in plain sight'],
       },
       {
         title: 'Your philosophy, explained',
@@ -108,8 +109,9 @@ export const usWealthManagement = defineSector({
       {
         title: 'Client portal',
         description:
-          'We design the client login and reporting experience so it looks as polished as the site.',
-        bullets: ['Client login', 'Report design', 'Mobile experience'],
+          'We design and custom-build the client login, and design the reports so they look as polished as the site.',
+        bullets: ['Report design', 'Mobile experience'],
+        custom: ['Client login'],
       },
       {
         title: 'Content that ranks',
@@ -122,7 +124,7 @@ export const usWealthManagement = defineSector({
     pages: 'philosophy, services, team, insights, client login, disclosures, and contact',
     costQuestion: 'How much does a wealth management website cost?',
     costScope:
-      'how many pages and profiles, whether it includes the client portal design, whether it has a blog, and whether you also need a brand',
+      'how many pages and profiles, whether it includes the client portal, whether it has a blog, and whether you also need a brand',
     faqs: [
       {
         question: 'How do you handle compliance rules?',
@@ -132,7 +134,7 @@ export const usWealthManagement = defineSector({
       {
         question: 'Can you redesign the portal we already have?',
         answer:
-          'Yes. We design the portal experience and hand it off ready for your technology provider to implement.',
+          'Yes. We design the portal experience and custom-build it, or hand it off ready for your technology provider to implement.',
       },
     ],
     aiSubject: 'my firm',

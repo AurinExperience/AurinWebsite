@@ -62,7 +62,9 @@ export const cdmx: Landing = {
             bullets: [
               'Identidad visual aplicada a cada pantalla',
               'Casos, credenciales y equipo con jerarquía clara',
-              'CMS para publicar contenido sin depender de nadie',
+            ],
+            custom: [
+              'CMS para publicar contenido',
             ],
           },
           {
@@ -205,7 +207,9 @@ export const cdmx: Landing = {
             bullets: [
               'Visual identity applied to every screen',
               'Cases, credentials, and team with clear hierarchy',
-              'A CMS to publish content on your own',
+            ],
+            custom: [
+              'A CMS to publish content',
             ],
           },
           {

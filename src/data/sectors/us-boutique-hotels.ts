@@ -34,8 +34,9 @@ export const usBoutiqueHotels = defineSector({
       {
         title: 'Reservas directas',
         description:
-          'Integramos tu motor de reservas con un flujo claro y beneficios de reservar directo para que el huésped no se vaya a una agencia.',
-        bullets: ['Integración con tu motor', 'Beneficios de reserva directa', 'Ofertas y paquetes'],
+          'Integramos a la medida tu motor de reservas con un flujo claro y beneficios de reservar directo para que el huésped no se vaya a una agencia.',
+        bullets: ['Beneficios de reserva directa', 'Ofertas y paquetes'],
+        custom: ['Integración con tu motor'],
       },
       {
         title: 'Eventos y bodas',
@@ -54,12 +55,12 @@ export const usBoutiqueHotels = defineSector({
     pages: 'habitaciones, experiencias, gastronomía, spa, eventos, destino y reservas',
     costQuestion: '¿Cuánto cuesta el sitio web de un hotel boutique?',
     costScope:
-      'cuántas habitaciones y experiencias, si se conecta a tu motor de reservas, si incluye eventos y bodas, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántas habitaciones y experiencias, si se conecta a tu motor de reservas, si incluye eventos y bodas y si también necesitas marca',
     faqs: [
       {
         question: '¿Funciona con mi motor de reservas?',
         answer:
-          'En la mayoría de los casos sí. Revisamos cuál usas en la llamada y lo integramos para que la reserva se sienta parte del sitio.',
+          'En la mayoría de los casos sí, como desarrollo a la medida. Revisamos cuál usas en la llamada y lo integramos para que la reserva se sienta parte del sitio.',
       },
       {
         question: '¿Un sitio nuevo ayuda a depender menos de las agencias en línea?',
@@ -101,8 +102,9 @@ export const usBoutiqueHotels = defineSector({
       {
         title: 'Direct bookings',
         description:
-          'We integrate your booking engine with a clear flow and book-direct perks so guests don’t leave for an OTA.',
-        bullets: ['Booking engine integration', 'Book-direct perks', 'Offers and packages'],
+          'We custom-integrate your booking engine with a clear flow and book-direct perks so guests don’t leave for an OTA.',
+        bullets: ['Book-direct perks', 'Offers and packages'],
+        custom: ['Booking engine integration'],
       },
       {
         title: 'Events and weddings',
@@ -121,12 +123,12 @@ export const usBoutiqueHotels = defineSector({
     pages: 'rooms, experiences, dining, spa, events, destination, and booking',
     costQuestion: 'How much does a boutique hotel website cost?',
     costScope:
-      'how many rooms and experiences, whether it connects to your booking engine, whether it includes events and weddings, whether it runs in one language or both, and whether you also need a brand',
+      'how many rooms and experiences, whether it connects to your booking engine, whether it includes events and weddings, and whether you also need a brand',
     faqs: [
       {
         question: 'Does it work with my booking engine?',
         answer:
-          'In most cases, yes. We review which one you use on the call and integrate it so booking feels like part of the site.',
+          'In most cases, yes, as custom development. We review which one you use on the call and integrate it so booking feels like part of the site.',
       },
       {
         question: 'Does a new site help reduce reliance on OTAs?',

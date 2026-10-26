@@ -53,7 +53,7 @@ export const medicos: Sector = {
         titleLead: 'Diseño Web para',
         titleAccent: 'Médicos',
         description:
-          'Tus pacientes te eligen antes de conocerte: buscan tu nombre, revisan tu especialidad y deciden en segundos, cada vez más preguntándole a una IA. Diseñamos sitios que transmiten la misma confianza que tu consulta, que te encuentren en Google y en la IA, y que les permiten agendar en el momento, sin llamar.',
+          'Tus pacientes te eligen antes de conocerte: buscan tu nombre, revisan tu especialidad y deciden en segundos, cada vez más preguntándole a una IA. Diseñamos sitios que transmiten la misma confianza que tu consulta, que te encuentren en Google y en la IA, y que les permiten pedir su cita en el momento, sin llamar.',
         cta: 'Cotiza tu sitio',
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
@@ -63,7 +63,7 @@ export const medicos: Sector = {
         ],
       },
       services: {
-        heading: 'Servicios de diseño web para médicos',
+        heading: 'Diseño web para médicos: lo que puede incluir tu sitio',
         intro:
           'Diseñamos para médicos especialistas, consultorios, clínicas y laboratorios. Cada página web para consultorio se diseña a partir de tu práctica: cómo llegan tus pacientes, qué te preguntan antes de la primera consulta y cómo prefieres agendar.',
         items: [
@@ -73,8 +73,11 @@ export const medicos: Sector = {
               'Menos llamadas, más citas. El paciente que tiene que llamar en horario de consulta muchas veces ya no llama; en tu sitio pide su cita cuando le queda bien, también de noche o en fin de semana, y la solicitud te llega directo.',
             bullets: [
               'Botón de cita visible en cada página',
-              'Formulario o agenda conectada a tu calendario',
+              'Formulario de cita',
               'Contacto directo por WhatsApp',
+            ],
+            custom: [
+              'Agenda conectada a tu calendario',
             ],
           },
           {
@@ -120,7 +123,7 @@ export const medicos: Sector = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas: tu perfil, los padecimientos que atiendes, la cita en línea, el aviso de privacidad y si el sitio va en uno o en los dos idiomas. Todo organizado para que Google y los buscadores con IA lo entiendan.',
+            text: 'Definimos las páginas: tu perfil, los padecimientos que atiendes, la solicitud de cita y el aviso de privacidad. Todo organizado para que Google y los buscadores con IA lo entiendan.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -133,7 +136,7 @@ export const medicos: Sector = {
           {
             question: '¿Cuánto cuesta la página web de un consultorio?',
             answer:
-              'Depende del alcance: cuántas páginas, si incluye agenda en línea, si va en uno o en los dos idiomas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende del alcance: cuántas páginas, si incluye agenda en línea y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: 'Ya estoy en Doctoralia, ¿necesito un sitio propio?',
@@ -143,7 +146,7 @@ export const medicos: Sector = {
           {
             question: '¿El sitio puede recibir citas?',
             answer:
-              'Sí. Puede incluir un formulario de cita, un botón de WhatsApp o una agenda en línea conectada a tu calendario, según cómo organices tu consulta.',
+              'Sí. Incluye un formulario de cita y un botón de WhatsApp, y si lo necesitas desarrollamos a la medida una agenda en línea conectada a tu calendario.',
           },
           {
             question: '¿Qué pasa con los datos de mis pacientes?',
@@ -153,7 +156,7 @@ export const medicos: Sector = {
           {
             question: 'No tengo tiempo para ocuparme del sitio, ¿cómo le hacemos?',
             answer:
-              'Nosotros nos encargamos. Te pedimos solo lo indispensable, armamos la estructura y los textos contigo, y después del lanzamiento puedes hacer cambios tú o dejarlos en nuestras manos con un plan mensual de mantenimiento.',
+              'Nosotros nos encargamos. Te pedimos solo lo indispensable, armamos la estructura y los textos contigo, y después del lanzamiento los cambios quedan en nuestras manos con un plan mensual de mantenimiento.',
           },
           c.faqPayment,
           {
@@ -194,7 +197,7 @@ export const medicos: Sector = {
         titleLead: 'Web Design for',
         titleAccent: 'Doctors',
         description:
-          'Patients choose you before they meet you: they search your name, check your specialty, and decide in seconds, more and more often by asking an AI. We design websites that convey the same confidence as your practice, help you show up on Google and in AI answers, and let them book on the spot, without calling.',
+          'Patients choose you before they meet you: they search your name, check your specialty, and decide in seconds, more and more often by asking an AI. We design websites that convey the same confidence as your practice, help you show up on Google and in AI answers, and let them request an appointment on the spot, without calling.',
         cta: 'Request a quote',
         ctaSecondary: 'See how we work',
         stats: [
@@ -204,7 +207,7 @@ export const medicos: Sector = {
         ],
       },
       services: {
-        heading: 'Web design services for doctors',
+        heading: 'Web design for doctors: what your site can include',
         intro:
           'We design for specialist physicians, private practices, clinics, and laboratories. Every site is designed around your practice: how patients find you, what they ask before the first visit, and how you prefer to schedule.',
         items: [
@@ -214,8 +217,11 @@ export const medicos: Sector = {
               'Fewer calls, more appointments. A patient who has to call during office hours often never calls; on your site they request an appointment when it suits them, including evenings and weekends, and the request reaches you directly.',
             bullets: [
               'Appointment button visible on every page',
-              'Form or calendar connected to your schedule',
+              'Appointment request form',
               'Direct contact over WhatsApp',
+            ],
+            custom: [
+              'Calendar connected to your schedule',
             ],
           },
           {
@@ -261,7 +267,7 @@ export const medicos: Sector = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages: your profile, the conditions you treat, online appointments, the privacy notice, and whether the site runs in one language or both. All organized so Google and AI search tools can understand it.',
+            text: 'We define the pages: your profile, the conditions you treat, appointment requests, and the privacy notice. All organized so Google and AI search tools can understand it.',
           },
           C.stepDesign,
           C.stepLaunch,
@@ -274,7 +280,7 @@ export const medicos: Sector = {
           {
             question: 'How much does a website for a medical practice cost?',
             answer:
-              'It depends on scope: how many pages, whether it includes online booking, whether it runs in one language or both, and whether you also need a brand. After a call we send an itemized quote.',
+              'It depends on scope: how many pages, whether it includes online booking, and whether you also need a brand. After a call we send an itemized quote.',
           },
           {
             question: 'I am already on Doctoralia. Do I need my own site?',
@@ -284,7 +290,7 @@ export const medicos: Sector = {
           {
             question: 'Can the site take appointments?',
             answer:
-              'Yes. It can include an appointment form, a WhatsApp button, or an online calendar connected to your schedule, depending on how you run your practice.',
+              'Yes. It includes an appointment form and a WhatsApp button, and if you need it we build a custom online calendar connected to your schedule.',
           },
           {
             question: 'What about my patients’ data?',
@@ -294,7 +300,7 @@ export const medicos: Sector = {
           {
             question: 'I do not have time to manage a website. How does this work?',
             answer:
-              'We take care of it. We ask only for the essentials, build the structure and copy with you, and after launch you can make changes yourself or leave them to us with a monthly maintenance plan.',
+              'We take care of it. We ask only for the essentials, build the structure and copy with you, and after launch we handle changes with a monthly maintenance plan.',
           },
           C.faqPayment,
           {

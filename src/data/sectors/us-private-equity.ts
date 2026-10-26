@@ -35,8 +35,9 @@ export const usPrivateEquity = defineSector({
       {
         title: 'Portafolio que respalda',
         description:
-          'Empresas del portafolio con filtros, logos y casos, fácil de actualizar cuando cierras una inversión nueva.',
-        bullets: ['Portafolio con filtros', 'Casos de empresas', 'Actualización sencilla'],
+          'Empresas del portafolio con logos y casos; los filtros y el panel para actualizarlo al cerrar una inversión se desarrollan a la medida.',
+        bullets: ['Casos de empresas'],
+        custom: ['Portafolio con filtros', 'Actualización sencilla'],
       },
       {
         title: 'Equipo y criterio',
@@ -47,15 +48,16 @@ export const usPrivateEquity = defineSector({
       {
         title: 'Acceso para inversionistas',
         description:
-          'Diseñamos la experiencia del acceso de LPs y de los reportes para que se vea tan cuidada como el sitio.',
-        bullets: ['Acceso de LPs', 'Diseño de reportes', 'Discreción por diseño'],
+          'Diseñamos y desarrollamos a la medida el acceso de LPs, y diseñamos los reportes para que se vean tan cuidados como el sitio.',
+        bullets: ['Diseño de reportes', 'Discreción por diseño'],
+        custom: ['Acceso de LPs'],
       },
     ],
     diagnosis: 'Una videollamada para entender tu tesis, tu portafolio y a quién tiene que convencer el sitio.',
     pages: 'tesis, portafolio, equipo, perspectivas, acceso de inversionistas y contacto',
     costQuestion: '¿Cuánto cuesta el sitio web de una firma de inversión?',
     costScope:
-      'cuántas empresas en el portafolio y perfiles de equipo, si incluye el diseño del acceso de inversionistas, si lleva publicaciones y si también necesitas marca',
+      'cuántas empresas en el portafolio y perfiles de equipo, si incluye el acceso de inversionistas, si lleva publicaciones y si también necesitas marca',
     faqs: [
       {
         question: '¿Pueden hacer un sitio discreto para un family office?',
@@ -65,7 +67,7 @@ export const usPrivateEquity = defineSector({
       {
         question: '¿Podemos actualizar el portafolio nosotros?',
         answer:
-          'Sí. Dejamos el sitio listo para que tu equipo agregue empresas y noticias sin depender de nosotros.',
+          'Sí, con un panel a la medida para que tu equipo agregue empresas y noticias sin depender de nosotros.',
       },
     ],
     aiSubject: 'mi firma',
@@ -102,8 +104,9 @@ export const usPrivateEquity = defineSector({
       {
         title: 'A portfolio that backs you',
         description:
-          'Portfolio companies with filters, logos, and case studies, easy to update when you close a new deal.',
-        bullets: ['Filterable portfolio', 'Company case studies', 'Simple updates'],
+          'Portfolio companies with logos and case studies; filters and a panel to update it when you close a deal are custom builds.',
+        bullets: ['Company case studies'],
+        custom: ['Filterable portfolio', 'Simple updates'],
       },
       {
         title: 'Team and judgment',
@@ -114,15 +117,16 @@ export const usPrivateEquity = defineSector({
       {
         title: 'Investor access',
         description:
-          'We design the LP login and reporting experience so it looks as polished as the site.',
-        bullets: ['LP login', 'Report design', 'Discretion by design'],
+          'We design and custom-build the LP login, and design the reports so they look as polished as the site.',
+        bullets: ['Report design', 'Discretion by design'],
+        custom: ['LP login'],
       },
     ],
     diagnosis: 'A video call to understand your thesis, your portfolio, and who the site needs to convince.',
     pages: 'thesis, portfolio, team, insights, investor login, and contact',
     costQuestion: 'How much does an investment firm website cost?',
     costScope:
-      'how many portfolio companies and team profiles, whether it includes the investor login design, whether it has publications, and whether you also need a brand',
+      'how many portfolio companies and team profiles, whether it includes the investor login, whether it has publications, and whether you also need a brand',
     faqs: [
       {
         question: 'Can you build a discreet site for a family office?',
@@ -131,7 +135,7 @@ export const usPrivateEquity = defineSector({
       },
       {
         question: 'Can we update the portfolio ourselves?',
-        answer: 'Yes. We set the site up so your team can add companies and news without depending on us.',
+        answer: 'Yes, with a custom panel so your team can add companies and news without depending on us.',
       },
     ],
     aiSubject: 'my firm',

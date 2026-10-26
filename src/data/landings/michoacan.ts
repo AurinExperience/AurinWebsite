@@ -69,8 +69,9 @@ export const michoacan: Landing = {
           {
             title: 'Tienda en línea para artesanía',
             description:
-              'Guitarras de Paracho, cobre de Santa Clara, textiles: el oficio es de primer nivel y puede venderse fuera del estado. Diseñamos una tienda que cuente quién hace cada pieza.',
-            bullets: ['Catálogo por pieza o colección', 'Pagos en línea', 'Historia del taller y del oficio'],
+              'Guitarras de Paracho, cobre de Santa Clara, textiles: el oficio es de primer nivel y puede venderse fuera del estado. Diseñamos y desarrollamos a la medida una tienda que cuente quién hace cada pieza.',
+            bullets: ['Catálogo por pieza o colección', 'Historia del taller y del oficio'],
+            custom: ['Pagos en línea'],
           },
           {
             title: 'Sitios para servicios en Morelia',
@@ -90,7 +91,7 @@ export const michoacan: Landing = {
           },
           {
             name: 'Marca y estructura',
-            text: 'Si hace falta, trabajamos primero la marca. Luego definimos las páginas y si el sitio va en uno o en los dos idiomas.',
+            text: 'Si hace falta, trabajamos primero la marca. Luego definimos las páginas.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -109,7 +110,7 @@ export const michoacan: Landing = {
           {
             question: 'Tengo un taller artesanal, ¿puedo vender en línea?',
             answer:
-              'Sí. Antes revisamos contigo cómo vas a enviar y cobrar, para armar la tienda de acuerdo con lo que sí puedes cumplir.',
+              'Sí, como desarrollo a la medida. Antes revisamos contigo cómo vas a enviar y cobrar, para armar la tienda de acuerdo con lo que sí puedes cumplir.',
           },
           c.faqPayment,
           c.faqRemote('Michoacán'),
@@ -174,8 +175,9 @@ export const michoacan: Landing = {
           {
             title: 'Online store for crafts',
             description:
-              'Paracho guitars, Santa Clara copper, textiles: the craft is world-class and can sell beyond the state. We design a store that tells who makes each piece.',
-            bullets: ['Catalog by piece or collection', 'Online payments', 'Story of the workshop and the craft'],
+              'Paracho guitars, Santa Clara copper, textiles: the craft is world-class and can sell beyond the state. We design and custom-build a store that tells who makes each piece.',
+            bullets: ['Catalog by piece or collection', 'Story of the workshop and the craft'],
+            custom: ['Online payments'],
           },
           {
             title: 'Websites for services in Morelia',
@@ -195,7 +197,7 @@ export const michoacan: Landing = {
           },
           {
             name: 'Brand and structure',
-            text: 'When needed we work on the brand first. Then we define the pages and whether the site runs in one language or both.',
+            text: 'When needed we work on the brand first. Then we define the pages.',
           },
           C.stepDesign,
           C.stepLaunch,
@@ -214,7 +216,7 @@ export const michoacan: Landing = {
           {
             question: 'I run a craft workshop. Can I sell online?',
             answer:
-              'Yes. First we review with you how you will ship and get paid, so the store is built around what you can actually deliver.',
+              'Yes, as custom development. First we review with you how you will ship and get paid, so the store is built around what you can actually deliver.',
           },
           C.faqPayment,
           C.faqRemote('Michoacán'),

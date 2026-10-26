@@ -52,7 +52,9 @@ export const yucatan: Landing = {
             bullets: [
               'Identidad aplicada a cada pantalla desde el día uno',
               'Estructura que admite crecer sin empezar de nuevo',
-              'CMS para que publiques tú sin depender de nadie',
+            ],
+            custom: [
+              'CMS para publicar contenido',
             ],
           },
           {
@@ -61,7 +63,7 @@ export const yucatan: Landing = {
               'Una parte importante de tus prospectos está viendo desde fuera del estado y no puede ir a conocer el lugar. El sitio tiene que resolver esa distancia: ubicación, entorno, avance de obra y una forma clara de dejar sus datos.',
             bullets: [
               'Fichas de desarrollo, plantas y ubicación',
-              'Galería y recorrido que sustituyen la visita',
+              'Galería, video y avance de obra',
               'Formularios que califican al prospecto antes de la llamada',
             ],
           },
@@ -106,7 +108,7 @@ export const yucatan: Landing = {
           },
           {
             name: 'Desarrollo y lanzamiento',
-            text: 'Construimos el sitio optimizado para velocidad, SEO y todos los dispositivos. Configuramos analítica, lanzamos y te capacitamos para que puedas seguir publicando por tu cuenta.',
+            text: 'Construimos el sitio optimizado para velocidad, SEO y todos los dispositivos. Configuramos analítica, lanzamos y, si el alcance incluye un panel, te capacitamos para que puedas seguir publicando por tu cuenta.',
           },
         ],
       },
@@ -142,7 +144,7 @@ export const yucatan: Landing = {
           {
             question: '¿El sitio necesita versión en inglés?',
             answer:
-              'Depende de a quién le vendes. Si tu cliente es local, no hace falta y agregarlo solo duplica el trabajo de mantenerlo. Si vendes inmobiliario, hospedaje o servicios a extranjeros que se están mudando a Yucatán, sí conviene, y en ese caso se monta como una estructura paralela con URLs propias, no como una traducción encima.',
+              'Todo sitio la incluye. Si tu cliente es local, pesa poco; si vendes inmobiliario, hospedaje o servicios a extranjeros que se están mudando a Yucatán, es clave, y por eso se monta como una estructura paralela con URLs propias, no como una traducción encima.',
           },
         ],
       },
@@ -194,7 +196,9 @@ export const yucatan: Landing = {
             bullets: [
               'Identity applied to every screen from day one',
               'Structure that allows growth without starting over',
-              'A CMS so you can publish without depending on anyone',
+            ],
+            custom: [
+              'A CMS to publish content',
             ],
           },
           {
@@ -203,7 +207,7 @@ export const yucatan: Landing = {
               'A meaningful share of your prospects are looking from outside the state and cannot visit. The site has to close that distance: location, surroundings, construction progress, and a clear way to leave their details.',
             bullets: [
               'Development pages, floor plans, and location',
-              'Gallery and walkthrough that stand in for the visit',
+              'Gallery, video, and construction progress',
               'Forms that qualify the prospect before the call',
             ],
           },
@@ -248,7 +252,7 @@ export const yucatan: Landing = {
           },
           {
             name: 'Development and launch',
-            text: 'We build the site optimized for speed, SEO, and every device. We configure analytics, launch, and train you so you can keep publishing on your own.',
+            text: 'We build the site optimized for speed, SEO, and every device. We configure analytics, launch, and, if the scope includes a panel, train you so you can keep publishing on your own.',
           },
         ],
       },
@@ -284,7 +288,7 @@ export const yucatan: Landing = {
           {
             question: 'Does the site need an English version?',
             answer:
-              'It depends who you sell to. If your client is local, it is unnecessary and only doubles the maintenance work. If you sell real estate, lodging, or services to foreigners relocating to Yucatán, then yes, and in that case it is built as a parallel structure with its own URLs, not a translation layered on top.',
+              'Every site includes one. If your client is local, it matters little; if you sell real estate, lodging, or services to foreigners relocating to Yucatán, it is key, which is why it is built as a parallel structure with its own URLs, not a translation layered on top.',
           },
         ],
       },

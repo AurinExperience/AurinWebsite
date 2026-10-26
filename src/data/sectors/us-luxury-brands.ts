@@ -35,14 +35,16 @@ export const usLuxuryBrands = defineSector({
       {
         title: 'E-commerce de lujo',
         description:
-          'Fichas, carrito y pago que se sienten tan cuidados como una tienda física, rápidos aun con imágenes de alta calidad.',
-        bullets: ['Fichas de producto editoriales', 'Pago sin fricción', 'Envíos y devoluciones claros'],
+          'Fichas, carrito y pago desarrollados a la medida, tan cuidados como una tienda física, rápidos aun con imágenes de alta calidad.',
+        bullets: ['Fichas de producto editoriales', 'Envíos y devoluciones claros'],
+        custom: ['Pago sin fricción'],
       },
       {
         title: 'Servicio personal en línea',
         description:
           'Citas privadas, asesoría personal y listas de espera para lanzamientos, como lo haría tu mejor vendedor.',
-        bullets: ['Citas privadas', 'Asesoría personal', 'Listas de espera'],
+        bullets: ['Citas privadas', 'Asesoría personal'],
+        custom: ['Listas de espera'],
       },
       {
         title: 'Identidad de lujo',
@@ -55,12 +57,12 @@ export const usLuxuryBrands = defineSector({
     pages: 'colecciones, productos, historia de la marca, tiendas, citas y servicio al cliente',
     costQuestion: '¿Cuánto cuesta el sitio web de una marca de lujo?',
     costScope:
-      'cuántos productos y colecciones, qué plataforma de tienda usas o necesitas, si incluye citas y lanzamientos, si va en uno o en los dos idiomas y si también necesitas identidad',
+      'cuántos productos y colecciones, qué plataforma de tienda usas o necesitas, si incluye citas y lanzamientos y si también necesitas identidad',
     faqs: [
       {
         question: '¿Trabajan con Shopify u otra plataforma?',
         answer:
-          'Sí. Diseñamos sobre la plataforma que mejor encaje con tu operación o la que ya usas, sin que el resultado se vea como plantilla.',
+          'Sí. Diseñamos y desarrollamos a la medida sobre la plataforma que mejor encaje con tu operación o la que ya usas, sin que el resultado se vea como plantilla.',
       },
       {
         question: '¿Pueden dirigir la fotografía de producto?',
@@ -102,14 +104,16 @@ export const usLuxuryBrands = defineSector({
       {
         title: 'Luxury ecommerce',
         description:
-          'Product pages, cart, and checkout that feel as refined as a flagship store, fast even with high-quality imagery.',
-        bullets: ['Editorial product pages', 'Frictionless checkout', 'Clear shipping and returns'],
+          'Custom-built product pages, cart, and checkout as refined as a flagship store, fast even with high-quality imagery.',
+        bullets: ['Editorial product pages', 'Clear shipping and returns'],
+        custom: ['Frictionless checkout'],
       },
       {
         title: 'Personal service online',
         description:
           'Private appointments, personal shopping, and waitlists for launches, the way your best sales associate would.',
-        bullets: ['Private appointments', 'Personal shopping', 'Launch waitlists'],
+        bullets: ['Private appointments', 'Personal shopping'],
+        custom: ['Launch waitlists'],
       },
       {
         title: 'Luxury identity',
@@ -122,12 +126,12 @@ export const usLuxuryBrands = defineSector({
     pages: 'collections, products, brand story, stores, appointments, and customer care',
     costQuestion: 'How much does a luxury brand website cost?',
     costScope:
-      'how many products and collections, which store platform you use or need, whether it includes appointments and launches, whether it runs in one language or both, and whether you also need an identity',
+      'how many products and collections, which store platform you use or need, whether it includes appointments and launches, and whether you also need an identity',
     faqs: [
       {
         question: 'Do you work with Shopify or other platforms?',
         answer:
-          'Yes. We design on the platform that best fits your operation or the one you already use, without the result looking like a template.',
+          'Yes. We design and custom-build on the platform that best fits your operation or the one you already use, without the result looking like a template.',
       },
       {
         question: 'Can you direct product photography?',

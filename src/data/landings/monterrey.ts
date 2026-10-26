@@ -60,7 +60,9 @@ export const monterrey: Landing = {
             bullets: [
               'Diseño responsivo en todos los dispositivos',
               'Arquitectura de contenido y navegación',
-              'CMS para que edites sin depender de nadie',
+            ],
+            custom: [
+              'CMS para que edites tu sitio',
             ],
           },
           {
@@ -149,7 +151,7 @@ export const monterrey: Landing = {
           {
             question: '¿Puedo editar mi sitio y hay soporte después del lanzamiento?',
             answer:
-              'Sí. Integramos un CMS intuitivo para que actualices textos e imágenes sin conocimientos técnicos, con capacitación incluida. Además ofrecemos planes mensuales de mantenimiento que cubren actualizaciones, seguridad, respaldos y mejoras de rendimiento.',
+              'Sí. Como desarrollo a la medida, podemos integrar un CMS para que actualices textos e imágenes sin conocimientos técnicos, con capacitación. Además ofrecemos planes mensuales de mantenimiento que cubren actualizaciones, seguridad, respaldos y mejoras de rendimiento.',
           },
         ],
       },
@@ -202,7 +204,9 @@ export const monterrey: Landing = {
             bullets: [
               'Responsive design across every device',
               'Content architecture and navigation',
-              'A CMS so you can edit without depending on anyone',
+            ],
+            custom: [
+              'A CMS so you can edit your site',
             ],
           },
           {
@@ -291,7 +295,7 @@ export const monterrey: Landing = {
           {
             question: 'Can I edit my site, and is there support after launch?',
             answer:
-              'Yes. We integrate an intuitive CMS so you can update text and images without technical knowledge, training included. We also offer monthly maintenance plans covering updates, security, backups, and performance improvements.',
+              'Yes. As custom development, we can integrate a CMS so you can update text and images without technical knowledge, with training. We also offer monthly maintenance plans covering updates, security, backups, and performance improvements.',
           },
         ],
       },

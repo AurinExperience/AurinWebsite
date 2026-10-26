@@ -63,7 +63,7 @@ export const bajaCalifornia: Landing = {
             bullets: [
               'Credenciales, certificaciones y equipo médico visibles',
               'Proceso, traslado y seguimiento explicados paso a paso',
-              'Agenda o solicitud de valoración sin fricción',
+              'Solicitud de valoración sin fricción',
             ],
           },
           {
@@ -118,7 +118,7 @@ export const bajaCalifornia: Landing = {
           {
             question: '¿Cuánto cuesta el diseño de una página web en Baja California?',
             answer:
-              'Depende del alcance: número de secciones, si el sitio va en dos idiomas, si hay agenda o integraciones y si producimos contenido. Un sitio bilingüe cuesta más que uno en un solo idioma porque son dos estructuras, no una traducción. Después de una llamada de diagnóstico te enviamos una cotización cerrada, con entregables y fechas por etapa.',
+              'Depende del alcance: número de secciones, si hay desarrollo a la medida como agenda o integraciones y si producimos contenido. Después de una llamada de diagnóstico te enviamos una cotización cerrada, con entregables y fechas por etapa.',
           },
           {
             question: '¿El sitio en inglés es una traducción del sitio en español?',
@@ -206,7 +206,7 @@ export const bajaCalifornia: Landing = {
             bullets: [
               'Credentials, certifications, and medical team made visible',
               'Process, travel, and follow-up explained step by step',
-              'Frictionless scheduling or consultation request',
+              'Frictionless consultation request',
             ],
           },
           {
@@ -261,7 +261,7 @@ export const bajaCalifornia: Landing = {
           {
             question: 'How much does web design cost in Baja California?',
             answer:
-              'It depends on scope: number of sections, whether the site runs in two languages, whether there is scheduling or integrations, and whether we produce content. A bilingual site costs more than a single-language one because it is two structures, not a translation. After a diagnostic call we send a fixed quote with deliverables and dates per stage.',
+              'It depends on scope: number of sections, whether there is custom development such as scheduling or integrations, and whether we produce content. After a diagnostic call we send a fixed quote with deliverables and dates per stage.',
           },
           {
             question: 'Is the English site a translation of the Spanish one?',

@@ -68,8 +68,8 @@ export interface SectorDef {
 
 const WORDS = {
   es: {
-    web: { lead: 'Diseño Web para', link: 'Diseño web para', services: 'Servicios de diseño web para', topic: 'diseño web', cta: 'Cotiza tu sitio' },
-    uxui: { lead: 'Diseño UX/UI para', link: 'Diseño UX/UI para', services: 'Servicios de diseño UX/UI para', topic: 'diseño UX/UI', cta: 'Cotiza tu proyecto' },
+    web: { lead: 'Diseño Web para', link: 'Diseño web para', services: 'Diseño web para', servicesTail: 'lo que puede incluir tu sitio', topic: 'diseño web', cta: 'Cotiza tu sitio' },
+    uxui: { lead: 'Diseño UX/UI para', link: 'Diseño UX/UI para', services: 'Diseño UX/UI para', servicesTail: 'lo que puede incluir tu proyecto', topic: 'diseño UX/UI', cta: 'Cotiza tu proyecto' },
     secondary: 'Ver cómo trabajamos',
     faqHeading: (topic: string, target: string) => `Preguntas frecuentes sobre ${topic} para ${target}`,
     faqDescription: (target: string) => `Lo que nos preguntan ${target} antes de contratar.`,
@@ -82,8 +82,8 @@ const WORDS = {
     howTo: (what: string) => `Proceso paso a paso para diseñar ${what}.`,
   },
   en: {
-    web: { lead: 'Web Design for', link: 'Web design for', services: 'Web design services for', topic: 'web design', cta: 'Request a quote' },
-    uxui: { lead: 'UX/UI Design for', link: 'UX/UI design for', services: 'UX/UI design services for', topic: 'UX/UI design', cta: 'Request a quote' },
+    web: { lead: 'Web Design for', link: 'Web design for', services: 'Web design for', servicesTail: 'what your site can include', topic: 'web design', cta: 'Request a quote' },
+    uxui: { lead: 'UX/UI Design for', link: 'UX/UI design for', services: 'UX/UI design for', servicesTail: 'what your project can include', topic: 'UX/UI design', cta: 'Request a quote' },
     secondary: 'See how we work',
     faqHeading: (topic: string, target: string) => `Frequently asked questions about ${topic} for ${target}`,
     faqDescription: (target: string) => `What ${target} ask us before signing.`,
@@ -135,7 +135,7 @@ function buildCopy(spec: LangSpec, lang: Lang, service: SectorService, us: boole
       ctaSecondary: w.secondary,
       stats,
     },
-    services: { heading: `${kind.services} ${spec.target}`, intro: spec.intro, items: spec.items },
+    services: { heading: `${kind.services} ${spec.target}: ${kind.servicesTail}`, intro: spec.intro, items: spec.items },
     process: {
       heading: ux ? s.ux.processHeading : c.processHeading,
       description: ux ? s.ux.processDescription : c.processDescription,

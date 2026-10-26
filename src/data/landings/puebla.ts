@@ -61,7 +61,9 @@ export const puebla: Landing = {
             bullets: [
               'Diseño responsivo en todos los dispositivos',
               'Arquitectura de contenido y navegación',
-              'CMS para que edites sin depender de nadie',
+            ],
+            custom: [
+              'CMS para que edites tu sitio',
             ],
           },
           {
@@ -105,7 +107,7 @@ export const puebla: Landing = {
           },
           {
             name: 'Desarrollo y lanzamiento',
-            text: 'Construimos el sitio optimizado para velocidad, SEO y todos los dispositivos. Configuramos analítica, lanzamos con el plan de redirecciones puesto y capacitamos a tu equipo.',
+            text: 'Construimos el sitio optimizado para velocidad, SEO y todos los dispositivos. Configuramos analítica, lanzamos con el plan de redirecciones puesto y, si el alcance incluye un panel, capacitamos a tu equipo.',
           },
         ],
       },
@@ -141,7 +143,7 @@ export const puebla: Landing = {
           {
             question: '¿Podemos actualizar el sitio nosotros después?',
             answer:
-              'Sí, y es parte de la entrega. Integramos un CMS para que cambies textos, fotos, precios y avisos sin conocimientos técnicos, con capacitación para las personas de tu equipo que lo vayan a usar. También ofrecemos planes de mantenimiento si prefieres no ocuparte.',
+              'Sí, como desarrollo a la medida. Integramos un CMS para que cambies textos, fotos, precios y avisos sin conocimientos técnicos, con capacitación para las personas de tu equipo que lo vayan a usar. También ofrecemos planes de mantenimiento si prefieres no ocuparte.',
           },
         ],
       },
@@ -203,7 +205,9 @@ export const puebla: Landing = {
             bullets: [
               'Responsive design across every device',
               'Content architecture and navigation',
-              'A CMS so you can edit without depending on anyone',
+            ],
+            custom: [
+              'A CMS so you can edit your site',
             ],
           },
           {
@@ -247,7 +251,7 @@ export const puebla: Landing = {
           },
           {
             name: 'Development and launch',
-            text: 'We build the site optimized for speed, SEO, and every device. We configure analytics, launch with the redirect plan in place, and train your team.',
+            text: 'We build the site optimized for speed, SEO, and every device. We configure analytics, launch with the redirect plan in place, and, if the scope includes a panel, train your team.',
           },
         ],
       },
@@ -283,7 +287,7 @@ export const puebla: Landing = {
           {
             question: 'Can we update the site ourselves afterward?',
             answer:
-              'Yes, and it is part of the delivery. We integrate a CMS so you can change copy, photos, prices, and notices without technical knowledge, with training for the people on your team who will use it. We also offer maintenance plans if you would rather not deal with it.',
+              'Yes, as custom development. We integrate a CMS so you can change copy, photos, prices, and notices without technical knowledge, with training for the people on your team who will use it. We also offer maintenance plans if you would rather not deal with it.',
           },
         ],
       },

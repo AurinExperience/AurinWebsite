@@ -53,17 +53,21 @@ export const jalisco: Landing = {
             bullets: [
               'Dirección de arte aplicada a cada pantalla',
               'Historia de marca con jerarquía y ritmo propios',
-              'CMS para publicar campañas sin depender de nadie',
+            ],
+            custom: [
+              'CMS para publicar campañas',
             ],
           },
           {
             title: 'Tienda en línea y catálogo',
             description:
-              'El diseño de una tienda se juzga por una sola cosa: cuánta gente llega al final. Ordenamos catálogo, filtros y checkout para quitar los pasos donde hoy se está cayendo la venta.',
+              'El diseño de una tienda se juzga por una sola cosa: cuánta gente llega al final. La diseñamos y desarrollamos a la medida: ordenamos catálogo, filtros y checkout para quitar los pasos donde hoy se está cayendo la venta.',
             bullets: [
+              'Medición del embudo de compra completa',
+            ],
+            custom: [
               'Arquitectura de catálogo y filtros útiles',
               'Ficha de producto y checkout sin fricción',
-              'Medición del embudo de compra completa',
             ],
           },
           {
@@ -195,17 +199,21 @@ export const jalisco: Landing = {
             bullets: [
               'Art direction applied to every screen',
               'Brand story with its own hierarchy and pacing',
-              'A CMS to publish campaigns on your own',
+            ],
+            custom: [
+              'A CMS to publish campaigns',
             ],
           },
           {
             title: 'Online store and catalog',
             description:
-              'A store’s design is judged on one thing: how many people reach the end. We organize catalog, filters, and checkout to remove the steps where the sale is currently dropping.',
+              'A store’s design is judged on one thing: how many people reach the end. We design and custom-build it: we organize catalog, filters, and checkout to remove the steps where the sale is currently dropping.',
             bullets: [
+              'Full purchase funnel measurement',
+            ],
+            custom: [
               'Catalog architecture and filters that actually help',
               'Frictionless product page and checkout',
-              'Full purchase funnel measurement',
             ],
           },
           {

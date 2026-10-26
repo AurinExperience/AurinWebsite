@@ -58,8 +58,9 @@ export const oaxaca: Landing = {
           {
             title: 'Tienda en línea',
             description:
-              'Una tienda propia te deja vender directo, sin depender solo de distribuidores. La diseñamos para que tu producto luzca y comprar sea sencillo.',
-            bullets: ['Catálogo por producto o colección', 'Pagos en línea', 'Historia y origen de cada producto'],
+              'Una tienda propia te deja vender directo, sin depender solo de distribuidores. La diseñamos y desarrollamos a la medida para que tu producto luzca y comprar sea sencillo.',
+            bullets: ['Catálogo por producto o colección', 'Historia y origen de cada producto'],
+            custom: ['Pagos en línea'],
           },
           {
             title: 'Sitio bilingüe para distribuidores',
@@ -75,7 +76,8 @@ export const oaxaca: Landing = {
             title: 'Restaurantes y hoteles boutique',
             description:
               'Quien viaja a Oaxaca planea dónde comer y dormir desde antes de llegar. Presentamos tu lugar con buenas fotos y facilitamos que te reserven.',
-            bullets: ['Galería o menú', 'Reservas en línea', 'Horario, ubicación y mapa'],
+            bullets: ['Galería o menú', 'Horario, ubicación y mapa'],
+            custom: ['Reservas en línea'],
           },
         ],
       },
@@ -89,7 +91,7 @@ export const oaxaca: Landing = {
           },
           {
             name: 'Marca y estructura',
-            text: 'Trabajamos la identidad y después definimos el sitio o la tienda, y si va en uno o en los dos idiomas.',
+            text: 'Trabajamos la identidad y después definimos el sitio o la tienda.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -108,7 +110,7 @@ export const oaxaca: Landing = {
           {
             question: '¿Puedo vender mezcal en línea?',
             answer:
-              'La tienda se puede construir, pero vender bebidas alcohólicas en línea tiene reglas de envío y de venta que dependen del destino. Antes lo revisamos contigo para armarla de acuerdo con lo que sí puedes cumplir.',
+              'La tienda se puede desarrollar a la medida, pero vender bebidas alcohólicas en línea tiene reglas de envío y de venta que dependen del destino. Antes lo revisamos contigo para armarla de acuerdo con lo que sí puedes cumplir.',
           },
           c.faqPayment,
           c.faqRemote('Oaxaca'),
@@ -163,8 +165,9 @@ export const oaxaca: Landing = {
           {
             title: 'Online store',
             description:
-              'A store of your own lets you sell directly, without relying only on distributors. We design it so your product stands out and buying is simple.',
-            bullets: ['Catalog by product or collection', 'Online payments', 'Story and origin of each product'],
+              'A store of your own lets you sell directly, without relying only on distributors. We design and custom-build it so your product stands out and buying is simple.',
+            bullets: ['Catalog by product or collection', 'Story and origin of each product'],
+            custom: ['Online payments'],
           },
           {
             title: 'Bilingual site for distributors',
@@ -180,7 +183,8 @@ export const oaxaca: Landing = {
             title: 'Restaurants and boutique hotels',
             description:
               'People traveling to Oaxaca plan where to eat and stay before they arrive. We present your place with good photography and make booking easy.',
-            bullets: ['Gallery or menu', 'Online reservations', 'Hours, location, and map'],
+            bullets: ['Gallery or menu', 'Hours, location, and map'],
+            custom: ['Online reservations'],
           },
         ],
       },
@@ -194,7 +198,7 @@ export const oaxaca: Landing = {
           },
           {
             name: 'Brand and structure',
-            text: 'We work on the identity, then define the site or store and whether it runs in one language or both.',
+            text: 'We work on the identity, then define the site or store.',
           },
           C.stepDesign,
           C.stepLaunch,
@@ -213,7 +217,7 @@ export const oaxaca: Landing = {
           {
             question: 'Can I sell mezcal online?',
             answer:
-              'The store can be built, but selling alcohol online has shipping and sales rules that depend on the destination. We review them with you first so the store is built around what you can actually deliver.',
+              'The store can be custom-built, but selling alcohol online has shipping and sales rules that depend on the destination. We review them with you first so the store is built around what you can actually deliver.',
           },
           C.faqPayment,
           C.faqRemote('Oaxaca'),

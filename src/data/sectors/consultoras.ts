@@ -54,7 +54,7 @@ export const consultoras = defineSector({
     pages: 'servicios, industrias, casos, equipo, publicaciones y contacto',
     costQuestion: '¿Cuánto cuesta la página web de una consultora?',
     costScope:
-      'cuántos servicios y casos, si incluye blog o publicaciones, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos servicios y casos, si incluye blog o publicaciones y si también necesitas marca',
     faqs: [
       {
         question: '¿Cómo mostramos casos si son confidenciales?',
@@ -121,7 +121,7 @@ export const consultoras = defineSector({
     pages: 'services, industries, cases, team, publications, and contact',
     costQuestion: 'How much does a consulting firm website cost?',
     costScope:
-      'how many services and cases, whether it includes a blog or publications, whether it runs in one language or both, and whether you also need a brand',
+      'how many services and cases, whether it includes a blog or publications, and whether you also need a brand',
     faqs: [
       {
         question: 'How do we show cases if they are confidential?',

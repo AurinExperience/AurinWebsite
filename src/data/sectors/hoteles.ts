@@ -59,15 +59,16 @@ export const hoteles: Sector = {
         ],
       },
       services: {
-        heading: 'Servicios de diseño web para hoteles',
+        heading: 'Diseño web para hoteles: lo que puede incluir tu sitio',
         intro:
           'Diseñamos para hoteles boutique, hoteles de ciudad, resorts y hospedajes. Cada página web para hotel se diseña a partir de tu huésped y de cómo quieres recibir tus reservas.',
         items: [
           {
             title: 'Reservas directas',
             description:
-              'Integramos tu motor de reservas para que el huésped vea disponibilidad y confirme en unos pasos. Cada reserva directa es una comisión que te quedas tú.',
-            bullets: ['Motor de reservas integrado', 'Botón de reservar en cada pantalla', 'Contacto directo por WhatsApp'],
+              'Integramos a la medida tu motor de reservas para que el huésped vea disponibilidad y confirme en unos pasos. Cada reserva directa es una comisión que te quedas tú.',
+            bullets: ['Botón de reservar en cada pantalla', 'Contacto directo por WhatsApp'],
+            custom: ['Motor de reservas integrado'],
           },
           {
             title: 'Fotos que venden la experiencia',
@@ -116,7 +117,7 @@ export const hoteles: Sector = {
           {
             question: '¿Cuánto cuesta la página web de un hotel?',
             answer:
-              'Depende del alcance: cuántas habitaciones y experiencias, la integración con tu motor de reservas, si va en uno o en los dos idiomas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende del alcance: cuántas habitaciones y experiencias, la integración con tu motor de reservas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: 'Ya vendo por Booking y Expedia, ¿necesito un sitio propio?',
@@ -126,7 +127,7 @@ export const hoteles: Sector = {
           {
             question: '¿Pueden conectar mi motor de reservas?',
             answer:
-              'Sí. Integramos el motor de reservas o el channel manager que ya usas, o te ayudamos a elegir uno si todavía no tienes.',
+              'Sí, como desarrollo a la medida: integramos el motor de reservas o el channel manager que ya usas, o te ayudamos a elegir uno si todavía no tienes.',
           },
           s.faqAi('mi hotel'),
           c.faqPayment,
@@ -168,15 +169,16 @@ export const hoteles: Sector = {
         ],
       },
       services: {
-        heading: 'Web design services for hotels',
+        heading: 'Web design for hotels: what your site can include',
         intro:
           'We design for boutique hotels, city hotels, resorts, and lodging. Every hotel website is designed around your guests and how you want to take bookings.',
         items: [
           {
             title: 'Direct bookings',
             description:
-              'We integrate your booking engine so guests see availability and confirm in a few steps. Every direct booking is a commission you keep.',
-            bullets: ['Integrated booking engine', 'Book button on every screen', 'Direct contact over WhatsApp'],
+              'As a custom build, we integrate your booking engine so guests see availability and confirm in a few steps. Every direct booking is a commission you keep.',
+            bullets: ['Book button on every screen', 'Direct contact over WhatsApp'],
+            custom: ['Integrated booking engine'],
           },
           {
             title: 'Photos that sell the experience',
@@ -225,7 +227,7 @@ export const hoteles: Sector = {
           {
             question: 'How much does a hotel website cost?',
             answer:
-              'It depends on scope: how many rooms and experiences, integration with your booking engine, whether it runs in one language or both, and whether you also need a brand. After a call we send an itemized quote.',
+              'It depends on scope: how many rooms and experiences, integration with your booking engine, and whether you also need a brand. After a call we send an itemized quote.',
           },
           {
             question: 'I already sell through Booking and Expedia. Do I need my own site?',
@@ -235,7 +237,7 @@ export const hoteles: Sector = {
           {
             question: 'Can you connect my booking engine?',
             answer:
-              'Yes. We integrate the booking engine or channel manager you already use, or help you choose one if you do not have one yet.',
+              'Yes, as custom development: we integrate the booking engine or channel manager you already use, or help you choose one if you do not have one yet.',
           },
           S.faqAi('my hotel'),
           C.faqPayment,

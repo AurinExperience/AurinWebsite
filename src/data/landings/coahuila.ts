@@ -99,7 +99,7 @@ export const coahuila: Landing = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas: servicios, experiencia, equipo y contacto, y si el sitio va en uno o en los dos idiomas.',
+            text: 'Definimos las páginas: servicios, experiencia, equipo y contacto.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -118,7 +118,7 @@ export const coahuila: Landing = {
           {
             question: '¿Pueden hacer el sitio de mi clínica con citas en línea?',
             answer:
-              'Sí. El sitio puede incluir una forma de agendar citas en línea. Cómo se conecta con tu agenda lo definimos en la cotización.',
+              'Sí. El sitio incluye un formulario para pedir cita y, como desarrollo a la medida, puede sumar una agenda en línea. Cómo se conecta con tu calendario lo definimos en la cotización.',
           },
           c.faqPayment,
           c.faqRemote('Coahuila'),
@@ -204,7 +204,7 @@ export const coahuila: Landing = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages: services, experience, team, and contact, and whether the site runs in one language or both.',
+            text: 'We define the pages: services, experience, team, and contact.',
           },
           C.stepDesign,
           C.stepLaunch,
@@ -223,7 +223,7 @@ export const coahuila: Landing = {
           {
             question: 'Can you build my clinic’s site with online appointments?',
             answer:
-              'Yes. The site can include a way to book appointments online. How it connects to your calendar is defined in the quote.',
+              'Yes. The site includes a form to request an appointment and, as custom development, can add online booking. How it connects to your calendar is defined in the quote.',
           },
           C.faqPayment,
           C.faqRemote('Coahuila'),

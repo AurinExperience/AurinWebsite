@@ -55,17 +55,17 @@ export const agenciasViajes = defineSector({
     pages: 'destinos, paquetes, viajes a la medida, cotización, nosotros y aviso de privacidad',
     costQuestion: '¿Cuánto cuesta la página web de una agencia de viajes?',
     costScope:
-      'cuántos destinos y paquetes, si necesitas administrador para actualizarlos, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos destinos y paquetes, si necesitas administrador para actualizarlos y si también necesitas marca',
     faqs: [
       {
         question: '¿Podemos subir y actualizar paquetes nosotros?',
         answer:
-          'Sí. Incluimos un administrador para que tu equipo publique paquetes, cambie salidas y destaque promociones sin depender de nosotros.',
+          'Sí, si lo incluimos en el alcance: es un panel a la medida para que tu equipo publique paquetes, cambie salidas y destaque promociones sin depender de nosotros.',
       },
       {
         question: '¿El sitio puede cobrar en línea?',
         answer:
-          'Sí, se puede incluir pago en línea o anticipos según tu forma de vender. Muchas agencias prefieren cotizar primero con un asesor y cobrar después.',
+          'Sí, como desarrollo a la medida: pago en línea o anticipos según tu forma de vender. Muchas agencias prefieren cotizar primero con un asesor y cobrar después.',
       },
     ],
     aiSubject: 'mi agencia de viajes',
@@ -123,17 +123,17 @@ export const agenciasViajes = defineSector({
     pages: 'destinations, packages, custom trips, quotes, about, and the privacy notice',
     costQuestion: 'How much does a travel agency website cost?',
     costScope:
-      'how many destinations and packages, whether you need an admin to update them, whether it runs in one language or both, and whether you also need a brand',
+      'how many destinations and packages, whether you need an admin to update them, and whether you also need a brand',
     faqs: [
       {
         question: 'Can we add and update packages ourselves?',
         answer:
-          'Yes. We include an admin so your team can publish packages, change departures, and highlight promotions without depending on us.',
+          'Yes, if it is part of the scope: a custom panel so your team can publish packages, change departures, and highlight promotions without depending on us.',
       },
       {
         question: 'Can the site take payments online?',
         answer:
-          'Yes, online payment or deposits can be included depending on how you sell. Many agencies prefer to quote with an advisor first and charge afterward.',
+          'Yes, as custom development: online payment or deposits depending on how you sell. Many agencies prefer to quote with an advisor first and charge afterward.',
       },
     ],
     aiSubject: 'my travel agency',

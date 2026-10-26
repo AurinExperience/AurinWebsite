@@ -42,7 +42,8 @@ export const usYachtCharters = defineSector({
         title: 'Cotización y consulta privada',
         description:
           'Solicitud de chárter o de compra rápida desde cualquier pantalla, con los datos justos y seguimiento inmediato de tu equipo.',
-        bullets: ['Solicitud de chárter', 'Consulta de compra', 'Seguimiento en tu CRM'],
+        bullets: ['Solicitud de chárter', 'Consulta de compra'],
+        custom: ['Seguimiento en tu CRM'],
       },
       {
         title: 'Marca náutica de lujo',
@@ -55,12 +56,12 @@ export const usYachtCharters = defineSector({
     pages: 'flota, chárter, venta, destinos, itinerarios, nosotros y cotización',
     costQuestion: '¿Cuánto cuesta el sitio web de una empresa de yates?',
     costScope:
-      'cuántas embarcaciones y destinos, si incluye venta además de chárter, si se conecta a tus listados, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántas embarcaciones y destinos, si incluye venta además de chárter, si se conecta a tus listados y si también necesitas marca',
     faqs: [
       {
         question: '¿Pueden conectar el sitio con nuestros listados de yates?',
         answer:
-          'Según el sistema de listados que uses, sí. Lo revisamos en la llamada y lo incluimos en la cotización.',
+          'Según el sistema de listados que uses, sí, como desarrollo a la medida. Lo revisamos en la llamada y lo incluimos en la cotización.',
       },
       {
         question: '¿Nos ayudan con fotografía y video de la flota?',
@@ -109,7 +110,8 @@ export const usYachtCharters = defineSector({
         title: 'Quotes and private inquiries',
         description:
           'Fast charter or purchase inquiries from any screen, with just the right fields and immediate follow-up from your team.',
-        bullets: ['Charter inquiry', 'Purchase inquiry', 'Follow-up in your CRM'],
+        bullets: ['Charter inquiry', 'Purchase inquiry'],
+        custom: ['Follow-up in your CRM'],
       },
       {
         title: 'A luxury nautical brand',
@@ -122,12 +124,12 @@ export const usYachtCharters = defineSector({
     pages: 'fleet, charter, sales, destinations, itineraries, about, and inquiry',
     costQuestion: 'How much does a yacht company website cost?',
     costScope:
-      'how many vessels and destinations, whether it includes sales as well as charter, whether it connects to your listings, whether it runs in one language or both, and whether you also need a brand',
+      'how many vessels and destinations, whether it includes sales as well as charter, whether it connects to your listings, and whether you also need a brand',
     faqs: [
       {
         question: 'Can you connect the site to our yacht listings?',
         answer:
-          'Depending on the listings system you use, yes. We review it on the call and include it in the quote.',
+          'Depending on the listings system you use, yes, as custom development. We review it on the call and include it in the quote.',
       },
       {
         question: 'Can you help with fleet photography and video?',

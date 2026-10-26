@@ -29,13 +29,14 @@ export const laboratorios = defineSector({
       {
         title: 'Catálogo de estudios que se entiende',
         description:
-          'Cada estudio con para qué sirve, cómo prepararse y cuándo están los resultados, con búsqueda para encontrarlo rápido.',
-        bullets: ['Buscador de estudios', 'Indicaciones de preparación', 'Paquetes y chequeos'],
+          'Cada estudio con para qué sirve, cómo prepararse y cuándo están los resultados, y un buscador a la medida si tu catálogo es grande.',
+        bullets: ['Indicaciones de preparación', 'Paquetes y chequeos'],
+        custom: ['Buscador de estudios'],
       },
       {
         title: 'Resultados y citas en línea',
         description:
-          'El paciente agenda su toma, incluso a domicilio, y entra a sus resultados desde el sitio, con un enlace visible al portal de tu sistema.',
+          'El paciente pide su toma, incluso a domicilio, y entra a sus resultados desde el sitio, con un enlace visible al portal de tu sistema.',
         bullets: ['Enlace a tu portal de resultados', 'Citas y toma a domicilio', 'Contacto directo por WhatsApp'],
       },
       {
@@ -55,7 +56,7 @@ export const laboratorios = defineSector({
     pages: 'estudios, preparación, resultados, sucursales, médicos, empresas y aviso de privacidad',
     costQuestion: '¿Cuánto cuesta la página web de un laboratorio clínico?',
     costScope:
-      'cuántos estudios y sucursales, si incluye acceso a resultados o agenda, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos estudios y sucursales, si incluye acceso a resultados o agenda y si también necesitas marca',
     faqs: [
       {
         question: '¿Cómo consultan sus resultados los pacientes desde el sitio?',
@@ -65,7 +66,7 @@ export const laboratorios = defineSector({
       {
         question: '¿Podemos actualizar el catálogo de estudios nosotros?',
         answer:
-          'Sí. Incluimos un administrador para que tu equipo agregue estudios, cambie indicaciones y publique paquetes sin depender de nosotros.',
+          'Sí, con un administrador a la medida para que tu equipo agregue estudios, cambie indicaciones y publique paquetes sin depender de nosotros.',
       },
     ],
     aiSubject: 'mi laboratorio',
@@ -97,13 +98,14 @@ export const laboratorios = defineSector({
       {
         title: 'A test catalog people understand',
         description:
-          'Each test with what it is for, how to prepare, and when results are ready, with search to find it fast.',
-        bullets: ['Test search', 'Preparation instructions', 'Packages and checkups'],
+          'Each test with what it is for, how to prepare, and when results are ready, plus a custom search if your catalog is large.',
+        bullets: ['Preparation instructions', 'Packages and checkups'],
+        custom: ['Test search'],
       },
       {
         title: 'Online results and appointments',
         description:
-          'Patients book their visit, including home collection, and reach their results from the site, through a visible link to your system’s portal.',
+          'Patients request their visit, including home collection, and reach their results from the site, through a visible link to your system’s portal.',
         bullets: ['Link to your results portal', 'Appointments and home collection', 'Direct contact over WhatsApp'],
       },
       {
@@ -123,7 +125,7 @@ export const laboratorios = defineSector({
     pages: 'tests, preparation, results, locations, doctors, corporate clients, and the privacy notice',
     costQuestion: 'How much does a clinical laboratory website cost?',
     costScope:
-      'how many tests and locations, whether it includes results access or booking, whether it runs in one language or both, and whether you also need a brand',
+      'how many tests and locations, whether it includes results access or booking, and whether you also need a brand',
     faqs: [
       {
         question: 'How do patients check their results from the site?',
@@ -133,7 +135,7 @@ export const laboratorios = defineSector({
       {
         question: 'Can we update the test catalog ourselves?',
         answer:
-          'Yes. We include an admin so your team can add tests, change instructions, and publish packages without depending on us.',
+          'Yes, with a custom admin so your team can add tests, change instructions, and publish packages without depending on us.',
       },
     ],
     aiSubject: 'my lab',

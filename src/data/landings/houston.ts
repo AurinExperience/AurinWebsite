@@ -83,11 +83,13 @@ export const houston: Landing = {
           {
             title: 'Tiendas en línea y landing pages',
             description:
-              'Si vendes productos o corres anuncios en Google y Facebook, necesitas páginas hechas para convertir, no tu página de inicio. Construimos tiendas en línea y landings por campaña, listas para medir los contactos que generan.',
+              'Si vendes productos o corres anuncios en Google y Facebook, necesitas páginas hechas para convertir, no tu página de inicio. Construimos tiendas en línea a la medida y landings por campaña, listas para medir los contactos que generan.',
             bullets: [
-              'Tienda en línea con pagos',
               'Una landing por campaña',
               'Medición básica de contactos configurada',
+            ],
+            custom: [
+              'Tienda en línea con pagos',
             ],
           },
         ],
@@ -111,7 +113,7 @@ export const houston: Landing = {
           },
           {
             name: 'Desarrollo y lanzamiento',
-            text: 'Construimos el sitio y lo conectamos a tu dominio. Después, los cambios los puedes hacer tú: en una sesión te explicamos cómo. O, si prefieres no ocuparte, nos encargamos nosotros con un plan mensual de mantenimiento.',
+            text: 'Construimos el sitio y lo conectamos a tu dominio. Después, los cambios los hacemos nosotros con un plan mensual de mantenimiento o, si lo incluimos en el alcance, te dejamos un panel para que tu equipo los haga.',
           },
         ],
       },
@@ -122,7 +124,7 @@ export const houston: Landing = {
           {
             question: '¿Cuánto cuesta una página web en Houston?',
             answer:
-              'Depende del alcance: cuántas páginas, si el sitio va en dos idiomas, si hay tienda en línea o integraciones y si producimos el contenido. Después de la llamada de diagnóstico te mandamos una cotización con todo desglosado para que veas exactamente qué estás pagando.',
+              'Depende del alcance: cuántas páginas, si hay desarrollo a la medida como tienda en línea o integraciones y si producimos el contenido. Después de la llamada de diagnóstico te mandamos una cotización con todo desglosado para que veas exactamente qué estás pagando.',
           },
           {
             question: '¿Trabajan con negocios en Houston?',
@@ -226,11 +228,13 @@ export const houston: Landing = {
           {
             title: 'Online stores and landing pages',
             description:
-              'If you run Google or Meta ads, sending that traffic to your homepage wastes budget. We build online stores and campaign landing pages set up to measure the inquiries they generate.',
+              'If you run Google or Meta ads, sending that traffic to your homepage wastes budget. We build custom online stores and campaign landing pages set up to measure the inquiries they generate.',
             bullets: [
-              'Online store with payments',
               'One landing page per campaign and language',
               'Basic measurement of inquiries set up',
+            ],
+            custom: [
+              'Online store with payments',
             ],
           },
         ],
@@ -254,7 +258,7 @@ export const houston: Landing = {
           },
           {
             name: 'Build and launch',
-            text: 'We build the site and connect it to your domain. After that, you can make changes yourself: we walk you through it in one session. Or, if you would rather not deal with it, we handle it with a monthly maintenance plan.',
+            text: 'We build the site and connect it to your domain. After that, we handle changes with a monthly maintenance plan or, if it is part of the scope, we set up a panel so your team can make them.',
           },
         ],
       },
@@ -265,7 +269,7 @@ export const houston: Landing = {
           {
             question: 'How much does a website cost in Houston?',
             answer:
-              'It depends on scope: how many pages, whether the site runs in two languages, whether there is an online store or integrations, and whether we produce the content. After the discovery call we send an itemized quote, so you see exactly what you are paying for.',
+              'It depends on scope: how many pages, whether there is custom development such as an online store or integrations, and whether we produce the content. After the discovery call we send an itemized quote, so you see exactly what you are paying for.',
           },
           {
             question: 'Do you work with businesses in Houston?',

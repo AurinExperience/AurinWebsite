@@ -35,8 +35,9 @@ export const usLuxuryVacationRentals = defineSector({
       {
         title: 'Reservas directas',
         description:
-          'Integramos tu software de reservas y disponibilidad para que el huésped reserve en tu sitio, no en la plataforma.',
-        bullets: ['Integración con tu software', 'Calendario de disponibilidad', 'Beneficios de reservar directo'],
+          'Integramos a la medida tu software de reservas y disponibilidad para que el huésped reserve en tu sitio, no en la plataforma.',
+        bullets: ['Beneficios de reservar directo'],
+        custom: ['Integración con tu software', 'Calendario de disponibilidad'],
       },
       {
         title: 'Servicios de concierge',
@@ -55,12 +56,12 @@ export const usLuxuryVacationRentals = defineSector({
     pages: 'propiedades, destinos, servicios de concierge, nosotros, reservas y contacto',
     costQuestion: '¿Cuánto cuesta el sitio web de rentas vacacionales de lujo?',
     costScope:
-      'cuántas propiedades y destinos, si se conecta a tu software de reservas, si incluye servicios de concierge, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántas propiedades y destinos, si se conecta a tu software de reservas, si incluye servicios de concierge y si también necesitas marca',
     faqs: [
       {
         question: '¿Funciona con mi software de reservas?',
         answer:
-          'En la mayoría de los casos sí. Revisamos cuál usas en la llamada e integramos la disponibilidad y la reserva al sitio.',
+          'En la mayoría de los casos sí, como desarrollo a la medida. Revisamos cuál usas en la llamada e integramos la disponibilidad y la reserva al sitio.',
       },
       {
         question: '¿Tengo que dejar Airbnb o VRBO?',
@@ -102,8 +103,9 @@ export const usLuxuryVacationRentals = defineSector({
       {
         title: 'Direct bookings',
         description:
-          'We integrate your booking and availability software so guests book on your site, not on the platform.',
-        bullets: ['Integration with your software', 'Availability calendar', 'Book-direct perks'],
+          'We custom-integrate your booking and availability software so guests book on your site, not on the platform.',
+        bullets: ['Book-direct perks'],
+        custom: ['Integration with your software', 'Availability calendar'],
       },
       {
         title: 'Concierge services',
@@ -122,12 +124,12 @@ export const usLuxuryVacationRentals = defineSector({
     pages: 'properties, destinations, concierge services, about, booking, and contact',
     costQuestion: 'How much does a luxury vacation rental website cost?',
     costScope:
-      'how many properties and destinations, whether it connects to your booking software, whether it includes concierge services, whether it runs in one language or both, and whether you also need a brand',
+      'how many properties and destinations, whether it connects to your booking software, whether it includes concierge services, and whether you also need a brand',
     faqs: [
       {
         question: 'Does it work with my booking software?',
         answer:
-          'In most cases, yes. We review which one you use on the call and integrate availability and booking into the site.',
+          'In most cases, yes, as custom development. We review which one you use on the call and integrate availability and booking into the site.',
       },
       {
         question: 'Do I have to leave Airbnb or VRBO?',

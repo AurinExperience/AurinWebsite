@@ -29,7 +29,8 @@ export const franquicias = defineSector({
         title: 'Sucursales que se encuentran',
         description:
           'Mapa y página por sucursal con dirección, horarios y contacto, que además ayudan a aparecer en las búsquedas locales de cada ciudad.',
-        bullets: ['Localizador de sucursales', 'Página por sucursal', 'Horarios y contacto'],
+        bullets: ['Página por sucursal', 'Horarios y contacto'],
+        custom: ['Localizador de sucursales'],
       },
       {
         title: 'Captación de franquiciatarios',
@@ -54,12 +55,12 @@ export const franquicias = defineSector({
     pages: 'productos o servicios, sucursales, franquicias, promociones, nosotros y aviso de privacidad',
     costQuestion: '¿Cuánto cuesta la página web de una franquicia?',
     costScope:
-      'cuántas sucursales, si incluye localizador y administrador, si incluye la sección para franquiciatarios, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántas sucursales, si incluye localizador y administrador, si incluye la sección para franquiciatarios y si también necesitas marca',
     faqs: [
       {
         question: '¿Cada franquiciatario puede actualizar su sucursal?',
         answer:
-          'Incluimos un administrador para que tu equipo actualice horarios y promociones de cada sucursal sin depender de nosotros.',
+          'Con un administrador a la medida, tu equipo puede actualizar horarios y promociones de cada sucursal sin depender de nosotros.',
       },
       {
         question: '¿Nos ayudan con el manual de marca para franquiciatarios?',
@@ -96,7 +97,8 @@ export const franquicias = defineSector({
         title: 'Locations people find',
         description:
           'A map and a page per location with address, hours, and contact, which also help you appear in local searches in each city.',
-        bullets: ['Store locator', 'Page per location', 'Hours and contact'],
+        bullets: ['Page per location', 'Hours and contact'],
+        custom: ['Store locator'],
       },
       {
         title: 'Franchisee recruitment',
@@ -121,12 +123,12 @@ export const franquicias = defineSector({
     pages: 'products or services, locations, franchising, promotions, about, and the privacy notice',
     costQuestion: 'How much does a franchise website cost?',
     costScope:
-      'how many locations, whether it includes a locator and admin, whether it includes the franchisee section, whether it runs in one language or both, and whether you also need a brand',
+      'how many locations, whether it includes a locator and admin, whether it includes the franchisee section, and whether you also need a brand',
     faqs: [
       {
         question: 'Can each franchisee update their own location?',
         answer:
-          'We include an admin so your team can update each location’s hours and promotions without depending on us.',
+          'With a custom admin, your team can update each location’s hours and promotions without depending on us.',
       },
       {
         question: 'Can you help with brand guidelines for franchisees?',

@@ -59,7 +59,8 @@ export const sinaloa: Landing = {
             title: 'Hoteles y restaurantes de Mazatlán',
             description:
               'El turista compara desde el celular y decide rápido. Galería, menú, ubicación y el botón para reservar tienen que estar a la mano.',
-            bullets: ['Galería o menú', 'Reservas en línea', 'Sitio en español y en inglés'],
+            bullets: ['Galería o menú', 'Sitio en español y en inglés'],
+            custom: ['Reservas en línea'],
           },
           {
             title: 'Sitios para empresas de servicios',
@@ -89,7 +90,7 @@ export const sinaloa: Landing = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas, qué información va en cada una y si el sitio va en uno o en los dos idiomas.',
+            text: 'Definimos las páginas y qué información va en cada una.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -108,7 +109,7 @@ export const sinaloa: Landing = {
           {
             question: 'Tengo un restaurante en Mazatlán, ¿puedo recibir reservaciones?',
             answer:
-              'Sí. El sitio puede incluir reservas en línea. Cómo se conecta con tu forma de operar lo definimos en la cotización.',
+              'Sí, como desarrollo a la medida: el sitio puede incluir reservas en línea. Cómo se conecta con tu forma de operar lo definimos en la cotización.',
           },
           c.faqPayment,
           c.faqRemote('Sinaloa'),
@@ -160,7 +161,8 @@ export const sinaloa: Landing = {
             title: 'Hotels and restaurants in Mazatlán',
             description:
               'Tourists compare on their phone and decide fast. Gallery, menu, location, and the booking button need to be within reach.',
-            bullets: ['Gallery or menu', 'Online reservations', 'Site in Spanish and English'],
+            bullets: ['Gallery or menu', 'Site in Spanish and English'],
+            custom: ['Online reservations'],
           },
           {
             title: 'Websites for service companies',
@@ -190,7 +192,7 @@ export const sinaloa: Landing = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages, what information goes on each, and whether the site runs in one language or both.',
+            text: 'We define the pages and what information goes on each.',
           },
           C.stepDesign,
           C.stepLaunch,
@@ -209,7 +211,7 @@ export const sinaloa: Landing = {
           {
             question: 'I have a restaurant in Mazatlán. Can I take reservations?',
             answer:
-              'Yes. The site can include online reservations. How it fits the way you operate is defined in the quote.',
+              'Yes, as custom development: the site can include online reservations. How it fits the way you operate is defined in the quote.',
           },
           C.faqPayment,
           C.faqRemote('Sinaloa'),

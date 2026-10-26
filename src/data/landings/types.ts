@@ -30,7 +30,13 @@ export interface LandingCopy {
   services: {
     heading: string;
     intro: string;
-    items: { title: string; description: string; bullets: string[] }[];
+    /**
+     * `bullets` = lo que viene en un sitio estándar o es contenido de la página.
+     * `custom` = funciones que son desarrollo a la medida (panel, reservas, pagos,
+     * áreas privadas, integraciones…): se muestran con la
+     * etiqueta "A la medida" para no prometerlas como incluidas.
+     */
+    items: { title: string; description: string; bullets: string[]; custom?: string[] }[];
   };
   process: {
     heading: string;

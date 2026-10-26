@@ -112,7 +112,7 @@ export const phoenix: Landing = {
           },
           {
             name: 'Lanzamiento',
-            text: 'Publicamos el sitio, lo enlazamos a tu perfil de Google y configuramos la medición básica de contactos. Después, los cambios los puedes hacer tú: en una sesión te explicamos cómo. O, si prefieres no ocuparte, nos encargamos nosotros con un plan mensual de mantenimiento.',
+            text: 'Publicamos el sitio, lo enlazamos a tu perfil de Google y configuramos la medición básica de contactos. Después, los cambios los hacemos nosotros con un plan mensual de mantenimiento o, si lo incluimos en el alcance, te dejamos un panel para que tu equipo los haga.',
           },
         ],
       },
@@ -123,7 +123,7 @@ export const phoenix: Landing = {
           {
             question: '¿Cuánto cuesta una página web para mi compañía en Phoenix?',
             answer:
-              'Depende de cuántos servicios y zonas quieras cubrir, si va en dos idiomas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende de cuántos servicios y zonas quieras cubrir y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: 'Ya tengo página en Facebook y en Google, ¿para qué quiero sitio?',
@@ -255,7 +255,7 @@ export const phoenix: Landing = {
           },
           {
             name: 'Launch',
-            text: 'We publish the site, link it to your Google Business Profile, and set up basic measurement of calls and forms. After that, you can make changes yourself: we walk you through it in one session. Or, if you would rather not deal with it, we handle it with a monthly maintenance plan.',
+            text: 'We publish the site, link it to your Google Business Profile, and set up basic measurement of calls and forms. After that, we handle changes with a monthly maintenance plan or, if it is part of the scope, we set up a panel so your team can make them.',
           },
         ],
       },
@@ -266,7 +266,7 @@ export const phoenix: Landing = {
           {
             question: 'How much does a website for my company in Phoenix cost?',
             answer:
-              'It depends on how many services and areas you want to cover, whether it runs in two languages, and whether you also need a brand. After a call we send an itemized quote.',
+              'It depends on how many services and areas you want to cover and whether you also need a brand. After a call we send an itemized quote.',
           },
           {
             question: 'I already have Facebook and a Google profile. Why do I need a website?',

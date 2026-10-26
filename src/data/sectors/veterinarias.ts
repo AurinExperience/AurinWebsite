@@ -48,25 +48,26 @@ export const veterinarias: Sector = {
         titleLead: 'Diseño Web para',
         titleAccent: 'Veterinarias',
         description:
-          'Para tus clientes, su mascota es familia. Antes de elegirte revisan tus servicios, tu equipo y tus horarios, y en una urgencia necesitan tu teléfono en segundos. Cada vez más también le preguntan a una IA. Diseñamos sitios que transmiten cuidado y les permiten agendar o llamarte sin buscar.',
+          'Para tus clientes, su mascota es familia. Antes de elegirte revisan tus servicios, tu equipo y tus horarios, y en una urgencia necesitan tu teléfono en segundos. Cada vez más también le preguntan a una IA. Diseñamos sitios que transmiten cuidado y les permiten pedir cita o llamarte sin buscar.',
         cta: 'Cotiza tu sitio',
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           c.stats[0],
-          { value: '24/7', label: 'tus clientes pueden agendar una consulta a cualquier hora' },
+          { value: '24/7', label: 'tus clientes pueden pedir una consulta a cualquier hora' },
           { value: 'Mascotas', label: 'ya trabajamos con marcas del sector mascotas como PFI' },
         ],
       },
       services: {
-        heading: 'Servicios de diseño web para veterinarias',
+        heading: 'Diseño web para veterinarias: lo que puede incluir tu sitio',
         intro:
           'Diseñamos para veterinarias, hospitales veterinarios y clínicas de especialidad. Cada página web para clínica veterinaria se diseña a partir de tus servicios y de cómo atiendes a tus pacientes.',
         items: [
           {
             title: 'Citas y urgencias sin buscar',
             description:
-              'La cita de consulta se agenda en línea y, si es urgencia, tu teléfono y tu horario están a la vista en cada pantalla.',
-            bullets: ['Agenda o formulario de citas', 'Urgencias y horario siempre visibles', 'Contacto directo por WhatsApp'],
+              'La cita de consulta se pide en línea y, si es urgencia, tu teléfono y tu horario están a la vista en cada pantalla.',
+            bullets: ['Formulario de citas', 'Urgencias y horario siempre visibles', 'Contacto directo por WhatsApp'],
+            custom: ['Agenda en línea'],
           },
           {
             title: 'Servicios bien explicados',
@@ -115,7 +116,7 @@ export const veterinarias: Sector = {
           {
             question: '¿Cuánto cuesta la página web de una veterinaria?',
             answer:
-              'Depende del alcance: cuántos servicios, si incluye agenda en línea, si va en uno o en los dos idiomas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende del alcance: cuántos servicios, si incluye agenda en línea y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: '¿Cómo destacamos el servicio de urgencias?',
@@ -125,7 +126,7 @@ export const veterinarias: Sector = {
           {
             question: '¿El sitio puede recibir citas?',
             answer:
-              'Sí. Puede incluir un formulario, un botón de WhatsApp o una agenda en línea conectada a tu calendario, según cómo organices tu clínica.',
+              'Sí. Incluye un formulario y un botón de WhatsApp, y si lo necesitas desarrollamos a la medida una agenda en línea conectada a tu calendario.',
           },
           s.faqAi('mi veterinaria'),
           c.faqPayment,
@@ -157,25 +158,26 @@ export const veterinarias: Sector = {
         titleLead: 'Web Design for',
         titleAccent: 'Vets',
         description:
-          'For your clients, their pet is family. Before choosing you they check your services, your team, and your hours, and in an emergency they need your phone number in seconds. More and more, they also ask an AI. We design websites that convey care and let them book or call you without searching.',
+          'For your clients, their pet is family. Before choosing you they check your services, your team, and your hours, and in an emergency they need your phone number in seconds. More and more, they also ask an AI. We design websites that convey care and let them request a visit or call you without searching.',
         cta: 'Request a quote',
         ctaSecondary: 'See how we work',
         stats: [
           C.stats[0],
-          { value: '24/7', label: 'clients can book a visit any time' },
+          { value: '24/7', label: 'clients can request a visit any time' },
           { value: 'Pets', label: 'we already work with pet industry brands like PFI' },
         ],
       },
       services: {
-        heading: 'Web design services for veterinary clinics',
+        heading: 'Web design for veterinary clinics: what your site can include',
         intro:
           'We design for veterinary clinics, animal hospitals, and specialty practices. Every veterinary clinic website is designed around your services and how you care for your patients.',
         items: [
           {
             title: 'Appointments and emergencies, no searching',
             description:
-              'Regular visits are booked online and, in an emergency, your phone number and hours are visible on every screen.',
-            bullets: ['Appointment calendar or form', 'Emergencies and hours always visible', 'Direct contact over WhatsApp'],
+              'Regular visits are requested online and, in an emergency, your phone number and hours are visible on every screen.',
+            bullets: ['Appointment form', 'Emergencies and hours always visible', 'Direct contact over WhatsApp'],
+            custom: ['Online calendar'],
           },
           {
             title: 'Services, clearly explained',
@@ -224,7 +226,7 @@ export const veterinarias: Sector = {
           {
             question: 'How much does a veterinary clinic website cost?',
             answer:
-              'It depends on scope: how many services, whether it includes online booking, whether it runs in one language or both, and whether you also need a brand. After a call we send an itemized quote.',
+              'It depends on scope: how many services, whether it includes online booking, and whether you also need a brand. After a call we send an itemized quote.',
           },
           {
             question: 'How do we highlight our emergency service?',
@@ -234,7 +236,7 @@ export const veterinarias: Sector = {
           {
             question: 'Can the site take appointments?',
             answer:
-              'Yes. It can include a form, a WhatsApp button, or an online calendar connected to your schedule, depending on how you run your clinic.',
+              'Yes. It includes a form and a WhatsApp button, and if you need it we build a custom online calendar connected to your schedule.',
           },
           S.faqAi('my veterinary clinic'),
           C.faqPayment,

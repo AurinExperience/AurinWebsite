@@ -56,7 +56,9 @@ export const morelos: Landing = {
             bullets: [
               'Diseño responsivo pensado primero para celular',
               'Ubicación, horarios y contacto siempre a la mano',
-              'CMS para que actualices precios y fotos tú mismo',
+            ],
+            custom: [
+              'CMS para actualizar precios y fotos',
             ],
           },
           {
@@ -65,7 +67,7 @@ export const morelos: Landing = {
               'Buena parte del turismo de Morelos llega de la Ciudad de México y decide desde el celular un jueves por la noche. El sitio tiene que cargar rápido, mostrar el lugar y llevar a la reserva sin rodeos.',
             bullets: [
               'Galería que muestra el lugar sin frenar la carga',
-              'Reserva o contacto directo a un toque',
+              'Contacto directo a un toque',
               'Integración con WhatsApp y mapa',
             ],
           },
@@ -110,7 +112,7 @@ export const morelos: Landing = {
           },
           {
             name: 'Desarrollo y lanzamiento',
-            text: 'Construimos el sitio rápido, optimizado para Google y para celular. Lo lanzamos, configuramos la analítica y te capacitamos para que puedas actualizarlo sin llamarnos por cada cambio.',
+            text: 'Construimos el sitio rápido, optimizado para Google y para celular. Lo lanzamos, configuramos la analítica y, si el alcance incluye un panel, te capacitamos para que puedas actualizarlo sin llamarnos por cada cambio.',
           },
         ],
       },
@@ -146,7 +148,7 @@ export const morelos: Landing = {
           {
             question: '¿Dan mantenimiento después del lanzamiento?',
             answer:
-              'Sí. Integramos un CMS para que actualices textos, fotos y precios sin conocimientos técnicos, con capacitación incluida. Y si prefieres no ocuparte, ofrecemos planes mensuales que cubren actualizaciones, seguridad, respaldos y mejoras de rendimiento.',
+              'Sí. Como desarrollo a la medida, podemos integrar un CMS para que actualices textos, fotos y precios sin conocimientos técnicos, con capacitación. Y si prefieres no ocuparte, ofrecemos planes mensuales que cubren actualizaciones, seguridad, respaldos y mejoras de rendimiento.',
           },
         ],
       },
@@ -198,7 +200,9 @@ export const morelos: Landing = {
             bullets: [
               'Responsive design built phone-first',
               'Location, hours, and contact always within reach',
-              'A CMS so you can update prices and photos yourself',
+            ],
+            custom: [
+              'A CMS to update prices and photos',
             ],
           },
           {
@@ -207,7 +211,7 @@ export const morelos: Landing = {
               'Much of Morelos tourism comes from Mexico City and decides on a phone on a Thursday night. The site has to load fast, show the place, and lead to the booking without detours.',
             bullets: [
               'A gallery that shows the place without slowing the load',
-              'Booking or direct contact one tap away',
+              'Direct contact one tap away',
               'WhatsApp and map integration',
             ],
           },
@@ -252,7 +256,7 @@ export const morelos: Landing = {
           },
           {
             name: 'Development and launch',
-            text: 'We build the site fast, optimized for Google and for phones. We launch, configure analytics, and train you so you can update it without calling us for every change.',
+            text: 'We build the site fast, optimized for Google and for phones. We launch, configure analytics, and, if the scope includes a panel, train you so you can update it without calling us for every change.',
           },
         ],
       },
@@ -288,7 +292,7 @@ export const morelos: Landing = {
           {
             question: 'Do you provide support after launch?',
             answer:
-              'Yes. We integrate a CMS so you can update copy, photos, and prices without technical knowledge, training included. And if you would rather not deal with it, we offer monthly plans covering updates, security, backups, and performance improvements.',
+              'Yes. As custom development, we can integrate a CMS so you can update copy, photos, and prices without technical knowledge, with training. And if you would rather not deal with it, we offer monthly plans covering updates, security, backups, and performance improvements.',
           },
         ],
       },

@@ -30,7 +30,7 @@ export const usPrivateAviation = defineSector({
         title: 'Cotización en segundos',
         description:
           'Un formulario de cotización rápido y claro desde cualquier pantalla, con ruta, fechas y pasajeros, conectado a tu equipo.',
-        bullets: ['Cotizador de vuelos', 'Solicitud desde el celular', 'Seguimiento inmediato'],
+        bullets: ['Solicitud de cotización de vuelo', 'Solicitud desde el celular', 'Seguimiento inmediato'],
       },
       {
         title: 'Flota y seguridad',
@@ -55,12 +55,12 @@ export const usPrivateAviation = defineSector({
     pages: 'chárter, flota, membresías, gestión de aeronaves, seguridad, nosotros y cotización',
     costQuestion: '¿Cuánto cuesta el sitio web de una empresa de aviación privada?',
     costScope:
-      'cuántas aeronaves y servicios, si incluye cotizador conectado a tu sistema, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántas aeronaves y servicios, si incluye cotizador conectado a tu sistema y si también necesitas marca',
     faqs: [
       {
         question: '¿El cotizador puede conectarse con nuestro sistema?',
         answer:
-          'En muchos casos sí. Revisamos el software que usas en la llamada y lo incluimos en la cotización.',
+          'En muchos casos sí, como desarrollo a la medida. Revisamos el software que usas en la llamada y lo incluimos en la cotización.',
       },
       {
         question: '¿Cómo se maneja la información de los clientes?',
@@ -122,11 +122,11 @@ export const usPrivateAviation = defineSector({
     pages: 'charter, fleet, memberships, aircraft management, safety, about, and quote',
     costQuestion: 'How much does a private aviation website cost?',
     costScope:
-      'how many aircraft and services, whether it includes a quote tool connected to your system, whether it runs in one language or both, and whether you also need a brand',
+      'how many aircraft and services, whether it includes a quote tool connected to your system, and whether you also need a brand',
     faqs: [
       {
         question: 'Can the quote tool connect to our system?',
-        answer: 'In many cases, yes. We review the software you use on the call and include it in the quote.',
+        answer: 'In many cases, yes, as custom development. We review the software you use on the call and include it in the quote.',
       },
       {
         question: 'How is client information handled?',

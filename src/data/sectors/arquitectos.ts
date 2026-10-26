@@ -60,7 +60,7 @@ export const arquitectos: Sector = {
         ],
       },
       services: {
-        heading: 'Servicios de diseño web para arquitectos',
+        heading: 'Diseño web para arquitectos: lo que puede incluir tu sitio',
         intro:
           'Diseñamos para arquitectos, despachos de arquitectura e interiorismo. Cada página web para despacho de arquitectura se diseña alrededor de tu portafolio y del cliente que quieres atraer.',
         items: [
@@ -70,8 +70,10 @@ export const arquitectos: Sector = {
               'Tus proyectos se ven grandes y nítidos, y aun así el sitio carga rápido en cualquier celular. La arquitectura es la protagonista, no la plantilla.',
             bullets: [
               'Galerías optimizadas para cargar rápido',
-              'Filtros por tipo de proyecto',
               'Renders, planos y fotografía de obra',
+            ],
+            custom: [
+              'Filtros por tipo de proyecto',
             ],
           },
           {
@@ -121,7 +123,7 @@ export const arquitectos: Sector = {
           {
             question: '¿Cuánto cuesta la página web de un despacho de arquitectura?',
             answer:
-              'Depende del alcance: cuántos proyectos, si necesitas un administrador para subirlos, si va en uno o en los dos idiomas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende del alcance: cuántos proyectos, si necesitas un administrador para subirlos y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: 'Mis imágenes pesan mucho, ¿el sitio va a ser lento?',
@@ -131,7 +133,7 @@ export const arquitectos: Sector = {
           {
             question: '¿Puedo agregar proyectos nuevos yo mismo?',
             answer:
-              'Sí. Podemos incluir un administrador para que tú o tu equipo suban proyectos con sus fotos y su ficha sin depender de nosotros.',
+              'Sí, si incluimos en el alcance un administrador a la medida para que tú o tu equipo suban proyectos con sus fotos y su ficha sin depender de nosotros.',
           },
           s.faqAi('mi despacho'),
           c.faqPayment,
@@ -173,7 +175,7 @@ export const arquitectos: Sector = {
         ],
       },
       services: {
-        heading: 'Web design services for architects',
+        heading: 'Web design for architects: what your site can include',
         intro:
           'We design for architects, architecture studios, and interior designers. Every architecture firm website is designed around your portfolio and the client you want to attract.',
         items: [
@@ -181,7 +183,8 @@ export const arquitectos: Sector = {
             title: 'A portfolio worthy of your work',
             description:
               'Your projects look large and sharp, and the site still loads fast on any phone. The architecture is the star, not the template.',
-            bullets: ['Galleries optimized to load fast', 'Filters by project type', 'Renders, plans, and site photography'],
+            bullets: ['Galleries optimized to load fast', 'Renders, plans, and site photography'],
+            custom: ['Filters by project type'],
           },
           {
             title: 'Every project, a case study',
@@ -230,7 +233,7 @@ export const arquitectos: Sector = {
           {
             question: 'How much does an architecture studio website cost?',
             answer:
-              'It depends on scope: how many projects, whether you need an admin to upload them, whether it runs in one language or both, and whether you also need a brand. After a call we send an itemized quote.',
+              'It depends on scope: how many projects, whether you need an admin to upload them, and whether you also need a brand. After a call we send an itemized quote.',
           },
           {
             question: 'My images are heavy. Will the site be slow?',
@@ -240,7 +243,7 @@ export const arquitectos: Sector = {
           {
             question: 'Can I add new projects myself?',
             answer:
-              'Yes. We can include an admin panel so you or your team can upload projects with their photos and details without depending on us.',
+              'Yes, if the scope includes a custom admin panel so you or your team can upload projects with their photos and details without depending on us.',
           },
           S.faqAi('my studio'),
           C.faqPayment,

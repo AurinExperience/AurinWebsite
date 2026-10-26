@@ -64,7 +64,7 @@ export const sanAntonio: Landing = {
             description:
               'Quien busca dónde comer decide en segundos, desde el celular y con hambre. El sitio necesita menú legible, fotos que den antojo, horario, ubicación y el botón para pedir o reservar, todo sin buscarle.',
             bullets: [
-              'Menú en español e inglés fácil de actualizar',
+              'Menú en español e inglés',
               'Botones para llamar, cómo llegar, pedir o reservar',
               'Fotografía optimizada para web',
             ],
@@ -102,7 +102,7 @@ export const sanAntonio: Landing = {
           },
           {
             name: 'Marca y estructura',
-            text: 'Si hace falta, trabajamos primero la identidad y luego el sitio, para que todo salga con la misma cara. Definimos qué páginas necesitas y si el sitio va en uno o en los dos idiomas.',
+            text: 'Si hace falta, trabajamos primero la identidad y luego el sitio, para que todo salga con la misma cara. Definimos qué páginas necesitas.',
           },
           {
             name: 'Diseño',
@@ -110,7 +110,7 @@ export const sanAntonio: Landing = {
           },
           {
             name: 'Lanzamiento',
-            text: 'Construimos el sitio y lo conectamos a tu dominio y a tu perfil de Google. Después, el menú, las fotos y los horarios los puedes actualizar tú: en una sesión te explicamos cómo. O, si prefieres no ocuparte, nos encargamos nosotros con un plan mensual de mantenimiento.',
+            text: 'Construimos el sitio y lo conectamos a tu dominio y a tu perfil de Google. Después, el menú, las fotos y los horarios los actualizamos nosotros con un plan mensual de mantenimiento o, si lo incluimos en el alcance, te dejamos un panel para que los actualices tú.',
           },
         ],
       },
@@ -121,7 +121,7 @@ export const sanAntonio: Landing = {
           {
             question: '¿Cuánto cuesta el branding o una página web en San Antonio?',
             answer:
-              'Depende de lo que necesites: solo marca, solo sitio o las dos cosas; cuántas páginas; si va en dos idiomas y si producimos fotos o textos. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende de lo que necesites: solo marca, solo sitio o las dos cosas; cuántas páginas; y si producimos fotos o textos. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: '¿Van a cambiar por completo el logo que ya conocen mis clientes?',
@@ -207,7 +207,7 @@ export const sanAntonio: Landing = {
             description:
               'People choosing where to eat decide in seconds, on a phone, and hungry. The site needs a readable menu, photos that sell, hours, location, and a clear button to order or book a table, with nothing to hunt for.',
             bullets: [
-              'Bilingual menu that is easy to update',
+              'Bilingual menu',
               'Call, directions, ordering, or reservations one tap away',
               'Photography optimized for the web',
             ],
@@ -244,7 +244,7 @@ export const sanAntonio: Landing = {
           },
           {
             name: 'Brand and structure',
-            text: 'When needed we do the identity first and the site second, so everything comes out with the same face. We define the pages you need and whether the site runs in one language or both.',
+            text: 'When needed we do the identity first and the site second, so everything comes out with the same face. We define the pages you need.',
           },
           {
             name: 'Design',
@@ -252,7 +252,7 @@ export const sanAntonio: Landing = {
           },
           {
             name: 'Launch',
-            text: 'We build the site and connect it to your domain and your Google Business Profile. After that, you can update the menu, photos, and hours yourself: we walk you through it in one session. Or, if you would rather not deal with it, we handle it with a monthly maintenance plan.',
+            text: 'We build the site and connect it to your domain and your Google Business Profile. After that, we update the menu, photos, and hours with a monthly maintenance plan or, if it is part of the scope, we set up a panel so you can do it yourself.',
           },
         ],
       },
@@ -263,7 +263,7 @@ export const sanAntonio: Landing = {
           {
             question: 'How much does branding or a website cost in San Antonio?',
             answer:
-              'It depends on what you need: brand only, site only, or both; how many pages; whether it runs in two languages; and whether we produce photos or copy. After a call we send an itemized quote.',
+              'It depends on what you need: brand only, site only, or both; how many pages; and whether we produce photos or copy. After a call we send an itemized quote.',
           },
           {
             question: 'Will you completely change the logo my customers know?',

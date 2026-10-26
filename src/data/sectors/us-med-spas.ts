@@ -35,14 +35,16 @@ export const usMedSpas = defineSector({
       {
         title: 'Reservas en un par de toques',
         description:
-          'Conectamos tu sistema de reservas para que agendar desde el celular sea rápido, con recordatorios y depósitos si los usas.',
-        bullets: ['Integración con tu agenda', 'Reserva desde el celular', 'Depósitos y recordatorios'],
+          'Conectamos a la medida tu sistema de reservas para que agendar desde el celular sea rápido, con recordatorios y depósitos si los usas.',
+        bullets: [],
+        custom: ['Integración con tu agenda', 'Reserva desde el celular', 'Depósitos y recordatorios'],
       },
       {
         title: 'Membresías y paquetes',
         description:
           'Presentamos tus membresías y paquetes para que la clienta regrese cada mes y no solo una vez.',
-        bullets: ['Membresías', 'Paquetes y promociones', 'Tarjetas de regalo'],
+        bullets: ['Membresías', 'Paquetes y promociones'],
+        custom: ['Tarjetas de regalo'],
       },
       {
         title: 'Una marca que se siente premium',
@@ -60,7 +62,7 @@ export const usMedSpas = defineSector({
       {
         question: '¿Funciona con mi sistema de reservas?',
         answer:
-          'En la mayoría de los casos sí. Revisamos cuál usas en la llamada y lo integramos al sitio para que la reserva no se sienta como salir a otra página.',
+          'En la mayoría de los casos sí, como desarrollo a la medida. Revisamos cuál usas en la llamada y lo integramos al sitio para que la reserva no se sienta como salir a otra página.',
       },
       {
         question: '¿Pueden ayudarnos con fotografía y video?',
@@ -102,14 +104,16 @@ export const usMedSpas = defineSector({
       {
         title: 'Booking in a couple of taps',
         description:
-          'We connect your booking system so scheduling from a phone is fast, with reminders and deposits if you use them.',
-        bullets: ['Integration with your booking system', 'Mobile-first booking', 'Deposits and reminders'],
+          'We custom-connect your booking system so scheduling from a phone is fast, with reminders and deposits if you use them.',
+        bullets: [],
+        custom: ['Integration with your booking system', 'Mobile-first booking', 'Deposits and reminders'],
       },
       {
         title: 'Memberships and packages',
         description:
           'We present your memberships and packages so clients come back every month, not just once.',
-        bullets: ['Memberships', 'Packages and promotions', 'Gift cards'],
+        bullets: ['Memberships', 'Packages and promotions'],
+        custom: ['Gift cards'],
       },
       {
         title: 'A brand that feels premium',
@@ -127,7 +131,7 @@ export const usMedSpas = defineSector({
       {
         question: 'Does it work with my booking system?',
         answer:
-          'In most cases, yes. We review which one you use on the call and integrate it so booking doesn’t feel like leaving your site.',
+          'In most cases, yes, as custom development. We review which one you use on the call and integrate it so booking doesn’t feel like leaving your site.',
       },
       {
         question: 'Can you help with photography and video?',

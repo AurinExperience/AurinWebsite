@@ -41,20 +41,22 @@ export const usConciergeMedicine = defineSector({
         title: 'Solicitud de membresía',
         description:
           'Un proceso de solicitud discreto, con llamada introductoria y los datos justos para tu equipo.',
-        bullets: ['Solicitud en línea', 'Llamada introductoria', 'Seguimiento en tu CRM'],
+        bullets: ['Solicitud en línea', 'Llamada introductoria'],
+        custom: ['Seguimiento en tu CRM'],
       },
       {
         title: 'Experiencia del paciente',
         description:
-          'Diseñamos el acceso de pacientes y la comunicación para que se sientan igual de cuidados que en consulta.',
-        bullets: ['Acceso de pacientes', 'Comunicación por etapas', 'Experiencia en celular'],
+          'Diseñamos y desarrollamos a la medida el acceso de pacientes y la comunicación para que se sientan igual de cuidados que en consulta.',
+        bullets: ['Comunicación por etapas', 'Experiencia en celular'],
+        custom: ['Acceso de pacientes'],
       },
     ],
     diagnosis: 'Una videollamada para conocer tu práctica, tu membresía y a tus pacientes.',
     pages: 'membresía, servicios, médicos, la práctica, preguntas frecuentes y solicitud',
     costQuestion: '¿Cuánto cuesta el sitio web de una práctica de medicina concierge?',
     costScope:
-      'cuántos médicos y servicios, si incluye el diseño del acceso de pacientes, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos médicos y servicios, si incluye el acceso de pacientes y si también necesitas marca',
     faqs: [
       {
         question: '¿El sitio cumple con las reglas de privacidad de salud?',
@@ -107,20 +109,22 @@ export const usConciergeMedicine = defineSector({
         title: 'Membership inquiries',
         description:
           'A discreet application process with an introductory call and just the information your team needs.',
-        bullets: ['Online inquiry', 'Introductory call', 'Follow-up in your CRM'],
+        bullets: ['Online inquiry', 'Introductory call'],
+        custom: ['Follow-up in your CRM'],
       },
       {
         title: 'Patient experience',
         description:
-          'We design the patient login and communication so patients feel as cared for online as in the office.',
-        bullets: ['Patient login', 'Staged communication', 'Mobile experience'],
+          'We design and custom-build the patient login and communication so patients feel as cared for online as in the office.',
+        bullets: ['Staged communication', 'Mobile experience'],
+        custom: ['Patient login'],
       },
     ],
     diagnosis: 'A video call to learn about your practice, your membership, and your patients.',
     pages: 'membership, services, physicians, the practice, FAQ, and inquiry',
     costQuestion: 'How much does a concierge medicine website cost?',
     costScope:
-      'how many physicians and services, whether it includes the patient login design, whether it runs in one language or both, and whether you also need a brand',
+      'how many physicians and services, whether it includes the patient login, and whether you also need a brand',
     faqs: [
       {
         question: 'Does the site follow health privacy rules?',

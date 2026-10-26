@@ -157,6 +157,31 @@
   background: var(--color-yellow);
 }
 
+.customTag {
+  display: inline-block;
+  margin-inline-start: var(--spacing-2);
+  padding: 0 var(--spacing-2);
+  border: 1px solid var(--color-yellow);
+  border-radius: var(--radius-md);
+  color: var(--color-yellow);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.customNote {
+  margin: var(--spacing-8) 0 0 0;
+  max-width: 72ch;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-relaxed);
+}
+
 .moreLink {
   display: inline-flex;
   align-items: center;
