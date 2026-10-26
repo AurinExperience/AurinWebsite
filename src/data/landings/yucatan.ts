@@ -37,7 +37,7 @@ export const yucatan: Landing = {
         stats: [
           { value: '+20', label: 'años diseñando marcas y productos digitales' },
           { value: 'SEO', label: 'básico incluido: listo para Google y la IA' },
-          { value: '0', label: 'plantillas: cada sitio se diseña desde cero' },
+          { value: '0 plantillas', label: 'cada sitio se diseña desde cero' },
         ],
       },
       services: {
@@ -179,7 +179,7 @@ export const yucatan: Landing = {
         stats: [
           { value: '+20', label: 'years designing brands and digital products' },
           { value: 'SEO', label: 'basic, built in: ready for Google and AI search' },
-          { value: '0', label: 'templates: every site is designed from scratch' },
+          { value: '0 templates', label: 'every site is designed from scratch' },
         ],
       },
       services: {
