@@ -174,38 +174,43 @@
 .footerCopyright {
   margin-top: 80px;
   margin-bottom: 48px;
+  padding-top: var(--spacing-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4) var(--spacing-8);
   position: relative;
   z-index: 2;
 }
 
 .footerCopyright p {
-  color: var(--color-text);
-  font-size: 20px;
-  font-weight: 300;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-  line-height: 150%;
-  margin: 0;
-  white-space: nowrap;
-}
-
-/* Modo minimal: los términos van bajo el copyright, discretos. */
-.footerLegalLink {
-  color: var(--color-text);
+  color: var(--color-text-muted);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-light);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  line-height: 150%;
+  margin: 0;
+}
+
+/* Modo minimal: los legales van en la misma barra que el copyright, en fila
+   y con aire entre ellos (apilados y subrayados se veían amontonados). */
+.footerLegal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3) var(--spacing-8);
+}
+
+.footerLegalLink {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+  text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 /* "Preferencias de cookies" es botón: que se vea igual que los enlaces de al lado */
 .footerButton {
-  align-self: flex-start;
   padding: 0;
   border: 0;
   background: none;
@@ -217,6 +222,8 @@
 .footerLegalLink:hover,
 .footerLegalLink:focus-visible {
   color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 /* Responsive */
@@ -309,10 +316,6 @@
     height: auto;
   }
 
-  .footerCopyright p {
-    font-size: 16px;
-    white-space: normal;
-  }
 }
 
 @media (max-height: 750px) and (min-width: 769px) {
@@ -349,10 +352,6 @@
     font-size: 16px;
   }
 
-  .footerCopyright p {
-    font-size: 14px;
-    text-align: left;
-  }
 }
 
 @media (max-width: 480px) {
@@ -375,8 +374,10 @@
     max-width: none;
   }
 
+  /* auto 1fr: la columna corta (contacto) toma su ancho y la dirección el resto,
+     en vez de partirse en cinco renglones */
   .footerColumns {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     row-gap: 44px;
     column-gap: 24px;
     flex: none;
@@ -393,12 +394,11 @@
   }
 
   .footerCopyright {
+    margin-top: var(--spacing-12);
     margin-bottom: 32px;
   }
 
-  .footerCopyright p {
-    font-size: 16px;
-    letter-spacing: -0.8px;
-    white-space: normal;
+  .footerLegal {
+    column-gap: var(--spacing-4);
   }
 }

@@ -45,60 +45,59 @@
   margin: 0;
 }
 
+.summary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  color: var(--color-yellow);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  list-style: none;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary::after {
+  content: '↓';
+  transition: transform var(--transition-fast);
+}
+
+.more[open] .summary::after {
+  transform: rotate(180deg);
+}
+
 .list {
   list-style: none;
-  margin: 0;
+  margin: var(--spacing-6) 0 0 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--spacing-4);
+  /* Directorio compacto: con decenas de sectores, tarjetas por enlace hacían de
+     esta sección la más larga de la landing. Columnas de texto ocupan una fracción. */
+  columns: 4 220px;
+  column-gap: var(--spacing-8);
+}
+
+.list li {
+  break-inside: avoid;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .link {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: var(--spacing-2) var(--spacing-4);
-  height: 100%;
-  padding: var(--spacing-5) var(--spacing-6);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-md);
+  display: block;
+  padding-block: var(--spacing-3);
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+  line-height: 1.35;
   text-decoration: none;
-  transition: border-color var(--transition-smooth), background-color var(--transition-smooth);
+  transition: color var(--transition-fast);
 }
 
 .link:hover,
 .link:focus-visible {
-  border-color: var(--color-yellow);
-  background-color: rgba(208, 223, 0, 0.06);
-}
-
-.linkLabel {
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-regular);
-  line-height: 1.25;
-}
-
-.linkRegion {
-  grid-column: 1;
-  color: var(--color-text);
-  font-family: var(--font-body);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-light);
-}
-
-.arrow {
-  grid-column: 2;
-  grid-row: 1 / span 2;
   color: var(--color-yellow);
-  font-size: var(--font-size-lg);
-  line-height: 1;
-}
-
-@media (max-width: 480px) {
-  .link {
-    padding: var(--spacing-4) var(--spacing-5);
-  }
 }

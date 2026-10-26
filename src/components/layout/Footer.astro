@@ -133,11 +133,11 @@ const guidesLabel = currentLang === "es" ? "Guías" : "Guides";
               van junto al copyright en vez de devolver una columna entera de salidas.
             */}
             {minimal && (
-              <>
+              <div class={styles.footerLegal}>
                 <a href={privacyUrl} class={styles.footerLegalLink}>{t.footer.privacyPolicy}</a>
                 <a href={termsUrl} class={styles.footerLegalLink}>{t.footer.termsConditions}</a>
                 <button type="button" class:list={[styles.footerLegalLink, styles.footerButton]} data-cookie-settings>{t.footer.cookieSettings}</button>
-              </>
+              </div>
             )}
           </div>
         </div>

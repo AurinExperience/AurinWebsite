@@ -20,7 +20,7 @@ interface Props {
   /** La landing por ciudad actual: se listan las demás del mismo país. */
   landing?: Landing;
   /** Enlaces ya armados (landings por sector). Tienen prioridad sobre `landing`. */
-  links?: { href: string; label: string; detail: string }[];
+  links?: { href: string; label: string }[];
   lang: Lang;
   nearby: LandingCopy['nearby'];
 }
@@ -32,7 +32,11 @@ const items =
   links ??
   (landing ? siblingLandings(landing) : [])
     .sort((a, b) => landingPlace(a, lang).localeCompare(landingPlace(b, lang), lang, { sensitivity: 'base' }))
-    .map((l) => ({ href: landingPath(l, lang), label: l.copy[lang].linkLabel, detail: l.region }));
+    .map((l) => ({ href: landingPath(l, lang), label: l.copy[lang].linkLabel }));
+// `links` solo llega desde las landings por sector; sin él son ciudades
+const showAll = links
+  ? lang === 'es' ? `Ver los ${items.length} sectores` : `See all ${items.length} industries`
+  : lang === 'es' ? `Ver las ${items.length} ciudades` : `See all ${items.length} cities`;
 ---
 
 {items.length > 0 && (
@@ -42,17 +46,20 @@ const items =
       <h2 class={styles.heading} id="nearby-heading">{nearby.heading}</h2>
       <p class={styles.description}>{nearby.description}</p>
     </div>
-    <ul class={styles.list}>
-      {items.map((item) => (
-        <li>
-          <a class={styles.link} href={item.href}>
-            <span class={styles.linkLabel}>{item.label}</span>
-            <span class={styles.linkRegion}>{item.detail}</span>
-            <span class={styles.arrow} aria-hidden="true">→</span>
-          </a>
-        </li>
-      ))}
-    </ul>
+    {/* Cerrado por defecto: son decenas de enlaces y abiertos alargaban el final de
+        la landing. Siguen en el HTML, así que Google los rastrea igual. */}
+    <details class={styles.more}>
+      <summary class={styles.summary}>
+        {showAll}
+      </summary>
+      <ul class={styles.list}>
+        {items.map((item) => (
+          <li>
+            <a class={styles.link} href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </details>
   </div>
 </section>
 )}
