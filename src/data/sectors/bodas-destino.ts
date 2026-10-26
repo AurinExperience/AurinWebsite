@@ -24,7 +24,7 @@ export const bodasDestino = defineSector({
     target: 'wedding planners y venues de bodas de destino',
     hero: 'Una pareja en Chicago o Toronto va a planear desde su sala la boda más importante de su vida, en un país que quizá no conoce. Elige a quien le da confianza y le muestra bodas como la que imagina. Si tu sitio no está en inglés impecable o no explica cómo se planea a distancia, elige a otro. Diseñamos sitios que venden tu estética y resuelven la planeación desde el primer clic.',
     intro:
-      'Diseñamos para wedding planners, haciendas, venues frente al mar y hoteles con área de bodas en Los Cabos, Riviera Maya, Tulum, Puerto Vallarta, San Miguel de Allende y Oaxaca.',
+      'Diseñamos páginas web para wedding planners, haciendas, venues frente al mar y hoteles con área de bodas en Los Cabos, Riviera Maya, Tulum, Puerto Vallarta, San Miguel de Allende y Oaxaca.',
     items: [
       {
         title: 'Portafolio que enamora',
@@ -96,7 +96,7 @@ export const bodasDestino = defineSector({
     target: 'destination wedding planners and venues',
     hero: 'A couple in Chicago or Toronto is about to plan the most important wedding of their lives from their living room, in a country they may not know. They choose whoever earns their trust and shows weddings like the one they imagine. If your site is not in flawless English or does not explain how remote planning works, they choose someone else. We design websites that sell your aesthetic and handle planning from the first click.',
     intro:
-      'We design for wedding planners, haciendas, oceanfront venues, and resorts with wedding programs in Los Cabos, Riviera Maya, Tulum, Puerto Vallarta, San Miguel de Allende, and Oaxaca.',
+      'We design websites for wedding planners, haciendas, oceanfront venues, and resorts with wedding programs in Los Cabos, Riviera Maya, Tulum, Puerto Vallarta, San Miguel de Allende, and Oaxaca.',
     items: [
       {
         title: 'A portfolio couples fall for',

@@ -65,7 +65,7 @@ export const medicos: Sector = {
       services: {
         heading: 'Diseño web para médicos: lo que puede incluir tu sitio',
         intro:
-          'Diseñamos para médicos especialistas, consultorios, clínicas y laboratorios. Cada página web para consultorio se diseña a partir de tu práctica: cómo llegan tus pacientes, qué te preguntan antes de la primera consulta y cómo prefieres agendar.',
+          'Diseñamos páginas web para médicos especialistas, consultorios, clínicas y laboratorios. Cada página web para consultorio se diseña a partir de tu práctica: cómo llegan tus pacientes, qué te preguntan antes de la primera consulta y cómo prefieres agendar.',
         items: [
           {
             title: 'Citas en línea',
@@ -209,7 +209,7 @@ export const medicos: Sector = {
       services: {
         heading: 'Web design for doctors: what your site can include',
         intro:
-          'We design for specialist physicians, private practices, clinics, and laboratories. Every site is designed around your practice: how patients find you, what they ask before the first visit, and how you prefer to schedule.',
+          'We design websites for specialist physicians, private practices, clinics, and laboratories. Every site is designed around your practice: how patients find you, what they ask before the first visit, and how you prefer to schedule.',
         items: [
           {
             title: 'Online appointments',

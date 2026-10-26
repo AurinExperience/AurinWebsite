@@ -26,7 +26,7 @@ export const uxGobierno = defineSector({
     hero: 'El ciudadano no eligió hacer el trámite: lo necesita, y si el portal lo confunde termina en una ventanilla o en una queja. Diseñamos servicios digitales públicos que cualquier persona completa sola, en lenguaje claro y accesibles para todos.',
     stat: { value: 'Instituciones', label: 'ya trabajamos con instituciones como CEIICH-UNAM' },
     intro:
-      'Diseñamos para dependencias, organismos e instituciones públicas que llevan sus servicios a línea. Cada proyecto parte de los trámites que más hace la ciudadanía y de dónde se atora hoy.',
+      'Hacemos el diseño UX/UI de portales y trámites en línea para dependencias, organismos e instituciones públicas. Cada proyecto parte de los trámites que más hace la ciudadanía y de dónde se atora hoy.',
     items: [
       {
         title: 'Trámites que se completan en línea',
@@ -93,7 +93,7 @@ export const uxGobierno = defineSector({
     hero: 'Citizens did not choose to file the request: they need it, and if the portal confuses them they end up at a counter or filing a complaint. We design public digital services anyone can complete on their own, in plain language and accessible to all.',
     stat: { value: 'Institutions', label: 'we already work with institutions like CEIICH-UNAM' },
     intro:
-      'We design for agencies, public bodies, and institutions taking their services online. Every project starts from the services citizens use most and where they get stuck today.',
+      'We design the UX/UI of online portals and public services for government agencies, public bodies, and institutions. Every project starts from the services citizens use most and where they get stuck today.',
     items: [
       {
         title: 'Services completed online',

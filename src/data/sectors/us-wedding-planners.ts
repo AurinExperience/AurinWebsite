@@ -25,7 +25,7 @@ export const usWeddingPlanners = defineSector({
     target: 'organizadores de bodas de lujo',
     hero: 'Las parejas y familias que invierten seis cifras en una boda llegan por recomendación, pero confirman en tu sitio. Buscan bodas publicadas, un estilo que reconozcan y la seguridad de que entiendes su nivel. Si tu sitio se ve como el de cualquier planner, la consulta no llega. Diseñamos sitios con estética editorial que filtran a las parejas correctas.',
     intro:
-      'Diseñamos para wedding planners, diseñadores florales y de eventos, y productores de celebraciones privadas en Nueva York, Los Ángeles, Palm Beach, Napa, Aspen, Nantucket y otros mercados.',
+      'Diseñamos páginas web para wedding planners, diseñadores florales y de eventos, y productores de celebraciones privadas en Nueva York, Los Ángeles, Palm Beach, Napa, Aspen, Nantucket y otros mercados.',
     items: [
       {
         title: 'Portafolio editorial',
@@ -98,7 +98,7 @@ export const usWeddingPlanners = defineSector({
     target: 'luxury wedding planners',
     hero: 'Couples and families investing six figures in a wedding arrive by referral but confirm on your website. They look for published weddings, a style they recognize, and the reassurance that you understand their level. If your site looks like every other planner’s, the inquiry never comes. We design websites with an editorial aesthetic that attract the right couples.',
     intro:
-      'We design for wedding planners, floral and event designers, and private celebration producers in New York, Los Angeles, Palm Beach, Napa, Aspen, Nantucket, and beyond.',
+      'We design websites for wedding planners, floral and event designers, and private celebration producers in New York, Los Angeles, Palm Beach, Napa, Aspen, Nantucket, and beyond.',
     items: [
       {
         title: 'Editorial portfolio',

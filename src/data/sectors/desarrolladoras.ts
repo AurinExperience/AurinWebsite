@@ -24,7 +24,7 @@ export const desarrolladoras = defineSector({
     target: 'desarrolladoras inmobiliarias',
     hero: 'Un departamento en preventa se compra antes de que exista, así que el sitio es lo más cercano que el comprador tiene a recorrerlo. Si las tipologías no se entienden o la disponibilidad está desactualizada, la cita no llega. Diseñamos el sitio corporativo de tu desarrolladora y un sitio propio para cada desarrollo, pensados para vender desde la preventa.',
     intro:
-      'Diseñamos para desarrolladoras residenciales, de usos mixtos y de segunda vivienda. Cada proyecto se diseña con su propia marca, sin plantillas.',
+      'Diseñamos páginas web para desarrolladoras residenciales, de usos mixtos y de segunda vivienda. Cada proyecto se diseña con su propia marca, sin plantillas.',
     items: [
       {
         title: 'Un sitio por desarrollo',
@@ -98,7 +98,7 @@ export const desarrolladoras = defineSector({
     target: 'real estate developers',
     hero: 'A pre-construction unit is bought before it exists, so the website is the closest a buyer gets to walking through it. If floor plans are confusing or availability is out of date, the showing never gets booked. We design your company website and a dedicated site for each development, built to sell from pre-launch onward.',
     intro:
-      'We design for residential, mixed-use, and second-home developers. Every project gets its own brand, never a template.',
+      'We design websites for residential, mixed-use, and second-home developers. Every project gets its own brand, never a template.',
     items: [
       {
         title: 'A site for every development',

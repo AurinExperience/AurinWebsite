@@ -48,7 +48,7 @@ export const houston: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Houston',
         intro:
-          'Diseñamos para negocios de Houston, Pasadena, Katy, Sugar Land, Pearland, Cypress y Spring: contratistas de construcción y remodelación, proveedores de la industria energética, clínicas, restaurantes y despachos de servicios. Diseño, desarrollo y marca con un mismo equipo.',
+          'Diseñamos páginas web para negocios de Houston, Pasadena, Katy, Sugar Land, Pearland, Cypress y Spring: contratistas de construcción y remodelación, proveedores de la industria energética, clínicas, restaurantes y despachos de servicios. Diseño, desarrollo y marca con un mismo equipo.',
         items: [
           {
             title: 'Sitio bilingüe para un mercado bilingüe',
@@ -172,7 +172,7 @@ export const houston: Landing = {
       seo: {
         title: 'Bilingual Web Design in Houston | Aurin',
         description:
-          'Bilingual English/Spanish web design and branding in Houston. Sites for contractors, clinics, restaurants, and businesses that sell to Houston’s Hispanic market.',
+          'Bilingual English/Spanish web design and branding in Houston for contractors, clinics, restaurants, and businesses serving the Hispanic market.',
         keywords:
           'bilingual web design Houston, Spanish website design Houston, web design for Hispanic businesses Houston, Latino-owned business website Houston, web designer who speaks Spanish Houston, contractor website design Houston, branding agency Houston',
       },
@@ -193,7 +193,7 @@ export const houston: Landing = {
       services: {
         heading: 'Web design and branding services in Houston',
         intro:
-          'We design for businesses across Houston, Pasadena, Katy, Sugar Land, Pearland, Cypress, and Spring: construction and remodeling contractors, energy industry suppliers, clinics, restaurants, and professional services. Design, development, and brand from a single team.',
+          'We design websites for businesses across Houston, Pasadena, Katy, Sugar Land, Pearland, Cypress, and Spring: construction and remodeling contractors, energy industry suppliers, clinics, restaurants, and professional services. Design, development, and brand from a single team.',
         items: [
           {
             title: 'Your site in English and Spanish',

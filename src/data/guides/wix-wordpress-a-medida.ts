@@ -25,7 +25,7 @@ export const wixWordpressAMedida: Guide = {
       seo: {
         title: 'Wix, WordPress o sitio a medida: cuál conviene a tu negocio | Aurin',
         description:
-          'Qué ganas y qué cedes con un constructor como Wix, con WordPress y con un sitio a medida: costo real, velocidad, SEO, mantenimiento y quién es dueño del sitio.',
+          'Qué ganas y qué cedes con Wix, con WordPress y con un sitio a medida: costo real, velocidad, SEO, mantenimiento y quién es dueño del sitio.',
         keywords:
           'Wix o WordPress, Wix vs WordPress, sitio web a medida, mejor plataforma para página web, WordPress o desarrollo a medida, crear página web para empresa',
       },

@@ -24,7 +24,7 @@ export const tecnologiaTi = defineSector({
     target: 'empresas de tecnología y servicios de TI',
     hero: 'Una empresa de TI vende algo que el cliente no puede tocar, y muchas veces se lo vende a alguien que no es técnico. Si tu sitio está lleno de siglas y logos de proveedores, el director de finanzas no entiende por qué elegirte. Diseñamos sitios que traducen tu tecnología a resultados de negocio y demuestran experiencia con casos y certificaciones.',
     intro:
-      'Diseñamos para integradores tecnológicos, empresas de ciberseguridad, servicios en la nube, soporte administrado, desarrollo de software a la medida y consultoras de TI.',
+      'Diseñamos páginas web para integradores tecnológicos, empresas de ciberseguridad, servicios en la nube, soporte administrado, desarrollo de software a la medida y consultoras de TI.',
     items: [
       {
         title: 'Servicios en términos de negocio',
@@ -97,7 +97,7 @@ export const tecnologiaTi = defineSector({
     target: 'IT and technology companies',
     hero: 'An IT company sells something clients cannot touch, often to someone who is not technical. If your website is full of acronyms and vendor logos, the CFO does not understand why to choose you. We design websites that translate your technology into business outcomes and prove experience with case studies and certifications.',
     intro:
-      'We design for systems integrators, cybersecurity firms, cloud services, managed service providers, custom software developers, and IT consultancies.',
+      'We design websites for systems integrators, cybersecurity firms, cloud services, managed service providers, custom software developers, and IT consultancies.',
     items: [
       {
         title: 'Services in business terms',

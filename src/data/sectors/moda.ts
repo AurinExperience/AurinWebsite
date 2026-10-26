@@ -14,7 +14,7 @@ export const moda = defineSector({
   es: {
     seoTitle: 'Diseño Web y Tienda en Línea para Marcas de Moda',
     seoDescription:
-      'Tiendas en línea para marcas de moda y diseño de autor: colecciones y drops, guía de tallas, lookbooks y compra desde el celular.',
+      'Diseño web y tiendas en línea a la medida para marcas de moda y de autor: colecciones y drops, guía de tallas, lookbooks y compra desde el celular.',
     keywords:
       'diseño web para marcas de moda, tienda en línea de ropa, página web diseñador de moda, ecommerce moda, branding marca de ropa',
     subtitle: 'Diseño web para marcas de moda',
@@ -22,7 +22,7 @@ export const moda = defineSector({
     target: 'marcas de moda',
     hero: 'Una marca de moda vive de temporadas, lanzamientos y de la emoción del primer día de un drop. Si tu tienda se ve como cualquier plantilla, tu ropa pierde la personalidad que tiene en tus fotos, y si la guía de tallas no convence, el carrito se abandona. Diseñamos tiendas con la identidad de tu marca que resuelven la compra desde el celular.',
     intro:
-      'Diseñamos para marcas de ropa, diseño de autor, calzado, accesorios, trajes de baño y moda sustentable.',
+      'Diseñamos páginas web para marcas de ropa, diseño de autor, calzado, accesorios, trajes de baño y moda sustentable.',
     items: [
       {
         title: 'Colecciones y drops',
@@ -88,7 +88,7 @@ export const moda = defineSector({
   en: {
     seoTitle: 'Web Design and Online Stores for Fashion Brands',
     seoDescription:
-      'Websites and online stores for fashion and designer brands: collections and drops, size guides, lookbooks, mobile checkout, and a brand with its own identity.',
+      'Web design and custom online stores for fashion and designer brands: collections and drops, size guides, lookbooks, and mobile checkout.',
     keywords:
       'fashion brand website design, clothing ecommerce design, fashion online store, designer brand website, apparel branding agency',
     subtitle: 'Web design for fashion brands',
@@ -96,7 +96,7 @@ export const moda = defineSector({
     target: 'fashion brands',
     hero: 'A fashion brand lives on seasons, launches, and the excitement of a drop’s first day. If your store looks like any template, your clothes lose the personality they have in your photos, and if the size guide is not convincing, the cart is abandoned. We design stores with your brand’s identity that make buying on a phone effortless.',
     intro:
-      'We design for clothing brands, independent designers, footwear, accessories, swimwear, and sustainable fashion labels.',
+      'We design websites for clothing brands, independent designers, footwear, accessories, swimwear, and sustainable fashion labels.',
     items: [
       {
         title: 'Collections and drops',

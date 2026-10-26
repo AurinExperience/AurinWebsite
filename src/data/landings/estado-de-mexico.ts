@@ -46,7 +46,7 @@ export const estadoDeMexico: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en el Estado de México',
         intro:
-          'Diseñamos para empresas de Toluca, Metepec, Lerma, Naucalpan, Tlalnepantla, Huixquilucan y Atizapán: industria y proveedores del corredor Toluca–Lerma, escuelas y universidades privadas, clínicas y consultorios, y despachos de servicios profesionales.',
+          'Diseñamos páginas web para empresas de Toluca, Metepec, Lerma, Naucalpan, Tlalnepantla, Huixquilucan y Atizapán: industria y proveedores del corredor Toluca–Lerma, escuelas y universidades privadas, clínicas y consultorios, y despachos de servicios profesionales.',
         items: [
           {
             title: 'Sitio corporativo para empresas industriales',
@@ -155,7 +155,7 @@ export const estadoDeMexico: Landing = {
       services: {
         heading: 'Web design and branding services in the State of Mexico',
         intro:
-          'We design for companies in Toluca, Metepec, Lerma, Naucalpan, Tlalnepantla, Huixquilucan, and Atizapán: industry and suppliers along the Toluca–Lerma corridor, private schools and universities, clinics and practices, and professional service firms.',
+          'We design websites for companies in Toluca, Metepec, Lerma, Naucalpan, Tlalnepantla, Huixquilucan, and Atizapán: industry and suppliers along the Toluca–Lerma corridor, private schools and universities, clinics and practices, and professional service firms.',
         items: [
           {
             title: 'Corporate site for industrial companies',

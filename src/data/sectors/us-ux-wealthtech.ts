@@ -17,7 +17,7 @@ export const usUxWealthtech = defineSector({
   es: {
     seoTitle: 'Diseño UX/UI para Wealthtech y Plataformas de Gestión Patrimonial',
     seoDescription:
-      'Diseño UX/UI para plataformas wealthtech en Estados Unidos: portales de inversionistas, herramientas para asesores y reportes que convierten datos complejos en decisiones claras.',
+      'Diseño UX/UI para wealthtech en EE. UU.: portales de inversionistas, herramientas para asesores y reportes que vuelven claros los datos complejos.',
     keywords:
       'diseño UX wealthtech, diseño UX UI gestión patrimonial, diseño de plataformas para asesores financieros, UX portal de inversionistas, diseño de reportes financieros',
     subtitle: 'Diseño UX/UI para wealthtech',
@@ -25,7 +25,7 @@ export const usUxWealthtech = defineSector({
     target: 'plataformas wealthtech',
     hero: 'Un inversionista de alto patrimonio no tolera un portal confuso, y un asesor no tiene tiempo para pelear con su herramienta. Cuando los datos no se entienden, la confianza se va con ellos. Diseñamos plataformas que convierten portafolios complejos en información clara para decidir.',
     intro:
-      'Diseñamos para empresas wealthtech, plataformas para asesores e instituciones de gestión patrimonial en Estados Unidos que necesitan diseño de producto senior.',
+      'Hacemos diseño de producto UX/UI senior para empresas wealthtech, plataformas para asesores e instituciones de gestión patrimonial en Estados Unidos.',
     items: [
       {
         title: 'Portales de inversionistas',
@@ -91,7 +91,7 @@ export const usUxWealthtech = defineSector({
     target: 'wealthtech platforms',
     hero: 'A high-net-worth investor won’t tolerate a confusing portal, and an advisor has no time to fight their tools. When the data doesn’t make sense, trust goes with it. We design platforms that turn complex portfolios into clear information for decisions.',
     intro:
-      'We design for wealthtech companies, advisor platforms, and wealth management institutions in the US that need senior product design.',
+      'We provide senior UX/UI product design for wealthtech companies, advisor platforms, and wealth management institutions in the US.',
     items: [
       {
         title: 'Investor portals',

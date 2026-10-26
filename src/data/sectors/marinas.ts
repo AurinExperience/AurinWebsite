@@ -23,7 +23,7 @@ export const marinas = defineSector({
     target: 'marinas y clubes náuticos',
     hero: 'Un capitán que baja de San Diego hacia Los Cabos, o que cruza al Caribe mexicano, planea cada escala desde internet. Busca calado, slips disponibles, combustible, servicios y cómo hacer el trámite de llegada. Si tu marina no responde eso en inglés, atraca en la siguiente. Diseñamos sitios que facilitan la llegada del navegante y presentan la vida en tu marina.',
     intro:
-      'Diseñamos para marinas, clubes náuticos, astilleros y desarrollos con marina en Los Cabos, La Paz, Puerto Vallarta, Mazatlán, Ensenada, Cancún, Isla Mujeres y Cozumel.',
+      'Diseñamos páginas web para marinas, clubes náuticos, astilleros y desarrollos con marina en Los Cabos, La Paz, Puerto Vallarta, Mazatlán, Ensenada, Cancún, Isla Mujeres y Cozumel.',
     items: [
       {
         title: 'Slips y especificaciones',
@@ -95,7 +95,7 @@ export const marinas = defineSector({
     target: 'marinas and yacht clubs',
     hero: 'A captain heading south from San Diego to Los Cabos, or crossing to the Mexican Caribbean, plans every stop online. They look for depth, available slips, fuel, services, and how to clear in. If your marina does not answer that in English, they tie up at the next one. We design websites that make arrival easy for boaters and present life at your marina.',
     intro:
-      'We design for marinas, yacht clubs, boatyards, and marina developments in Los Cabos, La Paz, Puerto Vallarta, Mazatlán, Ensenada, Cancún, Isla Mujeres, and Cozumel.',
+      'We design websites for marinas, yacht clubs, boatyards, and marina developments in Los Cabos, La Paz, Puerto Vallarta, Mazatlán, Ensenada, Cancún, Isla Mujeres, and Cozumel.',
     items: [
       {
         title: 'Slips and specs',

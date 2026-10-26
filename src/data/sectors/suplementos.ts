@@ -15,7 +15,7 @@ export const suplementos = defineSector({
   es: {
     seoTitle: 'Diseño Web para Marcas de Suplementos',
     seoDescription:
-      'Tiendas en línea para marcas de suplementos y nutrición: ingredientes y calidad explicados, suscripciones, kits y una marca que inspira confianza.',
+      'Diseño web y tiendas en línea a la medida para marcas de suplementos: ingredientes y calidad explicados, suscripciones, kits y una marca confiable.',
     keywords:
       'diseño web marcas de suplementos, tienda en línea de suplementos, página web proteína, ecommerce nutrición deportiva, branding suplementos',
     subtitle: 'Diseño web para marcas de suplementos y nutrición',
@@ -23,7 +23,7 @@ export const suplementos = defineSector({
     target: 'marcas de suplementos y nutrición',
     hero: 'En suplementos el cliente desconfía, y con razón: hay demasiadas promesas. Compra la marca que le explica qué contiene cada producto, de dónde vienen los ingredientes y cómo se fabrica, y vuelve cada mes si comprar es sencillo. Diseñamos tiendas que construyen confianza con transparencia y convierten a un cliente en suscriptor.',
     intro:
-      'Diseñamos para marcas de suplementos alimenticios, nutrición deportiva, proteínas, vitaminas y productos funcionales.',
+      'Diseñamos páginas web para marcas de suplementos alimenticios, nutrición deportiva, proteínas, vitaminas y productos funcionales.',
     items: [
       {
         title: 'Ingredientes transparentes',
@@ -90,7 +90,7 @@ export const suplementos = defineSector({
   en: {
     seoTitle: 'Web Design for Supplement and Nutrition Brands',
     seoDescription:
-      'Online stores for supplement and nutrition brands: ingredients and quality explained, subscriptions, bundles, and a brand people trust.',
+      'Web design and custom online stores for supplement brands: ingredients and quality explained, subscriptions, bundles, and a brand people trust.',
     keywords:
       'supplement brand website design, supplement ecommerce design, protein brand website, nutrition brand web design, supplement branding agency',
     subtitle: 'Web design for supplement and nutrition brands',
@@ -98,7 +98,7 @@ export const suplementos = defineSector({
     target: 'supplement and nutrition brands',
     hero: 'Supplement shoppers are skeptical, and with reason: there are too many promises. They buy the brand that explains what each product contains, where the ingredients come from, and how it is made, and they come back every month if buying is easy. We design stores that build trust through transparency and turn customers into subscribers.',
     intro:
-      'We design for dietary supplement, sports nutrition, protein, vitamin, and functional product brands.',
+      'We design websites for dietary supplement, sports nutrition, protein, vitamin, and functional product brands.',
     items: [
       {
         title: 'Transparent ingredients',

@@ -24,7 +24,7 @@ export const agentesSeguros = defineSector({
     hero: 'Un seguro se compra a alguien en quien se confía. Antes de llamarte, tu prospecto revisa quién eres, qué ofreces y si le resuelves rápido, y cada vez más le pregunta a una IA. Diseñamos sitios que transmiten tu experiencia y convierten visitas en cotizaciones.',
     stat: { value: 'Finanzas', label: 'ya trabajamos con marcas como Monetix, Bonanza y Debiti' },
     intro:
-      'Diseñamos para agentes independientes, brokers y promotorías. Cada página web para agente de seguros se diseña alrededor de los ramos que vendes y del cliente que quieres atraer.',
+      'Diseñamos páginas web para agentes independientes, brokers y promotorías. Cada página web para agente de seguros se diseña alrededor de los ramos que vendes y del cliente que quieres atraer.',
     items: [
       {
         title: 'Productos explicados sin letra chica',
@@ -93,7 +93,7 @@ export const agentesSeguros = defineSector({
     hero: 'People buy insurance from someone they trust. Before calling you, prospects check who you are, what you offer, and whether you respond fast, and more and more often they ask an AI. We design websites that convey your experience and turn visits into quote requests.',
     stat: { value: 'Finance', label: 'we already work with brands like Monetix, Bonanza, and Debiti' },
     intro:
-      'We design for independent agents, brokers, and agencies. Every insurance agent website is designed around the lines you sell and the client you want to attract.',
+      'We design websites for independent agents, brokers, and agencies. Every insurance agent website is designed around the lines you sell and the client you want to attract.',
     items: [
       {
         title: 'Products without fine print',

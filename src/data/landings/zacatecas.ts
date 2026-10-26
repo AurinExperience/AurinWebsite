@@ -42,13 +42,14 @@ export const zacatecas: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Zacatecas',
         intro:
-          'Diseñamos para negocios de Zacatecas, Guadalupe, Fresnillo, Jerez y Sombrerete: hoteles y hospedajes, recintos para bodas y eventos, operadores de recorridos, restaurantes y empresas de servicios a la minería.',
+          'Diseñamos páginas web para negocios de Zacatecas, Guadalupe, Fresnillo, Jerez y Sombrerete: hoteles y hospedajes, recintos para bodas y eventos, operadores de recorridos, restaurantes y empresas de servicios a la minería.',
         items: [
           {
             title: 'Sitios para hoteles del centro histórico',
             description:
               'El viajero quiere ver habitaciones, ubicación y qué hay cerca antes de reservar. Un sitio propio le da esa información y te permite recibir reservas directas.',
             bullets: ['Galería de habitaciones y espacios', 'Solicitud de disponibilidad', 'Sitio en español y en inglés'],
+            custom: ['Reservas en línea'],
           },
           {
             title: 'Bodas de destino y eventos',
@@ -143,13 +144,14 @@ export const zacatecas: Landing = {
       services: {
         heading: 'Web design and branding services in Zacatecas',
         intro:
-          'We design for businesses in Zacatecas, Guadalupe, Fresnillo, Jerez, and Sombrerete: hotels and lodging, wedding and event venues, tour operators, restaurants, and mining service companies.',
+          'We design websites for businesses in Zacatecas, Guadalupe, Fresnillo, Jerez, and Sombrerete: hotels and lodging, wedding and event venues, tour operators, restaurants, and mining service companies.',
         items: [
           {
             title: 'Websites for historic-center hotels',
             description:
               'Travelers want to see rooms, location, and what is nearby before booking. Your own site gives them that and lets you receive direct bookings.',
             bullets: ['Room and space gallery', 'Availability requests', 'Site in Spanish and English'],
+            custom: ['Online bookings'],
           },
           {
             title: 'Destination weddings and events',

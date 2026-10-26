@@ -44,13 +44,14 @@ export const nayarit: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Nayarit',
         intro:
-          'Diseñamos para negocios de Nuevo Vallarta, Bucerías, Sayulita, San Pancho, Punta de Mita y Tepic: hoteles pequeños y rentas, escuelas de surf, estudios de yoga y retiros, restaurantes y bienes raíces.',
+          'Diseñamos páginas web para negocios de Nuevo Vallarta, Bucerías, Sayulita, San Pancho, Punta de Mita y Tepic: hoteles pequeños y rentas, escuelas de surf, estudios de yoga y retiros, restaurantes y bienes raíces.',
         items: [
           {
             title: 'Sitios para hoteles pequeños y rentas',
             description:
               'Un huésped elige un lugar pequeño por su ambiente. El sitio lo muestra con buenas fotos y permite pedir disponibilidad o reservar directo.',
             bullets: ['Galería de espacios', 'Solicitud de disponibilidad', 'Sitio en español y en inglés'],
+            custom: ['Reservas en línea'],
           },
           {
             title: 'Escuelas de surf, yoga y retiros',
@@ -150,13 +151,14 @@ export const nayarit: Landing = {
       services: {
         heading: 'Web design and branding services in Nayarit',
         intro:
-          'We design for businesses in Nuevo Vallarta, Bucerías, Sayulita, San Pancho, Punta de Mita, and Tepic: small hotels and rentals, surf schools, yoga studios and retreats, restaurants, and real estate.',
+          'We design websites for businesses in Nuevo Vallarta, Bucerías, Sayulita, San Pancho, Punta de Mita, and Tepic: small hotels and rentals, surf schools, yoga studios and retreats, restaurants, and real estate.',
         items: [
           {
             title: 'Websites for small hotels and rentals',
             description:
               'Guests choose a small place for its vibe. The site shows it with good photos and lets them ask for availability or book directly.',
             bullets: ['Space gallery', 'Availability requests', 'Site in Spanish and English'],
+            custom: ['Online bookings'],
           },
           {
             title: 'Surf schools, yoga, and retreats',

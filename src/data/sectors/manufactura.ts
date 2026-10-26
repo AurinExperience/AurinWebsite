@@ -23,7 +23,7 @@ export const manufactura = defineSector({
     target: 'empresas manufactureras y exportadoras',
     hero: 'Un comprador que busca un nuevo proveedor en México revisa tu sitio antes de pedir una muestra. Busca procesos, tolerancias, certificaciones, capacidad instalada y clientes por industria. Si encuentra un sitio genérico con fotos de archivo, pasa al siguiente. Diseñamos sitios que demuestran lo que tu planta sabe hacer y convierten la visita en una solicitud de cotización.',
     intro:
-      'Diseñamos para plantas de maquinado, inyección de plástico, metalmecánica, empaque, alimentos procesados y otras manufacturas que venden a otras empresas.',
+      'Diseñamos páginas web para plantas de maquinado, inyección de plástico, metalmecánica, empaque, alimentos procesados y otras manufacturas que venden a otras empresas.',
     items: [
       {
         title: 'Capacidades en detalle',
@@ -95,7 +95,7 @@ export const manufactura = defineSector({
     target: 'manufacturers and exporters',
     hero: 'A buyer looking for a new supplier in Mexico checks your website before requesting a sample. They look for processes, tolerances, certifications, installed capacity, and the industries you serve. If they find a generic site with stock photos, they move on. We design websites that prove what your plant can do and turn the visit into a request for quote.',
     intro:
-      'We design for machining, plastic injection, metal fabrication, packaging, processed food, and other manufacturers that sell to other businesses.',
+      'We design websites for machining, plastic injection, metal fabrication, packaging, processed food, and other manufacturers that sell to other businesses.',
     items: [
       {
         title: 'Capabilities in detail',

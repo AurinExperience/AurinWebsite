@@ -16,7 +16,7 @@ export const usLuxuryBrands = defineSector({
   es: {
     seoTitle: 'Diseño Web y E-commerce para Marcas de Lujo',
     seoDescription:
-      'Sitios web y tiendas en línea para marcas de lujo en Estados Unidos: moda, accesorios, belleza y hogar de alta gama con una experiencia digital a la altura del producto.',
+      'Diseño web y tiendas en línea a la medida para marcas de lujo en EE. UU.: moda, accesorios, belleza y hogar con una experiencia a la altura del producto.',
     keywords:
       'diseño web marcas de lujo, ecommerce de lujo, tienda en línea de lujo, diseño web moda de lujo, agencia de diseño para marcas de lujo',
     subtitle: 'Diseño web y e-commerce para marcas de lujo',
@@ -24,7 +24,7 @@ export const usLuxuryBrands = defineSector({
     target: 'marcas de lujo',
     hero: 'En lujo, el sitio comunica precio y calidad antes de que el cliente lea una palabra. Una plantilla de tienda convierte tu producto en uno más del catálogo. Diseñamos experiencias de marca y de compra tan cuidadas como tu producto, que justifican su precio y lo hacen deseable.',
     intro:
-      'Diseñamos para marcas de moda, accesorios, belleza, relojería y hogar de alta gama en Estados Unidos, desde marcas emergentes hasta casas establecidas.',
+      'Diseñamos páginas web para marcas de moda, accesorios, belleza, relojería y hogar de alta gama en Estados Unidos, desde marcas emergentes hasta casas establecidas.',
     items: [
       {
         title: 'Experiencia de marca',
@@ -93,7 +93,7 @@ export const usLuxuryBrands = defineSector({
     target: 'luxury brands',
     hero: 'In luxury, the website communicates price and quality before customers read a word. A store template turns your product into one more item in a catalog. We design brand and shopping experiences as refined as your product, that justify its price and make it desirable.',
     intro:
-      'We design for high-end fashion, accessories, beauty, watch, and home brands in the US, from emerging labels to established houses.',
+      'We design websites for high-end fashion, accessories, beauty, watch, and home brands in the US, from emerging labels to established houses.',
     items: [
       {
         title: 'Brand experience',

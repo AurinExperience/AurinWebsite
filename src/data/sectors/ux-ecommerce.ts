@@ -24,7 +24,7 @@ export const uxEcommerce = defineSector({
     target: 'e-commerce y retail',
     hero: 'En una tienda en línea, cada paso de más es una venta que se pierde. Si el cliente no encuentra el producto o se atora en el pago, se va con la competencia en un clic. Diseñamos tiendas que se recorren fácil, convencen y cobran sin fricción.',
     intro:
-      'Diseñamos para marcas que venden en línea, tiendas con catálogo grande y retailers que unen tienda física y digital. Cada proyecto parte de cómo compra tu cliente y de dónde abandona hoy.',
+      'Hacemos el diseño UX/UI de tiendas en línea para marcas con venta en línea, negocios con catálogo grande y retailers que unen tienda física y digital. Cada proyecto parte de cómo compra tu cliente y de dónde abandona hoy.',
     items: [
       {
         title: 'Checkout sin abandono',
@@ -90,7 +90,7 @@ export const uxEcommerce = defineSector({
     target: 'e-commerce and retail brands',
     hero: 'In an online store, every extra step is a lost sale. If customers cannot find the product or get stuck at payment, they leave for a competitor in one click. We design stores that are easy to browse, persuasive, and charge without friction.',
     intro:
-      'We design for brands that sell online, stores with large catalogs, and retailers bringing physical and digital together. Every project starts from how your customers buy and where they drop off today.',
+      'We design the UX/UI of online stores for brands selling online, businesses with large catalogs, and retailers bringing physical and digital together. Every project starts from how your customers buy and where they drop off today.',
     items: [
       {
         title: 'A checkout without drop-off',

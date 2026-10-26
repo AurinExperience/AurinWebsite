@@ -23,7 +23,7 @@ export const equipoMedico = defineSector({
     target: 'distribuidores de equipo médico',
     hero: 'Un jefe de compras de un hospital no compra por impulso: revisa fichas técnicas, registros, garantías y quién da el servicio después de la instalación. Si tu sitio no tiene esa documentación ordenada, tu propuesta pierde puntos antes de presentarse. Diseñamos sitios que presentan tu catálogo con la seriedad técnica que piden hospitales, clínicas y licitaciones.',
     intro:
-      'Diseñamos para distribuidores de equipo hospitalario, imagenología, laboratorio, equipo dental, rehabilitación e insumos médicos.',
+      'Diseñamos páginas web para distribuidores de equipo hospitalario, imagenología, laboratorio, equipo dental, rehabilitación e insumos médicos.',
     items: [
       {
         title: 'Catálogo por especialidad',
@@ -96,7 +96,7 @@ export const equipoMedico = defineSector({
     target: 'medical equipment distributors',
     hero: 'A hospital purchasing manager does not buy on impulse: they review spec sheets, registrations, warranties, and who services the equipment after installation. If your website does not have that documentation organized, your proposal loses points before it is presented. We design websites that present your catalog with the technical rigor hospitals, clinics, and tenders require.',
     intro:
-      'We design for distributors of hospital equipment, imaging, laboratory, dental, rehabilitation, and medical supplies.',
+      'We design websites for distributors of hospital equipment, imaging, laboratory, dental, rehabilitation, and medical supplies.',
     items: [
       {
         title: 'Catalog by specialty',

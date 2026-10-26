@@ -51,7 +51,7 @@ const fallbackDesc =
     ? "Caso de éxito: proyecto de diseño estratégico creado por Aurin, agencia de comunicación visual en México."
     : "Case study: strategic design project by Aurin, a visual communication agency based in Mexico.";
 const seoDescription =
-  project.seo?.metaDescription?.trim() || metaDescription(projectData.projectDescription) || fallbackDesc;
+  metaDescription(project.seo?.metaDescription?.trim() || projectData.projectDescription) || fallbackDesc;
 // Google ignora meta keywords; se dejan los servicios reales del proyecto para otros buscadores
 const seoKeywords = [...projectData.projectCategories, projectData.clientName, "Aurin"].filter(Boolean).join(", ");
 

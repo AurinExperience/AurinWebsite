@@ -6,13 +6,13 @@ export const translations = {
     },
     seo: {
       title: "Aurin | Nearshore Web Design, UX/UI & Branding from Mexico",
-      description: "A Mexico-based design agency since 1998: UX/UI, branding and web development for companies in the US, Canada, Spain and Mexico. In English, during your business hours.",
+      description: "Mexico-based design agency since 1998: web design, UX/UI, and branding for companies in the US, Canada, Spain, and Mexico. In English, in your hours.",
       keywords: "nearshore design agency, nearshore web design, UX UI design agency, branding agency, web development agency Mexico, design agency for US companies"
     },
     contact: {
       seo: {
         title: "Contact | Quote Web Design, UX/UI or Branding with Aurin",
-        description: "Have a web design, UX/UI or branding project? Write to us or book a call and get a fixed-scope proposal.",
+        description: "Have a web design, UX/UI, or branding project? Write to us or book a call with Aurin and get a fixed-scope proposal for your website, app, or brand.",
         keywords: "contact design agency Mexico, branding quote, graphic design proposal, hire creative agency, request design budget"
       },
       form: {
@@ -204,7 +204,7 @@ export const translations = {
     services: {
       seo: {
         title: "Web Design, UX/UI & Branding, Nearshore from Mexico | Aurin",
-        description: "Websites, online stores, UX/UI for apps and platforms, and branding, by one team in Mexico for companies in the US, Canada, Spain and Mexico. Fixed-scope quotes.",
+        description: "Websites, online stores, UX/UI for apps and platforms, and branding from one team in Mexico for companies in the US, Canada, Spain, and Mexico.",
         keywords: "web design Mexico, web development agency Mexico, UX UI design agency, app UX UI design, ecommerce development, website redesign, SEO"
       },
       banner: {
@@ -447,7 +447,7 @@ export const translations = {
     privacy: {
       seo: {
         title: "Privacy and Cookie Policy | Aurin",
-        description: "How Aurin collects, uses and protects your personal data and which cookies it uses, under Mexican law, the EU GDPR and the privacy laws of the United States, Canada and Latin America.",
+        description: "How Aurin collects, uses, and protects your personal data and which cookies it uses, under Mexican law, the EU GDPR, and other applicable privacy laws.",
         keywords: "Aurin privacy policy, cookie policy, personal data protection, GDPR, CCPA, privacy rights"
       },
       title: "Privacy Policy",
@@ -709,7 +709,7 @@ export const translations = {
     about: {
       seo: {
         title: "Aurin: Web Design, UX/UI & Branding Since 1998 | About",
-        description: "Meet Aurin, a web design, UX/UI and branding agency founded in 1998 in Cuernavaca, Mexico: who leads it, where the name comes from and how we work nearshore.",
+        description: "Meet Aurin, a web design, UX/UI, and branding agency founded in 1998 in Cuernavaca, Mexico: who leads it, where the name comes from, and how we work.",
         keywords: "about aurin agency, design team Mexico, branding methodology, creative studio history, multidisciplinary design agency"
       },
       structuredData: {
@@ -1274,7 +1274,7 @@ export const translations = {
     privacy: {
       seo: {
         title: "Aviso de Privacidad y Cookies | Aurin",
-        description: "Cómo Aurin recaba, usa y protege tus datos personales y qué cookies usa, conforme a la ley mexicana, el RGPD europeo y las leyes de privacidad de Estados Unidos, Canadá y Latinoamérica.",
+        description: "Cómo Aurin recaba, usa y protege tus datos personales y qué cookies usa, conforme a la ley mexicana, el RGPD y otras leyes de privacidad aplicables.",
         keywords: "aviso de privacidad Aurin, política de cookies, protección de datos personales, derechos ARCO, RGPD, LFPDPPP"
       },
       title: "Aviso de Privacidad",
@@ -1537,7 +1537,7 @@ export const translations = {
     about: {
       seo: {
         title: "Aurin: diseño web, UX/UI y branding desde 1998 | Nosotros",
-        description: "Conoce a Aurin, agencia mexicana de diseño web, UX/UI y branding fundada en 1998 en Cuernavaca: quiénes la dirigen, de dónde viene el nombre y cómo trabajamos.",
+        description: "Conoce a Aurin, agencia mexicana de diseño web, UX/UI y branding fundada en 1998 en Cuernavaca: quién la dirige, de dónde viene su nombre y cómo trabaja.",
         keywords: "agencia diseño México historia, equipo creativo branding, metodología diseño UX, empresa diseño gráfico"
       },
       structuredData: {

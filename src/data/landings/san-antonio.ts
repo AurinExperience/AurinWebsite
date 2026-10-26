@@ -47,7 +47,7 @@ export const sanAntonio: Landing = {
       services: {
         heading: 'Servicios de branding y diseño web en San Antonio',
         intro:
-          'Diseñamos para negocios de San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin y Boerne: restaurantes y panaderías, talleres, contratistas, clínicas, despachos y negocios con años de historia.',
+          'Diseñamos páginas web para negocios de San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin y Boerne: restaurantes y panaderías, talleres, contratistas, clínicas, despachos y negocios con años de historia.',
         items: [
           {
             title: 'Renovación de marca para negocios con historia',
@@ -169,7 +169,7 @@ export const sanAntonio: Landing = {
       seo: {
         title: 'Branding & Bilingual Web Design in San Antonio | Aurin',
         description:
-          'Branding and bilingual web design in San Antonio for established businesses, restaurants, and local services. English and Spanish sites for both sides of your market.',
+          'Branding and bilingual web design in San Antonio for established businesses, restaurants, and local services, in English and Spanish for your whole market.',
         keywords:
           'branding agency San Antonio, bilingual web design San Antonio, logo redesign San Antonio, restaurant website San Antonio, Latino-owned business website San Antonio, web designer who speaks Spanish San Antonio, food truck logo San Antonio',
       },
@@ -190,7 +190,7 @@ export const sanAntonio: Landing = {
       services: {
         heading: 'Branding and web design services in San Antonio',
         intro:
-          'We design for businesses in San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin, and Boerne: restaurants and bakeries, auto shops, contractors, clinics, professional firms, and businesses with years of history.',
+          'We design websites for businesses in San Antonio, New Braunfels, Schertz, Converse, Leon Valley, Seguin, and Boerne: restaurants and bakeries, auto shops, contractors, clinics, professional firms, and businesses with years of history.',
         items: [
           {
             title: 'Brand refresh for established businesses',

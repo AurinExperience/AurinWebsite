@@ -198,7 +198,7 @@ export const cdmx: Landing = {
       services: {
         heading: 'Web and UX/UI design services in Mexico City',
         intro:
-          'We design websites for companies in Polanco, Reforma, Roma, Condesa, Del Valle, Nápoles, Santa Fe, and Coyoacán: law and accounting firms, consultancies, financial services, private healthcare, real estate, and hospitality. Strategy, UX/UI, and development from a single team.',
+          'We design websites for companies in Polanco, Reforma, Roma, Condesa, Del Valle, Nápoles, Santa Fe, and Coyoacán: accounting firms, consultancies, financial services, private healthcare, real estate, and hospitality. Strategy, UX/UI, and development from a single team.',
         items: [
           {
             title: 'Web design for service companies',

@@ -24,7 +24,7 @@ export const spas = defineSector({
     target: 'spas y centros de bienestar',
     hero: 'Un spa se elige por cómo se siente antes de llegar: la luz, el silencio, los aromas, la calma. Esa sensación empieza en tu sitio, y si se ve saturado, con un menú en PDF y una reserva por teléfono, la experiencia se rompe antes de empezar. Diseñamos sitios que transmiten la atmósfera de tu spa y hacen que reservar sea tan sencillo como relajarse.',
     intro:
-      'Diseñamos para day spas, spas de hotel y resort, retiros de bienestar, centros de yoga y meditación, y espacios de hidroterapia en México y otros países.',
+      'Diseñamos páginas web para day spas, spas de hotel y resort, retiros de bienestar, centros de yoga y meditación, y espacios de hidroterapia en México y otros países.',
     items: [
       {
         title: 'Rituales y tratamientos',
@@ -98,7 +98,7 @@ export const spas = defineSector({
     target: 'spas and wellness centers',
     hero: 'A spa is chosen by how it feels before guests arrive: the light, the quiet, the scents, the calm. That feeling starts on your website, and if it looks cluttered, with a PDF menu and phone-only booking, the experience breaks before it begins. We design websites that convey your spa’s atmosphere and make booking as easy as relaxing.',
     intro:
-      'We design for day spas, hotel and resort spas, wellness retreats, yoga and meditation centers, and hydrotherapy spaces in Mexico and beyond.',
+      'We design websites for day spas, hotel and resort spas, wellness retreats, yoga and meditation centers, and hydrotherapy spaces in Mexico and beyond.',
     items: [
       {
         title: 'Rituals and treatments',

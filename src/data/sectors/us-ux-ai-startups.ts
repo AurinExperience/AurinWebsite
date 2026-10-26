@@ -17,7 +17,7 @@ export const usUxAiStartups = defineSector({
   es: {
     seoTitle: 'Diseño UX/UI para Productos y Startups de Inteligencia Artificial',
     seoDescription:
-      'Diseño UX/UI para productos de inteligencia artificial: interfaces de chat y agentes, flujos que generan confianza y design systems para startups de IA en Estados Unidos.',
+      'Diseño UX/UI para productos de IA: interfaces de chat y agentes, flujos que generan confianza y design systems para startups de IA en Estados Unidos.',
     keywords:
       'diseño UX para productos de IA, diseño UX UI inteligencia artificial, agencia de diseño para startups de IA, diseño de interfaces de IA, UX para agentes de IA',
     subtitle: 'Diseño UX/UI para productos de IA',
@@ -25,7 +25,7 @@ export const usUxAiStartups = defineSector({
     target: 'productos de IA',
     hero: 'Tu modelo puede hacer muchísimo, pero si el usuario no entiende qué pedirle ni puede confiar en lo que responde, no lo vuelve a abrir. Diseñamos la experiencia que convierte un modelo potente en un producto que la gente entiende, usa y recomienda.',
     intro:
-      'Diseñamos para startups de IA y equipos de producto en Estados Unidos que están llevando modelos, copilotos y agentes a usuarios reales.',
+      'Hacemos el diseño UX/UI de productos con IA —copilotos, agentes y herramientas— para startups de IA y equipos de producto en Estados Unidos que los llevan a usuarios reales.',
     items: [
       {
         title: 'Interfaces de chat y agentes',
@@ -83,7 +83,7 @@ export const usUxAiStartups = defineSector({
   en: {
     seoTitle: 'UX/UI Design for AI Products and Startups',
     seoDescription:
-      'UX/UI design for AI products: chat and agent interfaces, flows that build trust, and design systems for AI startups in the US, from a nearshore senior team.',
+      'UX/UI design for AI products: chat and agent interfaces, flows that build trust, and design systems for US AI startups, from a senior nearshore team.',
     keywords:
       'AI product design agency, UX design for AI products, AI UX design, UI design for AI startups, AI agent interface design',
     subtitle: 'UX/UI design for AI products',
@@ -91,7 +91,7 @@ export const usUxAiStartups = defineSector({
     target: 'AI products',
     hero: 'Your model can do a lot, but if users don’t know what to ask or can’t trust what it returns, they won’t open it again. We design the experience that turns a powerful model into a product people understand, use, and recommend.',
     intro:
-      'We design for AI startups and product teams in the US that are bringing models, copilots, and agents to real users.',
+      'We design the UX/UI of AI products —copilots, agents, and tools— for AI startups and product teams in the US bringing them to real users.',
     items: [
       {
         title: 'Chat and agent interfaces',

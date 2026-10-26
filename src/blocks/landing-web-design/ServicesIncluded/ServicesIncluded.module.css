@@ -174,7 +174,23 @@
 
 .customNote {
   margin: var(--spacing-8) 0 0 0;
-  max-width: 72ch;
+  padding: var(--spacing-6);
+  max-width: 80ch;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-inline-start: 2px solid var(--color-yellow);
+  border-radius: var(--radius-md);
+}
+
+.customNoteTitle {
+  margin: 0 0 var(--spacing-2) 0;
+  color: var(--color-yellow);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+}
+
+.customNoteText {
+  margin: 0;
   color: var(--color-text-muted);
   font-family: var(--font-body);
   font-size: var(--font-size-sm);

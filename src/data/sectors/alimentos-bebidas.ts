@@ -23,7 +23,7 @@ export const alimentosBebidas = defineSector({
     target: 'marcas de alimentos y bebidas',
     hero: 'Cada lanzamiento compite por un lugar en el anaquel y por un segundo de atención en el celular. Cuando alguien ve tu producto en una tienda o en redes y lo busca, tu sitio decide si lo compra, si lo recomienda o si una cadena te da el espacio. Diseñamos sitios que hacen antojable cada producto y que crecen contigo en cada lanzamiento.',
     intro:
-      'Diseñamos para marcas de snacks, lácteos, bebidas, café, salsas, panadería y productos gourmet, desde la marca que lanza su primer producto hasta la que maneja varias líneas.',
+      'Diseñamos páginas web para marcas de snacks, lácteos, bebidas, café, salsas, panadería y productos gourmet, desde la marca que lanza su primer producto hasta la que maneja varias líneas.',
     items: [
       {
         title: 'Una página por producto',
@@ -88,7 +88,7 @@ export const alimentosBebidas = defineSector({
   en: {
     seoTitle: 'Web Design and Branding for Food and Beverage Brands',
     seoDescription:
-      'Websites for food and beverage brands: a page per product, ingredients, nutrition facts, recipes, where to buy, and a section for retailers and distributors.',
+      'Websites for food and beverage brands: a page per product, ingredients, nutrition facts, recipes, where to buy, and a section for retailers.',
     keywords:
       'food brand website design, beverage brand website, CPG website design, food product website, food branding agency',
     subtitle: 'Web design for food and beverage brands',
@@ -96,7 +96,7 @@ export const alimentosBebidas = defineSector({
     target: 'food and beverage brands',
     hero: 'Every launch competes for shelf space and for a second of attention on a phone. When someone spots your product in a store or on social media and looks it up, your website decides whether they buy it, recommend it, or whether a retailer gives you the slot. We design websites that make every product irresistible and grow with you at every launch.',
     intro:
-      'We design for snack, dairy, beverage, coffee, sauce, bakery, and gourmet brands, from a first product launch to brands managing several lines.',
+      'We design websites for snack, dairy, beverage, coffee, sauce, bakery, and gourmet brands, from a first product launch to brands managing several lines.',
     items: [
       {
         title: 'A page per product',

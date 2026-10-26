@@ -28,7 +28,7 @@ export const sonora: Landing = {
       seo: {
         title: 'Diseño Web en Hermosillo y Sonora | Aurin',
         description:
-          'Diseño web y branding en Sonora para empresas de servicios a la minería, marcas regionales de alimentos y rentas y restaurantes en Puerto Peñasco y San Carlos.',
+          'Diseño web y branding en Sonora para servicios a la minería, marcas regionales de alimentos, rentas y restaurantes en Puerto Peñasco y San Carlos.',
         keywords:
           'diseño web Hermosillo, páginas web Sonora, página web proveedor minero, diseño web Puerto Peñasco, branding Hermosillo, diseño web Ciudad Obregón',
       },
@@ -45,7 +45,7 @@ export const sonora: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Sonora',
         intro:
-          'Diseñamos para empresas de Hermosillo, Ciudad Obregón, Nogales, Guaymas, Puerto Peñasco y San Carlos: servicios a la minería y la industria, marcas de alimentos, rentas vacacionales, restaurantes y empresas de servicios.',
+          'Diseñamos páginas web para empresas de Hermosillo, Ciudad Obregón, Nogales, Guaymas, Puerto Peñasco y San Carlos: servicios a la minería y la industria, marcas de alimentos, rentas vacacionales, restaurantes y empresas de servicios.',
         items: [
           {
             title: 'Sitio corporativo para servicios a la minería',
@@ -75,6 +75,7 @@ export const sonora: Landing = {
             description:
               'Muchos de tus visitantes vienen de Arizona y buscan en inglés. El sitio presenta tu lugar en los dos idiomas y facilita la reserva.',
             bullets: ['Galería o menú', 'Solicitud de disponibilidad', 'Sitio en inglés y en español'],
+            custom: ['Reservas en línea'],
           },
           {
             title: 'Rediseño de sitio',
@@ -152,7 +153,7 @@ export const sonora: Landing = {
       services: {
         heading: 'Web design and branding services in Sonora',
         intro:
-          'We design for companies in Hermosillo, Ciudad Obregón, Nogales, Guaymas, Puerto Peñasco, and San Carlos: mining and industrial services, food brands, vacation rentals, restaurants, and service companies.',
+          'We design websites for companies in Hermosillo, Ciudad Obregón, Nogales, Guaymas, Puerto Peñasco, and San Carlos: mining and industrial services, food brands, vacation rentals, restaurants, and service companies.',
         items: [
           {
             title: 'Corporate site for mining services',
@@ -182,6 +183,7 @@ export const sonora: Landing = {
             description:
               'Many of your visitors come from Arizona and search in English. The site presents your place in both languages and makes booking easy.',
             bullets: ['Gallery or menu', 'Availability requests', 'Site in English and Spanish'],
+            custom: ['Online bookings'],
           },
           {
             title: 'Website redesign',

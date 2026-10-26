@@ -24,7 +24,7 @@ export const hospitales = defineSector({
     hero: 'Antes de elegir dónde atenderse, el paciente y su familia revisan especialidades, médicos, instalaciones y si aceptan su seguro, y cada vez más le preguntan a una IA. En una urgencia necesitan tu teléfono en segundos. Diseñamos sitios que transmiten la calidad de tu atención y llevan a cada quien a lo que busca.',
     stat: { value: 'Salud', label: 'ya trabajamos con marcas como Elite Home Health y Dentol' },
     intro:
-      'Diseñamos para hospitales privados, clínicas de especialidad y redes de consultorios. Cada página web para hospital se diseña alrededor de tus especialidades y de los pacientes que quieres atender.',
+      'Diseñamos páginas web para hospitales privados, clínicas de especialidad y redes de consultorios. Cada página web para hospital se diseña alrededor de tus especialidades y de los pacientes que quieres atender.',
     items: [
       {
         title: 'Especialidades y médicos',
@@ -92,7 +92,7 @@ export const hospitales = defineSector({
     hero: 'Before choosing where to get care, patients and families check specialties, doctors, facilities, and whether you take their insurance, and more and more often they ask an AI. In an emergency they need your phone number in seconds. We design websites that convey the quality of your care and take everyone to what they need.',
     stat: { value: 'Health', label: 'we already work with brands like Elite Home Health and Dentol' },
     intro:
-      'We design for private hospitals, specialty clinics, and practice networks. Every hospital website is designed around your specialties and the patients you want to serve.',
+      'We design websites for private hospitals, specialty clinics, and practice networks. Every hospital website is designed around your specialties and the patients you want to serve.',
     items: [
       {
         title: 'Specialties and doctors',

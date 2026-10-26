@@ -28,7 +28,7 @@ export const nearshoreMexico: Guide = {
       seo: {
         title: 'Contratar una agencia de diseño nearshore en México | Aurin',
         description:
-          'Qué revisar antes de contratar diseño web o UX/UI nearshore en México desde Estados Unidos o Canadá: horarios, comunicación, contratos, propiedad intelectual y pagos.',
+          'Qué revisar antes de contratar diseño web o UX/UI nearshore en México desde EE. UU. o Canadá: horario, idioma, contratos, propiedad intelectual y pagos.',
         keywords:
           'agencia nearshore México, diseño web nearshore, diseño UX/UI nearshore, contratar agencia en México desde Estados Unidos, outsourcing diseño México',
       },
@@ -98,7 +98,7 @@ export const nearshoreMexico: Guide = {
         {
           heading: 'Cómo trabajamos en Aurin',
           paragraphs: [
-            'Aurin es un estudio de diseño web, UX/UI y branding con sede en Cuernavaca, fundado en 1998. Diseñamos para empresas de Estados Unidos, Canadá, España y México, y un mismo equipo investiga, diseña y desarrolla tu proyecto, en tu mismo horario y en inglés.',
+            'Aurin es un estudio de diseño web, UX/UI y branding con sede en Cuernavaca, fundado en 1998. Diseñamos sitios web, productos digitales y marcas para empresas de Estados Unidos, Canadá, España y México, y un mismo equipo investiga, diseña y desarrolla tu proyecto, en tu mismo horario y en inglés.',
           ],
         },
       ],
@@ -184,7 +184,7 @@ export const nearshoreMexico: Guide = {
         {
           heading: 'How we work at Aurin',
           paragraphs: [
-            'Aurin is a web design, UX/UI, and branding studio based in Cuernavaca, founded in 1998. We design for companies in the United States, Canada, Spain, and Mexico, and one team handles research, design, and development of your project, in your hours and in English.',
+            'Aurin is a web design, UX/UI, and branding studio based in Cuernavaca, founded in 1998. We design websites, digital products, and brands for companies in the United States, Canada, Spain, and Mexico, and one team handles research, design, and development of your project, in your hours and in English.',
           ],
         },
       ],

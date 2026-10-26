@@ -47,7 +47,7 @@ export const morelos: Landing = {
       services: {
         heading: 'Servicios de diseño web y UX/UI en Morelos',
         intro:
-          'Diseñamos para negocios de Cuernavaca, Jiutepec, Temixco, Emiliano Zapata, Yautepec y Tepoztlán: hotelería y hospedaje, restaurantes, clínicas y consultorios, escuelas, despachos e inmobiliaria de descanso. Estrategia, UX/UI y desarrollo con un mismo equipo.',
+          'Diseñamos páginas web para negocios de Cuernavaca, Jiutepec, Temixco, Emiliano Zapata, Yautepec y Tepoztlán: hotelería y hospedaje, restaurantes, clínicas y consultorios, escuelas, despachos e inmobiliaria de descanso. Estrategia, UX/UI y desarrollo con un mismo equipo.',
         items: [
           {
             title: 'Sitio web para tu negocio',
@@ -69,6 +69,9 @@ export const morelos: Landing = {
               'Galería que muestra el lugar sin frenar la carga',
               'Contacto directo a un toque',
               'Integración con WhatsApp y mapa',
+            ],
+            custom: [
+              'Reservas en línea',
             ],
           },
           {
@@ -191,7 +194,7 @@ export const morelos: Landing = {
       services: {
         heading: 'Web and UX/UI design services in Morelos',
         intro:
-          'We design for businesses in Cuernavaca, Jiutepec, Temixco, Emiliano Zapata, Yautepec, and Tepoztlán: hospitality and lodging, restaurants, clinics, schools, professional firms, and weekend-home real estate. Strategy, UX/UI, and development from a single team.',
+          'We design websites for businesses in Cuernavaca, Jiutepec, Temixco, Emiliano Zapata, Yautepec, and Tepoztlán: hospitality and lodging, restaurants, clinics, schools, professional firms, and weekend-home real estate. Strategy, UX/UI, and development from a single team.',
         items: [
           {
             title: 'A website for your business',
@@ -213,6 +216,9 @@ export const morelos: Landing = {
               'A gallery that shows the place without slowing the load',
               'Direct contact one tap away',
               'WhatsApp and map integration',
+            ],
+            custom: [
+              'Online bookings',
             ],
           },
           {

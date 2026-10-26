@@ -23,7 +23,7 @@ export const consultoras = defineSector({
     target: 'consultoras',
     hero: 'Una consultora vende criterio, y el criterio no se ve en una lista de servicios. El director que te va a contratar revisa casos, metodología y quién está detrás, y cada vez más le pregunta a una IA. Diseñamos sitios que demuestran cómo piensa tu firma y llevan a esa primera reunión.',
     intro:
-      'Diseñamos para consultoras de negocio, estrategia, tecnología, recursos humanos y firmas de servicios profesionales. Cada página web para consultora se diseña a partir de tus servicios y del cliente que quieres atraer.',
+      'Diseñamos páginas web para consultoras de negocio, estrategia, tecnología, recursos humanos y firmas de servicios profesionales. Cada página web para consultora se diseña a partir de tus servicios y del cliente que quieres atraer.',
     items: [
       {
         title: 'Casos que demuestran resultados',
@@ -90,7 +90,7 @@ export const consultoras = defineSector({
     target: 'consulting firms',
     hero: 'A consulting firm sells judgment, and judgment does not show in a list of services. The executive who will hire you checks cases, methodology, and who is behind the firm, and more and more often asks an AI. We design websites that show how your firm thinks and lead to that first meeting.',
     intro:
-      'We design for business, strategy, technology, and HR consultancies and professional services firms. Every consulting firm website is designed around your services and the client you want to attract.',
+      'We design websites for business, strategy, technology, and HR consultancies and professional services firms. Every consulting firm website is designed around your services and the client you want to attract.',
     items: [
       {
         title: 'Cases that prove results',

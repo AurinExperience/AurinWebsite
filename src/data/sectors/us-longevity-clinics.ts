@@ -16,7 +16,7 @@ export const usLongevityClinics = defineSector({
   es: {
     seoTitle: 'Diseño Web para Clínicas de Longevidad y Medicina Preventiva',
     seoDescription:
-      'Sitios web para clínicas de longevidad, medicina preventiva y bienestar de alto nivel: programas explicados con rigor, membresías claras y una marca que inspira confianza.',
+      'Diseño web para clínicas de longevidad y medicina preventiva: programas explicados con rigor, membresías claras y una marca que inspira confianza.',
     keywords:
       'diseño web clínica de longevidad, sitio web medicina preventiva, página web clínica de bienestar, diseño web medicina de longevidad, sitio web health optimization',
     subtitle: 'Diseño web para clínicas de longevidad',
@@ -24,7 +24,7 @@ export const usLongevityClinics = defineSector({
     target: 'clínicas de longevidad',
     hero: 'Tus clientes invierten en su salud a largo plazo y leen con lupa antes de decidir. Un sitio que suena a promesa milagro los ahuyenta; uno que suena a laboratorio frío, también. Diseñamos sitios que explican tu ciencia con claridad y transmiten la experiencia personal que ofreces.',
     intro:
-      'Diseñamos para clínicas de longevidad, medicina preventiva, salud ejecutiva y bienestar de alto nivel en mercados como Los Ángeles, Miami, Austin, Nueva York y Scottsdale.',
+      'Diseñamos páginas web para clínicas de longevidad, medicina preventiva, salud ejecutiva y bienestar de alto nivel en mercados como Los Ángeles, Miami, Austin, Nueva York y Scottsdale.',
     items: [
       {
         title: 'La ciencia, explicada',
@@ -84,7 +84,7 @@ export const usLongevityClinics = defineSector({
   en: {
     seoTitle: 'Longevity Clinic Website Design',
     seoDescription:
-      'Websites for longevity, preventive medicine, and high-end wellness clinics: programs explained with rigor, clear memberships, and a brand that inspires trust.',
+      'Websites for longevity, preventive medicine, and high-end wellness clinics: programs explained with rigor, clear memberships, and a trusted brand.',
     keywords:
       'longevity clinic website design, preventive medicine website, wellness clinic website design, health optimization clinic website, longevity medicine web design',
     subtitle: 'Web design for longevity clinics',
@@ -92,7 +92,7 @@ export const usLongevityClinics = defineSector({
     target: 'longevity clinics',
     hero: 'Your clients invest in their long-term health and read closely before deciding. A site that sounds like a miracle promise drives them away; so does one that feels like a cold lab. We design websites that explain your science clearly and convey the personal experience you provide.',
     intro:
-      'We design for longevity, preventive medicine, executive health, and high-end wellness clinics in markets like Los Angeles, Miami, Austin, New York, and Scottsdale.',
+      'We design websites for longevity, preventive medicine, executive health, and high-end wellness clinics in markets like Los Angeles, Miami, Austin, New York, and Scottsdale.',
     items: [
       {
         title: 'The science, explained',

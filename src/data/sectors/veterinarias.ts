@@ -60,7 +60,7 @@ export const veterinarias: Sector = {
       services: {
         heading: 'Diseño web para veterinarias: lo que puede incluir tu sitio',
         intro:
-          'Diseñamos para veterinarias, hospitales veterinarios y clínicas de especialidad. Cada página web para clínica veterinaria se diseña a partir de tus servicios y de cómo atiendes a tus pacientes.',
+          'Diseñamos páginas web para veterinarias, hospitales veterinarios y clínicas de especialidad. Cada página web para clínica veterinaria se diseña a partir de tus servicios y de cómo atiendes a tus pacientes.',
         items: [
           {
             title: 'Citas y urgencias sin buscar',
@@ -170,7 +170,7 @@ export const veterinarias: Sector = {
       services: {
         heading: 'Web design for veterinary clinics: what your site can include',
         intro:
-          'We design for veterinary clinics, animal hospitals, and specialty practices. Every veterinary clinic website is designed around your services and how you care for your patients.',
+          'We design websites for veterinary clinics, animal hospitals, and specialty practices. Every veterinary clinic website is designed around your services and how you care for your patients.',
         items: [
           {
             title: 'Appointments and emergencies, no searching',

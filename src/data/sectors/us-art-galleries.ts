@@ -24,7 +24,7 @@ export const usArtGalleries = defineSector({
     target: 'galerías y asesores de arte',
     hero: 'Para un coleccionista, el sitio de tu galería es la primera sala que recorre, y muchas veces desde otra ciudad. Ahí decide si vale la pena pedir el PDF de disponibilidad, visitar la exposición o llamar a tu director. Un sitio saturado o una plantilla genérica le restan valor a la obra. Diseñamos sitios que dan a cada pieza el espacio que tiene en tus muros.',
     intro:
-      'Diseñamos para galerías de arte contemporáneo, galerías de arte moderno, espacios de proyecto y asesores de arte en Nueva York, Los Ángeles, Miami, Chicago y otras ciudades.',
+      'Diseñamos páginas web para galerías de arte contemporáneo, galerías de arte moderno, espacios de proyecto y asesores de arte en Nueva York, Los Ángeles, Miami, Chicago y otras ciudades.',
     items: [
       {
         title: 'Exposiciones',
@@ -97,7 +97,7 @@ export const usArtGalleries = defineSector({
     target: 'art galleries and advisors',
     hero: 'For a collector, your gallery’s website is the first room they walk through, often from another city. That is where they decide whether to request the availability PDF, visit the show, or call your director. A cluttered site or a generic template takes value away from the work. We design websites that give every piece the space it has on your walls.',
     intro:
-      'We design for contemporary and modern art galleries, project spaces, and art advisors in New York, Los Angeles, Miami, Chicago, and beyond.',
+      'We design websites for contemporary and modern art galleries, project spaces, and art advisors in New York, Los Angeles, Miami, Chicago, and beyond.',
     items: [
       {
         title: 'Exhibitions',

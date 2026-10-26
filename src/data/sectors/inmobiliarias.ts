@@ -63,7 +63,7 @@ export const inmobiliarias: Sector = {
       services: {
         heading: 'Diseño web para inmobiliarias: lo que puede incluir tu sitio',
         intro:
-          'Diseñamos para inmobiliarias, asesores, desarrolladores y proyectos en preventa. Cada página web inmobiliaria se diseña a partir de lo que vendes y del comprador que quieres atraer.',
+          'Diseñamos páginas web para inmobiliarias, asesores, desarrolladores y proyectos en preventa. Cada página web inmobiliaria se diseña a partir de lo que vendes y del comprador que quieres atraer.',
         items: [
           {
             title: 'Propiedades que se antojan',
@@ -177,7 +177,7 @@ export const inmobiliarias: Sector = {
       services: {
         heading: 'Web design for real estate: what your site can include',
         intro:
-          'We design for agencies, agents, developers, and pre-sale projects. Every real estate website is designed around what you sell and the buyer you want to attract.',
+          'We design websites for agencies, agents, developers, and pre-sale projects. Every real estate website is designed around what you sell and the buyer you want to attract.',
         items: [
           {
             title: 'Properties people want',

@@ -62,7 +62,7 @@ export const arquitectos: Sector = {
       services: {
         heading: 'Diseño web para arquitectos: lo que puede incluir tu sitio',
         intro:
-          'Diseñamos para arquitectos, despachos de arquitectura e interiorismo. Cada página web para despacho de arquitectura se diseña alrededor de tu portafolio y del cliente que quieres atraer.',
+          'Diseñamos páginas web para arquitectos, despachos de arquitectura e interiorismo. Cada página web para despacho de arquitectura se diseña alrededor de tu portafolio y del cliente que quieres atraer.',
         items: [
           {
             title: 'Un portafolio a la altura de tu obra',
@@ -177,7 +177,7 @@ export const arquitectos: Sector = {
       services: {
         heading: 'Web design for architects: what your site can include',
         intro:
-          'We design for architects, architecture studios, and interior designers. Every architecture firm website is designed around your portfolio and the client you want to attract.',
+          'We design websites for architects, architecture studios, and interior designers. Every architecture firm website is designed around your portfolio and the client you want to attract.',
         items: [
           {
             title: 'A portfolio worthy of your work',

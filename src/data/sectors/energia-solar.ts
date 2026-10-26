@@ -16,7 +16,7 @@ export const energiaSolar = defineSector({
   es: {
     seoTitle: 'Diseño Web para Empresas de Energía Solar',
     seoDescription:
-      'Páginas web para empresas de paneles solares: ahorro bien explicado, cotización con tu recibo de luz, proyectos instalados y presencia en Google y en la IA.',
+      'Páginas web para empresas de paneles solares: ahorro bien explicado, cotización con tu recibo de luz, proyectos instalados y presencia en Google y la IA.',
     keywords:
       'diseño web para empresas de paneles solares, página web instaladora solar, sitio web energía solar, cotizador paneles solares, marketing solar',
     subtitle: 'Diseño web para empresas de energía solar',
@@ -25,7 +25,7 @@ export const energiaSolar = defineSector({
     hero: 'Instalar paneles es una inversión que se decide con números y con confianza en quien instala. Antes de pedir cotización, el cliente quiere entender cuánto podría ahorrar, ver instalaciones reales y saber que respondes, y cada vez más le pregunta a una IA. Diseñamos sitios que explican el ahorro con claridad y convierten visitas en cotizaciones.',
     stat: { value: 'Energía', label: 'ya trabajamos con empresas como Mexico Pacific' },
     intro:
-      'Diseñamos para instaladoras solares residenciales, comerciales e industriales. Cada página web para empresa de paneles solares se diseña a partir del cliente que quieres atraer y de cómo cotizas.',
+      'Diseñamos páginas web para instaladoras solares residenciales, comerciales e industriales. Cada página web para empresa de paneles solares se diseña a partir del cliente que quieres atraer y de cómo cotizas.',
     items: [
       {
         title: 'Ahorro que se entiende',
@@ -93,7 +93,7 @@ export const energiaSolar = defineSector({
     hero: 'Installing solar panels is an investment decided with numbers and with trust in the installer. Before requesting a quote, customers want to understand how much they could save, see real installations, and know you respond, and more and more often they ask an AI. We design websites that explain savings clearly and turn visits into quote requests.',
     stat: { value: 'Energy', label: 'we already work with companies like Mexico Pacific' },
     intro:
-      'We design for residential, commercial, and industrial solar installers. Every solar company website is designed around the customer you want to attract and how you quote.',
+      'We design websites for residential, commercial, and industrial solar installers. Every solar company website is designed around the customer you want to attract and how you quote.',
     items: [
       {
         title: 'Savings people understand',

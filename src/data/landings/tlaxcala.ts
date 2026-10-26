@@ -43,7 +43,7 @@ export const tlaxcala: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Tlaxcala',
         intro:
-          'Diseñamos para negocios de Tlaxcala, Apizaco, Huamantla, Nanacamilpa, Chiautempan y Calpulalpan: haciendas y jardines de eventos, cabañas y hoteles, operadores turísticos, restaurantes y empresas textiles.',
+          'Diseñamos páginas web para negocios de Tlaxcala, Apizaco, Huamantla, Nanacamilpa, Chiautempan y Calpulalpan: haciendas y jardines de eventos, cabañas y hoteles, operadores turísticos, restaurantes y empresas textiles.',
         items: [
           {
             title: 'Sitios para haciendas y jardines de eventos',
@@ -149,7 +149,7 @@ export const tlaxcala: Landing = {
       services: {
         heading: 'Web design and branding services in Tlaxcala',
         intro:
-          'We design for businesses in Tlaxcala, Apizaco, Huamantla, Nanacamilpa, Chiautempan, and Calpulalpan: event haciendas and gardens, cabins and hotels, tour operators, restaurants, and textile companies.',
+          'We design websites for businesses in Tlaxcala, Apizaco, Huamantla, Nanacamilpa, Chiautempan, and Calpulalpan: event haciendas and gardens, cabins and hotels, tour operators, restaurants, and textile companies.',
         items: [
           {
             title: 'Websites for event haciendas and gardens',

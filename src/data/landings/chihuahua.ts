@@ -44,7 +44,7 @@ export const chihuahua: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Chihuahua',
         intro:
-          'Diseñamos para empresas de Chihuahua, Ciudad Juárez, Cuauhtémoc, Delicias y Parral: proveedores de la industria, talleres de maquinado, empresas de mantenimiento y servicios, y marcas agroalimentarias.',
+          'Diseñamos páginas web para empresas de Chihuahua, Ciudad Juárez, Cuauhtémoc, Delicias y Parral: proveedores de la industria, talleres de maquinado, empresas de mantenimiento y servicios, y marcas agroalimentarias.',
         items: [
           {
             title: 'Sitio corporativo para proveedores industriales',
@@ -153,7 +153,7 @@ export const chihuahua: Landing = {
       services: {
         heading: 'Web design and branding services in Chihuahua',
         intro:
-          'We design for companies in Chihuahua, Ciudad Juárez, Cuauhtémoc, Delicias, and Parral: industrial suppliers, machine shops, maintenance and service companies, and food brands.',
+          'We design websites for companies in Chihuahua, Ciudad Juárez, Cuauhtémoc, Delicias, and Parral: industrial suppliers, machine shops, maintenance and service companies, and food brands.',
         items: [
           {
             title: 'Corporate site for industrial suppliers',

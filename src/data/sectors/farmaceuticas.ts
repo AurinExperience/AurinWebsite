@@ -23,7 +23,7 @@ export const farmaceuticas = defineSector({
     target: 'farmacéuticas',
     hero: 'El sitio de una farmacéutica habla con públicos que no pueden recibir el mismo mensaje: pacientes, médicos, farmacias, socios e inversionistas. Si todo se mezcla, el médico no encuentra la información técnica y el paciente ve lo que no debería. Diseñamos sitios que separan cada público con claridad y facilitan el trabajo de tu área regulatoria.',
     intro:
-      'Diseñamos para laboratorios farmacéuticos, fabricantes de genéricos, empresas de dispositivos médicos y divisiones de salud de empresas de consumo.',
+      'Diseñamos páginas web para laboratorios farmacéuticos, fabricantes de genéricos, empresas de dispositivos médicos y divisiones de salud de empresas de consumo.',
     items: [
       {
         title: 'Portafolio por producto',
@@ -96,7 +96,7 @@ export const farmaceuticas = defineSector({
     target: 'pharmaceutical companies',
     hero: 'A pharmaceutical website speaks to audiences that cannot receive the same message: patients, physicians, pharmacies, partners, and investors. When everything is mixed, physicians cannot find technical information and patients see what they should not. We design websites that separate each audience clearly and make your regulatory team’s job easier.',
     intro:
-      'We design for pharmaceutical laboratories, generics manufacturers, medical device companies, and health divisions of consumer companies.',
+      'We design websites for pharmaceutical laboratories, generics manufacturers, medical device companies, and health divisions of consumer companies.',
     items: [
       {
         title: 'Product portfolio',

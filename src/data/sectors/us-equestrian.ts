@@ -24,7 +24,7 @@ export const usEquestrian = defineSector({
     target: 'centros ecuestres y criadores',
     hero: 'Un jinete que busca dónde entrenar o alojar a su caballo, o un comprador que busca su próximo caballo de competencia, conoce el mundo ecuestre y detecta en segundos si un establo está a su nivel. Revisa instalaciones, entrenadores, resultados y linajes. Diseñamos sitios que reflejan la calidad de tu programa y llevan a la visita o a la consulta.',
     intro:
-      'Diseñamos para centros de entrenamiento de salto, doma y hunter, establos de pensión de lujo, criadores de caballos deportivos y ranchos en Wellington, Ocala, Kentucky, Aiken y California.',
+      'Diseñamos páginas web para centros de entrenamiento de salto, doma y hunter, establos de pensión de lujo, criadores de caballos deportivos y ranchos en Wellington, Ocala, Kentucky, Aiken y California.',
     items: [
       {
         title: 'Instalaciones',
@@ -96,7 +96,7 @@ export const usEquestrian = defineSector({
     target: 'equestrian centers and breeders',
     hero: 'A rider looking for where to train or board, or a buyer searching for their next competition horse, knows the equestrian world and can tell in seconds whether a barn is at their level. They check facilities, trainers, results, and bloodlines. We design websites that reflect the quality of your program and lead to a visit or an inquiry.',
     intro:
-      'We design for show jumping, dressage, and hunter training centers, luxury boarding facilities, sport horse breeders, and farms in Wellington, Ocala, Kentucky, Aiken, and California.',
+      'We design websites for show jumping, dressage, and hunter training centers, luxury boarding facilities, sport horse breeders, and farms in Wellington, Ocala, Kentucky, Aiken, and California.',
     items: [
       {
         title: 'Facilities',
