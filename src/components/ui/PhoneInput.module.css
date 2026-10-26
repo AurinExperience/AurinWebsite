@@ -47,8 +47,11 @@
   outline: 2px solid var(--color-yellow);
 }
 
+/* width 0 y que crezca: con `auto` el input aporta su ancho intrínseco (~20
+   caracteres) al mínimo del wrapper, y en celular empujaba el campo fuera de la
+   tarjeta aunque tuviera min-width 0. */
 .wrapper .number {
   flex: 1 1 auto;
-  width: auto;
+  width: 0;
   min-width: 0;
 }
