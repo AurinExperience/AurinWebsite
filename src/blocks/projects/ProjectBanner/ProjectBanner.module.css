@@ -84,15 +84,17 @@
   font-weight: 300;
   line-height: 1.32;
   margin: 0;
-  white-space: nowrap;
+  /* Sin nowrap: el flex-wrap ya manda entero al siguiente renglón cada servicio
+     que no cabe; solo uno más ancho que el renglón parte su texto en vez de
+     salirse de la pantalla ("Sistema de gestión de alumnos, clases, …"). */
 }
 
-/* Separador tenue "|" */
+/* Separador tenue "|", centrado en la primera línea */
 .category::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 0.66em;
   width: 1px;
   height: 0.9em;
   transform: translateY(-50%);

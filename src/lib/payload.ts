@@ -418,7 +418,7 @@ export function renderRichText(content: any): string {
  * un bloque de 3 palabras ya no cabe en un celular; ahí manda `text-wrap: balance`.
  */
 export function tieLastWords(html: string, maxChars: number): string {
-  return html.replace(/([^<>]+)(<\/(?:p|h[1-6]|li|blockquote)>)/g, (_, text: string, close: string) => {
+  return html.replace(/([^<>]+)(<\/(?:p|li|blockquote)>)/g, (_, text: string, close: string) => {
     const words = text.split(' ');
     for (const n of [3, 2]) {
       const tail = words.slice(-n);
