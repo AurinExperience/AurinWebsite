@@ -23,7 +23,7 @@ export const maquinaria = defineSector({
     target: 'distribuidores de maquinaria',
     hero: 'Quien compra una máquina compara modelos, capacidades y tiempos de entrega con tres distribuidores antes de pedir cotización. Si tu catálogo es un PDF de 80 páginas o no tiene las especificaciones, la llamada va a quien sí las tiene. Diseñamos sitios con catálogos organizados como lo piensa tu cliente y que llevan cada visita a una cotización, una renta o una orden de servicio.',
     intro:
-      'Diseñamos para distribuidores de maquinaria de construcción, equipo agrícola, montacargas, maquinaria para manufactura, plantas de energía y equipo de procesamiento.',
+      'Diseñamos páginas web para distribuidores de maquinaria de construcción, equipo agrícola, montacargas, maquinaria para manufactura, plantas de energía y equipo de procesamiento.',
     items: [
       {
         title: 'Catálogo con especificaciones',
@@ -97,7 +97,7 @@ export const maquinaria = defineSector({
     target: 'machinery distributors',
     hero: 'A buyer compares models, capacities, and lead times with three distributors before requesting a quote. If your catalog is an 80-page PDF or lacks specs, the call goes to whoever has them. We design websites with catalogs organized the way your customer thinks and turn every visit into a quote, a rental, or a service order.',
     intro:
-      'We design for distributors of construction equipment, agricultural machinery, forklifts, manufacturing machinery, power generation, and processing equipment.',
+      'We design websites for distributors of construction equipment, agricultural machinery, forklifts, manufacturing machinery, power generation, and processing equipment.',
     items: [
       {
         title: 'Catalog with specs',

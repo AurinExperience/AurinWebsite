@@ -17,7 +17,7 @@ export const usFoodBrands = defineSector({
   es: {
     seoTitle: 'Diseño Web para Marcas Premium de Alimentos en EE. UU.',
     seoDescription:
-      'Tiendas para marcas familiares y premium de alimentos en EE. UU.: historia y origen, venta directa, suscripciones, regalos corporativos y mayoreo.',
+      'Diseño web y tiendas a la medida para marcas premium de alimentos en EE. UU.: historia y origen, venta directa, suscripciones, regalos y mayoreo.',
     keywords:
       'diseño web marca gourmet Estados Unidos, tienda en línea alimentos premium, sitio web marca familiar de alimentos, ecommerce DTC alimentos, branding marca gourmet',
     subtitle: 'Diseño web para marcas premium de alimentos',
@@ -25,7 +25,7 @@ export const usFoodBrands = defineSector({
     target: 'marcas premium de alimentos',
     hero: 'Una marca familiar de aceite de oliva, chocolate, café o salsas compite con gigantes por un lugar en la despensa de quien sí paga por calidad. Ese cliente compra la historia: quién lo hace, de dónde viene y por qué sabe distinto. Diseñamos tiendas que cuentan esa historia con la calidad de tu producto y hacen que se vuelva a pedir cada mes.',
     intro:
-      'Diseñamos para marcas familiares e independientes de alimentos gourmet, café de especialidad, chocolate, aceites, salsas, miel y productos artesanales en Estados Unidos.',
+      'Diseñamos páginas web para marcas familiares e independientes de alimentos gourmet, café de especialidad, chocolate, aceites, salsas, miel y productos artesanales en Estados Unidos.',
     items: [
       {
         title: 'Origen e historia',
@@ -92,7 +92,7 @@ export const usFoodBrands = defineSector({
   en: {
     seoTitle: 'Website Design for Premium and Family-Owned Food Brands',
     seoDescription:
-      'Stores for family-owned and premium food brands in the US: story and origin, direct sales, subscriptions, corporate gifting, and wholesale.',
+      'Web design and custom online stores for premium and family-owned food brands in the US: origin story, subscriptions, gifting, and wholesale.',
     keywords:
       'gourmet food brand website design, DTC food brand website, specialty food ecommerce, family-owned food brand web design, premium food branding agency',
     subtitle: 'Web design for premium food brands',
@@ -100,7 +100,7 @@ export const usFoodBrands = defineSector({
     target: 'premium food brands',
     hero: 'A family brand of olive oil, chocolate, coffee, or sauces competes with giants for a place in the pantry of people who pay for quality. That customer buys the story: who makes it, where it comes from, and why it tastes different. We design stores that tell that story at the quality of your product and keep customers reordering every month.',
     intro:
-      'We design for family-owned and independent gourmet food, specialty coffee, chocolate, oil, sauce, honey, and artisan food brands across the US.',
+      'We design websites for family-owned and independent gourmet food, specialty coffee, chocolate, oil, sauce, honey, and artisan food brands across the US.',
     items: [
       {
         title: 'Origin and story',

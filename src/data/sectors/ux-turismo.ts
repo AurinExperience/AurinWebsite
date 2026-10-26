@@ -25,7 +25,7 @@ export const uxTurismo = defineSector({
     hero: 'El viajero reserva desde el celular, muchas veces con prisa y en otro idioma. Si el precio final sorprende o el pago falla, abandona y reserva en otro lado. Diseñamos plataformas de viaje claras, que inspiran y que cobran sin fricción.',
     stat: { value: 'Turismo', label: 'ya trabajamos con marcas de turismo y recreación como El Rollo' },
     intro:
-      'Diseñamos para plataformas de reservas, operadores de tours, parques, agencias en línea y empresas de transporte turístico. Cada proyecto parte de cómo planea y reserva tu viajero.',
+      'Hacemos el diseño UX/UI de flujos de reserva, apps y plataformas de viaje para agencias en línea, operadores de tours, parques y empresas de transporte turístico. Cada proyecto parte de cómo planea y reserva tu viajero.',
     items: [
       {
         title: 'Reservas que se completan',
@@ -92,7 +92,7 @@ export const uxTurismo = defineSector({
     hero: 'Travelers book from their phones, often in a hurry and in another language. If the final price surprises them or payment fails, they abandon and book elsewhere. We design travel platforms that are clear, inspiring, and charge without friction.',
     stat: { value: 'Tourism', label: 'we already work with tourism and leisure brands like El Rollo' },
     intro:
-      'We design for booking platforms, tour operators, parks, online agencies, and tourism transportation companies. Every project starts from how your travelers plan and book.',
+      'We design the UX/UI of booking flows, apps, and travel platforms for online agencies, tour operators, parks, and tourism transportation companies. Every project starts from how your travelers plan and book.',
     items: [
       {
         title: 'Bookings that get completed',

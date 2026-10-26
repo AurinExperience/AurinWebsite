@@ -24,7 +24,7 @@ export const usExecutiveCoaches = defineSector({
     target: 'coaches ejecutivos y consultores de liderazgo',
     hero: 'Un CEO o una directora de talento no contrata a un coach por un sitio bonito, pero sí lo descarta por uno que no está a la altura. Revisa tu trayectoria, tu metodología, con qué tipo de líderes trabajas y si tu marca se ve tan seria como tus honorarios. Diseñamos sitios de marca personal que sostienen tu posicionamiento y abren conversaciones con empresas.',
     intro:
-      'Diseñamos para coaches ejecutivos, consultores de liderazgo, facilitadores de equipos directivos y conferencistas en Estados Unidos.',
+      'Diseñamos páginas web para coaches ejecutivos, consultores de liderazgo, facilitadores de equipos directivos y conferencistas en Estados Unidos.',
     items: [
       {
         title: 'Marca personal',
@@ -96,7 +96,7 @@ export const usExecutiveCoaches = defineSector({
     target: 'executive coaches and leadership consultants',
     hero: 'A CEO or head of talent will not hire a coach because of a beautiful website, but they will rule one out over a site that is not at their level. They review your background, your methodology, the leaders you work with, and whether your brand looks as serious as your fees. We design personal brand websites that support your positioning and open conversations with companies.',
     intro:
-      'We design for executive coaches, leadership consultants, executive team facilitators, and keynote speakers across the US.',
+      'We design websites for executive coaches, leadership consultants, executive team facilitators, and keynote speakers across the US.',
     items: [
       {
         title: 'Personal brand',

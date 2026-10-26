@@ -23,7 +23,7 @@ export const fundaciones = defineSector({
     target: 'fundaciones y asociaciones civiles',
     hero: 'Un donante o una empresa que evalúa patrocinarte quiere ver tres cosas: qué causa atiendes, qué has logrado y cómo usas el dinero. Si tu sitio no lo muestra con claridad, el donativo se va a otra organización, aunque tu trabajo sea mejor. Diseñamos sitios que cuentan tu causa con emoción y la respaldan con datos y transparencia.',
     intro:
-      'Diseñamos para fundaciones empresariales y familiares, asociaciones civiles, instituciones de asistencia privada y organizaciones culturales y educativas.',
+      'Diseñamos páginas web para fundaciones empresariales y familiares, asociaciones civiles, instituciones de asistencia privada y organizaciones culturales y educativas.',
     items: [
       {
         title: 'Causa e historias',
@@ -96,7 +96,7 @@ export const fundaciones = defineSector({
     target: 'foundations and nonprofits',
     hero: 'A donor or a company considering sponsorship wants to see three things: what cause you serve, what you have achieved, and how you use the money. If your site does not show that clearly, the donation goes elsewhere, even if your work is better. We design websites that tell your cause with emotion and back it with data and transparency.',
     intro:
-      'We design for corporate and family foundations, nonprofits, private charitable institutions, and cultural and educational organizations.',
+      'We design websites for corporate and family foundations, nonprofits, private charitable institutions, and cultural and educational organizations.',
     items: [
       {
         title: 'Cause and stories',

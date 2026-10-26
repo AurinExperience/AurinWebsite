@@ -26,7 +26,7 @@ export const sinaloa: Landing = {
       seo: {
         title: 'Diseño Web en Culiacán, Mazatlán y Sinaloa | Aurin',
         description:
-          'Diseño web bilingüe y branding en Sinaloa para agroindustria y productores de hortalizas y mariscos, hoteles y restaurantes de Mazatlán y servicios en Culiacán.',
+          'Diseño web bilingüe y branding en Sinaloa para agroindustria, hortalizas y mariscos, hoteles y restaurantes de Mazatlán y empresas de Culiacán.',
         keywords:
           'diseño web Culiacán, diseño web Mazatlán, páginas web Sinaloa, página web agroexportadora, diseño web Los Mochis, branding Culiacán',
       },
@@ -43,7 +43,7 @@ export const sinaloa: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Sinaloa',
         intro:
-          'Diseñamos para empresas de Culiacán, Mazatlán, Los Mochis, Guasave y Navolato: agroindustria y productores, empacadoras de mariscos, hoteles, restaurantes, clínicas y empresas de servicios.',
+          'Diseñamos páginas web para empresas de Culiacán, Mazatlán, Los Mochis, Guasave y Navolato: agroindustria y productores, empacadoras de mariscos, hoteles, restaurantes, clínicas y empresas de servicios.',
         items: [
           {
             title: 'Sitio bilingüe para agroindustria',
@@ -149,7 +149,7 @@ export const sinaloa: Landing = {
       services: {
         heading: 'Web design and branding services in Sinaloa',
         intro:
-          'We design for companies in Culiacán, Mazatlán, Los Mochis, Guasave, and Navolato: agribusiness and growers, seafood packers, hotels, restaurants, clinics, and service companies.',
+          'We design websites for companies in Culiacán, Mazatlán, Los Mochis, Guasave, and Navolato: agribusiness and growers, seafood packers, hotels, restaurants, clinics, and service companies.',
         items: [
           {
             title: 'Bilingual site for agribusiness',

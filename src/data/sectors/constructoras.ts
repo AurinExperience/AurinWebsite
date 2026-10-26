@@ -62,7 +62,7 @@ export const constructoras: Sector = {
       services: {
         heading: 'Diseño web para constructoras: lo que puede incluir tu sitio',
         intro:
-          'Diseñamos para constructoras, contratistas, empresas de ingeniería y proveedores industriales. Cada página web para empresa constructora se diseña a partir del tipo de obra que haces y de quién te contrata.',
+          'Diseñamos páginas web para constructoras, contratistas, empresas de ingeniería y proveedores industriales. Cada página web para empresa constructora se diseña a partir del tipo de obra que haces y de quién te contrata.',
         items: [
           {
             title: 'Obras que demuestran capacidad',
@@ -171,7 +171,7 @@ export const constructoras: Sector = {
       services: {
         heading: 'Web design for construction companies: what your site can include',
         intro:
-          'We design for construction companies, contractors, engineering firms, and industrial suppliers. Every construction company website is designed around the work you build and who hires you.',
+          'We design websites for construction companies, contractors, engineering firms, and industrial suppliers. Every construction company website is designed around the work you build and who hires you.',
         items: [
           {
             title: 'Projects that prove capacity',

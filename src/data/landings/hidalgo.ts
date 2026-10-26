@@ -43,7 +43,7 @@ export const hidalgo: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Hidalgo',
         intro:
-          'Diseñamos para negocios de Pachuca, Mineral de la Reforma, Tulancingo, Tula, Huasca e Ixmiquilpan: balnearios y parques acuáticos, cabañas y hoteles, restaurantes, escuelas, clínicas y comercios.',
+          'Diseñamos páginas web para negocios de Pachuca, Mineral de la Reforma, Tulancingo, Tula, Huasca e Ixmiquilpan: balnearios y parques acuáticos, cabañas y hoteles, restaurantes, escuelas, clínicas y comercios.',
         items: [
           {
             title: 'Sitios para balnearios y parques',
@@ -56,6 +56,7 @@ export const hidalgo: Landing = {
             description:
               'En Huasca, Real del Monte o Mineral del Chico, el viajero compara varias opciones antes de reservar. Presentamos tus espacios y facilitamos la reserva directa.',
             bullets: ['Galería por cabaña o habitación', 'Solicitud de disponibilidad', 'Pensado primero para celular'],
+            custom: ['Reservas en línea'],
           },
           {
             title: 'Escuelas y servicios en Pachuca',
@@ -144,7 +145,7 @@ export const hidalgo: Landing = {
       services: {
         heading: 'Web design and branding services in Hidalgo',
         intro:
-          'We design for businesses in Pachuca, Mineral de la Reforma, Tulancingo, Tula, Huasca, and Ixmiquilpan: water parks, cabins and hotels, restaurants, schools, clinics, and retail.',
+          'We design websites for businesses in Pachuca, Mineral de la Reforma, Tulancingo, Tula, Huasca, and Ixmiquilpan: water parks, cabins and hotels, restaurants, schools, clinics, and retail.',
         items: [
           {
             title: 'Websites for water parks',
@@ -157,6 +158,7 @@ export const hidalgo: Landing = {
             description:
               'In Huasca, Real del Monte, or Mineral del Chico, travelers compare several options before booking. We present your spaces and make direct booking easy.',
             bullets: ['Gallery by cabin or room', 'Availability requests', 'Mobile-first'],
+            custom: ['Online bookings'],
           },
           {
             title: 'Schools and services in Pachuca',

@@ -65,6 +65,9 @@ export const bajaCalifornia: Landing = {
               'Proceso, traslado y seguimiento explicados paso a paso',
               'Solicitud de valoración sin fricción',
             ],
+            custom: [
+              'Agenda en línea',
+            ],
           },
           {
             title: 'Landing pages para campañas de paga',
@@ -207,6 +210,9 @@ export const bajaCalifornia: Landing = {
               'Credentials, certifications, and medical team made visible',
               'Process, travel, and follow-up explained step by step',
               'Frictionless consultation request',
+            ],
+            custom: [
+              'Online scheduling',
             ],
           },
           {

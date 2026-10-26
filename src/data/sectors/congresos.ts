@@ -23,7 +23,7 @@ export const congresos = defineSector({
     target: 'congresos, ferias y convenciones',
     hero: 'Un congreso vive de tres públicos que llegan al mismo sitio: asistentes que quieren el programa, expositores que comparan el costo de un stand y patrocinadores que miden el alcance. Si cada uno no encuentra lo suyo en segundos, el registro y la venta de espacios se frenan. Diseñamos sitios para tu evento que atienden a los tres y que puedes reutilizar cada año.',
     intro:
-      'Diseñamos para organizadores de congresos médicos y académicos, expos comerciales, ferias de industria y convenciones de asociaciones.',
+      'Diseñamos páginas web para organizadores de congresos médicos y académicos, expos comerciales, ferias de industria y convenciones de asociaciones.',
     items: [
       {
         title: 'Programa y ponentes',
@@ -97,7 +97,7 @@ export const congresos = defineSector({
     target: 'conferences and trade shows',
     hero: 'A conference serves three audiences on the same website: attendees looking for the agenda, exhibitors comparing booth costs, and sponsors measuring reach. If each one cannot find what they need in seconds, registration and space sales slow down. We design event websites that serve all three and that you can reuse every year.',
     intro:
-      'We design for organizers of medical and academic conferences, industry trade shows, business expos, and association conventions.',
+      'We design websites for organizers of medical and academic conferences, industry trade shows, business expos, and association conventions.',
     items: [
       {
         title: 'Agenda and speakers',

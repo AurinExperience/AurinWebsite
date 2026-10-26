@@ -45,7 +45,7 @@ export const coahuila: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Coahuila',
         intro:
-          'Diseñamos para empresas de Saltillo, Ramos Arizpe, Torreón, Monclova y Piedras Negras: mantenimiento e ingeniería industrial, seguridad y capacitación, clínicas y consultorios, comercios y empresas de servicios.',
+          'Diseñamos páginas web para empresas de Saltillo, Ramos Arizpe, Torreón, Monclova y Piedras Negras: mantenimiento e ingeniería industrial, seguridad y capacitación, clínicas y consultorios, comercios y empresas de servicios.',
         items: [
           {
             title: 'Sitios para empresas de servicios industriales',
@@ -158,7 +158,7 @@ export const coahuila: Landing = {
       services: {
         heading: 'Web design and branding services in Coahuila',
         intro:
-          'We design for companies in Saltillo, Ramos Arizpe, Torreón, Monclova, and Piedras Negras: industrial maintenance and engineering, safety and training, clinics and practices, retailers, and service companies.',
+          'We design websites for companies in Saltillo, Ramos Arizpe, Torreón, Monclova, and Piedras Negras: industrial maintenance and engineering, safety and training, clinics and practices, retailers, and service companies.',
         items: [
           {
             title: 'Websites for industrial service companies',

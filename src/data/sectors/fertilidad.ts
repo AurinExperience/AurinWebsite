@@ -24,7 +24,7 @@ export const fertilidad = defineSector({
     target: 'clínicas de fertilidad',
     hero: 'Tus pacientes llegan de dos lados: parejas en México que buscan a quién confiarle un sueño, y pacientes de Estados Unidos y Canadá que comparan costos y calidad para viajar. Los dos leen con cuidado, desconfían de las promesas y deciden por la claridad y la calidez. Diseñamos sitios que acompañan esa decisión en español y en inglés.',
     intro:
-      'Diseñamos para clínicas de reproducción asistida, centros de FIV y unidades de fertilidad en hospitales, con atención a pacientes nacionales e internacionales.',
+      'Diseñamos páginas web para clínicas de reproducción asistida, centros de FIV y unidades de fertilidad en hospitales, con atención a pacientes nacionales e internacionales.',
     items: [
       {
         title: 'Tratamientos con empatía',
@@ -96,7 +96,7 @@ export const fertilidad = defineSector({
     target: 'fertility clinics in Mexico',
     hero: 'Your patients come from two places: couples in Mexico looking for someone to trust with a dream, and patients from the US and Canada comparing cost and quality before traveling. Both read carefully, distrust promises, and decide based on clarity and warmth. We design websites that support that decision in English and Spanish.',
     intro:
-      'We design for assisted reproduction clinics, IVF centers, and hospital fertility units in Mexico serving local and international patients.',
+      'We design websites for assisted reproduction clinics, IVF centers, and hospital fertility units in Mexico serving local and international patients.',
     items: [
       {
         title: 'Treatments with empathy',

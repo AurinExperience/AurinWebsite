@@ -63,7 +63,7 @@ export const estetica: Sector = {
       services: {
         heading: 'Diseño web para clínicas estéticas: lo que puede incluir tu sitio',
         intro:
-          'Diseñamos para cirujanos plásticos, dermatólogos y clínicas de medicina estética. Cada sitio se diseña a partir de los procedimientos que quieres impulsar y del paciente que quieres atraer.',
+          'Diseñamos páginas web para cirujanos plásticos, dermatólogos y clínicas de medicina estética. Cada sitio se diseña a partir de los procedimientos que quieres impulsar y del paciente que quieres atraer.',
         items: [
           {
             title: 'Tu certificación, en primer plano',
@@ -176,7 +176,7 @@ export const estetica: Sector = {
       services: {
         heading: 'Web design for aesthetic clinics: what your site can include',
         intro:
-          'We design for plastic surgeons, dermatologists, and aesthetic medicine clinics. Every site is designed around the procedures you want to grow and the patient you want to attract.',
+          'We design websites for plastic surgeons, dermatologists, and aesthetic medicine clinics. Every site is designed around the procedures you want to grow and the patient you want to attract.',
         items: [
           {
             title: 'Your credentials, up front',

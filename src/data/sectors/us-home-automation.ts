@@ -24,7 +24,7 @@ export const usHomeAutomation = defineSector({
     target: 'integradores de automatización residencial',
     hero: 'Tus clientes no compran cables ni marcas de control: compran una casa donde la luz, el clima, la música y la seguridad simplemente funcionan. Muchos llegan por recomendación de su arquitecto o su constructor, y antes de llamarte revisan tu sitio. Diseñamos sitios que muestran la experiencia que creas y te posicionan como el socio técnico de los mejores proyectos residenciales.',
     intro:
-      'Diseñamos para integradores de automatización, cine en casa, iluminación arquitectónica, redes y seguridad residencial en mercados como Aspen, Scottsdale, Austin, Miami, Los Ángeles y Greenwich.',
+      'Diseñamos páginas web para integradores de automatización, cine en casa, iluminación arquitectónica, redes y seguridad residencial en mercados como Aspen, Scottsdale, Austin, Miami, Los Ángeles y Greenwich.',
     items: [
       {
         title: 'Proyectos, no equipos',
@@ -96,7 +96,7 @@ export const usHomeAutomation = defineSector({
     target: 'home automation integrators',
     hero: 'Your clients do not buy cables or control brands: they buy a home where light, climate, music, and security simply work. Many arrive on referral from their architect or builder, and they check your website before calling. We design websites that show the experience you create and position you as the technical partner for the best residential projects.',
     intro:
-      'We design for home automation, home theater, architectural lighting, networking, and residential security integrators in markets like Aspen, Scottsdale, Austin, Miami, Los Angeles, and Greenwich.',
+      'We design websites for home automation, home theater, architectural lighting, networking, and residential security integrators in markets like Aspen, Scottsdale, Austin, Miami, Los Angeles, and Greenwich.',
     items: [
       {
         title: 'Projects, not equipment',

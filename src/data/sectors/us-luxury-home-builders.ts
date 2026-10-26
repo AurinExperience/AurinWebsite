@@ -16,7 +16,7 @@ export const usLuxuryHomeBuilders = defineSector({
   es: {
     seoTitle: 'Diseño Web para Constructores de Casas de Lujo',
     seoDescription:
-      'Sitios web para constructores de casas a la medida y de lujo en Estados Unidos: portafolio que luce, proceso de construcción claro y solicitudes de clientes calificados.',
+      'Diseño web para constructores de casas de lujo en EE. UU.: portafolio que luce, proceso de construcción claro y solicitudes de clientes calificados.',
     keywords:
       'diseño web constructor de casas de lujo, sitio web casas a la medida, página web constructora residencial de lujo, diseño web custom home builder',
     subtitle: 'Diseño web para constructores de casas de lujo',
@@ -24,7 +24,7 @@ export const usLuxuryHomeBuilders = defineSector({
     target: 'constructores de casas de lujo',
     hero: 'Quien va a construir una casa de varios millones revisa tu portafolio una y otra vez antes de llamarte. Si las fotos no hacen justicia a la obra o el proceso no se entiende, llama a otro constructor. Diseñamos sitios que muestran tu obra como merece y explican por qué construir contigo es la decisión segura.',
     intro:
-      'Diseñamos para constructores de casas a la medida, desarrolladores residenciales y firmas de diseño y construcción en mercados como Aspen, Scottsdale, Austin, Los Ángeles y los Hamptons.',
+      'Diseñamos páginas web para constructores de casas a la medida, desarrolladores residenciales y firmas de diseño y construcción en mercados como Aspen, Scottsdale, Austin, Los Ángeles y los Hamptons.',
     items: [
       {
         title: 'Portafolio que luce',
@@ -93,7 +93,7 @@ export const usLuxuryHomeBuilders = defineSector({
     target: 'luxury home builders',
     hero: 'Someone about to build a multimillion-dollar home reviews your portfolio again and again before calling. If the photos don’t do the work justice or the process isn’t clear, they call another builder. We design websites that show your work the way it deserves and explain why building with you is the safe decision.',
     intro:
-      'We design for custom home builders, residential developers, and design-build firms in markets like Aspen, Scottsdale, Austin, Los Angeles, and the Hamptons.',
+      'We design websites for custom home builders, residential developers, and design-build firms in markets like Aspen, Scottsdale, Austin, Los Angeles, and the Hamptons.',
     items: [
       {
         title: 'A portfolio that shines',

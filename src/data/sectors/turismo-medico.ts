@@ -23,7 +23,7 @@ export const turismoMedico = defineSector({
     target: 'turismo médico',
     hero: 'Un paciente estadounidense que considera operarse en México tiene una pregunta antes que el precio: ¿puedo confiar en este médico y en este hospital? Busca credenciales, instalaciones, testimonios reales y cómo va a ser el viaje. Si tu sitio parece improvisado, se queda con la cirugía cara en su país. Diseñamos sitios en inglés que transmiten la seriedad de tu práctica y resuelven todo el viaje.',
     intro:
-      'Diseñamos para cirujanos bariátricos, ortopedistas, clínicas dentales, centros de cirugía estética y hospitales en Tijuana, Monterrey, Cancún, Guadalajara y otras ciudades que reciben pacientes internacionales.',
+      'Diseñamos páginas web para cirujanos bariátricos, ortopedistas, clínicas dentales, centros de cirugía estética y hospitales en Tijuana, Monterrey, Cancún, Guadalajara y otras ciudades que reciben pacientes internacionales.',
     items: [
       {
         title: 'Credenciales primero',
@@ -95,7 +95,7 @@ export const turismoMedico = defineSector({
     target: 'medical tourism providers in Mexico',
     hero: 'An American patient considering surgery in Mexico has one question before price: can I trust this doctor and this hospital? They look for credentials, facilities, real testimonials, and how the trip will work. If your site looks improvised, they stay home with the expensive surgery. We design English-first websites that convey the seriousness of your practice and answer the entire trip.',
     intro:
-      'We design for bariatric surgeons, orthopedists, dental clinics, cosmetic surgery centers, and hospitals in Tijuana, Monterrey, Cancún, Guadalajara, and other cities welcoming international patients.',
+      'We design websites for bariatric surgeons, orthopedists, dental clinics, cosmetic surgery centers, and hospitals in Tijuana, Monterrey, Cancún, Guadalajara, and other cities welcoming international patients.',
     items: [
       {
         title: 'Credentials first',

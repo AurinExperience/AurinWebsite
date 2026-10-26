@@ -25,7 +25,7 @@ export const usLuxuryCarDealers = defineSector({
     target: 'concesionarios de autos de lujo',
     hero: 'Quien compra un Ferrari, un Porsche de colección o un clásico restaurado suele hacerlo a distancia, y decide por cómo se presenta el auto. Revisa cada foto, el historial y la reputación del dealer antes de mandar un depósito a otro estado. Si tu sitio parece un portal de anuncios, el auto pierde valor. Diseñamos sitios que presentan cada unidad como pieza de colección.',
     intro:
-      'Diseñamos para concesionarios independientes de autos exóticos y de lujo, dealers de clásicos y autos de colección, y empresas de renta de exóticos en Miami, Los Ángeles, Scottsdale, Dallas y Nueva York.',
+      'Diseñamos páginas web para concesionarios independientes de autos exóticos y de lujo, dealers de clásicos y autos de colección, y empresas de renta de exóticos en Miami, Los Ángeles, Scottsdale, Dallas y Nueva York.',
     items: [
       {
         title: 'Inventario como galería',
@@ -98,7 +98,7 @@ export const usLuxuryCarDealers = defineSector({
     target: 'luxury car dealers',
     hero: 'People who buy a Ferrari, a collectible Porsche, or a restored classic often do it remotely, and they decide by how the car is presented. They study every photo, the history, and the dealer’s reputation before wiring a deposit to another state. If your website looks like a classifieds portal, the car loses value. We design websites that present every car as a collector’s piece.',
     intro:
-      'We design for independent exotic and luxury car dealers, classic and collector car dealers, and exotic car rental companies in Miami, Los Angeles, Scottsdale, Dallas, and New York.',
+      'We design websites for independent exotic and luxury car dealers, classic and collector car dealers, and exotic car rental companies in Miami, Los Angeles, Scottsdale, Dallas, and New York.',
     items: [
       {
         title: 'Inventory as a gallery',

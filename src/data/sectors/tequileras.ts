@@ -23,7 +23,7 @@ export const tequileras = defineSector({
     target: 'tequileras y mezcaleras',
     hero: 'Hay cientos de tequilas y mezcales en el anaquel, y el cliente elige por la historia que cree que hay detrás de la botella. Esa historia la busca en tu sitio antes de pedirla en la barra o de que un importador te conteste el correo. Diseñamos sitios y marcas que cuentan tu agave, tu proceso y tu familia con la personalidad de tu destilado.',
     intro:
-      'Diseñamos para casas tequileras, palenques y marcas de mezcal, raicilla y sotol, desde la marca nueva que busca su primer distribuidor hasta la casa con varias expresiones.',
+      'Diseñamos páginas web para casas tequileras, palenques y marcas de mezcal, raicilla y sotol, desde la marca nueva que busca su primer distribuidor hasta la casa con varias expresiones.',
     items: [
       {
         title: 'Origen y proceso',
@@ -96,7 +96,7 @@ export const tequileras = defineSector({
     target: 'tequila and mezcal brands',
     hero: 'There are hundreds of tequilas and mezcals on the shelf, and people choose the story they believe is behind the bottle. They look for that story on your website before ordering it at the bar, and so does the importer deciding whether to answer your email. We design websites and brands that tell your agave, your process, and your family with the personality of your spirit.',
     intro:
-      'We design for tequila houses, palenques, and mezcal, raicilla, and sotol brands, from a new label looking for its first distributor to an established house with several expressions.',
+      'We design websites for tequila houses, palenques, and mezcal, raicilla, and sotol brands, from a new label looking for its first distributor to an established house with several expressions.',
     items: [
       {
         title: 'Origin and process',

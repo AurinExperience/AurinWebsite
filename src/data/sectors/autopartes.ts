@@ -23,7 +23,7 @@ export const autopartes = defineSector({
     target: 'proveedores automotrices y de autopartes',
     hero: 'México es uno de los mayores fabricantes de autopartes del mundo, y los compradores de las armadoras y de los distribuidores comparan proveedores en línea antes de pedir una cotización. Unos buscan capacidades y certificaciones; otros, la pieza correcta para un modelo y año. Diseñamos sitios que responden a tu comprador, sea una armadora o un taller.',
     intro:
-      'Diseñamos para proveedores Tier 1 y Tier 2, fabricantes de componentes, y fabricantes y distribuidores de refacciones para el mercado de repuesto.',
+      'Diseñamos páginas web para proveedores Tier 1 y Tier 2, fabricantes de componentes, y fabricantes y distribuidores de refacciones para el mercado de repuesto.',
     items: [
       {
         title: 'Capacidades para armadoras',
@@ -97,7 +97,7 @@ export const autopartes = defineSector({
     target: 'auto parts suppliers',
     hero: 'Mexico is one of the world’s largest auto parts producers, and buyers at OEMs and distributors compare suppliers online before requesting a quote. Some look for capabilities and certifications; others, the right part for a make and year. We design websites that answer your buyer, whether it is an automaker or a repair shop.',
     intro:
-      'We design for Tier 1 and Tier 2 suppliers, component manufacturers, and aftermarket parts manufacturers and distributors.',
+      'We design websites for Tier 1 and Tier 2 suppliers, component manufacturers, and aftermarket parts manufacturers and distributors.',
     items: [
       {
         title: 'Capabilities for OEMs',

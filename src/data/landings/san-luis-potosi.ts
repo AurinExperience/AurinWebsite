@@ -43,7 +43,7 @@ export const sanLuisPotosi: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en San Luis Potosí',
         intro:
-          'Diseñamos para negocios de San Luis Potosí, Soledad, Ciudad Valles, Xilitla, Aquismón y Matehuala: operadores de tours, cabañas y hoteles, restaurantes, clínicas, despachos y comercios.',
+          'Diseñamos páginas web para negocios de San Luis Potosí, Soledad, Ciudad Valles, Xilitla, Aquismón y Matehuala: operadores de tours, cabañas y hoteles, restaurantes, clínicas, despachos y comercios.',
         items: [
           {
             title: 'Sitios para tours en la Huasteca',
@@ -54,12 +54,16 @@ export const sanLuisPotosi: Landing = {
               'Solicitud por WhatsApp o formulario',
               'Pensado primero para celular',
             ],
+            custom: [
+              'Reservas en línea',
+            ],
           },
           {
             title: 'Cabañas y hoteles',
             description:
               'En Xilitla o Ciudad Valles el huésped quiere ver el lugar y saber qué hay cerca. El sitio lo muestra y facilita la reserva directa.',
             bullets: ['Galería de habitaciones o cabañas', 'Solicitud de disponibilidad', 'Ubicación y cómo llegar'],
+            custom: ['Reservas en línea'],
           },
           {
             title: 'Sitios para empresas y servicios en la capital',
@@ -148,19 +152,21 @@ export const sanLuisPotosi: Landing = {
       services: {
         heading: 'Web design and branding services in San Luis Potosí',
         intro:
-          'We design for businesses in San Luis Potosí, Soledad, Ciudad Valles, Xilitla, Aquismón, and Matehuala: tour operators, cabins and hotels, restaurants, clinics, firms, and retailers.',
+          'We design websites for businesses in San Luis Potosí, Soledad, Ciudad Valles, Xilitla, Aquismón, and Matehuala: tour operators, cabins and hotels, restaurants, clinics, firms, and retailers.',
         items: [
           {
             title: 'Websites for Huasteca tours',
             description:
               'Waterfalls, caves, rivers: travelers compare tours and pick the one that feels most trustworthy. We present each tour with its itinerary, what is included, and how to book.',
             bullets: ['A page per tour with itinerary', 'Requests via WhatsApp or form', 'Mobile-first'],
+            custom: ['Online bookings'],
           },
           {
             title: 'Cabins and hotels',
             description:
               'In Xilitla or Ciudad Valles guests want to see the place and know what is nearby. The site shows it and makes direct booking easy.',
             bullets: ['Room or cabin gallery', 'Availability requests', 'Location and directions'],
+            custom: ['Online bookings'],
           },
           {
             title: 'Websites for companies and services in the capital',

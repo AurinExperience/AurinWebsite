@@ -15,7 +15,7 @@ export const usConciergeMedicine = defineSector({
   es: {
     seoTitle: 'Diseño Web para Prácticas de Medicina Concierge',
     seoDescription:
-      'Sitios web para prácticas de medicina concierge y por membresía: el valor de la membresía explicado con claridad, médicos que inspiran confianza y solicitudes de pacientes calificados.',
+      'Diseño web para medicina concierge y por membresía: el valor de la membresía claro, médicos que inspiran confianza y solicitudes de pacientes calificados.',
     keywords:
       'diseño web medicina concierge, sitio web medicina por membresía, página web concierge doctor, diseño web práctica médica privada',
     subtitle: 'Diseño web para medicina concierge',
@@ -23,7 +23,7 @@ export const usConciergeMedicine = defineSector({
     target: 'prácticas de medicina concierge',
     hero: 'Un paciente que paga una membresía anual no está comprando consultas, está comprando acceso, tiempo y tranquilidad. Si tu sitio no lo explica en segundos, se queda con la duda y no llama. Diseñamos sitios que hacen evidente el valor de tu membresía y transmiten la atención personal que ofreces.',
     intro:
-      'Diseñamos para prácticas de medicina concierge, medicina ejecutiva y atención primaria por membresía en mercados como Manhattan, Palm Beach, Beverly Hills, Greenwich y Scottsdale.',
+      'Diseñamos páginas web para prácticas de medicina concierge, medicina ejecutiva y atención primaria por membresía en mercados como Manhattan, Palm Beach, Beverly Hills, Greenwich y Scottsdale.',
     items: [
       {
         title: 'La membresía, clara',
@@ -84,7 +84,7 @@ export const usConciergeMedicine = defineSector({
   en: {
     seoTitle: 'Concierge Medicine Website Design',
     seoDescription:
-      'Websites for concierge and membership medicine practices: the membership value explained clearly, physicians who inspire trust, and inquiries from qualified patients.',
+      'Websites for concierge and membership medicine practices: membership value made clear, physicians who inspire trust, and qualified patient inquiries.',
     keywords:
       'concierge medicine website design, concierge doctor website, membership medicine website, direct primary care website design, private practice web design',
     subtitle: 'Web design for concierge medicine',
@@ -92,7 +92,7 @@ export const usConciergeMedicine = defineSector({
     target: 'concierge medicine practices',
     hero: 'A patient paying an annual membership isn’t buying appointments; they are buying access, time, and peace of mind. If your site doesn’t explain that in seconds, they are left wondering and don’t call. We design websites that make your membership’s value obvious and convey the personal care you provide.',
     intro:
-      'We design for concierge medicine, executive health, and membership-based primary care practices in markets like Manhattan, Palm Beach, Beverly Hills, Greenwich, and Scottsdale.',
+      'We design websites for concierge medicine, executive health, and membership-based primary care practices in markets like Manhattan, Palm Beach, Beverly Hills, Greenwich, and Scottsdale.',
     items: [
       {
         title: 'The membership, made clear',

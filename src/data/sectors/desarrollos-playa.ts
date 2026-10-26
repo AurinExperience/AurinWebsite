@@ -24,7 +24,7 @@ export const desarrollosPlaya = defineSector({
     target: 'desarrollos de playa',
     hero: 'Tu comprador está en Texas, California u Ontario y va a decidir una segunda casa a miles de kilómetros. Antes de volar quiere sentir la vista, entender cómo compra un extranjero en México y saber cuánto puede rentarla cuando no está. Diseñamos sitios que venden el estilo de vida y resuelven las dudas de un comprador internacional, en su idioma.',
     intro:
-      'Diseñamos para desarrollos residenciales, condominios y residencias de marca en Los Cabos, Riviera Maya, Puerto Vallarta, Nuevo Vallarta, Mazatlán y otros destinos de playa.',
+      'Diseñamos páginas web para desarrollos residenciales, condominios y residencias de marca en Los Cabos, Riviera Maya, Puerto Vallarta, Nuevo Vallarta, Mazatlán y otros destinos de playa.',
     items: [
       {
         title: 'Estilo de vida',
@@ -96,7 +96,7 @@ export const desarrollosPlaya = defineSector({
     target: 'beach developments in Mexico',
     hero: 'Your buyer is in Texas, California, or Ontario, deciding on a second home thousands of miles away. Before flying down, they want to feel the view, understand how a foreigner buys property in Mexico, and know how much they could earn renting it while they are away. We design websites that sell the lifestyle and answer an international buyer’s questions in their language.',
     intro:
-      'We design for residential developments, condominiums, and branded residences in Los Cabos, Riviera Maya, Puerto Vallarta, Nuevo Vallarta, Mazatlán, and other beach destinations.',
+      'We design websites for residential developments, condominiums, and branded residences in Los Cabos, Riviera Maya, Puerto Vallarta, Nuevo Vallarta, Mazatlán, and other beach destinations.',
     items: [
       {
         title: 'Lifestyle',

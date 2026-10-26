@@ -16,7 +16,7 @@ export const usPrivateAviation = defineSector({
   es: {
     seoTitle: 'Diseño Web para Aviación Privada y Vuelos Chárter',
     seoDescription:
-      'Sitios web para empresas de aviación privada: vuelos chárter, gestión de aeronaves, FBOs y membresías de jet, con cotización rápida y la discreción que esperan tus clientes.',
+      'Diseño web para aviación privada: vuelos chárter, gestión de aeronaves, FBOs y membresías de jet, presentados con la discreción que esperan tus clientes.',
     keywords:
       'diseño web aviación privada, sitio web vuelos chárter, página web jet privado, diseño web gestión de aeronaves, sitio web FBO',
     subtitle: 'Diseño web para aviación privada',
@@ -24,7 +24,7 @@ export const usPrivateAviation = defineSector({
     target: 'empresas de aviación privada',
     hero: 'Tu cliente está acostumbrado a que todo pase en minutos, y espera lo mismo al pedir una cotización. Si tu sitio es lento o se ve anticuado, piensa que tu servicio también lo es. Diseñamos sitios que transmiten seguridad, exclusividad e inmediatez desde el primer vistazo.',
     intro:
-      'Diseñamos para operadores de vuelos chárter, empresas de gestión de aeronaves, FBOs, programas de membresía de jet y brokers de aeronaves en Estados Unidos.',
+      'Diseñamos páginas web para operadores de vuelos chárter, empresas de gestión de aeronaves, FBOs, programas de membresía de jet y brokers de aeronaves en Estados Unidos.',
     items: [
       {
         title: 'Cotización en segundos',
@@ -83,7 +83,7 @@ export const usPrivateAviation = defineSector({
   en: {
     seoTitle: 'Private Aviation & Jet Charter Website Design',
     seoDescription:
-      'Websites for private aviation companies: jet charter, aircraft management, FBOs, and jet memberships, with fast quoting and the discretion your clients expect.',
+      'Websites for private aviation companies: jet charter, aircraft management, FBOs, and jet memberships, presented with the discretion your clients expect.',
     keywords:
       'private aviation website design, jet charter website design, private jet website, aircraft management website, FBO website design',
     subtitle: 'Web design for private aviation',
@@ -91,7 +91,7 @@ export const usPrivateAviation = defineSector({
     target: 'private aviation companies',
     hero: 'Your clients are used to things happening in minutes, and they expect the same when requesting a quote. If your site is slow or dated, they assume your service is too. We design websites that convey safety, exclusivity, and immediacy at first glance.',
     intro:
-      'We design for charter operators, aircraft management companies, FBOs, jet membership programs, and aircraft brokers in the US.',
+      'We design websites for charter operators, aircraft management companies, FBOs, jet membership programs, and aircraft brokers in the US.',
     items: [
       {
         title: 'Quotes in seconds',

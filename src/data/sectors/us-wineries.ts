@@ -15,7 +15,7 @@ export const usWineries = defineSector({
   es: {
     seoTitle: 'Diseño Web para Viñedos y Bodegas de Vino',
     seoDescription:
-      'Sitios web para viñedos y bodegas en Estados Unidos: club de vinos, tienda en línea, reservas de catas y una marca que transmite el lugar y la historia de tu vino.',
+      'Diseño web para viñedos y bodegas en EE. UU.: club de vinos, tienda y reservas de catas a la medida, y una marca que cuenta la historia de tu vino.',
     keywords:
       'diseño web para viñedos, sitio web bodega de vino, página web club de vinos, tienda en línea de vino, diseño web Napa',
     subtitle: 'Diseño web para viñedos y bodegas',
@@ -23,7 +23,7 @@ export const usWineries = defineSector({
     target: 'viñedos y bodegas',
     hero: 'Tu mejor cliente es el que se une al club de vinos y compra cada temporada, y esa decisión empieza en tu sitio. Si se ve igual que el de cualquier bodega, el vino se vuelve una etiqueta más. Diseñamos sitios que transmiten tu tierra y tu historia, y facilitan catas, compras y membresías.',
     intro:
-      'Diseñamos para viñedos, bodegas boutique y marcas de vino en regiones como Napa, Sonoma, Paso Robles, Willamette Valley y Texas Hill Country.',
+      'Diseñamos páginas web para viñedos, bodegas boutique y marcas de vino en regiones como Napa, Sonoma, Paso Robles, Willamette Valley y Texas Hill Country.',
     items: [
       {
         title: 'Club de vinos',
@@ -84,7 +84,7 @@ export const usWineries = defineSector({
   en: {
     seoTitle: 'Winery Website Design',
     seoDescription:
-      'Websites for wineries and vineyards in the US: wine club, online store, tasting reservations, and a brand that conveys the place and story behind your wine.',
+      'Websites for wineries and vineyards in the US: wine club, custom online store and tasting reservations, and a brand that tells the story of your wine.',
     keywords:
       'winery website design, vineyard website design, wine club website, winery web design agency, wine ecommerce website',
     subtitle: 'Web design for wineries',
@@ -92,7 +92,7 @@ export const usWineries = defineSector({
     target: 'wineries',
     hero: 'Your best customer is the one who joins the wine club and buys every season, and that decision starts on your website. If it looks like every other winery’s, your wine becomes just another label. We design websites that convey your land and your story and make tastings, purchases, and memberships easy.',
     intro:
-      'We design for wineries, boutique vineyards, and wine brands in regions like Napa, Sonoma, Paso Robles, Willamette Valley, and Texas Hill Country.',
+      'We design websites for wineries, boutique vineyards, and wine brands in regions like Napa, Sonoma, Paso Robles, Willamette Valley, and Texas Hill Country.',
     items: [
       {
         title: 'Wine club',

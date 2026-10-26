@@ -58,7 +58,7 @@ export const inlandEmpire: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en el Inland Empire',
         intro:
-          'Diseñamos para negocios de Riverside, San Bernardino, Ontario, Fontana, Rancho Cucamonga, Moreno Valley, Corona y Rialto: contratistas y subcontratistas, landscaping, talleres, limpieza, oficinas de taxes y aseguranzas, y negocios de servicios.',
+          'Diseñamos páginas web para negocios de Riverside, San Bernardino, Ontario, Fontana, Rancho Cucamonga, Moreno Valley, Corona y Rialto: contratistas y subcontratistas, landscaping, talleres, limpieza, oficinas de taxes y aseguranzas, y negocios de servicios.',
         items: [
           {
             title: 'Sitios para construcción y landscaping',
@@ -201,7 +201,7 @@ export const inlandEmpire: Landing = {
       services: {
         heading: 'Web design and branding services in the Inland Empire',
         intro:
-          'We design for businesses in Riverside, San Bernardino, Ontario, Fontana, Rancho Cucamonga, Moreno Valley, Corona, and Rialto: contractors and subcontractors, landscaping, auto shops, cleaning, tax and insurance offices, and service businesses.',
+          'We design websites for businesses in Riverside, San Bernardino, Ontario, Fontana, Rancho Cucamonga, Moreno Valley, Corona, and Rialto: contractors and subcontractors, landscaping, auto shops, cleaning, tax and insurance offices, and service businesses.',
         items: [
           {
             title: 'Construction and landscaping websites',

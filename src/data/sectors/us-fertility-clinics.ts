@@ -24,7 +24,7 @@ export const usFertilityClinics = defineSector({
     target: 'clínicas de fertilidad',
     hero: 'Quien busca una clínica de fertilidad lleva meses leyendo, comparando y, muchas veces, desanimándose. Llega a tu sitio con preguntas sobre tratamientos, costos y probabilidades, y decide si agenda según cómo le respondes. Diseñamos sitios que explican con calidez y claridad, presentan a tu equipo médico y facilitan dar el primer paso.',
     intro:
-      'Diseñamos para clínicas de FIV, centros de preservación de fertilidad y redes de clínicas en Estados Unidos, con una experiencia pensada para pacientes en una etapa delicada.',
+      'Diseñamos páginas web para clínicas de FIV, centros de preservación de fertilidad y redes de clínicas en Estados Unidos, con una experiencia pensada para pacientes en una etapa delicada.',
     items: [
       {
         title: 'Tratamientos sin jerga',
@@ -98,7 +98,7 @@ export const usFertilityClinics = defineSector({
     target: 'fertility clinics',
     hero: 'People looking for a fertility clinic have spent months reading, comparing, and often losing hope. They arrive at your site with questions about treatments, costs, and odds, and whether they book depends on how you answer. We design websites that explain with warmth and clarity, introduce your care team, and make the first step easy.',
     intro:
-      'We design for IVF clinics, fertility preservation centers, and multi-location fertility networks across the US, with an experience built for patients at a delicate moment.',
+      'We design websites for IVF clinics, fertility preservation centers, and multi-location fertility networks across the US, with an experience built for patients at a delicate moment.',
     items: [
       {
         title: 'Treatments without jargon',

@@ -15,7 +15,7 @@ export const cosmeticos = defineSector({
   es: {
     seoTitle: 'Diseño Web para Marcas de Cosméticos y Skincare',
     seoDescription:
-      'Tiendas en línea para marcas de cosméticos y cuidado de la piel: ingredientes explicados, rutinas, reseñas, lanzamientos y una marca premium.',
+      'Diseño web y tiendas en línea a la medida para marcas de cosméticos y skincare: ingredientes explicados, rutinas, reseñas y lanzamientos.',
     keywords:
       'diseño web para marcas de cosméticos, tienda en línea skincare, página web marca de belleza, ecommerce cosméticos, branding cuidado de la piel',
     subtitle: 'Diseño web para marcas de cosméticos y cuidado de la piel',
@@ -23,7 +23,7 @@ export const cosmeticos = defineSector({
     target: 'marcas de cosméticos y cuidado de la piel',
     hero: 'Quien compra skincare ya no se conforma con una foto bonita: lee ingredientes, compara rutinas y busca reseñas antes de pagar. Si tu sitio no responde para qué tipo de piel es tu producto y cómo se usa, la venta se va a un marketplace o a otra marca. Diseñamos tiendas que explican tu fórmula con claridad y hacen que tu marca se sienta premium en cada detalle.',
     intro:
-      'Diseñamos para marcas de skincare, maquillaje, cuidado capilar, fragancias y cosmética natural, desde la marca independiente hasta la que vende en cadenas.',
+      'Diseñamos páginas web para marcas de skincare, maquillaje, cuidado capilar, fragancias y cosmética natural, desde la marca independiente hasta la que vende en cadenas.',
     items: [
       {
         title: 'Ingredientes y rutinas',
@@ -89,7 +89,7 @@ export const cosmeticos = defineSector({
   en: {
     seoTitle: 'Web Design for Beauty and Skincare Brands',
     seoDescription:
-      'Online stores for beauty and skincare brands: ingredients explained, routines, reviews, launches, and direct sales with a brand that feels premium.',
+      'Web design and custom online stores for beauty and skincare brands: ingredients explained, routines, reviews, launches, and a premium brand.',
     keywords:
       'skincare website design, beauty brand website, cosmetics ecommerce design, beauty brand web design agency, skincare brand identity',
     subtitle: 'Web design for beauty and skincare brands',
@@ -97,7 +97,7 @@ export const cosmeticos = defineSector({
     target: 'beauty and skincare brands',
     hero: 'Skincare shoppers are no longer won by a pretty photo: they read ingredients, compare routines, and look for reviews before paying. If your site does not answer which skin type your product is for and how to use it, the sale goes to a marketplace or another brand. We design stores that explain your formula clearly and make your brand feel premium in every detail.',
     intro:
-      'We design for skincare, makeup, haircare, fragrance, and clean beauty brands, from independent labels to brands sold in major retailers.',
+      'We design websites for skincare, makeup, haircare, fragrance, and clean beauty brands, from independent labels to brands sold in major retailers.',
     items: [
       {
         title: 'Ingredients and routines',

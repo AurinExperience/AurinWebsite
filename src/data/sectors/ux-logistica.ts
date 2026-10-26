@@ -24,7 +24,7 @@ export const uxLogistica = defineSector({
     target: 'empresas de logística y transporte',
     hero: 'En logística, cada minuto que un operador pierde en una pantalla confusa cuesta, y cada cliente que no sabe dónde va su envío termina llamando. Diseñamos plataformas y apps que la operación usa con prisa y sin errores, y que le dan al cliente visibilidad sin preguntar.',
     intro:
-      'Diseñamos para empresas de transporte, paquetería, almacenes y plataformas de logística. Cada proyecto parte de quién usa el sistema —operadores, coordinadores o clientes— y de en qué condiciones.',
+      'Hacemos el diseño UX/UI de sistemas de operación, apps para operadores y portales de rastreo para empresas de transporte, paquetería, almacenes y plataformas de logística. Cada proyecto parte de quién usa el sistema —operadores, coordinadores o clientes— y de en qué condiciones.',
     items: [
       {
         title: 'Rastreo que evita llamadas',
@@ -90,7 +90,7 @@ export const uxLogistica = defineSector({
     target: 'logistics and transportation companies',
     hero: 'In logistics, every minute a driver loses on a confusing screen costs money, and every customer who does not know where their shipment is ends up calling. We design platforms and apps operations teams use in a hurry and without mistakes, and that give customers visibility without asking.',
     intro:
-      'We design for carriers, parcel companies, warehouses, and logistics platforms. Every project starts from who uses the system —drivers, coordinators, or customers— and under what conditions.',
+      'We design the UX/UI of operations systems, driver apps, and tracking portals for carriers, parcel companies, warehouses, and logistics platforms. Every project starts from who uses the system —drivers, coordinators, or customers— and under what conditions.',
     items: [
       {
         title: 'Tracking that prevents calls',

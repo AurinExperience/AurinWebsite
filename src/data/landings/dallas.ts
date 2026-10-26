@@ -36,7 +36,7 @@ export const dallas: Landing = {
       seo: {
         title: 'Diseño Web en Dallas y Fort Worth para Negocios Latinos | Aurin',
         description:
-          'Diseño web y branding en Dallas–Fort Worth para negocios latinos que están creciendo: taxes, aseguranzas, bienes raíces, restaurantes y servicios. Sitios bilingües.',
+          'Diseño web y branding en Dallas–Fort Worth para negocios latinos que crecen: taxes, aseguranzas, bienes raíces, restaurantes y servicios. Sitios bilingües.',
         keywords:
           'diseño web Dallas, diseño de páginas web Dallas Texas, diseño web Fort Worth, página web para oficina de taxes, página web para agencia de aseguranzas, branding Dallas',
       },
@@ -57,7 +57,7 @@ export const dallas: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Dallas–Fort Worth',
         intro:
-          'Diseñamos para negocios de Dallas, Fort Worth, Irving, Garland, Grand Prairie, Arlington, Mesquite y Oak Cliff: oficinas de taxes y contabilidad, agencias de aseguranzas, bienes raíces, constructoras, restaurantes con varias ubicaciones y empresas de servicios.',
+          'Diseñamos páginas web para negocios de Dallas, Fort Worth, Irving, Garland, Grand Prairie, Arlington, Mesquite y Oak Cliff: oficinas de taxes y contabilidad, agencias de aseguranzas, bienes raíces, constructoras, restaurantes con varias ubicaciones y empresas de servicios.',
         items: [
           {
             title: 'Marca para un negocio que creció',
@@ -181,7 +181,7 @@ export const dallas: Landing = {
       seo: {
         title: 'Web Design & Branding for Hispanic Businesses in Dallas | Aurin',
         description:
-          'Web design and branding in Dallas–Fort Worth for growing Hispanic and Latino-owned businesses: tax offices, insurance agencies, real estate, restaurants, and services.',
+          'Web design and branding in Dallas–Fort Worth for growing Latino-owned businesses: tax offices, insurance agencies, real estate, restaurants, and services.',
         keywords:
           'web design for Hispanic businesses Dallas, Latino-owned business website Dallas, bilingual web design Dallas, branding agency Dallas Fort Worth, tax office website design, insurance agency website design',
       },
@@ -202,7 +202,7 @@ export const dallas: Landing = {
       services: {
         heading: 'Web design and branding services in Dallas–Fort Worth',
         intro:
-          'We design for businesses in Dallas, Fort Worth, Irving, Garland, Grand Prairie, Arlington, Mesquite, and Oak Cliff: tax and accounting offices, insurance agencies, real estate, construction companies, multi-location restaurants, and service companies.',
+          'We design websites for businesses in Dallas, Fort Worth, Irving, Garland, Grand Prairie, Arlington, Mesquite, and Oak Cliff: tax and accounting offices, insurance agencies, real estate, construction companies, multi-location restaurants, and service companies.',
         items: [
           {
             title: 'A brand for a business that grew',

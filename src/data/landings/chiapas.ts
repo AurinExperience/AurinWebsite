@@ -42,7 +42,7 @@ export const chiapas: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Chiapas',
         intro:
-          'Diseñamos para negocios de Tuxtla Gutiérrez, San Cristóbal de las Casas, Palenque, Comitán, Tapachula y Chiapa de Corzo: hoteles boutique, operadores de tours, restaurantes y cafeterías, y marcas de artesanía, textiles, ámbar y café.',
+          'Diseñamos páginas web para negocios de Tuxtla Gutiérrez, San Cristóbal de las Casas, Palenque, Comitán, Tapachula y Chiapa de Corzo: hoteles boutique, operadores de tours, restaurantes y cafeterías, y marcas de artesanía, textiles, ámbar y café.',
         items: [
           {
             title: 'Sitios para hoteles boutique',
@@ -53,6 +53,9 @@ export const chiapas: Landing = {
               'Solicitud de disponibilidad',
               'Sitio en español y en inglés',
             ],
+            custom: [
+              'Reservas en línea',
+            ],
           },
           {
             title: 'Tours y experiencias',
@@ -62,6 +65,9 @@ export const chiapas: Landing = {
               'Página por recorrido con itinerario',
               'Solicitud por formulario o WhatsApp',
               'Fotos y reseñas de tus clientes',
+            ],
+            custom: [
+              'Reservas en línea',
             ],
           },
           {
@@ -152,7 +158,7 @@ export const chiapas: Landing = {
       services: {
         heading: 'Web design and branding services in Chiapas',
         intro:
-          'We design for businesses in Tuxtla Gutiérrez, San Cristóbal de las Casas, Palenque, Comitán, Tapachula, and Chiapa de Corzo: boutique hotels, tour operators, restaurants and cafés, and craft, textile, amber, and coffee brands.',
+          'We design websites for businesses in Tuxtla Gutiérrez, San Cristóbal de las Casas, Palenque, Comitán, Tapachula, and Chiapa de Corzo: boutique hotels, tour operators, restaurants and cafés, and craft, textile, amber, and coffee brands.',
         items: [
           {
             title: 'Websites for boutique hotels',
@@ -163,6 +169,9 @@ export const chiapas: Landing = {
               'Availability requests',
               'Site in Spanish and English',
             ],
+            custom: [
+              'Online bookings',
+            ],
           },
           {
             title: 'Tours and experiences',
@@ -172,6 +181,9 @@ export const chiapas: Landing = {
               'A page per tour with itinerary',
               'Requests via form or WhatsApp',
               'Photos and customer reviews',
+            ],
+            custom: [
+              'Online bookings',
             ],
           },
           {

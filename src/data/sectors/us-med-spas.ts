@@ -16,7 +16,7 @@ export const usMedSpas = defineSector({
   es: {
     seoTitle: 'Diseño Web para Med Spas en Estados Unidos',
     seoDescription:
-      'Sitios web para med spas: tratamientos explicados con claridad, reservas en línea, membresías y una marca que se siente tan cuidada como tu experiencia en cabina.',
+      'Diseño web para med spas: tratamientos explicados con claridad, reservas en línea a la medida, membresías y una marca tan cuidada como tu cabina.',
     keywords:
       'diseño web para med spa, sitio web med spa, página web medicina estética, diseño web spa de lujo, reservas en línea med spa',
     subtitle: 'Diseño web para med spas',
@@ -24,7 +24,7 @@ export const usMedSpas = defineSector({
     target: 'med spas',
     hero: 'Tus clientas eligen med spa desde el celular, en un par de minutos, comparando fotos, reseñas y qué tan fácil es reservar. Si tu sitio no se siente como tu experiencia en cabina, la cita se va a otro lado. Diseñamos sitios que transmiten tu nivel y convierten visitas en citas.',
     intro:
-      'Diseñamos para med spas, clínicas de medicina estética y marcas de bienestar en mercados como Los Ángeles, Miami, Scottsdale, Dallas y Nueva York.',
+      'Diseñamos páginas web para med spas, clínicas de medicina estética y marcas de bienestar en mercados como Los Ángeles, Miami, Scottsdale, Dallas y Nueva York.',
     items: [
       {
         title: 'Tratamientos que se entienden',
@@ -93,7 +93,7 @@ export const usMedSpas = defineSector({
     target: 'med spas',
     hero: 'Clients choose a med spa on their phone in a couple of minutes, comparing photos, reviews, and how easy it is to book. If your site doesn’t feel like your treatment room, the appointment goes elsewhere. We design websites that convey your level and turn visits into bookings.',
     intro:
-      'We design for med spas, aesthetic medicine clinics, and wellness brands in markets like Los Angeles, Miami, Scottsdale, Dallas, and New York.',
+      'We design websites for med spas, aesthetic medicine clinics, and wellness brands in markets like Los Angeles, Miami, Scottsdale, Dallas, and New York.',
     items: [
       {
         title: 'Treatments people understand',

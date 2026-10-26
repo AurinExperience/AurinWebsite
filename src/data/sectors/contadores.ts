@@ -62,7 +62,7 @@ export const contadores: Sector = {
       services: {
         heading: 'Diseño web para contadores: lo que puede incluir tu sitio',
         intro:
-          'Diseñamos para contadores independientes, despachos contables y firmas de consultoría fiscal. Cada página web para despacho contable se diseña a partir de tus servicios y del cliente que quieres atraer.',
+          'Diseñamos páginas web para contadores independientes, despachos contables y firmas de consultoría fiscal. Cada página web para despacho contable se diseña a partir de tus servicios y del cliente que quieres atraer.',
         items: [
           {
             title: 'Servicios que se entienden',
@@ -171,7 +171,7 @@ export const contadores: Sector = {
       services: {
         heading: 'Web design for accountants: what your site can include',
         intro:
-          'We design for independent accountants, accounting firms, and tax advisory firms. Every accounting firm website is designed around your services and the client you want to attract.',
+          'We design websites for independent accountants, accounting firms, and tax advisory firms. Every accounting firm website is designed around your services and the client you want to attract.',
         items: [
           {
             title: 'Services people understand',

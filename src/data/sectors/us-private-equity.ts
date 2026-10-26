@@ -16,7 +16,7 @@ export const usPrivateEquity = defineSector({
   es: {
     seoTitle: 'Diseño Web para Firmas de Private Equity y Venture Capital',
     seoDescription:
-      'Sitios web para firmas de private equity, venture capital y family offices: tesis de inversión clara, portafolio y equipo presentados con la sobriedad que esperan fundadores y LPs.',
+      'Diseño web para private equity, venture capital y family offices: tesis de inversión clara, portafolio y equipo con la sobriedad que esperan los LPs.',
     keywords:
       'diseño web private equity, sitio web venture capital, página web fondo de inversión, diseño web family office, sitio web firma de inversión',
     subtitle: 'Diseño web para private equity y venture capital',
@@ -24,7 +24,7 @@ export const usPrivateEquity = defineSector({
     target: 'firmas de private equity y venture capital',
     hero: 'Antes de tomar tu llamada, un fundador, un LP o el dueño de una empresa revisa tu sitio para entender quién eres y qué haces. Si se ve genérico, tu firma se confunde con cientos más. Diseñamos sitios sobrios y precisos que comunican tu tesis, tu portafolio y a tu equipo con la claridad que tu reputación merece.',
     intro:
-      'Diseñamos para firmas de private equity, fondos de venture capital, family offices y firmas de inversión en mercados como Nueva York, San Francisco, Boston, Greenwich y Austin.',
+      'Diseñamos páginas web para firmas de private equity, fondos de venture capital, family offices y firmas de inversión en mercados como Nueva York, San Francisco, Boston, Greenwich y Austin.',
     items: [
       {
         title: 'Tesis de inversión clara',
@@ -85,7 +85,7 @@ export const usPrivateEquity = defineSector({
   en: {
     seoTitle: 'Private Equity & Venture Capital Website Design',
     seoDescription:
-      'Websites for private equity firms, venture capital funds, and family offices: a clear investment thesis, portfolio, and team presented with the polish founders and LPs expect.',
+      'Websites for private equity firms, VC funds, and family offices: a clear investment thesis, portfolio, and team with the polish founders and LPs expect.',
     keywords:
       'private equity website design, venture capital website design, VC firm website, family office website design, investment firm web design',
     subtitle: 'Web design for private equity and VC',
@@ -93,7 +93,7 @@ export const usPrivateEquity = defineSector({
     target: 'private equity and VC firms',
     hero: 'Before taking your call, a founder, an LP, or a business owner reviews your site to understand who you are and what you do. If it looks generic, your firm blends in with hundreds of others. We design sober, precise websites that communicate your thesis, your portfolio, and your team with the clarity your reputation deserves.',
     intro:
-      'We design for private equity firms, venture capital funds, family offices, and investment firms in markets like New York, San Francisco, Boston, Greenwich, and Austin.',
+      'We design websites for private equity firms, venture capital funds, family offices, and investment firms in markets like New York, San Francisco, Boston, Greenwich, and Austin.',
     items: [
       {
         title: 'A clear investment thesis',

@@ -23,7 +23,7 @@ export const gruposRestauranteros = defineSector({
     target: 'grupos restauranteros',
     hero: 'Cada concepto que abres es una marca nueva con su propio público, su menú y su ambiente. Cuando alguien busca dónde cenar, compara fotos, menú y disponibilidad en segundos, y un sitio lento o con un PDF borroso le quita la mesa a tu restaurante. Diseñamos el sitio de cada concepto y el del grupo, con la identidad de cada uno y una base que reutilizas en cada apertura.',
     intro:
-      'Diseñamos para grupos restauranteros, chefs con varios conceptos y marcas de restaurantes con varias sucursales.',
+      'Diseñamos páginas web para grupos restauranteros, chefs con varios conceptos y marcas de restaurantes con varias sucursales.',
     items: [
       {
         title: 'Un sitio por concepto',
@@ -97,7 +97,7 @@ export const gruposRestauranteros = defineSector({
     target: 'restaurant groups',
     hero: 'Every concept you open is a new brand with its own crowd, menu, and atmosphere. When someone is choosing where to eat, they compare photos, menu, and availability in seconds, and a slow site or a blurry PDF costs your restaurant the table. We design each concept’s website and the group’s, with each one’s identity and a base you reuse at every opening.',
     intro:
-      'We design for restaurant groups, chefs with multiple concepts, and multi-location restaurant brands.',
+      'We design websites for restaurant groups, chefs with multiple concepts, and multi-location restaurant brands.',
     items: [
       {
         title: 'A site per concept',

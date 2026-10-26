@@ -16,7 +16,7 @@ export const usLuxuryVacationRentals = defineSector({
   es: {
     seoTitle: 'Diseño Web para Rentas Vacacionales de Lujo',
     seoDescription:
-      'Sitios web para rentas vacacionales de lujo y administradoras de villas en Estados Unidos: reservas directas, propiedades que lucen y una marca que no depende de las plataformas.',
+      'Diseño web para rentas vacacionales de lujo y administradoras de villas en EE. UU.: reservas directas, propiedades que lucen y una marca propia.',
     keywords:
       'diseño web rentas vacacionales de lujo, sitio web villas de lujo, reservas directas renta vacacional, página web administradora de propiedades vacacionales',
     subtitle: 'Diseño web para rentas vacacionales de lujo',
@@ -24,7 +24,7 @@ export const usLuxuryVacationRentals = defineSector({
     target: 'rentas vacacionales de lujo',
     hero: 'Una villa de miles de dólares por noche no debería verse igual que cualquier anuncio de Airbnb, ni pagar comisión por cada huésped que regresa. Un sitio propio convierte a tus huéspedes en clientes directos. Diseñamos sitios que presentan cada propiedad como una experiencia y llevan a la reserva sin intermediarios.',
     intro:
-      'Diseñamos para dueños de villas, administradoras de propiedades de lujo y marcas de hospitalidad en destinos como Aspen, los Hamptons, Malibú, Miami, Hawái y Lake Tahoe.',
+      'Diseñamos páginas web para dueños de villas, administradoras de propiedades de lujo y marcas de hospitalidad en destinos como Aspen, los Hamptons, Malibú, Miami, Hawái y Lake Tahoe.',
     items: [
       {
         title: 'Propiedades que lucen',
@@ -84,7 +84,7 @@ export const usLuxuryVacationRentals = defineSector({
   en: {
     seoTitle: 'Luxury Vacation Rental Website Design',
     seoDescription:
-      'Websites for luxury vacation rentals and villa management companies in the US: direct bookings, properties that shine, and a brand that doesn’t depend on platforms.',
+      'Websites for luxury vacation rentals and villa managers in the US: direct bookings, properties that shine, and a brand that doesn’t depend on platforms.',
     keywords:
       'luxury vacation rental website design, vacation rental direct booking website, luxury villa website design, vacation rental web design, property management website design',
     subtitle: 'Web design for luxury vacation rentals',
@@ -92,7 +92,7 @@ export const usLuxuryVacationRentals = defineSector({
     target: 'luxury vacation rentals',
     hero: 'A villa that rents for thousands a night shouldn’t look like any other Airbnb listing, or pay a commission on every returning guest. A site of your own turns guests into direct clients. We design websites that present every property as an experience and lead to the booking with no middleman.',
     intro:
-      'We design for villa owners, luxury property managers, and hospitality brands in destinations like Aspen, the Hamptons, Malibu, Miami, Hawaii, and Lake Tahoe.',
+      'We design websites for villa owners, luxury property managers, and hospitality brands in destinations like Aspen, the Hamptons, Malibu, Miami, Hawaii, and Lake Tahoe.',
     items: [
       {
         title: 'Properties that shine',

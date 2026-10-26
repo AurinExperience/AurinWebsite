@@ -23,7 +23,7 @@ export const productoras = defineSector({
     target: 'productoras audiovisuales',
     hero: 'Una agencia que busca casa productora abre tu sitio, da play al reel y decide en los primeros segundos. Si el video tarda en cargar, el diseño compite con la imagen o no encuentra a tus directores, cierra la pestaña. Diseñamos sitios donde tu trabajo es el protagonista y donde productores, agencias y marcas encuentran lo que buscan sin esfuerzo.',
     intro:
-      'Diseñamos para casas productoras de publicidad, productoras de cine y series, estudios de contenido, postproducción, animación y estudios de grabación.',
+      'Diseñamos páginas web para casas productoras de publicidad, productoras de cine y series, estudios de contenido, postproducción, animación y estudios de grabación.',
     items: [
       {
         title: 'Video sin fricción',
@@ -96,7 +96,7 @@ export const productoras = defineSector({
     target: 'production companies',
     hero: 'An agency looking for a production company opens your site, plays the reel, and decides in the first seconds. If the video is slow, the design competes with the image, or they cannot find your directors, they close the tab. We design websites where your work is the star and producers, agencies, and brands find what they need without effort.',
     intro:
-      'We design for commercial production companies, film and series producers, content studios, post-production, animation, and recording studios.',
+      'We design websites for commercial production companies, film and series producers, content studios, post-production, animation, and recording studios.',
     items: [
       {
         title: 'Video without friction',

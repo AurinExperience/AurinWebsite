@@ -23,7 +23,7 @@ export const mueblerias = defineSector({
     target: 'mueblerías de diseño y showrooms',
     hero: 'Un sofá o una mesa de comedor de diseño se elige tocando el material, pero la decisión de visitar tu showroom se toma en tu sitio. El cliente quiere ver acabados, medidas y cómo luce la pieza en un espacio real. Si encuentra fotos de catálogo sin contexto, compra donde lo inspiran más. Diseñamos sitios que hacen sentir tus piezas y llevan al showroom o a la compra.',
     intro:
-      'Diseñamos para showrooms de mobiliario, estudios de diseño de muebles, marcas de muebles de autor, iluminación y decoración, y fabricantes que venden directo.',
+      'Diseñamos páginas web para showrooms de mobiliario, estudios de diseño de muebles, marcas de muebles de autor, iluminación y decoración, y fabricantes que venden directo.',
     items: [
       {
         title: 'Colecciones con contexto',
@@ -90,7 +90,7 @@ export const mueblerias = defineSector({
   en: {
     seoTitle: 'Web Design for Furniture Showrooms and Design Brands',
     seoDescription:
-      'Websites and stores for furniture showrooms and design brands: collections, finishes and dimensions, showroom appointments, online sales, and a trade program.',
+      'Websites for furniture showrooms and design brands: collections, finishes and dimensions, showroom appointments, online sales, and a trade program.',
     keywords:
       'furniture showroom website design, furniture brand website, furniture ecommerce design, designer furniture website, furniture store web design',
     subtitle: 'Web design for furniture showrooms',
@@ -98,7 +98,7 @@ export const mueblerias = defineSector({
     target: 'furniture showrooms and design brands',
     hero: 'A designer sofa or dining table is chosen by touching the material, but the decision to visit your showroom happens on your website. People want to see finishes, dimensions, and how the piece looks in a real space. If they find catalog photos with no context, they buy from whoever inspires them more. We design websites that let people feel your pieces and lead to the showroom or the sale.',
     intro:
-      'We design for furniture showrooms, furniture design studios, designer furniture brands, lighting and decor brands, and manufacturers selling direct.',
+      'We design websites for furniture showrooms, furniture design studios, designer furniture brands, lighting and decor brands, and manufacturers selling direct.',
     items: [
       {
         title: 'Collections in context',

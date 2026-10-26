@@ -43,7 +43,7 @@ export const guerrero: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Guerrero',
         intro:
-          'Diseñamos para negocios de Acapulco, Zihuatanejo, Ixtapa, Taxco, Chilpancingo e Iguala: hoteles, restaurantes, operadores de tours, platerías y talleres, y comercios y servicios.',
+          'Diseñamos páginas web para negocios de Acapulco, Zihuatanejo, Ixtapa, Taxco, Chilpancingo e Iguala: hoteles, restaurantes, operadores de tours, platerías y talleres, y comercios y servicios.',
         items: [
           {
             title: 'Sitios para hoteles y restaurantes',
@@ -74,6 +74,7 @@ export const guerrero: Landing = {
             description:
               'El viajero que elige Zihuatanejo busca algo tranquilo y auténtico. El sitio tiene que transmitir eso desde la primera foto.',
             bullets: ['Diseño que cuenta la experiencia', 'Solicitud de disponibilidad', 'Pensado primero para celular'],
+            custom: ['Reservas en línea'],
           },
           {
             title: 'Branding',
@@ -156,7 +157,7 @@ export const guerrero: Landing = {
       services: {
         heading: 'Web design and branding services in Guerrero',
         intro:
-          'We design for businesses in Acapulco, Zihuatanejo, Ixtapa, Taxco, Chilpancingo, and Iguala: hotels, restaurants, tour operators, silver workshops, and local retail and services.',
+          'We design websites for businesses in Acapulco, Zihuatanejo, Ixtapa, Taxco, Chilpancingo, and Iguala: hotels, restaurants, tour operators, silver workshops, and local retail and services.',
         items: [
           {
             title: 'Websites for hotels and restaurants',
@@ -182,6 +183,7 @@ export const guerrero: Landing = {
             description:
               'Travelers who choose Zihuatanejo want something calm and authentic. The site needs to convey that from the first photo.',
             bullets: ['Design that tells the experience', 'Availability requests', 'Mobile-first'],
+            custom: ['Online bookings'],
           },
           {
             title: 'Branding',

@@ -15,7 +15,7 @@ export const usBoutiqueHotels = defineSector({
   es: {
     seoTitle: 'Diseño Web para Hoteles Boutique y Resorts de Lujo',
     seoDescription:
-      'Sitios web para hoteles boutique y resorts de lujo en Estados Unidos: más reservas directas, la experiencia contada antes de llegar y presencia en Google y en buscadores con IA.',
+      'Diseño web para hoteles boutique y resorts de lujo en EE. UU.: más reservas directas, la experiencia contada antes de llegar y presencia en Google y la IA.',
     keywords:
       'diseño web hotel boutique, sitio web resort de lujo, página web hotel boutique, reservas directas hotel, diseño web hotelería de lujo',
     subtitle: 'Diseño web para hoteles boutique',
@@ -23,7 +23,7 @@ export const usBoutiqueHotels = defineSector({
     target: 'hoteles boutique',
     hero: 'Cada reserva que llega por una agencia en línea te cuesta una comisión y te quita la relación con el huésped. Un sitio que vende tu experiencia mejor que cualquier plataforma convierte al viajero en huésped directo. Diseñamos sitios que hacen sentir tu hotel antes de llegar y llevan a la reserva sin fricción.',
     intro:
-      'Diseñamos para hoteles boutique, resorts, posadas de lujo y grupos hoteleros independientes en destinos como Napa, Aspen, Miami, Charleston y los Hamptons.',
+      'Diseñamos páginas web para hoteles boutique, resorts, posadas de lujo y grupos hoteleros independientes en destinos como Napa, Aspen, Miami, Charleston y los Hamptons.',
     items: [
       {
         title: 'La experiencia antes de llegar',
@@ -83,7 +83,7 @@ export const usBoutiqueHotels = defineSector({
   en: {
     seoTitle: 'Boutique Hotel & Luxury Resort Website Design',
     seoDescription:
-      'Websites for boutique hotels and luxury resorts in the US: more direct bookings, the experience told before arrival, and visibility on Google and AI search.',
+      'Websites for boutique hotels and luxury resorts in the US: more direct bookings, the stay told before arrival, and visibility on Google and AI search.',
     keywords:
       'boutique hotel website design, luxury resort website design, hotel web design agency, direct booking hotel website, boutique hotel web design',
     subtitle: 'Web design for boutique hotels',
@@ -91,7 +91,7 @@ export const usBoutiqueHotels = defineSector({
     target: 'boutique hotels',
     hero: 'Every booking from an online travel agency costs you a commission and takes away your relationship with the guest. A site that sells your experience better than any platform turns travelers into direct guests. We design websites that let people feel your hotel before arriving and lead to the booking without friction.',
     intro:
-      'We design for boutique hotels, resorts, luxury inns, and independent hotel groups in destinations like Napa, Aspen, Miami, Charleston, and the Hamptons.',
+      'We design websites for boutique hotels, resorts, luxury inns, and independent hotel groups in destinations like Napa, Aspen, Miami, Charleston, and the Hamptons.',
     items: [
       {
         title: 'The experience before arrival',

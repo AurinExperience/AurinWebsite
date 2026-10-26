@@ -25,7 +25,7 @@ export const uxEnergia = defineSector({
     hero: 'Consumo, generación, alarmas y contratos: en energía los datos sobran, lo que falta es que se entiendan. Diseñamos paneles y portales donde operadores, directivos y clientes ven lo que importa y actúan a tiempo.',
     stat: { value: 'Energía', label: 'ya trabajamos con empresas como Mexico Pacific' },
     intro:
-      'Diseñamos para generadoras, comercializadoras, empresas de energía renovable y utilities. Cada proyecto parte de quién consulta la información y qué decisión tiene que tomar con ella.',
+      'Hacemos el diseño UX/UI de portales de clientes, plataformas y tableros para generadoras, comercializadoras, empresas de energía renovable y utilities. Cada proyecto parte de quién consulta la información y qué decisión tiene que tomar con ella.',
     items: [
       {
         title: 'Paneles de monitoreo claros',
@@ -92,7 +92,7 @@ export const uxEnergia = defineSector({
     hero: 'Consumption, generation, alarms, and contracts: in energy there is plenty of data, what is missing is understanding it. We design dashboards and portals where operators, executives, and customers see what matters and act in time.',
     stat: { value: 'Energy', label: 'we already work with companies like Mexico Pacific' },
     intro:
-      'We design for generators, energy retailers, renewable energy companies, and utilities. Every project starts from who looks at the information and which decision they need to make with it.',
+      'We design the UX/UI of customer portals, platforms, and dashboards for generators, energy retailers, renewable energy companies, and utilities. Every project starts from who looks at the information and which decision they need to make with it.',
     items: [
       {
         title: 'Clear monitoring dashboards',

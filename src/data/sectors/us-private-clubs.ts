@@ -16,7 +16,7 @@ export const usPrivateClubs = defineSector({
   es: {
     seoTitle: 'Diseño Web para Clubes Privados, de Golf y Country Clubs',
     seoDescription:
-      'Sitios web para clubes privados, de golf, náuticos y country clubs: la experiencia del club para prospectos, un portal de socios fácil de usar y una marca exclusiva.',
+      'Diseño web para clubes privados, de golf, náuticos y country clubs: la experiencia del club para prospectos, portal de socios a la medida y marca propia.',
     keywords:
       'diseño web club privado, sitio web country club, página web club de golf, portal de socios club, diseño web club náutico',
     subtitle: 'Diseño web para clubes privados',
@@ -24,7 +24,7 @@ export const usPrivateClubs = defineSector({
     target: 'clubes privados',
     hero: 'Tu sitio tiene dos trabajos: que un prospecto desee pertenecer y que un socio reserve su hora de salida sin llamar. La mayoría de los clubes hacen mal los dos. Diseñamos sitios que transmiten la exclusividad de tu club y un portal de socios que se usa con gusto.',
     intro:
-      'Diseñamos para clubes privados, de golf, náuticos, ecuestres y country clubs en mercados como Palm Beach, Scottsdale, Greenwich, Naples y Dallas.',
+      'Diseñamos páginas web para clubes privados, de golf, náuticos, ecuestres y country clubs en mercados como Palm Beach, Scottsdale, Greenwich, Naples y Dallas.',
     items: [
       {
         title: 'El club para prospectos',
@@ -92,7 +92,7 @@ export const usPrivateClubs = defineSector({
     target: 'private clubs',
     hero: 'Your site has two jobs: make prospects want to belong and let members book a tee time without calling. Most clubs do both poorly. We design websites that convey your club’s exclusivity and a member portal people enjoy using.',
     intro:
-      'We design for private, golf, yacht, equestrian, and country clubs in markets like Palm Beach, Scottsdale, Greenwich, Naples, and Dallas.',
+      'We design websites for private, golf, yacht, equestrian, and country clubs in markets like Palm Beach, Scottsdale, Greenwich, Naples, and Dallas.',
     items: [
       {
         title: 'The club for prospects',

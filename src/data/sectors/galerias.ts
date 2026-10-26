@@ -24,7 +24,7 @@ export const galerias = defineSector({
     target: 'galerías de arte y casas de subastas',
     hero: 'El arte mexicano tiene coleccionistas en todo el mundo, y muchos conocen tu galería primero por su sitio, antes de una feria o de un viaje a la Ciudad de México. Si el sitio solo está en español, se ve descuidado o no deja ver bien la obra, esa conversación no empieza. Diseñamos sitios que presentan tu programa con la calidad de tus muros, en español y en inglés.',
     intro:
-      'Diseñamos para galerías de arte contemporáneo y moderno, casas de subastas, espacios independientes y talleres de gráfica en Ciudad de México, Monterrey, Guadalajara, Oaxaca y Mérida.',
+      'Diseñamos páginas web para galerías de arte contemporáneo y moderno, casas de subastas, espacios independientes y talleres de gráfica en Ciudad de México, Monterrey, Guadalajara, Oaxaca y Mérida.',
     items: [
       {
         title: 'Exposiciones y archivo',
@@ -96,7 +96,7 @@ export const galerias = defineSector({
     target: 'art galleries and auction houses in Mexico',
     hero: 'Mexican art has collectors around the world, and many discover your gallery through its website before a fair or a trip to Mexico City. If the site is only in Spanish, looks neglected, or does not show the work well, that conversation never starts. We design websites that present your program with the quality of your walls, in English and Spanish.',
     intro:
-      'We design for contemporary and modern art galleries, auction houses, independent spaces, and print studios in Mexico City, Monterrey, Guadalajara, Oaxaca, and Mérida.',
+      'We design websites for contemporary and modern art galleries, auction houses, independent spaces, and print studios in Mexico City, Monterrey, Guadalajara, Oaxaca, and Mérida.',
     items: [
       {
         title: 'Exhibitions and archive',

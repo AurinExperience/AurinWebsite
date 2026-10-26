@@ -25,7 +25,7 @@ export const usGolfCommunities = defineSector({
     target: 'comunidades de golf y resorts',
     hero: 'Quien compra en una comunidad de golf no compra solo una casa: compra sus mañanas en el campo, las cenas en el club y la comunidad con la que va a convivir. Antes de visitarla, recorre tu sitio para imaginar esa vida y comparar residencias y membresías. Diseñamos sitios que transmiten el estilo de vida de tu comunidad y llevan a la visita.',
     intro:
-      'Diseñamos para comunidades residenciales con campo de golf, resorts de golf y desarrollos de segunda casa en Scottsdale, Palm Springs, Naples, Hilton Head, Pinehurst, Austin y otros destinos.',
+      'Diseñamos páginas web para comunidades residenciales con campo de golf, resorts de golf y desarrollos de segunda casa en Scottsdale, Palm Springs, Naples, Hilton Head, Pinehurst, Austin y otros destinos.',
     items: [
       {
         title: 'El campo',
@@ -97,7 +97,7 @@ export const usGolfCommunities = defineSector({
     target: 'golf communities and resorts',
     hero: 'Buyers in a golf community are not just buying a home: they are buying mornings on the course, dinners at the club, and the neighbors they will share it with. Before visiting, they explore your website to picture that life and compare homes and memberships. We design websites that convey your community’s lifestyle and lead to a visit.',
     intro:
-      'We design for residential golf communities, golf resorts, and second-home developments in Scottsdale, Palm Springs, Naples, Hilton Head, Pinehurst, Austin, and other destinations.',
+      'We design websites for residential golf communities, golf resorts, and second-home developments in Scottsdale, Palm Springs, Naples, Hilton Head, Pinehurst, Austin, and other destinations.',
     items: [
       {
         title: 'The course',

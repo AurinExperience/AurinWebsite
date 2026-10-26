@@ -25,13 +25,15 @@ const anySector =
     : 'These are just a few examples: we adapt to almost any industry.';
 
 // Las tarjetas mezclan contenido del sitio con funciones que son desarrollo; la
-// etiqueta y esta nota dejan claro qué viene incluido y qué se cotiza aparte.
-const hasCustom = services.items.some((s) => s.custom?.length);
+// etiqueta y este recuadro dejan claro qué viene incluido y qué sí hacemos como
+// desarrollo a la medida (se platica en las primeras llamadas).
 const customTag = currentLang === 'es' ? 'A la medida' : 'Custom';
+const customTitle =
+  currentLang === 'es' ? 'También desarrollamos a la medida' : 'We also build custom features';
 const customNote =
   currentLang === 'es'
-    ? 'Todo sitio incluye formularios, WhatsApp, versión en español e inglés y descargables en PDF. Lo marcado como «A la medida» lo diseñamos y también desarrollamos su funcionalidad: se define contigo en la llamada y se cotiza aparte.'
-    : 'Every site includes forms, WhatsApp, English and Spanish versions, and PDF downloads. Anything marked “Custom” we design and also build the functionality for: we define it with you on the call and quote it separately.';
+    ? 'Todo sitio incluye formularios, WhatsApp, versión en español e inglés y descargables en PDF. Además diseñamos y programamos funciones más personalizadas y complejas, como tiendas en línea, reservas, pagos, áreas privadas, paneles para editar tu sitio o integraciones con tus sistemas. Van marcadas como «A la medida» y su alcance y costo los platicamos contigo desde las primeras llamadas.'
+    : 'Every site includes forms, WhatsApp, English and Spanish versions, and PDF downloads. We also design and build more customized, complex features, such as online stores, booking, payments, private areas, panels to edit your site, or integrations with your systems. They are marked “Custom”, and we talk through their scope and cost with you from the first calls.';
 ---
 
 <section class={styles.section} id="servicios-web" aria-labelledby="servicios-web-heading">
@@ -63,7 +65,10 @@ const customNote =
       ))}
     </div>
 
-    {hasCustom && <p class={styles.customNote}>{customNote}</p>}
+    <aside class={styles.customNote}>
+      <p class={styles.customNoteTitle}>{customTitle}</p>
+      <p class={styles.customNoteText}>{customNote}</p>
+    </aside>
 
     <a class={styles.moreLink} href={getLocalizedUrl('/services', currentLang)}>
       {moreLabel}

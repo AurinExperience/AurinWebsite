@@ -24,7 +24,7 @@ export const usCosmeticDentistry = defineSector({
     target: 'consultorios de odontología estética',
     hero: 'Un paciente que considera carillas o una rehabilitación de arcada completa está por hacer una de las compras más grandes de su vida, y la decide viendo casos. Compara galerías, lee sobre el doctor y busca cómo pagarlo antes de llamar. Diseñamos sitios que muestran tu trabajo con la calidad que tiene y convierten a ese paciente en una consulta.',
     intro:
-      'Diseñamos para consultorios de odontología estética, centros de implantes y prácticas de rehabilitación oral en Estados Unidos.',
+      'Diseñamos páginas web para consultorios de odontología estética, centros de implantes y prácticas de rehabilitación oral en Estados Unidos.',
     items: [
       {
         title: 'Antes y después',
@@ -97,7 +97,7 @@ export const usCosmeticDentistry = defineSector({
     target: 'cosmetic dentists',
     hero: 'A patient considering veneers or a full-arch restoration is about to make one of the biggest purchases of their life, and they decide by looking at cases. They compare galleries, read about the dentist, and look for a way to pay before calling. We design websites that show your work at the quality it deserves and turn that patient into a consultation.',
     intro:
-      'We design for cosmetic dental practices, implant centers, and full-mouth rehabilitation practices across the US.',
+      'We design websites for cosmetic dental practices, implant centers, and full-mouth rehabilitation practices across the US.',
     items: [
       {
         title: 'Before and after',

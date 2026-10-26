@@ -16,7 +16,7 @@ export const usNearshore = defineSector({
   es: {
     seoTitle: 'Agencia de Diseño Web Nearshore para Empresas de Estados Unidos',
     seoDescription:
-      'Estudio de diseño web nearshore en México para empresas de Estados Unidos: mismo horario, equipo senior en inglés y estándar de agencia de Nueva York con mejor valor.',
+      'Diseño web nearshore desde México para empresas de EE. UU.: tu mismo horario, equipo senior en inglés y estándar de agencia de Nueva York con mejor valor.',
     keywords:
       'agencia de diseño web nearshore, diseño web nearshore México, agencia de diseño web en México para Estados Unidos, outsourcing diseño web México',
     subtitle: 'Diseño web nearshore para empresas de Estados Unidos',
@@ -24,7 +24,7 @@ export const usNearshore = defineSector({
     target: 'empresas de Estados Unidos',
     hero: 'Contratar una agencia en Nueva York o San Francisco cuesta lo que cuesta su renta. Contratar al otro lado del mundo significa juntas a medianoche y entregas que no se parecen a lo que pediste. Somos un estudio en México que trabaja en tu horario, en inglés y con el nivel de diseño de una agencia de primera.',
     intro:
-      'Diseñamos para empresas de Estados Unidos que quieren un equipo de diseño senior y dedicado sin pagar la estructura de una agencia local: marcas en crecimiento, empresas de servicios de alto valor y equipos de marketing que necesitan más manos.',
+      'Diseñamos páginas web para empresas de Estados Unidos que quieren un equipo de diseño senior y dedicado sin pagar la estructura de una agencia local: marcas en crecimiento, empresas de servicios de alto valor y equipos de marketing que necesitan más manos.',
     items: [
       {
         title: 'Sitios web de nivel agencia',
@@ -83,7 +83,7 @@ export const usNearshore = defineSector({
   en: {
     seoTitle: 'Nearshore Web Design Agency for US Companies',
     seoDescription:
-      'Nearshore web design studio in Mexico for US companies: your business hours, a senior English-speaking team, and New York agency standards with better value.',
+      'Nearshore web design studio in Mexico for US companies: your business hours, a senior English-speaking team, and New York agency standards at better value.',
     keywords:
       'nearshore web design agency, nearshore web design Mexico, web design agency in Mexico, outsource web design to Mexico, nearshore design studio',
     subtitle: 'Nearshore web design for US companies',
@@ -91,7 +91,7 @@ export const usNearshore = defineSector({
     target: 'US companies',
     hero: 'Hiring an agency in New York or San Francisco means paying for their rent. Hiring across the world means midnight meetings and deliverables that don’t look like what you asked for. We are a studio in Mexico that works your hours, in English, at the design level of a top-tier agency.',
     intro:
-      'We design for US companies that want a dedicated senior design team without paying for a local agency’s overhead: growing brands, high-value service firms, and marketing teams that need more hands.',
+      'We design websites for US companies that want a dedicated senior design team without paying for a local agency’s overhead: growing brands, high-value service firms, and marketing teams that need more hands.',
     items: [
       {
         title: 'Agency-level websites',

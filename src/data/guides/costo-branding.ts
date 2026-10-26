@@ -25,7 +25,7 @@ export const costoBranding: Guide = {
       seo: {
         title: '¿Cuánto cuesta un logo y el branding en México? Guía 2026 | Aurin',
         description:
-          'La diferencia entre un logo y una identidad de marca, qué mueve el precio, qué entregables pedir y por qué los derechos y el registro ante el IMPI importan.',
+          'Logo o identidad de marca: en qué se diferencian, qué mueve el precio, qué entregables pedir y por qué importan los derechos y el registro ante el IMPI.',
         keywords:
           'cuánto cuesta un logo, precio logotipo México, costo branding, identidad de marca precio, manual de marca, diseño de logo para empresa',
       },

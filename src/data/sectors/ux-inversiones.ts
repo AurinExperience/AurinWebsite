@@ -25,7 +25,7 @@ export const uxInversiones = defineSector({
     hero: 'Invertir da miedo si no se entiende. Entre abrir la cuenta y hacer el primer depósito se pierde la mayoría de los usuarios. Diseñamos plataformas que explican el riesgo sin asustar, llevan al usuario a su primera inversión y le muestran con claridad cómo va su dinero.',
     stat: { value: 'Inversión', label: 'ya trabajamos con marcas financieras como Fortrade y Bonanza' },
     intro:
-      'Diseñamos para brokers, plataformas de trading, fondos y gestores patrimoniales. Cada proyecto parte del perfil de tu inversionista y de lo que necesita entender para decidir.',
+      'Hacemos el diseño UX/UI de apps de inversión y portales de clientes para brokers, plataformas de trading, fondos y gestores patrimoniales. Cada proyecto parte del perfil de tu inversionista y de lo que necesita entender para decidir.',
     items: [
       {
         title: 'Del registro al primer depósito',
@@ -92,7 +92,7 @@ export const uxInversiones = defineSector({
     hero: 'Investing is scary when you do not understand it. Most users are lost between opening an account and making a first deposit. We design platforms that explain risk without scaring people, lead them to their first investment, and show clearly how their money is doing.',
     stat: { value: 'Investing', label: 'we already work with financial brands like Fortrade and Bonanza' },
     intro:
-      'We design for brokers, trading platforms, funds, and wealth managers. Every project starts from your investor profile and what they need to understand to decide.',
+      'We design the UX/UI of investing apps and client portals for brokers, trading platforms, funds, and wealth managers. Every project starts from your investor profile and what they need to understand to decide.',
     items: [
       {
         title: 'From sign-up to first deposit',

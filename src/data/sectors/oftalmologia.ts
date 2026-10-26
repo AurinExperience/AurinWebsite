@@ -23,7 +23,7 @@ export const oftalmologia = defineSector({
     target: 'oftalmólogos y clínicas de cirugía láser',
     hero: 'Quien piensa operarse los ojos lo pospone durante años por miedo. Cuando por fin busca, quiere saber si es candidato, cómo es el procedimiento, cuánto tarda en recuperarse y quién lo va a operar. Si tu sitio no lo tranquiliza, sigue posponiendo o se va con la clínica que sí lo hizo. Diseñamos sitios que explican con claridad y convierten la duda en una valoración.',
     intro:
-      'Diseñamos para oftalmólogos, clínicas de cirugía refractiva, centros de cataratas y retina, y hospitales oftalmológicos.',
+      'Diseñamos páginas web para oftalmólogos, clínicas de cirugía refractiva, centros de cataratas y retina, y hospitales oftalmológicos.',
     items: [
       {
         title: 'Procedimientos sin miedo',
@@ -96,7 +96,7 @@ export const oftalmologia = defineSector({
     target: 'ophthalmologists and laser eye surgery clinics',
     hero: 'People considering eye surgery put it off for years out of fear. When they finally search, they want to know if they are a candidate, what the procedure is like, how long recovery takes, and who will operate. If your site does not reassure them, they keep waiting or go to the clinic that did. We design websites that explain clearly and turn doubt into a consultation.',
     intro:
-      'We design for ophthalmologists, refractive surgery clinics, cataract and retina centers, and eye hospitals.',
+      'We design websites for ophthalmologists, refractive surgery clinics, cataract and retina centers, and eye hospitals.',
     items: [
       {
         title: 'Procedures without fear',

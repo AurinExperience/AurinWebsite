@@ -23,7 +23,7 @@ export const parquesIndustriales = defineSector({
     target: 'parques industriales',
     hero: 'Antes de visitar México, el gerente de expansión de una empresa extranjera ya descartó la mitad de los parques desde su escritorio. Lo hizo comparando altura libre, carga eléctrica, distancia a la frontera y naves disponibles. Si tu sitio no lo responde en inglés y con datos, tu parque no entra en la lista corta. Diseñamos sitios que venden tu ubicación con la información que un consultor de localización necesita.',
     intro:
-      'Diseñamos para desarrolladores y administradores de parques industriales, naves build-to-suit y parques logísticos en el Bajío, el norte y el centro del país.',
+      'Diseñamos páginas web para desarrolladores y administradores de parques industriales, naves build-to-suit y parques logísticos en el Bajío, el norte y el centro del país.',
     items: [
       {
         title: 'Disponibilidad y especificaciones',
@@ -95,7 +95,7 @@ export const parquesIndustriales = defineSector({
     target: 'industrial parks',
     hero: 'Before visiting Mexico, an expansion manager has already ruled out half the parks from their desk. They did it by comparing clear height, power capacity, distance to the border, and available buildings. If your website does not answer that in English and with data, your park does not make the shortlist. We design websites that sell your location with the information a site selector needs.',
     intro:
-      'We design for developers and operators of industrial parks, build-to-suit facilities, and logistics parks in Mexico’s Bajío, northern, and central regions.',
+      'We design websites for developers and operators of industrial parks, build-to-suit facilities, and logistics parks in Mexico’s Bajío, northern, and central regions.',
     items: [
       {
         title: 'Availability and specs',

@@ -28,7 +28,7 @@ export const phoenix: Landing = {
       seo: {
         title: 'Diseño Web en Phoenix para Negocios Latinos | Aurin',
         description:
-          'Diseño web y branding en Phoenix para negocios latinos de roofing, A/C, remodelación, landscaping y servicios. Sitios bilingües que generan llamadas y estimados.',
+          'Diseño web y branding en Phoenix para negocios latinos de roofing, A/C, remodelación y landscaping. Sitios bilingües que generan llamadas y estimados.',
         keywords:
           'diseño web Phoenix, diseño de páginas web Phoenix Arizona, página web para compañía de roofing, página web para negocio de landscaping, diseño web para contratistas Phoenix, agencia hispana Phoenix',
       },
@@ -49,7 +49,7 @@ export const phoenix: Landing = {
       services: {
         heading: 'Servicios de diseño web y branding en Phoenix',
         intro:
-          'Diseñamos para negocios de Phoenix, Mesa, Glendale, Chandler, Tempe, Avondale, Goodyear y Tolleson: roofing, aire acondicionado, remodelación, pools, landscaping, handyman, limpieza, taxes y aseguranzas.',
+          'Diseñamos páginas web para negocios de Phoenix, Mesa, Glendale, Chandler, Tempe, Avondale, Goodyear y Tolleson: roofing, aire acondicionado, remodelación, pools, landscaping, handyman, limpieza, taxes y aseguranzas.',
         items: [
           {
             title: 'Sitios que generan llamadas y estimados',
@@ -171,7 +171,7 @@ export const phoenix: Landing = {
       seo: {
         title: 'Web Design for Contractors & Latino-Owned Businesses in Phoenix | Aurin',
         description:
-          'Web design and branding in Phoenix for roofing, HVAC, remodeling, pool, and landscaping companies. Bilingual sites built to generate calls and estimate requests.',
+          'Web design and branding in Phoenix for roofing, HVAC, remodeling, pool, and landscaping companies. Bilingual sites built to bring calls and estimates.',
         keywords:
           'contractor web design Phoenix, roofing website design Phoenix, HVAC website design Phoenix, Latino-owned business website Phoenix, web designer who speaks Spanish Phoenix, bilingual web design Arizona',
       },
@@ -192,7 +192,7 @@ export const phoenix: Landing = {
       services: {
         heading: 'Web design and branding services in Phoenix',
         intro:
-          'We design for businesses in Phoenix, Mesa, Glendale, Chandler, Tempe, Avondale, Goodyear, and Tolleson: roofing, HVAC, remodeling, pools, landscaping, handyman, cleaning, tax prep, and insurance.',
+          'We design websites for businesses in Phoenix, Mesa, Glendale, Chandler, Tempe, Avondale, Goodyear, and Tolleson: roofing, HVAC, remodeling, pools, landscaping, handyman, cleaning, tax prep, and insurance.',
         items: [
           {
             title: 'Websites that generate calls and estimates',

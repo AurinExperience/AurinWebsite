@@ -24,7 +24,7 @@ export const usPoolBuilders = defineSector({
     target: 'constructores de albercas de lujo',
     hero: 'Una alberca a la medida con cocina exterior y paisajismo es un proyecto de seis cifras, y el cliente lo imagina viendo tu trabajo. Compara portafolios durante semanas antes de pedir una consulta. Si tu sitio muestra proyectos chicos con fotos de celular, no te llama quien tiene el presupuesto. Diseñamos sitios que presentan cada proyecto como lo que es: una obra de arquitectura.',
     intro:
-      'Diseñamos para constructores de albercas a la medida, estudios de outdoor living y empresas de paisajismo de lujo en zonas como Scottsdale, Austin, Dallas, Miami, Palm Beach y el sur de California.',
+      'Diseñamos páginas web para constructores de albercas a la medida, estudios de outdoor living y empresas de paisajismo de lujo en zonas como Scottsdale, Austin, Dallas, Miami, Palm Beach y el sur de California.',
     items: [
       {
         title: 'Portafolio por estilo',
@@ -96,7 +96,7 @@ export const usPoolBuilders = defineSector({
     target: 'luxury pool builders',
     hero: 'A custom pool with an outdoor kitchen and landscaping is a six-figure project, and clients picture it by looking at your work. They compare portfolios for weeks before requesting a consultation. If your site shows small jobs shot on a phone, the client with the budget does not call. We design websites that present every project as what it is: a piece of architecture.',
     intro:
-      'We design for custom pool builders, outdoor living studios, and luxury landscape companies in markets like Scottsdale, Austin, Dallas, Miami, Palm Beach, and Southern California.',
+      'We design websites for custom pool builders, outdoor living studios, and luxury landscape companies in markets like Scottsdale, Austin, Dallas, Miami, Palm Beach, and Southern California.',
     items: [
       {
         title: 'Portfolio by style',

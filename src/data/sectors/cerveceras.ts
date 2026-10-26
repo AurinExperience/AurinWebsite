@@ -23,7 +23,7 @@ export const cerveceras = defineSector({
     target: 'cerveceras y destilerías',
     hero: 'Tu cerveza o tu destilado compite en un refrigerador lleno de etiquetas y en una carta con veinte opciones. Lo que hace que alguien lo pida es la marca, la historia y las ganas de visitar el lugar donde se hace. Diseñamos sitios con personalidad que presentan cada estilo, llevan gente a tu taproom o destilería y abren puertas con bares y tiendas.',
     intro:
-      'Diseñamos para cerveceras artesanales, brewpubs, destilerías de gin, whisky, ron y licores, y marcas de bebidas espirituosas independientes.',
+      'Diseñamos páginas web para cerveceras artesanales, brewpubs, destilerías de gin, whisky, ron y licores, y marcas de bebidas espirituosas independientes.',
     items: [
       {
         title: 'Estilos y lanzamientos',
@@ -96,7 +96,7 @@ export const cerveceras = defineSector({
     target: 'breweries and distilleries',
     hero: 'Your beer or spirit competes in a fridge full of labels and on a menu with twenty options. What makes someone order it is the brand, the story, and the urge to visit the place where it is made. We design websites with personality that present every style, bring people to your taproom or distillery, and open doors with bars and retailers.',
     intro:
-      'We design for craft breweries, brewpubs, gin, whiskey, rum, and liqueur distilleries, and independent spirits brands.',
+      'We design websites for craft breweries, brewpubs, gin, whiskey, rum, and liqueur distilleries, and independent spirits brands.',
     items: [
       {
         title: 'Styles and releases',

@@ -23,7 +23,7 @@ export const blindadoras = defineSector({
     target: 'blindadoras y empresas de seguridad ejecutiva',
     hero: 'Quien blinda un vehículo o contrata protección ejecutiva está comprando tranquilidad, y no se la confía a cualquiera. Revisa certificaciones, niveles de protección, garantías y quién está detrás, y espera que todo se maneje con discreción desde el primer contacto. Diseñamos sitios que transmiten solidez técnica y confidencialidad sin exhibir a tus clientes.',
     intro:
-      'Diseñamos para blindadoras automotrices y arquitectónicas, empresas de protección ejecutiva, seguridad patrimonial y consultoría de riesgos.',
+      'Diseñamos páginas web para blindadoras automotrices y arquitectónicas, empresas de protección ejecutiva, seguridad patrimonial y consultoría de riesgos.',
     items: [
       {
         title: 'Niveles de protección claros',
@@ -95,7 +95,7 @@ export const blindadoras = defineSector({
     target: 'armoring and executive security firms',
     hero: 'Whoever armors a vehicle or hires executive protection is buying peace of mind, and they do not trust it to just anyone. They review certifications, protection levels, warranties, and who is behind the company, and expect discretion from the first contact. We design websites that convey technical strength and confidentiality without exposing your clients.',
     intro:
-      'We design for vehicle and architectural armoring companies, executive protection firms, asset security, and risk consulting firms.',
+      'We design websites for vehicle and architectural armoring companies, executive protection firms, asset security, and risk consulting firms.',
     items: [
       {
         title: 'Clear protection levels',

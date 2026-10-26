@@ -16,7 +16,7 @@ export const usYachtCharters = defineSector({
   es: {
     seoTitle: 'Diseño Web para Chárter y Venta de Yates de Lujo',
     seoDescription:
-      'Sitios web para empresas de chárter y brokers de yates de lujo: embarcaciones presentadas como merecen, destinos, cotización rápida y la discreción que esperan tus clientes.',
+      'Diseño web para chárter y brokers de yates de lujo: embarcaciones presentadas como merecen, destinos y la discreción que esperan tus clientes.',
     keywords:
       'diseño web yates, sitio web chárter de yates, página web broker de yates, diseño web yates de lujo Miami, sitio web venta de yates',
     subtitle: 'Diseño web para chárter y venta de yates',
@@ -24,7 +24,7 @@ export const usYachtCharters = defineSector({
     target: 'empresas de yates',
     hero: 'Quien renta o compra un yate de lujo decide por cómo se ve la embarcación y por la confianza que le da quien la ofrece. Si tu sitio parece un catálogo genérico, tu flota pierde todo su encanto. Diseñamos sitios que hacen sentir el viaje antes de zarpar y llevan a una consulta privada.',
     intro:
-      'Diseñamos para empresas de chárter, brokers y administradoras de yates de lujo en mercados como Miami, Fort Lauderdale, Palm Beach, Newport y San Diego.',
+      'Diseñamos páginas web para empresas de chárter, brokers y administradoras de yates de lujo en mercados como Miami, Fort Lauderdale, Palm Beach, Newport y San Diego.',
     items: [
       {
         title: 'Embarcaciones que lucen',
@@ -84,7 +84,7 @@ export const usYachtCharters = defineSector({
   en: {
     seoTitle: 'Yacht Charter & Yacht Broker Website Design',
     seoDescription:
-      'Websites for luxury yacht charter companies and yacht brokers: vessels presented the way they deserve, destinations, fast inquiries, and the discretion your clients expect.',
+      'Websites for luxury yacht charter companies and brokers: vessels presented as they deserve, destinations, and the discretion your clients expect.',
     keywords:
       'yacht charter website design, yacht broker website design, luxury yacht website, yacht charter web design Miami, yacht sales website',
     subtitle: 'Web design for yacht charters and brokers',
@@ -92,7 +92,7 @@ export const usYachtCharters = defineSector({
     target: 'yacht companies',
     hero: 'People who charter or buy a luxury yacht decide by how the vessel looks and how much they trust whoever offers it. If your site looks like a generic catalog, your fleet loses its magic. We design websites that let people feel the voyage before leaving the dock and lead to a private inquiry.',
     intro:
-      'We design for luxury yacht charter companies, brokers, and yacht management firms in markets like Miami, Fort Lauderdale, Palm Beach, Newport, and San Diego.',
+      'We design websites for luxury yacht charter companies, brokers, and yacht management firms in markets like Miami, Fort Lauderdale, Palm Beach, Newport, and San Diego.',
     items: [
       {
         title: 'Vessels that shine',
