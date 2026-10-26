@@ -37,7 +37,7 @@ export const bajaCalifornia: Landing = {
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           { value: '+20', label: 'años diseñando marcas y productos digitales' },
-          { value: '90+', label: 'la meta de PageSpeed que medimos en cada entrega' },
+          { value: 'Tuyos', label: 'los datos: analítica y conversiones a tu nombre' },
           { value: 'ES/EN', label: 'sitios en dos idiomas para el mercado de ambos lados' },
         ],
       },
@@ -180,7 +180,7 @@ export const bajaCalifornia: Landing = {
         ctaSecondary: 'See how we work',
         stats: [
           { value: '+20', label: 'years designing brands and digital products' },
-          { value: '90+', label: 'the PageSpeed target we measure on every delivery' },
+          { value: 'Yours', label: 'the data: analytics and conversions in your name' },
           { value: 'ES/EN', label: 'two-language sites for the market on both sides' },
         ],
       },

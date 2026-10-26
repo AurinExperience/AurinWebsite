@@ -46,7 +46,7 @@ export const cdmx: Landing = {
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           { value: '+20', label: 'años diseñando marcas y productos digitales' },
-          { value: '90+', label: 'la meta de PageSpeed que medimos en cada entrega' },
+          { value: 'Tuyos', label: 'los datos: analítica y conversiones a tu nombre' },
           { value: '0', label: 'plantillas: cada sitio se diseña desde cero' },
         ],
       },
@@ -189,7 +189,7 @@ export const cdmx: Landing = {
         ctaSecondary: 'See how we work',
         stats: [
           { value: '+20', label: 'years designing brands and digital products' },
-          { value: '90+', label: 'the PageSpeed target we measure on every delivery' },
+          { value: 'Yours', label: 'the data: analytics and conversions in your name' },
           { value: '0', label: 'templates: every site is designed from scratch' },
         ],
       },

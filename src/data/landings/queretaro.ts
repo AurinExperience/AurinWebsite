@@ -42,7 +42,7 @@ export const queretaro: Landing = {
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           { value: '+20', label: 'años diseñando marcas y productos digitales' },
-          { value: '90+', label: 'la meta de PageSpeed que medimos en cada entrega' },
+          { value: 'Tuyos', label: 'los datos: analítica y conversiones a tu nombre' },
           { value: 'ES/EN', label: 'sitios bilingües para empresas con clientes fuera de México' },
         ],
       },
@@ -185,7 +185,7 @@ export const queretaro: Landing = {
         ctaSecondary: 'See how we work',
         stats: [
           { value: '+20', label: 'years designing brands and digital products' },
-          { value: '90+', label: 'the PageSpeed target we measure on every delivery' },
+          { value: 'Yours', label: 'the data: analytics and conversions in your name' },
           { value: 'ES/EN', label: 'bilingual sites for companies selling outside Mexico' },
         ],
       },

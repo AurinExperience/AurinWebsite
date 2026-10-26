@@ -352,7 +352,7 @@ export const translations = {
         },
         {
           question: "What makes Aurin different from other agencies?",
-          answer: "28 years designing and building real products (since 1998), before and after generative AI. We use AI to move faster, but every decision about flows, hierarchy and usability comes from experience with real users. Fixed-scope quotes, one accountable team and measurable results: PageSpeed 90+ and conversion tracking on every launch."
+          answer: "28 years designing and building real products (since 1998), before and after generative AI. We use AI to move faster, but every decision about flows, hierarchy and usability comes from experience with real users. Fixed-scope quotes, one accountable team and a site you can measure: we hand it over with Google Analytics and Search Console set up in your name, so the data is yours from launch day."
         },
         {
           question: "How do I start a project with Aurin?",
@@ -1179,7 +1179,7 @@ export const translations = {
         },
         {
           question: "¿Qué hace diferente a Aurin de otras agencias?",
-          answer: "28 años diseñando y construyendo productos reales (desde 1998), antes y después de la IA generativa. Usamos IA para ir más rápido, pero cada decisión sobre flujos, jerarquía y usabilidad sale de experiencia con usuarios reales. Cotización con alcance cerrado, un solo equipo responsable y resultados medibles: PageSpeed 90+ y medición de conversiones en cada lanzamiento."
+          answer: "28 años diseñando y construyendo productos reales (desde 1998), antes y después de la IA generativa. Usamos IA para ir más rápido, pero cada decisión sobre flujos, jerarquía y usabilidad sale de experiencia con usuarios reales. Cotización con alcance cerrado, un solo equipo responsable y un sitio que se puede medir: lo entregamos con Google Analytics y Search Console configurados a tu nombre, así que los datos son tuyos desde el lanzamiento."
         },
         {
           question: "¿Cómo empiezo un proyecto con Aurin?",

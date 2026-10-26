@@ -40,7 +40,7 @@ export const morelos: Landing = {
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           { value: '+20', label: 'años diseñando desde Cuernavaca para todo México' },
-          { value: '90+', label: 'la meta de PageSpeed que medimos en cada entrega' },
+          { value: 'Tuyos', label: 'los datos: analítica y conversiones a tu nombre' },
           { value: '1', label: 'oficina en Tlaltenango, por si prefieres vernos en persona' },
         ],
       },
@@ -182,7 +182,7 @@ export const morelos: Landing = {
         ctaSecondary: 'See how we work',
         stats: [
           { value: '+20', label: 'years designing from Cuernavaca for all of Mexico' },
-          { value: '90+', label: 'the PageSpeed target we measure on every delivery' },
+          { value: 'Yours', label: 'the data: analytics and conversions in your name' },
           { value: '1', label: 'office in Tlaltenango, if you would rather meet in person' },
         ],
       },
