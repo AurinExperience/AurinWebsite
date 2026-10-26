@@ -55,7 +55,7 @@ export const usNearshore = defineSector({
     pages: 'inicio, servicios, casos, nosotros, contacto y las landing pages que pida tu estrategia',
     costQuestion: '¿Cuánto cuesta contratar una agencia de diseño web nearshore?',
     costScope:
-      'cuántas páginas y secciones, si incluye marca, si va en uno o en los dos idiomas y si necesitas mantenimiento mensual',
+      'cuántas páginas y secciones, si incluye marca y si necesitas mantenimiento mensual',
     faqs: [
       {
         question: '¿Qué significa nearshore?',
@@ -122,7 +122,7 @@ export const usNearshore = defineSector({
     pages: 'home, services, case studies, about, contact, and the landing pages your strategy calls for',
     costQuestion: 'How much does a nearshore web design agency cost?',
     costScope:
-      'how many pages and sections, whether it includes branding, whether it runs in one language or both, and whether you need monthly maintenance',
+      'how many pages and sections, whether it includes branding, and whether you need monthly maintenance',
     faqs: [
       {
         question: 'What does nearshore mean?',

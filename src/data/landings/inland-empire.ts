@@ -113,7 +113,7 @@ export const inlandEmpire: Landing = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas: servicios, proyectos y contacto, y si el sitio va en uno o en los dos idiomas.',
+            text: 'Definimos las páginas: servicios, proyectos y contacto.',
           },
           {
             name: 'Diseño',
@@ -121,7 +121,7 @@ export const inlandEmpire: Landing = {
           },
           {
             name: 'Lanzamiento',
-            text: 'Construimos el sitio, lo conectamos a tu dominio y configuramos para que las solicitudes de estimado te lleguen directo. Después, los cambios los puedes hacer tú: en una sesión te explicamos cómo. O, si prefieres no ocuparte, nos encargamos nosotros con un plan mensual de mantenimiento.',
+            text: 'Construimos el sitio, lo conectamos a tu dominio y configuramos para que las solicitudes de estimado te lleguen directo. Después, los cambios los hacemos nosotros con un plan mensual de mantenimiento o, si lo incluimos en el alcance, te dejamos un panel para que tu equipo los haga.',
           },
         ],
       },
@@ -132,7 +132,7 @@ export const inlandEmpire: Landing = {
           {
             question: '¿Cuánto cuesta una página web en Riverside o San Bernardino?',
             answer:
-              'Depende del alcance: cuántas páginas, si va en dos idiomas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende del alcance: cuántas páginas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: '¿Necesito sitio si trabajo con contratistas y no con el público?',
@@ -255,7 +255,7 @@ export const inlandEmpire: Landing = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages: services, projects, and contact, and whether the site runs in one language or both.',
+            text: 'We define the pages: services, projects, and contact.',
           },
           {
             name: 'Design',
@@ -263,7 +263,7 @@ export const inlandEmpire: Landing = {
           },
           {
             name: 'Launch',
-            text: 'We build the site, connect it to your domain, and set it up so estimate requests land straight in your inbox. After that, you can make changes yourself: we walk you through it in one session. Or, if you would rather not deal with it, we handle it with a monthly maintenance plan.',
+            text: 'We build the site, connect it to your domain, and set it up so estimate requests land straight in your inbox. After that, we handle changes with a monthly maintenance plan or, if it is part of the scope, we set up a panel so your team can make them.',
           },
         ],
       },
@@ -274,7 +274,7 @@ export const inlandEmpire: Landing = {
           {
             question: 'How much does a website cost in Riverside or San Bernardino?',
             answer:
-              'It depends on scope: how many pages, whether it runs in two languages, and whether you also need a brand. After a call we send an itemized quote.',
+              'It depends on scope: how many pages and whether you also need a brand. After a call we send an itemized quote.',
           },
           {
             question: 'Do I need a website if I work with contractors, not the public?',

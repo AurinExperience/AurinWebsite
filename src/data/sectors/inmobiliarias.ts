@@ -61,7 +61,7 @@ export const inmobiliarias: Sector = {
         ],
       },
       services: {
-        heading: 'Servicios de diseño web para inmobiliarias',
+        heading: 'Diseño web para inmobiliarias: lo que puede incluir tu sitio',
         intro:
           'Diseñamos para inmobiliarias, asesores, desarrolladores y proyectos en preventa. Cada página web inmobiliaria se diseña a partir de lo que vendes y del comprador que quieres atraer.',
         items: [
@@ -69,13 +69,14 @@ export const inmobiliarias: Sector = {
             title: 'Propiedades que se antojan',
             description:
               'Cada propiedad o desarrollo tiene su ficha con fotos grandes, planos, amenidades y ubicación. El comprador entiende lo que ofreces sin tener que preguntar.',
-            bullets: ['Galerías, planos y amenidades', 'Mapa y entorno de la propiedad', 'Filtros por tipo, zona y precio'],
+            bullets: ['Galerías, planos y amenidades', 'Mapa y entorno de la propiedad'],
+            custom: ['Filtros por tipo, zona y precio'],
           },
           {
             title: 'Prospectos por propiedad',
             description:
               'Cada ficha tiene su propio formulario y botón de WhatsApp, así sabes exactamente qué propiedad le interesa a cada prospecto y respondes más rápido.',
-            bullets: ['Formulario por propiedad', 'Contacto directo por WhatsApp', 'Agenda de visitas'],
+            bullets: ['Formulario por propiedad', 'Contacto directo por WhatsApp', 'Solicitud de visita'],
           },
           {
             title: 'Que te encuentren en Google y en la IA',
@@ -122,7 +123,7 @@ export const inmobiliarias: Sector = {
           {
             question: '¿Cuánto cuesta la página web de una inmobiliaria?',
             answer:
-              'Depende del alcance: cuántas propiedades, si necesitas filtros o un administrador para subirlas, si va en uno o en los dos idiomas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende del alcance: cuántas propiedades, si necesitas filtros o un administrador para subirlas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: 'Ya publico en portales, ¿necesito un sitio propio?',
@@ -132,7 +133,7 @@ export const inmobiliarias: Sector = {
           {
             question: '¿Puedo subir y quitar propiedades yo mismo?',
             answer:
-              'Sí. Podemos incluir un administrador para que tú o tu equipo agreguen, editen y den de baja propiedades sin depender de nosotros.',
+              'Sí, con un administrador a la medida para que tú o tu equipo agreguen, editen y den de baja propiedades sin depender de nosotros.',
           },
           s.faqAi('mi inmobiliaria'),
           c.faqPayment,
@@ -174,7 +175,7 @@ export const inmobiliarias: Sector = {
         ],
       },
       services: {
-        heading: 'Web design services for real estate',
+        heading: 'Web design for real estate: what your site can include',
         intro:
           'We design for agencies, agents, developers, and pre-sale projects. Every real estate website is designed around what you sell and the buyer you want to attract.',
         items: [
@@ -182,13 +183,14 @@ export const inmobiliarias: Sector = {
             title: 'Properties people want',
             description:
               'Every property or development gets its own page with large photos, floor plans, amenities, and location. Buyers understand what you offer without having to ask.',
-            bullets: ['Galleries, floor plans, and amenities', 'Map and surroundings', 'Filters by type, area, and price'],
+            bullets: ['Galleries, floor plans, and amenities', 'Map and surroundings'],
+            custom: ['Filters by type, area, and price'],
           },
           {
             title: 'Leads per property',
             description:
               'Each listing has its own form and WhatsApp button, so you know exactly which property each lead wants and can respond faster.',
-            bullets: ['Form per property', 'Direct contact over WhatsApp', 'Viewing scheduling'],
+            bullets: ['Form per property', 'Direct contact over WhatsApp', 'Viewing requests'],
           },
           {
             title: 'Get found on Google and by AI',
@@ -235,7 +237,7 @@ export const inmobiliarias: Sector = {
           {
             question: 'How much does a real estate website cost?',
             answer:
-              'It depends on scope: how many properties, whether you need filters or an admin to upload them, whether it runs in one language or both, and whether you also need a brand. After a call we send an itemized quote.',
+              'It depends on scope: how many properties, whether you need filters or an admin to upload them, and whether you also need a brand. After a call we send an itemized quote.',
           },
           {
             question: 'I already list on portals. Do I need my own site?',
@@ -245,7 +247,7 @@ export const inmobiliarias: Sector = {
           {
             question: 'Can I add and remove properties myself?',
             answer:
-              'Yes. We can include an admin panel so you or your team can add, edit, and remove properties without depending on us.',
+              'Yes, with a custom admin panel so you or your team can add, edit, and remove properties without depending on us.',
           },
           S.faqAi('my real estate business'),
           C.faqPayment,

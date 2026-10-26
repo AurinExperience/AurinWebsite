@@ -50,7 +50,7 @@ export const nayarit: Landing = {
             title: 'Sitios para hoteles pequeños y rentas',
             description:
               'Un huésped elige un lugar pequeño por su ambiente. El sitio lo muestra con buenas fotos y permite pedir disponibilidad o reservar directo.',
-            bullets: ['Galería de espacios', 'Reservas o solicitud de disponibilidad', 'Sitio en español y en inglés'],
+            bullets: ['Galería de espacios', 'Solicitud de disponibilidad', 'Sitio en español y en inglés'],
           },
           {
             title: 'Escuelas de surf, yoga y retiros',
@@ -58,8 +58,10 @@ export const nayarit: Landing = {
               'Clases, paquetes y fechas de retiros: tu cliente quiere entender qué incluye y reservar su lugar sin mandar diez mensajes. Lo organizamos para que sea sencillo.',
             bullets: [
               'Página por clase, paquete o retiro',
-              'Reservas en línea',
               'Contacto por WhatsApp o formulario',
+            ],
+            custom: [
+              'Reservas en línea',
             ],
           },
           {
@@ -90,7 +92,7 @@ export const nayarit: Landing = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas, qué información va en cada una y si el sitio va en uno o en los dos idiomas.',
+            text: 'Definimos las páginas y qué información va en cada una.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -104,7 +106,7 @@ export const nayarit: Landing = {
           {
             question: 'Organizo retiros, ¿el sitio puede recibir reservaciones?',
             answer:
-              'Sí. El sitio puede incluir reservas o solicitudes por formulario. Cómo se conecta con tu forma de operar lo definimos en la cotización.',
+              'Sí. El sitio incluye solicitudes por formulario y, como desarrollo a la medida, puede sumar reservas en línea. Cómo se conecta con tu forma de operar lo definimos en la cotización.',
           },
           {
             question: 'Muchos de mis clientes son extranjeros, ¿el sitio va en inglés?',
@@ -154,13 +156,14 @@ export const nayarit: Landing = {
             title: 'Websites for small hotels and rentals',
             description:
               'Guests choose a small place for its vibe. The site shows it with good photos and lets them ask for availability or book directly.',
-            bullets: ['Space gallery', 'Bookings or availability requests', 'Site in Spanish and English'],
+            bullets: ['Space gallery', 'Availability requests', 'Site in Spanish and English'],
           },
           {
             title: 'Surf schools, yoga, and retreats',
             description:
               'Classes, packages, and retreat dates: customers want to understand what is included and save their spot without sending ten messages. We organize it to be simple.',
-            bullets: ['A page per class, package, or retreat', 'Online bookings', 'Contact by WhatsApp or form'],
+            bullets: ['A page per class, package, or retreat', 'Contact by WhatsApp or form'],
+            custom: ['Online bookings'],
           },
           {
             title: 'Real estate for international buyers',
@@ -190,7 +193,7 @@ export const nayarit: Landing = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages, what information goes on each, and whether the site runs in one language or both.',
+            text: 'We define the pages and what information goes on each.',
           },
           C.stepDesign,
           C.stepLaunch,
@@ -204,7 +207,7 @@ export const nayarit: Landing = {
           {
             question: 'I organize retreats. Can the site take reservations?',
             answer:
-              'Yes. The site can include bookings or requests by form. How it fits the way you operate is defined in the quote.',
+              'Yes. The site includes requests by form and, as custom development, can add online booking. How it fits the way you operate is defined in the quote.',
           },
           {
             question: 'Many of my customers are foreigners. Will the site be in English?',

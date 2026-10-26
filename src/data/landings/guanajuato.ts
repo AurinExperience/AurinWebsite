@@ -62,16 +62,20 @@ export const guanajuato: Landing = {
             bullets: [
               'Capacidades, planta y certificaciones con jerarquía clara',
               'Historia de marca para fabricantes con trayectoria',
+            ],
+            custom: [
               'CMS para actualizar catálogo y contenidos',
             ],
           },
           {
             title: 'Portal de distribuidores',
             description:
-              'Si ya tienes cartera de clientes recurrentes, un acceso privado les ahorra la llamada: consultan su lista de precios, descargan fichas y vuelven a pedir sin que alguien de tu equipo lo capture a mano.',
+              'Si ya tienes cartera de clientes recurrentes, un acceso privado, que desarrollamos a la medida, les ahorra la llamada: consultan su lista de precios, descargan fichas y vuelven a pedir sin que alguien de tu equipo lo capture a mano.',
             bullets: [
-              'Acceso por cliente con su propia lista de precios',
               'Descarga de fichas técnicas y material de venta',
+            ],
+            custom: [
+              'Acceso por cliente con su propia lista de precios',
               'Historial y recompra en pocos pasos',
             ],
           },
@@ -106,7 +110,7 @@ export const guanajuato: Landing = {
           },
           {
             name: 'Desarrollo y lanzamiento',
-            text: 'Construimos el sitio optimizado para velocidad, SEO y todos los dispositivos. Cargamos el catálogo inicial, configuramos analítica y capacitamos a tu equipo para que puedan mantenerlo ellos.',
+            text: 'Construimos el sitio optimizado para velocidad, SEO y todos los dispositivos. Cargamos el catálogo inicial, configuramos analítica y, si el alcance incluye un panel, capacitamos a tu equipo para que puedan mantenerlo ellos.',
           },
         ],
       },
@@ -122,7 +126,7 @@ export const guanajuato: Landing = {
           {
             question: '¿Pueden hacer que mis clientes vean precios distintos según su volumen?',
             answer:
-              'Sí, y es una de las razones más comunes por las que un fabricante quiere sitio. Se resuelve con acceso por cliente: cada uno entra con su usuario y ve su lista de precios y sus condiciones. El catálogo público queda visible para atraer clientes nuevos, pero sin precios, que es lo que casi siempre pide el área comercial.',
+              'Sí, y es una de las razones más comunes por las que un fabricante quiere sitio. Se resuelve con un acceso por cliente, que desarrollamos a la medida: cada uno entra con su usuario y ve su lista de precios y sus condiciones. El catálogo público queda visible para atraer clientes nuevos, pero sin precios, que es lo que casi siempre pide el área comercial.',
           },
           {
             question: 'Vendemos a mayoreo, no al consumidor final. ¿Nos sirve una tienda en línea?',
@@ -132,7 +136,7 @@ export const guanajuato: Landing = {
           {
             question: '¿Se puede conectar con nuestro sistema de inventario o ERP?',
             answer:
-              'En muchos casos sí, siempre que tu sistema permita salida de datos por API o por archivo. Lo revisamos en el descubrimiento, antes de prometer nada: hay sistemas que lo resuelven en días y otros donde conviene empezar con una carga periódica y automatizar después. Lo que no hacemos es cotizar una integración sin haber visto qué expone tu sistema.',
+              'En muchos casos sí, como desarrollo a la medida, siempre que tu sistema permita salida de datos por API o por archivo. Lo revisamos en el descubrimiento, antes de prometer nada: hay sistemas que lo resuelven en días y otros donde conviene empezar con una carga periódica y automatizar después. Lo que no hacemos es cotizar una integración sin haber visto qué expone tu sistema.',
           },
           {
             question: '¿Trabajan con empresas de calzado y marroquinería de León?',
@@ -205,16 +209,20 @@ export const guanajuato: Landing = {
             bullets: [
               'Capabilities, plant, and certifications with clear hierarchy',
               'Brand story for manufacturers with a track record',
+            ],
+            custom: [
               'A CMS to update catalog and content',
             ],
           },
           {
             title: 'Distributor portal',
             description:
-              'If you already have recurring clients, a private login saves them the phone call: they check their price list, download spec sheets, and reorder without someone on your team keying it in by hand.',
+              'If you already have recurring clients, a private login, custom-built for you, saves them the phone call: they check their price list, download spec sheets, and reorder without someone on your team keying it in by hand.',
             bullets: [
-              'Per-client access with their own price list',
               'Spec sheet and sales material downloads',
+            ],
+            custom: [
+              'Per-client access with their own price list',
               'Order history and quick reorder',
             ],
           },
@@ -249,7 +257,7 @@ export const guanajuato: Landing = {
           },
           {
             name: 'Development and launch',
-            text: 'We build the site optimized for speed, SEO, and every device. We load the initial catalog, configure analytics, and train your team so they can maintain it themselves.',
+            text: 'We build the site optimized for speed, SEO, and every device. We load the initial catalog, configure analytics, and, if the scope includes a panel, train your team so they can maintain it themselves.',
           },
         ],
       },
@@ -265,7 +273,7 @@ export const guanajuato: Landing = {
           {
             question: 'Can my clients see different prices depending on their volume?',
             answer:
-              'Yes, and it is one of the most common reasons a manufacturer wants a site. It is solved with per-client access: each one logs in and sees their own price list and terms. The public catalog stays visible to attract new clients but without prices, which is what the sales team almost always asks for.',
+              'Yes, and it is one of the most common reasons a manufacturer wants a site. It is solved with per-client access, built as custom development: each one logs in and sees their own price list and terms. The public catalog stays visible to attract new clients but without prices, which is what the sales team almost always asks for.',
           },
           {
             question: 'We sell wholesale, not to end consumers. Is an online store useful to us?',
@@ -275,7 +283,7 @@ export const guanajuato: Landing = {
           {
             question: 'Can it connect to our inventory system or ERP?',
             answer:
-              'In many cases yes, as long as your system can export data via API or file. We review it during discovery, before promising anything: some systems solve it in days, others make more sense starting with a periodic upload and automating later. What we do not do is quote an integration without having seen what your system exposes.',
+              'In many cases yes, as custom development, as long as your system can export data via API or file. We review it during discovery, before promising anything: some systems solve it in days, others make more sense starting with a periodic upload and automating later. What we do not do is quote an integration without having seen what your system exposes.',
           },
           {
             question: 'Do you work with footwear and leather goods companies in León?',

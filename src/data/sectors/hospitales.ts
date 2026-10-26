@@ -35,8 +35,8 @@ export const hospitales = defineSector({
       {
         title: 'Urgencias y contacto sin buscar',
         description:
-          'Teléfono de urgencias, ubicación y horarios visibles en cada pantalla, y citas que se agendan en línea.',
-        bullets: ['Urgencias siempre visibles', 'Agenda de citas', 'Contacto directo por WhatsApp'],
+          'Teléfono de urgencias, ubicación y horarios visibles en cada pantalla, y solicitud de cita en línea.',
+        bullets: ['Urgencias siempre visibles', 'Solicitud de citas', 'Contacto directo por WhatsApp'],
       },
       {
         title: 'Que te encuentren en Google y en la IA',
@@ -55,12 +55,12 @@ export const hospitales = defineSector({
     pages: 'especialidades, directorio médico, urgencias, estudios, seguros y aviso de privacidad',
     costQuestion: '¿Cuánto cuesta la página web de un hospital?',
     costScope:
-      'cuántas especialidades y médicos, si incluye agenda en línea y directorio administrable, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántas especialidades y médicos, si incluye agenda en línea y directorio administrable y si también necesitas marca',
     faqs: [
       {
         question: '¿Podemos actualizar el directorio médico nosotros?',
         answer:
-          'Sí. Incluimos un administrador para que tu equipo agregue médicos, especialidades y estudios sin depender de nosotros.',
+          'Sí, con un administrador a la medida para que tu equipo agregue médicos, especialidades y estudios sin depender de nosotros.',
       },
       {
         question: '¿Qué pasa con los datos de los pacientes?',
@@ -103,8 +103,8 @@ export const hospitales = defineSector({
       {
         title: 'Emergencies and contact, no searching',
         description:
-          'Emergency phone, location, and hours visible on every screen, and appointments booked online.',
-        bullets: ['Emergencies always visible', 'Appointment booking', 'Direct contact over WhatsApp'],
+          'Emergency phone, location, and hours visible on every screen, and online appointment requests.',
+        bullets: ['Emergencies always visible', 'Appointment requests', 'Direct contact over WhatsApp'],
       },
       {
         title: 'Get found on Google and by AI',
@@ -123,12 +123,12 @@ export const hospitales = defineSector({
     pages: 'specialties, physician directory, emergencies, tests, insurance, and the privacy notice',
     costQuestion: 'How much does a hospital website cost?',
     costScope:
-      'how many specialties and doctors, whether it includes online booking and an editable directory, whether it runs in one language or both, and whether you also need a brand',
+      'how many specialties and doctors, whether it includes online booking and an editable directory, and whether you also need a brand',
     faqs: [
       {
         question: 'Can we update the physician directory ourselves?',
         answer:
-          'Yes. We include an admin so your team can add doctors, specialties, and tests without depending on us.',
+          'Yes, with a custom admin so your team can add doctors, specialties, and tests without depending on us.',
       },
       {
         question: 'What about patient data?',

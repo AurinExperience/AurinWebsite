@@ -50,28 +50,31 @@ export const dentistas: Sector = {
         titleLead: 'Diseño Web para',
         titleAccent: 'Dentistas',
         description:
-          'Antes de una ortodoncia o un implante, el paciente compara clínicas con calma: revisa tratamientos, casos y opiniones, y cada vez más le pregunta a una IA. Diseñamos sitios que lo convencen de que tu clínica es la indicada y le permiten agendar su valoración en el momento.',
+          'Antes de una ortodoncia o un implante, el paciente compara clínicas con calma: revisa tratamientos, casos y opiniones, y cada vez más le pregunta a una IA. Diseñamos sitios que lo convencen de que tu clínica es la indicada y le permiten pedir su valoración en el momento.',
         cta: 'Cotiza tu sitio',
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           c.stats[0],
-          { value: '24/7', label: 'tus pacientes pueden agendar su valoración a cualquier hora' },
+          { value: '24/7', label: 'tus pacientes pueden pedir su valoración a cualquier hora' },
           { value: 'Dental', label: 'ya trabajamos con marcas de salud dental como Dentol' },
         ],
       },
       services: {
-        heading: 'Servicios de diseño web para dentistas',
+        heading: 'Diseño web para dentistas: lo que puede incluir tu sitio',
         intro:
           'Diseñamos para dentistas, ortodoncistas, endodoncistas y clínicas dentales. Cada página web para consultorio dental se diseña alrededor de los tratamientos que más te importan y de cómo prefieres recibir a tus pacientes.',
         items: [
           {
             title: 'Valoraciones en línea',
             description:
-              'La primera cita es la que más cuesta conseguir. El paciente agenda su valoración cuando le queda bien, también de noche o en fin de semana, y la solicitud te llega directo.',
+              'La primera cita es la que más cuesta conseguir. El paciente pide su valoración cuando le queda bien, también de noche o en fin de semana, y la solicitud te llega directo.',
             bullets: [
               'Botón de valoración visible en cada página',
-              'Formulario o agenda conectada a tu calendario',
+              'Formulario de valoración',
               'Contacto directo por WhatsApp',
+            ],
+            custom: [
+              'Agenda conectada a tu calendario',
             ],
           },
           {
@@ -129,7 +132,7 @@ export const dentistas: Sector = {
           {
             question: '¿Cuánto cuesta la página web de una clínica dental?',
             answer:
-              'Depende del alcance: cuántos tratamientos, si incluye agenda en línea, si va en uno o en los dos idiomas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende del alcance: cuántos tratamientos, si incluye agenda en línea y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: '¿Puedo mostrar casos de antes y después?',
@@ -139,7 +142,7 @@ export const dentistas: Sector = {
           {
             question: '¿El sitio puede recibir solicitudes de valoración?',
             answer:
-              'Sí. Puede incluir un formulario, un botón de WhatsApp o una agenda en línea conectada a tu calendario, según cómo organices tu clínica.',
+              'Sí. Incluye un formulario y un botón de WhatsApp, y si lo necesitas desarrollamos a la medida una agenda en línea conectada a tu calendario.',
           },
           s.faqAi('mi clínica dental'),
           c.faqPayment,
@@ -171,28 +174,31 @@ export const dentistas: Sector = {
         titleLead: 'Web Design for',
         titleAccent: 'Dentists',
         description:
-          'Before braces or an implant, patients compare clinics carefully: they review treatments, cases, and reviews, and more and more often they ask an AI. We design websites that convince them your clinic is the right one and let them book their consultation on the spot.',
+          'Before braces or an implant, patients compare clinics carefully: they review treatments, cases, and reviews, and more and more often they ask an AI. We design websites that convince them your clinic is the right one and let them request their consultation on the spot.',
         cta: 'Request a quote',
         ctaSecondary: 'See how we work',
         stats: [
           C.stats[0],
-          { value: '24/7', label: 'patients can book their consultation any time' },
+          { value: '24/7', label: 'patients can request their consultation any time' },
           { value: 'Dental', label: 'we already work with dental brands like Dentol' },
         ],
       },
       services: {
-        heading: 'Web design services for dentists',
+        heading: 'Web design for dentists: what your site can include',
         intro:
           'We design for dentists, orthodontists, endodontists, and dental clinics. Every dental practice website is designed around the treatments that matter most to you and how you prefer to welcome patients.',
         items: [
           {
             title: 'Online consultations',
             description:
-              'The first visit is the hardest one to win. Patients book their consultation when it suits them, including evenings and weekends, and the request reaches you directly.',
+              'The first visit is the hardest one to win. Patients request their consultation when it suits them, including evenings and weekends, and the request reaches you directly.',
             bullets: [
               'Consultation button visible on every page',
-              'Form or calendar connected to your schedule',
+              'Consultation request form',
               'Direct contact over WhatsApp',
+            ],
+            custom: [
+              'Calendar connected to your schedule',
             ],
           },
           {
@@ -246,7 +252,7 @@ export const dentistas: Sector = {
           {
             question: 'How much does a dental clinic website cost?',
             answer:
-              'It depends on scope: how many treatments, whether it includes online booking, whether it runs in one language or both, and whether you also need a brand. After a call we send an itemized quote.',
+              'It depends on scope: how many treatments, whether it includes online booking, and whether you also need a brand. After a call we send an itemized quote.',
           },
           {
             question: 'Can I show before-and-after cases?',
@@ -256,7 +262,7 @@ export const dentistas: Sector = {
           {
             question: 'Can the site take consultation requests?',
             answer:
-              'Yes. It can include a form, a WhatsApp button, or an online calendar connected to your schedule, depending on how you run your clinic.',
+              'Yes. It includes a form and a WhatsApp button, and if you need it we build a custom online calendar connected to your schedule.',
           },
           S.faqAi('my dental clinic'),
           C.faqPayment,

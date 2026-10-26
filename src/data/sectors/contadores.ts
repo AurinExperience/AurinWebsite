@@ -60,7 +60,7 @@ export const contadores: Sector = {
         ],
       },
       services: {
-        heading: 'Servicios de diseño web para contadores',
+        heading: 'Diseño web para contadores: lo que puede incluir tu sitio',
         intro:
           'Diseñamos para contadores independientes, despachos contables y firmas de consultoría fiscal. Cada página web para despacho contable se diseña a partir de tus servicios y del cliente que quieres atraer.',
         items: [
@@ -73,8 +73,8 @@ export const contadores: Sector = {
           {
             title: 'Contacto sin fricción',
             description:
-              'El prospecto agenda una asesoría o te escribe por WhatsApp en un par de clics. Tú recibes la solicitud con lo que necesitas para darle seguimiento.',
-            bullets: ['Formulario de asesoría', 'Contacto directo por WhatsApp', 'Agenda en línea si la usas'],
+              'El prospecto pide una asesoría o te escribe por WhatsApp en un par de clics. Tú recibes la solicitud con lo que necesitas para darle seguimiento.',
+            bullets: ['Formulario de asesoría', 'Contacto directo por WhatsApp', 'Enlace a tu agenda en línea si la usas'],
           },
           {
             title: 'Que te encuentren en Google y en la IA',
@@ -117,7 +117,7 @@ export const contadores: Sector = {
           {
             question: '¿Cuánto cuesta la página web de un despacho contable?',
             answer:
-              'Depende del alcance: cuántos servicios, si incluye blog o artículos, si va en uno o en los dos idiomas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende del alcance: cuántos servicios, si incluye blog o artículos y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: '¿Vale la pena escribir artículos sobre temas fiscales?',
@@ -169,7 +169,7 @@ export const contadores: Sector = {
         ],
       },
       services: {
-        heading: 'Web design services for accountants',
+        heading: 'Web design for accountants: what your site can include',
         intro:
           'We design for independent accountants, accounting firms, and tax advisory firms. Every accounting firm website is designed around your services and the client you want to attract.',
         items: [
@@ -182,8 +182,8 @@ export const contadores: Sector = {
           {
             title: 'Frictionless contact',
             description:
-              'Prospects book a consultation or message you on WhatsApp in a couple of clicks. You get the request with what you need to follow up.',
-            bullets: ['Consultation form', 'Direct contact over WhatsApp', 'Online calendar if you use one'],
+              'Prospects request a consultation or message you on WhatsApp in a couple of clicks. You get the request with what you need to follow up.',
+            bullets: ['Consultation form', 'Direct contact over WhatsApp', 'Link to your online calendar if you use one'],
           },
           {
             title: 'Get found on Google and by AI',
@@ -226,7 +226,7 @@ export const contadores: Sector = {
           {
             question: 'How much does an accounting firm website cost?',
             answer:
-              'It depends on scope: how many services, whether it includes a blog or articles, whether it runs in one language or both, and whether you also need a brand. After a call we send an itemized quote.',
+              'It depends on scope: how many services, whether it includes a blog or articles, and whether you also need a brand. After a call we send an itemized quote.',
           },
           {
             question: 'Is it worth writing articles on tax topics?',

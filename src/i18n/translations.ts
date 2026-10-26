@@ -708,8 +708,8 @@ export const translations = {
     },
     about: {
       seo: {
-        title: "About Aurin | Nearshore Web Design, UX/UI & Branding Agency",
-        description: "Aurin is a web design, UX/UI and branding agency founded in 1998 in Cuernavaca, Mexico. Meet who leads it and how we work, nearshore.",
+        title: "Aurin: Web Design, UX/UI & Branding Since 1998 | About",
+        description: "Meet Aurin, a web design, UX/UI and branding agency founded in 1998 in Cuernavaca, Mexico: who leads it, where the name comes from and how we work nearshore.",
         keywords: "about aurin agency, design team Mexico, branding methodology, creative studio history, multidisciplinary design agency"
       },
       structuredData: {
@@ -1536,8 +1536,8 @@ export const translations = {
     },
     about: {
       seo: {
-        title: "Nosotros | Aurin, agencia de diseño web, UX/UI y branding",
-        description: "Aurin es una agencia mexicana de diseño web, UX/UI y branding fundada en 1998 en Cuernavaca. Conoce a quienes la dirigen y cómo trabajamos.",
+        title: "Aurin: diseño web, UX/UI y branding desde 1998 | Nosotros",
+        description: "Conoce a Aurin, agencia mexicana de diseño web, UX/UI y branding fundada en 1998 en Cuernavaca: quiénes la dirigen, de dónde viene el nombre y cómo trabajamos.",
         keywords: "agencia diseño México historia, equipo creativo branding, metodología diseño UX, empresa diseño gráfico"
       },
       structuredData: {

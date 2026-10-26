@@ -47,11 +47,13 @@ export const aguascalientes: Landing = {
           {
             title: 'Tienda en línea para tu marca de ropa',
             description:
-              'Si hoy vendes por WhatsApp o en tu local, una tienda en línea te abre clientes fuera de la ciudad. La diseñamos para que tus prendas luzcan y comprar sea sencillo desde el celular.',
+              'Si hoy vendes por WhatsApp o en tu local, una tienda en línea te abre clientes fuera de la ciudad. La diseñamos y desarrollamos a la medida para que tus prendas luzcan y comprar sea sencillo desde el celular.',
             bullets: [
               'Catálogo por colección, talla y color',
-              'Pagos en línea',
               'Pensada primero para celular',
+            ],
+            custom: [
+              'Pagos en línea',
             ],
           },
           {
@@ -110,7 +112,7 @@ export const aguascalientes: Landing = {
           {
             question: 'Vendo por mayoreo, ¿me sirve una tienda en línea?',
             answer:
-              'Depende de cómo vendes. Si tus clientes de mayoreo piden cotización, suele funcionar mejor un catálogo con formulario. Si también vendes pieza por pieza, se puede sumar una tienda. Lo definimos contigo en la llamada.',
+              'Depende de cómo vendes. Si tus clientes de mayoreo piden cotización, suele funcionar mejor un catálogo con formulario. Si también vendes pieza por pieza, se puede sumar una tienda a la medida. Lo definimos contigo en la llamada.',
           },
           {
             question: '¿Pueden rediseñar el logo que ya tengo?',
@@ -160,8 +162,9 @@ export const aguascalientes: Landing = {
           {
             title: 'Online store for your apparel brand',
             description:
-              'If you sell today over WhatsApp or in your shop, an online store opens customers outside the city. We design it so your garments stand out and buying is simple on a phone.',
-            bullets: ['Catalog by collection, size, and color', 'Online payments', 'Mobile-first'],
+              'If you sell today over WhatsApp or in your shop, an online store opens customers outside the city. We design and custom-build it so your garments stand out and buying is simple on a phone.',
+            bullets: ['Catalog by collection, size, and color', 'Mobile-first'],
+            custom: ['Online payments'],
           },
           {
             title: 'Site for uniforms and wholesale',
@@ -215,7 +218,7 @@ export const aguascalientes: Landing = {
           {
             question: 'I sell wholesale. Is an online store useful for me?',
             answer:
-              'It depends on how you sell. If wholesale buyers request quotes, a catalog with a form usually works better. If you also sell single pieces, a store can be added. We decide it with you on the call.',
+              'It depends on how you sell. If wholesale buyers request quotes, a catalog with a form usually works better. If you also sell single pieces, a custom store can be added. We decide it with you on the call.',
           },
           {
             question: 'Can you redesign the logo I already have?',

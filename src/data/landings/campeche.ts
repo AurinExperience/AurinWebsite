@@ -61,7 +61,7 @@ export const campeche: Landing = {
               'El viajero quiere ver las habitaciones, la ubicación y qué hay cerca antes de reservar. Un sitio propio le da esa información y te permite recibir reservas directas.',
             bullets: [
               'Galería de habitaciones y espacios',
-              'Reservas o solicitud de disponibilidad',
+              'Solicitud de disponibilidad',
               'Sitio en español y en inglés',
             ],
           },
@@ -69,7 +69,8 @@ export const campeche: Landing = {
             title: 'Restaurantes y turismo',
             description:
               'La gastronomía campechana es un motivo de viaje por sí misma. El sitio muestra tu menú, tu historia y cómo llegar, y facilita que te reserven.',
-            bullets: ['Menú fácil de actualizar', 'Reservas en línea', 'Horario, ubicación y mapa'],
+            bullets: ['Menú claro en el celular', 'Horario, ubicación y mapa'],
+            custom: ['Reservas en línea'],
           },
           {
             title: 'Branding',
@@ -93,7 +94,7 @@ export const campeche: Landing = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas, qué información va en cada una y si el sitio va en uno o en los dos idiomas.',
+            text: 'Definimos las páginas y qué información va en cada una.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -170,7 +171,7 @@ export const campeche: Landing = {
               'Travelers want to see the rooms, the location, and what is nearby before booking. Your own site gives them that and lets you receive direct bookings.',
             bullets: [
               'Room and space gallery',
-              'Bookings or availability requests',
+              'Availability requests',
               'Site in Spanish and English',
             ],
           },
@@ -178,7 +179,8 @@ export const campeche: Landing = {
             title: 'Restaurants and tourism',
             description:
               'Campeche’s food is a reason to travel on its own. The site shows your menu, your story, and how to get there, and makes it easy to book a table.',
-            bullets: ['Easy-to-update menu', 'Online reservations', 'Hours, location, and map'],
+            bullets: ['Menu that reads well on a phone', 'Hours, location, and map'],
+            custom: ['Online reservations'],
           },
           {
             title: 'Branding',
@@ -202,7 +204,7 @@ export const campeche: Landing = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages, what information goes on each, and whether the site runs in one language or both.',
+            text: 'We define the pages and what information goes on each.',
           },
           C.stepDesign,
           C.stepLaunch,

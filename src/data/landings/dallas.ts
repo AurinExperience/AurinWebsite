@@ -76,6 +76,8 @@ export const dallas: Landing = {
             bullets: [
               'Tu equipo, licencias y certificaciones a la vista',
               'Cada servicio explicado en palabras sencillas',
+            ],
+            custom: [
               'Citas o reservas en línea',
             ],
           },
@@ -120,7 +122,7 @@ export const dallas: Landing = {
           },
           {
             name: 'Lanzamiento',
-            text: 'Construimos el sitio, lo conectamos a tu dominio y lo enlazamos a los perfiles de Google de cada ubicación. Después, los cambios los puedes hacer tú: en una sesión te explicamos cómo. O, si prefieres no ocuparte, nos encargamos nosotros con un plan mensual de mantenimiento.',
+            text: 'Construimos el sitio, lo conectamos a tu dominio y lo enlazamos a los perfiles de Google de cada ubicación. Después, los cambios los hacemos nosotros con un plan mensual de mantenimiento o, si lo incluimos en el alcance, te dejamos un panel para que tu equipo los haga.',
           },
         ],
       },
@@ -131,7 +133,7 @@ export const dallas: Landing = {
           {
             question: '¿Cuánto cuesta el diseño web o el branding en Dallas?',
             answer:
-              'Depende del alcance: si es marca, sitio o las dos cosas; cuántas páginas y ubicaciones; si va en dos idiomas; y si hay citas en línea u otras integraciones. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende del alcance: si es marca, sitio o las dos cosas; cuántas páginas y ubicaciones; y si hay desarrollo a la medida, como citas en línea u otras integraciones. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: 'Tengo una oficina de taxes, ¿el sitio me ayuda en temporada?',
@@ -219,6 +221,8 @@ export const dallas: Landing = {
             bullets: [
               'Your team, licenses, and certifications front and center',
               'Each service explained in plain language',
+            ],
+            custom: [
               'Online appointments or reservations',
             ],
           },
@@ -262,7 +266,7 @@ export const dallas: Landing = {
           },
           {
             name: 'Launch',
-            text: 'We build the site, connect it to your domain, and link it to each location’s Google Business Profile. After that, you can make changes yourself: we walk you through it in one session. Or, if you would rather not deal with it, we handle it with a monthly maintenance plan.',
+            text: 'We build the site, connect it to your domain, and link it to each location’s Google Business Profile. After that, we handle changes with a monthly maintenance plan or, if it is part of the scope, we set up a panel so your team can make them.',
           },
         ],
       },
@@ -273,7 +277,7 @@ export const dallas: Landing = {
           {
             question: 'How much does web design or branding cost in Dallas?',
             answer:
-              'It depends on scope: brand, site, or both; how many pages and locations; whether it runs in two languages; and whether there is online booking or other integrations. After a call we send an itemized quote.',
+              'It depends on scope: brand, site, or both; how many pages and locations; and whether there is custom development, such as online booking or other integrations. After a call we send an itemized quote.',
           },
           {
             question: 'I run a tax office. Will a website help during tax season?',

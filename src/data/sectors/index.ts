@@ -56,6 +56,46 @@ import { usYachtCharters } from './us-yacht-charters';
 import { usLuxuryVacationRentals } from './us-luxury-vacation-rentals';
 import { usLongevityClinics } from './us-longevity-clinics';
 import { usPrivateAviation } from './us-private-aviation';
+// Tanda 2026-10-26 en adelante: 4 por día, México y EE. UU. mezclados
+import { desarrolladoras } from './desarrolladoras';
+import { tequileras } from './tequileras';
+import { congresos } from './congresos';
+import { usFertilityClinics } from './us-fertility-clinics';
+import { parquesIndustriales } from './parques-industriales';
+import { manufactura } from './manufactura';
+import { desarrollosPlaya } from './desarrollos-playa';
+import { usCosmeticDentistry } from './us-cosmetic-dentistry';
+import { alimentosBebidas } from './alimentos-bebidas';
+import { gruposRestauranteros } from './grupos-restauranteros';
+import { farmaceuticas } from './farmaceuticas';
+import { usPoolBuilders } from './us-pool-builders';
+import { cosmeticos } from './cosmeticos';
+import { fertilidad } from './fertilidad';
+import { turismoMedico } from './turismo-medico';
+import { usArtGalleries } from './us-art-galleries';
+import { bodasDestino } from './bodas-destino';
+import { maquinaria } from './maquinaria';
+import { equipoMedico } from './equipo-medico';
+import { usHomeAutomation } from './us-home-automation';
+import { mueblerias } from './mueblerias';
+import { moda } from './moda';
+import { blindadoras } from './blindadoras';
+import { usLuxuryCarDealers } from './us-luxury-car-dealers';
+import { tecnologiaTi } from './tecnologia-ti';
+import { productoras } from './productoras';
+import { marinas } from './marinas';
+import { usEquestrian } from './us-equestrian';
+import { spas } from './spas';
+import { galerias } from './galerias';
+import { fundaciones } from './fundaciones';
+import { usWeddingPlanners } from './us-wedding-planners';
+import { autopartes } from './autopartes';
+import { suplementos } from './suplementos';
+import { cerveceras } from './cerveceras';
+import { usExecutiveCoaches } from './us-executive-coaches';
+import { oftalmologia } from './oftalmologia';
+import { usFoodBrands } from './us-food-brands';
+import { usGolfCommunities } from './us-golf-communities';
 
 /**
  * Landings de diseño web por SECTOR ("diseño web para médicos"). Son la otra
@@ -164,6 +204,55 @@ const ALL_SECTORS: Sector[] = [
   usLuxuryVacationRentals,
   usLongevityClinics,
   usPrivateAviation,
+  // 2026-10-26
+  desarrolladoras,
+  tequileras,
+  congresos,
+  usFertilityClinics,
+  // 2026-10-27
+  parquesIndustriales,
+  manufactura,
+  desarrollosPlaya,
+  usCosmeticDentistry,
+  // 2026-10-28
+  alimentosBebidas,
+  gruposRestauranteros,
+  farmaceuticas,
+  usPoolBuilders,
+  // 2026-10-29
+  cosmeticos,
+  fertilidad,
+  turismoMedico,
+  usArtGalleries,
+  // 2026-10-30
+  bodasDestino,
+  maquinaria,
+  equipoMedico,
+  usHomeAutomation,
+  // 2026-10-31
+  mueblerias,
+  moda,
+  blindadoras,
+  usLuxuryCarDealers,
+  // 2026-11-01
+  tecnologiaTi,
+  productoras,
+  marinas,
+  usEquestrian,
+  // 2026-11-02
+  spas,
+  galerias,
+  fundaciones,
+  usWeddingPlanners,
+  // 2026-11-03
+  autopartes,
+  suplementos,
+  cerveceras,
+  usExecutiveCoaches,
+  // 2026-11-04
+  oftalmologia,
+  usFoodBrands,
+  usGolfCommunities,
 ];
 
 /** Misma regla que las landings (incluye ver borradores en `npm run dev`). */

@@ -29,19 +29,22 @@ export const usWineries = defineSector({
         title: 'Club de vinos',
         description:
           'Presentamos tus niveles de membresía y sus beneficios para que unirse sea una decisión fácil y emocionante.',
-        bullets: ['Niveles y beneficios', 'Registro en línea', 'Conexión con tu plataforma de club'],
+        bullets: ['Niveles y beneficios'],
+        custom: ['Registro en línea', 'Conexión con tu plataforma de club'],
       },
       {
         title: 'Tienda en línea',
         description:
-          'Fichas de vino con notas de cata, maridajes y ficha técnica, conectadas a tu plataforma de venta directa.',
-        bullets: ['Fichas con notas de cata', 'Maridajes', 'Conexión con tu plataforma de venta'],
+          'Fichas de vino con notas de cata, maridajes y ficha técnica, conectadas a la medida con tu plataforma de venta directa.',
+        bullets: ['Fichas con notas de cata', 'Maridajes'],
+        custom: ['Conexión con tu plataforma de venta'],
       },
       {
         title: 'Catas y visitas',
         description:
-          'Experiencias, recorridos y eventos con reservas en línea, para que la visita se convierta en compra.',
-        bullets: ['Experiencias de cata', 'Reservas en línea', 'Eventos privados'],
+          'Experiencias, recorridos y eventos con reservas en línea a la medida, para que la visita se convierta en compra.',
+        bullets: ['Experiencias de cata', 'Eventos privados'],
+        custom: ['Reservas en línea'],
       },
       {
         title: 'Marca con origen',
@@ -59,7 +62,7 @@ export const usWineries = defineSector({
       {
         question: '¿Funciona con mi plataforma de club y tienda?',
         answer:
-          'En la mayoría de los casos sí. Revisamos cuál usas en la llamada y diseñamos el sitio alrededor de ella para que comprar y unirse al club se sienta parte de tu marca.',
+          'En la mayoría de los casos sí, como desarrollo a la medida. Revisamos cuál usas en la llamada y diseñamos el sitio alrededor de ella para que comprar y unirse al club se sienta parte de tu marca.',
       },
       {
         question: '¿También diseñan etiquetas?',
@@ -95,19 +98,22 @@ export const usWineries = defineSector({
         title: 'Wine club',
         description:
           'We present your membership tiers and perks so joining is an easy, exciting decision.',
-        bullets: ['Tiers and perks', 'Online sign-up', 'Connection to your club platform'],
+        bullets: ['Tiers and perks'],
+        custom: ['Online sign-up', 'Connection to your club platform'],
       },
       {
         title: 'Online store',
         description:
-          'Wine pages with tasting notes, pairings, and tech sheets, connected to your direct-to-consumer platform.',
-        bullets: ['Pages with tasting notes', 'Pairings', 'Connection to your sales platform'],
+          'Wine pages with tasting notes, pairings, and tech sheets, custom-connected to your direct-to-consumer platform.',
+        bullets: ['Pages with tasting notes', 'Pairings'],
+        custom: ['Connection to your sales platform'],
       },
       {
         title: 'Tastings and visits',
         description:
-          'Experiences, tours, and events with online reservations, so a visit turns into a purchase.',
-        bullets: ['Tasting experiences', 'Online reservations', 'Private events'],
+          'Experiences, tours, and events with custom online reservations, so a visit turns into a purchase.',
+        bullets: ['Tasting experiences', 'Private events'],
+        custom: ['Online reservations'],
       },
       {
         title: 'A brand with origin',
@@ -125,7 +131,7 @@ export const usWineries = defineSector({
       {
         question: 'Does it work with my club and store platform?',
         answer:
-          'In most cases, yes. We review which one you use on the call and design the site around it so buying and joining feel like part of your brand.',
+          'In most cases, yes, as custom development. We review which one you use on the call and design the site around it so buying and joining feel like part of your brand.',
       },
       {
         question: 'Do you design labels too?',

@@ -48,7 +48,7 @@ export const zacatecas: Landing = {
             title: 'Sitios para hoteles del centro histórico',
             description:
               'El viajero quiere ver habitaciones, ubicación y qué hay cerca antes de reservar. Un sitio propio le da esa información y te permite recibir reservas directas.',
-            bullets: ['Galería de habitaciones y espacios', 'Reservas o solicitud de disponibilidad', 'Sitio en español y en inglés'],
+            bullets: ['Galería de habitaciones y espacios', 'Solicitud de disponibilidad', 'Sitio en español y en inglés'],
           },
           {
             title: 'Bodas de destino y eventos',
@@ -84,7 +84,7 @@ export const zacatecas: Landing = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas, qué información va en cada una y si el sitio va en uno o en los dos idiomas.',
+            text: 'Definimos las páginas y qué información va en cada una.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -149,7 +149,7 @@ export const zacatecas: Landing = {
             title: 'Websites for historic-center hotels',
             description:
               'Travelers want to see rooms, location, and what is nearby before booking. Your own site gives them that and lets you receive direct bookings.',
-            bullets: ['Room and space gallery', 'Bookings or availability requests', 'Site in Spanish and English'],
+            bullets: ['Room and space gallery', 'Availability requests', 'Site in Spanish and English'],
           },
           {
             title: 'Destination weddings and events',
@@ -185,7 +185,7 @@ export const zacatecas: Landing = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages, what information goes on each, and whether the site runs in one language or both.',
+            text: 'We define the pages and what information goes on each.',
           },
           C.stepDesign,
           C.stepLaunch,

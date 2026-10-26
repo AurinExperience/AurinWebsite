@@ -64,14 +64,17 @@ export const sonora: Landing = {
             bullets: [
               'Logo e identidad con manual de uso',
               'Catálogo de productos',
-              'Tienda en línea o contacto para distribuidores',
+              'Contacto para distribuidores',
+            ],
+            custom: [
+              'Tienda en línea',
             ],
           },
           {
             title: 'Rentas y restaurantes en Puerto Peñasco y San Carlos',
             description:
               'Muchos de tus visitantes vienen de Arizona y buscan en inglés. El sitio presenta tu lugar en los dos idiomas y facilita la reserva.',
-            bullets: ['Galería o menú', 'Reservas o solicitud de disponibilidad', 'Sitio en inglés y en español'],
+            bullets: ['Galería o menú', 'Solicitud de disponibilidad', 'Sitio en inglés y en español'],
           },
           {
             title: 'Rediseño de sitio',
@@ -91,7 +94,7 @@ export const sonora: Landing = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas, qué información va en cada una y si el sitio va en uno o en los dos idiomas.',
+            text: 'Definimos las páginas y qué información va en cada una.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -168,14 +171,17 @@ export const sonora: Landing = {
             bullets: [
               'Logo and identity with usage guidelines',
               'Product catalog',
-              'Online store or distributor contact',
+              'Distributor contact',
+            ],
+            custom: [
+              'Online store',
             ],
           },
           {
             title: 'Rentals and restaurants in Puerto Peñasco and San Carlos',
             description:
               'Many of your visitors come from Arizona and search in English. The site presents your place in both languages and makes booking easy.',
-            bullets: ['Gallery or menu', 'Bookings or availability requests', 'Site in English and Spanish'],
+            bullets: ['Gallery or menu', 'Availability requests', 'Site in English and Spanish'],
           },
           {
             title: 'Website redesign',
@@ -195,7 +201,7 @@ export const sonora: Landing = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages, what information goes on each, and whether the site runs in one language or both.',
+            text: 'We define the pages and what information goes on each.',
           },
           C.stepDesign,
           C.stepLaunch,

@@ -59,7 +59,8 @@ export const tlaxcala: Landing = {
             title: 'Turismo de temporada',
             description:
               'En temporada de luciérnagas o de la Noche que Nadie Duerme, el visitante decide rápido. Presentamos tus recorridos u hospedaje y facilitamos la reserva.',
-            bullets: ['Página por recorrido o hospedaje', 'Reservas en línea', 'Pensado primero para celular'],
+            bullets: ['Página por recorrido o hospedaje', 'Pensado primero para celular'],
+            custom: ['Reservas en línea'],
           },
           {
             title: 'Empresas textiles',
@@ -103,7 +104,7 @@ export const tlaxcala: Landing = {
           {
             question: 'Tengo una hacienda para eventos, ¿el sitio puede mostrar fechas disponibles?',
             answer:
-              'El sitio puede incluir un formulario para solicitar fecha o visita. Mostrar disponibilidad en tiempo real depende de cómo manejas tu agenda, y eso lo revisamos en la cotización.',
+              'El sitio puede incluir un formulario para solicitar fecha o visita. Mostrar fechas disponibles en el sitio es desarrollo a la medida y depende de cómo manejas tu agenda; lo revisamos en la cotización.',
           },
           {
             question: '¿Pueden hacer la galería con las fotos de eventos que ya tengo?',
@@ -160,7 +161,8 @@ export const tlaxcala: Landing = {
             title: 'Seasonal tourism',
             description:
               'During firefly season or Huamantla’s festival, visitors decide fast. We present your tours or lodging and make booking easy.',
-            bullets: ['A page per tour or lodging', 'Online bookings', 'Mobile-first'],
+            bullets: ['A page per tour or lodging', 'Mobile-first'],
+            custom: ['Online bookings'],
           },
           {
             title: 'Textile companies',
@@ -204,7 +206,7 @@ export const tlaxcala: Landing = {
           {
             question: 'I run an event hacienda. Can the site show available dates?',
             answer:
-              'The site can include a form to request a date or visit. Showing live availability depends on how you manage your calendar, and we review that in the quote.',
+              'The site can include a form to request a date or visit. Showing available dates on the site is custom development and depends on how you manage your calendar; we review it in the quote.',
           },
           {
             question: 'Can you build the gallery with event photos I already have?',

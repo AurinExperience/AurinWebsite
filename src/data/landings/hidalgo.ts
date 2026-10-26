@@ -55,7 +55,7 @@ export const hidalgo: Landing = {
             title: 'Cabañas y hoteles de fin de semana',
             description:
               'En Huasca, Real del Monte o Mineral del Chico, el viajero compara varias opciones antes de reservar. Presentamos tus espacios y facilitamos la reserva directa.',
-            bullets: ['Galería por cabaña o habitación', 'Reservas o solicitud de disponibilidad', 'Pensado primero para celular'],
+            bullets: ['Galería por cabaña o habitación', 'Solicitud de disponibilidad', 'Pensado primero para celular'],
           },
           {
             title: 'Escuelas y servicios en Pachuca',
@@ -99,12 +99,12 @@ export const hidalgo: Landing = {
           {
             question: 'Tengo un balneario, ¿el sitio puede mostrar los precios de entrada?',
             answer:
-              'Sí. Los precios, horarios y servicios pueden estar en el sitio, y si lo necesitas te explicamos cómo actualizarlos tú o nos encargamos con el plan de mantenimiento.',
+              'Sí. Los precios, horarios y servicios pueden estar en el sitio, y los actualizamos nosotros con el plan de mantenimiento o, si lo incluimos en el alcance, con un panel para que lo hagas tú.',
           },
           {
             question: 'Tengo cabañas, ¿puedo recibir reservas en mi sitio?',
             answer:
-              'Sí. El sitio puede incluir reservas o solicitud de disponibilidad. Cómo se conecta con tu forma de operar lo definimos en la cotización.',
+              'Sí. El sitio incluye un formulario para pedir disponibilidad y, como desarrollo a la medida, puede sumar reservas en línea. Cómo se conecta con tu forma de operar lo definimos en la cotización.',
           },
           c.faqPayment,
           c.faqRemote('Hidalgo'),
@@ -156,7 +156,7 @@ export const hidalgo: Landing = {
             title: 'Weekend cabins and hotels',
             description:
               'In Huasca, Real del Monte, or Mineral del Chico, travelers compare several options before booking. We present your spaces and make direct booking easy.',
-            bullets: ['Gallery by cabin or room', 'Bookings or availability requests', 'Mobile-first'],
+            bullets: ['Gallery by cabin or room', 'Availability requests', 'Mobile-first'],
           },
           {
             title: 'Schools and services in Pachuca',
@@ -200,12 +200,12 @@ export const hidalgo: Landing = {
           {
             question: 'I run a water park. Can the site show entry prices?',
             answer:
-              'Yes. Prices, hours, and services can be on the site, and we can show you how to update them yourself or handle it with the maintenance plan.',
+              'Yes. Prices, hours, and services can be on the site, and we keep them current with the maintenance plan or, if it is part of the scope, with a panel so you can do it yourself.',
           },
           {
             question: 'I have cabins. Can I take bookings on my site?',
             answer:
-              'Yes. The site can include bookings or availability requests. How it fits the way you operate is defined in the quote.',
+              'Yes. The site includes a form to request availability and, as custom development, can add online booking. How it fits the way you operate is defined in the quote.',
           },
           C.faqPayment,
           C.faqRemote('Hidalgo'),

@@ -51,8 +51,10 @@ export const quintanaRoo: Landing = {
               'Un sitio de hospedaje se juzga por una sola cifra: qué porcentaje de tus reservas entra sin pagar comisión. Diseñamos la experiencia para que el viajero que ya te encontró termine reservando aquí y no en la pestaña de al lado.',
             bullets: [
               'Fotografía y disponibilidad sin frenar la carga',
-              'Motor de reservas integrado sin quiebre visual',
               'Argumentos de reserva directa donde el viajero decide',
+            ],
+            custom: [
+              'Motor de reservas integrado sin quiebre visual',
             ],
           },
           {
@@ -106,7 +108,7 @@ export const quintanaRoo: Landing = {
           },
           {
             name: 'Desarrollo y lanzamiento',
-            text: 'Construimos el sitio optimizado para velocidad, SEO y todos los dispositivos, en dos idiomas. Conectamos el motor de reservas, configuramos la analítica y medimos cuántas reservas entran directo.',
+            text: 'Construimos el sitio optimizado para velocidad, SEO y todos los dispositivos, en dos idiomas. Si tienes motor de reservas, lo conectamos; configuramos la analítica y medimos cuántas reservas entran directo.',
           },
         ],
       },
@@ -117,12 +119,12 @@ export const quintanaRoo: Landing = {
           {
             question: '¿Cuánto cuesta el diseño de una página web en Quintana Roo?',
             answer:
-              'Depende del alcance: número de secciones, si el sitio va en dos idiomas, si hay que integrar motor de reservas y si producimos fotografía y textos. Una landing page es el punto de entrada más accesible y un sitio de hotel completo escala según habitaciones, paquetes e integraciones. Después de una llamada te enviamos una cotización cerrada, sin costos ocultos.',
+              'Depende del alcance: número de secciones, si hay que integrar a la medida tu motor de reservas y si producimos fotografía y textos. Una landing page es el punto de entrada más accesible y un sitio de hotel completo escala según habitaciones, paquetes e integraciones. Después de una llamada te enviamos una cotización cerrada, sin costos ocultos.',
           },
           {
             question: '¿Pueden ayudarme a recibir más reservas directas y depender menos de las OTAs?',
             answer:
-              'Es justo el objetivo con el que diseñamos estos sitios. Las OTAs te traen visibilidad y no conviene pelearse con ellas, pero el viajero que ya vio tu hotel ahí muchas veces te busca por nombre antes de reservar: ese es el momento que se puede ganar. El trabajo consiste en que al llegar a tu sitio encuentre más información, mejor experiencia y una razón concreta para reservar contigo, con el motor de reservas integrado sin que parezca otra página.',
+              'Es justo el objetivo con el que diseñamos estos sitios. Las OTAs te traen visibilidad y no conviene pelearse con ellas, pero el viajero que ya vio tu hotel ahí muchas veces te busca por nombre antes de reservar: ese es el momento que se puede ganar. El trabajo consiste en que al llegar a tu sitio encuentre más información, mejor experiencia y una razón concreta para reservar contigo, con tu motor de reservas integrado a la medida sin que parezca otra página.',
           },
           {
             question: '¿El sitio va en inglés además de español?',
@@ -142,7 +144,7 @@ export const quintanaRoo: Landing = {
           {
             question: '¿Puedo actualizar precios y temporadas yo mismo?',
             answer:
-              'Sí. Integramos un CMS para que cambies precios, paquetes, fotos y disponibilidad sin tocar código y sin depender de nosotros, con capacitación incluida. En un negocio de temporada eso no es un lujo: si cada cambio de tarifa depende de un tercero, el sitio siempre va tarde.',
+              'Sí, como desarrollo a la medida. Integramos un CMS para que cambies precios, paquetes, fotos y disponibilidad sin tocar código y sin depender de nosotros, con capacitación. En un negocio de temporada eso no es un lujo: si cada cambio de tarifa depende de un tercero, el sitio siempre va tarde.',
           },
         ],
       },
@@ -194,8 +196,10 @@ export const quintanaRoo: Landing = {
               'A lodging site is judged on one number: what share of your bookings arrives without paying commission. We design the experience so the traveler who already found you finishes the booking here and not in the next tab.',
             bullets: [
               'Photography and availability without slowing the load',
-              'Booking engine integrated with no visual break',
               'Direct-booking arguments where the traveler decides',
+            ],
+            custom: [
+              'Booking engine integrated with no visual break',
             ],
           },
           {
@@ -249,7 +253,7 @@ export const quintanaRoo: Landing = {
           },
           {
             name: 'Development and launch',
-            text: 'We build the site optimized for speed, SEO, and every device, in two languages. We connect the booking engine, configure analytics, and measure how many bookings come in direct.',
+            text: 'We build the site optimized for speed, SEO, and every device, in two languages. If you have a booking engine, we connect it; we configure analytics, and measure how many bookings come in direct.',
           },
         ],
       },
@@ -260,12 +264,12 @@ export const quintanaRoo: Landing = {
           {
             question: 'How much does web design cost in Quintana Roo?',
             answer:
-              'It depends on scope: number of sections, whether the site runs in two languages, whether a booking engine has to be integrated, and whether we produce photography and copy. A landing page is the most accessible entry point and a full hotel site scales with rooms, packages, and integrations. After a call we send a fixed quote with no hidden costs.',
+              'It depends on scope: number of sections, whether a booking engine has to be custom-integrated, and whether we produce photography and copy. A landing page is the most accessible entry point and a full hotel site scales with rooms, packages, and integrations. After a call we send a fixed quote with no hidden costs.',
           },
           {
             question: 'Can you help me get more direct bookings and rely less on OTAs?',
             answer:
-              'That is exactly what these sites are designed for. OTAs bring visibility and fighting them is not the point, but a traveler who saw your hotel there often searches for you by name before booking: that is the moment you can win. The work is making sure that when they land on your site they find more information, a better experience, and a concrete reason to book with you, with the booking engine integrated so it does not feel like a different site.',
+              'That is exactly what these sites are designed for. OTAs bring visibility and fighting them is not the point, but a traveler who saw your hotel there often searches for you by name before booking: that is the moment you can win. The work is making sure that when they land on your site they find more information, a better experience, and a concrete reason to book with you, with your booking engine custom-integrated so it does not feel like a different site.',
           },
           {
             question: 'Does the site run in English as well as Spanish?',
@@ -285,7 +289,7 @@ export const quintanaRoo: Landing = {
           {
             question: 'Can I update prices and seasons myself?',
             answer:
-              'Yes. We integrate a CMS so you can change prices, packages, photos, and availability without touching code and without depending on us, training included. In a seasonal business that is not a luxury: if every rate change depends on a third party, the site is always behind.',
+              'Yes, as custom development. We integrate a CMS so you can change prices, packages, photos, and availability without touching code and without depending on us, with training. In a seasonal business that is not a luxury: if every rate change depends on a third party, the site is always behind.',
           },
         ],
       },

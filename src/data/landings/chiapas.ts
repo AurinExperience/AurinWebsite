@@ -50,7 +50,7 @@ export const chiapas: Landing = {
               'Un hotel boutique vende una experiencia, no solo una habitación. El sitio cuenta esa historia con buenas fotos y permite pedir disponibilidad o reservar sin depender solo de las plataformas.',
             bullets: [
               'Galería de habitaciones y espacios',
-              'Reservas o solicitud de disponibilidad',
+              'Solicitud de disponibilidad',
               'Sitio en español y en inglés',
             ],
           },
@@ -60,15 +60,16 @@ export const chiapas: Landing = {
               'Cascadas, zonas arqueológicas, pueblos: el viajero compara opciones y elige la que le da más confianza. Presentamos tus recorridos con claridad y un camino corto para reservar.',
             bullets: [
               'Página por recorrido con itinerario',
-              'Reservas o solicitud por formulario o WhatsApp',
+              'Solicitud por formulario o WhatsApp',
               'Fotos y reseñas de tus clientes',
             ],
           },
           {
             title: 'Tienda en línea para artesanía y ámbar',
             description:
-              'Si vendes textiles, ámbar o artesanía, una tienda en línea te abre clientes que nunca van a pasar por tu local. La diseñamos para que el trabajo artesanal se vea como lo que es.',
-            bullets: ['Catálogo por pieza o colección', 'Pagos en línea', 'Historia y origen de cada producto'],
+              'Si vendes textiles, ámbar o artesanía, una tienda en línea te abre clientes que nunca van a pasar por tu local. La diseñamos y desarrollamos a la medida para que el trabajo artesanal se vea como lo que es.',
+            bullets: ['Catálogo por pieza o colección', 'Historia y origen de cada producto'],
+            custom: ['Pagos en línea'],
           },
           {
             title: 'Branding para productos chiapanecos',
@@ -92,7 +93,7 @@ export const chiapas: Landing = {
           },
           {
             name: 'Marca y estructura',
-            text: 'Si hace falta, trabajamos primero la marca. Luego definimos las páginas, el catálogo y si el sitio va en uno o en los dos idiomas.',
+            text: 'Si hace falta, trabajamos primero la marca. Luego definimos las páginas y el catálogo.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -106,7 +107,7 @@ export const chiapas: Landing = {
           {
             question: 'Vendo artesanía, ¿puedo vender a otros países?',
             answer:
-              'La tienda en línea puede recibir pedidos de fuera del país. Lo que hay que resolver antes es cómo vas a enviar y cobrar, y eso lo revisamos contigo en la llamada para que la tienda se arme de acuerdo con lo que sí puedes cumplir.',
+              'Sí. Una tienda en línea, que desarrollamos a la medida, puede recibir pedidos de fuera del país. Lo que hay que resolver antes es cómo vas a enviar y cobrar, y eso lo revisamos contigo en la llamada para que la tienda se arme de acuerdo con lo que sí puedes cumplir.',
           },
           {
             question: 'Mi hotel ya está en plataformas, ¿para qué quiero sitio propio?',
@@ -159,7 +160,7 @@ export const chiapas: Landing = {
               'A boutique hotel sells an experience, not just a room. The site tells that story with good photography and lets guests ask for availability or book without relying only on platforms.',
             bullets: [
               'Room and space gallery',
-              'Bookings or availability requests',
+              'Availability requests',
               'Site in Spanish and English',
             ],
           },
@@ -169,15 +170,16 @@ export const chiapas: Landing = {
               'Waterfalls, archaeological sites, villages: travelers compare options and pick the one that feels most trustworthy. We present your tours clearly with a short path to booking.',
             bullets: [
               'A page per tour with itinerary',
-              'Bookings or requests via form or WhatsApp',
+              'Requests via form or WhatsApp',
               'Photos and customer reviews',
             ],
           },
           {
             title: 'Online store for crafts and amber',
             description:
-              'If you sell textiles, amber, or crafts, an online store opens customers who will never walk past your shop. We design it so handmade work looks like what it is.',
-            bullets: ['Catalog by piece or collection', 'Online payments', 'Story and origin of each product'],
+              'If you sell textiles, amber, or crafts, an online store opens customers who will never walk past your shop. We design and custom-build it so handmade work looks like what it is.',
+            bullets: ['Catalog by piece or collection', 'Story and origin of each product'],
+            custom: ['Online payments'],
           },
           {
             title: 'Branding for Chiapas products',
@@ -201,7 +203,7 @@ export const chiapas: Landing = {
           },
           {
             name: 'Brand and structure',
-            text: 'When needed we work on the brand first. Then we define the pages, the catalog, and whether the site runs in one language or both.',
+            text: 'When needed we work on the brand first. Then we define the pages and the catalog.',
           },
           C.stepDesign,
           C.stepLaunch,
@@ -215,7 +217,7 @@ export const chiapas: Landing = {
           {
             question: 'I sell crafts. Can I sell to other countries?',
             answer:
-              'The online store can take orders from abroad. What needs solving first is how you will ship and get paid, and we review that with you on the call so the store is built around what you can actually deliver.',
+              'Yes. An online store, custom-built for you, can take orders from abroad. What needs solving first is how you will ship and get paid, and we review that with you on the call so the store is built around what you can actually deliver.',
           },
           {
             question: 'My hotel is already on platforms. Why do I need my own site?',

@@ -35,8 +35,9 @@ export const usPrivateClubs = defineSector({
       {
         title: 'Portal de socios',
         description:
-          'Diseñamos la experiencia del portal para reservar, ver el calendario y consultar el estado de cuenta sin llamar al club.',
-        bullets: ['Reservas y horarios', 'Calendario de eventos', 'Estado de cuenta'],
+          'Diseñamos y desarrollamos a la medida el portal para reservar, ver el calendario y consultar el estado de cuenta sin llamar al club.',
+        bullets: [],
+        custom: ['Reservas y horarios', 'Calendario de eventos', 'Estado de cuenta'],
       },
       {
         title: 'Eventos privados',
@@ -55,12 +56,12 @@ export const usPrivateClubs = defineSector({
     pages: 'el club, membresía, golf y actividades, gastronomía, eventos, portal de socios y contacto',
     costQuestion: '¿Cuánto cuesta el sitio web de un club privado?',
     costScope:
-      'cuántas secciones e instalaciones, si incluye el diseño del portal de socios, si se conecta a tu software del club y si también necesitas marca',
+      'cuántas secciones e instalaciones, si incluye el portal de socios, si se conecta a tu software del club y si también necesitas marca',
     faqs: [
       {
         question: '¿Funciona con el software de nuestro club?',
         answer:
-          'En muchos casos sí. Revisamos el que usas en la llamada y diseñamos el portal alrededor de él o lo entregamos listo para tu proveedor.',
+          'En muchos casos sí, como desarrollo a la medida. Revisamos el que usas en la llamada y desarrollamos el portal alrededor de él o entregamos el diseño listo para tu proveedor.',
       },
       {
         question: '¿El contenido para socios queda privado?',
@@ -102,8 +103,9 @@ export const usPrivateClubs = defineSector({
       {
         title: 'Member portal',
         description:
-          'We design the portal experience to book, check the calendar, and review statements without calling the club.',
-        bullets: ['Reservations and tee times', 'Event calendar', 'Member statements'],
+          'We design and custom-build the portal to book, check the calendar, and review statements without calling the club.',
+        bullets: [],
+        custom: ['Reservations and tee times', 'Event calendar', 'Member statements'],
       },
       {
         title: 'Private events',
@@ -120,12 +122,12 @@ export const usPrivateClubs = defineSector({
     pages: 'the club, membership, golf and activities, dining, events, member portal, and contact',
     costQuestion: 'How much does a private club website cost?',
     costScope:
-      'how many sections and facilities, whether it includes the member portal design, whether it connects to your club software, and whether you also need a brand',
+      'how many sections and facilities, whether it includes the member portal, whether it connects to your club software, and whether you also need a brand',
     faqs: [
       {
         question: 'Does it work with our club software?',
         answer:
-          'In many cases, yes. We review the one you use on the call and design the portal around it or hand it off ready for your provider.',
+          'In many cases, yes, as custom development. We review the one you use on the call and build the portal around it or hand off the design to your provider.',
       },
       {
         question: 'Does members-only content stay private?',

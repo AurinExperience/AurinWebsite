@@ -91,7 +91,7 @@ export const tamaulipas: Landing = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas, qué información va en cada una y si el sitio va en uno o en los dos idiomas.',
+            text: 'Definimos las páginas y qué información va en cada una.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -195,7 +195,7 @@ export const tamaulipas: Landing = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages, what information goes on each, and whether the site runs in one language or both.',
+            text: 'We define the pages and what information goes on each.',
           },
           C.stepDesign,
           C.stepLaunch,

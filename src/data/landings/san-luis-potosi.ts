@@ -51,7 +51,7 @@ export const sanLuisPotosi: Landing = {
               'Cascadas, sótanos, ríos: el viajero compara recorridos y elige el que le da más confianza. Presentamos cada tour con itinerario, qué incluye y cómo reservar.',
             bullets: [
               'Página por recorrido con itinerario',
-              'Reservas o solicitud por WhatsApp o formulario',
+              'Solicitud por WhatsApp o formulario',
               'Pensado primero para celular',
             ],
           },
@@ -59,7 +59,7 @@ export const sanLuisPotosi: Landing = {
             title: 'Cabañas y hoteles',
             description:
               'En Xilitla o Ciudad Valles el huésped quiere ver el lugar y saber qué hay cerca. El sitio lo muestra y facilita la reserva directa.',
-            bullets: ['Galería de habitaciones o cabañas', 'Reservas o solicitud de disponibilidad', 'Ubicación y cómo llegar'],
+            bullets: ['Galería de habitaciones o cabañas', 'Solicitud de disponibilidad', 'Ubicación y cómo llegar'],
           },
           {
             title: 'Sitios para empresas y servicios en la capital',
@@ -89,7 +89,7 @@ export const sanLuisPotosi: Landing = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas, qué información va en cada una y si el sitio va en uno o en los dos idiomas.',
+            text: 'Definimos las páginas y qué información va en cada una.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -108,7 +108,7 @@ export const sanLuisPotosi: Landing = {
           {
             question: 'Opero tours, ¿puedo recibir reservas en el sitio?',
             answer:
-              'Sí. El sitio puede incluir reservas o solicitudes por formulario o WhatsApp. Cómo se conecta con tu forma de operar lo definimos en la cotización.',
+              'Sí. El sitio incluye solicitudes por formulario o WhatsApp y, como desarrollo a la medida, puede sumar reservas en línea. Cómo se conecta con tu forma de operar lo definimos en la cotización.',
           },
           c.faqPayment,
           c.faqRemote('San Luis Potosí'),
@@ -154,13 +154,13 @@ export const sanLuisPotosi: Landing = {
             title: 'Websites for Huasteca tours',
             description:
               'Waterfalls, caves, rivers: travelers compare tours and pick the one that feels most trustworthy. We present each tour with its itinerary, what is included, and how to book.',
-            bullets: ['A page per tour with itinerary', 'Bookings or requests via WhatsApp or form', 'Mobile-first'],
+            bullets: ['A page per tour with itinerary', 'Requests via WhatsApp or form', 'Mobile-first'],
           },
           {
             title: 'Cabins and hotels',
             description:
               'In Xilitla or Ciudad Valles guests want to see the place and know what is nearby. The site shows it and makes direct booking easy.',
-            bullets: ['Room or cabin gallery', 'Bookings or availability requests', 'Location and directions'],
+            bullets: ['Room or cabin gallery', 'Availability requests', 'Location and directions'],
           },
           {
             title: 'Websites for companies and services in the capital',
@@ -190,7 +190,7 @@ export const sanLuisPotosi: Landing = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages, what information goes on each, and whether the site runs in one language or both.',
+            text: 'We define the pages and what information goes on each.',
           },
           C.stepDesign,
           C.stepLaunch,
@@ -209,7 +209,7 @@ export const sanLuisPotosi: Landing = {
           {
             question: 'I run tours. Can I take bookings on the site?',
             answer:
-              'Yes. The site can include bookings or requests via form or WhatsApp. How it fits the way you operate is defined in the quote.',
+              'Yes. The site includes requests via form or WhatsApp and, as custom development, can add online booking. How it fits the way you operate is defined in the quote.',
           },
           C.faqPayment,
           C.faqRemote('San Luis Potosí'),

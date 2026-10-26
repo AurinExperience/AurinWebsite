@@ -23,6 +23,15 @@ const anySector =
   currentLang === 'es'
     ? 'Estos son solo algunos ejemplos: nos adaptamos a casi cualquier sector.'
     : 'These are just a few examples: we adapt to almost any industry.';
+
+// Las tarjetas mezclan contenido del sitio con funciones que son desarrollo; la
+// etiqueta y esta nota dejan claro qué viene incluido y qué se cotiza aparte.
+const hasCustom = services.items.some((s) => s.custom?.length);
+const customTag = currentLang === 'es' ? 'A la medida' : 'Custom';
+const customNote =
+  currentLang === 'es'
+    ? 'Todo sitio incluye formularios, WhatsApp, versión en español e inglés y descargables en PDF. Lo marcado como «A la medida» lo diseñamos y también desarrollamos su funcionalidad: se define contigo en la llamada y se cotiza aparte.'
+    : 'Every site includes forms, WhatsApp, English and Spanish versions, and PDF downloads. Anything marked “Custom” we design and also build the functionality for: we define it with you on the call and quote it separately.';
 ---
 
 <section class={styles.section} id="servicios-web" aria-labelledby="servicios-web-heading">
@@ -44,10 +53,17 @@ const anySector =
             {service.bullets.map((bullet) => (
               <li class={styles.bullet}>{bullet}</li>
             ))}
+            {service.custom?.map((bullet) => (
+              <li class={styles.bullet}>
+                {bullet} <span class={styles.customTag}>{customTag}</span>
+              </li>
+            ))}
           </ul>
         </article>
       ))}
     </div>
+
+    {hasCustom && <p class={styles.customNote}>{customNote}</p>}
 
     <a class={styles.moreLink} href={getLocalizedUrl('/services', currentLang)}>
       {moreLabel}

@@ -42,20 +42,22 @@ export const usPlasticSurgeons = defineSector({
         title: 'Galerías de antes y después',
         description:
           'Galerías ordenadas por procedimiento, con aviso de contenido y respetando los consentimientos que tu práctica obtenga.',
-        bullets: ['Filtros por procedimiento', 'Aviso de contenido sensible', 'Carga rápida y discreta'],
+        bullets: ['Aviso de contenido sensible', 'Carga rápida y discreta'],
+        custom: ['Filtros por procedimiento'],
       },
       {
         title: 'Consultas en línea',
         description:
           'Solicitud de consulta, consulta virtual y formularios pensados para pacientes que valoran la discreción.',
-        bullets: ['Solicitud de consulta', 'Consulta virtual', 'Seguimiento en tu CRM'],
+        bullets: ['Solicitud de consulta', 'Consulta virtual'],
+        custom: ['Seguimiento en tu CRM'],
       },
     ],
     diagnosis: 'Una videollamada para conocer tu práctica, tus procedimientos principales y a tus pacientes.',
     pages: 'procedimientos, antes y después, el cirujano, la práctica, testimonios y consulta',
     costQuestion: '¿Cuánto cuesta el sitio web de un cirujano plástico?',
     costScope:
-      'cuántos procedimientos y galerías, si incluye consulta virtual, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos procedimientos y galerías, si incluye consulta virtual y si también necesitas marca',
     faqs: [
       {
         question: '¿Pueden mostrar fotos de antes y después?',
@@ -109,20 +111,22 @@ export const usPlasticSurgeons = defineSector({
         title: 'Before-and-after galleries',
         description:
           'Galleries organized by procedure, with content warnings and in line with the consents your practice obtains.',
-        bullets: ['Filters by procedure', 'Sensitive content notice', 'Fast, discreet loading'],
+        bullets: ['Sensitive content notice', 'Fast, discreet loading'],
+        custom: ['Filters by procedure'],
       },
       {
         title: 'Online consultations',
         description:
           'Consultation requests, virtual consultations, and forms designed for patients who value discretion.',
-        bullets: ['Consultation requests', 'Virtual consultations', 'Follow-up in your CRM'],
+        bullets: ['Consultation requests', 'Virtual consultations'],
+        custom: ['Follow-up in your CRM'],
       },
     ],
     diagnosis: 'A video call to learn about your practice, your key procedures, and your patients.',
     pages: 'procedures, before and after, the surgeon, the practice, testimonials, and consultation',
     costQuestion: 'How much does a plastic surgeon website cost?',
     costScope:
-      'how many procedures and galleries, whether it includes virtual consultations, whether it runs in one language or both, and whether you also need a brand',
+      'how many procedures and galleries, whether it includes virtual consultations, and whether you also need a brand',
     faqs: [
       {
         question: 'Can you show before-and-after photos?',

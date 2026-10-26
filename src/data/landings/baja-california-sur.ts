@@ -72,8 +72,10 @@ export const bajaCaliforniaSur: Landing = {
               'El visitante decide dónde comer o qué hacer desde el celular, muchas veces ya en el destino. Menú, horarios, ubicación y el botón para reservar tienen que estar a la mano.',
             bullets: [
               'Menú o catálogo de experiencias',
-              'Reservas en línea',
               'Horario, ubicación y cómo llegar',
+            ],
+            custom: [
+              'Reservas en línea',
             ],
           },
           {
@@ -98,7 +100,7 @@ export const bajaCaliforniaSur: Landing = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas, qué va en cada una y si el sitio va en uno o en los dos idiomas.',
+            text: 'Definimos las páginas y qué va en cada una.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -182,7 +184,8 @@ export const bajaCaliforniaSur: Landing = {
             title: 'Restaurants, tours, and experiences',
             description:
               'Visitors decide where to eat or what to do on their phone, often once they have arrived. Menu, hours, location, and the button to book need to be within reach.',
-            bullets: ['Menu or experience catalog', 'Online reservations', 'Hours, location, and directions'],
+            bullets: ['Menu or experience catalog', 'Hours, location, and directions'],
+            custom: ['Online reservations'],
           },
           {
             title: 'Hospitality branding',
@@ -206,7 +209,7 @@ export const bajaCaliforniaSur: Landing = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages, what goes on each, and whether the site runs in one language or both.',
+            text: 'We define the pages and what goes on each.',
           },
           C.stepDesign,
           C.stepLaunch,

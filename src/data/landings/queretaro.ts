@@ -58,7 +58,9 @@ export const queretaro: Landing = {
             bullets: [
               'Arquitectura ES/EN con hreflang correcto',
               'Fichas de capacidades, certificaciones y planta',
-              'CMS para publicar en ambos idiomas sin depender de nadie',
+            ],
+            custom: [
+              'CMS para publicar en ambos idiomas',
             ],
           },
           {
@@ -112,7 +114,7 @@ export const queretaro: Landing = {
           },
           {
             name: 'Desarrollo y lanzamiento',
-            text: 'Construimos el sitio optimizado para velocidad, SEO y todos los dispositivos, en español e inglés. Configuramos analítica, lanzamos y te dejamos la capacitación grabada.',
+            text: 'Construimos el sitio optimizado para velocidad, SEO y todos los dispositivos, en español e inglés. Configuramos analítica, lanzamos y, si el alcance incluye un panel, te dejamos la capacitación grabada.',
           },
         ],
       },
@@ -123,12 +125,12 @@ export const queretaro: Landing = {
           {
             question: '¿Cuánto cuesta el diseño de una página web para una empresa en Querétaro?',
             answer:
-              'Depende del alcance: número de secciones, si el sitio es bilingüe, si hay catálogo o integraciones, y si nosotros producimos el contenido. Una landing page es el punto de entrada más accesible; un sitio corporativo escala según pantallas y funcionalidad. Después de una llamada de diagnóstico te enviamos una cotización cerrada, con entregables y fechas por etapa, en el formato que necesites para pasarla a compras.',
+              'Depende del alcance: número de secciones, si hay catálogo o integraciones a la medida, y si nosotros producimos el contenido. Una landing page es el punto de entrada más accesible; un sitio corporativo escala según pantallas y funcionalidad. Después de una llamada de diagnóstico te enviamos una cotización cerrada, con entregables y fechas por etapa, en el formato que necesites para pasarla a compras.',
           },
           {
             question: '¿Diseñan sitios bilingües para empresas con matriz o clientes en el extranjero?',
             answer:
-              'Sí. Un sitio bilingüe bien hecho no es traducir textos: es una arquitectura paralela con etiquetas hreflang correctas, URLs propias por idioma y un CMS donde tu equipo publica en ambos sin duplicar trabajo. Hecho a medias, Google termina mostrando la versión equivocada al usuario equivocado.',
+              'Sí. Un sitio bilingüe bien hecho no es traducir textos: es una arquitectura paralela con etiquetas hreflang correctas, URLs propias por idioma y, si lo incluimos en el alcance, un CMS donde tu equipo publica en ambos sin duplicar trabajo. Hecho a medias, Google termina mostrando la versión equivocada al usuario equivocado.',
           },
           {
             question: '¿Pueden rediseñar nuestro sitio sin perder el posicionamiento que ya tenemos?',
@@ -201,7 +203,9 @@ export const queretaro: Landing = {
             bullets: [
               'ES/EN architecture with correct hreflang',
               'Capability, certification, and facility pages',
-              'A CMS to publish in both languages on your own',
+            ],
+            custom: [
+              'A CMS to publish in both languages',
             ],
           },
           {
@@ -255,7 +259,7 @@ export const queretaro: Landing = {
           },
           {
             name: 'Development and launch',
-            text: 'We build the site optimized for speed, SEO, and every device, in Spanish and English. We set up analytics, launch, and hand over recorded training.',
+            text: 'We build the site optimized for speed, SEO, and every device, in Spanish and English. We set up analytics, launch, and, if the scope includes a panel, hand over recorded training.',
           },
         ],
       },
@@ -266,12 +270,12 @@ export const queretaro: Landing = {
           {
             question: 'How much does a website cost for a company in Querétaro?',
             answer:
-              'It depends on scope: number of sections, whether the site is bilingual, whether there is a catalog or integrations, and whether we produce the content. A landing page is the most accessible entry point; a corporate site scales with screens and functionality. After a diagnostic call we send a fixed quote with deliverables and dates per stage, in whatever format procurement needs.',
+              'It depends on scope: number of sections, whether there is a catalog or custom integrations, and whether we produce the content. A landing page is the most accessible entry point; a corporate site scales with screens and functionality. After a diagnostic call we send a fixed quote with deliverables and dates per stage, in whatever format procurement needs.',
           },
           {
             question: 'Do you build bilingual sites for companies with foreign clients or parent companies?',
             answer:
-              'Yes. A proper bilingual site is not translated text: it is a parallel architecture with correct hreflang tags, dedicated URLs per language, and a CMS where your team publishes in both without duplicating work. Done halfway, Google ends up showing the wrong version to the wrong user.',
+              'Yes. A proper bilingual site is not translated text: it is a parallel architecture with correct hreflang tags, dedicated URLs per language, and, if it is part of the scope, a CMS where your team publishes in both without duplicating work. Done halfway, Google ends up showing the wrong version to the wrong user.',
           },
           {
             question: 'Can you redesign our site without losing the rankings we already have?',

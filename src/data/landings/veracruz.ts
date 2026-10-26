@@ -49,11 +49,13 @@ export const veracruz: Landing = {
           {
             title: 'Branding y tienda para marcas de café',
             description:
-              'El café se compra por el origen y por la historia de quien lo produce. Creamos la marca y la tienda en línea para que tu café llegue a clientes de todo el país.',
+              'El café se compra por el origen y por la historia de quien lo produce. Creamos la marca y desarrollamos a la medida la tienda en línea para que tu café llegue a clientes de todo el país.',
             bullets: [
               'Logo e identidad con manual de uso',
-              'Tienda en línea con pagos',
               'Historia del origen y del productor',
+            ],
+            custom: [
+              'Tienda en línea con pagos',
             ],
           },
           {
@@ -86,7 +88,7 @@ export const veracruz: Landing = {
           },
           {
             name: 'Marca y estructura',
-            text: 'Si hace falta, trabajamos primero la marca. Luego definimos las páginas o la tienda y si el sitio va en uno o en los dos idiomas.',
+            text: 'Si hace falta, trabajamos primero la marca. Luego definimos las páginas o la tienda.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -149,11 +151,13 @@ export const veracruz: Landing = {
           {
             title: 'Branding and online store for coffee brands',
             description:
-              'Coffee is bought on its origin and on the story of who grows it. We create the brand and the online store so your coffee reaches customers across the country.',
+              'Coffee is bought on its origin and on the story of who grows it. We create the brand and custom-build the online store so your coffee reaches customers across the country.',
             bullets: [
               'Logo and identity with usage guidelines',
-              'Online store with payments',
               'Story of the origin and the grower',
+            ],
+            custom: [
+              'Online store with payments',
             ],
           },
           {
@@ -186,7 +190,7 @@ export const veracruz: Landing = {
           },
           {
             name: 'Brand and structure',
-            text: 'When needed we work on the brand first. Then we define the pages or the store and whether the site runs in one language or both.',
+            text: 'When needed we work on the brand first. Then we define the pages or the store.',
           },
           C.stepDesign,
           C.stepLaunch,

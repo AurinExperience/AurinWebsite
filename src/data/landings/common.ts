@@ -30,12 +30,12 @@ const es = {
   } satisfies Step,
   stepLaunch: {
     name: 'Lanzamiento',
-    text: 'Construimos el sitio y lo conectamos a tu dominio. Después, los cambios los puedes hacer tú: en una sesión te explicamos cómo. O, si prefieres no ocuparte, nos encargamos nosotros con un plan mensual de mantenimiento.',
+    text: 'Construimos el sitio y lo conectamos a tu dominio. Después, los cambios los hacemos nosotros con un plan mensual de mantenimiento o, si lo incluimos en el alcance, te dejamos un panel para que tu equipo los haga.',
   } satisfies Step,
   faqCost: (place: string): Faq => ({
     question: `¿Cuánto cuesta una página web en ${place}?`,
     answer:
-      'Depende del alcance: cuántas páginas, si va en uno o en los dos idiomas, si hay tienda en línea, reservas u otras integraciones y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+      'Depende del alcance: cuántas páginas, si necesitas desarrollo a la medida (un panel para editarlo, tienda en línea, reservas u otras integraciones) y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
   }),
   faqPayment: {
     question: '¿Cómo se paga?',
@@ -74,12 +74,12 @@ const en: typeof es = {
   },
   stepLaunch: {
     name: 'Launch',
-    text: 'We build the site and connect it to your domain. After that, you can make changes yourself: we walk you through it in one session. Or, if you would rather not deal with it, we handle it with a monthly maintenance plan.',
+    text: 'We build the site and connect it to your domain. After that, we handle changes with a monthly maintenance plan or, if it is part of the scope, we set up a panel so your team can make them.',
   },
   faqCost: (place: string): Faq => ({
     question: `How much does a website cost in ${place}?`,
     answer:
-      'It depends on scope: how many pages, whether it runs in one language or both, whether there is an online store, reservations, or other integrations, and whether you also need a brand. After a call we send an itemized quote.',
+      'It depends on scope: how many pages, whether you need custom development (a panel to edit it, an online store, reservations, or other integrations), and whether you also need a brand. After a call we send an itemized quote.',
   }),
   faqPayment: {
     question: 'How does payment work?',

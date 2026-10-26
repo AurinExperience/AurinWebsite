@@ -41,8 +41,9 @@ export const usLongevityClinics = defineSector({
       {
         title: 'Experiencia del cliente',
         description:
-          'Diseñamos la solicitud, la evaluación inicial y el acceso de clientes para que se sientan acompañados desde el primer clic.',
-        bullets: ['Solicitud y evaluación', 'Acceso de clientes', 'Experiencia en celular'],
+          'Diseñamos la solicitud y la evaluación inicial y, a la medida, desarrollamos el acceso de clientes para que se sientan acompañados desde el primer clic.',
+        bullets: ['Solicitud y evaluación', 'Experiencia en celular'],
+        custom: ['Acceso de clientes'],
       },
       {
         title: 'Marca de bienestar premium',
@@ -55,7 +56,7 @@ export const usLongevityClinics = defineSector({
     pages: 'programas, ciencia, equipo médico, membresías, la clínica, preguntas frecuentes y solicitud',
     costQuestion: '¿Cuánto cuesta el sitio web de una clínica de longevidad?',
     costScope:
-      'cuántos programas y servicios, si incluye el diseño del acceso de clientes, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos programas y servicios, si incluye el acceso de clientes y si también necesitas marca',
     faqs: [
       {
         question: '¿Cómo cuidan lo que dice el sitio sobre salud?',
@@ -108,8 +109,9 @@ export const usLongevityClinics = defineSector({
       {
         title: 'Client experience',
         description:
-          'We design the inquiry, initial assessment, and client login so people feel supported from the first click.',
-        bullets: ['Inquiry and assessment', 'Client login', 'Mobile experience'],
+          'We design the inquiry and initial assessment and, as a custom build, the client login, so people feel supported from the first click.',
+        bullets: ['Inquiry and assessment', 'Mobile experience'],
+        custom: ['Client login'],
       },
       {
         title: 'A premium wellness brand',
@@ -122,7 +124,7 @@ export const usLongevityClinics = defineSector({
     pages: 'programs, science, medical team, memberships, the clinic, FAQ, and inquiry',
     costQuestion: 'How much does a longevity clinic website cost?',
     costScope:
-      'how many programs and services, whether it includes the client login design, whether it runs in one language or both, and whether you also need a brand',
+      'how many programs and services, whether it includes the client login, and whether you also need a brand',
     faqs: [
       {
         question: 'How do you handle health claims on the site?',

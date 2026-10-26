@@ -34,13 +34,14 @@ export const joyerias = defineSector({
       {
         title: 'Compra en línea segura',
         description:
-          'Carrito, pago y envío asegurado con la confianza que pide una compra de ticket alto, y opción de apartar o pagar en showroom.',
-        bullets: ['Tienda en línea', 'Pagos seguros y meses sin intereses si los ofreces', 'Envío asegurado'],
+          'Si vendes en línea, desarrollamos a la medida carrito, pago y envío asegurado con la confianza que pide una compra de ticket alto, y opción de apartar o pagar en showroom.',
+        bullets: [],
+        custom: ['Tienda en línea', 'Pagos seguros y meses sin intereses si los ofreces', 'Envío asegurado'],
       },
       {
         title: 'Citas y piezas a la medida',
         description:
-          'Agenda de citas en showroom para anillos de compromiso o piezas personalizadas, con contacto directo por WhatsApp.',
+          'Solicitud de cita en showroom para anillos de compromiso o piezas personalizadas, con contacto directo por WhatsApp.',
         bullets: ['Citas en showroom', 'Solicitud de pieza personalizada', 'Contacto directo por WhatsApp'],
       },
       {
@@ -54,7 +55,7 @@ export const joyerias = defineSector({
     pages: 'colecciones, piezas, tienda, citas, nosotros y aviso de privacidad',
     costQuestion: '¿Cuánto cuesta la página web de una joyería?',
     costScope:
-      'cuántas piezas y colecciones, si incluye tienda en línea y citas, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántas piezas y colecciones, si incluye tienda en línea y citas y si también necesitas marca',
     faqs: [
       {
         question: '¿Conviene vender joyería en línea o solo mostrarla?',
@@ -101,13 +102,14 @@ export const joyerias = defineSector({
       {
         title: 'Secure online purchase',
         description:
-          'Cart, payment, and insured shipping with the confidence a high-ticket purchase needs, plus the option to reserve or pay in the showroom.',
-        bullets: ['Online store', 'Secure payments and installments if you offer them', 'Insured shipping'],
+          'If you sell online, we build a custom cart, payment, and insured shipping with the confidence a high-ticket purchase needs, plus the option to reserve or pay in the showroom.',
+        bullets: [],
+        custom: ['Online store', 'Secure payments and installments if you offer them', 'Insured shipping'],
       },
       {
         title: 'Appointments and custom pieces',
         description:
-          'Showroom appointment booking for engagement rings or custom pieces, with direct contact over WhatsApp.',
+          'Showroom appointment requests for engagement rings or custom pieces, with direct contact over WhatsApp.',
         bullets: ['Showroom appointments', 'Custom piece requests', 'Direct contact over WhatsApp'],
       },
       {
@@ -121,7 +123,7 @@ export const joyerias = defineSector({
     pages: 'collections, pieces, store, appointments, about, and the privacy notice',
     costQuestion: 'How much does a jewelry website cost?',
     costScope:
-      'how many pieces and collections, whether it includes an online store and appointments, whether it runs in one language or both, and whether you also need a brand',
+      'how many pieces and collections, whether it includes an online store and appointments, and whether you also need a brand',
     faqs: [
       {
         question: 'Should we sell jewelry online or just show it?',

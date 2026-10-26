@@ -31,7 +31,8 @@ export const usLuxuryRealEstate = defineSector({
         title: 'Propiedades presentadas como piezas únicas',
         description:
           'Fichas con fotografía y video a pantalla completa, planos, amenidades y la historia de la propiedad, rápidas aun con imágenes pesadas.',
-        bullets: ['Galerías y video a pantalla completa', 'Planos y amenidades', 'Integración con tus listados'],
+        bullets: ['Galerías y video a pantalla completa', 'Planos y amenidades'],
+        custom: ['Integración con tus listados'],
       },
       {
         title: 'Tu marca personal',
@@ -49,19 +50,20 @@ export const usLuxuryRealEstate = defineSector({
         title: 'Contacto discreto',
         description:
           'Formularios de cita privada y contacto directo, pensados para compradores que no quieren llenar diez campos.',
-        bullets: ['Solicitud de visita privada', 'Contacto directo con el agente', 'Seguimiento en tu CRM'],
+        bullets: ['Solicitud de visita privada', 'Contacto directo con el agente'],
+        custom: ['Seguimiento en tu CRM'],
       },
     ],
     diagnosis: 'Una videollamada para conocer tu mercado, tus propiedades y a tu comprador.',
     pages: 'propiedades, desarrollos, vecindarios, trayectoria, prensa y contacto',
     costQuestion: '¿Cuánto cuesta el sitio web de un agente o brokerage de lujo?',
     costScope:
-      'cuántas propiedades y desarrollos, si se conecta a tus listados, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántas propiedades y desarrollos, si se conecta a tus listados y si también necesitas marca',
     faqs: [
       {
         question: '¿Pueden conectar el sitio con mis listados?',
         answer:
-          'Sí, según el proveedor de listados que uses. Lo revisamos en la llamada y lo incluimos en la cotización.',
+          'Sí, como desarrollo a la medida, según el proveedor de listados que uses. Lo revisamos en la llamada y lo incluimos en la cotización.',
       },
       {
         question: '¿Hacen sitios para un solo desarrollo?',
@@ -98,7 +100,8 @@ export const usLuxuryRealEstate = defineSector({
         title: 'Properties presented as one-of-a-kind pieces',
         description:
           'Listings with full-screen photography and video, floor plans, amenities, and the property’s story, fast even with heavy imagery.',
-        bullets: ['Full-screen galleries and video', 'Floor plans and amenities', 'Integration with your listings'],
+        bullets: ['Full-screen galleries and video', 'Floor plans and amenities'],
+        custom: ['Integration with your listings'],
       },
       {
         title: 'Your personal brand',
@@ -116,19 +119,20 @@ export const usLuxuryRealEstate = defineSector({
         title: 'Discreet contact',
         description:
           'Private showing requests and direct contact, designed for buyers who will not fill out ten fields.',
-        bullets: ['Private showing requests', 'Direct contact with the agent', 'Follow-up in your CRM'],
+        bullets: ['Private showing requests', 'Direct contact with the agent'],
+        custom: ['Follow-up in your CRM'],
       },
     ],
     diagnosis: 'A video call to learn about your market, your properties, and your buyer.',
     pages: 'properties, developments, neighborhoods, track record, press, and contact',
     costQuestion: 'How much does a luxury real estate website cost?',
     costScope:
-      'how many properties and developments, whether it connects to your listings, whether it runs in one language or both, and whether you also need a brand',
+      'how many properties and developments, whether it connects to your listings, and whether you also need a brand',
     faqs: [
       {
         question: 'Can you connect the site to my listings?',
         answer:
-          'Yes, depending on the listings provider you use. We review it on the call and include it in the quote.',
+          'Yes, as custom development, depending on the listings provider you use. We review it on the call and include it in the quote.',
       },
       {
         question: 'Do you build sites for a single development?',

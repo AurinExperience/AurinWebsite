@@ -28,14 +28,15 @@ export const concesionarias = defineSector({
       {
         title: 'Inventario que se antoja',
         description:
-          'Cada auto con su ficha: fotos grandes, versión, equipamiento y precio. El comprador filtra y compara sin salir de tu sitio.',
-        bullets: ['Fichas de auto con galería', 'Filtros por marca, modelo y precio', 'Nuevos y seminuevos'],
+          'Cada auto con su ficha: fotos grandes, versión, equipamiento y precio. El comprador compara sin salir de tu sitio.',
+        bullets: ['Fichas de auto con galería', 'Nuevos y seminuevos'],
+        custom: ['Filtros por marca, modelo y precio'],
       },
       {
         title: 'Prueba de manejo y cotización',
         description:
-          'Agendar una prueba de manejo, pedir una cotización o solicitar un financiamiento en un par de clics, y el prospecto te llega directo.',
-        bullets: ['Agenda de pruebas de manejo', 'Solicitud de cotización y de crédito', 'Contacto directo por WhatsApp'],
+          'Solicitar una prueba de manejo, una cotización o un financiamiento en un par de clics, y el prospecto te llega directo.',
+        bullets: ['Solicitud de prueba de manejo', 'Solicitud de cotización y de crédito', 'Contacto directo por WhatsApp'],
       },
       {
         title: 'Que te encuentren en Google y en la IA',
@@ -46,15 +47,16 @@ export const concesionarias = defineSector({
       {
         title: 'Administrador de inventario',
         description:
-          'Tu equipo sube, edita y da de baja autos sin depender de nadie, para que el sitio siempre muestre lo que tienes en piso.',
-        bullets: ['Alta y baja de vehículos', 'Promociones y destacados', 'Servicio y refacciones'],
+          'Un administrador a la medida para que tu equipo suba, edite y dé de baja autos sin depender de nadie, y el sitio siempre muestre lo que tienes en piso.',
+        bullets: ['Servicio y refacciones'],
+        custom: ['Alta y baja de vehículos', 'Promociones y destacados'],
       },
     ],
     diagnosis: 'Una llamada para entender tu inventario, tus sucursales y cómo llegan hoy tus prospectos.',
     pages: 'inventario, modelos, financiamiento, servicio, sucursales y aviso de privacidad',
     costQuestion: '¿Cuánto cuesta la página web de una concesionaria?',
     costScope:
-      'cuántos autos y sucursales, si necesitas administrador de inventario, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos autos y sucursales, si necesitas administrador de inventario y si también necesitas marca',
     faqs: [
       {
         question: 'Ya publicamos en portales de autos, ¿necesitamos sitio propio?',
@@ -64,7 +66,7 @@ export const concesionarias = defineSector({
       {
         question: '¿Podemos actualizar el inventario nosotros?',
         answer:
-          'Sí. Incluimos un administrador para que tu equipo suba y quite autos, cambie precios y destaque promociones sin depender de nosotros.',
+          'Sí, con un administrador a la medida para que tu equipo suba y quite autos, cambie precios y destaque promociones sin depender de nosotros.',
       },
     ],
     aiSubject: 'mi concesionaria',
@@ -95,14 +97,15 @@ export const concesionarias = defineSector({
       {
         title: 'Inventory people want',
         description:
-          'Every car with its own page: large photos, trim, features, and price. Buyers filter and compare without leaving your site.',
-        bullets: ['Vehicle pages with gallery', 'Filters by make, model, and price', 'New and used'],
+          'Every car with its own page: large photos, trim, features, and price. Buyers compare without leaving your site.',
+        bullets: ['Vehicle pages with gallery', 'New and used'],
+        custom: ['Filters by make, model, and price'],
       },
       {
         title: 'Test drives and quotes',
         description:
-          'Booking a test drive, requesting a quote, or applying for financing in a couple of clicks, and the lead reaches you directly.',
-        bullets: ['Test drive scheduling', 'Quote and financing requests', 'Direct contact over WhatsApp'],
+          'Requesting a test drive, a quote, or financing in a couple of clicks, and the lead reaches you directly.',
+        bullets: ['Test drive requests', 'Quote and financing requests', 'Direct contact over WhatsApp'],
       },
       {
         title: 'Get found on Google and by AI',
@@ -113,15 +116,16 @@ export const concesionarias = defineSector({
       {
         title: 'Inventory admin',
         description:
-          'Your team adds, edits, and removes cars without depending on anyone, so the site always shows what is on the lot.',
-        bullets: ['Add and remove vehicles', 'Promotions and highlights', 'Service and parts'],
+          'A custom admin so your team adds, edits, and removes cars without depending on anyone, and the site always shows what is on the lot.',
+        bullets: ['Service and parts'],
+        custom: ['Add and remove vehicles', 'Promotions and highlights'],
       },
     ],
     diagnosis: 'We learn about your inventory, your locations, and how leads find you today.',
     pages: 'inventory, models, financing, service, locations, and the privacy notice',
     costQuestion: 'How much does a car dealership website cost?',
     costScope:
-      'how many cars and locations, whether you need an inventory admin, whether it runs in one language or both, and whether you also need a brand',
+      'how many cars and locations, whether you need an inventory admin, and whether you also need a brand',
     faqs: [
       {
         question: 'We already list on car portals. Do we need our own site?',
@@ -131,7 +135,7 @@ export const concesionarias = defineSector({
       {
         question: 'Can we update the inventory ourselves?',
         answer:
-          'Yes. We include an admin so your team can add and remove cars, change prices, and highlight promotions without depending on us.',
+          'Yes, with a custom admin so your team can add and remove cars, change prices, and highlight promotions without depending on us.',
       },
     ],
     aiSubject: 'my dealership',

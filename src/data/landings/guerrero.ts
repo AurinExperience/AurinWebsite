@@ -51,25 +51,29 @@ export const guerrero: Landing = {
               'Si tu negocio se renovó, tu sitio tiene que mostrarlo. Presentamos tus espacios con buenas fotos y facilitamos que te reserven directo.',
             bullets: [
               'Galería de habitaciones, espacios o menú',
-              'Reservas en línea',
               'Sitio en español y en inglés',
+            ],
+            custom: [
+              'Reservas en línea',
             ],
           },
           {
             title: 'Tienda en línea para platería',
             description:
-              'La plata de Taxco se vende a turistas, pero también podría venderse a clientes de todo el país. Diseñamos una tienda que muestre el trabajo del taller y facilite la compra.',
+              'La plata de Taxco se vende a turistas, pero también podría venderse a clientes de todo el país. Diseñamos y desarrollamos a la medida una tienda que muestre el trabajo del taller y facilite la compra.',
             bullets: [
               'Catálogo por colección o pieza',
-              'Pagos en línea',
               'Historia del taller y del oficio',
+            ],
+            custom: [
+              'Pagos en línea',
             ],
           },
           {
             title: 'Turismo boutique en Zihuatanejo',
             description:
               'El viajero que elige Zihuatanejo busca algo tranquilo y auténtico. El sitio tiene que transmitir eso desde la primera foto.',
-            bullets: ['Diseño que cuenta la experiencia', 'Reservas o solicitud de disponibilidad', 'Pensado primero para celular'],
+            bullets: ['Diseño que cuenta la experiencia', 'Solicitud de disponibilidad', 'Pensado primero para celular'],
           },
           {
             title: 'Branding',
@@ -93,7 +97,7 @@ export const guerrero: Landing = {
           },
           {
             name: 'Marca y estructura',
-            text: 'Si hace falta, trabajamos primero la marca. Luego definimos las páginas y si el sitio va en uno o en los dos idiomas.',
+            text: 'Si hace falta, trabajamos primero la marca. Luego definimos las páginas.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -112,7 +116,7 @@ export const guerrero: Landing = {
           {
             question: 'Tengo un taller de plata, ¿puedo vender en línea a todo el país?',
             answer:
-              'Sí. La tienda puede recibir pedidos de todo el país. Antes revisamos contigo cómo vas a enviar y cobrar, para armarla de acuerdo con lo que sí puedes cumplir.',
+              'Sí. Una tienda a la medida puede recibir pedidos de todo el país. Antes revisamos contigo cómo vas a enviar y cobrar, para armarla de acuerdo con lo que sí puedes cumplir.',
           },
           c.faqPayment,
           c.faqRemote('Guerrero'),
@@ -160,21 +164,24 @@ export const guerrero: Landing = {
               'If your business was renovated, your site has to show it. We present your spaces with good photography and make direct booking easy.',
             bullets: [
               'Gallery of rooms, spaces, or menu',
-              'Online reservations',
               'Site in Spanish and English',
+            ],
+            custom: [
+              'Online reservations',
             ],
           },
           {
             title: 'Online store for silverwork',
             description:
-              'Taxco silver sells to tourists, but it could also sell to customers across the country. We design a store that shows the workshop’s craft and makes buying easy.',
-            bullets: ['Catalog by collection or piece', 'Online payments', 'Story of the workshop and the craft'],
+              'Taxco silver sells to tourists, but it could also sell to customers across the country. We design and custom-build a store that shows the workshop’s craft and makes buying easy.',
+            bullets: ['Catalog by collection or piece', 'Story of the workshop and the craft'],
+            custom: ['Online payments'],
           },
           {
             title: 'Boutique tourism in Zihuatanejo',
             description:
               'Travelers who choose Zihuatanejo want something calm and authentic. The site needs to convey that from the first photo.',
-            bullets: ['Design that tells the experience', 'Bookings or availability requests', 'Mobile-first'],
+            bullets: ['Design that tells the experience', 'Availability requests', 'Mobile-first'],
           },
           {
             title: 'Branding',
@@ -198,7 +205,7 @@ export const guerrero: Landing = {
           },
           {
             name: 'Brand and structure',
-            text: 'When needed we work on the brand first. Then we define the pages and whether the site runs in one language or both.',
+            text: 'When needed we work on the brand first. Then we define the pages.',
           },
           C.stepDesign,
           C.stepLaunch,
@@ -217,7 +224,7 @@ export const guerrero: Landing = {
           {
             question: 'I have a silver workshop. Can I sell online across the country?',
             answer:
-              'Yes. The store can take orders nationwide. First we review with you how you will ship and get paid, so it is built around what you can actually deliver.',
+              'Yes. A custom store can take orders nationwide. First we review with you how you will ship and get paid, so it is built around what you can actually deliver.',
           },
           C.faqPayment,
           C.faqRemote('Guerrero'),

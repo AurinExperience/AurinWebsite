@@ -36,7 +36,8 @@ export const agentesSeguros = defineSector({
         title: 'Cotizaciones que te llegan',
         description:
           'Formularios cortos por producto que te mandan al prospecto con lo que necesitas para cotizar, por correo o WhatsApp.',
-        bullets: ['Formulario de cotización por ramo', 'Contacto directo por WhatsApp', 'Agenda de asesoría'],
+        bullets: ['Formulario de cotización por ramo', 'Contacto directo por WhatsApp'],
+        custom: ['Agenda de asesoría'],
       },
       {
         title: 'Que te encuentren en Google y en la IA',
@@ -55,7 +56,7 @@ export const agentesSeguros = defineSector({
     pages: 'ramos y productos, aseguradoras con las que trabajas, cotización, nosotros y aviso de privacidad',
     costQuestion: '¿Cuánto cuesta la página web de un agente de seguros?',
     costScope:
-      'cuántos ramos y productos, si incluye cotizadores o blog, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos ramos y productos, si incluye cotizadores o blog y si también necesitas marca',
     faqs: [
       {
         question: '¿Puedo mostrar las aseguradoras con las que trabajo?',
@@ -65,7 +66,7 @@ export const agentesSeguros = defineSector({
       {
         question: '¿El sitio puede tener un cotizador?',
         answer:
-          'Incluimos un formulario por ramo que te manda los datos para cotizar. Si una aseguradora te da un cotizador en línea, también lo podemos enlazar.',
+          'Incluimos un formulario por ramo que te manda los datos para cotizar. Si una aseguradora te da un cotizador en línea, también lo podemos enlazar, y si quieres uno propio lo desarrollamos a la medida.',
       },
     ],
     aiSubject: 'mi agencia de seguros',
@@ -104,7 +105,8 @@ export const agentesSeguros = defineSector({
         title: 'Quote requests that reach you',
         description:
           'Short forms per product that send you the prospect with what you need to quote, by email or WhatsApp.',
-        bullets: ['Quote form per line', 'Direct contact over WhatsApp', 'Consultation booking'],
+        bullets: ['Quote form per line', 'Direct contact over WhatsApp'],
+        custom: ['Consultation booking'],
       },
       {
         title: 'Get found on Google and by AI',
@@ -123,7 +125,7 @@ export const agentesSeguros = defineSector({
     pages: 'lines and products, carriers you work with, quote requests, about, and the privacy notice',
     costQuestion: 'How much does an insurance agent website cost?',
     costScope:
-      'how many lines and products, whether it includes quote tools or a blog, whether it runs in one language or both, and whether you also need a brand',
+      'how many lines and products, whether it includes quote tools or a blog, and whether you also need a brand',
     faqs: [
       {
         question: 'Can I show the carriers I work with?',
@@ -133,7 +135,7 @@ export const agentesSeguros = defineSector({
       {
         question: 'Can the site include a quote tool?',
         answer:
-          'We include a form per line that sends you the details to quote. If a carrier gives you an online quote tool, we can link to it too.',
+          'We include a form per line that sends you the details to quote. If a carrier gives you an online quote tool, we can link to it too, and if you want your own, we build it as custom development.',
       },
     ],
     aiSubject: 'my insurance agency',

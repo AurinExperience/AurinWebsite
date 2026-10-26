@@ -30,7 +30,8 @@ export const usLuxuryHomeBuilders = defineSector({
         title: 'Portafolio que luce',
         description:
           'Cada casa como un caso: fotografía grande, detalles, materiales y la historia del proyecto, rápido aun con imágenes pesadas.',
-        bullets: ['Casos por proyecto', 'Galerías a pantalla completa', 'Filtros por estilo y ubicación'],
+        bullets: ['Casos por proyecto', 'Galerías a pantalla completa'],
+        custom: ['Filtros por estilo y ubicación'],
       },
       {
         title: 'El proceso, explicado',
@@ -42,7 +43,8 @@ export const usLuxuryHomeBuilders = defineSector({
         title: 'Clientes calificados',
         description:
           'Formularios que preguntan terreno, presupuesto y tiempos para que tu equipo hable solo con proyectos que encajan.',
-        bullets: ['Solicitud de proyecto', 'Preguntas de calificación', 'Seguimiento en tu CRM'],
+        bullets: ['Solicitud de proyecto', 'Preguntas de calificación'],
+        custom: ['Seguimiento en tu CRM'],
       },
       {
         title: 'Marca a la altura de tu obra',
@@ -55,7 +57,7 @@ export const usLuxuryHomeBuilders = defineSector({
     pages: 'portafolio, proceso, servicios, equipo, testimonios y solicitud de proyecto',
     costQuestion: '¿Cuánto cuesta el sitio web de un constructor de casas de lujo?',
     costScope:
-      'cuántos proyectos en el portafolio, si incluye sitios por desarrollo, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos proyectos en el portafolio, si incluye sitios por desarrollo y si también necesitas marca',
     faqs: [
       {
         question: '¿Nos ayudan con la fotografía de obra?',
@@ -97,7 +99,8 @@ export const usLuxuryHomeBuilders = defineSector({
         title: 'A portfolio that shines',
         description:
           'Every home as a case study: large photography, details, materials, and the project’s story, fast even with heavy imagery.',
-        bullets: ['Project case studies', 'Full-screen galleries', 'Filters by style and location'],
+        bullets: ['Project case studies', 'Full-screen galleries'],
+        custom: ['Filters by style and location'],
       },
       {
         title: 'The process, explained',
@@ -109,7 +112,8 @@ export const usLuxuryHomeBuilders = defineSector({
         title: 'Qualified clients',
         description:
           'Forms that ask about lot, budget, and timing so your team only talks to projects that fit.',
-        bullets: ['Project inquiry', 'Qualifying questions', 'Follow-up in your CRM'],
+        bullets: ['Project inquiry', 'Qualifying questions'],
+        custom: ['Follow-up in your CRM'],
       },
       {
         title: 'A brand that matches your work',
@@ -122,7 +126,7 @@ export const usLuxuryHomeBuilders = defineSector({
     pages: 'portfolio, process, services, team, testimonials, and project inquiry',
     costQuestion: 'How much does a luxury home builder website cost?',
     costScope:
-      'how many projects in the portfolio, whether it includes development sites, whether it runs in one language or both, and whether you also need a brand',
+      'how many projects in the portfolio, whether it includes development sites, and whether you also need a brand',
     faqs: [
       {
         question: 'Can you help with project photography?',

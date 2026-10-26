@@ -51,17 +51,17 @@ export const estetica: Sector = {
         titleLead: 'Diseño Web para',
         titleAccent: 'Clínicas Estéticas',
         description:
-          'Una cirugía o un tratamiento estético se piensa durante semanas. El paciente revisa certificaciones, resultados y opiniones, compara clínicas y cada vez más le pregunta a una IA. Diseñamos sitios que transmiten la seguridad que busca y lo llevan a agendar su valoración contigo.',
+          'Una cirugía o un tratamiento estético se piensa durante semanas. El paciente revisa certificaciones, resultados y opiniones, compara clínicas y cada vez más le pregunta a una IA. Diseñamos sitios que transmiten la seguridad que busca y lo llevan a pedir su valoración contigo.',
         cta: 'Cotiza tu sitio',
         ctaSecondary: 'Ver cómo trabajamos',
         stats: [
           c.stats[0],
-          { value: '24/7', label: 'tus pacientes pueden agendar su valoración a cualquier hora' },
+          { value: '24/7', label: 'tus pacientes pueden pedir su valoración a cualquier hora' },
           { value: 'Salud', label: 'ya trabajamos con marcas como Dentol y Elite Home Health' },
         ],
       },
       services: {
-        heading: 'Servicios de diseño web para clínicas estéticas',
+        heading: 'Diseño web para clínicas estéticas: lo que puede incluir tu sitio',
         intro:
           'Diseñamos para cirujanos plásticos, dermatólogos y clínicas de medicina estética. Cada sitio se diseña a partir de los procedimientos que quieres impulsar y del paciente que quieres atraer.',
         items: [
@@ -122,7 +122,7 @@ export const estetica: Sector = {
           {
             question: '¿Cuánto cuesta la página web de una clínica estética?',
             answer:
-              'Depende del alcance: cuántos procedimientos, si incluye galería de resultados y agenda en línea, si va en uno o en los dos idiomas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende del alcance: cuántos procedimientos, si incluye galería de resultados y agenda en línea y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: '¿Puedo mostrar fotos de antes y después?',
@@ -132,7 +132,7 @@ export const estetica: Sector = {
           {
             question: '¿El sitio puede recibir solicitudes de valoración?',
             answer:
-              'Sí. Puede incluir un formulario, un botón de WhatsApp o una agenda en línea conectada a tu calendario, según cómo organices tu clínica.',
+              'Sí. Incluye un formulario y un botón de WhatsApp, y si lo necesitas desarrollamos a la medida una agenda en línea conectada a tu calendario.',
           },
           s.faqAi('mi clínica'),
           c.faqPayment,
@@ -164,17 +164,17 @@ export const estetica: Sector = {
         titleLead: 'Web Design for',
         titleAccent: 'Aesthetic Clinics',
         description:
-          'Surgery or an aesthetic treatment is a decision people think about for weeks. They check credentials, results, and reviews, compare clinics, and more and more often they ask an AI. We design websites that convey the safety they are looking for and lead them to book a consultation with you.',
+          'Surgery or an aesthetic treatment is a decision people think about for weeks. They check credentials, results, and reviews, compare clinics, and more and more often they ask an AI. We design websites that convey the safety they are looking for and lead them to request a consultation with you.',
         cta: 'Request a quote',
         ctaSecondary: 'See how we work',
         stats: [
           C.stats[0],
-          { value: '24/7', label: 'patients can book their consultation any time' },
+          { value: '24/7', label: 'patients can request their consultation any time' },
           { value: 'Health', label: 'we already work with brands like Dentol and Elite Home Health' },
         ],
       },
       services: {
-        heading: 'Web design services for aesthetic clinics',
+        heading: 'Web design for aesthetic clinics: what your site can include',
         intro:
           'We design for plastic surgeons, dermatologists, and aesthetic medicine clinics. Every site is designed around the procedures you want to grow and the patient you want to attract.',
         items: [
@@ -231,7 +231,7 @@ export const estetica: Sector = {
           {
             question: 'How much does an aesthetic clinic website cost?',
             answer:
-              'It depends on scope: how many procedures, whether it includes a results gallery and online booking, whether it runs in one language or both, and whether you also need a brand. After a call we send an itemized quote.',
+              'It depends on scope: how many procedures, whether it includes a results gallery and online booking, and whether you also need a brand. After a call we send an itemized quote.',
           },
           {
             question: 'Can I show before-and-after photos?',
@@ -241,7 +241,7 @@ export const estetica: Sector = {
           {
             question: 'Can the site take consultation requests?',
             answer:
-              'Yes. It can include a form, a WhatsApp button, or an online calendar connected to your schedule, depending on how you run your clinic.',
+              'Yes. It includes a form and a WhatsApp button, and if you need it we build a custom online calendar connected to your schedule.',
           },
           S.faqAi('my clinic'),
           C.faqPayment,

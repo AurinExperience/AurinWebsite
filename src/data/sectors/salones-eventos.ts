@@ -30,13 +30,13 @@ export const salonesEventos = defineSector({
         title: 'Espacios que enamoran',
         description:
           'Galerías grandes por espacio, montajes y temporadas, que cargan rápido aun con muchas fotos de buena calidad.',
-        bullets: ['Galería por espacio', 'Montajes y capacidades', 'Video y recorridos'],
+        bullets: ['Galería por espacio', 'Montajes y capacidades', 'Video del recinto'],
       },
       {
         title: 'Paquetes y visitas',
         description:
-          'Paquetes y servicios explicados con claridad, y un formulario para solicitar fecha o agendar una visita al recinto.',
-        bullets: ['Paquetes y servicios', 'Solicitud de fecha', 'Agenda de visitas y WhatsApp'],
+          'Paquetes y servicios explicados con claridad, y un formulario para solicitar fecha o visita al recinto.',
+        bullets: ['Paquetes y servicios', 'Solicitud de fecha', 'Solicitud de visita y WhatsApp'],
       },
       {
         title: 'Que te encuentren en Google y en la IA',
@@ -55,7 +55,7 @@ export const salonesEventos = defineSector({
     pages: 'espacios, tipos de evento, paquetes, galería, visitas y aviso de privacidad',
     costQuestion: '¿Cuánto cuesta la página web de un salón de eventos?',
     costScope:
-      'cuántos espacios y paquetes, si incluye video o recorrido virtual, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos espacios y paquetes, si incluye video y si también necesitas marca',
     faqs: [
       {
         question: '¿Conviene publicar precios de los paquetes?',
@@ -98,13 +98,13 @@ export const salonesEventos = defineSector({
         title: 'Spaces people fall for',
         description:
           'Large galleries by space, setup, and season that load fast even with many high-quality photos.',
-        bullets: ['Gallery by space', 'Setups and capacities', 'Video and tours'],
+        bullets: ['Gallery by space', 'Setups and capacities', 'Venue video'],
       },
       {
         title: 'Packages and visits',
         description:
-          'Packages and services explained clearly, and a form to request a date or book a visit to the venue.',
-        bullets: ['Packages and services', 'Date requests', 'Visit booking and WhatsApp'],
+          'Packages and services explained clearly, and a form to request a date or a visit to the venue.',
+        bullets: ['Packages and services', 'Date requests', 'Visit requests and WhatsApp'],
       },
       {
         title: 'Get found on Google and by AI',
@@ -123,7 +123,7 @@ export const salonesEventos = defineSector({
     pages: 'spaces, event types, packages, gallery, visits, and the privacy notice',
     costQuestion: 'How much does an event venue website cost?',
     costScope:
-      'how many spaces and packages, whether it includes video or a virtual tour, whether it runs in one language or both, and whether you also need a brand',
+      'how many spaces and packages, whether it includes video, and whether you also need a brand',
     faqs: [
       {
         question: 'Should we publish package prices?',

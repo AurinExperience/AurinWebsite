@@ -47,11 +47,14 @@ export const durango: Landing = {
           {
             title: 'Tienda en línea para muebles y madera',
             description:
-              'Un mueble se compra por cómo se ve y por la confianza en quien lo hace. La tienda presenta cada pieza con buenas fotos, medidas y materiales, y facilita el pedido.',
+              'Un mueble se compra por cómo se ve y por la confianza en quien lo hace. La tienda, que diseñamos y desarrollamos a la medida, presenta cada pieza con buenas fotos, medidas y materiales, y facilita el pedido.',
             bullets: [
               'Catálogo por línea o pieza',
               'Medidas, materiales y acabados',
-              'Pagos en línea o solicitud de cotización',
+              'Solicitud de cotización',
+            ],
+            custom: [
+              'Pagos en línea',
             ],
           },
           {
@@ -156,11 +159,14 @@ export const durango: Landing = {
           {
             title: 'Online store for furniture and wood',
             description:
-              'Furniture is bought on how it looks and on trust in who makes it. The store presents each piece with good photos, dimensions, and materials, and makes ordering easy.',
+              'Furniture is bought on how it looks and on trust in who makes it. The store, custom-built for you, presents each piece with good photos, dimensions, and materials, and makes ordering easy.',
             bullets: [
               'Catalog by line or piece',
               'Dimensions, materials, and finishes',
-              'Online payments or quote requests',
+              'Quote requests',
+            ],
+            custom: [
+              'Online payments',
             ],
           },
           {

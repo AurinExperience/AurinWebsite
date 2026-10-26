@@ -35,7 +35,7 @@ export const usInteriorDesigners = defineSector({
         title: 'Tu estilo, inconfundible',
         description:
           'Tipografía, ritmo y composición pensados para tu estudio, no una plantilla que usan cien diseñadores más.',
-        bullets: ['Diseño a la medida', 'Tono y textos con tu voz', 'Prensa y publicaciones'],
+        bullets: ['Diseño propio', 'Tono y textos con tu voz', 'Prensa y publicaciones'],
       },
       {
         title: 'El cliente correcto',
@@ -54,17 +54,17 @@ export const usInteriorDesigners = defineSector({
     pages: 'portafolio, estudio, servicios, prensa, proceso y contacto',
     costQuestion: '¿Cuánto cuesta el sitio web de un diseñador de interiores?',
     costScope:
-      'cuántos proyectos en el portafolio, si incluye tienda o colecciones propias, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos proyectos en el portafolio, si incluye tienda o colecciones propias y si también necesitas marca',
     faqs: [
       {
         question: '¿Puedo actualizar el portafolio yo misma?',
         answer:
-          'Sí. Dejamos el sitio listo para que agregues proyectos nuevos sin romper el diseño, y te explicamos cómo en una sesión.',
+          'Sí, con un panel a la medida para que agregues proyectos nuevos sin romper el diseño, y te explicamos cómo usarlo en una sesión.',
       },
       {
         question: '¿Pueden incluir mi línea de mobiliario o accesorios?',
         answer:
-          'Sí. Podemos sumar una sección de colecciones o una tienda en línea, según cómo vendas tus piezas.',
+          'Sí. Podemos sumar una sección de colecciones o, a la medida, una tienda en línea, según cómo vendas tus piezas.',
       },
     ],
     aiSubject: 'mi estudio',
@@ -102,7 +102,7 @@ export const usInteriorDesigners = defineSector({
         title: 'Your style, unmistakable',
         description:
           'Typography, rhythm, and composition designed for your studio, not a template a hundred other designers use.',
-        bullets: ['Custom design', 'Copy in your voice', 'Press and publications'],
+        bullets: ['Original design', 'Copy in your voice', 'Press and publications'],
       },
       {
         title: 'The right client',
@@ -121,16 +121,16 @@ export const usInteriorDesigners = defineSector({
     pages: 'portfolio, studio, services, press, process, and contact',
     costQuestion: 'How much does an interior designer website cost?',
     costScope:
-      'how many projects in the portfolio, whether it includes a shop or your own collections, whether it runs in one language or both, and whether you also need a brand',
+      'how many projects in the portfolio, whether it includes a shop or your own collections, and whether you also need a brand',
     faqs: [
       {
         question: 'Can I update the portfolio myself?',
         answer:
-          'Yes. We set the site up so you can add new projects without breaking the design, and walk you through it in one session.',
+          'Yes, with a custom panel so you can add new projects without breaking the design, and we walk you through it in one session.',
       },
       {
         question: 'Can you include my furniture or decor line?',
-        answer: 'Yes. We can add a collections section or an online shop, depending on how you sell your pieces.',
+        answer: 'Yes. We can add a collections section or, as a custom build, an online shop, depending on how you sell your pieces.',
       },
     ],
     aiSubject: 'my studio',

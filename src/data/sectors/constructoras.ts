@@ -60,7 +60,7 @@ export const constructoras: Sector = {
         ],
       },
       services: {
-        heading: 'Servicios de diseño web para constructoras',
+        heading: 'Diseño web para constructoras: lo que puede incluir tu sitio',
         intro:
           'Diseñamos para constructoras, contratistas, empresas de ingeniería y proveedores industriales. Cada página web para empresa constructora se diseña a partir del tipo de obra que haces y de quién te contrata.',
         items: [
@@ -68,7 +68,8 @@ export const constructoras: Sector = {
             title: 'Obras que demuestran capacidad',
             description:
               'Cada obra se presenta como caso: tipo de proyecto, alcance, ubicación y fotos del proceso. Tu cliente ve de qué tamaño son los proyectos que ya resolviste.',
-            bullets: ['Fichas de obra con alcance y ubicación', 'Fotografía de proceso y obra terminada', 'Filtros por tipo de proyecto'],
+            bullets: ['Fichas de obra con alcance y ubicación', 'Fotografía de proceso y obra terminada'],
+            custom: ['Filtros por tipo de proyecto'],
           },
           {
             title: 'Lo que revisa compras',
@@ -117,7 +118,7 @@ export const constructoras: Sector = {
           {
             question: '¿Cuánto cuesta la página web de una constructora?',
             answer:
-              'Depende del alcance: cuántas obras y servicios, si necesitas un administrador para subirlas, si va en uno o en los dos idiomas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
+              'Depende del alcance: cuántas obras y servicios, si necesitas un administrador para subirlas y si también necesitas marca. Después de una llamada te mandamos una cotización desglosada.',
           },
           {
             question: 'Casi todos mis clientes llegan por recomendación, ¿para qué un sitio?',
@@ -168,7 +169,7 @@ export const constructoras: Sector = {
         ],
       },
       services: {
-        heading: 'Web design services for construction companies',
+        heading: 'Web design for construction companies: what your site can include',
         intro:
           'We design for construction companies, contractors, engineering firms, and industrial suppliers. Every construction company website is designed around the work you build and who hires you.',
         items: [
@@ -176,7 +177,8 @@ export const constructoras: Sector = {
             title: 'Projects that prove capacity',
             description:
               'Each project is presented as a case: type, scope, location, and progress photos. Clients see the size of the projects you have already delivered.',
-            bullets: ['Project pages with scope and location', 'Progress and completion photography', 'Filters by project type'],
+            bullets: ['Project pages with scope and location', 'Progress and completion photography'],
+            custom: ['Filters by project type'],
           },
           {
             title: 'What procurement looks for',
@@ -225,7 +227,7 @@ export const constructoras: Sector = {
           {
             question: 'How much does a construction company website cost?',
             answer:
-              'It depends on scope: how many projects and services, whether you need an admin to upload them, whether it runs in one language or both, and whether you also need a brand. After a call we send an itemized quote.',
+              'It depends on scope: how many projects and services, whether you need an admin to upload them, and whether you also need a brand. After a call we send an itemized quote.',
           },
           {
             question: 'Most of my clients come from referrals. Why do I need a website?',

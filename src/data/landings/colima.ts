@@ -70,7 +70,8 @@ export const colima: Landing = {
             title: 'Hoteles y restaurantes de Manzanillo',
             description:
               'El turista compara desde el celular y decide rápido. Menú o habitaciones, ubicación y el botón para reservar tienen que estar a la mano.',
-            bullets: ['Galería o menú', 'Reservas en línea', 'Horario, ubicación y mapa'],
+            bullets: ['Galería o menú', 'Horario, ubicación y mapa'],
+            custom: ['Reservas en línea'],
           },
           {
             title: 'Branding',
@@ -94,7 +95,7 @@ export const colima: Landing = {
           },
           {
             name: 'Estructura',
-            text: 'Definimos las páginas, qué información va en cada una y si el sitio va en uno o en los dos idiomas.',
+            text: 'Definimos las páginas y qué información va en cada una.',
           },
           c.stepDesign,
           c.stepLaunch,
@@ -113,7 +114,7 @@ export const colima: Landing = {
           {
             question: 'Tengo un hotel en Manzanillo, ¿puedo recibir reservas en mi sitio?',
             answer:
-              'Sí. El sitio puede incluir reservas o solicitud de disponibilidad. Cómo se conecta con tu forma de operar lo definimos en la cotización.',
+              'Sí. El sitio incluye un formulario para pedir disponibilidad y, como desarrollo a la medida, puede sumar reservas en línea. Cómo se conecta con tu forma de operar lo definimos en la cotización.',
           },
           c.faqPayment,
           c.faqRemote('Colima'),
@@ -179,7 +180,8 @@ export const colima: Landing = {
             title: 'Hotels and restaurants in Manzanillo',
             description:
               'Tourists compare on their phones and decide fast. Menu or rooms, location, and the booking button need to be within reach.',
-            bullets: ['Gallery or menu', 'Online reservations', 'Hours, location, and map'],
+            bullets: ['Gallery or menu', 'Hours, location, and map'],
+            custom: ['Online reservations'],
           },
           {
             title: 'Branding',
@@ -203,7 +205,7 @@ export const colima: Landing = {
           },
           {
             name: 'Structure',
-            text: 'We define the pages, what information goes on each, and whether the site runs in one language or both.',
+            text: 'We define the pages and what information goes on each.',
           },
           C.stepDesign,
           C.stepLaunch,
@@ -222,7 +224,7 @@ export const colima: Landing = {
           {
             question: 'I run a hotel in Manzanillo. Can I take bookings on my site?',
             answer:
-              'Yes. The site can include bookings or availability requests. How it fits the way you operate is defined in the quote.',
+              'Yes. The site includes a form to request availability and, as custom development, can add online booking. How it fits the way you operate is defined in the quote.',
           },
           C.faqPayment,
           C.faqRemote('Colima'),

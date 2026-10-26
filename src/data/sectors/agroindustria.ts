@@ -55,7 +55,7 @@ export const agroindustria = defineSector({
     pages: 'productos, temporadas, certificaciones, instalaciones, cotización y contacto comercial',
     costQuestion: '¿Cuánto cuesta la página web de una empresa exportadora?',
     costScope:
-      'cuántos productos, si va en uno o en varios idiomas, si incluye catálogo descargable o administrador, y si también necesitas marca',
+      'cuántos productos, si necesitas más idiomas que español e inglés, si incluye administrador, y si también necesitas marca',
     faqs: [
       {
         question: '¿El sitio puede estar en más idiomas que inglés?',
@@ -123,7 +123,7 @@ export const agroindustria = defineSector({
     pages: 'products, seasons, certifications, facilities, quotes, and sales contact',
     costQuestion: 'How much does an exporter website cost?',
     costScope:
-      'how many products, whether it runs in one or several languages, whether it includes a downloadable catalog or admin, and whether you also need a brand',
+      'how many products, whether you need languages beyond English and Spanish, whether it includes an admin panel, and whether you also need a brand',
     faqs: [
       {
         question: 'Can the site be in more languages than English?',

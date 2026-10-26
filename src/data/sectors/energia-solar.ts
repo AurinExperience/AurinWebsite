@@ -56,12 +56,12 @@ export const energiaSolar = defineSector({
     pages: 'residencial, empresas, financiamiento, instalaciones, cotización y aviso de privacidad',
     costQuestion: '¿Cuánto cuesta la página web de una empresa de paneles solares?',
     costScope:
-      'cuántos servicios e instalaciones, si incluye formulario de cotización o carga de recibos, si va en uno o en los dos idiomas y si también necesitas marca',
+      'cuántos servicios e instalaciones, si incluye formulario de cotización o carga de recibos y si también necesitas marca',
     faqs: [
       {
         question: '¿El sitio puede calcular el ahorro del cliente?',
         answer:
-          'Podemos incluir un estimador con las reglas que tú definas, siempre presentado como aproximado. Muchas instaladoras prefieren pedir el recibo y cotizar con datos reales.',
+          'Podemos desarrollar a la medida un estimador con las reglas que tú definas, siempre presentado como aproximado. Muchas instaladoras prefieren pedir el recibo y cotizar con datos reales.',
       },
       {
         question: '¿Pueden mostrar instalaciones en varias ciudades?',
@@ -124,12 +124,12 @@ export const energiaSolar = defineSector({
     pages: 'residential, business, financing, installations, quotes, and the privacy notice',
     costQuestion: 'How much does a solar company website cost?',
     costScope:
-      'how many services and installations, whether it includes a quote form or bill upload, whether it runs in one language or both, and whether you also need a brand',
+      'how many services and installations, whether it includes a quote form or bill upload, and whether you also need a brand',
     faqs: [
       {
         question: 'Can the site estimate a customer’s savings?',
         answer:
-          'We can include an estimator with the rules you define, always presented as approximate. Many installers prefer to request the bill and quote with real data.',
+          'We can build a custom estimator with the rules you define, always presented as approximate. Many installers prefer to request the bill and quote with real data.',
       },
       {
         question: 'Can you show installations in several cities?',
