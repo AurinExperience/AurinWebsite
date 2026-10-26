@@ -33,6 +33,7 @@ import {
   NearbyLandings,
 } from "@/blocks/landing-web-design";
 import Layout from "@/layouts/Layout.astro";
+import SliderClients from "@/blocks/home/SliderClients/SliderClients.astro";
 import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
 import Office from "@/blocks/shared/Contact/Office.astro";
@@ -158,6 +159,8 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
   <Header minimal />
   <main id="main-content">
     <HeroLanding hero={copy.hero} />
+    {/* Logos de clientes justo después del hero: confianza antes de leer la oferta */}
+    <SliderClients />
     <ServicesIncluded services={copy.services} />
     <ProcessSteps process={copy.process} />
     <SocialProof socialProof={copy.socialProof} proof={landing.proof} />

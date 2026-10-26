@@ -1,19 +1,16 @@
 ---
 /**
  * SocialProof — Real client trust signals.
- * Muestra trabajo real (imágenes de proyecto) + el marquee de logos de clientes.
+ * Muestra el portafolio real (las mismas tarjetas de /projects, con los
+ * proyectos del sector de la landing primero) en un slider. Los logos de
+ * clientes van aparte, justo debajo del hero.
  * Sin testimonios.
- *
- * Las imágenes salen de Payload (miniatura del proyecto o, si no hay, su imagen
- * principal) para los proyectos del sector de la landing. Los que solo tienen
- * imagen de relleno se saltan y se completa con capturas fijas, para no pintar
- * cajas grises.
  */
 import type { LandingCopy, ProofProjectId } from '@/data/landings';
 import { PROOF_PROJECTS } from '@/data/landings';
 import { getLangFromUrl, getLocalizedUrl } from '@/i18n';
-import { PayloadAPI, getImageUrl, getProjectUrl, ownCardImage } from '@/lib/payload';
-import SliderClients from '@/blocks/home/SliderClients/SliderClients.astro';
+import { PayloadAPI } from '@/lib/payload';
+import ProjectsGrid from '@/components/projects/ProjectsGrid.astro';
 import styles from './SocialProof.module.css';
 
 interface Props {
@@ -26,12 +23,23 @@ const { socialProof, proof } = Astro.props;
 const currentLang = getLangFromUrl(Astro.url);
 
 /*
- * Solo existen tres imágenes de proyecto, así que las capturas se repiten entre
- * landings. Lo que sí cambia por estado es esta lista: son clientes reales,
- * elegidos por SECTOR, no por ubicación. Deliberadamente no dice de dónde son —
- * afirmarlo obligaría a sostener una cartera local que no existe.
+ * Solo los nombres de los sectores con clientes reales (los proyectos ya salen
+ * en el slider), sin repetir y con los afines a esta landing primero. Se elige
+ * por SECTOR, no por ubicación: afirmar de dónde son los clientes obligaría a
+ * sostener una cartera local que no existe. Lo legal no se muestra (contrato).
  */
-const proofProjects = proof.map((id) => PROOF_PROJECTS[id]).filter(Boolean);
+const sectorOrder = [
+  ...proof,
+  ...(Object.keys(PROOF_PROJECTS) as ProofProjectId[]).filter((id) => !proof.includes(id)),
+];
+const sectors = [
+  ...new Set(
+    sectorOrder
+      .map((id) => PROOF_PROJECTS[id])
+      .filter((project) => project && !/legal/i.test(project.sector.es))
+      .map((project) => project.sector[currentLang]),
+  ),
+];
 
 const proofLabels =
   currentLang === 'es'
@@ -44,48 +52,25 @@ const proofLabels =
         about: 'Who we are and how we work',
       };
 
+// Etiqueta de cada punto del slider: "Proyectos, página 2"
+const dotLabel = currentLang === 'es' ? 'Proyectos, página' : 'Projects, page';
+
 const portfolioLabel =
   currentLang === 'es' ? 'Ver nuestro portafolio de proyectos' : 'See our project portfolio';
-
-// Último recurso si el CMS no responde
-const fallbackWork = [
-  {
-    src: '/work/sinfonica.webp',
-    width: 1000,
-    height: 722,
-    name: 'Sinfónica de Minería',
-    discipline: currentLang === 'es' ? 'Branding y sitio web' : 'Branding and website',
-  },
-];
 
 // Proyectos de servicios legales: no se muestran en landings (contrato del estudio)
 const LEGAL = /galicia|derecho/i;
 
+// El portafolio completo, con los proyectos afines al sector primero
 const cmsProjects = await PayloadAPI.getProjects(currentLang).catch(() => []);
-const toWork = (p: (typeof cmsProjects)[number]) => {
-  const image = ownCardImage(p, cmsProjects)!;
-  return {
-    src: getImageUrl(image.url),
-    width: image.width,
-    height: image.height,
-    name: p.title,
-    discipline: p.hero?.services?.map((s) => s.name).filter(Boolean).slice(0, 2).join(' · ') || '',
-    href: getProjectUrl(p, currentLang),
-  };
-};
-const withImage = cmsProjects.filter((p) => !LEGAL.test(p.title) && ownCardImage(p, cmsProjects));
 const proofIds = proof.map((id) => PROOF_PROJECTS[id]?.cmsId);
-const fromCms = proofIds
-  .map((cmsId) => withImage.find((p) => p.id === cmsId))
-  .filter((p): p is (typeof withImage)[number] => Boolean(p));
-// Siempre 3: primero los del sector, luego otros proyectos reales con imagen propia
-const work: Array<(typeof fallbackWork)[number] & { href?: string }> = [
-  ...fromCms,
-  ...withImage.filter((p) => !proofIds.includes(p.id)),
-]
-  .slice(0, 3)
-  .map(toWork);
-if (work.length < 3) work.push(...fallbackWork.slice(0, 3 - work.length));
+const portfolio = cmsProjects
+  .filter((p) => !LEGAL.test(p.title))
+  .sort((a, b) => rank(a.id) - rank(b.id));
+function rank(id: string) {
+  const i = proofIds.indexOf(id);
+  return i === -1 ? proofIds.length : i;
+}
 ---
 
 <section class={styles.section} aria-labelledby="social-proof-heading">
@@ -97,36 +82,18 @@ if (work.length < 3) work.push(...fallbackWork.slice(0, 3 - work.length));
       </div>
     </header>
 
-    <ul class={styles.projects}>
-      {work.map((item) => (
-        <li class={styles.project}>
-          <a class={styles.projectLink} href={item.href}>
-          <img
-            class={styles.projectImage}
-            src={item.src}
-            alt={`${item.discipline ? `${item.discipline} ${currentLang === 'es' ? 'para' : 'for'} ` : ''}${item.name} — Aurin`}
-            width={item.width}
-            height={item.height}
-            loading="lazy"
-            decoding="async"
-          />
-          <div class={styles.projectMeta}>
-            <span class={styles.projectName}>{item.name}</span>
-            {item.discipline && <span class={styles.projectDiscipline}>{item.discipline}</span>}
-          </div>
-          </a>
-        </li>
-      ))}
-    </ul>
+    {portfolio.length > 0 && (
+      <div class={styles.slider} data-portfolio-slider data-dot-label={dotLabel}>
+        <ProjectsGrid projects={portfolio} class={styles.portfolio} />
+        <div class={styles.dots} data-dots data-dot-class={styles.dot}></div>
+      </div>
+    )}
 
     <div class={styles.sectors}>
       <h3 class={styles.sectorsHeading}>{proofLabels.heading}</h3>
       <ul class={styles.sectorsList}>
-        {proofProjects.map((project) => (
-          <li class={styles.sector}>
-            <span class={styles.sectorName}>{project.name}</span>
-            <span class={styles.sectorIndustry}>{project.sector[currentLang]}</span>
-          </li>
+        {sectors.map((sector) => (
+          <li class={styles.sector}>{sector}</li>
         ))}
       </ul>
     </div>
@@ -144,5 +111,81 @@ if (work.length < 3) work.push(...fallbackWork.slice(0, 3 - work.length));
       </a>
     </div>
   </div>
-  <SliderClients />
 </section>
+
+<script>
+  // Puntos del slider: uno por "página" (lo que cabe a la vista), se recalculan al
+  // cambiar el ancho y marcan la página actual al deslizar.
+  document.querySelectorAll<HTMLElement>('[data-portfolio-slider]').forEach((slider) => {
+    // ProjectsGrid = contenedor > cuadrícula; la cuadrícula es la que se desliza
+    const track = slider.firstElementChild?.firstElementChild as HTMLElement | null;
+    const dots = slider.querySelector<HTMLElement>('[data-dots]');
+    const card = track?.firstElementChild as HTMLElement | null;
+    if (!track || !dots || !card) return;
+    let step = 1;
+    const max = () => track.scrollWidth - track.clientWidth;
+    const update = () => {
+      const current = track.scrollLeft >= max() - 1 ? dots.children.length - 1 : Math.round(track.scrollLeft / step);
+      [...dots.children].forEach((dot, i) => dot.setAttribute('aria-current', String(i === current)));
+    };
+    const build = () => {
+      const cardStep = card.offsetWidth + parseFloat(getComputedStyle(track).columnGap || '0');
+      step = Math.max(1, Math.floor((track.clientWidth + cardStep - card.offsetWidth) / cardStep + 0.01)) * cardStep;
+      const pages = max() > 1 ? 1 + Math.ceil(max() / step - 0.01) : 0;
+      dots.replaceChildren(
+        ...Array.from({ length: pages }, (_, i) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = dots.dataset.dotClass ?? '';
+          dot.setAttribute('aria-label', `${slider.dataset.dotLabel} ${i + 1}`);
+          dot.addEventListener('click', () => track.scrollTo({ left: i * step, behavior: 'smooth' }));
+          return dot;
+        }),
+      );
+      update();
+    };
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', build);
+    build();
+
+    // Arrastre con mouse (con el dedo y el trackpad el scroll ya es nativo). Mientras
+    // se arrastra se apaga el snap; al soltar se acomoda en la card más cercana.
+    let startX = 0;
+    let startLeft = 0;
+    let dragging = false;
+    let moved = false;
+    track.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      dragging = true;
+      moved = false;
+      startX = e.clientX;
+      startLeft = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      if (!moved && Math.abs(dx) < 6) return;
+      moved = true;
+      track.dataset.dragging = '';
+      track.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', () => {
+      if (!dragging) return;
+      dragging = false;
+      if (!moved) return;
+      const cardStep = card.offsetWidth + parseFloat(getComputedStyle(track).columnGap || '0');
+      track.scrollTo({ left: Math.round(track.scrollLeft / cardStep) * cardStep, behavior: 'smooth' });
+      setTimeout(() => delete track.dataset.dragging, 400);
+    });
+    // Un arrastre no debe abrir el proyecto que quedó bajo el cursor
+    track.addEventListener(
+      'click',
+      (e) => {
+        if (moved) e.preventDefault();
+        moved = false;
+      },
+      true,
+    );
+    track.addEventListener('dragstart', (e) => e.preventDefault());
+  });
+</script>

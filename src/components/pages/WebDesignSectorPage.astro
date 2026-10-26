@@ -29,6 +29,7 @@ import {
   NearbyLandings,
 } from "@/blocks/landing-web-design";
 import Layout from "@/layouts/Layout.astro";
+import SliderClients from "@/blocks/home/SliderClients/SliderClients.astro";
 import CtaBanner from "@/components/layout/CtaBanner.astro";
 import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
@@ -119,6 +120,8 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
   {/* data-fx: activa los efectos de movimiento de los bloques (ver comentario "Efectos" en cada uno) */}
   <main id="main-content">
     <HeroLanding hero={copy.hero} />
+    {/* Logos de clientes justo después del hero: confianza antes de leer la oferta */}
+    <SliderClients />
     <ServicesIncluded services={copy.services} />
     <ProcessSteps process={copy.process} />
     <SocialProof socialProof={copy.socialProof} proof={sector.proof} />
@@ -134,7 +137,7 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
       nearby={copy.nearby}
       links={siblingSectors(sector)
         .sort((a, b) => a.name[lang].localeCompare(b.name[lang], lang))
-        .map((s) => ({ href: sectorPath(s, lang), label: s.copy[lang].linkLabel, detail: s.name[lang] }))}
+        .map((s) => ({ href: sectorPath(s, lang), label: s.copy[lang].linkLabel }))}
     />
     <CtaBanner />
   </main>
