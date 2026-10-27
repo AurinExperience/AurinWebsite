@@ -414,7 +414,9 @@ const t = translations[getLangFromUrl(Astro.url)].banner;
     const photo = section?.querySelector<HTMLImageElement>('[data-photo]');
     const logo = section?.querySelector<HTMLElement>('[data-logo]');
     const canvas = section?.querySelector('canvas');
-    const gl = canvas?.getContext('webgl', { alpha: false, antialias: false });
+    // failIfMajorPerformanceCaveat: sin GPU (WebGL por software) no hay contexto y queda la
+    // foto quieta. Por CPU el shader bloqueaba el hilo principal segundos (Lighthouse: TBT de 3–10 s)
+    const gl = canvas?.getContext('webgl', { alpha: false, antialias: false, failIfMajorPerformanceCaveat: true });
     if (!section || !scene || !photo || !logo || !canvas || !gl) return;
     const u = await setup(gl, FRAG, UNIFORMS);
     if (!u) return;
@@ -533,5 +535,9 @@ const t = translations[getLangFromUrl(Astro.url)].banner;
     }, () => {});
   }
 
-  init();
+  // Después de cargar y con el hilo libre: compilar el shader no compite con el primer pintado
+  // ni con los primeros clics. Safari no tiene requestIdleCallback.
+  const idle = (fn: () => void) => ('requestIdleCallback' in window ? requestIdleCallback(fn, { timeout: 3000 }) : setTimeout(fn, 200));
+  if (document.readyState === 'complete') idle(init);
+  else addEventListener('load', () => idle(init), { once: true });
 </script>
