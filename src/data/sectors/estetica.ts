@@ -1,6 +1,7 @@
 import type { Sector } from './index';
 import { COMMON } from '@/data/landings/common';
 import { SECTOR_COMMON } from './common';
+import { designStep } from './process';
 
 const { es: c, en: C } = COMMON;
 const { es: s, en: S } = SECTOR_COMMON;
@@ -111,7 +112,7 @@ export const estetica: Sector = {
             name: 'Estructura',
             text: 'Definimos las páginas: procedimientos, especialista, resultados, valoración en línea y aviso de privacidad. Todo organizado para que Google y los buscadores con IA lo entiendan.',
           },
-          c.stepDesign,
+          designStep('estetica', 'es', c.stepDesign),
           c.stepLaunch,
         ],
       },
@@ -137,7 +138,6 @@ export const estetica: Sector = {
           s.faqAi('mi clínica'),
           c.faqPayment,
           s.faqRemote('clínicas estéticas'),
-          c.faqLanguages,
         ],
       },
       socialProof: {
@@ -220,7 +220,7 @@ export const estetica: Sector = {
             name: 'Structure',
             text: 'We define the pages: procedures, specialist, results, online consultations, and the privacy notice. All organized so Google and AI search tools can understand it.',
           },
-          C.stepDesign,
+          designStep('estetica', 'en', C.stepDesign),
           C.stepLaunch,
         ],
       },
@@ -246,7 +246,6 @@ export const estetica: Sector = {
           S.faqAi('my clinic'),
           C.faqPayment,
           S.faqRemote('aesthetic clinics'),
-          C.faqLanguages,
         ],
       },
       socialProof: {

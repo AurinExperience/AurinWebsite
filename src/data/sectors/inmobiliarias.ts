@@ -1,6 +1,7 @@
 import type { Sector } from './index';
 import { COMMON } from '@/data/landings/common';
 import { SECTOR_COMMON } from './common';
+import { designStep } from './process';
 
 const { es: c, en: C } = COMMON;
 const { es: s, en: S } = SECTOR_COMMON;
@@ -112,7 +113,7 @@ export const inmobiliarias: Sector = {
             name: 'Estructura',
             text: 'Definimos las páginas: propiedades o desarrollos, zonas, contacto y aviso de privacidad. Todo organizado para que Google y los buscadores con IA lo entiendan.',
           },
-          c.stepDesign,
+          designStep('inmobiliarias', 'es', c.stepDesign),
           c.stepLaunch,
         ],
       },
@@ -138,7 +139,6 @@ export const inmobiliarias: Sector = {
           s.faqAi('mi inmobiliaria'),
           c.faqPayment,
           s.faqRemote('inmobiliarias'),
-          c.faqLanguages,
         ],
       },
       socialProof: {
@@ -226,7 +226,7 @@ export const inmobiliarias: Sector = {
             name: 'Structure',
             text: 'We define the pages: properties or developments, areas, contact, and the privacy notice. All organized so Google and AI search tools can understand it.',
           },
-          C.stepDesign,
+          designStep('inmobiliarias', 'en', C.stepDesign),
           C.stepLaunch,
         ],
       },
@@ -252,7 +252,6 @@ export const inmobiliarias: Sector = {
           S.faqAi('my real estate business'),
           C.faqPayment,
           S.faqRemote('real estate businesses'),
-          C.faqLanguages,
         ],
       },
       socialProof: {

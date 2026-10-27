@@ -1,6 +1,7 @@
 import type { Sector } from './index';
 import { COMMON } from '@/data/landings/common';
 import { SECTOR_COMMON } from './common';
+import { designStep } from './process';
 
 const { es: c, en: C } = COMMON;
 const { es: s, en: S } = SECTOR_COMMON;
@@ -106,7 +107,7 @@ export const hoteles: Sector = {
             name: 'Estructura',
             text: 'Definimos las páginas: habitaciones, experiencias, destino, reservas y aviso de privacidad. Todo organizado para que Google y los buscadores con IA lo entiendan.',
           },
-          c.stepDesign,
+          designStep('hoteles', 'es', c.stepDesign),
           c.stepLaunch,
         ],
       },
@@ -132,7 +133,6 @@ export const hoteles: Sector = {
           s.faqAi('mi hotel'),
           c.faqPayment,
           s.faqRemote('hoteles'),
-          c.faqLanguages,
         ],
       },
       socialProof: {
@@ -216,7 +216,7 @@ export const hoteles: Sector = {
             name: 'Structure',
             text: 'We define the pages: rooms, experiences, destination, bookings, and the privacy notice. All organized so Google and AI search tools can understand it.',
           },
-          C.stepDesign,
+          designStep('hoteles', 'en', C.stepDesign),
           C.stepLaunch,
         ],
       },
@@ -242,7 +242,6 @@ export const hoteles: Sector = {
           S.faqAi('my hotel'),
           C.faqPayment,
           S.faqRemote('hotels'),
-          C.faqLanguages,
         ],
       },
       socialProof: {

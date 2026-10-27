@@ -19,7 +19,7 @@ import styles from './NearbyLandings.module.css';
 interface Props {
   /** La landing por ciudad actual: se listan las demás del mismo país. */
   landing?: Landing;
-  /** Enlaces ya armados (landings por sector). Tienen prioridad sobre `landing`. */
+  /** Enlaces ya armados (landings por sector), incluida la página actual. Tienen prioridad sobre `landing`. */
   links?: { href: string; label: string }[];
   lang: Lang;
   nearby: LandingCopy['nearby'];
@@ -28,15 +28,28 @@ interface Props {
 const { landing, links, lang, nearby } = Astro.props;
 // Orden alfabético por el lugar que se lee en el enlace ("…en Houston" → "Houston"),
 // no por la etiqueta completa, que cambia de prefijo entre landings.
-const items =
+const all =
   links ??
-  (landing ? siblingLandings(landing) : [])
+  (landing ? [landing, ...siblingLandings(landing)] : [])
     .sort((a, b) => landingPlace(a, lang).localeCompare(landingPlace(b, lang), lang, { sensitivity: 'base' }))
     .map((l) => ({ href: landingPath(l, lang), label: l.copy[lang].linkLabel }));
+
+/*
+ * Solo las RING siguientes en orden alfabético (en anillo), no todas: con decenas
+ * de enlaces iguales en cada landing, ese bloque era casi todo el texto repetido
+ * entre landings. En anillo cada landing sigue recibiendo RING enlaces internos,
+ * así ninguna queda huérfana.
+ */
+const RING = 8;
+const here = all.findIndex((item) => item.href === Astro.url.pathname);
+const items = Array.from(
+  { length: Math.min(RING, all.length - 1) },
+  (_, k) => all[(here + 1 + k) % all.length],
+);
 // `links` solo llega desde las landings por sector; sin él son ciudades
 const showAll = links
-  ? lang === 'es' ? `Ver los ${items.length} sectores` : `See all ${items.length} industries`
-  : lang === 'es' ? `Ver las ${items.length} ciudades` : `See all ${items.length} cities`;
+  ? lang === 'es' ? 'Ver más sectores' : 'See more industries'
+  : lang === 'es' ? 'Ver más ciudades' : 'See more cities';
 ---
 
 {items.length > 0 && (

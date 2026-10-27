@@ -1,6 +1,7 @@
 import type { Sector } from './index';
 import { COMMON } from '@/data/landings/common';
 import { SECTOR_COMMON } from './common';
+import { uxSteps } from './process';
 
 const { es: c, en: C } = COMMON;
 const { es: s, en: S } = SECTOR_COMMON;
@@ -97,8 +98,7 @@ export const uxFintech: Sector = {
           s.ux.stepResearch(
             'Entendemos tu producto, a tu usuario y dónde se atora hoy: datos de uso, entrevistas y revisión de la experiencia actual.'
           ),
-          s.ux.stepFlows,
-          s.ux.stepUi,
+          ...uxSteps('ux-fintech', 'es', s.ux.stepFlows, s.ux.stepUi),
           s.ux.stepHandoff,
         ],
       },
@@ -122,7 +122,6 @@ export const uxFintech: Sector = {
               'Diseñamos los flujos con los requisitos que tu equipo legal y de cumplimiento nos indique, como la verificación de identidad o los avisos obligatorios, y buscamos que cumplirlos no arruine la experiencia.',
           },
           s.ux.faqDev,
-          s.ux.faqTeam,
           c.faqPayment,
           s.faqRemote('fintechs'),
         ],
@@ -198,8 +197,7 @@ export const uxFintech: Sector = {
           S.ux.stepResearch(
             'We learn about your product, your users, and where they get stuck today: usage data, interviews, and a review of the current experience.'
           ),
-          S.ux.stepFlows,
-          S.ux.stepUi,
+          ...uxSteps('ux-fintech', 'en', S.ux.stepFlows, S.ux.stepUi),
           S.ux.stepHandoff,
         ],
       },
@@ -223,7 +221,6 @@ export const uxFintech: Sector = {
               'We design the flows around the requirements your legal and compliance team gives us, such as identity verification or mandatory notices, and make sure meeting them does not ruin the experience.',
           },
           S.ux.faqDev,
-          S.ux.faqTeam,
           C.faqPayment,
           S.faqRemote('fintechs'),
         ],
