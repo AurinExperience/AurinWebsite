@@ -30,10 +30,13 @@ const t = translations[getLangFromUrl(Astro.url)].banner;
       </span>
       <span class={styles.tag}>User<br />Experts</span>
     </p>
-    <h1 id="titulo-hero" class:list={[styles.rise, styles.rise2, styles.title]}>
+    {/* Título y texto sin animación de entrada: visibles desde el primer pintado son el
+        LCP. Con opacity 0 al inicio, Chrome solo contaba el logo del header (110×40) y
+        PageSpeed móvil oscilaba entre 88 y 98. */}
+    <h1 id="titulo-hero" class={styles.title}>
       <span>{t.titleLead}</span> <span class={styles.accent}>{t.titleAccent}</span>
     </h1>
-    <p class:list={[styles.rise, styles.rise2, styles.lead]}>{t.description}</p>
+    <p class={styles.lead}>{t.description}</p>
   </div>
 </section>
 
