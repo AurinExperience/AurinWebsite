@@ -9,7 +9,7 @@ const t = translations[currentLang];
 
 <section class={styles.section}>
   <div class={styles.card}>
-    <img
+    <img loading="lazy"
       class={styles.pattern}
       src="/decor/about-collaborative.svg"
       alt=""
@@ -19,7 +19,7 @@ const t = translations[currentLang];
       <div class={styles.info}>
         <h2>{t.about.collaborativeDesign.heading}</h2>
         <!-- TODO: reemplazar con URL permanente del logo de Aldea Creativa -->
-        <img
+        <img loading="lazy"
           class={styles.aldea}
           src="/logos/aldea-creativa.webp"
           alt="Aldea Creativa"

@@ -11,7 +11,7 @@ import {
 
 interface Props {
   class?: string;
-  /* Landings de captura: solo logo e idioma, sin acceso al MegaMenu. */
+  /* Landings de captura: solo logo (enlace al inicio) e idioma, sin acceso al MegaMenu. */
   minimal?: boolean;
   /** Cuando el slug difiere entre ES/EN (p. ej. proyectos del CMS). */
   languageAlternateHref?: string;
@@ -34,34 +34,20 @@ const alternateUrl =
 
 <header class={`${styles.header} header ${className || ""}`}>
   <div class={styles["header-container"]}>
-    {/* En modo captura el logo no navega: la landing no ofrece salidas. */}
-    {
-      minimal ? (
-        <span class={styles["logo-link"]}>
-          <img
-            class={styles["header-logo"]}
-            src="/logos/aurin-tiny-white.svg"
-            alt="Aurin"
-            width="110"
-            height="40"
-          />
-        </span>
-      ) : (
-        <a
-          href={currentLang === "es" ? "/" : "/en"}
-          class={styles["logo-link"]}
-          aria-label={currentLang === "es" ? "Ir a inicio" : "Go to home"}
-        >
-          <img
-            class={styles["header-logo"]}
-            src="/logos/aurin-tiny-white.svg"
-            alt="Aurin Logo"
-            width="110"
-            height="40"
-          />
-        </a>
-      )
-    }
+    {/* También en las landings (minimal): los usuarios hacen clic en el logo para ir al inicio. */}
+    <a
+      href={currentLang === "es" ? "/" : "/en"}
+      class={styles["logo-link"]}
+      aria-label={currentLang === "es" ? "Ir a inicio" : "Go to home"}
+    >
+      <img
+        class={styles["header-logo"]}
+        src="/logos/aurin-tiny-white.svg"
+        alt="Aurin Logo"
+        width="110"
+        height="40"
+      />
+    </a>
 
     <!-- Actions Section -->
     <div class={styles["actions-section"]}>

@@ -14,7 +14,7 @@ export const usNearshore = defineSector({
   name: { es: 'Empresas de EE. UU. (nearshore)', en: 'US companies (nearshore)' },
   proof: ['elite', 'mexicoPacific', 'fortrade'],
   es: {
-    seoTitle: 'Agencia de Diseño Web Nearshore para Empresas de Estados Unidos',
+    seoTitle: 'Agencia de Diseño Web Nearshore para Empresas de EE. UU.',
     seoDescription:
       'Diseño web nearshore desde México para empresas de EE. UU.: tu mismo horario, equipo senior en inglés y estándar de agencia de Nueva York con mejor valor.',
     keywords:

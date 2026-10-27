@@ -1,37 +1,537 @@
 ---
+/**
+ * Hero de la home: el faro (copiado de AurinGlobal, HeroHome). La foto
+ * (public/img/faro.avif, 48 KB) es el fondo y el LCP; encima un shader WebGL sin
+ * librerías mueve el lago, hace titilar las estrellas y gira el haz del faro, que
+ * cruza el logo en cada vuelta (la luz del faro es la luz de Aurin).
+ * Sin WebGL queda la foto quieta; con reduced-motion, un cuadro fijo. Fuera de
+ * pantalla el shader se pausa (IntersectionObserver).
+ * Si cambias algo del shader, cámbialo también en AurinGlobal.
+ */
 import { getLangFromUrl, translations } from "@/i18n";
 import styles from "./Hero.module.css";
-import HeroBackgroundEffectsContainer from "@/blocks/shared/Hero/HeroBackgroundEffectsContainer.astro";
-import FloatingDustContainer from "@/blocks/shared/Hero/FloatingDustContainer.astro";
-import ChatbotSearchContainer from "@/blocks/shared/ChatbotSearch/ChatbotSearchContainer.astro";
 
-const currentLang = getLangFromUrl(Astro.url);
-const t = translations[currentLang];
+const t = translations[getLangFromUrl(Astro.url)].banner;
 ---
 
-<section class={styles.hero} aria-label={t.banner.title1}>
-  <!-- Background layer: WebGL effects and texture -->
-  <HeroBackgroundEffectsContainer />
+<section class={styles.section} aria-labelledby="titulo-hero" data-faro>
+  <div class={styles.scene} data-scene>
+    <picture>
+      <source srcset="/img/faro.avif" type="image/avif" />
+      <img class={styles.photo} src="/img/faro.webp" alt="" width="2560" height="1296" fetchpriority="high" data-photo />
+    </picture>
+    <canvas class={styles.fx} aria-hidden="true"></canvas>
+  </div>
 
-  <!-- Floating dust particles -->
-  <FloatingDustContainer />
-
-  <!-- Main content -->
   <div class={styles.content}>
-    <img
-      src="/logos/aurin-header.svg"
-      alt="Aurin Logo"
-      class={styles.logo}
-      width="672"
-      height="96"
-      fetchpriority="high"
-      draggable="false"
-    />
-
-    <h1 class={styles.title} set:html={t.banner.title1} />
-
-    <p class={styles.searchPrompt}>{t.banner.searchPrompt}</p>
-
-    <ChatbotSearchContainer />
+    <p class:list={[styles.rise, styles.lockup]}>
+      <span class={styles.logo} data-logo>
+        <img src="/img/aurin.svg" alt="Aurin" width="669" height="200" />
+      </span>
+      <span class={styles.tag}>User<br />Experts</span>
+    </p>
+    <h1 id="titulo-hero" class:list={[styles.rise, styles.rise2, styles.title]}>
+      <span>{t.titleLead}</span> <span class={styles.accent}>{t.titleAccent}</span>
+    </h1>
+    <p class:list={[styles.rise, styles.rise2, styles.lead]}>{t.description}</p>
   </div>
 </section>
+
+<script>
+  /*
+   * Shader de pantalla completa sobre la foto, sin librerías. La foto se dibuja con
+   * el mismo recorte que object-fit: cover + object-position del <img>, así el canvas
+   * aparece encima sin saltos. El haz es un cono 3D que gira: el script le da
+   * su dirección (bd) y cuánto mira a la cámara (toward); la perspectiva la resuelve el shader.
+   */
+  const IMG = [2560, 1296];
+  // Luz del faro en la foto (0–1). También es el object-position de .photo.
+  const LAMP = [0.516, 0.3165];
+  const PERIOD = 30; // segundos por vuelta, a velocidad constante como un faro real
+  const HZ = 0.713; // horizonte (altura de los ojos) en la foto, 0–1 desde arriba
+  const F = 3.5; // focal: igual que en el shader
+  // El haz apunta ~10° hacia abajo (tangente): así en todas direcciones baja de la lámpara al agua
+  // y de frente ilumina el lago, no el cielo. Tiene que ser mayor que la altura de la lámpara (L[1])
+  const DIP = 0.18;
+
+  // Línea de las montañas (0–1 desde arriba) cada 1/48 del ancho de la foto, medida en la imagen
+  // (máximo cambio de brillo cielo → montaña). Detrás de la torre, interpolada. Si cambias la foto, recalcúlala.
+  const SKY = [
+    0.627, 0.633, 0.642, 0.648, 0.657, 0.667, 0.673, 0.682, 0.673, 0.66, 0.651, 0.642, 0.63, 0.623, 0.617, 0.614,
+    0.614, 0.617, 0.623, 0.627, 0.633, 0.645, 0.636, 0.648, 0.642, 0.636, 0.629, 0.623, 0.611, 0.602, 0.593, 0.577,
+    0.556, 0.54, 0.534, 0.531, 0.525, 0.522, 0.522, 0.519, 0.515, 0.506, 0.497, 0.488, 0.472, 0.448, 0.438, 0.426, 0.414,
+  ];
+  // Interpolación lineal por tramos sin arreglos (GLSL ES 1.0)
+  const SKYLINE = `float skyline(float x) {
+      float f = clamp(x, 0., 1.) * ${SKY.length - 1}.;
+      float y = ${SKY[0]};
+      ${SKY.slice(1).map((v, i) => `y = mix(y, ${v}, clamp(f - ${i}., 0., 1.));`).join(' ')}
+      return y;
+    }`;
+
+  // Haz del faro: lo usan la escena (detrás del contenido) y la luz que pasa encima del logo
+  const COMMON = `
+    #ifdef GL_FRAGMENT_PRECISION_HIGH
+    precision highp float;
+    #else
+    precision mediump float;
+    #endif
+    uniform vec2 r, s, off, lamp, dir;
+    uniform vec3 bd;
+    uniform float t, reach, toward, hz;
+    const vec3 LIGHT = vec3(1., .97, .9); // color del haz: blanco cálido, como una lámpara real
+
+    float h(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+    float n(vec2 p) {
+      vec2 i = floor(p), f = fract(p);
+      f = f * f * (3. - 2. * f);
+      return mix(mix(h(i), h(i + vec2(1., 0.)), f.x), mix(h(i + vec2(0., 1.)), h(i + 1.), f.x), f.y);
+    }
+    vec2 toUv(vec2 px) { vec2 q = px / r; return off + vec2(q.x, 1. - q.y) * s; }
+    // Silueta de la torre bajo la linterna (en la foto)
+    float tower(vec2 uv) {
+      return (1. - smoothstep(.024, .03, abs(uv.x - .516))) * smoothstep(.33, .34, uv.y) * (1. - smoothstep(.70, .72, uv.y));
+    }
+
+    // Haz del faro en 3D, como uno real: un cono horizontal que gira 360° alrededor de la lámpara.
+    // Cámara en el origen mirando a -z, a la altura del horizonte (hz); la lámpara a distancia 1;
+    // bd = dirección horizontal del haz. Cada píxel busca el punto del haz más cercano a su rayo de
+    // vista, así la perspectiva sale sola: de espaldas el haz converge hacia el horizonte y pasa
+    // detrás de la torre; de frente pasa por encima de la cámara.
+    const float F = 3.5;      // focal, en altos de pantalla: teleobjetivo (~16° vertical), como la foto
+    const float W0 = .008;    // radio del haz en la lente
+    const float SPREAD = .04; // apertura del cono (tangente del semiángulo, ~2°)
+    const float G = .15;      // la neblina dispersa más hacia adelante (Henyey-Greenstein)
+    const float CAMH = .012;  // altura de la cámara sobre el lago (el haz baja hacia el agua: DIP en el script)
+    vec3 ray(vec2 px) { return normalize(vec3((px - vec2(r.x * .5, hz)) / r.y, -F)); }
+    vec3 lamp3() { return vec3((lamp - vec2(r.x * .5, hz)) / r.y / F, -1.); }
+    float hg(float mu) { return (1. - G * G) / pow(1. + G * G - 2. * G * mu, 1.5); }
+
+    // Punto del haz más cercano al rayo de vista del píxel (el haz empieza en la lente).
+    // Devuelve cuánto recorrió el haz; p = ese punto, rr = distancia al eje, den = seno² del ángulo rayo-haz
+    float closest(vec2 px, out vec3 p, out float rr, out float den) {
+      vec3 v = ray(px);
+      vec3 L = lamp3();
+      float b = dot(v, bd);
+      den = max(1. - b * b, 1e-4);
+      float sb = max((b * dot(v, L) - dot(bd, L)) / den, 0.);
+      p = L + bd * sb;
+      rr = length(v * max(dot(p, v), 0.) - p);
+      return sb;
+    }
+
+    float beam(vec2 px) {
+      vec3 v = ray(px);
+      vec3 p;
+      float rr, den;
+      float sb = closest(px, p, rr, den);
+      float wd = W0 + sb * SPREAD;
+      float core = exp(-rr * rr / (wd * wd));
+      // De lado el rayo de vista cruza poco haz; mirándolo a lo largo, más (con tope)
+      float path = 1. / max(sqrt(den), .7);
+      float fog = .65 + .35 * n(vec2(sb * 7. - t * .4, rr / wd * 2.));
+      float lum = core * path * hg(dot(bd, -v)) / hg(0.) * fog
+        // Se apaga poco a poco con la distancia (neblina y apertura), sin final marcado
+        * exp(-sb / .5) * 1.3 * (W0 + .03) / (wd + .03)
+        * smoothstep(.35, .9, -p.z); // cerca de la cámara se desvanece (si no, encandila la pantalla)
+      // Al llegar al agua se desvanece en un tramo largo, no se corta
+      lum *= smoothstep(-CAMH, -CAMH + .07, p.y);
+      // De espaldas, la torre tapa el haz
+      lum *= 1. - tower(toUv(px)) * smoothstep(1., 1.02, -p.z);
+      float dist = length(px - lamp) / r.y;
+      // Resplandor de la lente: más fuerte cuando mira hacia la cámara, tenue de espaldas
+      return 1. - exp(-lum * .9) + exp(-dist * 70.) * (.02 + .28 * pow(.5 + .5 * toward, 2.));
+    }
+
+    // Destello breve cuando la lente mira a la cámara (toward = coseno entre el haz y la cámara)
+    float glare(vec2 px) {
+      vec2 d = (px - lamp) / r.y;
+      float f = pow(max(toward, 0.), 30.);
+      float bloom = exp(-length(d) * 7.);
+      float streak = exp(-abs(d.y) * 110.) * exp(-abs(d.x) * 3.);
+      return f * (bloom * .2 + streak * .12);
+    }
+
+`;
+
+  const FRAG = COMMON + `
+    uniform sampler2D img;
+    uniform vec2 texel;
+    // Color de la escena. La foto original es lima:
+    // SAT = saturación del fondo (1 = lima original; usar el mismo valor en filter: saturate() de .photo),
+    // REVEAL = cuánto color original devuelve la luz.
+    const float SAT = .06;
+    const float REVEAL = 0.;
+    const vec3 LIME = vec3(.816, .875, 0.);
+    const vec3 W = vec3(.3, .6, .1);
+
+    // Línea del agua en la foto: más abajo bajo la isla, para no ondular las rocas
+    float horizon(float x) { return .713 + .035 * smoothstep(.34, .40, x) * (1. - smoothstep(.66, .71, x)); }
+    vec2 toPx(vec2 uv) { vec2 q = (uv - off) / s; return vec2(q.x, 1. - q.y) * r; }
+
+    // Línea de las montañas en la foto (0–1 desde arriba), sacada de la imagen cada 1/48 del ancho
+    ${SKYLINE}
+
+    // Terreno (montañas e isla): bajo la línea de las montañas y fuera del agua
+    float land(vec2 uv) {
+      float sky = skyline(uv.x);
+      return smoothstep(sky - .006, sky + .006, uv.y) * (1. - smoothstep(0., .012, uv.y - horizon(uv.x)));
+    }
+
+    // Luz que el haz deja sobre el terreno: su huella, más ancha y pareja que el haz en el aire
+    float shaft(vec2 px) {
+      vec3 p;
+      float rr, den;
+      float sb = closest(px, p, rr, den);
+      float wd = (W0 + sb * SPREAD) * 2.6;
+      return exp(-rr * rr / (wd * wd)) * exp(-sb / .6) * smoothstep(.35, .9, -p.z) * .8;
+    }
+
+    // Luz que el haz derrama sobre el paisaje: un abanico ancho en su dirección
+    float spill(vec2 px) {
+      vec2 d = (px - lamp) / r.y;
+      float along = dot(d, dir);
+      float across = abs(dot(d, vec2(-dir.y, dir.x)));
+      float w = .03 + max(along, 0.) * .32;
+      return exp(-across * across / (w * w)) * smoothstep(0., .08, along) * exp(-along * 1.3) * reach * .32;
+    }
+
+    // Cuánta luz del haz llega a un punto del lago (q, en el plano del agua): fuerte donde el cono
+    // toca el agua y un halo más ancho alrededor, la luz que se dispersa. De frente ilumina el lago hacia la cámara.
+    float onWater(vec3 q) {
+      vec3 dq = q - lamp3();
+      float sa = dot(dq, bd);
+      float perp = length(dq - bd * sa);
+      float wd = W0 + max(sa, 0.) * SPREAD;
+      return smoothstep(0., .2, sa) * exp(-sa / .9)
+        * (exp(-perp * perp / (wd * wd * 6.25)) + exp(-perp / (wd * 6.)) * .25);
+    }
+
+    // Altura de las olas en el plano del lago (x, z del mundo): tres capas que avanzan en direcciones
+    // distintas, de la ola larga a la de viento. Al estar en el mundo, la perspectiva sale sola.
+    float waves(vec2 p) {
+      return n(p * vec2(45., 110.) + vec2(t * .25, t * .7)) * .55
+        + n(p * vec2(95., 210.) + vec2(-t * .4, t * 1.1)) * .3
+        + n(p * vec2(220., 420.) + vec2(t * .6, -t * 1.6)) * .15;
+    }
+
+    // Luciérnagas: como las reales, cada una da un destello corto cada 5–11 s (se enciende rápido,
+    // se apaga despacio y sube un poco: el trazo en "J") en un lugar distinto, y el resto del tiempo
+    // está a oscuras. Así solo se ven dos o tres a la vez. Luz fría verde-amarilla (bioluminiscencia,
+    // ~560 nm), sin punto blanco; como vuela mientras brilla, deja un trazo corto. Sobre el lago se
+    // refleja, estirado y movido por las olas (wet = agua en este píxel, slope = inclinación de la ola).
+    const vec3 BIO = vec3(.78, 1., .28);
+    vec2 flyPos(float k, vec2 seed, float lt) {
+      return vec2(seed.x * r.x / r.y, .04 + seed.y * .4)
+        + vec2(sin(lt * 1.3 + k) * .005 + lt * .006 * (seed.x - .5), lt * .007);
+    }
+    float segment(vec2 p, vec2 a, vec2 b) {
+      vec2 ab = b - a;
+      return length(p - a - ab * clamp(dot(p - a, ab) / max(dot(ab, ab), 1e-8), 0., 1.));
+    }
+    vec3 fireflies(vec2 px, float wet, vec2 slope) {
+      vec2 q = px / r.y;
+      float hzq = hz / r.y;
+      float f = 0.;
+      for (int i = 0; i < 12; i++) {
+        float k = float(i);
+        float period = 5. + h(vec2(k, 3.7)) * 6.;
+        float ct = t / period + h(vec2(k, 9.2));
+        float cyc = floor(ct);
+        float lt = fract(ct) * period; // segundos desde que empezó este destello
+        if (lt > 2.2) continue;
+        float glow = smoothstep(0., .25, lt) * exp(-max(lt - .25, 0.) * 2.6);
+        vec2 seed = vec2(h(vec2(k, cyc + .5)), h(vec2(cyc, k + 4.1)));
+        vec2 pos = flyPos(k, seed, lt);
+        // Más abajo = más cerca = más grande
+        float near = mix(1.4, .6, seed.y);
+        float d = segment(q, flyPos(k, seed, max(lt - .12, 0.)), pos) / near;
+        f += glow * (exp(-d * d / 1.6e-5) + exp(-d / .01) * .35 + exp(-d / .03) * .05);
+        // Reflejo: solo las que vuelan sobre el agua, a poca altura
+        if (wet > 0. && pos.y < hzq - .01) {
+          float above = mix(.008, .025, h(vec2(k, cyc + 2.3))) * near;
+          vec2 rq = q + vec2(slope.x * .02, slope.y * .05) - vec2(pos.x, pos.y - 2. * above);
+          float dr = length(rq * vec2(1., .45)) / near;
+          f += glow * wet * (exp(-dr * dr / 4e-5) * .3 + exp(-dr / .012) * .12);
+        }
+      }
+      return BIO * f;
+    }
+
+    void main() {
+      vec2 px = gl_FragCoord.xy;
+      vec2 uv = toUv(px);
+      vec2 uv0 = uv;
+      float H = horizon(uv.x);
+      float depth = max(uv.y - H, 0.);
+      float water = smoothstep(0., .012, depth);
+
+      // Lago en 3D: el rayo de vista corta el plano del agua y las olas inclinan la superficie.
+      // La inclinación desplaza el reflejo de la foto, más a lo alto que a lo ancho (como en un lago real)
+      vec3 v = ray(px);
+      // Distancia con tope: en el horizonte tiende a infinito y las olas darían basura (una línea negra)
+      vec3 q = v * (CAMH / max(-v.y, CAMH / 40.));
+      float dW = -q.z;
+      vec3 N = vec3(0., 1., 0.);
+      vec2 slope = vec2(0.);
+      // Más allá de 2.5 las olas ya son más chicas que un píxel: agua plana
+      if (water > 0. && dW < 2.5) {
+        float e = .0008 + dW * .002;
+        float h0 = waves(q.xz);
+        slope = vec2(waves(q.xz + vec2(e, 0.)) - h0, waves(q.xz + vec2(0., e)) - h0) / e * .003;
+        // Lejos, las olas son más chicas que un píxel: se aplanan (si no, parpadean)
+        slope *= smoothstep(2.5, .35, dW);
+        N = normalize(vec3(-slope.x, 1., -slope.y));
+        uv += vec2(slope.x * .02, -slope.y * .08) * water;
+        uv.y = max(uv.y, H + .001);
+      }
+
+      // La foto original es lima; el fondo se ve casi gris y recupera su color donde llega la luz
+      vec3 c = texture2D(img, uv).rgb;
+      float lum = dot(c, W);
+      vec3 g = mix(vec3(dot(c, vec3(.213, .715, .072))), c, SAT);
+
+      // Donde el cono toca el lago
+      float pl = water > 0. ? onWater(q) : 0.;
+      float spec = 0.;
+      if (water > 0.) {
+        // Camino de destellos bajo la linterna: donde la ola refleja la lámpara hacia la cámara
+        vec3 L = lamp3();
+        spec = pow(max(dot(reflect(v, N), normalize(L - q)), 0.), 160.) * water
+          * (.12 + .88 * pow(max(toward, 0.), 2.)) * smoothstep(3., .5, dW); // fuerte solo si la lente nos mira
+      } else {
+        // Estrellas: puntos más brillantes que su alrededor, titilan cada una a su ritmo
+        float around = (dot(texture2D(img, uv + vec2(texel.x * 2., 0.)).rgb, W)
+          + dot(texture2D(img, uv - vec2(texel.x * 2., 0.)).rgb, W)
+          + dot(texture2D(img, uv + vec2(0., texel.y * 2.)).rgb, W)
+          + dot(texture2D(img, uv - vec2(0., texel.y * 2.)).rgb, W)) * .25;
+        float star = smoothstep(.05, .18, lum - around);
+        float twinkle = 1. + star * (n(uv * vec2(900., 450.) + t * 1.8) - .45) * 1.8;
+        c *= twinkle;
+        g *= twinkle;
+      }
+
+      // Neblina que corre lenta sobre el horizonte
+      float band = exp(-pow((uv.y - .70) / .045, 2.));
+      float mist = n(vec2(uv.x * 4. - t * .04, uv.y * 18. + t * .02)) * band * .1;
+      c += LIME * mist;
+      g += mist * .5;
+
+      // Haz y su reflejo en el lago, roto por las mismas ondas. Donde llega la luz vuelve el color.
+      float light = beam(px) + glare(px);
+      // Iluminación del paisaje: multiplica la foto, así montañas, nubes y lago muestran sus detalles bajo la luz
+      float lit = spill(px);
+      // Donde el haz toca montañas o isla, la luz se posa sobre el terreno y saca su textura
+      float ground = land(uv0);
+      float onLand = ground * shaft(px);
+      lit += onLand * 1.1;
+      // La linterna alumbra la torre y las rocas de la isla
+      float lantern = exp(-length(px - lamp) / r.y * 7.) * .35;
+      lit += ground * lantern;
+      // El foco: los vidrios de la linterna se iluminan desde dentro y la foto se aclara (multiplica),
+      // así se ven los marcos, la cúpula y la lente en vez de una mancha blanca. El haz no tapa el
+      // vidrio salvo cuando la lente mira a la cámara. gp = píxeles de la foto desde el centro del vidrio
+      vec2 gp = (uv0 - vec2(.516, .313)) * vec2(2560., 1296.);
+      float glass = (1. - smoothstep(44., 54., abs(gp.x))) * (1. - smoothstep(32., 40., abs(gp.y)));
+      // Techo (cúpula) y balcón son sólidos: la luz sale solo por el vidrio, no los atraviesa ni los alumbra por fuera
+      float roof = (1. - smoothstep(52., 60., abs(gp.x))) * smoothstep(-94., -88., gp.y) * (1. - smoothstep(-40., -34., gp.y));
+      float deck = (1. - smoothstep(72., 80., abs(gp.x))) * smoothstep(36., 42., gp.y) * (1. - smoothstep(86., 92., gp.y));
+      float housing = max(roof, deck);
+      float face = pow(max(toward, 0.), 3.);
+      float fa = pow(.5 + .5 * toward, 2.); // 0 = la lente da la espalda (casi a oscuras), 1 = mira a la cámara
+      // La cara brillante de la lente se corre hacia donde apunta el haz (gira con él)
+      float lr = length(gp - vec2(8. + bd.x * 14., 11.));
+      float lens = exp(-lr / 3.5) + exp(-lr / 12.) * .45; // centro caliente y su halo en el vidrio
+      // Contraste en el vidrio: los marcos bajan a casi negro y los paneles suben
+      g = mix(g, pow(g, vec3(1.8)) * 2., glass);
+      lit += glass * (.03 + .57 * fa + face * 1.5);
+      light = light * (1. - glass * (.85 - .6 * face)) * (1. - housing * (.95 - .5 * face))
+        + lens * (.02 + .8 * fa + 1.2 * face);
+      if (water > 0.) {
+        // El lago queda oscuro (la foto ya viene oscurecida ahí) y solo brilla donde pasa el haz:
+        // wl junta toda la luz que le llega al agua y aclara el reflejo de la foto y las olas
+        vec2 mirrorUv = vec2(uv.x, 1.49 - uv.y);
+        vec2 mirror = toPx(mirrorUv);
+        float wl = spill(mirror) * .6
+          + land(mirrorUv) * shaft(mirror) * .8 // reflejo del terreno iluminado
+          + pl * .8;                             // donde el cono toca el agua
+        // Camino de luz sobre el agua, cerca del horizonte, hacia donde apunta el haz
+        float ahead = (px.x - lamp.x) / r.y * sign(dir.x);
+        wl += reach * smoothstep(0., .15, ahead) * exp(-ahead * 1.2) * exp(-depth * 5.) * .12;
+        float mb = beam(mirror) * .3;            // reflejo del haz, roto por las ondas
+        wl += mb;
+        lit += wl * water * 2.4;
+        // Agua iluminada por el haz, como en un lago real: destellos donde cada ola refleja la lámpara
+        // hacia la cámara (se mueven con las olas) y un brillo que crece hacia el horizonte (Fresnel)
+        vec3 L = lamp3();
+        float glit = pow(max(dot(reflect(v, N), normalize(L - q)), 0.), 60.);
+        float fres = .02 + .98 * pow(1. - max(dot(-v, N), 0.), 5.);
+        light += water * (mb + pl * (.06 + glit * 3. + fres * .5) + wl * glit * .6) + spec * 1.4;
+      }
+      // De frente, el destello ilumina todo alrededor del faro
+      lit += pow(max(toward, 0.), 30.) * exp(-length(px - lamp) / r.y * 3.) * .07;
+      // Lo que toca la luz se aclara (y recupera su color según REVEAL)
+      c = mix(g, c, smoothstep(0., .5, light + lit) * REVEAL) * (1. + light * .8 + LIGHT * lit * 1.2);
+      c = 1. - (1. - c) * (1. - clamp(LIGHT * light * 1.2, 0., 1.));
+      c += fireflies(px, water, slope);
+      gl_FragColor = vec4(c, 1.);
+    }`;
+
+  const VERT = 'attribute vec2 p; void main() { gl_Position = vec4(p, 0., 1.); }';
+
+  // Programa de pantalla completa (un triángulo) y sus uniforms por nombre
+  // Con KHR_parallel_shader_compile el navegador compila en otro hilo: se espera de cuadro en cuadro
+  // en vez de congelar el hilo principal preguntando si terminó (en Windows/ANGLE puede tardar cientos de ms)
+  async function setup(gl: WebGLRenderingContext, frag: string, names: string[]) {
+    const prog = gl.createProgram()!;
+    for (const [type, src] of [
+      [gl.VERTEX_SHADER, VERT],
+      [gl.FRAGMENT_SHADER, frag],
+    ] as const) {
+      const shader = gl.createShader(type)!;
+      gl.shaderSource(shader, src);
+      gl.compileShader(shader);
+      gl.attachShader(prog, shader);
+    }
+    gl.bindAttribLocation(prog, 0, 'p');
+    gl.linkProgram(prog);
+    const ext = gl.getExtension('KHR_parallel_shader_compile');
+    if (ext) while (!gl.getProgramParameter(prog, ext.COMPLETION_STATUS_KHR)) await new Promise(requestAnimationFrame);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return null;
+    gl.useProgram(prog);
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    gl.enableVertexAttribArray(0);
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+    return Object.fromEntries(names.map((name) => [name, gl.getUniformLocation(prog, name)]));
+  }
+
+  const UNIFORMS = ['r', 's', 'off', 'lamp', 'dir', 'bd', 't', 'reach', 'toward', 'hz', 'texel'];
+
+  async function init() {
+    const section = document.querySelector<HTMLElement>('[data-faro]');
+    const scene = section?.querySelector<HTMLElement>('[data-scene]');
+    const photo = section?.querySelector<HTMLImageElement>('[data-photo]');
+    const logo = section?.querySelector<HTMLElement>('[data-logo]');
+    const canvas = section?.querySelector('canvas');
+    const gl = canvas?.getContext('webgl', { alpha: false, antialias: false });
+    if (!section || !scene || !photo || !logo || !canvas || !gl) return;
+    const u = await setup(gl, FRAG, UNIFORMS);
+    if (!u) return;
+    const lockup = logo.parentElement!;
+
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Resolución del lienzo: en táctiles (móviles, tablets) 1x, ~2.25 veces menos píxeles que 1.5x
+    // y casi no se nota en una foto nocturna; en escritorio hasta 1.5x
+    const maxScale = matchMedia('(pointer: coarse)').matches ? 1 : 1.5;
+    let raf = 0;
+    let t0 = 0;
+    // Lámpara en 3D (cámara en el origen, distancia 1) y ángulo del haz que cae sobre el haz del logo
+    let L = [0, 0.3, -1];
+    let th0 = Math.PI;
+
+    const beamDir = (th: number) => {
+      const k = 1 / Math.hypot(1, DIP);
+      return [Math.cos(th) * k, -DIP * k, Math.sin(th) * k];
+    };
+    // Hacia dónde se ve el haz en pantalla: proyección de un tramo del haz desde la lámpara
+    const screenDir = (th: number) => {
+      const [bx, by, bz] = beamDir(th);
+      const p = [L[0] + bx * 0.4, L[1] + by * 0.4, L[2] + bz * 0.4];
+      const x = (F * p[0]) / -p[2] - F * L[0];
+      const y = (F * p[1]) / -p[2] - F * L[1];
+      const len = Math.hypot(x, y) || 1;
+      return [x / len, y / len];
+    };
+    const facing = (th: number) => {
+      const [bx, by, bz] = beamDir(th);
+      return -(bx * L[0] + by * L[1] + bz * L[2]) / Math.hypot(...L);
+    };
+    function draw(time: number) {
+      // Vuelta completa de 360° a velocidad constante: logo (izquierda) → de frente (destello) →
+      // derecha → por detrás de la torre → logo. Arranca alumbrando el logo.
+      const th = th0 - (reduce ? 0 : (time * Math.PI * 2) / PERIOD);
+      const [x, y] = screenDir(th);
+      const toward = facing(th);
+      gl!.uniform3f(u!.bd, ...(beamDir(th) as [number, number, number]));
+      gl!.uniform2f(u!.dir, x, y);
+      gl!.uniform1f(u!.reach, Math.sqrt(1 - toward * toward));
+      gl!.uniform1f(u!.toward, toward);
+      gl!.uniform1f(u!.t, time);
+      gl!.drawArrays(gl!.TRIANGLES, 0, 3);
+    }
+
+    // Mismo recorte que object-fit: cover; posiciones en píxeles del canvas (y hacia arriba)
+    function resize() {
+      const k = Math.min(devicePixelRatio, maxScale);
+      const sh = scene!.clientHeight;
+      const w = Math.round(scene!.clientWidth * k);
+      const h = Math.round(sh * k);
+      // Cambiar el tamaño borra el lienzo: solo si de verdad cambió (si no, parpadea)
+      if (canvas!.width !== w || canvas!.height !== h) [canvas!.width, canvas!.height] = [w, h];
+      gl!.viewport(0, 0, w, h);
+      const ratio = w / h;
+      const img = IMG[0] / IMG[1];
+      const s = ratio > img ? [1, img / ratio] : [ratio / img, 1];
+      const off = [(1 - s[0]) * LAMP[0], (1 - s[1]) * LAMP[1]];
+      const lampX = ((LAMP[0] - off[0]) / s[0]) * w;
+      const lampY = (1 - (LAMP[1] - off[1]) / s[1]) * h;
+
+      // Posiciones de layout (offset*), no getBoundingClientRect: no cambian con la animación
+      // de entrada del logo, así el haz no salta al terminar
+      // En coordenadas de la escena (más ancha que la sección: empieza a la izquierda, fuera de pantalla)
+      const lx = lockup.offsetLeft + logo!.offsetLeft - scene!.offsetLeft;
+      const ly = lockup.offsetTop + logo!.offsetTop;
+      const dx = (lx + logo!.offsetWidth * 0.3) * k - lampX;
+      const dy = (sh - ly - logo!.offsetHeight * 0.55) * k - lampY;
+      const len = Math.hypot(dx, dy) || 1;
+      // Dirección en pantalla del haz propio del logo: de la lámpara hacia (30%, 55%) del logo
+      const toWedge = [dx / len, dy / len];
+      const hzPx = (1 - (HZ - off[1]) / s[1]) * h;
+      L = [(lampX - w / 2) / h / F, (lampY - hzPx) / h / F, -1];
+      // El ángulo cuyo haz se ve más alineado con el haz del logo
+      let best = -2;
+      for (let a = 0; a < Math.PI * 2; a += 0.005) {
+        const [x, y] = screenDir(a);
+        const on = x * toWedge[0] + y * toWedge[1];
+        if (on > best) [best, th0] = [on, a];
+      }
+
+      gl!.uniform2f(u!.r, w, h);
+      gl!.uniform2f(u!.s, s[0], s[1]);
+      gl!.uniform2f(u!.off, off[0], off[1]);
+      gl!.uniform2f(u!.lamp, lampX, lampY);
+      gl!.uniform1f(u!.hz, hzPx);
+      // Redibujar ya, en el mismo instante de la animación (sin esperar al siguiente cuadro)
+      draw(t0 ? (performance.now() - t0) / 1000 : 0);
+    }
+
+    function frame(now: number) {
+      t0 ||= now;
+      draw((now - t0) / 1000);
+      raf = requestAnimationFrame(frame);
+    }
+
+    photo.decode().then(() => {
+      const tex = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, photo);
+      gl.uniform2f(u.texel, 1 / photo.naturalWidth, 1 / photo.naturalHeight);
+
+      resize();
+      new ResizeObserver(resize).observe(scene);
+      if (!reduce) {
+        new IntersectionObserver(([entry]) => {
+          cancelAnimationFrame(raf);
+          raf = entry.isIntersecting ? requestAnimationFrame(frame) : 0;
+        }).observe(section);
+      }
+      canvas.dataset.on = '';
+    }, () => {});
+  }
+
+  init();
+</script>

@@ -37,6 +37,11 @@ const {
   noindex = false,
 } = Astro.props;
 
+// Google corta el <title> a ~60 caracteres: en los largos sobra " | Aurin" (la
+// marca ya sale como nombre del sitio en el resultado y en og:site_name).
+const SUFFIX = " | Aurin";
+const pageTitle = title.length > 60 && title.endsWith(SUFFIX) ? title.slice(0, -SUFFIX.length) : title;
+
 const siteUrl = (Astro.site?.href || "https://aurin.mx").replace(/\/$/, "");
 const canonicalURL = canonical || `${siteUrl}${Astro.url.pathname}`;
 
@@ -68,7 +73,7 @@ const resolvedAlternateLinks = alternateLinks || [
 ---
 
 <!-- Meta Tags Básicos -->
-<title>{title}</title>
+<title>{pageTitle}</title>
 <meta name="description" content={description} />
 {keywords && <meta name="keywords" content={keywords} />}
 {author && <meta name="author" content={author} />}

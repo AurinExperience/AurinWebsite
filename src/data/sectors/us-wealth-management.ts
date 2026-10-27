@@ -14,7 +14,7 @@ export const usWealthManagement = defineSector({
   name: { es: 'Gestión patrimonial', en: 'Wealth management firms' },
   proof: ['fortrade', 'monetix', 'bonanza'],
   es: {
-    seoTitle: 'Diseño Web para Firmas de Gestión Patrimonial y Asesores Financieros',
+    seoTitle: 'Diseño Web para Gestión Patrimonial y Asesores Financieros',
     seoDescription:
       'Diseño web para firmas de gestión patrimonial y RIAs en EE. UU.: confianza a primera vista, filosofía de inversión clara y portal de clientes a la medida.',
     keywords:

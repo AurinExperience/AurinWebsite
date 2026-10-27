@@ -1,69 +1,173 @@
-.hero {
-  width: 100%;
-  min-height: 100vh;
+.section {
+  /* Alto de la escena y ancho del logo: el logo se coloca a partir de la lámpara */
+  --scene-h: max(640px, 100svh);
+  --logo-w: clamp(150px, 18vw, 280px);
+  --logo-h: calc(var(--logo-w) * 200 / 669);
+  /* "User Experts" mide .56 del logo: con eso se sabe dónde cae la "i" con el conjunto centrado */
+  --tag-w: calc(var(--logo-w) * .56);
+  --lockup-w: calc(var(--logo-w) * 1.08 + var(--tag-w));
+  /* El logo, justo bajo la linterna (lámpara al 31.65% de la escena): la luz del faro queda sobre la "i" */
+  --logo-top: calc(var(--scene-h) * .385);
   position: relative;
+  isolation: isolate;
+  min-height: var(--scene-h);
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--color-black-a);
 }
 
+/* Navegadores sin unidades svh (Safari < 15.4): alto de la ventana */
+@supports not (height: 100svh) {
+  .section {
+    --scene-h: max(640px, 100vh);
+  }
+}
+
+/* Alto fijo aunque el contenido crezca en móvil: si no, el recorte de la foto y la lámpara se moverían.
+   Se alarga hacia la izquierda lo justo para que la lámpara (51.6% de la escena) caiga sobre la "i"
+   (71.86% del logo) con el logo centrado: lámpara = -left + .516 * (100% - left) */
+.scene {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: calc((1.6% + var(--lockup-w) / 2 - var(--logo-w) * .7186) / -.484);
+  z-index: 0;
+  height: var(--scene-h);
+}
+
+.photo,
+.fx {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* object-position = la lámpara (LAMP en el script). saturate() = SAT del shader */
+.photo {
+  object-fit: cover;
+  object-position: 51.6% 31.65%;
+  filter: saturate(.06);
+}
+
+.fx {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+
+.fx[data-on] {
+  opacity: 1;
+}
+
+/* Legibilidad: oscurece bajo el header, detrás del texto y funde abajo con la siguiente sección */
+.scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .6), transparent 20%, transparent 72%, var(--color-black-a)),
+    radial-gradient(42% 30% at 50% 62%, rgba(0, 0, 0, .5), transparent 80%);
+}
+
+/* El texto empieza bajo el logo. Sin max-width: el script mide el logo con offsetLeft
+   y este contenedor tiene que empezar en el borde de la sección */
 .content {
   position: relative;
-  z-index: 30;
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
-  padding-block: 56px;
-  padding-inline: var(--section-padding-x);
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: calc(var(--logo-top) + var(--logo-h) + 24px) var(--section-padding-x) 96px;
   text-align: center;
 }
 
+/* Logo + "User Experts" centrados, a la altura de la lámpara: el haz del faro lo cruza en cada vuelta */
+.lockup {
+  position: absolute;
+  inset-inline: 0;
+  top: var(--logo-top);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--logo-w) * .08);
+  margin: 0;
+}
+
 .logo {
-  width: 32rem;
-  max-width: 100%;
+  position: relative;
+  display: block;
+  width: var(--logo-w);
+}
+
+.logo img {
+  position: relative;
+  display: block;
+  width: 100%;
   height: auto;
-  margin: 0px;
-  user-select: none;
-  -webkit-user-drag: none;
-  pointer-events: none;
+}
+
+.tag {
+  width: var(--tag-w);
+  white-space: nowrap;
+  font-size: max(11px, calc(var(--logo-w) * .085));
+  line-height: 1.3;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--color-white);
 }
 
 .title {
-  color: var(--color-yellow);
+  margin: 0;
+  color: var(--color-white);
   font-family: var(--font-family-display);
-  font-size: 40px;
-  line-height: 1.1;
-  font-weight: 300;
-  margin: 56px 0px 56px 0px;
-  padding: 0;
+  font-weight: var(--font-weight-light);
+  font-size: clamp(30px, 3.7vw, 56px);
+  line-height: 1.06;
+  letter-spacing: -.02em;
+  max-width: 1200px;
+  text-wrap: balance;
 }
 
-.searchPrompt {
-  color: var(--color-text);
-  font-family: var(--font-family-body);
+/* Cada frase del lema en su línea. color: inherit anula el `h1 span` amarillo global */
+.title > span {
+  display: block;
+  color: inherit;
+}
+
+.title .accent {
+  color: var(--color-yellow);
+  font-weight: var(--font-weight-semibold);
+}
+
+.lead {
+  margin: var(--spacing-5) 0 0;
+  max-width: 600px;
   font-size: 18px;
-  font-weight: 300;
-  opacity: 0.6;
-  margin: 0 0 12px 0;
-  padding: 0;
+  line-height: 1.55;
+  color: var(--color-text);
+  text-wrap: pretty;
 }
 
-@media (max-width: 768px) {
-  .content {
-    padding-block: 48px;
+/* Entrada: solo opacity/translate */
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: riseIn var(--transition-rise) both;
   }
 
-  .logo {
-    width: min(16rem, 85vw);
+  .rise2 {
+    animation-delay: .15s;
   }
+}
 
-  .title {
-    font-size: 24px;
-    margin: 32px 0px 32px 0px;
+@keyframes riseIn {
+  from { opacity: 0; translate: 0 18px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@media (max-width: 992px) {
+  .lead {
+    font-size: 16px;
   }
 }
