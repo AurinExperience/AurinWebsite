@@ -423,7 +423,7 @@ export const translations = {
     cookies: {
       title: "Do you accept cookies?",
       text: "We use our own and third-party cookies to analyze how the site is used and improve your experience.",
-      link: "Learn more",
+      link: "Cookie policy",
       reject: "Reject",
       accept: "Accept",
       noticeTitle: "We use cookies",
@@ -1237,7 +1237,7 @@ export const translations = {
     cookies: {
       title: "¿Aceptas las cookies?",
       text: "Usamos cookies propias y de terceros para analizar el uso del sitio y mejorar tu experiencia.",
-      link: "Más información",
+      link: "Política de cookies",
       reject: "Rechazar",
       accept: "Aceptar",
       noticeTitle: "Usamos cookies",
