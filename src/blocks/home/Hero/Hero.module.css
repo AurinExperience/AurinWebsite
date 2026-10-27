@@ -155,10 +155,6 @@
   .rise {
     animation: riseIn var(--transition-rise) both;
   }
-
-  .rise2 {
-    animation-delay: .15s;
-  }
 }
 
 @keyframes riseIn {
