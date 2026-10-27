@@ -1,6 +1,7 @@
 import type { Sector } from './index';
 import { COMMON } from '@/data/landings/common';
 import { SECTOR_COMMON } from './common';
+import { uxSteps } from './process';
 
 const { es: c, en: C } = COMMON;
 const { es: s, en: S } = SECTOR_COMMON;
@@ -97,8 +98,7 @@ export const uxSaas: Sector = {
           s.ux.stepResearch(
             'Entendemos tu producto, a tus usuarios y dónde abandonan: datos de uso, entrevistas y revisión de la experiencia actual.'
           ),
-          s.ux.stepFlows,
-          s.ux.stepUi,
+          ...uxSteps('ux-saas', 'es', s.ux.stepFlows, s.ux.stepUi),
           s.ux.stepHandoff,
         ],
       },
@@ -122,7 +122,6 @@ export const uxSaas: Sector = {
               'Sí. Las herramientas que usa tu equipo merecen la misma claridad: un sistema interno bien diseñado ahorra horas de trabajo y errores todos los días.',
           },
           s.ux.faqDev,
-          s.ux.faqTeam,
           c.faqPayment,
           s.faqRemote('empresas de software'),
         ],
@@ -198,8 +197,7 @@ export const uxSaas: Sector = {
           S.ux.stepResearch(
             'We learn about your product, your users, and where they drop off: usage data, interviews, and a review of the current experience.'
           ),
-          S.ux.stepFlows,
-          S.ux.stepUi,
+          ...uxSteps('ux-saas', 'en', S.ux.stepFlows, S.ux.stepUi),
           S.ux.stepHandoff,
         ],
       },
@@ -223,7 +221,6 @@ export const uxSaas: Sector = {
               'Yes. The tools your team uses deserve the same clarity: a well-designed internal system saves hours of work and errors every day.',
           },
           S.ux.faqDev,
-          S.ux.faqTeam,
           C.faqPayment,
           S.faqRemote('software companies'),
         ],

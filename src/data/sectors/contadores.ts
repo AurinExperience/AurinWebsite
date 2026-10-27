@@ -1,6 +1,7 @@
 import type { Sector } from './index';
 import { COMMON } from '@/data/landings/common';
 import { SECTOR_COMMON } from './common';
+import { designStep } from './process';
 
 const { es: c, en: C } = COMMON;
 const { es: s, en: S } = SECTOR_COMMON;
@@ -106,7 +107,7 @@ export const contadores: Sector = {
             name: 'Estructura',
             text: 'Definimos las páginas: servicios, despacho, contacto, artículos y aviso de privacidad. Todo organizado para que Google y los buscadores con IA lo entiendan.',
           },
-          c.stepDesign,
+          designStep('contadores', 'es', c.stepDesign),
           c.stepLaunch,
         ],
       },
@@ -132,7 +133,6 @@ export const contadores: Sector = {
           s.faqAi('mi despacho contable'),
           c.faqPayment,
           s.faqRemote('despachos contables'),
-          c.faqLanguages,
         ],
       },
       socialProof: {
@@ -215,7 +215,7 @@ export const contadores: Sector = {
             name: 'Structure',
             text: 'We define the pages: services, firm, contact, articles, and the privacy notice. All organized so Google and AI search tools can understand it.',
           },
-          C.stepDesign,
+          designStep('contadores', 'en', C.stepDesign),
           C.stepLaunch,
         ],
       },
@@ -241,7 +241,6 @@ export const contadores: Sector = {
           S.faqAi('my accounting firm'),
           C.faqPayment,
           S.faqRemote('accounting firms'),
-          C.faqLanguages,
         ],
       },
       socialProof: {

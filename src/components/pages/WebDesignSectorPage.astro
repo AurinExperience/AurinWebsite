@@ -135,7 +135,7 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
     <NearbyLandings
       lang={lang}
       nearby={copy.nearby}
-      links={siblingSectors(sector)
+      links={[sector, ...siblingSectors(sector).filter((s) => sectorService(s) === sectorService(sector))]
         .sort((a, b) => a.name[lang].localeCompare(b.name[lang], lang))
         .map((s) => ({ href: sectorPath(s, lang), label: s.copy[lang].linkLabel }))}
     />

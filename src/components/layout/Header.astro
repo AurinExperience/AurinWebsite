@@ -46,6 +46,7 @@ const alternateUrl =
         alt="Aurin Logo"
         width="110"
         height="40"
+        fetchpriority="high"
       />
     </a>
 
@@ -112,20 +113,11 @@ const alternateUrl =
       });
     });
 
-    // Language button functionality
-    const langButtons = document.querySelectorAll(".lang-button");
-
-    langButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        // window.location.href = '/en';
-      });
-    });
-
     // Header scroll behavior
     const header = document.querySelector(".header");
     if (!header) return;
 
-    let lastScrollY = window.scrollY;
+    // Sin leer scrollY al iniciar: esa lectura forzaba un layout antes del primer pintado
     let ticking = false;
 
     const updateHeader = () => {
@@ -144,7 +136,6 @@ const alternateUrl =
         headerElement.style.borderBottomColor = "rgba(255, 255, 255, 0.08)";
       }
 
-      lastScrollY = currentScrollY;
       ticking = false;
     };
 

@@ -61,16 +61,19 @@ const portfolioLabel =
 // Proyectos de servicios legales: no se muestran en landings (contrato del estudio)
 const LEGAL = /galicia|derecho/i;
 
-// El portafolio completo, con los proyectos afines al sector primero
+/*
+ * 6 proyectos: los afines al sector primero y el resto rotado según la página.
+ * Con el portafolio completo en el mismo orden, las tarjetas eran el mismo texto
+ * en todas las landings (contenido duplicado para Google). El completo sigue en /projects.
+ */
+const SHOWN = 6;
 const cmsProjects = await PayloadAPI.getProjects(currentLang).catch(() => []);
 const proofIds = proof.map((id) => PROOF_PROJECTS[id]?.cmsId);
-const portfolio = cmsProjects
-  .filter((p) => !LEGAL.test(p.title))
-  .sort((a, b) => rank(a.id) - rank(b.id));
-function rank(id: string) {
-  const i = proofIds.indexOf(id);
-  return i === -1 ? proofIds.length : i;
-}
+const visible = cmsProjects.filter((p) => !LEGAL.test(p.title));
+const related = proofIds.flatMap((id) => visible.filter((p) => p.id === id));
+const rest = visible.filter((p) => !proofIds.includes(p.id));
+const offset = rest.length ? [...Astro.url.pathname].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 0) % rest.length : 0;
+const portfolio = [...related, ...rest.slice(offset), ...rest.slice(0, offset)].slice(0, SHOWN);
 ---
 
 <section class={styles.section} aria-labelledby="social-proof-heading">

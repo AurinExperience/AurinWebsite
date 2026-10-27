@@ -1,6 +1,7 @@
 import type { Sector } from './index';
 import { COMMON } from '@/data/landings/common';
 import { SECTOR_COMMON } from './common';
+import { uxSteps } from './process';
 
 const { es: c, en: C } = COMMON;
 const { es: s, en: S } = SECTOR_COMMON;
@@ -97,8 +98,7 @@ export const uxHealthtech: Sector = {
           s.ux.stepResearch(
             'Entendemos tu producto, a tus pacientes y a los profesionales que lo usan: datos de uso, entrevistas y revisión de la experiencia actual.'
           ),
-          s.ux.stepFlows,
-          s.ux.stepUi,
+          ...uxSteps('ux-healthtech', 'es', s.ux.stepFlows, s.ux.stepUi),
           s.ux.stepHandoff,
         ],
       },
@@ -122,7 +122,6 @@ export const uxHealthtech: Sector = {
               'Los datos de salud son datos sensibles. Diseñamos los consentimientos, avisos y permisos con los requisitos que tu equipo legal nos indique, y pedimos solo la información necesaria en cada paso.',
           },
           s.ux.faqDev,
-          s.ux.faqTeam,
           c.faqPayment,
           s.faqRemote('empresas de salud'),
         ],
@@ -198,8 +197,7 @@ export const uxHealthtech: Sector = {
           S.ux.stepResearch(
             'We learn about your product, your patients, and the professionals who use it: usage data, interviews, and a review of the current experience.'
           ),
-          S.ux.stepFlows,
-          S.ux.stepUi,
+          ...uxSteps('ux-healthtech', 'en', S.ux.stepFlows, S.ux.stepUi),
           S.ux.stepHandoff,
         ],
       },
@@ -223,7 +221,6 @@ export const uxHealthtech: Sector = {
               'Health data is sensitive personal data. We design consents, notices, and permissions around the requirements your legal team gives us, and ask only for the information each step needs.',
           },
           S.ux.faqDev,
-          S.ux.faqTeam,
           C.faqPayment,
           S.faqRemote('health companies'),
         ],

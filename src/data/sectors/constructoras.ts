@@ -1,6 +1,7 @@
 import type { Sector } from './index';
 import { COMMON } from '@/data/landings/common';
 import { SECTOR_COMMON } from './common';
+import { designStep } from './process';
 
 const { es: c, en: C } = COMMON;
 const { es: s, en: S } = SECTOR_COMMON;
@@ -107,7 +108,7 @@ export const constructoras: Sector = {
             name: 'Estructura',
             text: 'Definimos las páginas: obras, servicios, capacidades, certificaciones y solicitud de cotización. Todo organizado para que Google y los buscadores con IA lo entiendan.',
           },
-          c.stepDesign,
+          designStep('constructoras', 'es', c.stepDesign),
           c.stepLaunch,
         ],
       },
@@ -216,7 +217,7 @@ export const constructoras: Sector = {
             name: 'Structure',
             text: 'We define the pages: projects, services, capabilities, certifications, and quote requests. All organized so Google and AI search tools can understand it.',
           },
-          C.stepDesign,
+          designStep('constructoras', 'en', C.stepDesign),
           C.stepLaunch,
         ],
       },

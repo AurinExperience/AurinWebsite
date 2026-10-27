@@ -1,6 +1,7 @@
 import type { Sector } from './index';
 import { COMMON } from '@/data/landings/common';
 import { SECTOR_COMMON } from './common';
+import { designStep } from './process';
 
 const { es: c, en: C } = COMMON;
 const { es: s, en: S } = SECTOR_COMMON;
@@ -121,7 +122,7 @@ export const dentistas: Sector = {
             name: 'Estructura',
             text: 'Definimos las páginas: tratamientos, equipo, casos, valoración en línea y aviso de privacidad. Todo organizado para que Google y los buscadores con IA lo entiendan.',
           },
-          c.stepDesign,
+          designStep('dentistas', 'es', c.stepDesign),
           c.stepLaunch,
         ],
       },
@@ -147,7 +148,6 @@ export const dentistas: Sector = {
           s.faqAi('mi clínica dental'),
           c.faqPayment,
           s.faqRemote('clínicas dentales'),
-          c.faqLanguages,
         ],
       },
       socialProof: {
@@ -241,7 +241,7 @@ export const dentistas: Sector = {
             name: 'Structure',
             text: 'We define the pages: treatments, team, cases, online consultations, and the privacy notice. All organized so Google and AI search tools can understand it.',
           },
-          C.stepDesign,
+          designStep('dentistas', 'en', C.stepDesign),
           C.stepLaunch,
         ],
       },
@@ -267,7 +267,6 @@ export const dentistas: Sector = {
           S.faqAi('my dental clinic'),
           C.faqPayment,
           S.faqRemote('dental clinics'),
-          C.faqLanguages,
         ],
       },
       socialProof: {

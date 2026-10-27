@@ -2,6 +2,7 @@ import type { Lang, LandingCopy, ProofProjectId } from '@/data/landings';
 import { COMMON } from '@/data/landings/common';
 import type { Sector, SectorService } from './index';
 import { SECTOR_COMMON } from './common';
+import { designStep, uxSteps } from './process';
 
 /**
  * Arma un sector a partir de lo único que tiene (ángulo, servicios, preguntas
@@ -97,7 +98,7 @@ const WORDS = {
   },
 };
 
-function buildCopy(spec: LangSpec, lang: Lang, service: SectorService, us: boolean): LandingCopy {
+function buildCopy(id: string, spec: LangSpec, lang: Lang, service: SectorService, us: boolean): LandingCopy {
   const w = WORDS[lang];
   const kind = w[service];
   const c = COMMON[lang];
@@ -114,15 +115,17 @@ function buildCopy(spec: LangSpec, lang: Lang, service: SectorService, us: boole
       : c.stats;
 
   const steps = ux
-    ? [s.ux.stepResearch(spec.research ?? ''), s.ux.stepFlows, s.ux.stepUi, s.ux.stepHandoff]
-    : [{ name: w.diagnosisName, text: spec.diagnosis ?? '' }, w.structure(spec.pages ?? ''), c.stepDesign, c.stepLaunch];
+    ? [s.ux.stepResearch(spec.research ?? ''), ...uxSteps(id, lang, s.ux.stepFlows, s.ux.stepUi), s.ux.stepHandoff]
+    : [{ name: w.diagnosisName, text: spec.diagnosis ?? '' }, w.structure(spec.pages ?? ''), designStep(id, lang, c.stepDesign), c.stepLaunch];
 
   const cost: Faq = { question: spec.costQuestion, answer: w.cost(spec.costScope) };
   // EE. UU.: además, cómo usamos la IA en el proceso (rapidez sin bajar la calidad)
   const faqs = us ? [...spec.faqs, s.us.faqAiProcess] : spec.faqs;
+  // Sin "¿trabajan con nuestro equipo?" (UX) ni "¿inglés y español?" (web): eran iguales en
+  // todas las landings y lo de idiomas ya lo dice el bloque de servicios ("Todo sitio incluye…").
   const faqItems = ux
-    ? [cost, ...faqs, s.ux.faqDev, s.ux.faqTeam, c.faqPayment, remote]
-    : [cost, ...faqs, s.faqAi(spec.aiSubject ?? ''), c.faqPayment, remote, c.faqLanguages];
+    ? [cost, ...faqs, s.ux.faqDev, c.faqPayment, remote]
+    : [cost, ...faqs, s.faqAi(spec.aiSubject ?? ''), c.faqPayment, remote];
 
   return {
     seo: { title: `${spec.seoTitle} | Aurin`, description: spec.seoDescription, keywords: spec.keywords },
@@ -167,6 +170,6 @@ export function defineSector(def: SectorDef): Sector {
     name: def.name,
     proof: def.proof,
     lead: { es: def.es.lead, en: def.en.lead },
-    copy: { es: buildCopy(def.es, 'es', service, def.country === 'US'), en: buildCopy(def.en, 'en', service, def.country === 'US') },
+    copy: { es: buildCopy(def.id, def.es, 'es', service, def.country === 'US'), en: buildCopy(def.id, def.en, 'en', service, def.country === 'US') },
   };
 }

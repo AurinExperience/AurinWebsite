@@ -1,6 +1,7 @@
 import type { Sector } from './index';
 import { COMMON } from '@/data/landings/common';
 import { SECTOR_COMMON } from './common';
+import { designStep } from './process';
 
 const { es: c, en: C } = COMMON;
 const { es: s, en: S } = SECTOR_COMMON;
@@ -125,7 +126,7 @@ export const medicos: Sector = {
             name: 'Estructura',
             text: 'Definimos las páginas: tu perfil, los padecimientos que atiendes, la solicitud de cita y el aviso de privacidad. Todo organizado para que Google y los buscadores con IA lo entiendan.',
           },
-          c.stepDesign,
+          designStep('medicos', 'es', c.stepDesign),
           c.stepLaunch,
         ],
       },
@@ -169,7 +170,6 @@ export const medicos: Sector = {
             answer:
               'Sí. Trabajamos a distancia, así que podemos atender médicos y clínicas en cualquier parte de México y en otros países, como Estados Unidos, Canadá o España.',
           },
-          c.faqLanguages,
         ],
       },
       socialProof: {
@@ -269,7 +269,7 @@ export const medicos: Sector = {
             name: 'Structure',
             text: 'We define the pages: your profile, the conditions you treat, appointment requests, and the privacy notice. All organized so Google and AI search tools can understand it.',
           },
-          C.stepDesign,
+          designStep('medicos', 'en', C.stepDesign),
           C.stepLaunch,
         ],
       },
@@ -313,7 +313,6 @@ export const medicos: Sector = {
             answer:
               'Yes. We work remotely, so we can serve doctors and clinics anywhere in Mexico and in other countries, such as the United States, Canada, or Spain.',
           },
-          C.faqLanguages,
         ],
       },
       socialProof: {
