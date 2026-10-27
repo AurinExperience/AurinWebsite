@@ -12,15 +12,15 @@
     "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.7",
-    "@astrojs/vercel": "^10.0.8",
+    "@astrojs/react": "^7.1.1",
+    "@astrojs/vercel": "^11.0.16",
     "@splidejs/splide": "^4.1.4",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vercel/blob": "^2.0.0",
     "@vercel/functions": "^3.9.11",
     "@vercel/speed-insights": "^1.2.0",
-    "astro": "^6.4.8",
+    "astro": "^7.4.2",
     "clsx": "^2.1.1",
     "fontkitten": "^1.0.3",
     "google-auth-library": "^10.9.1",
