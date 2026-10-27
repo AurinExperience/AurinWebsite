@@ -1,4 +1,3 @@
-export { default as ChatbotSearchContainer } from './ChatbotSearch/ChatbotSearchContainer.astro';
 export { default as Contact } from './Contact/Form.astro';
 export { default as HeroBackgroundEffectsContainer } from './Hero/HeroBackgroundEffectsContainer.astro';
 export { default as FloatingDustContainer } from './Hero/FloatingDustContainer.astro';

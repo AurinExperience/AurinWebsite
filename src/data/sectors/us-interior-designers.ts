@@ -13,7 +13,7 @@ export const usInteriorDesigners = defineSector({
   name: { es: 'Diseñadores de interiores', en: 'Interior designers' },
   proof: ['ideograma', 'grupoEstrella', 'sinfonica'],
   es: {
-    seoTitle: 'Diseño Web para Diseñadores de Interiores y Estudios de Interiorismo',
+    seoTitle: 'Diseño Web para Diseñadores de Interiores e Interiorismo',
     seoDescription:
       'Diseño web para diseñadores de interiores y estudios de interiorismo: portafolio editorial, tu estilo inconfundible y solicitudes de clientes afines.',
     keywords:

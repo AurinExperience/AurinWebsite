@@ -15,7 +15,7 @@ export const usUxWealthtech = defineSector({
   name: { es: 'Wealthtech', en: 'Wealthtech' },
   proof: ['monetix', 'fortrade', 'debiti'],
   es: {
-    seoTitle: 'Diseño UX/UI para Wealthtech y Plataformas de Gestión Patrimonial',
+    seoTitle: 'Diseño UX/UI para Wealthtech y Gestión Patrimonial',
     seoDescription:
       'Diseño UX/UI para wealthtech en EE. UU.: portales de inversionistas, herramientas para asesores y reportes que vuelven claros los datos complejos.',
     keywords:

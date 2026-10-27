@@ -35,7 +35,7 @@ const ALL_LOGOS = [...LOGOS, ...LOGOS];
         <>
           {/* La segunda vuelta solo existe para el loop visual: oculta para lectores y crawlers */}
           <div class={styles.logo} aria-hidden={i >= LOGOS.length ? 'true' : undefined}>
-            <img
+            <img loading="lazy"
               src={logo.src}
               alt={i >= LOGOS.length ? '' : lang === 'es' ? `Logo de ${logo.name}` : `${logo.name} logo`}
               style={`height: calc(${logo.height}px * var(--logo-scale, 1))`}

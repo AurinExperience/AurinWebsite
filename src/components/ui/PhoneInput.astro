@@ -7,6 +7,9 @@
  * La lada se preselecciona en el navegador con la región de su idioma (es-CO → +57)
  * y si no, México. No se usa el país de la IP: obligaría al CDN a guardar una copia
  * de cada página por país (más SSR y más CPU).
+ * Los nombres van en el atributo `label` y no como texto de la <option>: el
+ * navegador los muestra igual, pero 2 selectores × 257 países eran ~1,900
+ * palabras idénticas en cada página y Google las leía como contenido duplicado.
  * Si el usuario pega un número con "+XX", la lada se ajusta sola.
  * Solo admite dígitos (y separadores), no deja pasar del largo del país, los
  * espacia como se escriben allá ("777 123 4567") y revisa que lada y número
@@ -45,15 +48,11 @@ const mx = main[0];
       autocomplete="tel-country-code"
     >
       {main.map((c) => (
-        <option value={c.dial} data-country={c.code} data-digits={c.digits} data-primary={c.primary || undefined} selected={c === mx}>
-          {c.name} {c.dial} {c.flag}
-        </option>
+        <option value={c.dial} label={`${c.name} ${c.dial} ${c.flag}`} data-country={c.code} data-digits={c.digits} data-primary={c.primary || undefined} selected={c === mx} />
       ))}
-      <option value="" disabled>──────────</option>
+      <option value="" label="──────────" disabled />
       {rest.map((c) => (
-        <option value={c.dial} data-country={c.code} data-digits={c.digits} data-primary={c.primary || undefined}>
-          {c.name} {c.dial} {c.flag}
-        </option>
+        <option value={c.dial} label={`${c.name} ${c.dial} ${c.flag}`} data-country={c.code} data-digits={c.digits} data-primary={c.primary || undefined} />
       ))}
     </select>
   </div>
@@ -81,7 +80,7 @@ const mx = main[0];
     const showLada = () => {
       const option = select.selectedOptions[0];
       // La bandera va al final: al inicio rompería buscar país tecleando ("alem").
-      shown.textContent = `${option.text.match(/\p{Regional_Indicator}{2}/u)?.[0] ?? ''} ${option.value}`;
+      shown.textContent = `${option.label.match(/\p{Regional_Indicator}{2}/u)?.[0] ?? ''} ${option.value}`;
     };
 
     // Región del idioma del navegador (es-MX, en-US…); sin coincidencia queda México.

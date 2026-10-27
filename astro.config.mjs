@@ -10,6 +10,9 @@ export default defineConfig({
   integrations: [react()],
   // Precompila la página al pasar el mouse sobre el link: el click ya la encuentra lista.
   prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
+  // /about/ y /about respondían 200 los dos: URLs duplicadas para Google. Con
+  // 'never' la variante con barra redirige con 301 a la del canonical y el sitemap.
+  trailingSlash: 'never',
   build: {
     /*
      * El CSS de una página salía en 4 archivos separados (tokens, Header+Footer,

@@ -120,19 +120,6 @@ export const translations = {
       avatarAlt: "Assistant avatar",
       botAvatarAlt: "Bot avatar"
     },
-    chatbotSearch: {
-      label: "What service are you looking for?",
-      placeholder: "What service are you looking for?",
-      ariaLabel: "Type your question about services",
-      submitAriaLabel: "Submit question",
-      services: [
-        "Need a website?",
-        "UX/UI design for your product",
-        "Branding and brand identity",
-        "Usability testing",
-        "Brand and experience audits"
-      ]
-    },
     header: {
       menu: "Menu",
       switchToSpanish: "Switch to Spanish",
@@ -362,9 +349,9 @@ export const translations = {
     },
     banner: {
       badge: 'User Experts',
-      title1: 'Design that connects. Experiences that transform.',
-      searchPrompt: 'Search here for anything you want to know about Aurin',
-      description: 'We create visual narratives that inspire and generate real impact. From branding to digital experiences, we turn your vision into memorable results.',
+      titleLead: 'UX/UI design agency',
+      titleAccent: 'and web development.',
+      description: 'Web design, branding and development hand in hand, so your product launches at its best.',
       buttonText: 'Start your project now'
     },
     homeDescription: {
@@ -947,19 +934,6 @@ export const translations = {
       avatarAlt: "Avatar del asistente",
       botAvatarAlt: "Avatar del bot"
     },
-    chatbotSearch: {
-      label: "¿Qué servicio buscas?",
-      placeholder: "¿Qué servicio buscas?",
-      ariaLabel: "Escribe tu pregunta sobre servicios",
-      submitAriaLabel: "Enviar pregunta",
-      services: [
-        "¿Necesitas un sitio web?",
-        "Diseño UX/UI para tu producto",
-        "Branding e identidad de marca",
-        "Pruebas de usabilidad",
-        "Auditoría de marca y experiencia"
-      ]
-    },
     header: {
       menu: "Menú",
       switchToSpanish: "Cambiar a español",
@@ -1189,9 +1163,9 @@ export const translations = {
     },
     banner: {
       badge: 'Expertos en usuarios',
-      title1: 'Diseño que conecta. Experiencias que transforman.',
-      searchPrompt: 'Busca aquí lo que quieras saber de Aurin',
-      description: 'Creamos narrativas visuales que inspiran y generan impacto real. Desde branding hasta experiencias digitales, convertimos tu visión en resultados memorables.',
+      titleLead: 'Agencia de diseño UX/UI',
+      titleAccent: 'y desarrollo web.',
+      description: 'Diseño web, branding y desarrollo de la mano, para que tu producto salga en su mejor versión.',
       buttonText: 'Inicia tu proyecto ahora'
     },
     homeDescription: {

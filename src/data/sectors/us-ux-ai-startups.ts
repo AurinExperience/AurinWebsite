@@ -15,7 +15,7 @@ export const usUxAiStartups = defineSector({
   name: { es: 'Productos de IA', en: 'AI products' },
   proof: ['ancient', 'monetix', 'debiti'],
   es: {
-    seoTitle: 'Diseño UX/UI para Productos y Startups de Inteligencia Artificial',
+    seoTitle: 'Diseño UX/UI para Startups de Inteligencia Artificial',
     seoDescription:
       'Diseño UX/UI para productos de IA: interfaces de chat y agentes, flujos que generan confianza y design systems para startups de IA en Estados Unidos.',
     keywords:

@@ -169,7 +169,7 @@ export const phoenix: Landing = {
     },
     en: {
       seo: {
-        title: 'Web Design for Contractors & Latino-Owned Businesses in Phoenix | Aurin',
+        title: 'Web Design for Contractors & Latino Businesses in Phoenix | Aurin',
         description:
           'Web design and branding in Phoenix for roofing, HVAC, remodeling, pool, and landscaping companies. Bilingual sites built to bring calls and estimates.',
         keywords:

@@ -97,7 +97,7 @@ export const wixWordpressAMedida: Guide = {
     },
     en: {
       seo: {
-        title: 'Wix, WordPress, or a custom website: which fits your business | Aurin',
+        title: 'Wix, WordPress, or custom website: which fits your business | Aurin',
         description:
           'What you gain and give up with a builder like Wix, with WordPress, and with a custom website: real cost, speed, SEO, maintenance, and who owns the site.',
         keywords:
