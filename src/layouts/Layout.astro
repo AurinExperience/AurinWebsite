@@ -154,10 +154,14 @@ const {
 				['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (e) {
 					addEventListener(e, loadGtag, { once: true, passive: true });
 				});
-				// Red de seguridad: si nadie interactúa, cargar en el primer hueco de CPU tras load.
+				// Red de seguridad: si nadie interactúa, 4 s después de load y en un hueco de CPU.
+				// Justo tras load caía antes del primer pintado y PageSpeed sumaba sus 180 KB al LCP
+				// (móvil oscilaba 88–98). Quien toca o hace scroll lo carga al instante (arriba).
 				addEventListener('load', function () {
-					if (window.requestIdleCallback) requestIdleCallback(loadGtag, { timeout: 3000 });
-					else setTimeout(loadGtag, 3000);
+					setTimeout(function () {
+						if (window.requestIdleCallback) requestIdleCallback(loadGtag, { timeout: 3000 });
+						else loadGtag();
+					}, 4000);
 				});
 
 				// Microsoft Clarity, snippet oficial. No se difiere: graba desde el primer frame y
