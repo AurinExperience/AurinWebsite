@@ -175,14 +175,6 @@
   transform: none;
 }
 
-.feedback {
-  text-align: center;
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-regular);
-  min-height: 24px;
-}
-
 @media (max-width: 768px) {
   .fieldGroup {
     grid-template-columns: minmax(0, 1fr); /* `1fr` deja que un select de opciones largas ensanche la columna */

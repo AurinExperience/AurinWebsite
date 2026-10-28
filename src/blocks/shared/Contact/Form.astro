@@ -6,6 +6,7 @@ import MapPin from "lucide-astro/MapPin";
 import MainButton from "@/components/ui/MainButton.astro";
 import PhoneInput from "@/components/ui/PhoneInput.astro";
 import EmailInput from "@/components/ui/EmailInput.astro";
+import FormDialog from "@/components/ui/FormDialog.astro";
 
 // Detect current language
 const currentLang = getLangFromUrl(Astro.url);
@@ -175,6 +176,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
             <MainButton text={t.contact.form.button} type="submit" />
           </div>
         </form>
+        <FormDialog />
       </div>
     </div>
   </div>
@@ -744,12 +746,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
         const sumB = parseInt(getVal("sumaB"), 10);
         const sumAnswer = parseInt(getVal("sumaRespuesta"), 10);
         if (sumA + sumB !== sumAnswer) {
-          (window as any).showToast({
-            title: t.contact.form.sumError,
-            description: "",
-            type: "error",
-            duration: 5000,
-          });
+          (window as any).showFormDialog({ ok: false, text: t.contact.form.sumError });
           if (submitButton) {
             submitButton.disabled = false;
             setButtonLabel(t.contact.form.button);
@@ -790,12 +787,7 @@ const sumB = Math.floor(Math.random() * 9) + 1;
           if (response.ok) {
             // Success
             if (lead) (window as any).aurinLead("generate_lead", lead);
-            (window as any).showToast({
-              title: t.contact.form.success,
-              description: "",
-              type: "success",
-              duration: 5000,
-            });
+            (window as any).showFormDialog({ ok: true, text: t.contact.form.success });
             form.reset();
             // Reset dropdown
             if (text && hiddenInput) {
@@ -805,22 +797,15 @@ const sumB = Math.floor(Math.random() * 9) + 1;
             }
           } else {
             // Server error
-            (window as any).showToast({
-              title: t.contact.form.error,
-              description: result.error || "",
-              type: "error",
-              duration: 6000,
+            (window as any).showFormDialog({
+              ok: false,
+              text: result.error ? `${t.contact.form.error}. ${result.error}` : t.contact.form.error,
             });
           }
         } catch (error) {
           // Network error
           console.error("Error:", error);
-          (window as any).showToast({
-            title: t.contact.form.networkError,
-            description: "",
-            type: "error",
-            duration: 6000,
-          });
+          (window as any).showFormDialog({ ok: false, text: t.contact.form.networkError });
         } finally {
           // Re-enable button
           if (submitButton) {

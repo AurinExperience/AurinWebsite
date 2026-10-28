@@ -2,7 +2,11 @@ export const translations = {
   en: {
     common: {
       loading: 'Loading...',
-      viewMore: 'View more'
+      viewMore: 'View more',
+      // FormDialog: resultado de los formularios
+      sentTitle: 'Message sent!',
+      errorTitle: 'Couldn’t send it',
+      close: 'Got it'
     },
     seo: {
       title: "Aurin | Nearshore Web Design, UX/UI & Branding from Mexico",
@@ -816,7 +820,11 @@ export const translations = {
   es: {
     common: {
       loading: 'Cargando...',
-      viewMore: 'Ver más'
+      viewMore: 'Ver más',
+      // FormDialog: resultado de los formularios
+      sentTitle: '¡Mensaje enviado!',
+      errorTitle: 'No se pudo enviar',
+      close: 'Entendido'
     },
     seo: {
       title: "Aurin | Diseño web, UX/UI y branding en México",

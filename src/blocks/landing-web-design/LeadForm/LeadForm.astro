@@ -7,6 +7,7 @@
 import { getLangFromUrl, translations, getLocalizedUrl } from '@/i18n';
 import PhoneInput from '@/components/ui/PhoneInput.astro';
 import EmailInput from '@/components/ui/EmailInput.astro';
+import FormDialog from '@/components/ui/FormDialog.astro';
 import styles from './LeadForm.module.css';
 
 interface Props {
@@ -146,8 +147,8 @@ const leadForm = t.webDesignNL.leadForm;
         >{leadForm.privacyNoteAfter}
       </p>
 
-      <div class={styles.feedback} id="lead-feedback" role="alert" aria-live="polite"></div>
     </form>
+    <FormDialog />
   </div>
 </section>
 
@@ -157,7 +158,6 @@ const leadForm = t.webDesignNL.leadForm;
     if (!form) return;
 
     var button = document.getElementById('lead-submit-btn');
-    var feedback = document.getElementById('lead-feedback');
     var sendingText = form.dataset.sendingText;
     var successText = form.dataset.successText;
     var errorText = form.dataset.errorText;
@@ -169,7 +169,6 @@ const leadForm = t.webDesignNL.leadForm;
 
       button.disabled = true;
       button.textContent = sendingText;
-      feedback.textContent = '';
 
       var formData = new FormData(form);
       var data = Object.fromEntries(formData.entries());
@@ -209,16 +208,13 @@ const leadForm = t.webDesignNL.leadForm;
         if (response.ok) {
           // Conversión en GA4: `lead_source` dice qué landing la trajo; el resto, de dónde llegó la persona.
           if (lead) window.aurinLead('generate_lead', lead);
-          feedback.textContent = successText;
-          feedback.style.color = '#D0DF00';
+          window.showFormDialog({ ok: true, text: successText });
           form.reset();
         } else {
-          feedback.textContent = errorText;
-          feedback.style.color = '#ff6b6b';
+          window.showFormDialog({ ok: false, text: errorText });
         }
       } catch (err) {
-        feedback.textContent = errorText;
-        feedback.style.color = '#ff6b6b';
+        window.showFormDialog({ ok: false, text: errorText });
       } finally {
         button.disabled = false;
         button.textContent = buttonText;

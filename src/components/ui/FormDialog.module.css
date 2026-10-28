@@ -1,0 +1,77 @@
+.dialog {
+  box-sizing: border-box; /* aurin.mx no lo pone global: sin esto el padding lo saca de la pantalla en móvil */
+  width: min(440px, calc(100% - 32px));
+  margin: auto;
+  padding: var(--spacing-10);
+  background: var(--color-black-a);
+  color: var(--color-white);
+  border: 1px solid var(--color-gray-b);
+  border-radius: 14px;
+  text-align: center;
+  /* El acomodo va aquí y no en [open]: al cerrar, [open] se quita antes de que termine el desvanecido */
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4);
+  opacity: 0;
+  translate: 0 12px;
+  transition: opacity 0.25s ease, translate 0.25s ease, overlay 0.25s allow-discrete, display 0.25s allow-discrete;
+}
+
+.dialog[open] {
+  display: flex;
+  opacity: 1;
+  translate: 0 0;
+}
+
+@starting-style {
+  .dialog[open] { opacity: 0; translate: 0 12px; }
+}
+
+/* Fondo fijo: el blur no se anima */
+.dialog::backdrop {
+  background: rgb(0 0 0 / 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.dialog form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: var(--spacing-2);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  color: #000;
+}
+
+.dialog[data-state='error'] .icon { background: #ff6b6b; }
+
+.icon svg { width: 28px; height: 28px; }
+
+.dialog[data-state='ok'] .iconError,
+.dialog[data-state='error'] .iconOk { display: none; }
+
+.title {
+  margin: 0;
+  font-family: var(--font-heading);
+  color: var(--color-white);
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #a3a69f;
+}
+
+@media (max-width: 900px) {
+  .dialog { padding: 28px 22px; }
+}

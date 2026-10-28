@@ -13,7 +13,6 @@ import Footer from "@/components/layout/Footer.astro";
 import HeroContact from "@/blocks/shared/Contact/HeroContact.astro";
 import Form from "@/blocks/shared/Contact/Form.astro";
 import Office from "@/blocks/shared/Contact/Office.astro";
-import Toast from "@/components/ui/Toast.astro";
 
 // Detect current language from URL automatically
 const currentLang = getLangFromUrl(Astro.url);
@@ -53,7 +52,6 @@ const canonicalUrl = getCanonicalUrl(SITE.url, "/contact", currentLang);
     <HeroContact />
     <Form />
     <Office />
-    <Toast />
     <Footer />
   </main>
 </Layout>
