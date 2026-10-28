@@ -1,4 +1,6 @@
 import type { APIRoute } from 'astro';
+import { dangerouslyDeleteByTag } from '@vercel/functions';
+import { CMS_CACHE_TAG } from '@/lib/cache';
 import { ALL_LANDINGS, isPublished, landingPath } from '@/data/landings';
 import { publishedSectors, sectorPath } from '@/data/sectors';
 import { GUIDES, guidePath } from '@/data/guides';
@@ -53,6 +55,11 @@ export const GET: APIRoute = async ({ request }) => {
   const sectors = publishedSectors()
     .filter((s) => s.publishAt && cdmxDate(Date.parse(s.publishAt)) === today)
     .flatMap((s) => [url(sectorPath(s, 'es')), url(sectorPath(s, 'en'))]);
+
+  // La landing nueva no estaba en caché, pero el menú y los enlaces entre
+  // landings de las demás páginas sí: se borran para que la enlacen ya y
+  // no hasta que venza su s-maxage (1 día, ver middleware.ts).
+  if (landings.length || sectors.length) await dangerouslyDeleteByTag(CMS_CACHE_TAG);
 
   const guides = GUIDES.filter((g) => g.updated === yesterday).flatMap((g) => [
     url(guidePath(g, 'es')),
