@@ -11,9 +11,10 @@ import crypto from 'crypto';
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 /* Bandeja del equipo. MAIL_TEST_TO la reemplaza para probar en local sin
-   escribirle a info@; nunca definirla en Vercel. */
-const TEAM_INBOX = process.env.MAIL_TEST_TO
-  ? process.env.MAIL_TEST_TO.split(',')
+   escribirle a info@; nunca definirla en Vercel. import.meta.env y no
+   process.env: en `astro dev` el .env solo llega a import.meta.env. */
+const TEAM_INBOX = import.meta.env.MAIL_TEST_TO
+  ? import.meta.env.MAIL_TEST_TO.split(',')
   : ['info@sodio.net', 'leonel@sodio.net'];
 
 /**
