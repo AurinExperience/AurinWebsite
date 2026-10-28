@@ -2,7 +2,11 @@ export const translations = {
   en: {
     common: {
       loading: 'Loading...',
-      viewMore: 'View more'
+      viewMore: 'View more',
+      // FormDialog: resultado de los formularios
+      sentTitle: 'Message sent!',
+      errorTitle: 'Couldn’t send it',
+      close: 'Got it'
     },
     seo: {
       title: "Aurin | Nearshore Web Design, UX/UI & Branding from Mexico",
@@ -349,7 +353,7 @@ export const translations = {
     },
     banner: {
       badge: 'User Experts',
-      titleLead: 'UX/UI design agency',
+      titleLead: 'UX/UI design studio',
       titleAccent: 'and web development.',
       description: 'Web design, branding and development hand in hand, so your product launches at its best.',
       buttonText: 'Start your project now'
@@ -816,7 +820,11 @@ export const translations = {
   es: {
     common: {
       loading: 'Cargando...',
-      viewMore: 'Ver más'
+      viewMore: 'Ver más',
+      // FormDialog: resultado de los formularios
+      sentTitle: '¡Mensaje enviado!',
+      errorTitle: 'No se pudo enviar',
+      close: 'Entendido'
     },
     seo: {
       title: "Aurin | Diseño web, UX/UI y branding en México",
@@ -1163,7 +1171,7 @@ export const translations = {
     },
     banner: {
       badge: 'Expertos en usuarios',
-      titleLead: 'Agencia de diseño UX/UI',
+      titleLead: 'Estudio de diseño UX/UI',
       titleAccent: 'y desarrollo web.',
       description: 'Diseño web, branding y desarrollo de la mano, para que tu producto salga en su mejor versión.',
       buttonText: 'Inicia tu proyecto ahora'

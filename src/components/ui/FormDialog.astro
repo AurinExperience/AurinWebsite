@@ -1,0 +1,31 @@
+---
+/**
+ * Modal con el resultado de un formulario (Contact/Form y la LeadForm de las landings).
+ * El aviso abajo del botón o el toast en la esquina pasaban desapercibidos.
+ * Uso: window.showFormDialog({ ok, text }). <dialog> nativo: Esc, el botón y el fondo lo cierran.
+ */
+import Check from 'lucide-astro/Check';
+import X from 'lucide-astro/X';
+import ButtonIsland from './ButtonIsland.astro';
+import { getLangFromUrl, translations } from '@/i18n';
+import styles from './FormDialog.module.css';
+
+const t = translations[getLangFromUrl(Astro.url)].common;
+---
+
+<dialog class={styles.dialog} aria-labelledby="form-dialog-title" closedby="any" data-form-dialog data-sent={t.sentTitle} data-error={t.errorTitle}>
+  <span class={styles.icon} aria-hidden="true"><Check class={styles.iconOk} /><X class={styles.iconError} /></span>
+  <h2 id="form-dialog-title" class={styles.title}></h2>
+  <p class={styles.text}></p>
+  <form method="dialog"><ButtonIsland type="submit" text={t.close} class={styles.button} /></form>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-form-dialog]')!;
+  (window as any).showFormDialog = ({ ok, text }: { ok: boolean; text: string }) => {
+    dialog.dataset.state = ok ? 'ok' : 'error';
+    dialog.querySelector('h2')!.textContent = ok ? dialog.dataset.sent! : dialog.dataset.error!;
+    dialog.querySelector('p')!.textContent = text;
+    dialog.showModal();
+  };
+</script>
