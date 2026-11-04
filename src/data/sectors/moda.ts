@@ -42,7 +42,7 @@ export const moda = defineSector({
         description:
           'Tienda en línea a la medida, pensada para comprar desde Instagram o TikTok en el celular, con pagos sencillos y envíos claros.',
         bullets: [],
-        custom: ['Tienda móvil primero', 'Pagos y meses sin intereses si los ofreces', 'Integración con redes'],
+        custom: ['Tienda móvil primero', 'Pagos en línea', 'Integración con redes'],
       },
       {
         title: 'Marca con historia',
@@ -116,7 +116,7 @@ export const moda = defineSector({
         description:
           'A custom online store built for buying from Instagram or TikTok on a phone, with simple payments and clear shipping.',
         bullets: [],
-        custom: ['Mobile-first store', 'Installments if you offer them', 'Social integration'],
+        custom: ['Mobile-first store', 'Online payments', 'Social integration'],
       },
       {
         title: 'A brand with a story',

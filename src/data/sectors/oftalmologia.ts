@@ -47,7 +47,7 @@ export const oftalmologia = defineSector({
       {
         title: 'Costos y financiamiento',
         description:
-          'Paquetes, opciones de pago, meses sin intereses y seguros presentados con claridad, porque casi siempre es un gasto propio.',
+          'Paquetes, opciones de pago y seguros presentados con claridad, porque casi siempre es un gasto propio.',
         bullets: ['Paquetes y qué incluyen', 'Financiamiento', 'Pacientes de otros países'],
       },
     ],
@@ -120,7 +120,7 @@ export const oftalmologia = defineSector({
       {
         title: 'Costs and financing',
         description:
-          'Packages, payment options, installments, and insurance presented clearly, since it is usually an out-of-pocket expense.',
+          'Packages, payment options, and insurance presented clearly, since it is usually an out-of-pocket expense.',
         bullets: ['Packages and inclusions', 'Financing', 'International patients'],
       },
     ],
