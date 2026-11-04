@@ -10,6 +10,7 @@ import { tiempoPaginaWeb } from './tiempo-pagina-web';
 import { costoUxUi } from './costo-ux-ui';
 import { nearshoreMexico } from './nearshore-mexico';
 import { briefPaginaWeb } from './brief-pagina-web';
+import { mejoresAgenciasMexico } from './mejores-agencias-mexico';
 
 export type { Lang, Guide, GuideCopy, GuideSection } from './types';
 
@@ -29,6 +30,7 @@ const ALL_GUIDES: Guide[] = [
   costoUxUi,
   nearshoreMexico,
   briefPaginaWeb,
+  mejoresAgenciasMexico,
 ];
 
 export const GUIDES: Guide[] = ALL_GUIDES.filter((g) => g.status === 'live');

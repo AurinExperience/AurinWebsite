@@ -17,6 +17,8 @@ export interface GuideSection {
   heading: string;
   paragraphs: string[];
   bullets?: string[];
+  /** Banner a contacto dentro de la sección, además del cierre de la guía. */
+  cta?: GuideCopy['cta'];
 }
 
 export interface GuideCopy {
