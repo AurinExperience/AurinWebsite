@@ -87,6 +87,18 @@ export const WEB_DESIGN_STEP: Record<string, Record<Lang, string>> = {
     es: 'Diseñamos para vender un estilo de vida a quien compra desde otro país: el destino primero, residencias claras y cómo compra un extranjero, explicado paso a paso.',
     en: 'We design to sell a lifestyle to buyers abroad: the destination first, clear residences, and how a foreigner buys, explained step by step.',
   },
+  'ecommerce-prestashop': {
+    es: 'Diseñamos para que un catálogo enorme se recorra sin esfuerzo: búsqueda y filtros primero, combinaciones que se entienden a la primera y cuentas de cliente claras para mayoreo y público.',
+    en: 'We design so a huge catalog is effortless to browse: search and filters first, combinations that make sense at a glance, and clear customer accounts for wholesale and retail.',
+  },
+  'ecommerce-shopify': {
+    es: 'Diseñamos la compra completa en el celular: de la colección a la ficha de producto y al carrito, con tu marca en cada paso y las dudas de talla, envío y cambios resueltas antes del pago.',
+    en: 'We design the full purchase on a phone: from collection to product page to cart, with your brand at every step and questions about size, shipping, and returns answered before checkout.',
+  },
+  'ecommerce-woocommerce': {
+    es: 'Diseñamos tienda y contenido como un solo sitio: el blog lleva al producto, la ficha resuelve las dudas y el carrito no parece de otra página, con los plugins justos para que todo siga ligero.',
+    en: 'We design store and content as one site: the blog leads to the product, the product page answers questions, and the cart never feels like another website, with just enough plugins to stay light.',
+  },
   'energia-solar': {
     es: 'Diseñamos para quien quiere pagar menos luz y no sabe por dónde empezar: el ahorro en números simples, instalaciones reales y la cotización con su recibo.',
     en: 'We design for people who want a lower power bill and don’t know where to start: savings in simple numbers, real installations, and a quote based on their bill.',

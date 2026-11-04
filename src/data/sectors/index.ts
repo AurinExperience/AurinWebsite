@@ -96,6 +96,10 @@ import { usExecutiveCoaches } from './us-executive-coaches';
 import { oftalmologia } from './oftalmologia';
 import { usFoodBrands } from './us-food-brands';
 import { usGolfCommunities } from './us-golf-communities';
+// Tiendas en línea por plataforma (service: 'ecommerce')
+import { ecommerceShopify } from './ecommerce-shopify';
+import { ecommerceWoocommerce } from './ecommerce-woocommerce';
+import { ecommercePrestashop } from './ecommerce-prestashop';
 
 /**
  * Landings de diseño web por SECTOR ("diseño web para médicos"). Son la otra
@@ -106,12 +110,13 @@ import { usGolfCommunities } from './us-golf-communities';
  * `status`/`publishAt` para soltarlas de a una. Comparten el copy (LandingCopy)
  * y los bloques de las landings por ciudad; lo que no tienen es geografía.
  *
- * Dos servicios, dos rutas, porque la URL contiene la búsqueda:
+ * Tres servicios, tres rutas, porque la URL contiene la búsqueda:
  * - web:  /diseno-web-para-medicos (comparte ruta con las ciudades; no chocan
  *   porque todos los slugs de sector empiezan con "para-" / "for-").
  * - uxui: /diseno-ux-ui-para-fintech (productos digitales: apps y plataformas).
+ * - ecommerce: /desarrollo-ecommerce-shopify (tiendas en línea por plataforma).
  */
-export type SectorService = 'web' | 'uxui';
+export type SectorService = 'web' | 'uxui' | 'ecommerce';
 
 export interface Sector {
   id: string;
@@ -253,6 +258,10 @@ const ALL_SECTORS: Sector[] = [
   oftalmologia,
   usFoodBrands,
   usGolfCommunities,
+  // Tiendas en línea por plataforma
+  ecommerceShopify,
+  ecommerceWoocommerce,
+  ecommercePrestashop,
 ];
 
 /** Misma regla que las landings (incluye ver borradores en `npm run dev`). */
@@ -263,6 +272,7 @@ export function publishedSectors(): Sector[] {
 const PREFIX: Record<SectorService, Record<Lang, string>> = {
   web: { es: '/diseno-web-', en: '/en/web-design-' },
   uxui: { es: '/diseno-ux-ui-', en: '/en/ux-ui-design-' },
+  ecommerce: { es: '/desarrollo-ecommerce-', en: '/en/ecommerce-development-' },
 };
 
 export const sectorService = (sector: Sector): SectorService => sector.service ?? 'web';

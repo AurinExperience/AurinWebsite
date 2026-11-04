@@ -1,0 +1,13 @@
+---
+/**
+ * Online store landings by platform — English. URL:
+ * /en/ecommerce-development-<slug>. Same closed list as the Spanish route.
+ */
+import { findSector } from '@/data/sectors';
+import WebDesignSectorPage from '@/components/pages/WebDesignSectorPage.astro';
+
+const sector = findSector(Astro.params.sector, 'en', 'ecommerce');
+if (!sector) return Astro.rewrite('/404');
+---
+
+<WebDesignSectorPage sector={sector} />

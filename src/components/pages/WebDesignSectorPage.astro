@@ -42,7 +42,20 @@ const { sector } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const copy = sector.copy[lang];
 const canonicalUrl = `${SITE.url}${sectorPath(sector, lang)}`;
-const isUxUi = sectorService(sector) === "uxui";
+const schemaNames = {
+  web: {
+    es: { type: "Diseño y Desarrollo de Sitios Web", catalog: "Servicios de Diseño Web" },
+    en: { type: "Website Design and Development", catalog: "Web Design Services" },
+  },
+  uxui: {
+    es: { type: "Diseño UX/UI de Productos Digitales", catalog: "Servicios de Diseño UX/UI" },
+    en: { type: "UX/UI Design for Digital Products", catalog: "UX/UI Design Services" },
+  },
+  ecommerce: {
+    es: { type: "Diseño y Desarrollo de Tiendas en Línea", catalog: "Servicios de Tiendas en Línea" },
+    en: { type: "Online Store Design and Development", catalog: "Online Store Services" },
+  },
+}[sectorService(sector)][lang];
 const isUS = sector.country === "US";
 // Las de EE. UU. son para angloparlantes: x-default apunta al inglés (el resto usa el default de AdvancedSEO)
 const usAlternates = isUS
@@ -59,16 +72,12 @@ const serviceSchema: ServiceStructuredData = {
   name: copy.serviceName,
   description: copy.seo.description,
   url: canonicalUrl,
-  serviceType: isUxUi
-    ? lang === "es" ? "Diseño UX/UI de Productos Digitales" : "UX/UI Design for Digital Products"
-    : lang === "es" ? "Diseño y Desarrollo de Sitios Web" : "Website Design and Development",
+  serviceType: schemaNames.type,
   provider: { "@id": `${SITE.url}/#organization` },
   areaServed: isUS ? (lang === "es" ? "Estados Unidos" : "United States") : lang === "es" ? "México" : "Mexico",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: isUxUi
-      ? lang === "es" ? "Servicios de Diseño UX/UI" : "UX/UI Design Services"
-      : lang === "es" ? "Servicios de Diseño Web" : "Web Design Services",
+    name: schemaNames.catalog,
     itemListElement: copy.services.items.map((service) => ({
       "@type": "Offer",
       itemOffered: { "@type": "Service", name: service.title, description: service.description },

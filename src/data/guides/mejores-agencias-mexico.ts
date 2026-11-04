@@ -22,7 +22,7 @@ export const mejoresAgenciasMexico: Guide = {
   published: '2026-11-04',
   updated: '2026-11-04',
   relatedLandings: ['cdmx', 'monterrey', 'jalisco'],
-  relatedSectors: ['ux-saas', 'ux-fintech', 'us-nearshore'],
+  relatedSectors: ['ux-saas', 'ux-fintech', 'us-nearshore', 'ecommerce-shopify', 'ecommerce-woocommerce', 'ecommerce-prestashop'],
   copy: {
     es: {
       seo: {
