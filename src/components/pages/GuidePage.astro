@@ -17,6 +17,7 @@ import { getLangFromUrl, getLocalizedUrl, translations } from '@/i18n';
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
+import ButtonIsland from '@/components/ui/ButtonIsland.astro';
 import styles from './GuidePage.module.css';
 
 interface Props {
@@ -242,6 +243,13 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
                   <li class={styles.bullet} set:html={inline(bullet)} />
                 ))}
               </ul>
+            )}
+            {section.cta && (
+              <aside class={styles.cta}>
+                <p class={styles.ctaHeading}>{section.cta.heading}</p>
+                <p class={styles.ctaText}>{section.cta.text}</p>
+                <ButtonIsland href={getLocalizedUrl('/contact', lang)} text={section.cta.label} />
+              </aside>
             )}
           </section>
           ))}
