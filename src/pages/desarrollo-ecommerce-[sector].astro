@@ -1,0 +1,14 @@
+---
+/**
+ * Landings de tiendas en línea por plataforma — español. URL:
+ * /desarrollo-ecommerce-<slug> (p. ej. /desarrollo-ecommerce-shopify). Lista
+ * cerrada en src/data/sectors: lo que no esté ahí responde 404.
+ */
+import { findSector } from '@/data/sectors';
+import WebDesignSectorPage from '@/components/pages/WebDesignSectorPage.astro';
+
+const sector = findSector(Astro.params.sector, 'es', 'ecommerce');
+if (!sector) return Astro.rewrite('/404');
+---
+
+<WebDesignSectorPage sector={sector} />

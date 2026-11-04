@@ -71,6 +71,7 @@ const WORDS = {
   es: {
     web: { lead: 'Diseño Web para', link: 'Diseño web para', services: 'Diseño web para', servicesTail: 'lo que puede incluir tu sitio', topic: 'diseño web', cta: 'Cotiza tu sitio' },
     uxui: { lead: 'Diseño UX/UI para', link: 'Diseño UX/UI para', services: 'Diseño UX/UI para', servicesTail: 'lo que puede incluir tu proyecto', topic: 'diseño UX/UI', cta: 'Cotiza tu proyecto' },
+    ecommerce: { lead: 'Desarrollo de Tiendas en', link: 'Tiendas en línea en', services: 'Tienda en línea en', servicesTail: 'lo que puede incluir', topic: 'tiendas en línea', cta: 'Cotiza tu tienda' },
     secondary: 'Ver cómo trabajamos',
     faqHeading: (topic: string, target: string) => `Preguntas frecuentes sobre ${topic} para ${target}`,
     faqDescription: (target: string) => `Lo que nos preguntan ${target} antes de contratar.`,
@@ -85,6 +86,7 @@ const WORDS = {
   en: {
     web: { lead: 'Web Design for', link: 'Web design for', services: 'Web design for', servicesTail: 'what your site can include', topic: 'web design', cta: 'Request a quote' },
     uxui: { lead: 'UX/UI Design for', link: 'UX/UI design for', services: 'UX/UI design for', servicesTail: 'what your project can include', topic: 'UX/UI design', cta: 'Request a quote' },
+    ecommerce: { lead: 'Online Store Development on', link: 'Online stores on', services: 'Online store on', servicesTail: 'what it can include', topic: 'online stores', cta: 'Request a quote' },
     secondary: 'See how we work',
     faqHeading: (topic: string, target: string) => `Frequently asked questions about ${topic} for ${target}`,
     faqDescription: (target: string) => `What ${target} ask us before signing.`,
@@ -104,6 +106,7 @@ function buildCopy(id: string, spec: LangSpec, lang: Lang, service: SectorServic
   const c = COMMON[lang];
   const s = SECTOR_COMMON[lang];
   const ux = service === 'uxui';
+  const store = service === 'ecommerce';
   // EE. UU.: el dato de "nearshore" y la pregunta de trabajar desde México
   if (us) spec = { ...spec, stat: spec.stat ?? s.us.stat };
   const remote = us ? s.us.faqRemote(spec.remoteWho) : s.faqRemote(spec.remoteWho);
@@ -116,11 +119,11 @@ function buildCopy(id: string, spec: LangSpec, lang: Lang, service: SectorServic
 
   const steps = ux
     ? [s.ux.stepResearch(spec.research ?? ''), ...uxSteps(id, lang, s.ux.stepFlows, s.ux.stepUi), s.ux.stepHandoff]
-    : [{ name: w.diagnosisName, text: spec.diagnosis ?? '' }, w.structure(spec.pages ?? ''), designStep(id, lang, c.stepDesign), c.stepLaunch];
+    : [{ name: w.diagnosisName, text: spec.diagnosis ?? '' }, w.structure(spec.pages ?? ''), designStep(id, lang, c.stepDesign), store ? s.store.stepLaunch : c.stepLaunch];
 
   const cost: Faq = { question: spec.costQuestion, answer: w.cost(spec.costScope) };
   // EE. UU.: además, cómo usamos la IA en el proceso (rapidez sin bajar la calidad)
-  const faqs = us ? [...spec.faqs, s.us.faqAiProcess] : spec.faqs;
+  const faqs = us ? [...spec.faqs, s.us.faqAiProcess] : store ? [...spec.faqs, s.store.faqWhy] : spec.faqs;
   // Sin "¿trabajan con nuestro equipo?" (UX) ni "¿inglés y español?" (web): eran iguales en
   // todas las landings y lo de idiomas ya lo dice el bloque de servicios ("Todo sitio incluye…").
   const faqItems = ux
@@ -138,19 +141,25 @@ function buildCopy(id: string, spec: LangSpec, lang: Lang, service: SectorServic
       ctaSecondary: w.secondary,
       stats,
     },
-    services: { heading: `${kind.services} ${spec.target}: ${kind.servicesTail}`, intro: spec.intro, items: spec.items },
+    services: {
+      heading: `${kind.services} ${spec.target}: ${kind.servicesTail}`,
+      intro: spec.intro,
+      items: spec.items,
+      note: store ? s.store.note : undefined,
+    },
     process: {
       heading: ux ? s.ux.processHeading : c.processHeading,
       description: ux ? s.ux.processDescription : c.processDescription,
       steps,
     },
     faq: {
-      heading: w.faqHeading(kind.topic, spec.target),
-      description: w.faqDescription(spec.target),
+      // `target` en las tiendas es la plataforma: "para Shopify" no se lee bien
+      heading: store ? s.store.faqHeading(spec.target) : w.faqHeading(kind.topic, spec.target),
+      description: store ? s.store.faqDescription : w.faqDescription(spec.target),
       items: faqItems,
     },
     socialProof: { heading: c.proofHeading, description: spec.proofText },
-    nearby: us ? s.us.nearby : s.nearby,
+    nearby: us ? s.us.nearby : store ? s.store.nearby : s.nearby,
     linkLabel: `${kind.link} ${spec.target}`,
     breadcrumb: `${kind.lead} ${spec.accent}`,
     serviceName: spec.seoTitle,

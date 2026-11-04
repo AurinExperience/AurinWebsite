@@ -66,8 +66,8 @@ const customNote =
     </div>
 
     <aside class={styles.customNote}>
-      <p class={styles.customNoteTitle}>{customTitle}</p>
-      <p class={styles.customNoteText}>{customNote}</p>
+      <p class={styles.customNoteTitle}>{services.note?.title ?? customTitle}</p>
+      <p class={styles.customNoteText}>{services.note?.text ?? customNote}</p>
     </aside>
 
     <a class={styles.moreLink} href={getLocalizedUrl('/services', currentLang)}>

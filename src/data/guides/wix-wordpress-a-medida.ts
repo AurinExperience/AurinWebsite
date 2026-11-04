@@ -19,7 +19,7 @@ export const wixWordpressAMedida: Guide = {
   published: '2026-10-13',
   updated: '2026-10-13',
   relatedLandings: ['estado-de-mexico', 'guanajuato', 'sinaloa'],
-  relatedSectors: ['dentistas', 'veterinarias', 'contadores'],
+  relatedSectors: ['dentistas', 'veterinarias', 'contadores', 'ecommerce-woocommerce', 'ecommerce-shopify'],
   copy: {
     es: {
       seo: {

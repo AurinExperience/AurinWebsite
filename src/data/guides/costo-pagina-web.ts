@@ -19,7 +19,7 @@ export const costoPaginaWeb: Guide = {
   published: '2026-08-18',
   updated: '2026-08-18',
   relatedLandings: ['cdmx', 'monterrey', 'queretaro'],
-  relatedSectors: ['medicos', 'inmobiliarias', 'constructoras'],
+  relatedSectors: ['medicos', 'inmobiliarias', 'constructoras', 'ecommerce-shopify', 'ecommerce-woocommerce', 'ecommerce-prestashop'],
   copy: {
     es: {
       seo: {

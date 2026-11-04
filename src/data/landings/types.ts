@@ -37,6 +37,8 @@ export interface LandingCopy {
      * etiqueta "A la medida" para no prometerlas como incluidas.
      */
     items: { title: string; description: string; bullets: string[]; custom?: string[] }[];
+    /** Reemplaza el recuadro "También desarrollamos a la medida" donde no aplica (tiendas). */
+    note?: { title: string; text: string };
   };
   process: {
     heading: string;

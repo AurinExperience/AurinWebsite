@@ -46,6 +46,28 @@ const es = {
         'Sí. Trabajamos de la mano con tu equipo de producto y desarrollo, compartimos avances por etapa y entregamos el diseño organizado para que sea fácil de construir.',
     } satisfies Faq,
   },
+  /** Landings de tiendas en línea por plataforma (`service: 'ecommerce'`). */
+  store: {
+    nearby: {
+      heading: '¿Prefieres otra plataforma?',
+      description: 'También diseñamos y desarrollamos tiendas en línea en estas plataformas.',
+    },
+    note: {
+      title: 'Cada tienda se cotiza a la medida',
+      text: 'Una tienda no se vende por paquete: el alcance se arma con lo que vendes y cómo lo vendes. Lo marcado «A la medida» depende de tu operación, y su alcance y costo los platicamos contigo desde las primeras llamadas.',
+    },
+    stepLaunch: {
+      name: 'Desarrollo y lanzamiento',
+      text: 'Desarrollamos la tienda, probamos pagos y envíos con pedidos de principio a fin y la conectamos a tu dominio. Te enseñamos a manejar productos y pedidos desde el panel, y los cambios mayores los hacemos con un plan mensual de mantenimiento.',
+    } satisfies Step,
+    faqHeading: (platform: string) => `Preguntas frecuentes sobre tiendas en línea en ${platform}`,
+    faqDescription: 'Lo que conviene resolver antes de contratar.',
+    faqWhy: {
+      question: '¿Por qué hacer mi tienda con Aurin?',
+      answer:
+        'Porque tenemos experiencia desarrollando tiendas en línea y un solo equipo se encarga de tu marca, el diseño, el desarrollo y el SEO, sin repartir la tienda entre tres proveedores. Te mandamos una cotización de alcance cerrado, desglosada por etapa, con entregables y fechas, y te entregamos la tienda a tu nombre, con Google Analytics y Search Console incluidos. Llevamos diseñando marcas desde 1998.',
+    } satisfies Faq,
+  },
   nearby: {
     heading: '¿Tu negocio es de otro sector?',
     description: 'También diseñamos sitios web pensados para estos sectores.',
@@ -111,6 +133,27 @@ const en: typeof es = {
       question: 'Can you work with our product team?',
       answer:
         'Yes. We work alongside your product and engineering teams, share progress at each stage, and deliver organized designs that are easy to build.',
+    },
+  },
+  store: {
+    nearby: {
+      heading: 'Prefer another platform?',
+      description: 'We also design and build online stores on these platforms.',
+    },
+    note: {
+      title: 'Every store is quoted to fit',
+      text: 'A store is not sold as a package: the scope comes from what you sell and how you sell it. Items marked “Custom” depend on your operation, and we talk through their scope and cost with you from the first calls.',
+    },
+    stepLaunch: {
+      name: 'Build and launch',
+      text: 'We build the store, test payments and shipping with orders from start to finish, and connect it to your domain. We show you how to manage products and orders from the admin, and we handle larger changes with a monthly maintenance plan.',
+    },
+    faqHeading: (platform: string) => `Frequently asked questions about online stores on ${platform}`,
+    faqDescription: 'What is worth settling before you sign.',
+    faqWhy: {
+      question: 'Why build my store with Aurin?',
+      answer:
+        'Because we have experience building online stores, and one team handles your brand, design, development, and SEO, instead of splitting the store among three vendors. You get a fixed-scope quote, broken down by stage, with deliverables and dates, and we hand the store over in your name, with Google Analytics and Search Console included. We have been designing brands since 1998.',
     },
   },
   nearby: {
