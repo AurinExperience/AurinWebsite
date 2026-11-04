@@ -15,25 +15,9 @@
 # impide que Gemini cite a Aurin como fuente en sus respuestas, por lo que se
 # permite vía `*` en lugar de tener grupo propio con Disallow.
 
-# ── Entrenamiento de modelos: BLOQUEAR ────────────────────────────────────────
-# Consumen contenido para entrenar modelos, no generan citas ni tráfico.
-# Bloquearlos protege el contenido único de Aurin sin afectar el SEO ni
-# la indexación en motores de búsqueda IA (esos usan bots distintos, abajo).
-
-# OpenAI — entrenamiento de GPT (≠ OAI-SearchBot, que sí indexa para búsqueda)
-User-agent: GPTBot
-Disallow: /
-
-# Anthropic — entrenamiento de Claude (≠ Claude-SearchBot)
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-# Meta — entrenamiento de Llama y Meta AI (≠ meta-webindexer, que sí indexa para búsqueda)
-User-agent: meta-externalagent
-Disallow: /
+# ── Entrenamiento de modelos ──────────────────────────────────────────────────
+# Sin bloqueos: GPTBot, ClaudeBot, meta-externalagent y demás entran vía `*`
+# (noviembre de 2026). A Aurin le conviene más que la IA la conozca que proteger sus textos.
 
 # Google-Extended queda cubierto por `*` (Allow) de forma intencional:
 # bloquear entrenamiento Gemini también bloquearía el grounding en Gemini Apps,
