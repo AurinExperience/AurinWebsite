@@ -11,6 +11,8 @@ import { costoUxUi } from './costo-ux-ui';
 import { nearshoreMexico } from './nearshore-mexico';
 import { briefPaginaWeb } from './brief-pagina-web';
 import { mejoresAgenciasMexico } from './mejores-agencias-mexico';
+import { shopifyWoocommercePrestashop } from './shopify-woocommerce-prestashop';
+import { costoTiendaEnLinea } from './costo-tienda-en-linea';
 
 export type { Lang, Guide, GuideCopy, GuideSection } from './types';
 
@@ -31,6 +33,8 @@ const ALL_GUIDES: Guide[] = [
   nearshoreMexico,
   briefPaginaWeb,
   mejoresAgenciasMexico,
+  shopifyWoocommercePrestashop,
+  costoTiendaEnLinea,
 ];
 
 export const GUIDES: Guide[] = ALL_GUIDES.filter((g) => g.status === 'live');
