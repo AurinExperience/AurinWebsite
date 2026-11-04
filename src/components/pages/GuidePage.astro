@@ -207,7 +207,7 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
       </header>
 
       <div class={styles.layout}>
-        <nav class={styles.toc} aria-label={labels.toc}>
+        <nav class={styles.toc} id="indice" aria-label={labels.toc}>
           <p class={styles.tocTitle}>{labels.toc}</p>
           <ol class={styles.tocList}>
             {toc.map((entry) => (
@@ -253,6 +253,7 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
             )}
           </section>
           ))}
+          <a class={styles.tocBack} href="#indice">↑ {labels.toc}</a>
         </div>
       </div>
 
@@ -334,3 +335,38 @@ const breadcrumbSchema: BreadcrumbListStructuredData = {
   </main>
   <Footer />
 </Layout>
+
+<script>
+  /* Marca en el índice la sección que se está leyendo, al hacer clic y al hacer scroll. */
+  const nav = document.getElementById('indice');
+  const entries = [...(nav?.querySelectorAll('a') ?? [])].map((link) => ({
+    link,
+    section: document.getElementById(link.hash.slice(1)),
+  }));
+  // Un poco más que el scroll-margin-top de .section, para que el ancla ya cuente como leída.
+  const READING_LINE = 160;
+  let current: HTMLAnchorElement | undefined;
+  let queued = false;
+
+  const update = () => {
+    queued = false;
+    const active = entries.filter(({ section }) => section && section.getBoundingClientRect().top <= READING_LINE).pop()?.link;
+    if (active === current) return;
+    current?.removeAttribute('aria-current');
+    active?.setAttribute('aria-current', 'true');
+    current = active;
+    // Solo mueve el índice por dentro: scrollIntoView también movería la página.
+    if (active && nav) nav.scrollTo({ top: active.offsetTop - nav.clientHeight / 2 });
+  };
+
+  addEventListener(
+    'scroll',
+    () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(update);
+    },
+    { passive: true }
+  );
+  update();
+</script>
