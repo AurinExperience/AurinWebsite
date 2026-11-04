@@ -47,7 +47,6 @@ export const ecommerceShopify = defineSector({
         description:
           'Dejamos listo lo necesario para cobrar y enviar: las pasarelas disponibles en tu país, tarifas de envío por zona e impuestos, probado con pedidos de principio a fin.',
         bullets: ['Pasarelas de pago', 'Tarifas de envío por zona', 'Impuestos y pedidos de prueba'],
-        custom: ['Meses sin intereses si tu pasarela los ofrece'],
       },
       {
         title: 'Apps bien elegidas',
@@ -121,7 +120,6 @@ export const ecommerceShopify = defineSector({
         description:
           'We set up what it takes to charge and ship: the gateways available in your country, shipping rates by zone, and taxes, tested with orders from start to finish.',
         bullets: ['Payment gateways', 'Shipping rates by zone', 'Taxes and test orders'],
-        custom: ['Installments if your gateway offers them'],
       },
       {
         title: 'Well-chosen apps',
