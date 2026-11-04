@@ -36,7 +36,7 @@ export const joyerias = defineSector({
         description:
           'Si vendes en línea, desarrollamos a la medida carrito, pago y envío asegurado con la confianza que pide una compra de ticket alto, y opción de apartar o pagar en showroom.',
         bullets: [],
-        custom: ['Tienda en línea', 'Pagos seguros y meses sin intereses si los ofreces', 'Envío asegurado'],
+        custom: ['Tienda en línea', 'Pagos seguros', 'Envío asegurado'],
       },
       {
         title: 'Citas y piezas a la medida',
@@ -104,7 +104,7 @@ export const joyerias = defineSector({
         description:
           'If you sell online, we build a custom cart, payment, and insured shipping with the confidence a high-ticket purchase needs, plus the option to reserve or pay in the showroom.',
         bullets: [],
-        custom: ['Online store', 'Secure payments and installments if you offer them', 'Insured shipping'],
+        custom: ['Online store', 'Secure payments', 'Insured shipping'],
       },
       {
         title: 'Appointments and custom pieces',
