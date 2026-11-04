@@ -222,7 +222,7 @@ export const translations = {
           },
           {
             question: "Do you work with companies outside Mexico?",
-            answer: "Yes. Our office is in Cuernavaca, Morelos. We have clients in Mexico and the Dominican Republic, and we design for companies in the United States, Canada, Spain, Puerto Rico, Panama, Costa Rica, Chile and Uruguay. The whole process runs remotely and in English: video calls during your business hours, shared boards and weekly reviews."
+            answer: "Yes. Our office is in Cuernavaca, Morelos. We have clients in Mexico, the United States, Canada, Spain, the Dominican Republic and other Latin American countries. The whole process runs remotely and in English: video calls during your business hours, shared boards and weekly reviews."
           },
           {
             question: "What does a branding project include?",
@@ -230,7 +230,7 @@ export const translations = {
           },
           {
             question: "Which technologies do you use for web development?",
-            answer: "Custom sites built with Astro and React on a headless CMS, so you can update content without touching code, deployed on modern infrastructure with a PageSpeed target of 90+. We also work with WordPress and Shopify when the project or the client's team needs them."
+            answer: "Sites on WordPress, Webflow or Shopify, or custom-built with Astro and React on a headless CMS so you can update content without touching code, depending on what the project needs. We also build online stores on Shopify, WooCommerce and PrestaShop as custom work."
           }
         ]
       },
@@ -339,7 +339,7 @@ export const translations = {
         },
         {
           question: "Where is Aurin and who do you design for?",
-          answer: "Our office is in Cuernavaca, Morelos, Mexico, and we work remotely. We have clients in Mexico and the Dominican Republic, and we design for companies in the United States, Canada, Spain, Puerto Rico, Panama, Costa Rica, Chile and Uruguay, from startups launching a product to established companies in finance, retail, health and education. Calls and documentation are in English, and our working hours overlap with US and Canadian business hours."
+          answer: "Our office is in Cuernavaca, Morelos, Mexico, and we work remotely. We have clients in Mexico, the United States, Canada, Spain, the Dominican Republic and other Latin American countries, from startups launching a product to established companies in finance, retail, health and education. Calls and documentation are in English, and our working hours overlap with US and Canadian business hours."
         },
         {
           question: "What makes Aurin different from other agencies?",
@@ -1040,7 +1040,7 @@ export const translations = {
           },
           {
             question: "¿Trabajan con empresas fuera de México?",
-            answer: "Sí. La oficina está en Cuernavaca, Morelos. Tenemos clientes en México y República Dominicana, y diseñamos para empresas de Estados Unidos, Canadá, España, Puerto Rico, Panamá, Costa Rica, Chile y Uruguay. Todo el proceso corre a distancia: videollamadas, tableros compartidos y revisiones semanales, con sesiones presenciales cuando el proyecto lo pide."
+            answer: "Sí. La oficina está en Cuernavaca, Morelos. Tenemos clientes en México, Estados Unidos, Canadá, España, República Dominicana y otros países de Latinoamérica. Todo el proceso corre a distancia: videollamadas, tableros compartidos y revisiones semanales, con sesiones presenciales cuando el proyecto lo pide."
           },
           {
             question: "¿Qué incluye un proyecto de branding?",
@@ -1048,7 +1048,7 @@ export const translations = {
           },
           {
             question: "¿Qué tecnologías usan para desarrollo web?",
-            answer: "Sitios a medida con Astro y React sobre un CMS headless, para que actualices contenido sin tocar código, desplegados en infraestructura moderna con meta de PageSpeed 90+. También trabajamos con WordPress y Shopify cuando el proyecto o el equipo del cliente lo necesitan."
+            answer: "Sitios en WordPress, Webflow o Shopify, o a medida con Astro y React sobre un CMS headless para que actualices contenido sin tocar código, según lo que pida el proyecto. También desarrollamos tiendas en línea a la medida en Shopify, WooCommerce y PrestaShop."
           }
         ]
       },
@@ -1157,7 +1157,7 @@ export const translations = {
         },
         {
           question: "¿Dónde está Aurin y para quién diseña?",
-          answer: "La oficina está en Cuernavaca, Morelos, y trabajamos a distancia. Tenemos clientes en México y República Dominicana, y diseñamos para empresas de todo México (Ciudad de México, Monterrey, Querétaro, Guadalajara, Puebla, Mérida, Cancún), Estados Unidos, Canadá, España, Puerto Rico, Panamá, Costa Rica, Chile y Uruguay. Los proyectos van desde startups que lanzan un producto hasta empresas consolidadas de finanzas, retail, salud y educación."
+          answer: "La oficina está en Cuernavaca, Morelos, y trabajamos a distancia. Tenemos clientes en México, Estados Unidos, Canadá, España, República Dominicana y otros países de Latinoamérica, y diseñamos para empresas de todo México (Ciudad de México, Monterrey, Querétaro, Guadalajara, Puebla, Mérida, Cancún). Los proyectos van desde startups que lanzan un producto hasta empresas consolidadas de finanzas, retail, salud y educación."
         },
         {
           question: "¿Qué hace diferente a Aurin de otras agencias?",
