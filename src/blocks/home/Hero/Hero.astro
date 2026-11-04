@@ -11,14 +11,18 @@
 import { getLangFromUrl, translations } from "@/i18n";
 import styles from "./Hero.module.css";
 
-const t = translations[getLangFromUrl(Astro.url)].banner;
+const lang = getLangFromUrl(Astro.url);
+const t = translations[lang].banner;
+const photoAlt = lang === "es"
+  ? "Faro encendido de noche junto a un lago, bajo un cielo estrellado"
+  : "Lighthouse lit at night beside a lake, under a starry sky";
 ---
 
 <section class={styles.section} aria-labelledby="titulo-hero" data-faro>
   <div class={styles.scene} data-scene>
     <picture>
       <source srcset="/img/faro.avif" type="image/avif" />
-      <img class={styles.photo} src="/img/faro.webp" alt="" width="2560" height="1296" fetchpriority="high" data-photo />
+      <img class={styles.photo} src="/img/faro.webp" alt={photoAlt} width="2560" height="1296" fetchpriority="high" data-photo />
     </picture>
     <canvas class={styles.fx} aria-hidden="true"></canvas>
   </div>
