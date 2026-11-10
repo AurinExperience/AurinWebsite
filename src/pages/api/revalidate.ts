@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { dangerouslyDeleteByTag } from '@vercel/functions';
+import { dangerouslyDeleteByTag, getCache } from '@vercel/functions';
 import { CMS_CACHE_TAG } from '@/lib/cache';
 
 export const prerender = false;
@@ -22,6 +22,9 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response('Unauthorized', { status: 401 });
   }
 
+  // Primero los datos (Runtime Cache) y luego el HTML: si no, la siguiente visita
+  // regeneraría la página con la respuesta vieja de Payload.
+  await getCache().expireTag(CMS_CACHE_TAG);
   await dangerouslyDeleteByTag(CMS_CACHE_TAG);
   return Response.json({ purged: CMS_CACHE_TAG });
 };

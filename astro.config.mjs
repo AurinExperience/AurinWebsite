@@ -6,7 +6,20 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://aurin.mx',
   output: 'server',
-  adapter: vercel(),
+  /*
+   * ISR: una sola copia global de cada página. El caché del CDN (s-maxage del
+   * middleware) es por región y con tantas landings de poco tráfico acertaba ~6%:
+   * casi cada visita o bot pagaba el SSR. Con ISR la página se genera una vez y
+   * todas las regiones la leen de ahí. Expira igual que antes (1 día) y la etiqueta
+   * CMS_CACHE_TAG del middleware la borra al guardar en Payload.
+   * Fuera: endpoints (/api, POST, formularios) y el preview del admin (borradores, no-store).
+   */
+  adapter: vercel({
+    isr: {
+      expiration: 86400,
+      exclude: [/^\/(en\/)?(api|preview)(\/|$)/],
+    },
+  }),
   integrations: [react()],
   // Precompila la página al pasar el mouse sobre el link: el click ya la encuentra lista.
   prefetch: { prefetchAll: true, defaultStrategy: 'hover' },

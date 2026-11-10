@@ -1,4 +1,7 @@
 // Payload CMS API Helper for Astro
+import { getCache } from '@vercel/functions';
+import { CMS_CACHE_TAG } from '@/lib/cache';
+
 const PAYLOAD_API_URL = import.meta.env.PAYLOAD_API_URL || 'https://aurin-payload-cms.vercel.app/api';
 export const PAYLOAD_SERVER_URL = import.meta.env.PAYLOAD_SERVER_URL || 'https://aurin-payload-cms.vercel.app';
 
@@ -136,9 +139,16 @@ export function getProjectFilters(projects: PayloadProject[], allLabel: string):
 
 // API Functions
 export class PayloadAPI {
-  private static async fetchAPI(endpoint: string, locale?: string) {
+  /*
+   * `cached`: guarda la respuesta en el Runtime Cache de Vercel con la etiqueta
+   * CMS_CACHE_TAG. El CDN acertaba solo ~6% del HTML (cada región tiene su copia y
+   * hay muchas landings con poco tráfico), así que casi cada visita hacía 1-3
+   * llamadas a Payload y el CMS se llevaba la mitad del CPU. Las funciones corren
+   * todas en iad1, así que este caché sí se comparte. /api/revalidate lo vacía al guardar.
+   */
+  private static async fetchAPI(endpoint: string, locale?: string, cached = true) {
     const url = new URL(`${PAYLOAD_API_URL}${endpoint}`);
-    
+
     if (locale) {
       url.searchParams.set('locale', locale);
       // Campo vacío en este idioma = se usa el del otro. Payload solo cae al español
@@ -146,14 +156,20 @@ export class PayloadAPI {
       url.searchParams.set('fallback-locale', locale === 'es' ? 'en' : 'es');
     }
 
+    const cache = cached && !import.meta.env.DEV ? getCache() : null;
+    const hit = await cache?.get(url.href).catch(() => null);
+    if (hit) return hit;
+
     try {
       const response = await fetch(url.toString());
-      
+
       if (!response.ok) {
         throw new Error(`Payload API error: ${response.status} ${response.statusText}`);
       }
-      
-      return await response.json();
+
+      const data = await response.json();
+      await cache?.set(url.href, data, { tags: [CMS_CACHE_TAG], ttl: 86400 }).catch(() => {});
+      return data;
     } catch (error) {
       console.error('Payload API fetch error:', error);
       throw error;
@@ -162,12 +178,12 @@ export class PayloadAPI {
 
   // Cualquier estado: lo usa el live preview del admin, que también muestra borradores
   static async getProjectById(id: string, locale: string = 'es'): Promise<PayloadProject> {
-    return this.fetchAPI(`/projects/${encodeURIComponent(id)}`, locale);
+    return this.fetchAPI(`/projects/${encodeURIComponent(id)}`, locale, false);
   }
 
   /** `cms`: origen del admin que manda el preview; en local puede no ser el CMS que lee esta web */
   static async getMedia(id: string, cms?: string) {
-    if (!cms) return this.fetchAPI(`/media/${encodeURIComponent(id)}?depth=0`);
+    if (!cms) return this.fetchAPI(`/media/${encodeURIComponent(id)}?depth=0`, undefined, false);
     const response = await fetch(`${cms}/api/media/${encodeURIComponent(id)}?depth=0`);
     if (!response.ok) throw new Error(`Payload API error: ${response.status} ${response.statusText}`);
     const media = await response.json();
